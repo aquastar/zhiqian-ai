@@ -1,11 +1,306 @@
 ---
-import Welcome from '../components/Welcome.astro';
 import Layout from '../layouts/Layout.astro';
 
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+const updates = [
+  { type: 'paper', date: '01/2026', text: 'Our co-simulation of power network and transportation network has been accepted by <strong>WebConf (WWW) 2026</strong>.' },
+  { type: 'tutorial', date: '01/2026', text: 'Will give a tutorial on uncertainty quantification on graph dynamics at <strong>WSDM 2026</strong>.' },
+  { type: 'honor', date: '11/2025', text: 'Recognized as a <strong>Research Fellow</strong> at the Social Science Research Center, Mississippi State University.' },
+  { type: 'grant', date: '08/2025', text: 'Received <strong>Turing AI Gift</strong> funding for LLM research.' },
+  { type: 'grant', date: '06/2025', text: 'Received <strong>NSF CAREER Award</strong> for unification and interactions across heterogeneous graph dynamics.' },
+  { type: 'award', date: '05/2025', text: 'Received <strong>Ottilie Schillig Teaching Award</strong> (AI teaching gamification with Lego Edu Kit).' },
+  { type: 'tutorial', date: '02/2025', text: 'Tutorial: Uncertainty Quantification for Dynamical Networks (<strong>WSDM 2025</strong>).' },
+  { type: 'tutorial', date: '10/2024', text: 'Tutorial series on unifying spectral and spatial GNNs (<strong>CIKM 2024</strong> / <strong>SIAM MDS 2024</strong>).' },
+  { type: 'grant', date: '08/2024', text: 'Received <strong>NSF CNS/MSI</strong> fund (co-PI) for speech recognition in English and Spanish with graph learning + LLMs.' },
+  { type: 'grant', date: '07/2024', text: 'Received <strong>NSF CNS/CIRC</strong> fund (PI) to develop research infrastructure for graph dynamics.' },
+  { type: 'paper', date: '07/2024', text: '1 paper accepted at <strong>IJCAI 2024</strong> and 2 papers accepted at <strong>EMBC 2024</strong>.' },
+  { type: 'grant', date: '06/2024', text: 'Started spatial epidemiology of animal disease collaboration under <strong>USDA-ARS</strong> funded project.' },
+  { type: 'grant', date: '04/2024', text: 'Received <strong>NSF EDU/ITEST</strong> fund (co-PI) for AI education research.' },
+  { type: 'grant', date: '01/2024', text: 'Received <strong>NSF IIS/III REU Supplement</strong> (PI) for undergraduate research.' },
+  { type: 'paper', date: '12/2023', text: 'Two papers accepted by <strong>AAAI 2024</strong> on Graph Bayesian Optimization.' },
+  { type: 'grant', date: '12/2023', text: 'Launched cross-disciplinary <strong>Graph AI Working Group</strong> (supported by BCoE).' },
+  { type: 'grant', date: '08/2023', text: 'Received support from <strong>USDA-ARS</strong> funded project (co-PI) on disease genetics.' },
+  { type: 'paper', date: '12/2022', text: 'Paper accepted by <strong>SIAM SDM 2023</strong>: higher-order decomposition for influence maximization.' },
+  { type: 'grant', date: '04/2022', text: 'Received <strong>NSF IIS/III</strong> fund (PI) for interpretable graph dynamics.' },
+  { type: 'tutorial', date: '05/2021', text: 'Tutorial on spreading models for epidemics at <strong>SDM 2021</strong> (GNN/RNN/SIR/PDE).' },
+  { type: 'award', date: '09/2020', text: '<strong>Best Paper Award</strong> at <strong>ACM SIGSPATIAL 2020</strong>.' },
+  { type: 'paper', date: '12/2019', text: '<strong>Nature Communications</strong> paper selected in Top 50 Chemistry & Materials Sciences articles.' },
+];
+
+const funding = [
+  { logo: 'https://imczq.com/media/icons/brands/nsf.svg', org: 'NSF CAREER (#2443266)', amount: '$517,594', role: 'Sole PI', period: '06/2025 – 05/2030', desc: 'Cross-graph dynamics in interdependent networks.' },
+  { logo: 'https://imczq.com/media/icons/brands/nsf.svg', org: 'NSF CISE MSI (#2431176)', amount: '$400,000', role: 'Co-PI / University PI', period: '01/2025 – 12/2026', desc: 'Speech/hate-speech detection with Graph + LLM.' },
+  { logo: 'https://imczq.com/media/icons/brands/nsf.svg', org: 'NSF CIRC Planning-C (#2345921)', amount: '$99,998', role: 'PI', period: '07/2024 – 06/2025', desc: 'Integrated infrastructure for graph flow analytics.' },
+  { logo: 'https://imczq.com/media/icons/brands/nsf.svg', org: 'NSF CRII (#2153369)', amount: '$174,004', role: 'Sole PI', period: '05/2022 – 11/2024', desc: 'Interpretable influence propagation and blocking on graphs.' },
+  { logo: 'https://imczq.com/media/icons/brands/usda.svg', org: 'USDA-ARS (#58-6064-3-017)', amount: '$3,073,602', role: 'Co-PI', period: '10/2023 – 08/2028', desc: 'Geospatial/environmental epidemiology of animal disease.' },
+  { logo: 'https://imczq.com/media/icons/brands/usda.svg', org: 'USDA-ARS (#58-0200-0-002)', amount: '$5,690,689', role: 'Co-PI', period: '10/2022 – 08/2024', desc: 'HPC-enabled agricultural research.' },
+  { logo: 'https://imczq.com/media/icons/brands/nsf.svg', org: 'NSF ITEST EDU (#2342574)', amount: '$1,192,951', role: 'Co-PI', period: '09/2024 – 08/2027', desc: 'AI pathway program for diverse high school students.' },
+  { logo: 'https://imczq.com/media/icons/brands/turing_ai.svg', org: 'Turing AI Gift', amount: '$25,000', role: 'Gift Funding', period: '08/2025', desc: 'LLM research support.' },
+  { logo: 'https://imczq.com/media/icons/brands/nsf.svg', org: 'NSF REU Supplement', amount: '$14,000', role: 'PI', period: '11/2023 – 11/2024', desc: 'Undergraduate research experience support.' },
+  { logo: 'https://upload.wikimedia.org/wikipedia/en/thumb/a/a9/Mississippi_State_University_seal.svg/120px-Mississippi_State_University_seal.svg.png', org: 'Ottilie Schillig Teaching Award', amount: '$2,994.50', role: 'PI', period: '2025', desc: 'Teaching innovation grant (CTL).' },
+];
+
+const researchDirections = [
+  { title: 'Research Focus', desc: 'I start from dynamical systems and currently focus on network/graph formulation.' },
+  { title: 'Technical Interests', desc: 'Uncertainty Quantification (UQ), spectral theory, LLM/Transformers, and AI education.' },
+  { title: 'Application Domains', desc: 'Coupled and interdependent network dynamics across social network, transportation, spatial epidemiology, ecological network, brain network, genetics, and circuit systems.' },
+];
+
+const projects = [
+  { name: 'General Graph Dynamics', status: 'Topic 1', output: 'How to find a general theory for graph dynamics.' },
+  { name: 'Cross-Network Dynamics', status: 'Topic 2', output: 'How to understand dynamics that interact across networks.' },
+  { name: 'LLM/NN as Graph', status: 'Current', output: 'Modeling language and neural architectures through graph formulations.' },
+  { name: 'Neuro-Symbolic Learning', status: 'Current', output: 'Bridging symbolic reasoning and neural learning under dynamic settings.' },
+  { name: 'Music AI', status: 'Collaboration', output: 'I list this for collaboration: we have publication basis, limited resources now, but strong motivation to move ahead.' },
+];
 ---
 
-<Layout>
-	<Welcome />
+<Layout title="Zhiqian Chen | Homepage Prototype">
+  <main class="container" id="top">
+      <nav class="top-nav card" aria-label="Sections">
+        <a href="#top">Home</a>
+        <a href="#teach">Teach</a>
+        <a href="#research">Research</a>
+        <a href="#grants">Grants</a>
+        <a href="#papers">Papers</a>
+        <a href="#people">People</a>
+        <a href="#connect-form">Call for Collaboration</a>
+        <a href="https://zhiqian.ai" target="_blank" rel="noopener">Zhiqian.ai</a>
+      </nav>
+    <section class="grid-3">
+      <aside class="left-col">
+        <article class="card module profile">
+          <img class="avatar" src="https://imczq.com/authors/admin/avatar_huff586cc3096ffa7a7257f5a661abe783_130497_270x270_fill_q75_lanczos_center.jpg" alt="Zhiqian Chen" />
+          <h1 class="name-en">Chen, Zhiqian</h1>
+          <p class="name-zh">陈枳扦
+            <span class="name-tip" tabindex="0" aria-label="Name meaning note">?
+              <span class="tip-pop">物理含义：根据五行八卦算的</span>
+            </span>
+          </p>
+          <p class="role">Assistant Professor · Mississippi State University</p>
+          <p class="bio">I am an Assistant Professor of Computer Science &amp; Engineering at Mississippi State University, focusing on graph-structured intelligence for dynamic, uncertain, and knowledge-rich systems (see <a href="#research">details of my research interests</a>). I obtained my Ph.D. at Virginia Tech in 2020, under the supervision of Dr. Chang-Tien Lu. For students interested in me, check <a href="#connect-form">ways to work with me</a>. If interested in my courses, please check the <a href="#teach">course syllabi</a>.</p>
+
+          <div class="icons" aria-label="social links">
+            <a href="https://imczq.com/cv.pdf" title="CV"><i class="ai ai-cv"></i></a>
+            <a href="https://scholar.google.com/citations?hl=en&user=NC3-O6UAAAAJ" title="Google Scholar"><i class="ai ai-google-scholar"></i></a>
+            <a href="https://github.com/aquastar" title="GitHub"><i class="fab fa-github"></i></a>
+            <a href="https://twitter.com/imczq" title="X/Twitter"><i class="fab fa-square-x-twitter"></i></a>
+            <a href="https://www.linkedin.com/in/zhiqian-chen-ai/" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+            <a href="https://www.zhihu.com/people/aquastar" title="Zhihu"><i class="fab fa-zhihu"></i></a>
+            <a href="https://www.xiaohongshu.com/user/profile/64769efb000000001c029738" title="Xiaohongshu"><i class="fas fa-book"></i></a>
+            <a href="https://orcid.org/0000-0003-4112-9647" title="ORCID"><i class="fab fa-orcid"></i></a>
+            <a href="mailto:zchen@cse.msstate.edu" title="Email"><i class="fas fa-envelope"></i></a>
+          </div>
+        </article>
+
+        <article class="card module">
+          <div class="module-head">
+            <h2>Recent Updates</h2>
+          </div>
+          <ul class="updates">
+            {updates.map((u) => (
+              <li>
+                <span class={`tag ${u.type}`}>{u.type}</span>
+                <span class="date-strong">{u.date}</span><span class="meta-inline" set:html={u.text}></span>
+              </li>
+            ))}
+          </ul>
+        </article>
+      </aside>
+
+      <section class="center-col">
+        <article class="card module rich" id="research">
+          <h2>Research Interests</h2>
+          <p class="lead">I start from dynamical systems and currently focus on network/graph formulations, with particular interest in coupled and interdependent network dynamics. My work emphasizes uncertainty quantification and spectral methods, while also exploring LLM/Transformers and AI education. I collaborate across social networks, transportation, spatial epidemiology, ecological networks, brain networks, genetics, and circuit systems. Strategically, I am currently centered on two core topics: building a general theory for graph dynamics, and understanding cross-network dynamics.</p>
+
+          <img class="interest-img" src="/career_intro.png" alt="Cross-network dynamics illustration" />
+        </article>
+
+        <article class="card module rich" id="papers">
+          <h2>Current Projects</h2>
+          <div class="stack">
+            {projects.map((p) => (
+              <div class="mini-card project">
+                <div class="row">
+                  <h3>{p.name}</h3>
+                  <span class="badge">{p.status}</span>
+                </div>
+                <p>{p.output}</p>
+              </div>
+            ))}
+          </div>
+        </article>
+
+        <article class="card module rich" id="selected-work">
+          <h2>Selected Work</h2>
+          <ul class="selected-list">
+            <li><strong>Cross-network dynamics:</strong> Co-simulation of power and transportation networks (<strong>WebConf (WWW) 2026</strong>).</li>
+            <li><strong>Graph Bayesian Optimization:</strong> source localization and influence optimization (<strong>AAAI 2024</strong>).</li>
+            <li><strong>Higher-order graph dynamics:</strong> decomposition methods for influence maximization (<strong>SIAM SDM 2023</strong>).</li>
+            <li><strong>Interpretable graph dynamics:</strong> propagation and intervention under uncertain observations.</li>
+            <li><strong>LLM + Graph learning:</strong> cross-lingual speech/hate-speech detection pipelines.</li>
+          </ul>
+        </article>
+
+        <article class="card module rich" id="people">
+          <h2>People</h2>
+          <p>I work with students and collaborators from CSE, data science, and interdisciplinary application domains.</p>
+          <p>If you are interested in graph dynamics, UQ, spectral methods, LLM/Transformers, or AI education, please reach out through the collaboration form.</p>
+        </article>
+      </section>
+
+      <aside class="right-col">
+        <article class="card module" id="grants">
+          <h2>Grants</h2>
+          <div class="stack dense">
+            {funding.map((f) => (
+              <div class="fund-card">
+                <img src={f.logo} alt={f.org} />
+                <div>
+                  <div class="row top"><h3>{f.org}</h3><span class={`rolepill ${f.role.includes('PI') && !f.role.includes('Co-PI') ? 'pi' : 'copi'}`}>{f.role}</span></div>
+                  <p class="meta">{f.period}</p>
+                  <p>{f.desc}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </article>
+
+
+        <article class="card module" id="teach">
+          <h2>Teach</h2>
+          <p>CSE 4633/6633 Artificial Intelligence · CSE 4693/6693 Intro to ML · CSE 8673 Machine Learning.</p>
+        </article>
+        <article class="card module" id="connect-form">
+          <h2>Collaborate with Me</h2>
+          <p>Submit your info and it will be emailed to me directly.</p>
+          <form id="collab-form" class="form" action="https://formsubmit.co/zchen@cse.msstate.edu" method="POST">
+            <input type="hidden" name="_subject" value="[Website Inquiry] New message from homepage" />
+            <input type="hidden" name="_captcha" value="false" />
+            <input type="hidden" name="_template" value="table" />
+            <input name="name" placeholder="Name" required />
+            <input name="email" type="email" placeholder="Email" required />
+            <select name="role" required>
+              <option value="">Role</option><option>Prospective Student</option><option>Collaborator</option><option>Industry Partner</option><option>Other</option>
+            </select>
+            <textarea name="message" placeholder="Brief message" rows="4" required></textarea>
+            <button class="btn full" type="submit">Send Inquiry</button>
+          </form>
+          <p class="small">(Uses FormSubmit email relay; first activation email may be required once.)</p>
+        </article>
+
+        <article class="card module">
+          <h2>Like this page</h2>
+          <p>Anonymous likes only.</p>
+          <button id="like-btn" class="btn full" type="button">👍 Like</button>
+          <p id="like-status" class="small"></p>
+        </article>
+      </aside>
+    </section>
+  </main>
+
+  <script>
+    const likeBtn = document.getElementById('like-btn');
+    const likeStatus = document.getElementById('like-status');
+    const likedKey = 'imczq_liked';
+
+    if (likeBtn && localStorage.getItem(likedKey) === '1') {
+      likeBtn.disabled = true;
+      likeStatus.textContent = 'Thanks for your support!';
+    }
+
+    if (likeBtn) {
+      likeBtn.addEventListener('click', () => {
+        localStorage.setItem(likedKey, '1');
+        likeBtn.disabled = true;
+        likeStatus.textContent = 'Thanks for the like!';
+      });
+    }
+  </script>
 </Layout>
+
+<style>
+  .container { max-width: 1800px; margin: 0 auto; padding: 20px; }
+  .card { background: #fff; border: none; border-radius: 14px; box-shadow: 0 2px 10px rgba(2, 6, 23, 0.04); }
+    .top-nav { margin-bottom: 14px; padding: 10px; display: flex; flex-wrap: wrap; gap: 8px; align-items: center; background: #f1f5f9; }
+  .top-nav a { text-decoration: none; color: #0f172a; font-family: 'Montserrat', sans-serif; font-size: 0.9rem; padding: 7px 10px; border-radius: 999px; background: #e2e8f0; }
+  .top-nav a:hover { background: #cbd5e1; }
+  .grid-3 { display: grid; grid-template-columns: 0.9fr 2fr 1.1fr; gap: 14px; align-items: start; }
+  .module { padding: 16px; margin-bottom: 14px; }
+  .module-head { display: flex; align-items: center; justify-content: space-between; gap: 10px; }
+  .small { font-size: 0.8rem; color: #475569; }
+
+  .profile { text-align: center; }
+  .avatar { width: 100%; height: auto; aspect-ratio: 1 / 1; border-radius: 16px; object-fit: cover; border: none; }
+  h1 { font-family: 'Montserrat', sans-serif; font-size: 1.9rem; margin: 12px 0 4px; }
+  .name-en { font-size: 2rem; letter-spacing: 0.01em; }
+  .name-zh { margin: 2px 0 0; font-size: 1rem; color: #334155; display: inline-flex; align-items: center; gap: 6px; }
+  .name-tip { position: relative; display: inline-flex; align-items: center; justify-content: center; width: 16px; height: 16px; border-radius: 999px; background: #cbd5e1; color: #0f172a; font-size: 0.72rem; line-height: 1; cursor: help; }
+  .tip-pop { position: absolute; left: 22px; top: 50%; transform: translateY(-50%); white-space: nowrap; background: #0f172a; color: #fff; padding: 4px 8px; border-radius: 6px; font-size: 0.72rem; opacity: 0; pointer-events: none; transition: opacity .15s ease; }
+  .name-tip:hover .tip-pop, .name-tip:focus .tip-pop { opacity: 1; }
+  .role { margin: 0; color: #334155; font-size: 0.92rem; }
+  .bio { text-align: left; color: #334155; font-size: 0.92rem; margin-top: 10px; }
+
+  .icons { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin-top: 12px; }
+  .icons a { color: #0f172a; text-decoration: none; }
+  .icons i { font-size: 1.95rem; }
+
+  h2 { font-family: 'Montserrat', sans-serif; font-size: 1.2rem; margin: 0 0 12px; }
+  h3 { font-family: 'Montserrat', sans-serif; font-size: 1rem; margin: 0 0 6px; }
+  ul { margin: 0; padding-left: 18px; color: #334155; }
+  li { margin-bottom: 6px; }
+  .updates { list-style: none; padding-left: 0; display: grid; gap: 8px; }
+  .updates li { display: block; line-height: 1.35; }
+  .meta-inline { font-size: 0.88rem; color: #1e293b; line-height: 1.35; white-space: normal; overflow: visible; text-overflow: clip; }
+  .date-strong { font-size: 0.82rem; font-weight: 700; color: #0f172a; white-space: nowrap; margin: 0 8px 0 6px; }
+  .tag { font-size: 0.68rem; text-transform: uppercase; border-radius: 999px; padding: 2px 7px; font-weight: 700; }
+  .tag.grant { background: #dcfce7; color: #166534; }
+  .tag.award { background: #fef3c7; color: #92400e; }
+  .tag.honor { background: #ede9fe; color: #5b21b6; }
+  .tag.paper { background: #e0f2fe; color: #075985; }
+  .tag.tutorial { background: #fce7f3; color: #9d174d; }
+
+  .stack { display: grid; gap: 10px; }
+  .stack.dense { gap: 8px; }
+  .mini-card { border: none; border-radius: 10px; padding: 12px; background: #f8fafc; }
+  .mini-card.gradient { background: linear-gradient(180deg, #f8fafc 0%, #ffffff 100%); }
+  .mini-card.project { border-left: none; }
+  .mini-card p { margin: 0; color: #334155; font-size: 0.92rem; }
+  .lead { margin: 0 0 10px; color: #1e293b; }
+  .subhead { margin: 12px 0 6px; font-size: 1rem; }
+  .domain-line { margin: 0; color: #1e293b; line-height: 1.45; }
+  .strategy-list { margin: 6px 0 0 18px; padding: 0; }
+  .selected-list { margin: 0; padding-left: 18px; display: grid; gap: 8px; }
+  .selected-list li { margin: 0; color: #1e293b; }
+  .row { display: flex; align-items: center; justify-content: space-between; gap: 8px; }
+  .badge { font-size: 0.75rem; color: #1d4ed8; background: #dbeafe; padding: 3px 8px; border-radius: 999px; white-space: nowrap; }
+  .interest-img { width: 60%; max-width: 100%; display: block; margin: 10px auto 0; border-radius: 10px; border: none; }
+
+  .fund-card { border: none; border-radius: 10px; padding: 10px; display: grid; grid-template-columns: 40px 1fr; gap: 10px; background: #f8fafc; }
+  .fund-card img { width: 36px; height: 36px; object-fit: contain; }
+  .fund-card .rolepill { font-size: 0.74rem; border-radius: 999px; padding: 2px 8px; white-space: nowrap; }
+  .fund-card .rolepill.pi { color: #b91c1c; background: #fee2e2; }
+  .fund-card .rolepill.copi { color: #1d4ed8; background: #dbeafe; }
+  .fund-card .meta { font-size: 0.76rem; color: #64748b; margin: 0; }
+  .fund-card p { margin: 4px 0 0; font-size: 0.84rem; color: #334155; }
+
+  .form { display: grid; gap: 8px; }
+  .form input, .form select, .form textarea { width: 100%; border: none; border-radius: 8px; padding: 8px 10px; font: inherit; background: #f8fafc; }
+  .btn { border: 1px solid #0f172a; background: #0f172a; color: #fff; border-radius: 10px; padding: 9px 14px; font-size: 0.9rem; cursor: pointer; }
+  .btn.full { width: 100%; }
+
+  @media (max-width: 1100px) {
+        .top-nav { justify-content: flex-start; }
+    .grid-3 { grid-template-columns: 1fr 1fr; }
+    .right-col { grid-column: 1 / -1; display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+    .right-col .module { margin-bottom: 0; }
+  }
+
+  @media (max-width: 720px) {
+    .container { padding: 12px; }
+        .top-nav { gap: 6px; }
+    .top-nav a { font-size: 0.84rem; padding: 6px 9px; }
+    .grid-3 { grid-template-columns: 1fr; }
+    .right-col { grid-template-columns: 1fr; }
+    .avatar { width: 100%; height: auto; }
+  }
+</style>
