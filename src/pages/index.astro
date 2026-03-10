@@ -47,11 +47,11 @@ const ghostEntries = [
 ];
 
 const selectedWorks = [
-  { name: 'Unified GNN framework', venue: 'ACM CSUR 2023', output: 'Survey and tutorial-building effort toward unifying spectral and spatial graph learning.', detail: 'A theory-facing line of work that tries to close the gap between spectral and spatial views of graph neural networks, while also turning that synthesis into tutorials and reusable conceptual tooling.', keywords: 'spectral · spatial · GNN theory', href: 'https://github.com/XGraph-Team/Spectral-Graph-Survey', image: 'https://imczq.com/project/unifying/featured_hu352832247ca9de48ec6cd5688ca312ae_768239_540x0_resize_q75_h2_lanczos.webp' },
-  { name: 'Influence on graphs', venue: 'AAAI 2024', output: 'Graph Bayesian Optimization, source localization, and influence maximization for dynamic and multiplex networks.', detail: 'This direction studies how to identify, localize, and control diffusion processes on graphs using uncertainty-aware search, Bayesian optimization, and higher-order interaction structure.', keywords: 'UQ · diffusion · optimization', href: 'https://imczq.com/project/gbo/', image: 'https://imczq.com/project/gbo/featured_hud696c5486f3d729ebf5ee1ceaffacccd_128059_540x0_resize_q75_h2_lanczos_3.webp' },
-  { name: 'Spatiotemporal and urban forecasting', venue: 'SIGSPATIAL 2020', output: 'Graph-temporal forecasting for traffic and mobility, including award-winning work on urban intelligence.', detail: 'A systems-and-application thread on traffic, mobility, and urban forecasting, connecting graph structure with temporal filtering and data-driven prediction in real infrastructure settings.', keywords: 'traffic · mobility · forecasting', href: 'https://imczq.com/project/20_kalman_gis/', image: 'https://imczq.com/project/20_kalman_gis/featured_hu6d4d4db39f7ac31cad16d8b437bab632_85075_540x0_resize_q75_h2_lanczos_3.webp' },
-  { name: 'Materials and scientific discovery', venue: 'Nature Communications 2019', output: 'Graph/ML-enabled discovery for solid-state lithium-ion conductors and related science-facing systems.', detail: 'This work connects representation learning and scientific discovery, showing how graph-based reasoning can help screen and understand candidate materials in high-impact science workflows.', keywords: 'materials · science AI · discovery', href: 'https://imczq.com/project/17_fusiongan_icdm/', image: 'https://imczq.com/project/17_fusiongan_icdm/featured_hu79af7702fdd7ef1f1d4d79a2bd7a81f7_90601_540x0_resize_q75_h2_lanczos_3.webp' },
-  { name: 'Interdisciplinary AI infrastructure', venue: 'WWW 2026', output: 'Cross-domain graph infrastructure spanning epidemiology, agriculture, transportation, and engineering.', detail: 'A convergence-oriented line of work that couples multiple networked systems and application domains, aiming toward broader infrastructure for simulation, interaction, and decision support.', keywords: 'cross-network · infrastructure · simulation', href: 'https://imczq.com/project/23_sim_sdm/', image: 'https://imczq.com/project/23_sim_sdm/featured_hu47ed903882ca2a20b0bbd31dfd70f9ab_135606_540x0_resize_q75_h2_lanczos_3.webp' },
+  { name: 'Unified GNN framework', venue: 'ACM CSUR 2023', output: 'Survey and tutorial-building effort toward unifying spectral and spatial graph learning.', detail: 'Problem: spectral and spatial GNNs are often treated as separate camps. Contribution: I developed a unifying view that connects these perspectives and turned it into a survey/tutorial line. Why it matters: it gives researchers and students a cleaner conceptual map for graph learning.', keywords: 'spectral · spatial · GNN theory', href: 'https://github.com/XGraph-Team/Spectral-Graph-Survey', image: 'https://imczq.com/project/unifying/featured_hu352832247ca9de48ec6cd5688ca312ae_768239_540x0_resize_q75_h2_lanczos.webp' },
+  { name: 'Influence on graphs', venue: 'AAAI 2024', output: 'Graph Bayesian Optimization, source localization, and influence maximization for dynamic and multiplex networks.', detail: 'Problem: influence and diffusion decisions on graphs are combinatorial and uncertain. Contribution: I used Bayesian optimization and graph structure to localize sources and search efficiently over intervention choices. Why it matters: this makes graph decision-making more sample-efficient and more actionable.', keywords: 'UQ · diffusion · optimization', href: 'https://imczq.com/project/gbo/', image: 'https://imczq.com/project/gbo/featured_hud696c5486f3d729ebf5ee1ceaffacccd_128059_540x0_resize_q75_h2_lanczos_3.webp' },
+  { name: 'Spatiotemporal and urban forecasting', venue: 'SIGSPATIAL 2020', output: 'Graph-temporal forecasting for traffic and mobility, including award-winning work on urban intelligence.', detail: 'Problem: urban systems evolve over both space and time, and purely local models miss network effects. Contribution: I combined graph structure with temporal filtering for traffic and mobility forecasting. Why it matters: this line connects theory to real infrastructure and practical urban prediction.', keywords: 'traffic · mobility · forecasting', href: 'https://imczq.com/project/20_kalman_gis/', image: 'https://imczq.com/project/20_kalman_gis/featured_hu6d4d4db39f7ac31cad16d8b437bab632_85075_540x0_resize_q75_h2_lanczos_3.webp' },
+  { name: 'Materials and scientific discovery', venue: 'Nature Communications 2019', output: 'Graph/ML-enabled discovery for solid-state lithium-ion conductors and related science-facing systems.', detail: 'Problem: scientific discovery pipelines need better representations for complex candidate structures. Contribution: I used graph-based modeling to help screen and understand promising materials. Why it matters: this shows graph intelligence can accelerate discovery beyond standard CS benchmarks.', keywords: 'materials · science AI · discovery', href: 'https://imczq.com/project/17_fusiongan_icdm/', image: 'https://imczq.com/project/17_fusiongan_icdm/featured_hu79af7702fdd7ef1f1d4d79a2bd7a81f7_90601_540x0_resize_q75_h2_lanczos_3.webp' },
+  { name: 'Interdisciplinary AI infrastructure', venue: 'WWW 2026', output: 'Cross-domain graph infrastructure spanning epidemiology, agriculture, transportation, and engineering.', detail: 'Problem: real systems rarely live in a single network; they interact across domains. Contribution: I built cross-domain graph infrastructure linking epidemiology, agriculture, transportation, and engineering settings. Why it matters: this is the kind of systems foundation needed for broader graph dynamics research.', keywords: 'cross-network · infrastructure · simulation', href: 'https://imczq.com/project/23_sim_sdm/', image: 'https://imczq.com/project/23_sim_sdm/featured_hu47ed903882ca2a20b0bbd31dfd70f9ab_135606_540x0_resize_q75_h2_lanczos_3.webp' },
 ];
 ---
 
@@ -140,8 +140,13 @@ const selectedWorks = [
                 <div class="work-tags"><span class="badge venue" id="detail-venue"></span></div>
                 <h3 id="detail-title"></h3>
                 <p id="detail-text"></p>
-                <p class="work-keywords" id="detail-keywords"></p>
-                <a class="detail-link" id="detail-link" href="#" target="_blank" rel="noopener">Open project</a>
+                <div class="detail-meta">
+                  <span class="detail-label">Focus</span>
+                  <p class="work-keywords" id="detail-keywords"></p>
+                </div>
+                <div class="detail-actions">
+                  <a class="detail-link" id="detail-link" href="#" target="_blank" rel="noopener">Open project</a>
+                </div>
               </div>
             </div>
           </div>
@@ -362,11 +367,14 @@ const selectedWorks = [
     from { opacity: 1; transform: scale(1) translateY(0); }
     to { opacity: 0; transform: scale(.97) translateY(-4px); }
   }
-  .work-detail { display: grid; grid-template-columns: 1.05fr 1.35fr; gap: 18px; align-items: center; }
+  .work-detail { display: grid; grid-template-columns: .92fr 1.38fr; gap: 22px; align-items: center; }
   .work-detail-media img { width: 100%; height: 240px; object-fit: cover; border-radius: 10px; display: block; }
   .work-detail-copy h3 { margin: 8px 0 8px; font-size: 1.08rem; color: #0f172a; }
-  .work-detail-copy p { margin: 0 0 10px; color: #334155; line-height: 1.5; }
-  .work-keywords { font-size: .82rem; color: #2563eb !important; font-weight: 600; }
+  .work-detail-copy p { margin: 0 0 10px; color: #334155; line-height: 1.58; }
+  .detail-meta { margin-top: 2px; }
+  .detail-label { display: inline-block; font-size: .68rem; text-transform: uppercase; letter-spacing: .04em; color: #64748b; margin-bottom: 4px; }
+  .work-keywords { font-size: .82rem; color: #2563eb !important; font-weight: 600; margin: 0 !important; }
+  .detail-actions { margin-top: 14px; }
   .detail-link { display: inline-flex; align-items: center; text-decoration: none; color: #0f172a; border: 1px solid rgba(15,23,42,0.12); border-radius: 999px; padding: 6px 10px; font-size: .8rem; }
   .detail-link:hover { border-color: rgba(37,99,235,0.35); color: #2563eb; }
   .work-grid.has-expanded .work-card:not(.is-expanded) .work-copy h3,
