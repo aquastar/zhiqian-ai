@@ -164,9 +164,9 @@ const selectedWorks = [
                 </div>
                 <p>{repo.desc}</p>
                 <div class="repo-meta repo-badges">
-                  <img src={`https://img.shields.io/badge/owner-${encodeURIComponent(repo.owner)}-f8fafc?style=flat-square&logo=github&logoColor=334155&labelColor=f8fafc&color=f8fafc`} alt={`owner ${repo.owner}`} />
-                  <img src={`https://img.shields.io/badge/language-${encodeURIComponent(repo.language)}-f8fafc?style=flat-square&logo=python&logoColor=334155&labelColor=f8fafc&color=f8fafc`} alt={`language ${repo.language}`} />
-                  <img src={`https://img.shields.io/github/stars/${repo.owner}/${repo.repo}?style=flat-square&label=stars&color=f8fafc&labelColor=f8fafc&logo=github&logoColor=334155`} alt={`stars for ${repo.name}`} loading="lazy" />
+                  <img src={`https://img.shields.io/static/v1.svg?label=owner&message=${encodeURIComponent(repo.owner)}&style=flat-square&logo=github&logoColor=334155&labelColor=f8fafc&color=f8fafc`} alt={`owner ${repo.owner}`} />
+                  <img src={`https://img.shields.io/static/v1.svg?label=language&message=${encodeURIComponent(repo.language)}&style=flat-square&logo=python&logoColor=334155&labelColor=f8fafc&color=f8fafc`} alt={`language ${repo.language}`} />
+                  <img src={`https://img.shields.io/github/stars/${repo.owner}/${repo.repo}.svg?style=flat-square&label=stars&color=f8fafc&labelColor=f8fafc&logo=github&logoColor=334155`} alt={`stars for ${repo.name}`} loading="lazy" />
                 </div>
               </a>
             ))}
