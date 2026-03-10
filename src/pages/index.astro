@@ -65,7 +65,7 @@ const selectedWorks = [
       <a href="https://zhiqian.ai" target="_blank" rel="noopener">Zhiqian.ai <i class="fas fa-ghost nav-ghost"></i></a>
     </nav>
 
-    <section class="grid-3">
+    <section class="grid-2">
       <aside class="left-col">
         <article class="card module profile">
           <img class="avatar" src="https://imczq.com/authors/admin/avatar_huff586cc3096ffa7a7257f5a661abe783_130497_270x270_fill_q75_lanczos_center.jpg" alt="Zhiqian Chen" />
@@ -104,7 +104,7 @@ const selectedWorks = [
         </article>
       </aside>
 
-      <section class="center-col">
+      <section class="right-col-main">
         <article class="card module rich hero-module" id="research">
           <h2>Research Statement</h2>
           <p class="lead">I am interested in graph-structured intelligence for dynamic, uncertain, and knowledge-rich systems.</p>
@@ -132,13 +132,11 @@ const selectedWorks = [
             ))}
           </div>
         </article>
-      </section>
 
-      <aside class="right-col">
 
         <article class="card module" id="github-projects">
           <h2>Tutorial-related Repos</h2>
-          <div class="stack dense">
+          <div class="stack dense four-cols">
             {githubCards.map((repo) => (
               <a class="mini-card repo-card" href={repo.href} target="_blank" rel="noopener">
                 <div class="row repo-top">
@@ -158,7 +156,7 @@ const selectedWorks = [
 
         <article class="card module ghost-card" id="ghost-entries">
           <h2>Tech Notes</h2>
-          <div class="stack dense">
+          <div class="stack dense four-cols">
             {ghostEntries.map((entry) => (
               <div class="mini-card note-card placeholder">
                 <div class="row"><h3>{entry.title}</h3><span class="repo-pill muted">{entry.meta}</span></div>
@@ -167,8 +165,7 @@ const selectedWorks = [
             ))}
           </div>
         </article>
-      </aside>
-    </section>
+      </section>
   </main>
 
   <script>
@@ -199,13 +196,13 @@ const selectedWorks = [
   .top-nav a:hover { background: var(--accent-soft); color: var(--accent); }
   .top-nav a[aria-current="page"] { background: #eef2ff; color: var(--accent); box-shadow: inset 0 1px 2px rgba(15,23,42,0.10), inset 0 -1px 2px rgba(37,99,235,0.08); }
   .nav-ghost { font-size: 0.78rem; margin-left: 4px; opacity: .85; }
-  .grid-3 { display: grid; grid-template-columns: 0.92fr 2.28fr 0.88fr; gap: 28px; align-items: start; }
+  .grid-2 { display: grid; grid-template-columns: 0.92fr 2.16fr; gap: 28px; align-items: start; }
   .module { padding: 16px; margin-bottom: 14px; }
   .profile, .hero-module, .accent, .direction, .placeholder, .repo-card, .note-card { background: #fff; }
   .avatar { width: 100%; height: auto; aspect-ratio: 1 / 1; border-radius: 16px; object-fit: cover; border: none; }
   h1, h2, h3 { font-family: Montserrat, sans-serif; font-weight: 700; }
   h1 { font-size: 1.9rem; margin: 12px 0 4px; }
-  .name-en { font-size: 2rem; letter-spacing: .01em; }
+  .name-en { font-size: 2rem; letter-spacing: .01em; text-align: center; }
   .name-zh { margin: 2px 0 0; font-size: 1rem; color: #334155; display: inline-flex; align-items: center; justify-content: center; gap: 6px; width: 100%; text-align: center; }
   .name-tip { position: relative; display: inline-flex; align-items: center; justify-content: center; width: 16px; height: 16px; border-radius: 999px; background: #cbd5e1; color: #0f172a; font-size: .72rem; line-height: 1; cursor: help; }
   .tip-pop { position: absolute; left: 22px; top: 50%; transform: translateY(-50%); white-space: nowrap; background: #0f172a; color: #fff; padding: 4px 8px; border-radius: 6px; font-size: .72rem; opacity: 0; pointer-events: none; transition: opacity .15s ease; }
@@ -232,7 +229,7 @@ const selectedWorks = [
   .direction-visual { margin: 8px 0 14px; border-radius: 0; overflow: hidden; border: none; }
   .direction-visual img { width: 100%; display: block; aspect-ratio: 16 / 7; object-fit: cover; }
   .statement-copy p { margin: 0 0 12px; color: #334155; }
-  .work-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  .work-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; }
   .work-card { border: 1px solid rgba(148,163,184,0.16); border-radius: 12px; overflow: hidden; background: #fff; }
   .work-card img { width: 100%; height: 150px; object-fit: cover; display: block; }
   .work-copy { padding: 10px 12px 12px; }
@@ -256,13 +253,16 @@ const selectedWorks = [
   .form input, .form textarea { background: #f8fafc; border: 1px solid rgba(148,163,184,0.1); border-radius: 4px; padding: 8px 10px; font: inherit; font-size: .85rem; }
   .small { font-size: .8rem; color: #475569; }
   .stack.dense { display: grid; gap: 8px; }
-  @media (max-width: 1100px) {
-    .grid-3 { grid-template-columns: 0.95fr 1.35fr; }
-    .right-col { grid-column: 1 / -1; display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+  .stack.dense.four-cols { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+
+  @media (max-width: 1200px) {
+    .grid-2 { grid-template-columns: 0.95fr 1.35fr; }
+    .work-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .stack.dense.four-cols { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   }
   @media (max-width: 720px) {
-    .grid-3 { grid-template-columns: 1fr; }
-    .right-col { grid-template-columns: 1fr; }
+    .grid-2 { grid-template-columns: 1fr; }
     .work-grid { grid-template-columns: 1fr; }
+    .stack.dense.four-cols { grid-template-columns: 1fr; }
   }
 </style>
