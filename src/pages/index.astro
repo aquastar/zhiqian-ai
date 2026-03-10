@@ -34,10 +34,10 @@ const openProblems = [
 ];
 
 const githubCards = [
-  { name: 'Spectral-Graph-Survey', owner: 'XGraph-Team', stars: 175, language: 'Python', href: 'https://github.com/XGraph-Team/Spectral-Graph-Survey', desc: 'Survey-driven entry point to spectral graph theory, graph signals, and modern graph learning.' },
-  { name: 'Fusion-GAN', owner: 'XGraph-Team', stars: 19, language: 'Python', href: 'https://github.com/XGraph-Team/Fusion-GAN', desc: 'Music generation project on genre fusion with adversarial dual learning.' },
-  { name: 'XFlow', owner: 'XGraph-Team', stars: 147, language: 'Python', href: 'https://github.com/XGraph-Team/XFlow', desc: 'Python library for graph flow simulation, diffusion, and network dynamics experiments.' },
-  { name: 'SumoXPypsa', owner: 'XGraph-Team', stars: 2, language: 'Python', href: 'https://github.com/XGraph-Team/SumoXPypsa', desc: 'Coupled transportation-power simulation stack behind the WWW 2026 line of work.' }
+  { name: 'Spectral-Graph-Survey', owner: 'XGraph-Team', repo: 'Spectral-Graph-Survey', stars: 175, language: 'Python', href: 'https://github.com/XGraph-Team/Spectral-Graph-Survey', desc: 'Survey-driven entry point to spectral graph theory, graph signals, and modern graph learning.' },
+  { name: 'Fusion-GAN', owner: 'XGraph-Team', repo: 'Fusion-GAN', stars: 19, language: 'Python', href: 'https://github.com/XGraph-Team/Fusion-GAN', desc: 'Music generation project on genre fusion with adversarial dual learning.' },
+  { name: 'XFlow', owner: 'XGraph-Team', repo: 'XFlow', stars: 147, language: 'Python', href: 'https://github.com/XGraph-Team/XFlow', desc: 'Python library for graph flow simulation, diffusion, and network dynamics experiments.' },
+  { name: 'SumoXPypsa', owner: 'XGraph-Team', repo: 'SumoXPypsa', stars: 2, language: 'Python', href: 'https://github.com/XGraph-Team/SumoXPypsa', desc: 'Coupled transportation-power simulation stack behind the WWW 2026 line of work.' }
 ];
 
 const ghostEntries = [
@@ -163,10 +163,10 @@ const selectedWorks = [
                   <i class="fab fa-github repo-icon"></i>
                 </div>
                 <p>{repo.desc}</p>
-                <div class="repo-meta">
-                  <span>@{repo.owner}</span>
-                  <span>{repo.language}</span>
-                  <span>★ {repo.stars}</span>
+                <div class="repo-meta repo-badges">
+                  <img src={`https://img.shields.io/badge/owner-${repo.owner}-f8fafc?style=flat-square&logo=github&logoColor=334155&labelColor=f8fafc&color=f8fafc`} alt={`owner ${repo.owner}`} />
+                  <img src={`https://img.shields.io/badge/language-${repo.language}-f8fafc?style=flat-square&logo=python&logoColor=334155&labelColor=f8fafc&color=f8fafc`} alt={`language ${repo.language}`} />
+                  <img src={`https://img.shields.io/github/stars/${repo.owner}/${repo.repo}?style=flat-square&label=stars&color=f8fafc&labelColor=f8fafc&logo=github&logoColor=334155`} alt={`stars for ${repo.name}`} />
                 </div>
               </a>
             ))}
@@ -392,7 +392,7 @@ const selectedWorks = [
   .repo-icon { color: #475569; }
   .repo-card p, .note-card p { margin: 0; color: #334155; font-size: .9rem; }
   .repo-meta { display: flex; gap: 8px; margin-top: 8px; font-size: .74rem; color: #64748b; flex-wrap: wrap; }
-  .repo-meta span { background: #f8fafc; padding: 2px 7px; border-radius: 999px; border: 1px solid rgba(148,163,184,0.16); }
+  .repo-badges img { height: 20px; border-radius: 6px; }
   .repo-pill { font-size: .72rem; color: #2563eb; background: #dbeafe; padding: 3px 8px; border-radius: 999px; white-space: nowrap; }
   .repo-pill.muted { color: #7c3aed; background: #ede9fe; }
   .btn { border: 1px solid #0f172a; background: #0f172a; color: #fff; border-radius: 6px; padding: 5px 12px; cursor: pointer; transition: background .15s ease; font-size: .76rem; line-height: 1.2; }
