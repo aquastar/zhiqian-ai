@@ -121,7 +121,7 @@ const selectedWorks = [
           <h2>Selected</h2>
           <div class="work-grid" id="selected-grid">
             {selectedWorks.map((p, idx) => (
-              <article class="work-card" data-expand-card data-index={idx}>
+              <article class="work-card" data-expand-card data-index={idx} data-name={p.name} data-venue={p.venue} data-output={p.output} data-detail={p.detail} data-keywords={p.keywords} data-href={p.href} data-image={p.image}>
                 <button class="expand-btn" type="button" aria-expanded="false">Expand</button>
                 <img src={p.image} alt={p.name} />
                 <div class="work-copy">
@@ -129,20 +129,22 @@ const selectedWorks = [
                   <h3>{p.name}</h3>
                   <p>{p.output}</p>
                 </div>
-                <div class="work-detail">
-                  <div class="work-detail-media">
-                    <img src={p.image} alt={p.name} />
-                  </div>
-                  <div class="work-detail-copy">
-                    <div class="work-tags"><span class="badge venue">{p.venue}</span></div>
-                    <h3>{p.name}</h3>
-                    <p>{p.detail}</p>
-                    <p class="work-keywords">{p.keywords}</p>
-                    <a class="detail-link" href={p.href} target="_blank" rel="noopener">Open project</a>
-                  </div>
-                </div>
               </article>
             ))}
+          </div>
+          <div class="selected-detail-panel" id="selected-detail-panel" hidden>
+            <div class="work-detail">
+              <div class="work-detail-media">
+                <img id="detail-image" src="" alt="" />
+              </div>
+              <div class="work-detail-copy">
+                <div class="work-tags"><span class="badge venue" id="detail-venue"></span></div>
+                <h3 id="detail-title"></h3>
+                <p id="detail-text"></p>
+                <p class="work-keywords" id="detail-keywords"></p>
+                <a class="detail-link" id="detail-link" href="#" target="_blank" rel="noopener">Open project</a>
+              </div>
+            </div>
           </div>
         </article>
 
@@ -200,20 +202,49 @@ const selectedWorks = [
 
   <script>
     const selectedCards = Array.from(document.querySelectorAll('[data-expand-card]'));
-    selectedCards.forEach((card) => {
+    const detailPanel = document.getElementById('selected-detail-panel');
+    const detailImage = document.getElementById('detail-image');
+    const detailVenue = document.getElementById('detail-venue');
+    const detailTitle = document.getElementById('detail-title');
+    const detailText = document.getElementById('detail-text');
+    const detailKeywords = document.getElementById('detail-keywords');
+    const detailLink = document.getElementById('detail-link');
+
+    selectedCards.forEach((card, idx) => {
       const btn = card.querySelector('.expand-btn');
       btn?.addEventListener('click', () => {
         const isOpen = card.classList.contains('is-expanded');
         selectedCards.forEach((c) => {
           c.classList.remove('is-expanded');
-          c.querySelector('.expand-btn')?.setAttribute('aria-expanded', 'false');
-          c.querySelector('.expand-btn').textContent = 'Expand';
+          const b = c.querySelector('.expand-btn');
+          if (b) {
+            b.setAttribute('aria-expanded', 'false');
+            b.textContent = 'Expand';
+          }
         });
-        if (!isOpen) {
-          card.classList.add('is-expanded');
-          btn.setAttribute('aria-expanded', 'true');
-          btn.textContent = 'Collapse';
+
+        if (isOpen) {
+          detailPanel.hidden = true;
+          return;
         }
+
+        card.classList.add('is-expanded');
+        btn.setAttribute('aria-expanded', 'true');
+        btn.textContent = 'Collapse';
+
+        detailImage.src = card.dataset.image || '';
+        detailImage.alt = card.dataset.name || '';
+        detailVenue.textContent = card.dataset.venue || '';
+        detailTitle.textContent = card.dataset.name || '';
+        detailText.textContent = card.dataset.detail || '';
+        detailKeywords.textContent = card.dataset.keywords || '';
+        detailLink.href = card.dataset.href || '#';
+
+        const rowStart = Math.floor(idx / 3) * 3;
+        const rowEnd = Math.min(rowStart + 3, selectedCards.length);
+        const anchor = selectedCards[rowEnd - 1];
+        anchor.insertAdjacentElement('afterend', detailPanel);
+        detailPanel.hidden = false;
       });
     });
   </script>
@@ -272,10 +303,9 @@ const selectedWorks = [
   .expand-btn { position: absolute; top: 10px; right: 10px; z-index: 2; opacity: 0; pointer-events: none; border: 1px solid rgba(15,23,42,0.12); background: rgba(255,255,255,0.92); color: #0f172a; border-radius: 999px; font-size: .72rem; padding: 4px 10px; transition: opacity .16s ease, transform .16s ease, border-color .16s ease; }
   .work-card:hover .expand-btn, .work-card.is-expanded .expand-btn { opacity: 1; pointer-events: auto; }
   .work-card:hover .expand-btn { transform: translateY(-1px); }
-  .work-detail { display: none; }
-  .work-card.is-expanded { grid-column: 1 / -1; }
-  .work-card.is-expanded > img, .work-card.is-expanded > .work-copy { display: none; }
-  .work-card.is-expanded .work-detail { display: grid; grid-template-columns: 1.05fr 1.35fr; gap: 18px; padding: 14px; align-items: center; }
+  .work-card.is-expanded { border-color: rgba(37,99,235,0.45); box-shadow: 0 12px 24px rgba(15,23,42,0.10); }
+  .selected-detail-panel { grid-column: 1 / -1; border: 1px solid rgba(37,99,235,0.22); border-radius: 14px; background: #fff; box-shadow: 0 12px 24px rgba(15,23,42,0.08); padding: 14px; margin-top: -2px; }
+  .work-detail { display: grid; grid-template-columns: 1.05fr 1.35fr; gap: 18px; align-items: center; }
   .work-detail-media img { width: 100%; height: 240px; object-fit: cover; border-radius: 10px; display: block; }
   .work-detail-copy h3 { margin: 8px 0 8px; font-size: 1.08rem; color: #0f172a; }
   .work-detail-copy p { margin: 0 0 10px; color: #334155; line-height: 1.5; }
@@ -311,7 +341,7 @@ const selectedWorks = [
   @media (max-width: 720px) {
     .grid-2 { grid-template-columns: 1fr; }
     .work-grid { grid-template-columns: 1fr; }
-    .work-card.is-expanded .work-detail { grid-template-columns: 1fr; }
+    .work-detail { grid-template-columns: 1fr; }
     .stack.dense.four-cols { grid-template-columns: 1fr; }
   }
 </style>
