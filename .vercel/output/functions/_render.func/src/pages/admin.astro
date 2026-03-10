@@ -1,0 +1,197 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Admin | Zhiqian Homepage">
+  <main class="container" id="login-wall">
+    <div class="login-box card" id="login-form">
+      <h1>Admin</h1>
+      <p class="hint">Enter admin token to continue.</p>
+      <input type="password" id="token-input" placeholder="Token" autocomplete="current-password" />
+      <button class="btn full" id="login-btn">Enter</button>
+      <p id="login-error" class="error"></p>
+    </div>
+  </main>
+
+  <main class="container" id="admin-panel" style="display:none">
+    <div class="top-row">
+      <h1>Local Admin Panel</h1>
+      <div class="actions">
+        <button id="refresh" class="btn">Refresh</button>
+        <button id="logout" class="btn secondary">Logout</button>
+      </div>
+    </div>
+    <p class="hint">Reads from: <code>/api/admin</code></p>
+
+    <section class="grid">
+      <article class="card">
+        <h2>Inquiries</h2>
+        <div id="inq-count" class="meta">Loading...</div>
+        <div id="inq-list" class="list"></div>
+      </article>
+
+      <article class="card">
+        <h2>Likes</h2>
+        <div id="like-count" class="meta">Loading...</div>
+        <div id="like-list" class="list"></div>
+      </article>
+    </section>
+  </main>
+
+  <script>
+    // Token is checked client-side only (this is a local-only admin panel).
+    // For production use, protect via Vercel password protection or a server-side route.
+    const ADMIN_TOKEN_KEY = 'imczq_admin_token';
+    const API_BASE = '';
+
+    function getStoredToken() {
+      return sessionStorage.getItem(ADMIN_TOKEN_KEY) || '';
+    }
+
+    function setStoredToken(t) {
+      sessionStorage.setItem(ADMIN_TOKEN_KEY, t);
+    }
+
+    function clearStoredToken() {
+      sessionStorage.removeItem(ADMIN_TOKEN_KEY);
+    }
+
+    function showPanel() {
+      document.getElementById('login-wall')!.style.display = 'none';
+      document.getElementById('admin-panel')!.style.display = '';
+    }
+
+    function showLogin() {
+      document.getElementById('login-wall')!.style.display = '';
+      document.getElementById('admin-panel')!.style.display = 'none';
+    }
+
+    function esc(s: string | null | undefined) {
+      return String(s ?? '').replace(/[&<>"]/g, (c: string) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c] ?? c));
+    }
+
+    async function loadData() {
+      const token = getStoredToken();
+      const inqCount = document.getElementById('inq-count')!;
+      const likeCount = document.getElementById('like-count')!;
+      const inqList = document.getElementById('inq-list')!;
+      const likeList = document.getElementById('like-list')!;
+
+      inqCount.textContent = 'Loading...';
+      likeCount.textContent = 'Loading...';
+
+      try {
+        const res = await fetch(`${API_BASE}/api/admin`, {
+          headers: { 'X-Admin-Token': token },
+        });
+        if (res.status === 401) {
+          clearStoredToken();
+          showLogin();
+          return;
+        }
+        if (!res.ok) throw new Error('Bad response');
+        const data = await res.json();
+
+        const inquiries = data.inquiries || [];
+        const likes = data.likes || [];
+
+        inqCount.textContent = `${inquiries.length} inquiry records`;
+        likeCount.textContent = `${likes.length} likes`;
+
+        inqList.innerHTML = inquiries.length
+          ? inquiries
+              .map(
+                (x: any) => `
+              <div class="item">
+                <div class="row"><strong>${esc(x.name)}</strong><span>${esc(x.ts)}</span></div>
+                <div class="sub">${esc(x.email)} · ${esc(x.role)}</div>
+                <div>${esc(x.message)}</div>
+              </div>`
+              )
+              .join('')
+          : '<p>No data yet.</p>';
+
+        likeList.innerHTML = likes.length
+          ? likes
+              .map(
+                (x: any) => `
+              <div class="item">
+                <div class="row"><strong>${esc(x.source || 'homepage')}</strong><span>${esc(x.ts)}</span></div>
+              </div>`
+            )
+            .join('')
+          : '<p>No likes yet.</p>';
+      } catch (e) {
+        inqCount.textContent = 'Backend not reachable';
+        likeCount.textContent = 'Backend not reachable';
+        inqList.innerHTML = '<p>Please run: <code>node local-backend.mjs</code></p>';
+        likeList.innerHTML = '<p>Please run: <code>node local-backend.mjs</code></p>';
+      }
+    }
+
+    // Init
+    if (getStoredToken()) {
+      showPanel();
+      loadData();
+    } else {
+      showLogin();
+    }
+
+    document.getElementById('login-btn')?.addEventListener('click', async () => {
+      const input = (document.getElementById('token-input') as HTMLInputElement).value.trim();
+      const errEl = document.getElementById('login-error')!;
+      if (!input) { errEl.textContent = 'Token required.'; return; }
+
+      // Verify token against backend
+      try {
+        const res = await fetch(`${API_BASE}/api/admin`, {
+          headers: { 'X-Admin-Token': input },
+        });
+        if (res.status === 401) {
+          errEl.textContent = 'Invalid token.';
+          return;
+        }
+        setStoredToken(input);
+        errEl.textContent = '';
+        showPanel();
+        loadData();
+      } catch {
+        errEl.textContent = 'Backend not reachable. Start local-backend.mjs first.';
+      }
+    });
+
+    document.getElementById('token-input')?.addEventListener('keydown', (e) => {
+      if ((e as KeyboardEvent).key === 'Enter') document.getElementById('login-btn')?.click();
+    });
+
+    document.getElementById('refresh')?.addEventListener('click', loadData);
+    document.getElementById('logout')?.addEventListener('click', () => {
+      clearStoredToken();
+      showLogin();
+    });
+  </script>
+</Layout>
+
+<style>
+  .container { max-width: 1100px; margin: 0 auto; padding: 20px; }
+  .hint { color: #475569; font-size: 0.9rem; }
+  .top-row { display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; margin-bottom: 4px; }
+  .actions { display: flex; gap: 8px; }
+  .btn { border: 1px solid #0f172a; background: #0f172a; color: #fff; border-radius: 10px; padding: 8px 12px; cursor: pointer; font-size: 0.9rem; }
+  .btn.secondary { background: #fff; color: #0f172a; }
+  .btn.full { width: 100%; margin-top: 4px; }
+  .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-top: 14px; }
+  .card { background: #fff; border: 1px solid #e2e8f0; border-radius: 12px; padding: 14px; }
+  .meta { color: #334155; margin-bottom: 10px; font-size: 0.9rem; }
+  .list { display: grid; gap: 10px; }
+  .item { border: 1px solid #e2e8f0; border-radius: 10px; padding: 10px; background: #f8fafc; }
+  .row { display: flex; justify-content: space-between; gap: 8px; font-size: 0.85rem; }
+  .sub { color: #475569; font-size: 0.85rem; margin: 4px 0; }
+
+  .login-box { max-width: 360px; margin: 80px auto 0; padding: 28px 24px; display: grid; gap: 10px; }
+  .login-box h1 { margin: 0 0 4px; font-size: 1.4rem; }
+  .login-box input { border: 1px solid #e2e8f0; border-radius: 8px; padding: 9px 12px; font: inherit; width: 100%; box-sizing: border-box; }
+  .error { color: #b91c1c; font-size: 0.85rem; min-height: 1.2em; margin: 0; }
+
+  @media (max-width: 800px) { .grid { grid-template-columns: 1fr; } }
+</style>

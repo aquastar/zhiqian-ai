@@ -1,0 +1,75 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const directions = [
+  { title: 'Spectral graph theory', desc: 'Using spectral perspectives to understand graph structure, operators, and learning behavior.' },
+  { title: 'UQ for graph dynamics', desc: 'Studying uncertainty quantification, inference, and intervention in graph-driven dynamical systems.' },
+  { title: 'Cross-network graph dynamics', desc: 'Understanding how heterogeneous networks interact, couple, and evolve together over time.' },
+  { title: 'General theory for graph dynamics', desc: 'Searching for broader principles that unify dynamics, interaction, and controllability on graphs.' },
+];
+
+const works = [
+  { venue: 'ACM CSUR 2023', title: 'Unified GNN framework', desc: 'Survey and tutorial-building effort toward unifying spectral and spatial graph learning.' },
+  { venue: 'AAAI 2024', title: 'Influence on graphs', desc: 'Graph Bayesian Optimization, source localization, and influence maximization for dynamic and multiplex networks.' },
+  { venue: 'SIGSPATIAL 2020', title: 'Spatiotemporal and urban forecasting', desc: 'Graph-temporal forecasting for traffic and mobility, including award-winning work on urban intelligence.' },
+  { venue: 'Nature Communications 2019', title: 'Materials and scientific discovery', desc: 'Graph/ML-enabled discovery for solid-state lithium-ion conductors and related science-facing systems.' },
+];
+---
+<Layout title="Research | Zhiqian Chen">
+  <main class="container">
+    <nav class="top-nav" aria-label="Sections">
+      <a href="/">Home</a>
+      <a href="/research" aria-current="page">Research</a>
+      <a href="/people">People</a>
+      <a href="/teach">Teach</a>
+      <a href="https://zhiqian.ai" target="_blank" rel="noopener">Zhiqian.ai <i class="fas fa-ghost nav-ghost"></i></a>
+    </nav>
+    <section class="hero">
+      <h1>Research</h1>
+      <p>I study graph-structured intelligence for dynamic, uncertain, and interconnected systems, with current emphasis on theory, cross-network dynamics, and AI systems.</p>
+    </section>
+    <section class="section">
+      <h2>Current Directions</h2>
+      <div class="cards two">
+        {directions.map((d) => (
+          <article class="card">
+            <h3>{d.title}</h3>
+            <p>{d.desc}</p>
+          </article>
+        ))}
+      </div>
+    </section>
+    <section class="section">
+      <h2>Selected Work</h2>
+      <div class="cards two">
+        {works.map((w) => (
+          <article class="card">
+            <span class="tag">{w.venue}</span>
+            <h3>{w.title}</h3>
+            <p>{w.desc}</p>
+          </article>
+        ))}
+      </div>
+    </section>
+  </main>
+</Layout>
+<style>
+  :root { --accent:#2563eb; --ink:#0f172a; --muted:#475569; }
+  .container { max-width: 1240px; margin: 0 auto; padding: 24px; }
+  .top-nav { margin-bottom: 18px; padding: 10px 0 14px; display:flex; flex-wrap:wrap; gap:8px; border-bottom:1px solid rgba(148,163,184,.22); }
+  .top-nav a { text-decoration:none; color:var(--ink); font-family:'Montserrat',sans-serif; font-size:.92rem; padding:7px 10px; border-radius:999px; }
+  .top-nav a:hover { background:#dbeafe; color:var(--accent); }
+  .nav-ghost { font-size:.78rem; margin-left:4px; opacity:.85; }
+  .hero { margin: 10px 0 28px; }
+  .hero h1 { font-family:'Montserrat',sans-serif; font-size:2rem; margin:0 0 8px; }
+  .hero p { margin:0; color:var(--muted); max-width:780px; }
+  .section { padding-top:18px; margin-top:26px; border-top:1px solid rgba(148,163,184,.2); }
+  .section h2 { font-family:'Montserrat',sans-serif; font-size:1.1rem; margin:0 0 14px; }
+  .cards { display:grid; gap:14px; }
+  .cards.two { grid-template-columns: repeat(2, minmax(0,1fr)); }
+  .card { border:1px solid rgba(148,163,184,.16); border-radius:16px; background:#fff; padding:16px; }
+  .card h3 { font-family:'Montserrat',sans-serif; font-size:1rem; margin:0 0 8px; }
+  .card p { margin:0; color:#334155; font-size:.95rem; }
+  .tag { display:inline-block; font-size:.72rem; color:var(--accent); background:#dbeafe; padding:3px 8px; border-radius:999px; margin-bottom:8px; }
+  @media (max-width: 900px) { .cards.two { grid-template-columns:1fr; } }
+</style>

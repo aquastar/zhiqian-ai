@@ -1,0 +1,79 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const currentPhD = ['Marouane Benbrahim','Tamanna Rashme','Amin George','Josh Waldbieser','Xinyuan Chen','Zijian Zhang','Jiashan Wu',"Rocker D'Antonio"];
+const currentMS = ['Sai Harika Gade','Pavan Dharma Adapa'];
+const graduated = ['Zonghan Zhang','Matthew Rester','Henry Smith','Samuel Prabhakar','Rajeev Jogi','Piero Bracamonte','Suman Adhikari','Ramyasri Veerapaneni','Aymane Jouhari'];
+---
+<Layout title="People | Zhiqian Chen">
+  <main class="container">
+    <nav class="top-nav" aria-label="Sections">
+      <a href="/">Home</a>
+      <a href="/research">Research</a>
+      <a href="/people" aria-current="page">People</a>
+      <a href="/teach">Teach</a>
+      <a href="https://zhiqian.ai" target="_blank" rel="noopener">Zhiqian.ai <i class="fas fa-ghost nav-ghost"></i></a>
+    </nav>
+    <section class="hero">
+      <h1>People</h1>
+      <p>Current students, recent alumni, and regular lab rhythm.</p>
+    </section>
+    <section class="section">
+      <h2>Current Advisees</h2>
+      <div class="people-grid">
+        {currentPhD.map((name) => (<div class="person"><strong>{name}</strong><span>Ph.D. Student</span></div>))}
+        {currentMS.map((name) => (<div class="person"><strong>{name}</strong><span>M.S. Student</span></div>))}
+      </div>
+    </section>
+    <section class="section">
+      <h2>Recent Alumni</h2>
+      <div class="people-grid">
+        {graduated.map((name) => (<div class="person"><strong>{name}</strong><span>Graduate / Alumni</span></div>))}
+      </div>
+    </section>
+    <section class="section">
+      <h2>Spring 2026 Friday Meeting Schedule</h2>
+      <div class="schedule-box">
+        <p><strong>Spring 2026 group meetings</strong> start at <strong>2pm CST</strong>. Each presentation takes up to 30 minutes including Q&amp;A.</p>
+        <p><strong>Feb 6:</strong> Anim, George · Chen, Xinyuan</p>
+        <p><strong>Feb 13:</strong> Benbrahim, Marouane · Wang, Shaowen</p>
+        <p><strong>Feb 20:</strong> D’Antonio, Rocker · Wu, Jiashan</p>
+        <p><strong>Feb 27:</strong> Zhang, Zijian · Gogihed, Rayane</p>
+        <p><strong>Mar 6:</strong> Jiachen Zhong · Jebbar, Abdelqoddouss</p>
+        <p><strong>Mar 20:</strong> Gade, Sai Harika · Adapa, Pavan Dharma</p>
+        <p><strong>Mar 27:</strong> Rashme, Tamanna · Chen, Xinyuan</p>
+        <p><strong>Apr 10:</strong> Benbrahim, Marouane · Wang, Shaowen</p>
+        <p><strong>Apr 17:</strong> D’Antonio, Rocker · Anim, George</p>
+        <p><strong>Apr 24:</strong> Wu, Jiashan · Zhang, Zijian</p>
+        <p><strong>May 1:</strong> Rashme, Tamanna · Chen, Xinyuan</p>
+        <p><strong>May 8:</strong> Benbrahim, Marouane · Wang, Shaowen</p>
+        <p><strong>May 15:</strong> D’Antonio, Rocker · Rashme, Tamanna</p>
+      </div>
+    </section>
+  </main>
+</Layout>
+<style>
+  :root { --accent:#2563eb; --ink:#0f172a; --muted:#475569; }
+  .container { max-width: 1240px; margin: 0 auto; padding: 24px; }
+  .top-nav { margin-bottom: 18px; padding: 10px 0 14px; display:flex; flex-wrap:wrap; gap:8px; border-bottom:1px solid rgba(148,163,184,.22); }
+  .top-nav a { text-decoration:none; color:var(--ink); font-family:'Montserrat',sans-serif; font-size:.92rem; padding:7px 10px; border-radius:999px; }
+  .top-nav a:hover { background:#dbeafe; color:var(--accent); }
+  .nav-ghost { font-size:.78rem; margin-left:4px; opacity:.85; }
+  .hero { margin: 10px 0 28px; }
+  .hero h1 { font-family:'Montserrat',sans-serif; font-size:2rem; margin:0 0 8px; }
+  .hero p { margin:0; color:var(--muted); max-width:780px; }
+  .section { padding-top:18px; margin-top:26px; border-top:1px solid rgba(148,163,184,.2); }
+  .section h2 { font-family:'Montserrat',sans-serif; font-size:1.1rem; margin:0 0 14px; }
+  .cards { display:grid; gap:14px; }
+  .cards.two { grid-template-columns: repeat(2, minmax(0,1fr)); }
+  .card { border:1px solid rgba(148,163,184,.16); border-radius:16px; background:#fff; padding:16px; }
+  .card h3 { font-family:'Montserrat',sans-serif; font-size:1rem; margin:0 0 8px; }
+  .card p { margin:0; color:#334155; font-size:.95rem; }
+  .tag { display:inline-block; font-size:.72rem; color:var(--accent); background:#dbeafe; padding:3px 8px; border-radius:999px; margin-bottom:8px; }
+  .people-grid { display:grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap:12px; }
+  .person { border:1px solid rgba(148,163,184,.16); border-radius:14px; background:#fff; padding:14px; }
+  .person strong { display:block; margin-bottom:4px; }
+  .person span { color:var(--muted); font-size:.9rem; }
+  .schedule-box { border:1px dashed rgba(37,99,235,.28); border-radius:14px; padding:14px; background:#f8fbff; color:#334155; }
+  @media (max-width: 900px) { .cards.two, .people-grid { grid-template-columns:1fr; } }
+</style>

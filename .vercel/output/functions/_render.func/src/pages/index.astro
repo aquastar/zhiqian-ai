@@ -1,0 +1,623 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const updates = [
+  { type: 'paper', date: '01/2026', text: 'Our co-simulation of power network and transportation network has been accepted by <strong>WebConf (WWW) 2026</strong>.' },
+  { type: 'tutorial', date: '01/2026', text: 'Will give a tutorial on uncertainty quantification on graph dynamics at <strong>WSDM 2026</strong>.' },
+  { type: 'honor', date: '11/2025', text: 'Recognized as a <strong>Research Fellow</strong> at the Social Science Research Center, Mississippi State University.' },
+  { type: 'grant', date: '08/2025', text: 'Received <strong>Turing AI Gift</strong> funding for LLM research.' },
+  { type: 'grant', date: '06/2025', text: 'Received <strong>NSF CAREER Award</strong> for unification and interactions across heterogeneous graph dynamics.' },
+  { type: 'award', date: '05/2025', text: 'Received <strong>Ottilie Schillig Teaching Award</strong> (AI teaching gamification with Lego Edu Kit).' },
+  { type: 'tutorial', date: '02/2025', text: 'Tutorial: Uncertainty Quantification for Dynamical Networks (<strong>WSDM 2025</strong>).' },
+  { type: 'tutorial', date: '10/2024', text: 'Tutorial series on unifying spectral and spatial GNNs (<strong>CIKM 2024</strong> / <strong>SIAM MDS 2024</strong>).' },
+  { type: 'grant', date: '08/2024', text: 'Received <strong>NSF CNS/MSI</strong> fund (co-PI) for speech recognition in English and Spanish with graph learning + LLMs.' },
+  { type: 'grant', date: '07/2024', text: 'Received <strong>NSF CNS/CIRC</strong> fund (PI) to develop research infrastructure for graph dynamics.' },
+  { type: 'paper', date: '07/2024', text: '1 paper accepted at <strong>IJCAI 2024</strong> and 2 papers accepted at <strong>EMBC 2024</strong>.' },
+  { type: 'grant', date: '06/2024', text: 'Started spatial epidemiology of animal disease collaboration under <strong>USDA-ARS</strong> funded project.' },
+  { type: 'grant', date: '04/2024', text: 'Received <strong>NSF EDU/ITEST</strong> fund (co-PI) for AI education research.' },
+  { type: 'grant', date: '01/2024', text: 'Received <strong>NSF IIS/III REU Supplement</strong> (PI) for undergraduate research.' },
+  { type: 'paper', date: '12/2023', text: 'Two papers accepted by <strong>AAAI 2024</strong> on Graph Bayesian Optimization.' },
+  { type: 'grant', date: '12/2023', text: 'Launched cross-disciplinary <strong>Graph AI Working Group</strong> (supported by BCoE).' },
+  { type: 'grant', date: '08/2023', text: 'Received support from <strong>USDA-ARS</strong> funded project (co-PI) on disease genetics.' },
+  { type: 'paper', date: '12/2022', text: 'Paper accepted by <strong>SIAM SDM 2023</strong>: higher-order decomposition for influence maximization.' },
+  { type: 'grant', date: '04/2022', text: 'Received <strong>NSF IIS/III</strong> fund (PI) for interpretable graph dynamics.' },
+  { type: 'tutorial', date: '05/2021', text: 'Tutorial on spreading models for epidemics at <strong>SDM 2021</strong> (GNN/RNN/SIR/PDE).' },
+  { type: 'award', date: '09/2020', text: '<strong>Best Paper Award</strong> at <strong>ACM SIGSPATIAL 2020</strong>.' },
+  { type: 'paper', date: '12/2019', text: '<strong>Nature Communications</strong> paper selected in Top 50 Chemistry & Materials Sciences articles.' },
+];
+
+const openProblems = [
+  'How can we build a general theory for graph dynamics across heterogeneous networks?',
+  'When and where do uncertainty, interaction, and intervention become identifiable in coupled systems?',
+  'How should we model LLMs and neural architectures as graph-structured dynamic systems?',
+  'What does reliable software/hardware co-design look like for modern AI inference and control?',
+];
+
+const githubProjects = [
+  'XGraph-Team/Spectral-Graph-Survey',
+  'XGraph-Team/Fusion-GAN',
+  'XGraph-Team/XFlow',
+  'XGraph-Team/SumoXPypsa',
+];
+
+const githubCards = await Promise.all(
+  githubProjects.map(async (slug) => {
+    const url = `https://api.github.com/repos/${slug}`;
+    try {
+      const res = await fetch(url, { headers: { 'User-Agent': 'imczq-astro' } });
+      if (!res.ok) throw new Error(`GitHub ${res.status}`);
+      const repo = await res.json();
+      return {
+        slug,
+        name: repo.name,
+        owner: repo.owner?.login ?? 'XGraph-Team',
+        desc: (({
+          'Spectral-Graph-Survey': 'Survey-driven entry point to spectral graph theory, graph signals, and modern graph learning.',
+          'Fusion-GAN': 'Music generation project on genre fusion with adversarial dual learning.',
+          'XFlow': 'Python library for graph flow simulation, diffusion, and network dynamics experiments.',
+          'SumoXPypsa': 'Coupled transportation-power simulation stack behind the WWW 2026 line of work.',
+        })[repo.name]) || repo.description || 'Repository details coming soon.',
+        href: repo.html_url,
+        stars: repo.stargazers_count ?? 0,
+        language: repo.language || 'Mixed',
+        updated: '',
+        customDesc: ({
+          'Spectral-Graph-Survey': 'Survey-driven entry point to spectral graph theory, graph signals, and modern graph learning.',
+          'Fusion-GAN': 'Music generation project on genre fusion with adversarial dual learning.',
+          'XFlow': 'Python library for graph flow simulation, diffusion, and network dynamics experiments.',
+          'SumoXPypsa': 'Coupled transportation-power simulation stack behind the WWW 2026 line of work.',
+        })[repo.name] || '',
+      };
+    } catch {
+      const [owner, name] = slug.split('/');
+      return {
+        slug,
+        name,
+        owner,
+        desc: 'Repository details temporarily unavailable.',
+        href: `https://github.com/${slug}`,
+        stars: null,
+        language: '',
+        updated: '',
+      };
+    }
+  })
+);
+
+const ghostEntries = [
+  { title: 'Tech Note #1', meta: 'Placeholder', desc: 'Short technical writing will land here.' },
+  { title: 'Research Note #1', meta: 'Placeholder', desc: 'Working notes, paper thoughts, and prototypes.' },
+  { title: 'Build Log #1', meta: 'Placeholder', desc: 'Small writeups on tools, systems, and experiments.' },
+];
+
+const workGallery = [
+  { src: 'https://imczq.com/media/research_statement_hucb80f2447a0a6a816bf6ea6adae9c7ee_371656_1200x1200_fit_q75_h2_lanczos_3.webp', alt: 'Research statement visual' },
+  { src: 'https://imczq.com/project/unifying/featured_hu352832247ca9de48ec6cd5688ca312ae_768239_540x0_resize_q75_h2_lanczos.webp', alt: 'Unified framework for graphs' },
+  { src: 'https://imczq.com/project/gbo/featured_hud696c5486f3d729ebf5ee1ceaffacccd_128059_540x0_resize_q75_h2_lanczos_3.webp', alt: 'Graph Bayesian Optimization' },
+];
+
+const selectedDirections = [
+  {
+    title: 'Spectral graph theory',
+    desc: 'Using spectral perspectives to understand graph structure, operators, and learning behavior.',
+  },
+  {
+    title: 'UQ for graph dynamics',
+    desc: 'Studying uncertainty quantification, inference, and intervention in graph-driven dynamical systems.',
+  },
+  {
+    title: 'Cross-network graph dynamics',
+    desc: 'Understanding how heterogeneous networks interact, couple, and evolve together over time.',
+  },
+  {
+    title: 'General theory for graph dynamics',
+    desc: 'Searching for broader principles that unify dynamics, interaction, and controllability on graphs.',
+  },
+];
+
+const selectedWorks = [
+  { name: 'Unified GNN framework', status: 'Direction', venue: 'ACM CSUR 2023', output: 'Survey and tutorial-building effort toward unifying spectral and spatial graph learning.', image: 'https://imczq.com/project/unifying/featured_hu352832247ca9de48ec6cd5688ca312ae_768239_540x0_resize_q75_h2_lanczos.webp' },
+  { name: 'Influence on graphs', status: 'Project', venue: 'AAAI 2024', output: 'Graph Bayesian Optimization, source localization, and influence maximization for dynamic and multiplex networks.', image: 'https://imczq.com/project/gbo/featured_hud696c5486f3d729ebf5ee1ceaffacccd_128059_540x0_resize_q75_h2_lanczos_3.webp' },
+  { name: 'Spatiotemporal and urban forecasting', status: 'Awarded', venue: 'SIGSPATIAL 2020', output: 'Graph-temporal forecasting for traffic and mobility, including award-winning work on urban intelligence.', image: 'https://imczq.com/project/20_kalman_gis/featured_hu6d4d4db39f7ac31cad16d8b437bab632_85075_540x0_resize_q75_h2_lanczos_3.webp' },
+  { name: 'Materials and scientific discovery', status: 'Science', venue: 'Nature Communications 2019', output: 'Graph/ML-enabled discovery for solid-state lithium-ion conductors and related science-facing systems.', image: 'https://imczq.com/project/17_fusiongan_icdm/featured_hu79af7702fdd7ef1f1d4d79a2bd7a81f7_90601_540x0_resize_q75_h2_lanczos_3.webp' },
+  { name: 'Interdisciplinary AI infrastructure', status: 'Systems', venue: 'WWW 2026', output: 'Cross-domain graph infrastructure spanning epidemiology, agriculture, transportation, and engineering.', image: 'https://imczq.com/project/23_sim_sdm/featured_hu47ed903882ca2a20b0bbd31dfd70f9ab_135606_540x0_resize_q75_h2_lanczos_3.webp' },
+];
+---
+
+<Layout title="Zhiqian Chen | Homepage Prototype">
+  <main class="container" id="top">
+      <nav class="top-nav card" aria-label="Sections">
+        <a href="/" aria-current="page">Home</a>
+        <a href="/research">Research</a>
+        <a href="/people">People</a>
+        <a href="/teach">Teach</a>
+        <a href="https://zhiqian.ai" target="_blank" rel="noopener">Zhiqian.ai <i class="fas fa-ghost nav-ghost"></i></a>
+      </nav>
+    <section class="grid-3">
+      <aside class="left-col">
+        <article class="card module profile">
+          <img class="avatar" src="https://imczq.com/authors/admin/avatar_huff586cc3096ffa7a7257f5a661abe783_130497_270x270_fill_q75_lanczos_center.jpg" alt="Zhiqian Chen" />
+          <h1 class="name-en">Chen, Zhiqian</h1>
+          <p class="name-zh">陈枳扦
+            <span class="name-tip" tabindex="0" aria-label="Name meaning note">?
+              <span class="tip-pop">物理含义：根据五行八卦算的</span>
+            </span>
+          </p>
+          <p class="role">Assistant Professor · Mississippi State University</p>
+          <p class="bio">I am an Assistant Professor of Computer Science &amp; Engineering at Mississippi State University, focusing on graph-structured intelligence for dynamic, uncertain, and knowledge-rich systems (see <a href="#research">details of my research interests</a>). I obtained my Ph.D. at Virginia Tech in 2020, under the supervision of Dr. Chang-Tien Lu. For students interested in me, check <a href="#connect-form">ways to work with me</a>. If interested in my courses, please check the <a href="#teach">course syllabi</a>.</p>
+
+          <div class="icons" aria-label="social links">
+            <a href="https://imczq.com/cv.pdf" title="CV"><i class="ai ai-cv"></i></a>
+            <a href="https://scholar.google.com/citations?hl=en&user=NC3-O6UAAAAJ" title="Google Scholar"><i class="ai ai-google-scholar"></i></a>
+            <a href="https://github.com/aquastar" title="GitHub"><i class="fab fa-github"></i></a>
+            <a href="https://twitter.com/imczq" title="X/Twitter"><i class="fab fa-square-x-twitter"></i></a>
+            <a href="https://www.linkedin.com/in/zhiqian-chen-ai/" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+            <a href="https://www.zhihu.com/people/aquastar" title="Zhihu"><i class="fab fa-zhihu"></i></a>
+            <a href="https://www.xiaohongshu.com/user/profile/64769efb000000001c029738" title="Xiaohongshu"><i class="fas fa-book"></i></a>
+            <a href="https://orcid.org/0000-0003-4112-9647" title="ORCID"><i class="fab fa-orcid"></i></a>
+            <a href="mailto:zchen@cse.msstate.edu" title="Email"><i class="fas fa-envelope"></i></a>
+          </div>
+        </article>
+
+        <article class="card module">
+          <div class="module-head">
+            <h2>Recent Updates</h2>
+          </div>
+          <ul class="updates">
+            {updates.map((u) => (
+              <li>
+                <span class={`tag ${u.type}`}>{u.type}</span>
+                <span class="date-strong">{u.date}</span><span class="meta-inline" set:html={u.text}></span>
+              </li>
+            ))}
+          </ul>
+        </article>
+      </aside>
+
+      <section class="center-col">
+        <article class="card module rich hero-module" id="research">
+                    <h2>Research Statement</h2>
+          <p class="lead">I am interested in graph-structured intelligence for dynamic, uncertain, and knowledge-rich systems.</p>
+          <div class="direction-visual">
+            <img src={workGallery[0].src} alt={workGallery[0].alt} />
+          </div>
+          <div class="statement-copy">
+            <p>My recent work spans <strong>spectral graph theory</strong>, <strong>uncertainty quantification for graph dynamics</strong>, <strong>cross-network graph dynamics</strong>, and the search for a <strong>general theory for graph dynamics</strong>. Across these directions, I care about models that are predictive, interpretable, and theoretically grounded.</p>
+            <p>I have worked on projects in transportation, spatial epidemiology, social systems, circuits, and AI systems, and I often collaborate across disciplines to connect graph-based methods with real-world dynamic processes.</p>
+          </div>
+        </article>
+
+        <article class="card module rich" id="selected-work">
+                    <h2>Selected Directions + Works</h2>
+          <div class="work-montage">
+            {selectedWorks.map((p) => (
+              <article class="montage-card">
+                <img src={p.image} alt={p.name} />
+                <div class="montage-overlay">
+                  <div class="work-tags">
+                    <span class="badge venue">{p.venue}</span>
+                  </div>
+                  <h3>{p.name}</h3>
+                  <p>{p.output}</p>
+                </div>
+              </article>
+            ))}
+          </div>
+        </article>
+
+        <article class="card module rich" id="people">
+          <h2>People</h2>
+          <p>I work with students and collaborators from CSE, data science, and interdisciplinary application domains.</p>
+          <p>If you are interested in graph dynamics, UQ, spectral methods, LLM/Transformers, or AI education, please reach out through the collaboration form.</p>
+        </article>
+      </section>
+
+      <aside class="right-col">
+        <article class="card module accent open-problems-card" id="open-problems">
+                    <h2>Open Problems</h2>
+          <div class="open-problems-quote">
+            <span class="quote-mark">“</span>
+            <ul class="selected-list compact-list">
+              {openProblems.map((item) => (
+                <li>{item}</li>
+              ))}
+            </ul>
+          </div>
+        </article>
+
+        <article class="card module" id="github-projects">
+                    <h2>Tutorial-related Repos</h2>
+          <div class="stack dense">
+            {githubCards.map((repo) => (
+              <a class="mini-card repo-card" href={repo.href} target="_blank" rel="noopener">
+                <div class="row repo-top">
+                  <div class="repo-title-wrap">
+                    <h3>{repo.name}</h3>
+                  </div>
+                  <i class="fab fa-github repo-icon"></i>
+                </div>
+                <p>{repo.desc}</p>
+                <div class="repo-meta">
+                  <span>@{repo.owner}</span>
+                  {repo.language && <span>{repo.language}</span>}
+                  {repo.stars !== null && <span>★ {repo.stars}</span>}
+                </div>
+              </a>
+            ))}
+          </div>
+        </article>
+
+        <article class="card module ghost-card" id="ghost-entries">
+                    <h2>Tech Notes</h2>
+          <div class="stack dense">
+            {ghostEntries.map((entry) => (
+              <div class="mini-card note-card placeholder">
+                <div class="row"><h3>{entry.title}</h3><span class="repo-pill muted">{entry.meta}</span></div>
+                <p>{entry.desc}</p>
+              </div>
+            ))}
+          </div>
+        </article>
+
+        <article class="card module" id="connect-form">
+          <h2>Quick message to me</h2>
+          <p>Send me a short note directly.</p>
+          <form id="collab-form" class="form">
+            <input id="f-email" name="email" type="email" placeholder="Email" required />
+            <textarea id="f-message" name="message" placeholder="Message" rows="4" required></textarea>
+            <button class="btn full" type="submit" id="form-submit-btn">Send Inquiry</button>
+          </form>
+          <p id="form-status" class="small"></p>
+        </article>
+
+        <article class="card module">
+          <h2>Like this page</h2>
+          <p>Anonymous likes only.</p>
+          <button id="like-btn" class="btn full like-btn" type="button">
+            <span id="like-emoji">👍</span>
+            <span id="like-label">Like</span>
+            <span id="like-count-badge" class="like-badge" style="display:none"></span>
+          </button>
+          <p id="like-status" class="small"></p>
+        </article>
+      </aside>
+    </section>
+  </main>
+
+  <script>
+    // Like button
+    const likeBtn = document.getElementById('like-btn') as HTMLButtonElement | null;
+    const likeEmoji = document.getElementById('like-emoji');
+    const likeLabel = document.getElementById('like-label');
+    const likeStatus = document.getElementById('like-status');
+    const likedKey = 'imczq_liked';
+
+    function setLiked() {
+      if (!likeBtn) return;
+      likeBtn.disabled = true;
+      likeBtn.classList.add('liked');
+      if (likeEmoji) likeEmoji.textContent = '❤️';
+      if (likeLabel) likeLabel.textContent = 'Liked!';
+      if (likeStatus) likeStatus.textContent = 'Thanks for your support!';
+    }
+
+    if (likeBtn && localStorage.getItem(likedKey) === '1') {
+      setLiked();
+    }
+
+    if (likeBtn) {
+      likeBtn.addEventListener('click', async () => {
+        if (likeBtn.disabled) return;
+        // Immediate visual pop
+        likeBtn.classList.remove('like-pop');
+        void likeBtn.offsetWidth; // reflow to restart animation
+        likeBtn.classList.add('like-pop');
+        likeBtn.disabled = true;
+
+        try {
+          const res = await fetch('/api/like', { method: 'POST' });
+          if (res.ok) {
+            localStorage.setItem(likedKey, '1');
+            setLiked();
+          } else if (res.status === 429) {
+            likeBtn.disabled = false;
+            if (likeStatus) likeStatus.textContent = 'Already liked recently.';
+          } else {
+            likeBtn.disabled = false;
+            if (likeStatus) likeStatus.textContent = 'Failed, try again.';
+          }
+        } catch {
+          likeBtn.disabled = false;
+          if (likeStatus) likeStatus.textContent = 'Network error.';
+        }
+      });
+    }
+
+    // Inquiry form
+    const form = document.getElementById('collab-form') as HTMLFormElement | null;
+    const formStatus = document.getElementById('form-status');
+    const submitBtn = document.getElementById('form-submit-btn') as HTMLButtonElement | null;
+
+    form?.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      if (!submitBtn || !formStatus) return;
+      submitBtn.disabled = true;
+      formStatus.textContent = 'Sending...';
+
+      const payload = {
+        email: (document.getElementById('f-email') as HTMLInputElement).value,
+        message: (document.getElementById('f-message') as HTMLTextAreaElement).value,
+      };
+
+      try {
+        const res = await fetch('/api/inquiry', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload),
+        });
+        if (res.ok) {
+          formStatus.textContent = '✓ Sent! I will get back to you soon.';
+          form.reset();
+        } else {
+          formStatus.textContent = 'Failed to send. Please try again.';
+          submitBtn.disabled = false;
+        }
+      } catch {
+        formStatus.textContent = 'Network error. Please try again.';
+        submitBtn.disabled = false;
+      }
+    });
+  </script>
+</Layout>
+
+<style>
+  .container { max-width: 1800px; margin: 0 auto; padding: 20px; }
+  .card { background: rgba(255,255,255,0.92); border: 1px solid rgba(148,163,184,0.12); border-radius: 18px; box-shadow: 0 10px 30px rgba(15,23,42,0.06); backdrop-filter: blur(10px); }
+    .top-nav { margin-bottom: 14px; padding: 10px 0 14px; display: flex; flex-wrap: wrap; gap: 8px; align-items: center; background: transparent; border: none; border-bottom: 1px solid rgba(148,163,184,0.22); border-radius: 0; box-shadow: none; }
+  .top-nav a { text-decoration: none; color: var(--ink); font-family: 'Montserrat', sans-serif; font-size: 0.9rem; padding: 7px 10px; border-radius: 999px; background: transparent; }
+  .top-nav a:hover { background: var(--accent-soft); color: var(--accent); }
+  .top-nav a[aria-current="page"] { background: #eef2ff; color: var(--accent); box-shadow: inset 0 1px 2px rgba(15,23,42,0.10), inset 0 -1px 2px rgba(37,99,235,0.08); }
+  .nav-ghost { font-size: 0.78rem; margin-left: 4px; opacity: .85; }
+  .grid-3 { display: grid; grid-template-columns: 0.92fr 2.28fr 0.88fr; gap: 28px; align-items: start; }
+  .module { padding: 16px; margin-bottom: 14px; }
+  .module-head { display: flex; align-items: center; justify-content: space-between; gap: 10px; }
+  .small { font-size: 0.8rem; color: #475569; }
+  :root { --accent: #2563eb; --accent-soft: #dbeafe; --ink: #0f172a; --muted: #475569; --page: #ffffff; }
+  body { background: var(--page); }
+  .module-kicker { display:inline-block; margin-bottom:8px; font-size:0.72rem; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; color:var(--accent); background:var(--accent-soft); padding:4px 8px; border-radius:999px; }
+  .hero-module { background: #ffffff; }
+  .accent { background: #ffffff; }
+  .direction { background: #ffffff; border: 1px solid rgba(37,99,235,0.10); }
+  .repo-card, .note-card { text-decoration:none; color:inherit; transition: transform .15s ease, box-shadow .15s ease; }
+  .repo-card:hover { transform: translateY(-2px); box-shadow: 0 10px 24px rgba(37,99,235,0.08); }
+  .repo-pill { font-size:0.72rem; color:#2563eb; background:#dbeafe; padding:3px 8px; border-radius:999px; white-space:nowrap; }
+  .repo-pill.muted { color:#7c3aed; background:#ede9fe; }
+  .compact-list { padding-left: 18px; display:grid; gap:10px; }
+  .compact-list li { color:#1e293b; }
+  .ghost-card .placeholder { background: #ffffff; }
+
+
+  .profile { text-align: center; background: #fff; }
+  .avatar { width: 100%; height: auto; aspect-ratio: 1 / 1; border-radius: 16px; object-fit: cover; border: none; }
+  h1 { font-family: 'Montserrat', sans-serif; font-size: 1.9rem; margin: 12px 0 4px; }
+  .name-en { font-size: 2rem; letter-spacing: 0.01em; }
+  .name-zh { margin: 2px 0 0; font-size: 1rem; color: #334155; display: inline-flex; align-items: center; gap: 6px; }
+  .name-tip { position: relative; display: inline-flex; align-items: center; justify-content: center; width: 16px; height: 16px; border-radius: 999px; background: #cbd5e1; color: #0f172a; font-size: 0.72rem; line-height: 1; cursor: help; }
+  .tip-pop { position: absolute; left: 22px; top: 50%; transform: translateY(-50%); white-space: nowrap; background: #0f172a; color: #fff; padding: 4px 8px; border-radius: 6px; font-size: 0.72rem; opacity: 0; pointer-events: none; transition: opacity .15s ease; }
+  .name-tip:hover .tip-pop, .name-tip:focus .tip-pop { opacity: 1; }
+  .role { margin: 0; color: #334155; font-size: 0.92rem; }
+  .bio { text-align: left; color: #334155; font-size: 0.92rem; margin-top: 10px; }
+
+  .icons { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin-top: 14px; }
+  .icons a { color: #334155; text-decoration: none; transition: color .15s ease, transform .15s ease; }
+  .icons a:hover { color: #0f172a; transform: translateY(-1px); }
+  .icons i { font-size: 1.95rem; }
+
+  h2 { font-family: 'Montserrat', sans-serif; font-size: 1.2rem; margin: 0 0 12px; }
+  h3 { font-family: 'Montserrat', sans-serif; font-size: 1rem; margin: 0 0 6px; }
+  ul { margin: 0; padding-left: 18px; color: #334155; }
+  li { margin-bottom: 6px; }
+  .updates { list-style: none; padding-left: 0; display: grid; gap: 8px; }
+  .updates li { display: block; line-height: 1.35; }
+  .meta-inline { font-size: 0.88rem; color: #1e293b; line-height: 1.35; white-space: normal; overflow: visible; text-overflow: clip; }
+  .date-strong { font-size: 0.82rem; font-weight: 700; color: #0f172a; white-space: nowrap; margin: 0 8px 0 6px; }
+  .tag { font-size: 0.68rem; text-transform: uppercase; border-radius: 999px; padding: 2px 7px; font-weight: 700; }
+  .tag.grant { background: #dcfce7; color: #166534; }
+  .tag.award { background: #fef3c7; color: #92400e; }
+  .tag.honor { background: #ede9fe; color: #5b21b6; }
+  .tag.paper { background: #e0f2fe; color: #075985; }
+  .tag.tutorial { background: #fce7f3; color: #9d174d; }
+
+  .stack { display: grid; gap: 10px; }
+  .stack.dense { gap: 8px; }
+  .mini-card { border: none; border-radius: 10px; padding: 12px; background: #f8fafc; }
+  .mini-card.gradient { background: linear-gradient(180deg, #f8fafc 0%, #ffffff 100%); }
+  .mini-card.project { border-left: none; }
+  .mini-card p { margin: 0; color: #334155; font-size: 0.92rem; }
+  .lead { margin: 0 0 10px; color: #1e293b; }
+  .subhead { margin: 12px 0 6px; font-size: 1rem; }
+  .domain-line { margin: 0; color: #1e293b; line-height: 1.45; }
+  .strategy-list { margin: 6px 0 0 18px; padding: 0; }
+  .selected-list { margin: 0; padding-left: 18px; display: grid; gap: 8px; }
+  .selected-list li { margin: 0; color: #1e293b; }
+  .row { display: flex; align-items: center; justify-content: space-between; gap: 8px; }
+  .badge { font-size: 0.72rem; color: var(--accent); background: var(--accent-soft); padding: 3px 8px; border-radius: 999px; white-space: nowrap; }
+  .badge.subtle { color:#475569; background:#f1f5f9; }
+  .badge.venue { color:#1d4ed8; background:#eff6ff; }
+  .interest-img { width: 80%; max-width: 100%; display: block; margin: 10px auto 0; border-radius: 10px; border: none; }
+
+  .fund-card { border: none; border-radius: 10px; padding: 10px; display: grid; grid-template-columns: 40px 1fr; gap: 10px; background: #f8fafc; }
+  .fund-card img { width: 36px; height: 36px; object-fit: contain; }
+  .fund-card .rolepill { font-size: 0.74rem; border-radius: 999px; padding: 2px 8px; white-space: nowrap; }
+  .fund-card .rolepill.pi { color: #b91c1c; background: #fee2e2; }
+  .fund-card .rolepill.copi { color: #1d4ed8; background: #dbeafe; }
+  .fund-card .meta { font-size: 0.76rem; color: #64748b; margin: 0; }
+  .fund-card p { margin: 4px 0 0; font-size: 0.84rem; color: #334155; }
+
+  .form { display: grid; gap: 8px; }
+  .form input, .form select, .form textarea { width: 100%; border: none; border-radius: 8px; padding: 8px 10px; font: inherit; background: #f8fafc; }
+  .btn { border: 1px solid #0f172a; background: #0f172a; color: #fff; border-radius: 10px; padding: 9px 14px; font-size: 0.9rem; cursor: pointer; transition: background 0.15s, transform 0.1s, box-shadow 0.1s; }
+  .btn.full { width: 100%; }
+  .like-btn { display: flex; align-items: center; justify-content: center; gap: 6px; position: relative; user-select: none; }
+  .like-btn:hover:not(:disabled) { background: #1e293b; }
+  .like-btn:active:not(:disabled) { transform: scale(0.96); box-shadow: inset 0 2px 6px rgba(0,0,0,0.35); background: #334155; }
+  .like-btn:disabled { background: #475569; border-color: #475569; cursor: default; opacity: 0.75; }
+  .like-btn.liked { background: #16a34a; border-color: #16a34a; }
+  .like-btn.liked:disabled { background: #15803d; border-color: #15803d; opacity: 1; }
+  .like-badge { font-size: 0.75rem; background: rgba(255,255,255,0.2); border-radius: 999px; padding: 1px 7px; }
+  @keyframes like-pop { 0%{transform:scale(1)} 40%{transform:scale(1.18)} 70%{transform:scale(0.95)} 100%{transform:scale(1)} }
+  .like-pop { animation: like-pop 0.35s ease; }
+
+
+  .direction-visual { margin: 8px 0 14px; border-radius: 16px; overflow: hidden; border: 1px solid rgba(37,99,235,0.10); }
+  .direction-visual img { width: 100%; display:block; aspect-ratio: 16 / 7; object-fit: cover; }
+  .work-gallery { display:grid; grid-template-columns: 1fr 1fr; gap:10px; margin-bottom: 12px; }
+  .gallery-card { margin:0; border-radius: 14px; overflow:hidden; border: 1px solid rgba(37,99,235,0.10); background:#fff; }
+  .gallery-card img { width:100%; height:180px; object-fit:cover; display:block; }
+  .open-problems-card ul li::marker { color: var(--accent); }
+  .repo-card { border: 1px solid rgba(37,99,235,0.08); }
+  .repo-card p, .note-card p { font-size: 0.88rem; line-height: 1.45; }
+  .right-col .module h2, .center-col .module h2 { letter-spacing: -0.01em; }
+
+
+  /* editorial mode for center + right */
+  .center-col .module,
+  .right-col .module {
+    background: transparent;
+    border: none;
+    box-shadow: none;
+    border-radius: 0;
+    padding: 18px 0 0;
+    margin-bottom: 34px;
+    border-top: 1px solid rgba(148, 163, 184, 0.28);
+  }
+  .center-col .module:first-child,
+  .right-col .module:first-child {
+    border-top: none;
+    padding-top: 0;
+  }
+  .center-col h2,
+  .right-col h2 {
+    font-size: 1.05rem;
+    margin-bottom: 10px;
+    position: relative;
+  }
+
+  .center-col .lead,
+  .right-col p,
+  .center-col li,
+  .right-col li {
+    color: #334155;
+  }
+  .center-col .stack,
+  .right-col .stack {
+    gap: 10px;
+  }
+  .center-col .mini-card,
+  .right-col .mini-card,
+  .center-col .repo-card,
+  .right-col .repo-card,
+  .center-col .note-card,
+  .right-col .note-card,
+  .center-col .fund-card,
+  .right-col .fund-card {
+    background: transparent;
+    border: none;
+    border-radius: 0;
+    padding: 8px 0;
+    box-shadow: none;
+  }
+  .center-col .mini-card + .mini-card,
+  .right-col .mini-card + .mini-card,
+  .center-col .repo-card + .repo-card,
+  .right-col .repo-card + .repo-card,
+  .center-col .fund-card + .fund-card,
+  .right-col .fund-card + .fund-card {
+    border-top: 1px solid rgba(148, 163, 184, 0.18);
+  }
+  .direction-visual,
+  .gallery-card {
+    border-radius: 10px;
+    border: 1px solid rgba(148, 163, 184, 0.18);
+    box-shadow: none;
+  }
+  .gallery-card img { height: 150px; }
+  .module-kicker {
+    background: transparent;
+    color: var(--accent);
+    padding: 0;
+    border-radius: 0;
+  }
+  .repo-card:hover { transform: translateY(-2px); box-shadow: 0 10px 24px rgba(37,99,235,0.08); background: rgba(37,99,235,0.04); }
+  .open-problems-card ul,
+  .selected-list.compact-list { padding-left: 18px; }
+  .selected-list li,
+  .compact-list li { margin-bottom: 8px; }
+
+
+  .statement-copy { display:grid; gap: 12px; }
+  .statement-copy p { margin: 0; color:#334155; line-height: 1.7; font-size: 0.98rem; }
+  .work-gallery { margin-bottom: 16px; }
+  .gallery-card img { height: 220px; }
+  .works-list .project { position: relative; padding: 14px 0 14px 54px; }
+  .work-index { position:absolute; left:0; top:12px; width:34px; height:34px; display:inline-flex; align-items:center; justify-content:center; border-radius:999px; background: rgba(37,99,235,0.08); color: var(--accent); font-size:0.75rem; font-weight:700; letter-spacing:0.04em; }
+  .works-list .project p { margin-top: 4px; }
+  .right-col .module { padding-top: 4px; }
+  .right-col .module h2 { font-size: 0.98rem; }
+  .right-col .repo-card, .right-col .note-card { padding: 12px 14px; border: 1px solid rgba(148,163,184,0.16); border-radius: 14px; background: #fff; }
+  .right-col .repo-card h3, .right-col .note-card h3 { font-size: 0.84rem; margin-bottom: 4px; display:flex; align-items:center; gap:8px; }
+  .right-col .repo-card, .right-col .note-card, .right-col .compact-list li { position: relative; }
+  .right-col .repo-card::before, .right-col .note-card::before { content:''; position:absolute; left:0; top:0; width:100%; height:100%; border-radius:14px; border:1px solid rgba(37,99,235,0.06); pointer-events:none; }
+  .open-problems-card .compact-list { list-style:none; padding-left:0; }
+  .open-problems-card .compact-list li { padding-left: 18px; }
+  .open-problems-card .compact-list li::before { content:'•'; position:absolute; left:0; top:0; color: var(--accent); font-size: 1.1rem; line-height: 1; }
+
+
+  .repo-top { align-items: flex-start; }
+  .repo-meta { margin-top: 8px; display:flex; flex-wrap:wrap; gap:8px; font-size:0.74rem; color:#64748b; }
+  .repo-meta span { padding:2px 7px; border-radius:999px; background:#f8fafc; border:1px solid rgba(148,163,184,0.16); }
+
+
+  .repo-title-wrap { display:flex; align-items:center; gap:10px; min-width:0; }
+
+
+  .work-top { align-items:flex-start; gap: 10px; }
+  .work-tags { display:flex; flex-wrap:wrap; gap:6px; justify-content:flex-end; }
+  .repo-icon { color: var(--accent); font-size: 1rem; opacity: .9; }
+
+
+  .split-work { display:grid; grid-template-columns: 1.15fr 0.85fr; gap: 18px; align-items:center; border-top: 1px solid rgba(148,163,184,0.14); }
+  .split-work:first-child { border-top: none; }
+  .work-copy { position:relative; padding-left: 54px; }
+  .work-thumb { margin:0; border-radius: 14px; overflow:hidden; border:1px solid rgba(148,163,184,0.16); background:#fff; }
+  .work-thumb img { width:100%; height:170px; object-fit:cover; display:block; }
+
+
+  .open-problems-quote { position: relative; padding-left: 18px; }
+  .quote-mark { position: absolute; left: -4px; top: -14px; font-size: 4rem; line-height: 1; color: rgba(37,99,235,0.12); font-family: Georgia, serif; }
+  .work-montage { display:grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .montage-card { position: relative; overflow:hidden; border-radius: 16px; min-height: 240px; background:#0f172a; }
+  .montage-card img { width:100%; height:100%; object-fit:cover; display:block; }
+  .montage-overlay { position:absolute; inset:auto 0 0 0; padding: 16px; background: linear-gradient(180deg, rgba(15,23,42,0.02) 0%, rgba(15,23,42,0.82) 58%, rgba(15,23,42,0.96) 100%); color:#fff; }
+  .montage-overlay h3 { color:#fff; margin: 8px 0 6px; font-size: 1rem; }
+  .montage-overlay p { color: rgba(255,255,255,0.84); margin:0; font-size: 0.88rem; line-height: 1.45; }
+  .montage-overlay .badge.venue { background: rgba(255,255,255,0.14); color:#fff; }
+
+  @media (max-width: 1100px) {
+        .top-nav { justify-content: flex-start; }
+    .grid-3 { grid-template-columns: 0.95fr 1.35fr; }
+    .right-col { grid-column: 1 / -1; display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+    .work-montage { grid-template-columns: 1fr 1fr; }
+    .right-col .module { margin-bottom: 0; }
+  }
+
+  @media (max-width: 720px) {
+    .work-montage { grid-template-columns: 1fr; }
+    .container { padding: 12px; }
+        .top-nav { gap: 6px; }
+    .top-nav a { font-size: 0.84rem; padding: 6px 9px; }
+    .grid-3 { grid-template-columns: 1fr; }
+    .right-col { grid-template-columns: 1fr; }
+    .avatar { width: 100%; height: auto; }
+  }
+</style>

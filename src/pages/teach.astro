@@ -1,0 +1,64 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const courses = [
+  { tag: 'Split-level', title: 'CSE 4633/6633 Artificial Intelligence', desc: 'Introductory AI course spanning core concepts and methods.' },
+  { tag: 'Split-level', title: 'CSE 4693/6693 Intro to Machine Learning', desc: 'Foundations of machine learning for undergraduate and graduate students.' },
+  { tag: 'Graduate', title: 'CSE 8673 Machine Learning', desc: 'Graduate-level machine learning with emphasis on principles and applications.' },
+  { tag: 'Graduate', title: 'CSE 8990 Graph Machine Learning', desc: 'Advanced topics in graph machine learning and networked intelligence.' },
+];
+---
+<Layout title="Teach | Zhiqian Chen">
+  <main class="container">
+    <nav class="top-nav" aria-label="Sections">
+      <a href="/">Home</a>
+      <a href="/research">Research</a>
+      <a href="/people">People</a>
+      <a href="/teach" aria-current="page">Teach</a>
+      <a href="https://zhiqian.ai" target="_blank" rel="noopener">Zhiqian.ai <i class="fas fa-ghost nav-ghost"></i></a>
+    </nav>
+    <section class="hero">
+      <h1>Teach</h1>
+      <p>Current and recent courses. One course, one card.</p>
+    </section>
+    <section class="section">
+      <h2>Course Override</h2>
+      <div class="schedule-box">
+        If a course is full and you still want to enroll, first check with your major professor or department to confirm your registration status. Then submit an override request here: <a href="https://www.cse.msstate.edu/capacity-override-request-form/" target="_blank" rel="noopener">capacity override request form</a>.
+      </div>
+    </section>
+    <section class="section">
+      <h2>Courses</h2>
+      <div class="cards two">
+        {courses.map((c) => (
+          <article class="card">
+            <span class="tag">{c.tag}</span>
+            <h3>{c.title}</h3>
+            <p>{c.desc}</p>
+          </article>
+        ))}
+      </div>
+    </section>
+  </main>
+</Layout>
+<style>
+  :root { --accent:#2563eb; --ink:#0f172a; --muted:#475569; }
+  .container { max-width: 1240px; margin: 0 auto; padding: 24px; }
+  .top-nav { margin-bottom: 18px; padding: 10px 0 14px; display:flex; flex-wrap:wrap; gap:8px; border-bottom:1px solid rgba(148,163,184,.22); }
+  .top-nav a { text-decoration:none; color:var(--ink); font-family:'Montserrat',sans-serif; font-size:.92rem; padding:7px 10px; border-radius:999px; }
+  .top-nav a:hover { background:#dbeafe; color:var(--accent); }
+  .nav-ghost { font-size:.78rem; margin-left:4px; opacity:.85; }
+  .hero { margin: 10px 0 28px; }
+  .hero h1 { font-family:'Montserrat',sans-serif; font-size:2rem; margin:0 0 8px; }
+  .hero p { margin:0; color:var(--muted); max-width:780px; }
+  .section { padding-top:18px; margin-top:26px; border-top:1px solid rgba(148, 163, 184, .2); }
+  .section h2 { font-family:'Montserrat',sans-serif; font-size:1.1rem; margin:0 0 14px; }
+  .cards { display:grid; gap:14px; }
+  .cards.two { grid-template-columns: repeat(2, minmax(0,1fr)); }
+  .card { border:1px solid rgba(148,163,184,.16); border-radius:16px; background:#fff; padding:16px; }
+  .card h3 { font-family:'Montserrat',sans-serif; font-size:1rem; margin:0 0 8px; }
+  .card p { margin:0; color:#334155; font-size:.95rem; }
+  .tag { display:inline-block; font-size:.72rem; color:var(--accent); background:#dbeafe; padding:3px 8px; border-radius:999px; margin-bottom:8px; }
+  .schedule-box { border:1px dashed rgba(37,99,235,.28); border-radius:14px; padding:14px; background:#f8fbff; color:#334155; }
+  @media (max-width: 900px) { .cards.two { grid-template-columns:1fr; } }
+</style>

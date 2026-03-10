@@ -1,0 +1,55 @@
+{
+	"version": 3,
+	"routes": [
+		{
+			"handle": "filesystem"
+		},
+		{
+			"src": "^/_astro/(.*)$",
+			"headers": {
+				"cache-control": "public, max-age=31536000, immutable"
+			},
+			"continue": true
+		},
+		{
+			"src": "^/_server-islands/([^/]+?)/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/_image/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/admin/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/api/admin/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/api/inquiry/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/api/like/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/people/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/research/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/teach/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/$",
+			"dest": "_render"
+		}
+	]
+}
