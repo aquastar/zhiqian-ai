@@ -157,7 +157,7 @@ const selectedWorks = [
           <h2>Tutorial-related Repos</h2>
           <div class="stack dense four-cols">
             {githubCards.map((repo) => (
-              <a class="mini-card repo-card" href={repo.href} target="_blank" rel="noopener">
+              <article class="mini-card repo-card" data-href={repo.href} tabindex="0" role="link">
                 <div class="row repo-top">
                   <h3>{repo.name}</h3>
                   <i class="fab fa-github repo-icon"></i>
@@ -168,7 +168,7 @@ const selectedWorks = [
                   <img src={`https://img.shields.io/static/v1.svg?label=language&message=${encodeURIComponent(repo.language)}&style=flat-square&logo=python&logoColor=3776AB&labelColor=f8fafc&color=f8fafc`} alt={`language ${repo.language}`} />
                   <a class="star-chip star-link" href={repo.starHref} target="_blank" rel="noopener"><i class="fas fa-star"></i><span>{repo.stars}</span><span class="star-text">Star</span></a>
                 </div>
-              </a>
+              </article>
             ))}
           </div>
         </article>
@@ -251,6 +251,22 @@ const selectedWorks = [
 
     detailPanel.addEventListener('mouseenter', () => window.clearTimeout(closeTimer));
     detailPanel.addEventListener('mouseleave', () => collapseDetail(true));
+
+    document.querySelectorAll('.repo-card[data-href]').forEach((card) => {
+      card.addEventListener('click', (event) => {
+        const target = event.target;
+        if (target instanceof Element && target.closest('.star-link')) return;
+        const href = card.getAttribute('data-href');
+        if (href) window.open(href, '_blank', 'noopener');
+      });
+      card.addEventListener('keydown', (event) => {
+        if (event.key === 'Enter' || event.key === ' ') {
+          event.preventDefault();
+          const href = card.getAttribute('data-href');
+          if (href) window.open(href, '_blank', 'noopener');
+        }
+      });
+    });
   </script>
 
   <script>
@@ -385,6 +401,7 @@ const selectedWorks = [
 
   .badge.venue { display: inline-block; font-size: .6rem; color: #2563eb; background: #dbeafe; padding: 2px 6px; border-radius: 999px; }
     .repo-card, .note-card { text-decoration: none; color: inherit; transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease; display: block; }
+  .repo-card { cursor: pointer; }
   .repo-card:hover, .note-card:hover { transform: translateY(-3px); box-shadow: 0 12px 24px rgba(15,23,42,0.10); }
   .mini-card { padding: 12px 14px; border: 1px solid rgba(148,163,184,0.16); border-radius: 14px; margin-bottom: 8px; transition: border-color .18s ease, box-shadow .18s ease, transform .18s ease; }
   .mini-card:hover { border-color: rgba(37,99,235,0.38); box-shadow: 0 12px 24px rgba(15,23,42,0.10); transform: translateY(-3px); }
