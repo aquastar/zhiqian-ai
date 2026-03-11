@@ -3,7 +3,9 @@ import Layout from '../layouts/Layout.astro';
 
 const grants = [
   {
+    kind: 'External',
     agency: 'NSF',
+    icon: 'fas fa-building-columns',
     title: 'NSF CAREER',
     period: 'Jun 2025 – May 2030',
     role: 'Sole PI',
@@ -11,7 +13,9 @@ const grants = [
     link: 'https://www.nsf.gov/awardsearch/showAward?AWD_ID=2443266',
   },
   {
+    kind: 'External',
     agency: 'Turing AI',
+    icon: 'fas fa-brain',
     title: 'Turing AI Gift Money',
     period: 'Aug 2025',
     role: 'Gift Funding',
@@ -19,15 +23,19 @@ const grants = [
     link: '',
   },
   {
-    agency: 'Ottilie Schillig',
-    title: 'Special Teaching Award',
+    kind: 'Internal',
+    agency: 'MSU / CTL',
+    icon: 'fas fa-award',
+    title: 'Ottilie Schillig Special Teaching Award',
     period: 'May 2025',
     role: 'Award',
     desc: 'Support to gamify AI teaching with Lego Edu Kit.',
     link: 'https://www.ctl.msstate.edu/resources/ottilie-schillig-special-teaching-projects-grants',
   },
   {
+    kind: 'External',
     agency: 'NSF',
+    icon: 'fas fa-building-columns',
     title: 'CNS/MSI',
     period: 'Aug 2024',
     role: 'Co-PI',
@@ -35,7 +43,9 @@ const grants = [
     link: 'https://www.nsf.gov/awardsearch/showAward?AWD_ID=2431176&HistoricalAwards=false',
   },
   {
+    kind: 'External',
     agency: 'NSF',
+    icon: 'fas fa-building-columns',
     title: 'CNS/CIRC',
     period: 'Jul 2024',
     role: 'PI',
@@ -43,15 +53,19 @@ const grants = [
     link: 'https://www.nsf.gov/awardsearch/showAward?AWD_ID=2345921&HistoricalAwards=false',
   },
   {
+    kind: 'External',
     agency: 'USDA-ARS',
-    title: 'Spatial Epidemiology of Animal Disease',
+    icon: 'fas fa-leaf',
+    title: 'Animal Disease Spatial Epidemiology',
     period: 'Jun 2024',
     role: 'Collaboration',
     desc: 'Work with USDA scientists on geospatial and environmental epidemiology.',
     link: 'https://www.usda.org',
   },
   {
+    kind: 'External',
     agency: 'NSF',
+    icon: 'fas fa-building-columns',
     title: 'EDU/ITEST',
     period: 'Apr 2024',
     role: 'Co-PI',
@@ -59,7 +73,9 @@ const grants = [
     link: 'https://www.nsf.gov/awardsearch/showAward?AWD_ID=2342574',
   },
   {
+    kind: 'External',
     agency: 'NSF',
+    icon: 'fas fa-building-columns',
     title: 'IIS/III REU Supplement',
     period: 'Jan 2024',
     role: 'PI',
@@ -67,7 +83,9 @@ const grants = [
     link: '',
   },
   {
+    kind: 'Internal',
     agency: 'BCoE',
+    icon: 'fas fa-diagram-project',
     title: 'Graph AI Working Group',
     period: 'Dec 2023',
     role: 'Launch Support',
@@ -75,7 +93,9 @@ const grants = [
     link: '',
   },
   {
+    kind: 'External',
     agency: 'USDA-ARS / NSF',
+    icon: 'fas fa-microscope',
     title: 'Disease Genetics + CRII',
     period: '2022–2023',
     role: 'Co-PI / Sole PI',
@@ -98,7 +118,7 @@ const grants = [
 
     <section class="hero">
       <h1>Grant</h1>
-      <p>Selected grants, awards, and project support adapted from imczq.com.</p>
+      <p>Selected grants, awards, and support, completed with details from imczq.com and cv.pdf.</p>
     </section>
 
     <section class="section">
@@ -106,7 +126,15 @@ const grants = [
       <div class="cards three">
         {grants.map((g) => (
           <article class="card">
-            <span class="tag">{g.agency}</span>
+            <div class="card-top">
+              <div class="agency-mark">
+                <i class={g.icon}></i>
+              </div>
+              <div class="top-meta">
+                <span class={`kind ${g.kind.toLowerCase()}`}>{g.kind}</span>
+                <span class="tag">{g.agency}</span>
+              </div>
+            </div>
             <h3>{g.title}</h3>
             <p class="meta"><strong>{g.period}</strong> · {g.role}</p>
             <p>{g.desc}</p>
@@ -135,13 +163,20 @@ const grants = [
   .cards { display:grid; gap:12px; }
   .cards.three { grid-template-columns: repeat(3, minmax(0,1fr)); }
   .card { border:1px solid rgba(148,163,184,.14); border-radius:14px; background:#fff; padding:14px; }
+  .card-top { display:flex; align-items:flex-start; gap:10px; margin-bottom:10px; }
+  .agency-mark { width:34px; height:34px; border-radius:10px; background:#eff6ff; color:#2563eb; display:flex; align-items:center; justify-content:center; flex:0 0 auto; }
+  .agency-mark i { font-size:.95rem; }
+  .top-meta { display:flex; flex-wrap:wrap; gap:6px; align-items:center; }
   .card h3 { font-family:'Montserrat',sans-serif; font-size:.95rem; margin:0 0 6px; line-height:1.3; }
   .card p { margin:0; color:#334155; font-size:.88rem; line-height:1.45; }
   .meta { margin-bottom:8px !important; color:#1e293b !important; font-size:.8rem !important; }
   .link-row { margin-top:10px !important; }
   .link-row a { color:var(--accent); text-decoration:none; font-size:.82rem; }
   .link-row a:hover { text-decoration:underline; }
-  .tag { display:inline-block; font-size:.66rem; color:var(--accent); background:#dbeafe; padding:3px 7px; border-radius:999px; margin-bottom:8px; }
+  .tag { display:inline-block; font-size:.66rem; color:var(--accent); background:#dbeafe; padding:3px 7px; border-radius:999px; }
+  .kind { display:inline-block; font-size:.64rem; font-weight:700; text-transform:uppercase; letter-spacing:.03em; padding:3px 7px; border-radius:999px; }
+  .kind.external { background:#dcfce7; color:#166534; }
+  .kind.internal { background:#fef3c7; color:#92400e; }
   @media (max-width: 1100px) { .cards.three { grid-template-columns: repeat(2, minmax(0,1fr)); } }
   @media (max-width: 720px) { .cards.three { grid-template-columns:1fr; } }
 </style>
