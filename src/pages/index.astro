@@ -34,8 +34,8 @@ const openProblems = [
 ];
 
 const githubCards = [
-  { name: 'Spectral-Graph-Survey', owner: 'XGraph-Team', repo: 'Spectral-Graph-Survey', stars: 175, language: 'Python', href: 'https://github.com/XGraph-Team/Spectral-Graph-Survey', desc: 'Survey-driven entry point to spectral graph theory, graph signals, and modern graph learning.' },
-  { name: 'Fusion-GAN', owner: 'XGraph-Team', repo: 'Fusion-GAN', stars: 19, language: 'Python', href: 'https://github.com/XGraph-Team/Fusion-GAN', desc: 'Music generation project on genre fusion with adversarial dual learning.' },
+  { name: 'Spectral Survey', owner: 'XGraph-Team', repo: 'Spectral-Graph-Survey', stars: 175, language: 'Python', href: 'https://github.com/XGraph-Team/Spectral-Graph-Survey', desc: 'Survey-driven entry point to spectral graph theory, graph signals, and modern graph learning.' },
+  { name: 'Fusion GAN', owner: 'XGraph-Team', repo: 'Fusion-GAN', stars: 19, language: 'Python', href: 'https://github.com/XGraph-Team/Fusion-GAN', desc: 'Music generation project on genre fusion with adversarial dual learning.' },
   { name: 'XFlow', owner: 'XGraph-Team', repo: 'XFlow', stars: 147, language: 'Python', href: 'https://github.com/XGraph-Team/XFlow', desc: 'Python library for graph flow simulation, diffusion, and network dynamics experiments.' },
   { name: 'SumoXPypsa', owner: 'XGraph-Team', repo: 'SumoXPypsa', stars: 2, language: 'Python', href: 'https://github.com/XGraph-Team/SumoXPypsa', desc: 'Coupled transportation-power simulation stack behind the WWW 2026 line of work.' }
 ];
@@ -164,9 +164,9 @@ const selectedWorks = [
                 </div>
                 <p>{repo.desc}</p>
                 <div class="repo-meta repo-badges">
-                  <img src={`https://img.shields.io/static/v1.svg?label=owner&message=${encodeURIComponent(repo.owner)}&style=flat-square&logo=github&logoColor=334155&labelColor=f8fafc&color=f8fafc`} alt={`owner ${repo.owner}`} />
-                  <img src={`https://img.shields.io/static/v1.svg?label=language&message=${encodeURIComponent(repo.language)}&style=flat-square&logo=python&logoColor=334155&labelColor=f8fafc&color=f8fafc`} alt={`language ${repo.language}`} />
-                  <img src={`https://img.shields.io/github/stars/${repo.owner}/${repo.repo}.svg?style=flat-square&label=stars&color=f8fafc&labelColor=f8fafc&logo=github&logoColor=334155`} alt={`stars for ${repo.name}`} loading="lazy" />
+                  <img src={`https://img.shields.io/static/v1.svg?label=owner&message=${encodeURIComponent(repo.owner)}&style=flat-square&logo=github&logoColor=181717&labelColor=f8fafc&color=f8fafc`} alt={`owner ${repo.owner}`} />
+                  <img src={`https://img.shields.io/static/v1.svg?label=language&message=${encodeURIComponent(repo.language)}&style=flat-square&logo=python&logoColor=3776AB&labelColor=f8fafc&color=f8fafc`} alt={`language ${repo.language}`} />
+                  <img src={`https://img.shields.io/github/stars/${repo.owner}/${repo.repo}.svg?style=flat-square&label=stars&color=f8fafc&labelColor=f8fafc&logo=github&logoColor=181717`} alt={`stars for ${repo.name}`} loading="lazy" />
                 </div>
               </a>
             ))}
@@ -388,8 +388,9 @@ const selectedWorks = [
   .repo-card:hover, .note-card:hover { transform: translateY(-3px); box-shadow: 0 12px 24px rgba(15,23,42,0.10); }
   .mini-card { padding: 12px 14px; border: 1px solid rgba(148,163,184,0.16); border-radius: 14px; margin-bottom: 8px; transition: border-color .18s ease, box-shadow .18s ease, transform .18s ease; }
   .mini-card:hover { border-color: rgba(37,99,235,0.38); box-shadow: 0 12px 24px rgba(15,23,42,0.10); transform: translateY(-3px); }
-  .repo-top, .row { display: flex; align-items: center; justify-content: space-between; gap: 10px; }
-  .repo-icon { color: #475569; }
+  .repo-top, .row { display: flex; align-items: flex-start; justify-content: space-between; gap: 10px; }
+  .repo-top h3 { line-height: 1.15; max-width: 80%; }
+  .repo-icon { color: #475569; margin-top: 2px; flex: 0 0 auto; }
   .repo-card p, .note-card p { margin: 0; color: #334155; font-size: .9rem; }
   .repo-meta { display: flex; gap: 8px; margin-top: 8px; font-size: .74rem; color: #64748b; flex-wrap: wrap; }
   .repo-badges img { height: 20px; border-radius: 6px; }
