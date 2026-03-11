@@ -1,66 +1,132 @@
 ---
 import Layout from '../layouts/Layout.astro';
 
+const totals = {
+  personal: '$1,670,222',
+  external: '$11,201,037',
+  internal: '$19,094.50',
+};
+
 const grants = [
   {
-    kind: 'External', agency: 'NSF', logo: '/icons/nsf.svg', title: 'NSF CAREER',
-    period: 'Jun 2025 – May 2030', amount: '—', role: 'Sole PI', collaborators: 'Mississippi State University',
-    desc: 'Unification across various graph dynamics and their interactions.',
+    kind: 'External', agency: 'NSF', logo: '/icons/nsf.svg',
+    title: 'NSF CAREER: From Fragmentation to Integration: Advancing Cross-Graph Dynamics in Interdependent Networks',
+    awardNo: '#2443266', period: '06/2025–05/2030', amount: '$517,594', credit: '100% credit', role: 'Sole PI',
+    collaborators: 'Mississippi State University',
+    desc: 'CAREER project on unification and interactions across graph dynamics in interdependent networks.',
     link: 'https://www.nsf.gov/awardsearch/showAward?AWD_ID=2443266',
   },
   {
-    kind: 'External', agency: 'Turing AI', logo: '/icons/turing_ai.svg', title: 'Turing AI Gift Money',
-    period: 'Aug 2025', amount: '—', role: 'Gift Funding', collaborators: 'Mississippi State University',
-    desc: 'Support for research on Large Language Models (LLMs).',
-    link: '',
-  },
-  {
-    kind: 'Internal', agency: 'MS State / CTL', logo: '/icons/msstate.svg', title: 'Ottilie Schillig Special Teaching Award',
-    period: 'May 2025', amount: '—', role: 'Award', collaborators: 'Mississippi State University',
-    desc: 'Support to gamify AI teaching with Lego Edu Kit.',
-    link: 'https://www.ctl.msstate.edu/resources/ottilie-schillig-special-teaching-projects-grants',
-  },
-  {
-    kind: 'External', agency: 'NSF', logo: '/icons/nsf.svg', title: 'CNS/MSI',
-    period: 'Aug 2024', amount: '—', role: 'Co-PI', collaborators: 'MS State + collaborators in speech / hate speech research',
-    desc: 'Speech recognition in English and Spanish with graph learning and LLMs.',
+    kind: 'External', agency: 'NSF', logo: '/icons/nsf.svg',
+    title: 'NSF CISE MSI: RCBP: III: Advancing Speech Detection: A Hybrid Approach Using Large Language Models and Graph Neural Networks',
+    awardNo: '#2431176', period: '01/2025–12/2026', amount: '$400,000', credit: '33% credit, MS State share $259,948.00', role: 'Co-PI / University PI',
+    collaborators: 'Mississippi State University + project collaborators',
+    desc: 'Speech detection using LLMs and graph neural networks.',
     link: 'https://www.nsf.gov/awardsearch/showAward?AWD_ID=2431176&HistoricalAwards=false',
   },
   {
-    kind: 'External', agency: 'NSF', logo: '/icons/nsf.svg', title: 'CNS/CIRC',
-    period: 'Jul 2024', amount: '—', role: 'PI', collaborators: 'Mississippi State University',
-    desc: 'Research infrastructure and grand theory for graph dynamics.',
+    kind: 'External', agency: 'NSF', logo: '/icons/nsf.svg',
+    title: 'NSF CIRC: Planning-C: Synergistic Graph Flow Analytics: An Integrated Infrastructure for Bridging Complexity, Fragmentation, and Interdisciplinary Gaps',
+    awardNo: '#2345921', period: '07/2024–06/2025', amount: '$99,998', credit: '60% credit', role: 'PI',
+    collaborators: 'Mississippi State University',
+    desc: 'Planning-C project on graph flow analytics and integrated infrastructure.',
     link: 'https://www.nsf.gov/awardsearch/showAward?AWD_ID=2345921&HistoricalAwards=false',
   },
   {
-    kind: 'External', agency: 'USDA-ARS', logo: '/icons/usda.svg', title: 'Animal Disease Spatial Epidemiology',
-    period: 'Jun 2024', amount: '—', role: 'Collaboration', collaborators: 'USDA scientists + Mississippi State University',
-    desc: 'Work on geospatial and environmental epidemiology of animal disease.',
-    link: 'https://www.usda.org',
+    kind: 'External', agency: 'NSF', logo: '/icons/nsf.svg',
+    title: 'NSF CRII: Interpretable Influence Propagating and Blocking on Graphs',
+    awardNo: '#2153369', period: '05/2022–11/2024', amount: '$174,004', credit: '100% credit', role: 'Sole PI',
+    collaborators: 'Mississippi State University',
+    desc: 'CRII project on interpretable influence propagation and blocking on graphs.',
+    link: 'https://www.nsf.gov/awardsearch/showAward?AWD_ID=2153369&HistoricalAwards=false',
   },
   {
-    kind: 'External', agency: 'NSF', logo: '/icons/nsf.svg', title: 'EDU/ITEST',
-    period: 'Apr 2024', amount: '—', role: 'Co-PI', collaborators: 'Mississippi K–12 / Mississippi State University',
-    desc: 'AI education research and pathway building for students in Mississippi.',
+    kind: 'External', agency: 'USDA-ARS', logo: '/icons/usda.svg',
+    title: 'Developing Detection and Modeling Tools for the Geospatial and Environmental Epidemiology of Animal Disease',
+    awardNo: '#58-6064-3-017', period: '10/2023–08/2028', amount: '$3,073,602', credit: '5% credit', role: 'Co-PI',
+    collaborators: 'USDA-ARS + Mississippi State University',
+    desc: 'Detection and modeling tools for animal disease epidemiology.',
+    link: 'https://imczq.com/',
+  },
+  {
+    kind: 'External', agency: 'USDA-ARS', logo: '/icons/usda.svg',
+    title: 'Advancing Agricultural Research through High Performance Computing',
+    awardNo: '#58-0200-0-002', period: '10/2022–08/2024', amount: '$5,690,689', credit: '5% credit', role: 'Co-PI',
+    collaborators: 'USDA-ARS + Mississippi State University',
+    desc: 'Agricultural research enabled by HPC infrastructure and collaboration.',
+    link: 'https://imczq.com/',
+  },
+  {
+    kind: 'External', agency: 'NSF [EDU]', logo: '/icons/nsf.svg',
+    title: 'ITEST: Learning to Create Intelligent Solutions with Machine Learning and Computer Vision: A Pathway to AI Careers for Diverse High School Students',
+    awardNo: '#2342574', period: '09/2024–08/2027', amount: '$1,192,951', credit: '25% credit', role: 'Co-PI',
+    collaborators: 'Mississippi State University + K-12 partners',
+    desc: 'AI education and pathway-building program for diverse high school students.',
     link: 'https://www.nsf.gov/awardsearch/showAward?AWD_ID=2342574',
   },
   {
-    kind: 'External', agency: 'NSF', logo: '/icons/nsf.svg', title: 'IIS/III REU Supplement',
-    period: 'Jan 2024', amount: '—', role: 'PI', collaborators: 'Mississippi State University',
-    desc: 'Undergraduate research support on graph dynamics.',
+    kind: 'External', agency: 'Turing AI', logo: '/icons/turing_ai.svg',
+    title: 'Turing AI Gift Money',
+    awardNo: '', period: '08/2025', amount: '$25,000', credit: '100% credit', role: 'Gift Funding',
+    collaborators: 'Mississippi State University',
+    desc: 'Gift support for LLM-related research.',
     link: '',
   },
   {
-    kind: 'Internal', agency: 'MS State / BCoE', logo: '/icons/msstate.svg', title: 'Graph AI Working Group',
-    period: 'Dec 2023', amount: '—', role: 'Launch Support', collaborators: 'Bagley College of Engineering, MS State',
-    desc: 'Cross-disciplinary Graph AI working group launched with institutional support.',
+    kind: 'External', agency: 'NSF [III]', logo: '/icons/nsf.svg',
+    title: 'REU Supplementary',
+    awardNo: '', period: '11/2023–11/2024', amount: '$14,000', credit: '100% credit', role: 'PI',
+    collaborators: 'Mississippi State University',
+    desc: 'Supplementary undergraduate research support.',
     link: '',
   },
   {
-    kind: 'External', agency: 'USDA-ARS / NSF', logo: '/icons/usda.svg', title: 'Disease Genetics + CRII',
-    period: '2022–2023', amount: '—', role: 'Co-PI / Sole PI', collaborators: 'USDA-ARS + CVM@MSState + Mississippi State University',
-    desc: 'USDA-ARS disease genetics support and NSF CRII on interpretable graph dynamics.',
-    link: 'https://www.nsf.gov/awardsearch/showAward?AWD_ID=2153369&HistoricalAwards=false',
+    kind: 'External', agency: 'USDA [ARS]', logo: '/icons/usda.svg',
+    title: 'Summer Internship Project',
+    awardNo: '', period: '05/2024–04/2025', amount: '$8,199', credit: '100% credit', role: 'PI',
+    collaborators: 'USDA-ARS + Mississippi State University',
+    desc: 'Summer internship support connected to USDA research activity.',
+    link: '',
+  },
+  {
+    kind: 'External', agency: 'Google', logo: '/icons/msstate.svg',
+    title: 'Google Cloud Research Credits',
+    awardNo: '', period: '11/2024–11/2026', amount: '$5,000', credit: '100% credit', role: 'Sole PI',
+    collaborators: 'Google Cloud + Mississippi State University',
+    desc: 'Research cloud credits for project development and experimentation.',
+    link: '',
+  },
+  {
+    kind: 'Internal', agency: 'CTL', logo: '/icons/msstate.svg',
+    title: 'Ottilie Schillig Special Teaching Award',
+    awardNo: '', period: '2025', amount: '$2,994.50', credit: '', role: 'PI',
+    collaborators: 'Center for Teaching and Learning, Mississippi State University',
+    desc: 'Internal teaching award support.',
+    link: 'https://www.ctl.msstate.edu/resources/ottilie-schillig-special-teaching-projects-grants',
+  },
+  {
+    kind: 'Internal', agency: 'Inter-Ins', logo: '/icons/msstate.svg',
+    title: 'Global Development Seed Grant Award',
+    awardNo: '', period: '2025', amount: '$6,000', credit: '', role: 'PI',
+    collaborators: 'International Institute',
+    desc: 'Internal seed grant support for global development activity.',
+    link: '',
+  },
+  {
+    kind: 'Internal', agency: 'Bagley', logo: '/icons/msstate.svg',
+    title: 'Working Group in Graph AI',
+    awardNo: '', period: '2023', amount: '$4,100', credit: '', role: 'PI',
+    collaborators: 'Bagley College of Engineering',
+    desc: 'Internal support for a Graph AI working group.',
+    link: '',
+  },
+  {
+    kind: 'Internal', agency: 'ORED', logo: '/icons/msstate.svg',
+    title: 'Undergrad Research Program',
+    awardNo: '', period: '2022 / 2023 / 2024 / 2025', amount: '$2,000 (2022/2024/2025), $1,500 (2023)', credit: '', role: 'PI / Co-PI',
+    collaborators: 'Office of Research and Economic Development',
+    desc: 'Undergraduate research program support across multiple years.',
+    link: '',
   },
 ];
 ---
@@ -78,11 +144,26 @@ const grants = [
 
     <section class="hero">
       <h1>Grant</h1>
-      <p>Selected grants, awards, and support, completed with details from imczq.com and cv.pdf.</p>
+      <p>Complete funding list adapted from the grants section of cv.pdf.</p>
+    </section>
+
+    <section class="summary-grid">
+      <article class="summary-card">
+        <span class="summary-label">Personal Credits</span>
+        <strong>{totals.personal}</strong>
+      </article>
+      <article class="summary-card">
+        <span class="summary-label">Total External</span>
+        <strong>{totals.external}</strong>
+      </article>
+      <article class="summary-card">
+        <span class="summary-label">Total Internal</span>
+        <strong>{totals.internal}</strong>
+      </article>
     </section>
 
     <section class="section">
-      <h2>Selected Funding & Support</h2>
+      <h2>Complete Grant List</h2>
       <div class="cards three">
         {grants.map((g) => (
           <article class="card">
@@ -97,8 +178,10 @@ const grants = [
             </div>
             <h3>{g.title}</h3>
             <div class="facts">
+              {g.awardNo && <p><strong>Award:</strong> {g.awardNo}</p>}
               <p><strong>Period:</strong> {g.period}</p>
               <p><strong>Amount:</strong> {g.amount}</p>
+              {g.credit && <p><strong>Credit:</strong> {g.credit}</p>}
               <p><strong>Role:</strong> {g.role}</p>
               <p><strong>Collaborators:</strong> {g.collaborators}</p>
             </div>
@@ -120,10 +203,14 @@ const grants = [
   .top-nav a { text-decoration:none; color:var(--ink); font-family:'Montserrat',sans-serif; font-size:.9rem; padding:7px 10px; border-radius:999px; background:transparent; }
   .top-nav a:hover { background:#dbeafe; color:var(--accent); }
   .nav-ghost { font-size:.78rem; margin-left:4px; opacity:.85; }
-  .hero { margin: 10px 0 20px; }
+  .hero { margin: 10px 0 16px; }
   .hero h1 { font-family:'Montserrat',sans-serif; font-size:2rem; margin:0 0 8px; }
   .hero p { margin:0; color:var(--muted); max-width:780px; }
-  .section { padding-top:10px; margin-top:10px; border-top:none; }
+  .summary-grid { display:grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap:10px; margin: 0 0 14px; }
+  .summary-card { border:1px solid rgba(148,163,184,.14); border-radius:12px; background:#fff; padding:12px 14px; }
+  .summary-label { display:block; font-size:.78rem; color:#64748b; margin-bottom:4px; }
+  .summary-card strong { font-size:1rem; color:#0f172a; }
+  .section { padding-top:8px; margin-top:8px; border-top:none; }
   .section h2 { font-family:'Montserrat',sans-serif; font-size:1.02rem; margin:0 0 10px; }
   .cards { display:grid; gap:10px; }
   .cards.three { grid-template-columns: repeat(3, minmax(0,1fr)); }
@@ -131,12 +218,12 @@ const grants = [
   .card-top { display:flex; align-items:flex-start; gap:8px; margin-bottom:8px; }
   .agency-mark { width:48px; height:48px; border-radius:10px; background:#ffffff; display:flex; align-items:center; justify-content:center; flex:0 0 auto; overflow:hidden; }
   .agency-mark.external img { width:100%; height:100%; object-fit:contain; display:block; }
-  .agency-mark.internal { width:68px; height:48px; padding:4px; }
+  .agency-mark.internal { width:72px; height:50px; padding:4px; }
   .agency-mark.internal img { width:100%; height:100%; object-fit:contain; display:block; }
   .top-meta { display:flex; flex-wrap:wrap; gap:6px; align-items:center; }
-  .card h3 { font-family:'Montserrat',sans-serif; font-size:.92rem; margin:0 0 6px; line-height:1.25; }
+  .card h3 { font-family:'Montserrat',sans-serif; font-size:.9rem; margin:0 0 6px; line-height:1.24; }
   .facts { display:grid; gap:3px; margin-bottom:8px; }
-  .facts p, .desc { margin:0; color:#334155; font-size:.8rem; line-height:1.35; }
+  .facts p, .desc { margin:0; color:#334155; font-size:.78rem; line-height:1.32; }
   .desc { color:#475569; }
   .link-row { margin-top:8px !important; }
   .link-row a { color:var(--accent); text-decoration:none; font-size:.78rem; }
@@ -145,6 +232,6 @@ const grants = [
   .kind { display:inline-block; font-size:.62rem; font-weight:700; text-transform:uppercase; letter-spacing:.03em; padding:2px 6px; border-radius:999px; }
   .kind.external { background:#dcfce7; color:#166534; }
   .kind.internal { background:#fef3c7; color:#92400e; }
-  @media (max-width: 1100px) { .cards.three { grid-template-columns: repeat(2, minmax(0,1fr)); } }
-  @media (max-width: 720px) { .cards.three { grid-template-columns:1fr; } }
+  @media (max-width: 1100px) { .cards.three, .summary-grid { grid-template-columns: repeat(2, minmax(0,1fr)); } }
+  @media (max-width: 720px) { .cards.three, .summary-grid { grid-template-columns:1fr; } }
 </style>
