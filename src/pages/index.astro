@@ -166,8 +166,7 @@ const selectedWorks = [
                 <div class="repo-meta repo-badges">
                   <img src={`https://img.shields.io/static/v1.svg?label=owner&message=${encodeURIComponent(repo.owner)}&style=flat-square&logo=github&logoColor=181717&labelColor=f8fafc&color=f8fafc`} alt={`owner ${repo.owner}`} />
                   <img src={`https://img.shields.io/static/v1.svg?label=language&message=${encodeURIComponent(repo.language)}&style=flat-square&logo=python&logoColor=3776AB&labelColor=f8fafc&color=f8fafc`} alt={`language ${repo.language}`} />
-                  <span class="star-chip"><i class="fas fa-star"></i> {repo.stars}</span>
-                  <a class="star-btn" href={repo.starHref} target="_blank" rel="noopener">Star</a>
+                  <a class="star-chip star-link" href={repo.starHref} target="_blank" rel="noopener"><i class="fas fa-star"></i><span>{repo.stars}</span><span class="star-text">Star</span></a>
                 </div>
               </a>
             ))}
@@ -395,10 +394,10 @@ const selectedWorks = [
   .repo-card p, .note-card p { margin: 0; color: #334155; font-size: .9rem; }
   .repo-meta { display: flex; gap: 8px; margin-top: 8px; font-size: .74rem; color: #64748b; flex-wrap: wrap; }
   .repo-badges img { height: 20px; border-radius: 6px; }
-  .star-chip { display: inline-flex; align-items: center; gap: 4px; height: 20px; padding: 0 8px; border-radius: 999px; border: 1px solid rgba(148,163,184,0.16); background: #f8fafc; font-size: .72rem; color: #334155; }
+  .star-chip { display: inline-flex; align-items: center; gap: 4px; height: 20px; padding: 0 8px; border-radius: 999px; border: 1px solid rgba(148,163,184,0.16); background: #f8fafc; font-size: .72rem; color: #334155; text-decoration: none; }
   .star-chip i { color: #eab308; font-size: .72rem; }
-  .star-btn { display: inline-flex; align-items: center; justify-content: center; height: 20px; padding: 0 8px; border-radius: 999px; border: 1px solid rgba(15,23,42,0.12); background: #fff; color: #0f172a; text-decoration: none; font-size: .72rem; }
-  .star-btn:hover { border-color: rgba(37,99,235,0.35); color: #2563eb; background: #eff6ff; }
+  .star-link:hover { border-color: rgba(37,99,235,0.35); color: #2563eb; background: #eff6ff; }
+  .star-text { margin-left: 2px; }
   .repo-pill { font-size: .72rem; color: #2563eb; background: #dbeafe; padding: 3px 8px; border-radius: 999px; white-space: nowrap; }
   .repo-pill.muted { color: #7c3aed; background: #ede9fe; }
   .btn { border: 1px solid #0f172a; background: #0f172a; color: #fff; border-radius: 6px; padding: 5px 12px; cursor: pointer; transition: background .15s ease; font-size: .76rem; line-height: 1.2; }
