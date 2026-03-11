@@ -1,0 +1,130 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const grants = [
+  {
+    agency: 'NSF',
+    title: 'NSF CAREER',
+    period: 'Jun 2025 – May 2030',
+    role: 'Sole PI',
+    desc: 'Unification across various graph dynamics and their interactions.',
+    link: 'https://www.nsf.gov/awardsearch/showAward?AWD_ID=2443266',
+  },
+  {
+    agency: 'Turing AI',
+    title: 'Turing AI Gift Money',
+    period: 'Aug 2025',
+    role: 'Gift funding',
+    desc: 'Support for research on Large Language Models (LLMs).',
+    link: '',
+  },
+  {
+    agency: 'NSF',
+    title: 'CNS/MSI',
+    period: 'Aug 2024',
+    role: 'Co-PI',
+    desc: 'Advance speech recognition in English and Spanish with graph learning and LLMs.',
+    link: 'https://www.nsf.gov/awardsearch/showAward?AWD_ID=2431176&HistoricalAwards=false',
+  },
+  {
+    agency: 'NSF',
+    title: 'CNS/CIRC',
+    period: 'Jul 2024',
+    role: 'PI',
+    desc: 'Develop research infrastructure and a grand theory for graph dynamics.',
+    link: 'https://www.nsf.gov/awardsearch/showAward?AWD_ID=2345921&HistoricalAwards=false',
+  },
+  {
+    agency: 'NSF',
+    title: 'EDU/ITEST',
+    period: 'Apr 2024',
+    role: 'Co-PI',
+    desc: 'Develop AI education programming for K-12 students in Mississippi.',
+    link: 'https://www.nsf.gov/awardsearch/showAward?AWD_ID=2342574',
+  },
+  {
+    agency: 'NSF',
+    title: 'IIS/III REU Supplement',
+    period: 'Jan 2024',
+    role: 'Sole PI',
+    desc: 'Support undergraduate student research on graph dynamics.',
+    link: '',
+  },
+  {
+    agency: 'USDA-ARS',
+    title: 'Animal Disease Epidemiology',
+    period: 'Oct 2023 – Aug 2028',
+    role: 'Co-PI',
+    desc: 'Study geospatial and environmental epidemiology of animal disease.',
+    link: 'https://www.usda.org',
+  },
+  {
+    agency: 'NSF',
+    title: 'IIS/III CRII',
+    period: 'Apr 2022',
+    role: 'Sole PI',
+    desc: 'Interpretable influence propagating and blocking on graphs.',
+    link: 'https://www.nsf.gov/awardsearch/showAward?AWD_ID=2153369&HistoricalAwards=false',
+  },
+];
+---
+<Layout title="Grant | Zhiqian Chen">
+  <main class="container">
+    <nav class="top-nav" aria-label="Sections">
+      <a href="/">Home</a>
+      <a href="/research">Research</a>
+      <a href="/people">People</a>
+      <a href="/teach">Teach</a>
+      <a href="/grant" aria-current="page">Grant</a>
+      <a href="https://scholar.google.com/scholar?q=Zhiqian+Chen" target="_blank" rel="noopener">Paper <i class="fas fa-arrow-up-right-from-square nav-ghost"></i></a>
+      <a href="https://zhiqian.ai" target="_blank" rel="noopener">Zhiqian.ai <i class="fas fa-arrow-up-right-from-square nav-ghost"></i></a>
+    </nav>
+
+    <section class="hero">
+      <h1>Grant</h1>
+      <p>Selected grants and sponsored projects, adapted from imczq.com.</p>
+    </section>
+
+    <section class="section">
+      <h2>Selected Funding</h2>
+      <div class="cards two">
+        {grants.map((g) => (
+          <article class="card">
+            <span class="tag">{g.agency}</span>
+            <h3>{g.title}</h3>
+            <p class="meta"><strong>{g.period}</strong> · {g.role}</p>
+            <p>{g.desc}</p>
+            {g.link && (
+              <p class="link-row"><a href={g.link} target="_blank" rel="noopener">View source <i class="fas fa-arrow-up-right-from-square"></i></a></p>
+            )}
+          </article>
+        ))}
+      </div>
+    </section>
+  </main>
+</Layout>
+
+<style>
+  :root { --accent:#2563eb; --ink:#0f172a; --muted:#475569; }
+  .container { max-width: 1800px; margin: 0 auto; padding: 20px; }
+  .top-nav { margin-bottom: 14px; padding: 10px 0 14px; display:flex; flex-wrap:wrap; gap:8px; align-items:center; background:transparent; border:none; border-bottom:none; border-radius:0; box-shadow:none; }
+  .top-nav a { text-decoration:none; color:var(--ink); font-family:'Montserrat',sans-serif; font-size:.9rem; padding:7px 10px; border-radius:999px; background:transparent; }
+  .top-nav a:hover { background:#dbeafe; color:var(--accent); }
+  .nav-ghost { font-size:.78rem; margin-left:4px; opacity:.85; }
+  .hero { margin: 10px 0 28px; }
+  .hero h1 { font-family:'Montserrat',sans-serif; font-size:2rem; margin:0 0 8px; }
+  .hero p { margin:0; color:var(--muted); max-width:780px; }
+  .section { padding-top:18px; margin-top:26px; border-top:none; }
+  .section h2 { font-family:'Montserrat',sans-serif; font-size:1.1rem; margin:0 0 14px; }
+  .cards { display:grid; gap:14px; }
+  .cards.two { grid-template-columns: repeat(2, minmax(0,1fr)); }
+  .card { border:1px solid rgba(148,163,184,.16); border-radius:16px; background:#fff; padding:16px; }
+  .card h3 { font-family:'Montserrat',sans-serif; font-size:1rem; margin:0 0 8px; }
+  .card p { margin:0; color:#334155; font-size:.95rem; }
+  .meta { margin-bottom:10px !important; color:#1e293b !important; }
+  .link-row { margin-top:12px !important; }
+  .link-row a { color:var(--accent); text-decoration:none; font-size:.88rem; }
+  .link-row a:hover { text-decoration:underline; }
+  .tag { display:inline-block; font-size:.72rem; color:var(--accent); background:#dbeafe; padding:3px 8px; border-radius:999px; margin-bottom:8px; }
+  @media (max-width: 900px) { .cards.two { grid-template-columns:1fr; } }
+</style>
