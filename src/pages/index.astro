@@ -34,10 +34,10 @@ const openProblems = [
 ];
 
 const githubCards = [
-  { name: 'Spectral Survey', owner: 'XGraph-Team', repo: 'Spectral-Graph-Survey', stars: 175, language: 'Python', href: 'https://github.com/XGraph-Team/Spectral-Graph-Survey', desc: 'Survey-driven entry point to spectral graph theory, graph signals, and modern graph learning.' },
-  { name: 'Fusion GAN', owner: 'XGraph-Team', repo: 'Fusion-GAN', stars: 19, language: 'Python', href: 'https://github.com/XGraph-Team/Fusion-GAN', desc: 'Music generation project on genre fusion with adversarial dual learning.' },
-  { name: 'XFlow', owner: 'XGraph-Team', repo: 'XFlow', stars: 147, language: 'Python', href: 'https://github.com/XGraph-Team/XFlow', desc: 'Python library for graph flow simulation, diffusion, and network dynamics experiments.' },
-  { name: 'SumoXPypsa', owner: 'XGraph-Team', repo: 'SumoXPypsa', stars: 2, language: 'Python', href: 'https://github.com/XGraph-Team/SumoXPypsa', desc: 'Coupled transportation-power simulation stack behind the WWW 2026 line of work.' }
+  { name: 'Spectral Survey', owner: 'XGraph-Team', repo: 'Spectral-Graph-Survey', stars: 175, language: 'Python', href: 'https://github.com/XGraph-Team/Spectral-Graph-Survey', starHref: 'https://github.com/XGraph-Team/Spectral-Graph-Survey/stargazers', desc: 'Survey-driven entry point to spectral graph theory, graph signals, and modern graph learning.' },
+  { name: 'Fusion GAN', owner: 'XGraph-Team', repo: 'Fusion-GAN', stars: 19, language: 'Python', href: 'https://github.com/XGraph-Team/Fusion-GAN', starHref: 'https://github.com/XGraph-Team/Fusion-GAN/stargazers', desc: 'Music generation project on genre fusion with adversarial dual learning.' },
+  { name: 'XFlow', owner: 'XGraph-Team', repo: 'XFlow', stars: 147, language: 'Python', href: 'https://github.com/XGraph-Team/XFlow', starHref: 'https://github.com/XGraph-Team/XFlow/stargazers', desc: 'Python library for graph flow simulation, diffusion, and network dynamics experiments.' },
+  { name: 'SumoXPypsa', owner: 'XGraph-Team', repo: 'SumoXPypsa', stars: 2, language: 'Python', href: 'https://github.com/XGraph-Team/SumoXPypsa', starHref: 'https://github.com/XGraph-Team/SumoXPypsa/stargazers', desc: 'Coupled transportation-power simulation stack behind the WWW 2026 line of work.' }
 ];
 
 const ghostEntries = [
@@ -47,7 +47,7 @@ const ghostEntries = [
 ];
 
 const selectedWorks = [
-  { name: 'Unified GNN framework', venue: 'ACM CSUR 2023', output: 'Survey and tutorial-building effort toward unifying spectral and spatial graph learning.', detail: 'Problem: spectral and spatial GNNs are often treated as separate camps. Contribution: I developed a unifying view that connects these perspectives and turned it into a survey/tutorial line. Why it matters: it gives researchers and students a cleaner conceptual map for graph learning.', keywords: 'spectral · spatial · GNN theory', href: 'https://github.com/XGraph-Team/Spectral-Graph-Survey', image: 'https://imczq.com/project/unifying/featured_hu352832247ca9de48ec6cd5688ca312ae_768239_540x0_resize_q75_h2_lanczos.webp' },
+  { name: 'Unified GNN framework', venue: 'ACM CSUR 2023', output: 'Survey and tutorial-building effort toward unifying spectral and spatial graph learning.', detail: 'Problem: spectral and spatial GNNs are often treated as separate camps. Contribution: I developed a unifying view that connects these perspectives and turned it into a survey/tutorial line. Why it matters: it gives researchers and students a cleaner conceptual map for graph learning.', keywords: 'spectral · spatial · GNN theory', href: 'https://github.com/XGraph-Team/Spectral-Graph-Survey', starHref: 'https://github.com/XGraph-Team/Spectral-Graph-Survey/stargazers', image: 'https://imczq.com/project/unifying/featured_hu352832247ca9de48ec6cd5688ca312ae_768239_540x0_resize_q75_h2_lanczos.webp' },
   { name: 'Influence on graphs', venue: 'AAAI 2024', output: 'Graph Bayesian Optimization, source localization, and influence maximization for dynamic and multiplex networks.', detail: 'Problem: influence and diffusion decisions on graphs are combinatorial and uncertain. Contribution: I used Bayesian optimization and graph structure to localize sources and search efficiently over intervention choices. Why it matters: this makes graph decision-making more sample-efficient and more actionable.', keywords: 'UQ · diffusion · optimization', href: 'https://imczq.com/project/gbo/', image: 'https://imczq.com/project/gbo/featured_hud696c5486f3d729ebf5ee1ceaffacccd_128059_540x0_resize_q75_h2_lanczos_3.webp' },
   { name: 'Spatiotemporal and urban forecasting', venue: 'SIGSPATIAL 2020', output: 'Graph-temporal forecasting for traffic and mobility, including award-winning work on urban intelligence.', detail: 'Problem: urban systems evolve over both space and time, and purely local models miss network effects. Contribution: I combined graph structure with temporal filtering for traffic and mobility forecasting. Why it matters: this line connects theory to real infrastructure and practical urban prediction.', keywords: 'traffic · mobility · forecasting', href: 'https://imczq.com/project/20_kalman_gis/', image: 'https://imczq.com/project/20_kalman_gis/featured_hu6d4d4db39f7ac31cad16d8b437bab632_85075_540x0_resize_q75_h2_lanczos_3.webp' },
   { name: 'Materials and scientific discovery', venue: 'Nature Communications 2019', output: 'Graph/ML-enabled discovery for solid-state lithium-ion conductors and related science-facing systems.', detail: 'Problem: scientific discovery pipelines need better representations for complex candidate structures. Contribution: I used graph-based modeling to help screen and understand promising materials. Why it matters: this shows graph intelligence can accelerate discovery beyond standard CS benchmarks.', keywords: 'materials · science AI · discovery', href: 'https://imczq.com/project/17_fusiongan_icdm/', image: 'https://imczq.com/project/17_fusiongan_icdm/featured_hu79af7702fdd7ef1f1d4d79a2bd7a81f7_90601_540x0_resize_q75_h2_lanczos_3.webp' },
@@ -166,7 +166,8 @@ const selectedWorks = [
                 <div class="repo-meta repo-badges">
                   <img src={`https://img.shields.io/static/v1.svg?label=owner&message=${encodeURIComponent(repo.owner)}&style=flat-square&logo=github&logoColor=181717&labelColor=f8fafc&color=f8fafc`} alt={`owner ${repo.owner}`} />
                   <img src={`https://img.shields.io/static/v1.svg?label=language&message=${encodeURIComponent(repo.language)}&style=flat-square&logo=python&logoColor=3776AB&labelColor=f8fafc&color=f8fafc`} alt={`language ${repo.language}`} />
-                  <img src={`https://img.shields.io/github/stars/${repo.owner}/${repo.repo}.svg?style=flat-square&label=stars&color=f8fafc&labelColor=f8fafc&logo=github&logoColor=181717`} alt={`stars for ${repo.name}`} loading="lazy" />
+                  <span class="star-chip"><i class="fas fa-star"></i> {repo.stars}</span>
+                  <a class="star-btn" href={repo.starHref} target="_blank" rel="noopener">Star</a>
                 </div>
               </a>
             ))}
@@ -394,6 +395,10 @@ const selectedWorks = [
   .repo-card p, .note-card p { margin: 0; color: #334155; font-size: .9rem; }
   .repo-meta { display: flex; gap: 8px; margin-top: 8px; font-size: .74rem; color: #64748b; flex-wrap: wrap; }
   .repo-badges img { height: 20px; border-radius: 6px; }
+  .star-chip { display: inline-flex; align-items: center; gap: 4px; height: 20px; padding: 0 8px; border-radius: 999px; border: 1px solid rgba(148,163,184,0.16); background: #f8fafc; font-size: .72rem; color: #334155; }
+  .star-chip i { color: #eab308; font-size: .72rem; }
+  .star-btn { display: inline-flex; align-items: center; justify-content: center; height: 20px; padding: 0 8px; border-radius: 999px; border: 1px solid rgba(15,23,42,0.12); background: #fff; color: #0f172a; text-decoration: none; font-size: .72rem; }
+  .star-btn:hover { border-color: rgba(37,99,235,0.35); color: #2563eb; background: #eff6ff; }
   .repo-pill { font-size: .72rem; color: #2563eb; background: #dbeafe; padding: 3px 8px; border-radius: 999px; white-space: nowrap; }
   .repo-pill.muted { color: #7c3aed; background: #ede9fe; }
   .btn { border: 1px solid #0f172a; background: #0f172a; color: #fff; border-radius: 6px; padding: 5px 12px; cursor: pointer; transition: background .15s ease; font-size: .76rem; line-height: 1.2; }
