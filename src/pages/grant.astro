@@ -3,102 +3,62 @@ import Layout from '../layouts/Layout.astro';
 
 const grants = [
   {
-    kind: 'External',
-    agency: 'NSF',
-    logo: '/icons/nsf.svg',
-    title: 'NSF CAREER',
-    period: 'Jun 2025 – May 2030',
-    role: 'Sole PI',
+    kind: 'External', agency: 'NSF', logo: '/icons/nsf.svg', title: 'NSF CAREER',
+    period: 'Jun 2025 – May 2030', amount: '—', role: 'Sole PI', collaborators: 'Mississippi State University',
     desc: 'Unification across various graph dynamics and their interactions.',
     link: 'https://www.nsf.gov/awardsearch/showAward?AWD_ID=2443266',
   },
   {
-    kind: 'External',
-    agency: 'Turing AI',
-    logo: '/icons/turing_ai.svg',
-    title: 'Turing AI Gift Money',
-    period: 'Aug 2025',
-    role: 'Gift Funding',
+    kind: 'External', agency: 'Turing AI', logo: '/icons/turing_ai.svg', title: 'Turing AI Gift Money',
+    period: 'Aug 2025', amount: '—', role: 'Gift Funding', collaborators: 'Mississippi State University',
     desc: 'Support for research on Large Language Models (LLMs).',
     link: '',
   },
   {
-    kind: 'Internal',
-    agency: 'MS State / CTL',
-    logo: '/icons/msstate.svg',
-    title: 'Ottilie Schillig Special Teaching Award',
-    period: 'May 2025',
-    role: 'Award',
+    kind: 'Internal', agency: 'MS State / CTL', logo: '/icons/msstate.svg', title: 'Ottilie Schillig Special Teaching Award',
+    period: 'May 2025', amount: '—', role: 'Award', collaborators: 'Mississippi State University',
     desc: 'Support to gamify AI teaching with Lego Edu Kit.',
     link: 'https://www.ctl.msstate.edu/resources/ottilie-schillig-special-teaching-projects-grants',
   },
   {
-    kind: 'External',
-    agency: 'NSF',
-    logo: '/icons/nsf.svg',
-    title: 'CNS/MSI',
-    period: 'Aug 2024',
-    role: 'Co-PI',
+    kind: 'External', agency: 'NSF', logo: '/icons/nsf.svg', title: 'CNS/MSI',
+    period: 'Aug 2024', amount: '—', role: 'Co-PI', collaborators: 'MS State + collaborators in speech / hate speech research',
     desc: 'Speech recognition in English and Spanish with graph learning and LLMs.',
     link: 'https://www.nsf.gov/awardsearch/showAward?AWD_ID=2431176&HistoricalAwards=false',
   },
   {
-    kind: 'External',
-    agency: 'NSF',
-    logo: '/icons/nsf.svg',
-    title: 'CNS/CIRC',
-    period: 'Jul 2024',
-    role: 'PI',
+    kind: 'External', agency: 'NSF', logo: '/icons/nsf.svg', title: 'CNS/CIRC',
+    period: 'Jul 2024', amount: '—', role: 'PI', collaborators: 'Mississippi State University',
     desc: 'Research infrastructure and grand theory for graph dynamics.',
     link: 'https://www.nsf.gov/awardsearch/showAward?AWD_ID=2345921&HistoricalAwards=false',
   },
   {
-    kind: 'External',
-    agency: 'USDA-ARS',
-    logo: '/icons/usda.svg',
-    title: 'Animal Disease Spatial Epidemiology',
-    period: 'Jun 2024',
-    role: 'Collaboration',
-    desc: 'Work with USDA scientists on geospatial and environmental epidemiology.',
+    kind: 'External', agency: 'USDA-ARS', logo: '/icons/usda.svg', title: 'Animal Disease Spatial Epidemiology',
+    period: 'Jun 2024', amount: '—', role: 'Collaboration', collaborators: 'USDA scientists + Mississippi State University',
+    desc: 'Work on geospatial and environmental epidemiology of animal disease.',
     link: 'https://www.usda.org',
   },
   {
-    kind: 'External',
-    agency: 'NSF',
-    logo: '/icons/nsf.svg',
-    title: 'EDU/ITEST',
-    period: 'Apr 2024',
-    role: 'Co-PI',
-    desc: 'AI education research and K–12 pathway building in Mississippi.',
+    kind: 'External', agency: 'NSF', logo: '/icons/nsf.svg', title: 'EDU/ITEST',
+    period: 'Apr 2024', amount: '—', role: 'Co-PI', collaborators: 'Mississippi K–12 / Mississippi State University',
+    desc: 'AI education research and pathway building for students in Mississippi.',
     link: 'https://www.nsf.gov/awardsearch/showAward?AWD_ID=2342574',
   },
   {
-    kind: 'External',
-    agency: 'NSF',
-    logo: '/icons/nsf.svg',
-    title: 'IIS/III REU Supplement',
-    period: 'Jan 2024',
-    role: 'PI',
+    kind: 'External', agency: 'NSF', logo: '/icons/nsf.svg', title: 'IIS/III REU Supplement',
+    period: 'Jan 2024', amount: '—', role: 'PI', collaborators: 'Mississippi State University',
     desc: 'Undergraduate research support on graph dynamics.',
     link: '',
   },
   {
-    kind: 'Internal',
-    agency: 'MS State / BCoE',
-    logo: '/icons/msstate.svg',
-    title: 'Graph AI Working Group',
-    period: 'Dec 2023',
-    role: 'Launch Support',
+    kind: 'Internal', agency: 'MS State / BCoE', logo: '/icons/msstate.svg', title: 'Graph AI Working Group',
+    period: 'Dec 2023', amount: '—', role: 'Launch Support', collaborators: 'Bagley College of Engineering, MS State',
     desc: 'Cross-disciplinary Graph AI working group launched with institutional support.',
     link: '',
   },
   {
-    kind: 'External',
-    agency: 'USDA-ARS / NSF',
-    logo: '/icons/usda.svg',
-    title: 'Disease Genetics + CRII',
-    period: '2022–2023',
-    role: 'Co-PI / Sole PI',
+    kind: 'External', agency: 'USDA-ARS / NSF', logo: '/icons/usda.svg', title: 'Disease Genetics + CRII',
+    period: '2022–2023', amount: '—', role: 'Co-PI / Sole PI', collaborators: 'USDA-ARS + CVM@MSState + Mississippi State University',
     desc: 'USDA-ARS disease genetics support and NSF CRII on interpretable graph dynamics.',
     link: 'https://www.nsf.gov/awardsearch/showAward?AWD_ID=2153369&HistoricalAwards=false',
   },
@@ -127,7 +87,7 @@ const grants = [
         {grants.map((g) => (
           <article class="card">
             <div class="card-top">
-              <div class="agency-mark">
+              <div class={`agency-mark ${g.kind.toLowerCase()}`}>
                 <img src={g.logo} alt={g.agency} loading="lazy" />
               </div>
               <div class="top-meta">
@@ -136,8 +96,13 @@ const grants = [
               </div>
             </div>
             <h3>{g.title}</h3>
-            <p class="meta"><strong>{g.period}</strong> · {g.role}</p>
-            <p>{g.desc}</p>
+            <div class="facts">
+              <p><strong>Period:</strong> {g.period}</p>
+              <p><strong>Amount:</strong> {g.amount}</p>
+              <p><strong>Role:</strong> {g.role}</p>
+              <p><strong>Collaborators:</strong> {g.collaborators}</p>
+            </div>
+            <p class="desc">{g.desc}</p>
             {g.link && (
               <p class="link-row"><a href={g.link} target="_blank" rel="noopener">Source <i class="fas fa-arrow-up-right-from-square"></i></a></p>
             )}
@@ -155,26 +120,29 @@ const grants = [
   .top-nav a { text-decoration:none; color:var(--ink); font-family:'Montserrat',sans-serif; font-size:.9rem; padding:7px 10px; border-radius:999px; background:transparent; }
   .top-nav a:hover { background:#dbeafe; color:var(--accent); }
   .nav-ghost { font-size:.78rem; margin-left:4px; opacity:.85; }
-  .hero { margin: 10px 0 24px; }
+  .hero { margin: 10px 0 20px; }
   .hero h1 { font-family:'Montserrat',sans-serif; font-size:2rem; margin:0 0 8px; }
   .hero p { margin:0; color:var(--muted); max-width:780px; }
-  .section { padding-top:14px; margin-top:18px; border-top:none; }
-  .section h2 { font-family:'Montserrat',sans-serif; font-size:1.05rem; margin:0 0 12px; }
-  .cards { display:grid; gap:12px; }
+  .section { padding-top:10px; margin-top:10px; border-top:none; }
+  .section h2 { font-family:'Montserrat',sans-serif; font-size:1.02rem; margin:0 0 10px; }
+  .cards { display:grid; gap:10px; }
   .cards.three { grid-template-columns: repeat(3, minmax(0,1fr)); }
-  .card { border:1px solid rgba(148,163,184,.14); border-radius:14px; background:#fff; padding:14px; }
-  .card-top { display:flex; align-items:flex-start; gap:10px; margin-bottom:10px; }
-  .agency-mark { width:40px; height:40px; border-radius:10px; background:#ffffff; display:flex; align-items:center; justify-content:center; flex:0 0 auto; overflow:hidden; }
-  .agency-mark img { width:100%; height:100%; object-fit:contain; display:block; }
+  .card { border:1px solid rgba(148,163,184,.14); border-radius:12px; background:#fff; padding:12px; }
+  .card-top { display:flex; align-items:flex-start; gap:8px; margin-bottom:8px; }
+  .agency-mark { width:48px; height:48px; border-radius:10px; background:#ffffff; display:flex; align-items:center; justify-content:center; flex:0 0 auto; overflow:hidden; }
+  .agency-mark.external img { width:100%; height:100%; object-fit:contain; display:block; }
+  .agency-mark.internal { width:68px; height:48px; padding:4px; }
+  .agency-mark.internal img { width:100%; height:100%; object-fit:contain; display:block; }
   .top-meta { display:flex; flex-wrap:wrap; gap:6px; align-items:center; }
-  .card h3 { font-family:'Montserrat',sans-serif; font-size:.95rem; margin:0 0 6px; line-height:1.3; }
-  .card p { margin:0; color:#334155; font-size:.88rem; line-height:1.45; }
-  .meta { margin-bottom:8px !important; color:#1e293b !important; font-size:.8rem !important; }
-  .link-row { margin-top:10px !important; }
-  .link-row a { color:var(--accent); text-decoration:none; font-size:.82rem; }
+  .card h3 { font-family:'Montserrat',sans-serif; font-size:.92rem; margin:0 0 6px; line-height:1.25; }
+  .facts { display:grid; gap:3px; margin-bottom:8px; }
+  .facts p, .desc { margin:0; color:#334155; font-size:.8rem; line-height:1.35; }
+  .desc { color:#475569; }
+  .link-row { margin-top:8px !important; }
+  .link-row a { color:var(--accent); text-decoration:none; font-size:.78rem; }
   .link-row a:hover { text-decoration:underline; }
-  .tag { display:inline-block; font-size:.66rem; color:var(--accent); background:#dbeafe; padding:3px 7px; border-radius:999px; }
-  .kind { display:inline-block; font-size:.64rem; font-weight:700; text-transform:uppercase; letter-spacing:.03em; padding:3px 7px; border-radius:999px; }
+  .tag { display:inline-block; font-size:.64rem; color:var(--accent); background:#dbeafe; padding:2px 6px; border-radius:999px; }
+  .kind { display:inline-block; font-size:.62rem; font-weight:700; text-transform:uppercase; letter-spacing:.03em; padding:2px 6px; border-radius:999px; }
   .kind.external { background:#dcfce7; color:#166534; }
   .kind.internal { background:#fef3c7; color:#92400e; }
   @media (max-width: 1100px) { .cards.three { grid-template-columns: repeat(2, minmax(0,1fr)); } }
