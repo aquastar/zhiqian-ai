@@ -46,13 +46,127 @@ const ghostEntries = [
   { title: 'Build Log #1', meta: 'Placeholder', desc: 'Small writeups on tools, systems, and experiments.' },
 ];
 
-const selectedWorks = [
-  { name: 'Unified GNN framework', venue: 'ACM CSUR 2023', output: 'Survey and tutorial-building effort toward unifying spectral and spatial graph learning.', detail: 'Problem: spectral and spatial GNNs are often treated as separate camps. Contribution: I developed a unifying view that connects these perspectives and turned it into a survey/tutorial line. Why it matters: it gives researchers and students a cleaner conceptual map for graph learning.', keywords: 'spectral · spatial · GNN theory', href: 'https://github.com/XGraph-Team/Spectral-Graph-Survey', starHref: 'https://github.com/XGraph-Team/Spectral-Graph-Survey/stargazers', image: 'https://imczq.com/project/unifying/featured_hu352832247ca9de48ec6cd5688ca312ae_768239_540x0_resize_q75_h2_lanczos.webp' },
-  { name: 'Influence on graphs', venue: 'AAAI 2024', output: 'Graph Bayesian Optimization, source localization, and influence maximization for dynamic and multiplex networks.', detail: 'Problem: influence and diffusion decisions on graphs are combinatorial and uncertain. Contribution: I used Bayesian optimization and graph structure to localize sources and search efficiently over intervention choices. Why it matters: this makes graph decision-making more sample-efficient and more actionable.', keywords: 'UQ · diffusion · optimization', href: 'https://imczq.com/project/gbo/', image: 'https://imczq.com/project/gbo/featured_hud696c5486f3d729ebf5ee1ceaffacccd_128059_540x0_resize_q75_h2_lanczos_3.webp' },
-  { name: 'Spatiotemporal and urban forecasting', venue: 'SIGSPATIAL 2020', output: 'Graph-temporal forecasting for traffic and mobility, including award-winning work on urban intelligence.', detail: 'Problem: urban systems evolve over both space and time, and purely local models miss network effects. Contribution: I combined graph structure with temporal filtering for traffic and mobility forecasting. Why it matters: this line connects theory to real infrastructure and practical urban prediction.', keywords: 'traffic · mobility · forecasting', href: 'https://imczq.com/project/20_kalman_gis/', image: 'https://imczq.com/project/20_kalman_gis/featured_hu6d4d4db39f7ac31cad16d8b437bab632_85075_540x0_resize_q75_h2_lanczos_3.webp' },
-  { name: 'Materials and scientific discovery', venue: 'Nature Communications 2019', output: 'Graph/ML-enabled discovery for solid-state lithium-ion conductors and related science-facing systems.', detail: 'Problem: scientific discovery pipelines need better representations for complex candidate structures. Contribution: I used graph-based modeling to help screen and understand promising materials. Why it matters: this shows graph intelligence can accelerate discovery beyond standard CS benchmarks.', keywords: 'materials · science AI · discovery', href: 'https://imczq.com/project/17_fusiongan_icdm/', image: 'https://imczq.com/project/17_fusiongan_icdm/featured_hu79af7702fdd7ef1f1d4d79a2bd7a81f7_90601_540x0_resize_q75_h2_lanczos_3.webp' },
-  { name: 'Interdisciplinary AI infrastructure', venue: 'WWW 2026', output: 'Cross-domain graph infrastructure spanning epidemiology, agriculture, transportation, and engineering.', detail: 'Problem: real systems rarely live in a single network; they interact across domains. Contribution: I built cross-domain graph infrastructure linking epidemiology, agriculture, transportation, and engineering settings. Why it matters: this is the kind of systems foundation needed for broader graph dynamics research.', keywords: 'cross-network · infrastructure · simulation', href: 'https://imczq.com/project/23_sim_sdm/', image: 'https://imczq.com/project/23_sim_sdm/featured_hu47ed903882ca2a20b0bbd31dfd70f9ab_135606_540x0_resize_q75_h2_lanczos_3.webp' },
+const researchDirections = [
+  { key: 'materials', label: 'Materials for Energy', desc: 'Machine learning for scientific discovery and energy-storage materials.' },
+  { key: 'unified-graph', label: 'Unified Graph Theory', desc: 'Toward unified operator-level views that connect spectral, spatial, and dynamical graph learning.' },
+  { key: 'uq', label: 'Uncertainty Quantification', desc: 'Reliable graph decisions under uncertainty, sensitivity, and limited observations.' },
+  { key: 'hw-sw', label: 'HW/SW Co-Design', desc: 'Learning systems that connect machine learning with circuits, architecture, and systems constraints.' },
+  { key: 'music-ai', label: 'Music AI', desc: 'Generative and multimodal systems for computational creativity and music understanding.' },
+  { key: 'innovation', label: 'Innovation Forecasting', desc: 'Forecasting scientific and technological impact with graph- and context-aware models.' },
+  { key: 'cross-network', label: 'Cross-Network Interaction', desc: 'Optimization and intervention when multiple interacting networks matter at once.' },
+  { key: 'software', label: 'Software Engineering', desc: 'Understanding and improving ML systems for software analysis and security tasks.' },
+  { key: 'symbolic', label: 'Symbolic Scientific Discovery', desc: 'Interpretable symbolic models for scientific mechanisms on graph-structured systems.' },
+  { key: 'drone', label: 'Drone Systems', desc: 'Distributed systems and planning infrastructure for autonomous drone applications.' },
 ];
+
+const selectedWorks = [
+  {
+    slug: 'zhang-2019-unsupervised',
+    name: 'Unsupervised discovery of solid-state lithium ion conductors',
+    venue: 'Nature Communications',
+    year: '2019',
+    direction: 'materials',
+    tldr: 'A graph-driven route to discover promising solid-state lithium-ion conductors at scale.',
+    detail: 'This work uses machine learning to accelerate the search for solid-state lithium-ion conductors, a key materials bottleneck for safer and denser energy storage. It is one of the clearest examples in my portfolio where graph-based learning contributes directly to scientific discovery beyond standard ML benchmarks.',
+    keywords: ['materials discovery', 'energy storage', 'scientific ML'],
+    related: [
+      { label: 'Nature paper', href: 'https://www.nature.com/articles/s41467-019-13214-1' }
+    ],
+    support: { label: 'Energy storage context', href: 'https://www.energy.gov/eere/vehicles/articles/fotw-1272-january-9-2023-lithium-ion-battery-pack-prices-fell-137-2022-while' },
+    href: 'https://scholar.google.com/citations?view_op=view_citation&citation_for_view=NC3-O6UAAAAJ:0EnyYjriUFMC',
+    bibtex: `@article{zhang2019unsupervised, author = {Zhang, Ying and He, Xingfeng and Chen, Zhiqian and Bai, Qiang and Nolan, Adelaide M and Roberts, Charles A and Banerjee, Debasish and Matsunaga, Tomoya and Mo, Yifei and Ling, Chen}, journal = {Nature Communications}, number = {1}, pages = {5260}, publisher = {Nature Publishing Group UK London}, title = {Unsupervised discovery of solid-state lithium ion conductors}, volume = {10}, year = {2019}}`,
+    image: 'https://images.unsplash.com/photo-1620712943543-bcc4688e7485?auto=format&fit=crop&w=1600&q=80'
+  },
+  {
+    slug: 'chen-2023-bridging',
+    name: 'Bridging the gap between spatial and spectral domains: A unified framework for graph neural networks',
+    venue: 'ACM CSUR',
+    year: '2023',
+    direction: 'unified-graph',
+    tldr: 'A representative work in our push toward a unified theory of graph learning.',
+    detail: 'This is a signature paper in the unified framework line. Rather than treating spatial and spectral GNNs as separate camps, it organizes them under a shared operator-level lens. It also connects naturally to my later efforts on broader unification, including graph dynamics and our WSDM tutorial on uncertainty quantification for graph dynamics.',
+    keywords: ['unified theory', 'GNN', 'spectral vs spatial'],
+    related: [
+      { label: 'Rational neural networks', href: '#' },
+      { label: 'WSDM tutorial on UQ for graph dynamics', href: '#' }
+    ],
+    support: { label: 'Why foundation models need better theory', href: 'https://www.nsf.gov/news/news_summ.jsp?cntn_id=309051' },
+    href: 'https://scholar.google.com/citations?view_op=view_citation&citation_for_view=NC3-O6UAAAAJ:YsMSGLbcyi4C',
+    bibtex: `@article{chen2023bridging, author = {Chen, Zhiqian and Chen, Fanglan and Zhang, Lei and Ji, Taoran and Fu, Kaiqun and Zhao, Liang and Chen, Feng and Wu, Lingfei and Aggarwal, Charu and Lu, Chang-Tien}, journal = {ACM Computing Surveys}, number = {5}, pages = {42}, publisher = {Association for Computing Machinery}, title = {Bridging the gap between spatial and spectral domains: A unified framework for graph neural networks}, volume = {56}, year = {2023}}`,
+    image: 'https://raw.githubusercontent.com/aquastar/imczq/master/content/publication/chen-2023-bridging/featured.png'
+  },
+  {
+    slug: 'chen-2020-graph',
+    name: 'Graph convolutional networks with kalman filtering for traffic prediction',
+    venue: 'SIGSPATIAL',
+    year: '2020',
+    direction: 'uq',
+    tldr: 'One of our early uncertainty-aware graph forecasting efforts for real traffic systems.',
+    detail: 'This work combines graph convolution with Kalman filtering to improve traffic prediction under uncertainty and temporal noise. It is one piece of the broader uncertainty-quantification line that later connects to our WSDM tutorial on UQ for graph dynamics.',
+    keywords: ['traffic forecasting', 'kalman filtering', 'uncertainty'],
+    related: [
+      { label: 'WSDM tutorial on UQ for graph dynamics', href: '#' },
+      { label: 'Early accident forecasting', href: '#' }
+    ],
+    support: { label: 'ITS and smart transportation context', href: 'https://www.transportation.gov/mission/office-secretary/office-research-and-technology/what-intelligent-transportation-systems' },
+    href: 'https://scholar.google.com/citations?view_op=view_citation&citation_for_view=NC3-O6UAAAAJ:9yKSN-GCB0IC',
+    bibtex: `@inproceedings{chen2020graph, author = {Chen, Fanglan and Chen, Zhiqian and Biswas, Subhodip and Lei, Shuo and Ramakrishnan, Naren and Lu, Chang-Tien}, booktitle = {Proceedings of the 28th International Conference on Advances in Geographic Information Systems}, pages = {135--138}, title = {Graph convolutional networks with kalman filtering for traffic prediction}, year = {2020}}`,
+    image: 'https://raw.githubusercontent.com/aquastar/imczq/master/content/publication/chen-2020-graph/featured.png'
+  },
+  {
+    slug: 'chen-2020-estimating',
+    name: 'Estimating the circuit de-obfuscation runtime based on graph deep learning',
+    venue: 'DATE',
+    year: '2020',
+    direction: 'hw-sw',
+    tldr: 'Among the earliest attempts to bring GNN reasoning into hardware security workflows.',
+    detail: 'This paper applies graph deep learning to estimate the runtime of circuit de-obfuscation, connecting learning-based reasoning to practical hardware-security bottlenecks. It reflects an early hardware/ML direction where we were among the first researchers applying GNN ideas in this space.',
+    keywords: ['hardware security', 'graph deep learning', 'EDA'],
+    related: [
+      { label: 'Hardware/software co-design line', href: '#' }
+    ],
+    support: { label: 'Chip security context', href: 'https://www.nist.gov/programs-projects/hardware-security' },
+    href: 'https://scholar.google.com/citations?view_op=view_citation&citation_for_view=NC3-O6UAAAAJ:qjMakFHDy7sC',
+    bibtex: `@inproceedings{chen2020estimating, author = {Chen, Zhiqian and Kolhe, Gaurav and Rafatirad, Setareh and Lu, Chang-Tien and PD, Sai Manoj and Homayoun, Houman and Zhao, Liang}, booktitle = {2020 Design, Automation \& Test in Europe Conference \& Exhibition (DATE)}, organization = {IEEE}, pages = {358--363}, title = {Estimating the circuit de-obfuscation runtime based on graph deep learning}, year = {2020}}`,
+    image: 'https://raw.githubusercontent.com/aquastar/imczq/master/content/publication/chen-2020-estimating/featured.png'
+  },
+  {
+    slug: 'chen-2018-rational',
+    name: 'Rational neural networks for approximating graph convolution operator on jump discontinuities',
+    venue: 'ICDM',
+    year: '2018',
+    direction: 'unified-graph',
+    tldr: 'An early operator-level step toward the unified graph framework series.',
+    detail: 'This paper is one of the earliest pieces in the unified framework series. It focuses on approximation of graph convolution operators under challenging discontinuities and fits naturally with the later CSUR unification paper and our broader effort to build general theories for graph operators and graph dynamics.',
+    keywords: ['graph operators', 'approximation', 'unified framework'],
+    related: [
+      { label: 'Bridging spatial and spectral domains', href: '#' },
+      { label: 'WSDM tutorial on UQ for graph dynamics', href: '#' }
+    ],
+    support: { label: 'Why mathematical foundations matter', href: 'https://www.nsf.gov/news/special_reports/announcements/042023.jsp' },
+    href: 'https://scholar.google.com/citations?view_op=view_citation&citation_for_view=NC3-O6UAAAAJ:_kc_bZDykSQC',
+    bibtex: `@inproceedings{chen2018rational, author = {Chen, Zhiqian and Chen, Feng and Lai, Rongjie and Zhang, Xuchao and Lu, Chang-Tien}, booktitle = {2018 IEEE International Conference on Data Mining (ICDM)}, organization = {IEEE}, pages = {59--68}, title = {Rational neural networks for approximating graph convolution operator on jump discontinuities}, year = {2018}}`,
+    image: 'https://images.unsplash.com/photo-1635070041078-e363dbe005cb?auto=format&fit=crop&w=1600&q=80'
+  },
+  {
+    slug: 'chen-2017-learning',
+    name: 'Learning to fuse music genres with generative adversarial dual learning',
+    venue: 'ICDM',
+    year: '2017',
+    direction: 'music-ai',
+    tldr: 'A favorite personal project: genre fusion as a creative AI problem, not just a classification task.',
+    detail: 'This remains one of my favorite projects. It treats music generation as genre fusion through adversarial dual learning, and even though I have not continued it yet, I still hope to revisit it with the right collaborators in music AI.',
+    keywords: ['music AI', 'generative models', 'creative ML'],
+    related: [
+      { label: 'Fusion GAN repo', href: 'https://github.com/XGraph-Team/Fusion-GAN' }
+    ],
+    support: { label: 'Creative AI landscape', href: 'https://www.nature.com/articles/s41599-021-00865-3' },
+    href: 'https://scholar.google.com/citations?view_op=view_citation&citation_for_view=NC3-O6UAAAAJ:d1gkVwhDpl0C',
+    bibtex: `@inproceedings{chen2017learning, author = {Chen, Zhiqian and Wu, Chih-Wei and Lu, Yen-Cheng and Lerch, Alexander and Lu, Chang-Tien}, booktitle = {2017 IEEE International Conference on Data Mining (ICDM)}, organization = {IEEE}, pages = {817--822}, title = {Learning to fuse music genres with generative adversarial dual learning}, year = {2017}}`,
+    image: 'https://raw.githubusercontent.com/aquastar/imczq/master/content/publication/chen-2017-learning/featured.png'
+  }
+];
+
 ---
 
 <Layout title="Zhiqian Chen">
@@ -129,14 +243,24 @@ const selectedWorks = [
 
         <article class="card module rich" id="selected-work">
           <h2>Selected</h2>
+          <div class="direction-filter" id="direction-filter">
+            <button class="filter-chip is-active" type="button" data-filter="all">All</button>
+            {researchDirections.map((d) => (
+              <button class="filter-chip" type="button" data-filter={d.key}>{d.label}</button>
+            ))}
+          </div>
+          <p class="direction-desc" id="direction-desc">A cross-section of projects spanning theory, uncertainty, systems, and scientific discovery.</p>
           <div class="work-grid" id="selected-grid">
             {selectedWorks.map((p, idx) => (
-              <article class="work-card" data-expand-card data-index={idx} data-name={p.name} data-venue={p.venue} data-output={p.output} data-detail={p.detail} data-keywords={p.keywords} data-href={p.href} data-image={p.image}>
-                <img src={p.image} alt={p.name} />
+              <article class="work-card" data-expand-card data-index={idx} data-direction={p.direction} data-name={p.name} data-venue={p.venue} data-year={p.year} data-tldr={p.tldr} data-detail={p.detail} data-keywords={p.keywords.join(' · ')} data-href={p.href} data-image={p.image} data-bibtex={p.bibtex} data-support-label={p.support.label} data-support-href={p.support.href} data-related={JSON.stringify(p.related)}>
+                <img src={p.image || 'https://images.unsplash.com/photo-1515879218367-8466d910aaa4?auto=format&fit=crop&w=1600&q=80'} alt={p.name} />
                 <div class="work-copy">
-                  <div class="work-tags"><span class="badge venue">{p.venue}</span></div>
+                  <div class="work-tags">
+                    <span class="badge venue">{p.venue} {p.year}</span>
+                    <span class="badge topic">{researchDirections.find((d) => d.key === p.direction)?.label}</span>
+                  </div>
                   <h3>{p.name}</h3>
-                  <p>{p.output}</p>
+                  <p>{p.tldr}</p>
                 </div>
               </article>
             ))}
@@ -149,13 +273,23 @@ const selectedWorks = [
               <div class="work-detail-copy">
                 <div class="work-tags"><span class="badge venue" id="detail-venue"></span></div>
                 <h3 id="detail-title"></h3>
+                <p class="detail-tldr" id="detail-tldr"></p>
                 <p id="detail-text"></p>
                 <div class="detail-meta">
-                  <span class="detail-label">Focus</span>
+                  <span class="detail-label">Keywords</span>
                   <p class="work-keywords" id="detail-keywords"></p>
                 </div>
+                <div class="detail-meta">
+                  <span class="detail-label">Why this direction matters</span>
+                  <p class="detail-support"><a id="detail-support-link" href="#" target="_blank" rel="noopener"></a></p>
+                </div>
+                <div class="detail-meta">
+                  <span class="detail-label">Related</span>
+                  <div class="detail-related" id="detail-related"></div>
+                </div>
                 <div class="detail-actions">
-                  <a class="detail-link" id="detail-link" href="#" target="_blank" rel="noopener">Open project</a>
+                  <a class="detail-link" id="detail-link" href="#" target="_blank" rel="noopener">Open paper</a>
+                  <button class="detail-link" id="detail-bibtex-btn" type="button">Copy BibTeX</button>
                 </div>
               </div>
             </div>
@@ -204,9 +338,15 @@ const selectedWorks = [
     const detailImage = document.getElementById('detail-image');
     const detailVenue = document.getElementById('detail-venue');
     const detailTitle = document.getElementById('detail-title');
+    const detailTldr = document.getElementById('detail-tldr');
     const detailText = document.getElementById('detail-text');
     const detailKeywords = document.getElementById('detail-keywords');
     const detailLink = document.getElementById('detail-link');
+    const detailBibtexBtn = document.getElementById('detail-bibtex-btn');
+    const detailSupportLink = document.getElementById('detail-support-link');
+    const detailRelated = document.getElementById('detail-related');
+    const directionFilter = document.getElementById('direction-filter');
+    const directionDesc = document.getElementById('direction-desc');
     const mobileQuery = window.matchMedia('(max-width: 720px)');
     const navToggle = document.querySelector('.nav-toggle');
     const topNav = document.querySelector('.top-nav');
@@ -265,15 +405,40 @@ const selectedWorks = [
       selectedGrid?.classList.add('has-expanded');
       detailImage.src = card.dataset.image || '';
       detailImage.alt = card.dataset.name || '';
-      detailVenue.textContent = card.dataset.venue || '';
+      detailVenue.textContent = `${card.dataset.venue || ''} ${card.dataset.year || ''}`.trim();
       detailTitle.textContent = card.dataset.name || '';
+      detailTldr.textContent = card.dataset.tldr || '';
       detailText.textContent = card.dataset.detail || '';
       detailKeywords.textContent = card.dataset.keywords || '';
       detailLink.href = card.dataset.href || '#';
+      detailBibtexBtn.onclick = async () => {
+        try {
+          await navigator.clipboard.writeText(card.dataset.bibtex || '');
+          detailBibtexBtn.textContent = 'Copied!';
+          setTimeout(() => { detailBibtexBtn.textContent = 'Copy BibTeX'; }, 1200);
+        } catch {}
+      };
+      detailSupportLink.href = card.dataset.supportHref || '#';
+      detailSupportLink.textContent = card.dataset.supportLabel || '';
+      detailRelated.innerHTML = '';
+      try {
+        const related = JSON.parse(card.dataset.related || '[]');
+        related.forEach((r) => {
+          const a = document.createElement('a');
+          a.href = r.href || '#';
+          a.target = '_blank';
+          a.rel = 'noopener';
+          a.textContent = r.label;
+          a.className = 'related-link';
+          detailRelated.appendChild(a);
+        });
+      } catch {}
+      const visibleCards = selectedCards.filter((c) => c.style.display !== 'none');
+      const currentVisibleIndex = visibleCards.indexOf(card);
       const cardsPerRow = mobileQuery.matches ? 1 : (window.innerWidth <= 1200 ? 2 : 3);
-      const rowStart = Math.floor(idx / cardsPerRow) * cardsPerRow;
-      const rowEnd = Math.min(rowStart + cardsPerRow, selectedCards.length);
-      const anchor = selectedCards[rowEnd - 1];
+      const rowStart = Math.floor(currentVisibleIndex / cardsPerRow) * cardsPerRow;
+      const rowEnd = Math.min(rowStart + cardsPerRow, visibleCards.length);
+      const anchor = visibleCards[rowEnd - 1] || card;
       anchor.insertAdjacentElement('afterend', detailPanel);
       detailPanel.classList.remove('is-collapsing');
       detailPanel.hidden = false;
@@ -300,6 +465,34 @@ const selectedWorks = [
     });
     detailPanel.addEventListener('mouseleave', () => {
       if (!mobileQuery.matches) collapseDetail(true);
+    });
+
+    directionFilter?.querySelectorAll('[data-filter]').forEach((btn) => {
+      btn.addEventListener('click', () => {
+        const key = btn.getAttribute('data-filter') || 'all';
+        directionFilter.querySelectorAll('[data-filter]').forEach((b) => b.classList.remove('is-active'));
+        btn.classList.add('is-active');
+        const directionMap = Object.fromEntries(Array.from(document.querySelectorAll('.filter-chip[data-filter]')).map((el) => [el.getAttribute('data-filter'), el.textContent]));
+        const descriptions = {
+          'all': 'A cross-section of projects spanning theory, uncertainty, systems, and scientific discovery.',
+          'materials': 'Machine learning for scientific discovery and energy-storage materials.',
+          'unified-graph': 'Toward unified operator-level views that connect spectral, spatial, and dynamical graph learning.',
+          'uq': 'Reliable graph decisions under uncertainty, sensitivity, and limited observations.',
+          'hw-sw': 'Learning systems that connect machine learning with circuits, architecture, and systems constraints.',
+          'music-ai': 'Generative and multimodal systems for computational creativity and music understanding.',
+          'innovation': 'Forecasting scientific and technological impact with graph- and context-aware models.',
+          'cross-network': 'Optimization and intervention when multiple interacting networks matter at once.',
+          'software': 'Understanding and improving ML systems for software analysis and security tasks.',
+          'symbolic': 'Interpretable symbolic models for scientific mechanisms on graph-structured systems.',
+          'drone': 'Distributed systems and planning infrastructure for autonomous drone applications.'
+        };
+        directionDesc.textContent = descriptions[key] || descriptions['all'];
+        selectedCards.forEach((card) => {
+          const show = key === 'all' || card.dataset.direction === key;
+          card.style.display = show ? '' : 'none';
+        });
+        collapseDetail(false);
+      });
     });
 
     document.querySelectorAll('.repo-card[data-href]').forEach((card) => {
@@ -378,6 +571,10 @@ const selectedWorks = [
   .direction-visual { margin: 8px 0 14px; border-radius: 0; overflow: hidden; border: none; }
   .direction-visual img { width: 100%; display: block; aspect-ratio: 16 / 7; object-fit: cover; }
   .statement-copy p { margin: 0 0 12px; color: #334155; }
+  .direction-filter { display:flex; flex-wrap:wrap; gap:8px; margin: 0 0 10px; }
+  .filter-chip { border:1px solid rgba(148,163,184,0.18); background:#fff; color:#334155; border-radius:999px; padding:6px 10px; font-size:.78rem; cursor:pointer; }
+  .filter-chip.is-active, .filter-chip:hover { background:#dbeafe; color:#2563eb; border-color:rgba(37,99,235,0.22); }
+  .direction-desc { margin:0 0 12px; color:#64748b; font-size:.85rem; }
   .work-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; }
   .work-card { position: relative; border: 1px solid rgba(148,163,184,0.16); border-radius: 12px; overflow: hidden; background: #fff; cursor: pointer; transition: transform .18s ease, border-color .18s ease, box-shadow .18s ease, border-width .18s ease; }
   .work-card:hover { transform: translateY(-3px); border-color: rgba(37,99,235,0.38); border-width: 1px; box-shadow: 0 12px 24px rgba(15,23,42,0.10); }
@@ -385,6 +582,7 @@ const selectedWorks = [
   .work-copy { padding: 10px 12px 12px; }
   .work-copy h3 { margin: 6px 0 4px; font-size: .98rem; color: #0f172a; }
   .work-copy p { font-size: .8rem; margin: 0; color: #334155; line-height: 1.35; }
+  .badge.topic { display: inline-block; font-size: .6rem; color: #0f766e; background: #ccfbf1; padding: 2px 6px; border-radius: 999px; margin-left: 4px; }
   .work-card.is-expanded { border-color: rgba(37,99,235,0.45); box-shadow: 0 12px 24px rgba(15,23,42,0.10); }
   .selected-detail-panel { grid-column: 1 / -1; border: 1px solid rgba(37,99,235,0.22); border-radius: 14px; background: #fff; box-shadow: 0 12px 24px rgba(15,23,42,0.08); padding: 14px; margin-top: -2px; transform-origin: top center; animation: detailPop .28s ease; }
   .selected-detail-panel.is-collapsing { animation: detailCollapse .24s ease forwards; }
@@ -400,6 +598,12 @@ const selectedWorks = [
   .work-detail-media img { width: 100%; height: 240px; object-fit: cover; border-radius: 10px; display: block; }
   .work-detail-copy h3 { margin: 8px 0 8px; font-size: 1.08rem; color: #0f172a; }
   .work-detail-copy p { margin: 0 0 10px; color: #334155; line-height: 1.58; }
+  .detail-tldr { font-size: .92rem; color:#0f172a !important; font-weight:600; }
+  .detail-support a { color:#2563eb; text-decoration:none; }
+  .detail-support a:hover { text-decoration:underline; }
+  .detail-related { display:flex; flex-wrap:wrap; gap:8px; }
+  .related-link { display:inline-flex; align-items:center; text-decoration:none; color:#2563eb; background:#eff6ff; border-radius:999px; padding:4px 8px; font-size:.76rem; }
+  .related-link:hover { background:#dbeafe; }
   .detail-meta { margin-top: 2px; }
   .detail-label { display: inline-block; font-size: .68rem; text-transform: uppercase; letter-spacing: .04em; color: #64748b; margin-bottom: 4px; }
   .work-keywords { font-size: .82rem; color: #2563eb !important; font-weight: 600; margin: 0 !important; }

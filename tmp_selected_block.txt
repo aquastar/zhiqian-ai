@@ -1,0 +1,120 @@
+const researchDirections = [
+  { key: 'materials', label: 'Materials for Energy', desc: 'Machine learning for scientific discovery and energy-storage materials.' },
+  { key: 'unified-graph', label: 'Unified Graph Theory', desc: 'Toward unified operator-level views that connect spectral, spatial, and dynamical graph learning.' },
+  { key: 'uq', label: 'Uncertainty Quantification', desc: 'Reliable graph decisions under uncertainty, sensitivity, and limited observations.' },
+  { key: 'hw-sw', label: 'HW/SW Co-Design', desc: 'Learning systems that connect machine learning with circuits, architecture, and systems constraints.' },
+  { key: 'music-ai', label: 'Music AI', desc: 'Generative and multimodal systems for computational creativity and music understanding.' },
+  { key: 'innovation', label: 'Innovation Forecasting', desc: 'Forecasting scientific and technological impact with graph- and context-aware models.' },
+  { key: 'cross-network', label: 'Cross-Network Interaction', desc: 'Optimization and intervention when multiple interacting networks matter at once.' },
+  { key: 'software', label: 'Software Engineering', desc: 'Understanding and improving ML systems for software analysis and security tasks.' },
+  { key: 'symbolic', label: 'Symbolic Scientific Discovery', desc: 'Interpretable symbolic models for scientific mechanisms on graph-structured systems.' },
+  { key: 'drone', label: 'Drone Systems', desc: 'Distributed systems and planning infrastructure for autonomous drone applications.' },
+];
+
+const selectedWorks = [
+  {
+    slug: 'zhang-2019-unsupervised',
+    name: 'Unsupervised discovery of solid-state lithium ion conductors',
+    venue: 'Nature Communications',
+    year: '2019',
+    direction: 'materials',
+    tldr: 'A graph-driven route to discover promising solid-state lithium-ion conductors at scale.',
+    detail: 'This work uses machine learning to accelerate the search for solid-state lithium-ion conductors, a key materials bottleneck for safer and denser energy storage. It is one of the clearest examples in my portfolio where graph-based learning contributes directly to scientific discovery beyond standard ML benchmarks.',
+    keywords: ['materials discovery', 'energy storage', 'scientific ML'],
+    related: [
+      { label: 'Nature paper', href: 'https://www.nature.com/articles/s41467-019-13214-1' }
+    ],
+    support: { label: 'Energy storage context', href: 'https://www.energy.gov/eere/vehicles/articles/fotw-1272-january-9-2023-lithium-ion-battery-pack-prices-fell-137-2022-while' },
+    href: 'https://scholar.google.com/citations?view_op=view_citation&citation_for_view=NC3-O6UAAAAJ:0EnyYjriUFMC',
+    bibtex: `@article{zhang2019unsupervised, author = {Zhang, Ying and He, Xingfeng and Chen, Zhiqian and Bai, Qiang and Nolan, Adelaide M and Roberts, Charles A and Banerjee, Debasish and Matsunaga, Tomoya and Mo, Yifei and Ling, Chen}, journal = {Nature Communications}, number = {1}, pages = {5260}, publisher = {Nature Publishing Group UK London}, title = {Unsupervised discovery of solid-state lithium ion conductors}, volume = {10}, year = {2019}}`,
+    image: 'https://images.unsplash.com/photo-1620712943543-bcc4688e7485?auto=format&fit=crop&w=1600&q=80'
+  },
+  {
+    slug: 'chen-2023-bridging',
+    name: 'Bridging the gap between spatial and spectral domains: A unified framework for graph neural networks',
+    venue: 'ACM CSUR',
+    year: '2023',
+    direction: 'unified-graph',
+    tldr: 'A representative work in our push toward a unified theory of graph learning.',
+    detail: 'This is a signature paper in the unified framework line. Rather than treating spatial and spectral GNNs as separate camps, it organizes them under a shared operator-level lens. It also connects naturally to my later efforts on broader unification, including graph dynamics and our WSDM tutorial on uncertainty quantification for graph dynamics.',
+    keywords: ['unified theory', 'GNN', 'spectral vs spatial'],
+    related: [
+      { label: 'Rational neural networks', href: '#' },
+      { label: 'WSDM tutorial on UQ for graph dynamics', href: '#' }
+    ],
+    support: { label: 'Why foundation models need better theory', href: 'https://www.nsf.gov/news/news_summ.jsp?cntn_id=309051' },
+    href: 'https://scholar.google.com/citations?view_op=view_citation&citation_for_view=NC3-O6UAAAAJ:YsMSGLbcyi4C',
+    bibtex: `@article{chen2023bridging, author = {Chen, Zhiqian and Chen, Fanglan and Zhang, Lei and Ji, Taoran and Fu, Kaiqun and Zhao, Liang and Chen, Feng and Wu, Lingfei and Aggarwal, Charu and Lu, Chang-Tien}, journal = {ACM Computing Surveys}, number = {5}, pages = {42}, publisher = {Association for Computing Machinery}, title = {Bridging the gap between spatial and spectral domains: A unified framework for graph neural networks}, volume = {56}, year = {2023}}`,
+    image: 'https://raw.githubusercontent.com/aquastar/imczq/master/content/publication/chen-2023-bridging/featured.png'
+  },
+  {
+    slug: 'chen-2020-graph',
+    name: 'Graph convolutional networks with kalman filtering for traffic prediction',
+    venue: 'SIGSPATIAL',
+    year: '2020',
+    direction: 'uq',
+    tldr: 'One of our early uncertainty-aware graph forecasting efforts for real traffic systems.',
+    detail: 'This work combines graph convolution with Kalman filtering to improve traffic prediction under uncertainty and temporal noise. It is one piece of the broader uncertainty-quantification line that later connects to our WSDM tutorial on UQ for graph dynamics.',
+    keywords: ['traffic forecasting', 'kalman filtering', 'uncertainty'],
+    related: [
+      { label: 'WSDM tutorial on UQ for graph dynamics', href: '#' },
+      { label: 'Early accident forecasting', href: '#' }
+    ],
+    support: { label: 'ITS and smart transportation context', href: 'https://www.transportation.gov/mission/office-secretary/office-research-and-technology/what-intelligent-transportation-systems' },
+    href: 'https://scholar.google.com/citations?view_op=view_citation&citation_for_view=NC3-O6UAAAAJ:9yKSN-GCB0IC',
+    bibtex: `@inproceedings{chen2020graph, author = {Chen, Fanglan and Chen, Zhiqian and Biswas, Subhodip and Lei, Shuo and Ramakrishnan, Naren and Lu, Chang-Tien}, booktitle = {Proceedings of the 28th International Conference on Advances in Geographic Information Systems}, pages = {135--138}, title = {Graph convolutional networks with kalman filtering for traffic prediction}, year = {2020}}`,
+    image: 'https://raw.githubusercontent.com/aquastar/imczq/master/content/publication/chen-2020-graph/featured.png'
+  },
+  {
+    slug: 'chen-2020-estimating',
+    name: 'Estimating the circuit de-obfuscation runtime based on graph deep learning',
+    venue: 'DATE',
+    year: '2020',
+    direction: 'hw-sw',
+    tldr: 'Among the earliest attempts to bring GNN reasoning into hardware security workflows.',
+    detail: 'This paper applies graph deep learning to estimate the runtime of circuit de-obfuscation, connecting learning-based reasoning to practical hardware-security bottlenecks. It reflects an early hardware/ML direction where we were among the first researchers applying GNN ideas in this space.',
+    keywords: ['hardware security', 'graph deep learning', 'EDA'],
+    related: [
+      { label: 'Hardware/software co-design line', href: '#' }
+    ],
+    support: { label: 'Chip security context', href: 'https://www.nist.gov/programs-projects/hardware-security' },
+    href: 'https://scholar.google.com/citations?view_op=view_citation&citation_for_view=NC3-O6UAAAAJ:qjMakFHDy7sC',
+    bibtex: `@inproceedings{chen2020estimating, author = {Chen, Zhiqian and Kolhe, Gaurav and Rafatirad, Setareh and Lu, Chang-Tien and PD, Sai Manoj and Homayoun, Houman and Zhao, Liang}, booktitle = {2020 Design, Automation \& Test in Europe Conference \& Exhibition (DATE)}, organization = {IEEE}, pages = {358--363}, title = {Estimating the circuit de-obfuscation runtime based on graph deep learning}, year = {2020}}`,
+    image: 'https://raw.githubusercontent.com/aquastar/imczq/master/content/publication/chen-2020-estimating/featured.png'
+  },
+  {
+    slug: 'chen-2018-rational',
+    name: 'Rational neural networks for approximating graph convolution operator on jump discontinuities',
+    venue: 'ICDM',
+    year: '2018',
+    direction: 'unified-graph',
+    tldr: 'An early operator-level step toward the unified graph framework series.',
+    detail: 'This paper is one of the earliest pieces in the unified framework series. It focuses on approximation of graph convolution operators under challenging discontinuities and fits naturally with the later CSUR unification paper and our broader effort to build general theories for graph operators and graph dynamics.',
+    keywords: ['graph operators', 'approximation', 'unified framework'],
+    related: [
+      { label: 'Bridging spatial and spectral domains', href: '#' },
+      { label: 'WSDM tutorial on UQ for graph dynamics', href: '#' }
+    ],
+    support: { label: 'Why mathematical foundations matter', href: 'https://www.nsf.gov/news/special_reports/announcements/042023.jsp' },
+    href: 'https://scholar.google.com/citations?view_op=view_citation&citation_for_view=NC3-O6UAAAAJ:_kc_bZDykSQC',
+    bibtex: `@inproceedings{chen2018rational, author = {Chen, Zhiqian and Chen, Feng and Lai, Rongjie and Zhang, Xuchao and Lu, Chang-Tien}, booktitle = {2018 IEEE International Conference on Data Mining (ICDM)}, organization = {IEEE}, pages = {59--68}, title = {Rational neural networks for approximating graph convolution operator on jump discontinuities}, year = {2018}}`,
+    image: 'https://images.unsplash.com/photo-1635070041078-e363dbe005cb?auto=format&fit=crop&w=1600&q=80'
+  },
+  {
+    slug: 'chen-2017-learning',
+    name: 'Learning to fuse music genres with generative adversarial dual learning',
+    venue: 'ICDM',
+    year: '2017',
+    direction: 'music-ai',
+    tldr: 'A favorite personal project: genre fusion as a creative AI problem, not just a classification task.',
+    detail: 'This remains one of my favorite projects. It treats music generation as genre fusion through adversarial dual learning, and even though I have not continued it yet, I still hope to revisit it with the right collaborators in music AI.',
+    keywords: ['music AI', 'generative models', 'creative ML'],
+    related: [
+      { label: 'Fusion GAN repo', href: 'https://github.com/XGraph-Team/Fusion-GAN' }
+    ],
+    support: { label: 'Creative AI landscape', href: 'https://www.nature.com/articles/s41599-021-00865-3' },
+    href: 'https://scholar.google.com/citations?view_op=view_citation&citation_for_view=NC3-O6UAAAAJ:d1gkVwhDpl0C',
+    bibtex: `@inproceedings{chen2017learning, author = {Chen, Zhiqian and Wu, Chih-Wei and Lu, Yen-Cheng and Lerch, Alexander and Lu, Chang-Tien}, booktitle = {2017 IEEE International Conference on Data Mining (ICDM)}, organization = {IEEE}, pages = {817--822}, title = {Learning to fuse music genres with generative adversarial dual learning}, year = {2017}}`,
+    image: 'https://raw.githubusercontent.com/aquastar/imczq/master/content/publication/chen-2017-learning/featured.png'
+  }
+];
