@@ -101,14 +101,17 @@ const selectedWorks = [
 
         <article class="card module">
           <h2>Recent Updates</h2>
-          <ul class="updates">
-            {updates.map((u) => (
-              <li>
+          <ul class="updates" id="updates-list">
+            {updates.map((u, idx) => (
+              <li class={idx >= 10 ? 'update-hidden' : ''} data-extra-update={idx >= 10 ? 'true' : 'false'}>
                 <span class={`tag ${u.type}`}>{u.type}</span>
                 <span class="date-strong">{u.date}</span><span class="meta-inline" set:html={u.text}></span>
               </li>
             ))}
           </ul>
+          {updates.length > 10 && (
+            <button class="btn full updates-more" id="updates-more-btn" type="button">More</button>
+          )}
         </article>
       </aside>
 
@@ -208,6 +211,7 @@ const selectedWorks = [
     const mobileQuery = window.matchMedia('(max-width: 720px)');
     const navToggle = document.querySelector('.nav-toggle');
     const topNav = document.querySelector('.top-nav');
+    const updatesMoreBtn = document.getElementById('updates-more-btn');
     let closeTimer;
     let activeIndex = -1;
 
@@ -221,6 +225,13 @@ const selectedWorks = [
         topNav?.classList.remove('nav-open');
         navToggle?.setAttribute('aria-expanded', 'false');
       });
+    });
+
+    updatesMoreBtn?.addEventListener('click', () => {
+      document.querySelectorAll('[data-extra-update="true"]').forEach((el) => {
+        el.classList.remove('update-hidden');
+      });
+      updatesMoreBtn.remove();
     });
 
     function resetCards() {
@@ -345,7 +356,7 @@ const selectedWorks = [
   .tip-pop { position: absolute; left: 22px; top: 50%; transform: translateY(-50%); white-space: nowrap; background: #0f172a; color: #fff; padding: 4px 8px; border-radius: 6px; font-size: .72rem; opacity: 0; pointer-events: none; transition: opacity .15s ease; }
   .name-tip:hover .tip-pop, .name-tip:focus .tip-pop { opacity: 1; }
   .role { margin: 0; color: #334155; font-size: .92rem; text-align: center; }
-  .bio { text-align: left; color: #334155; font-size: .92rem; margin-top: 10px; }
+  .bio { text-align: justify; text-justify: inter-word; color: #334155; font-size: .92rem; margin-top: 10px; }
   .icons { display: flex; flex-wrap: wrap; justify-content: center; gap: 6px; margin-top: 14px; }
   .icons a { color: #334155; text-decoration: none; transition: color .15s ease, transform .15s ease; }
   .icons a:hover { color: #0f172a; transform: translateY(-1px); }
@@ -354,6 +365,8 @@ const selectedWorks = [
   h3 { font-size: 1rem; margin: 0 0 6px; }
   .updates { list-style: none; padding-left: 0; display: grid; gap: 8px; }
   .updates li { display: block; line-height: 1.35; }
+  .updates li.update-hidden { display: none; }
+  .updates-more { margin-top: 8px; }
   .meta-inline { font-size: .88rem; color: #1e293b; line-height: 1.35; }
   .date-strong { font-size: .8rem; font-weight: 700; color: #334155; margin-right: 6px; }
   .tag { display: inline-block; font-size: .62rem; font-weight: 800; letter-spacing: .03em; text-transform: uppercase; border-radius: 999px; padding: 2px 6px; margin-right: 6px; }
