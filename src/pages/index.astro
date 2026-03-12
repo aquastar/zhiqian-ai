@@ -168,6 +168,60 @@ const selectedWorks = [
     image: 'https://raw.githubusercontent.com/aquastar/imczq/master/content/publication/chen-2020-graph/featured.png'
   },
   {
+    slug: 'ji-2021-dynamic',
+    name: 'Dynamic multi-context attention networks for citation forecasting of scientific publications',
+    venue: 'AAAI',
+    year: '2021',
+    direction: 'innovation',
+    tldr: 'A context-aware forecasting model for estimating which papers will matter later.',
+    detail: 'This paper studies citation forecasting with multiple contextual signals and dynamic attention. It is part of our innovation prediction line, where the central question is how to identify impact trajectories before they are obvious to everyone else.',
+    keywords: ['citation forecasting', 'attention', 'innovation prediction'],
+    related: [
+      { label: 'TKDD journal extension', href: 'https://scholar.google.com/citations?view_op=view_citation&citation_for_view=NC3-O6UAAAAJ:8AbLer7MMksC' },
+      { label: 'AllenAI Prescience context', href: 'https://allenai.org/blog/prescience' }
+    ],
+    support: { label: 'Why forecasting scientific impact matters', href: 'https://allenai.org/blog/prescience' },
+    href: 'https://scholar.google.com/citations?view_op=view_citation&citation_for_view=NC3-O6UAAAAJ:2P1L_qKh6hAC',
+    bibtex: `@inproceedings{ji2021dynamic, author = {Ji, Taoran and Self, Nathan and Fu, Kaiqun and Chen, Zhiqian and Ramakrishnan, Naren and Lu, Chang-Tien}, booktitle = {Proceedings of the AAAI Conference on Artificial Intelligence}, number = {9}, pages = {7953--7960}, title = {Dynamic Multi-Context Attention Networks for Citation Forecasting of Scientific Publications}, volume = {35}, year = {2021}}`,
+    image: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1600&q=80'
+  },
+  {
+    slug: 'ji-2024-citation',
+    name: 'Citation forecasting with multi-context attention-aided dependency modeling',
+    venue: 'TKDD',
+    year: '2024',
+    direction: 'innovation',
+    tldr: 'The journal-scale continuation of our citation forecasting line with stronger dependency modeling.',
+    detail: 'This paper extends our earlier citation forecasting line into a more complete dependency-aware model. Together with the AAAI version, it shows how contextual signals and structured dependencies can improve forecasting of scientific impact.',
+    keywords: ['citation forecasting', 'dependency modeling', 'innovation prediction'],
+    related: [
+      { label: 'AAAI 2021 conference version', href: 'https://scholar.google.com/citations?view_op=view_citation&citation_for_view=NC3-O6UAAAAJ:2P1L_qKh6hAC' },
+      { label: 'AllenAI Prescience context', href: 'https://allenai.org/blog/prescience' }
+    ],
+    support: { label: 'Broader AI interest in research forecasting', href: 'https://allenai.org/blog/prescience' },
+    href: 'https://scholar.google.com/citations?view_op=view_citation&citation_for_view=NC3-O6UAAAAJ:8AbLer7MMksC',
+    bibtex: `@article{ji2024citation, author = {Ji, Taoran and Self, Nathan and Fu, Kaiqun and Chen, Zhiqian and Ramakrishnan, Naren and Lu, Chang-Tien}, journal = {ACM Transactions on Knowledge Discovery from Data}, publisher = {ACM New York, NY}, title = {Citation Forecasting with Multi-Context Attention-Aided Dependency Modeling}, year = {2024}}`,
+    image: 'https://images.unsplash.com/photo-1516321497487-e288fb19713f?auto=format&fit=crop&w=1600&q=80'
+  },
+  {
+    slug: 'meng-2022-early',
+    name: 'Early forecasting of the impact of traffic accidents using a single shot observation',
+    venue: 'SDM',
+    year: '2022',
+    direction: 'unified-graph',
+    tldr: 'A graph-wavelet flavored forecasting view that also sharpens the distinction between wavelets and generic spectral operators.',
+    detail: 'This paper is another piece in the broader unified framework series. It focuses on graph wavelets and early forecasting from limited observations, and in doing so highlights the distinction between wavelet operators and more general spectral operators. That makes it conceptually connected to the broader unification line, not just a standalone traffic paper.',
+    keywords: ['graph wavelets', 'forecasting', 'unified framework'],
+    related: [
+      { label: 'Bridging spatial and spectral domains', href: 'https://dl.acm.org/doi/10.1145/3627816' },
+      { label: 'Unifying GNN tutorial slides', href: 'https://drive.google.com/file/d/1gbe9xxNHPHHHN5DKRu3fC8f_G9TPcayt/view?usp=sharing' }
+    ],
+    support: { label: 'Traffic safety forecasting context', href: 'https://www.nhtsa.gov/crash-data-systems' },
+    href: 'https://scholar.google.com/citations?view_op=view_citation&citation_for_view=NC3-O6UAAAAJ:UeHWp8X0CEIC',
+    bibtex: `@inproceedings{meng2022early, author = {Meng, Guangyu and Jiang, Qisheng and Fu, Kaiqun and Lin, Beiyu and Lu, Chang-Tien and Chen, Zhqian}, booktitle = {Proceedings of the 2022 SIAM International Conference on Data Mining (SDM)}, organization = {Society for Industrial and Applied Mathematics}, pages = {100--108}, title = {Early forecasting of the impact of traffic accidents using a single shot observation}, year = {2022}}`,
+    image: 'https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=1600&q=80'
+  },
+  {
     slug: 'chen-2020-estimating',
     name: 'Estimating the circuit de-obfuscation runtime based on graph deep learning',
     venue: 'DATE',
