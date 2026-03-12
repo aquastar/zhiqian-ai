@@ -58,7 +58,6 @@ const selectedWorks = [
 <Layout title="Zhiqian Chen">
   <main class="container" id="top">
     <nav class="top-nav" aria-label="Sections">
-      <a class="nav-home" href="/" aria-current="page">Home</a>
       <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="mobile-nav-panel" aria-label="Open navigation menu">
         <span></span><span></span><span></span>
       </button>
@@ -336,8 +335,8 @@ const selectedWorks = [
   body { background: var(--page); }
   .container { max-width: 1800px; margin: 0 auto; padding: 20px; }
   .card { background: rgba(255,255,255,0.92); border: 1px solid rgba(148,163,184,0.12); border-radius: 18px; box-shadow: 0 10px 30px rgba(15,23,42,0.06); backdrop-filter: blur(10px); }
-  .top-nav { margin-bottom: 14px; padding: 10px 0 14px; display: flex; align-items: center; justify-content: space-between; gap: 12px; background: transparent; border: none; border-bottom: none; border-radius: 0; box-shadow: none; position: relative; }
-  .nav-links { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+  .top-nav { margin-bottom: 14px; padding: 10px 0 14px; display: flex; align-items: center; justify-content: flex-start; gap: 12px; background: transparent; border: none; border-bottom: none; border-radius: 0; box-shadow: none; position: relative; }
+  .nav-links { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; justify-content: flex-start; }
   .top-nav a { text-decoration: none; color: var(--ink); font-family: 'Montserrat', sans-serif; font-size: 0.9rem; padding: 7px 10px; border-radius: 999px; background: transparent; }
   .nav-toggle { display: none; width: 40px; height: 40px; border: 1px solid rgba(148,163,184,0.18); border-radius: 12px; background: #fff; align-items: center; justify-content: center; flex-direction: column; gap: 4px; cursor: pointer; box-shadow: 0 8px 20px rgba(15,23,42,0.05); }
   .nav-toggle span { display: block; width: 16px; height: 1.5px; background: #0f172a; border-radius: 999px; }
@@ -444,9 +443,9 @@ const selectedWorks = [
   }
   @media (max-width: 720px) {
     .container { padding: 14px; }
-    .top-nav { margin-bottom: 10px; padding: 8px 0 10px; }
+    .top-nav { margin-bottom: 10px; padding: 8px 0 10px; justify-content: flex-start; }
     .nav-toggle { display: inline-flex; }
-    .nav-links { position: absolute; top: calc(100% + 10px); right: 0; left: auto; width: fit-content; min-width: 184px; max-width: 72vw; display: none; flex-direction: column; align-items: stretch; padding: 10px; border: 1px solid rgba(148,163,184,0.16); border-radius: 18px; background: rgba(255,255,255,0.84); backdrop-filter: blur(14px); box-shadow: 0 18px 40px rgba(15,23,42,0.12); z-index: 20; }
+    .nav-links { position: absolute; top: calc(100% + 10px); left: 0; right: auto; width: fit-content; min-width: 184px; max-width: 72vw; display: none; flex-direction: column; align-items: stretch; padding: 10px; border: 1px solid rgba(148,163,184,0.16); border-radius: 18px; background: rgba(255,255,255,0.84); backdrop-filter: blur(14px); box-shadow: 0 18px 40px rgba(15,23,42,0.12); z-index: 20; }
     .top-nav.nav-open .nav-links { display: flex; }
     .nav-links a { width: auto; min-width: 0; text-align: left; justify-content: flex-start; padding: 10px 12px; font-size: .98rem; white-space: nowrap; }
     .grid-2 { grid-template-columns: 1fr; }
