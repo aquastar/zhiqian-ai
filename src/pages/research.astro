@@ -20,11 +20,11 @@ const works = [
     <nav class="top-nav" aria-label="Sections">
       <a href="/">Home</a>
       <a href="/research" aria-current="page">Research</a>
+      <a href="/grant">Grant</a>
       <a href="/people">People</a>
       <a href="/teach">Teach</a>
-      <a href="/grant">Grant</a>
-      <a href="https://scholar.google.com/scholar?q=Zhiqian+Chen" target="_blank" rel="noopener">Paper <i class="fas fa-arrow-up-right-from-square nav-ghost"></i></a>
-      <a href="https://zhiqian.ai" target="_blank" rel="noopener">Zhiqian.ai <i class="fas fa-arrow-up-right-from-square nav-ghost"></i></a>
+      <a href="https://scholar.google.com/scholar?q=Zhiqian+Chen" target="_blank" rel="noopener">Paper <i class="ai ai-google-scholar-square ai-sm nav-ghost"></i> <i class="fas fa-arrow-up-right-from-square nav-ghost"></i></a>
+      <a href="https://zhiqian.ai" target="_blank" rel="noopener">Zhiqian's Note <i class="fas fa-arrow-up-right-from-square nav-ghost"></i></a>
     </nav>
     <section class="hero">
       <h1>Research</h1>
@@ -61,6 +61,7 @@ const works = [
   .top-nav { margin-bottom: 14px; padding: 10px 0 14px; display:flex; flex-wrap:wrap; gap:8px; align-items:center; background:transparent; border:none; border-bottom:none; border-radius:0; box-shadow:none; }
   .top-nav a { text-decoration:none; color:var(--ink); font-family:'Montserrat',sans-serif; font-size:.9rem; padding:7px 10px; border-radius:999px; background:transparent; }
   .top-nav a:hover { background:#dbeafe; color:var(--accent); }
+  .top-nav a[aria-current="page"] { background: #eef2ff; color: var(--accent); box-shadow: inset 0 1px 2px rgba(15,23,42,0.10), inset 0 -1px 2px rgba(37,99,235,0.08); }
   .nav-ghost { font-size:.78rem; margin-left:4px; opacity:.85; }
   .hero { margin: 10px 0 28px; }
   .hero h1 { font-family:'Montserrat',sans-serif; font-size:2rem; margin:0 0 8px; }
