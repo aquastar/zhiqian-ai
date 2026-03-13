@@ -431,7 +431,7 @@ const selectedWorks = [
           <p class="direction-desc" id="direction-desc">A cross-section of projects spanning theory, uncertainty, systems, and scientific discovery.</p>
           <div class="work-grid" id="selected-grid">
             {selectedWorks.map((p, idx) => (
-              <article class="work-card" data-expand-card data-index={idx} data-direction={p.direction} data-name={p.name} data-venue={p.venue} data-year={p.year} data-tldr={p.tldr} data-detail={p.detail} data-keywords={p.keywords.join(' · ')} data-href={p.href} data-image={p.image} data-bibtex={p.bibtex} data-support-label={p.support.label} data-support-href={p.support.href} data-related={JSON.stringify(p.related)}>
+              <article class="work-card" data-expand-card data-index={idx} data-direction={p.direction} data-name={p.name} data-venue={p.venue} data-year={p.year} data-tldr={p.tldr} data-detail={p.detail} data-keywords={p.keywords.join(' · ')} data-href={p.href} data-image={p.image} data-bibtex={p.bibtex} data-related={JSON.stringify(p.related)}>
                 <img src={p.image || 'https://images.unsplash.com/photo-1515879218367-8466d910aaa4?auto=format&fit=crop&w=1600&q=80'} alt={p.name} />
                 <div class="work-copy">
                   <div class="work-tags overlay-tags">
@@ -457,8 +457,7 @@ const selectedWorks = [
                 </div>
                 <div class="detail-meta detail-meta-inline">
                   <span class="detail-label"></span>
-                  <p class="detail-support"><a id="detail-support-link" href="#" target="_blank" rel="noopener"></a></p>
-                </div>
+                  </div>
                 <div class="detail-meta detail-meta-inline">
                   <span class="detail-label">Related</span>
                   <div class="detail-related" id="detail-related"></div>
@@ -517,7 +516,6 @@ const selectedWorks = [
     const detailText = document.getElementById('detail-text');
     const detailLink = document.getElementById('detail-link');
     const detailBibtexBtn = document.getElementById('detail-bibtex-btn');
-    const detailSupportLink = document.getElementById('detail-support-link');
     const detailRelated = document.getElementById('detail-related');
     const directionFilter = document.getElementById('direction-filter');
     const directionDesc = document.getElementById('direction-desc');
@@ -590,8 +588,6 @@ const selectedWorks = [
           setTimeout(() => { detailBibtexBtn.textContent = 'Copy BibTeX'; }, 1200);
         } catch {}
       };
-      detailSupportLink.href = card.dataset.supportHref || '#';
-      detailSupportLink.textContent = card.dataset.supportLabel || '';
       detailRelated.innerHTML = '';
       try {
         const related = JSON.parse(card.dataset.related || '[]');
@@ -767,13 +763,11 @@ const selectedWorks = [
   }
   .work-detail { display: grid; grid-template-columns: .92fr 1.38fr; gap: 16px; align-items: stretch; min-height: 0; height: 100%; }
   .work-detail-media img { width: 100%; height: 100%; min-height: 0; max-height: 213px; object-fit: cover; border-radius: 10px; display: block; }
-  .work-detail-copy { min-height: 0; overflow: hidden; display:flex; flex-direction:column; }
-  .detail-topbar { display:flex; justify-content:flex-end; margin-bottom:6px; }
+  .work-detail-copy { min-height: 0; overflow: hidden; display:flex; flex-direction:column; position: relative; padding-top: 24px; }
+  .detail-topbar { position:absolute; top:0; right:0; display:flex; justify-content:flex-end; margin-bottom:0; }
   .work-detail-copy p { margin: 0 0 6px; color: #334155; line-height: 1.38; font-size: .82rem; }
   .detail-tldr { font-size: .94rem; color:#0f172a !important; font-weight:700; }
-  .detail-support a { color:#2563eb; text-decoration:none; }
-  .detail-support a:hover { text-decoration:underline; }
-  .detail-related { display:flex; flex-wrap:wrap; gap:8px; }
+    .detail-related { display:flex; flex-wrap:wrap; gap:8px; }
   .related-link { display:inline-flex; align-items:center; text-decoration:none; color:#2563eb; background:#eff6ff; border-radius:999px; padding:4px 8px; font-size:.76rem; }
   .related-link:hover { background:#dbeafe; }
   .detail-actions { margin-top: 6px; }
@@ -831,7 +825,7 @@ const selectedWorks = [
     .right-col-main { order: 2; }
     .work-grid { grid-template-columns: 1fr; }
     .work-detail { grid-template-columns: 1fr; }
-    .selected-detail-panel { padding: 12px; margin-top: 0; }
+    .selected-detail-panel { position: static; width: 100% !important; left: auto; top: auto; padding: 12px; margin-top: 0; }
     .work-detail-media img { height: 190px; }
     .stack.dense.four-cols { grid-template-columns: 1fr; }
     .updates { gap: 10px; }
