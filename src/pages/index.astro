@@ -452,15 +452,15 @@ const selectedWorks = [
                 <h3 id="detail-title"></h3>
                 <p class="detail-tldr" id="detail-tldr"></p>
                 <p id="detail-text"></p>
-                <div class="detail-meta">
-                  <span class="detail-label">Keywords</span>
+                <div class="detail-meta detail-meta-inline">
+                  <span class="detail-label"></span>
                   <p class="work-keywords" id="detail-keywords"></p>
                 </div>
-                <div class="detail-meta">
-                  <span class="detail-label">Why this direction matters</span>
+                <div class="detail-meta detail-meta-inline">
+                  <span class="detail-label"></span>
                   <p class="detail-support"><a id="detail-support-link" href="#" target="_blank" rel="noopener"></a></p>
                 </div>
-                <div class="detail-meta">
+                <div class="detail-meta detail-meta-inline">
                   <span class="detail-label">Related</span>
                   <div class="detail-related" id="detail-related"></div>
                 </div>
@@ -780,6 +780,10 @@ const selectedWorks = [
   .related-link { display:inline-flex; align-items:center; text-decoration:none; color:#2563eb; background:#eff6ff; border-radius:999px; padding:4px 8px; font-size:.76rem; }
   .related-link:hover { background:#dbeafe; }
   .detail-actions { margin-top: 6px; }
+  .related-row, .detail-related, .detail-meta-inline { display: flex; flex-wrap: nowrap; gap: 10px; align-items: center; white-space: nowrap; }
+  .related-row > *, .detail-related > *, .detail-meta-inline > * { font-size: .82rem; line-height: 1.2; }
+  .detail-meta-inline { display: flex; flex-wrap: nowrap; gap: 10px; align-items: center; white-space: nowrap; overflow: hidden; }
+  .detail-meta-inline > * { font-size: .82rem; line-height: 1.2; }
   .detail-link { display: inline-flex; align-items: center; text-decoration: none; color: #0f172a; border: 1px solid rgba(15,23,42,0.12); border-radius: 999px; padding: 5px 9px; font-size: .76rem; }
   .detail-link:hover { border-color: rgba(37,99,235,0.35); color: #2563eb; }
   .work-grid.has-expanded .work-card:not(.is-expanded) .work-copy h3,
