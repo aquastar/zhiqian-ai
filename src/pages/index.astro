@@ -603,7 +603,8 @@ const selectedWorks = [
       } catch {}
       const visibleCards = selectedCards.filter((c) => c.style.display !== 'none');
       const currentVisibleIndex = visibleCards.indexOf(card);
-      const cardsPerRow = mobileQuery.matches ? 1 : (window.innerWidth <= 1200 ? 2 : 3);
+      const computedCols = getComputedStyle(selectedGrid).gridTemplateColumns || '';
+      const cardsPerRow = mobileQuery.matches ? 1 : Math.max(1, computedCols.split(' ').filter(Boolean).length);
       const rowStart = Math.floor(currentVisibleIndex / cardsPerRow) * cardsPerRow;
       const rowEnd = Math.min(rowStart + cardsPerRow, visibleCards.length);
       const anchor = visibleCards[rowEnd - 1] || card;
