@@ -422,55 +422,34 @@ const selectedWorks = [
 
         <article class="card module rich" id="selected-work">
           <h2>Selected</h2>
-          <div class="direction-filter" id="direction-filter">
-            <button class="filter-chip is-active" type="button" data-filter="all">All</button>
-            {researchDirections.map((d) => (
-              <button class="filter-chip" type="button" data-filter={d.key}>{d.label}</button>
-            ))}
-          </div>
-          <p class="direction-desc" id="direction-desc">A cross-section of projects spanning theory, uncertainty, systems, and scientific discovery.</p>
-          <div class="work-grid" id="selected-grid">
-            {selectedWorks.map((p, idx) => (
-              <article class="work-card" data-expand-card data-index={idx} data-direction={p.direction} data-name={p.name} data-venue={p.venue} data-year={p.year} data-tldr={p.tldr} data-detail={p.detail} data-keywords={p.keywords.join(' · ')} data-href={p.href} data-image={p.image} data-bibtex={p.bibtex} data-related={JSON.stringify(p.related)}>
-                <img src={p.image || 'https://images.unsplash.com/photo-1515879218367-8466d910aaa4?auto=format&fit=crop&w=1600&q=80'} alt={p.name} />
-                <div class="work-copy">
-                  <div class="work-tags overlay-tags">
-                    <span class="badge venue">{p.venue} {p.year}</span>
+          <div class="selected-list" id="selected-list">
+            {selectedWorks.map((p) => (
+              <article class="selected-entry" data-hover-entry data-title={p.name} data-detail={p.detail} data-href={p.href}>
+                <img class="selected-thumb" src={p.image} alt={p.name} />
+                <div class="selected-main">
+                  <div class="selected-head">
+                    <h3>{p.name}</h3>
+                    <span class="selected-badge">{p.venue} {p.year}</span>
                   </div>
-                  <h3>{p.name}</h3>
+                  <p class="selected-summary">{p.tldr}</p>
+                  <div class="selected-links">
+                    <a href={p.href} target="_blank" rel="noopener">Paper</a>
+                    {p.related?.slice(0,2).map((r) => (
+                      <a href={r.href} target="_blank" rel="noopener">{r.label}</a>
+                    ))}
+                  </div>
                 </div>
               </article>
             ))}
           </div>
-          <div class="selected-detail-panel" id="selected-detail-panel" hidden>
-            <div class="work-detail">
-              <div class="work-detail-media">
-                <img id="detail-image" src="" alt="" />
-              </div>
-              <div class="work-detail-copy">
-                <div class="work-tags"><span class="badge venue" id="detail-venue"></span></div>
-                <p class="detail-tldr" id="detail-tldr"></p>
-                <p id="detail-text"></p>
-                <div class="detail-meta detail-meta-inline">
-                  <span class="detail-label"></span>
-                  <p class="work-keywords" id="detail-keywords"></p>
-                </div>
-                <div class="detail-meta detail-meta-inline">
-                  <span class="detail-label"></span>
-                  </div>
-                <div class="detail-meta detail-meta-inline">
-                  <span class="detail-label">Related</span>
-                  <div class="detail-related" id="detail-related"></div>
-                </div>
-                <div class="detail-actions">
-                  <a class="detail-link" id="detail-link" href="#" target="_blank" rel="noopener">Open paper</a>
-                  <button class="detail-link" id="detail-bibtex-btn" type="button">Copy BibTeX</button>
-                </div>
-              </div>
+          <div class="selected-hover-card" id="selected-hover-card" hidden>
+            <div class="selected-hover-inner">
+              <h3 id="hover-title"></h3>
+              <p id="hover-detail"></p>
+              <a id="hover-link" href="#" target="_blank" rel="noopener">Open paper</a>
             </div>
           </div>
         </article>
-
 
         <article class="card module" id="github-projects">
           <h2>Tutorial-related Repos</h2>
@@ -507,30 +486,12 @@ const selectedWorks = [
   </main>
 
   <script>
-    const selectedCards = Array.from(document.querySelectorAll('[data-expand-card]'));
-    const detailPanel = document.getElementById('selected-detail-panel');
-    const selectedGrid = document.getElementById('selected-grid');
-    const detailImage = document.getElementById('detail-image');
-    const detailVenue = document.getElementById('detail-venue');
-    const detailTldr = document.getElementById('detail-tldr');
-    const detailText = document.getElementById('detail-text');
-    const detailLink = document.getElementById('detail-link');
-    const detailBibtexBtn = document.getElementById('detail-bibtex-btn');
-    const detailRelated = document.getElementById('detail-related');
-    const directionFilter = document.getElementById('direction-filter');
-    const directionDesc = document.getElementById('direction-desc');
-    const mobileQuery = window.matchMedia('(max-width: 720px)');
     const navToggle = document.querySelector('.nav-toggle');
     const topNav = document.querySelector('.top-nav');
-    const updatesMoreBtn = document.getElementById('updates-more-btn');
-    let closeTimer;
-    let activeIndex = -1;
-
     navToggle?.addEventListener('click', () => {
       const open = topNav?.classList.toggle('nav-open');
       navToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
     });
-
     document.querySelectorAll('.nav-links a').forEach((link) => {
       link.addEventListener('click', () => {
         topNav?.classList.remove('nav-open');
@@ -538,131 +499,39 @@ const selectedWorks = [
       });
     });
 
-    updatesMoreBtn?.addEventListener('click', () => {
-      document.querySelectorAll('[data-extra-update="true"]').forEach((el) => {
-        el.classList.remove('update-hidden');
-      });
-      updatesMoreBtn.remove();
-    });
+    const hoverCard = document.getElementById('selected-hover-card');
+    const hoverTitle = document.getElementById('hover-title');
+    const hoverDetail = document.getElementById('hover-detail');
+    const hoverLink = document.getElementById('hover-link');
+    const entries = Array.from(document.querySelectorAll('[data-hover-entry]'));
+    const mobileQuery = window.matchMedia('(max-width: 900px)');
+    let hoverTimer;
 
-    function resetCards() {
-      selectedCards.forEach((c) => c.classList.remove('is-expanded'));
-      selectedGrid?.classList.remove('has-expanded');
-      activeIndex = -1;
+    function placeHoverCard(entry) {
+      const rect = entry.getBoundingClientRect();
+      hoverCard.style.top = `${window.scrollY + rect.top}px`;
+      hoverCard.style.left = `${window.scrollX + rect.left}px`;
+      hoverCard.style.width = `${rect.width}px`;
+      hoverCard.style.height = `${rect.height}px`;
     }
 
-    function collapseDetail(animated = true) {
-      window.clearTimeout(closeTimer);
-      resetCards();
-      if (detailPanel.hidden) return;
-      if (!animated) {
-        detailPanel.hidden = true;
-        detailPanel.classList.remove('is-collapsing');
-        return;
-      }
-      detailPanel.classList.remove('is-collapsing');
-      void detailPanel.offsetWidth;
-      detailPanel.classList.add('is-collapsing');
-      closeTimer = window.setTimeout(() => {
-        detailPanel.hidden = true;
-        detailPanel.classList.remove('is-collapsing');
-      }, 220);
-    }
-
-    function expandCard(card, idx) {
-      window.clearTimeout(closeTimer);
-      resetCards();
-      activeIndex = idx;
-      card.classList.add('is-expanded');
-      selectedGrid?.classList.add('has-expanded');
-      detailImage.src = card.dataset.image || '';
-      detailImage.alt = card.dataset.name || '';
-      detailVenue.textContent = `${card.dataset.venue || ''} ${card.dataset.year || ''}`.trim();
-      detailTldr.textContent = card.dataset.tldr || '';
-      detailText.textContent = card.dataset.detail || '';
-      detailLink.href = card.dataset.href || '#';
-      detailBibtexBtn.onclick = async () => {
-        try {
-          await navigator.clipboard.writeText(card.dataset.bibtex || '');
-          detailBibtexBtn.textContent = 'Copied!';
-          setTimeout(() => { detailBibtexBtn.textContent = 'Copy BibTeX'; }, 1200);
-        } catch {}
-      };
-      detailRelated.innerHTML = '';
-      try {
-        const related = JSON.parse(card.dataset.related || '[]');
-        related.forEach((r) => {
-          const a = document.createElement('a');
-          a.href = r.href || '#';
-          a.target = '_blank';
-          a.rel = 'noopener';
-          a.textContent = r.label;
-          a.className = 'related-link';
-          detailRelated.appendChild(a);
-        });
-      } catch {}
-      const visibleCards = selectedCards.filter((c) => c.style.display !== 'none');
-      const currentVisibleIndex = visibleCards.indexOf(card);
-      const computedCols = getComputedStyle(selectedGrid).gridTemplateColumns || '';
-      const cardsPerRow = mobileQuery.matches ? 1 : Math.max(1, computedCols.split(' ').filter(Boolean).length);
-      const rowStart = Math.floor(currentVisibleIndex / cardsPerRow) * cardsPerRow;
-      const rowEnd = Math.min(rowStart + cardsPerRow, visibleCards.length);
-      const anchor = visibleCards[rowEnd - 1] || card;
-      anchor.insertAdjacentElement('afterend', detailPanel);
-      detailPanel.classList.remove('is-collapsing');
-      detailPanel.hidden = false;
-    }
-
-    selectedCards.forEach((card, idx) => {
-      card.addEventListener('mouseenter', () => {
+    entries.forEach((entry) => {
+      entry.addEventListener('mouseenter', () => {
         if (mobileQuery.matches) return;
-        expandCard(card, idx);
+        clearTimeout(hoverTimer);
+        hoverTitle.textContent = entry.dataset.title || '';
+        hoverDetail.textContent = entry.dataset.detail || '';
+        hoverLink.href = entry.dataset.href || '#';
+        placeHoverCard(entry);
+        hoverCard.hidden = false;
       });
-      card.addEventListener('mouseleave', () => {
+      entry.addEventListener('mouseleave', () => {
         if (mobileQuery.matches) return;
-        closeTimer = window.setTimeout(() => collapseDetail(true), 120);
-      });
-      card.addEventListener('click', () => {
-        if (!mobileQuery.matches) return;
-        if (activeIndex === idx) collapseDetail(true);
-        else expandCard(card, idx);
+        hoverTimer = setTimeout(() => { hoverCard.hidden = true; }, 80);
       });
     });
-
-    detailPanel.addEventListener('mouseenter', () => {
-      if (!mobileQuery.matches) window.clearTimeout(closeTimer);
-    });
-    detailPanel.addEventListener('mouseleave', () => {
-      if (!mobileQuery.matches) collapseDetail(true);
-    });
-
-    directionFilter?.querySelectorAll('[data-filter]').forEach((btn) => {
-      btn.addEventListener('click', () => {
-        const key = btn.getAttribute('data-filter') || 'all';
-        directionFilter.querySelectorAll('[data-filter]').forEach((b) => b.classList.remove('is-active'));
-        btn.classList.add('is-active');
-        const directionMap = Object.fromEntries(Array.from(document.querySelectorAll('.filter-chip[data-filter]')).map((el) => [el.getAttribute('data-filter'), el.textContent]));
-        const descriptions = {
-          'all': 'A cross-section of projects spanning theory, uncertainty, systems, and scientific discovery.',
-          'materials': 'Machine learning for scientific discovery and energy-storage materials.',
-          'unified-graph': 'Toward unified operator-level views that connect spectral, spatial, and dynamical graph learning.',
-          'uq': 'Reliable graph decisions under uncertainty, sensitivity, and limited observations.',
-          'hw-sw': 'Learning systems that connect machine learning with circuits, architecture, and systems constraints.',
-          'music-ai': 'Generative and multimodal systems for computational creativity and music understanding.',
-          'innovation': 'Forecasting scientific and technological impact with graph- and context-aware models.',
-          'cross-network': 'Optimization and intervention when multiple interacting networks matter at once.',
-          'software': 'Understanding and improving ML systems for software analysis and security tasks.',
-          'symbolic': 'Interpretable symbolic models for scientific mechanisms on graph-structured systems.',
-          'drone': 'Distributed systems and planning infrastructure for autonomous drone applications.'
-        };
-        directionDesc.textContent = descriptions[key] || descriptions['all'];
-        selectedCards.forEach((card) => {
-          const show = key === 'all' || card.dataset.direction === key;
-          card.style.display = show ? '' : 'none';
-        });
-        collapseDetail(false);
-      });
-    });
+    hoverCard?.addEventListener('mouseenter', () => clearTimeout(hoverTimer));
+    hoverCard?.addEventListener('mouseleave', () => { hoverCard.hidden = true; });
 
     document.querySelectorAll('.repo-card[data-href]').forEach((card) => {
       card.addEventListener('click', (event) => {
@@ -678,16 +547,6 @@ const selectedWorks = [
           if (href) window.open(href, '_blank', 'noopener');
         }
       });
-    });
-
-    document.addEventListener('click', (event) => {
-      if (detailPanel.hidden || !mobileQuery.matches) return;
-      const target = event.target;
-      if (target instanceof Node) {
-        const insideCard = target.closest('[data-expand-card]');
-        const insideDetail = target.closest('#selected-detail-panel');
-        if (!insideCard && !insideDetail) collapseDetail(true);
-      }
     });
   </script>
 </Layout>
@@ -737,6 +596,25 @@ const selectedWorks = [
   .tag.paper { background: #e0f2fe; color: #075985; }
   .tag.tutorial { background: #fce7f3; color: #9d174d; }
   .lead { margin: 0 0 8px; color: #1e293b; }
+
+  .selected-list { display: grid; gap: 12px; position: relative; }
+  .selected-entry { display: grid; grid-template-columns: 170px minmax(0, 1fr); gap: 14px; align-items: stretch; border: 1px solid rgba(148,163,184,0.16); border-radius: 14px; background: #fff; padding: 10px; transition: transform .18s ease, border-color .18s ease, box-shadow .18s ease; }
+  .selected-entry:hover { transform: translateY(-2px); border-color: rgba(37,99,235,0.32); box-shadow: 0 12px 24px rgba(15,23,42,0.08); }
+  .selected-thumb { width: 100%; height: 112px; object-fit: cover; border-radius: 10px; display: block; }
+  .selected-main { min-width: 0; }
+  .selected-head { display:flex; justify-content:space-between; align-items:flex-start; gap:10px; margin-bottom: 6px; }
+  .selected-head h3 { margin: 0; font-size: .98rem; line-height: 1.2; }
+  .selected-badge { flex: 0 0 auto; font-size: .68rem; color: #2563eb; background: #dbeafe; padding: 3px 8px; border-radius: 999px; }
+  .selected-summary { margin: 0 0 8px; color: #334155; font-size: .84rem; line-height: 1.4; }
+  .selected-links { display:flex; flex-wrap: wrap; gap: 8px; }
+  .selected-links a { text-decoration: none; font-size: .76rem; color:#2563eb; background:#eff6ff; padding:4px 8px; border-radius:999px; }
+  .selected-links a:hover { background:#dbeafe; }
+  .selected-hover-card { position: fixed; z-index: 30; pointer-events: auto; border: 1px solid rgba(37,99,235,0.22); border-radius: 14px; background: rgba(255,255,255,0.98); box-shadow: 0 18px 36px rgba(15,23,42,0.12); padding: 12px 14px; animation: detailPop .18s ease; overflow: hidden; }
+  .selected-hover-inner { display:flex; flex-direction:column; height:100%; }
+  .selected-hover-inner h3 { margin: 0 0 6px; font-size: .95rem; line-height: 1.2; }
+  .selected-hover-inner p { margin: 0; color:#334155; font-size:.8rem; line-height:1.35; display:-webkit-box; -webkit-line-clamp: 4; -webkit-box-orient: vertical; overflow:hidden; }
+  .selected-hover-inner a { margin-top:auto; align-self:flex-end; text-decoration:none; font-size:.76rem; color:#2563eb; }
+
   .direction-visual { margin: 8px 0 14px; border-radius: 0; overflow: hidden; border: none; }
   .direction-visual img { width: 100%; display: block; aspect-ratio: 16 / 7; object-fit: cover; }
   .statement-copy p { margin: 0 0 12px; color: #334155; }
@@ -744,47 +622,7 @@ const selectedWorks = [
   .filter-chip { border:1px solid rgba(148,163,184,0.18); background:#fff; color:#334155; border-radius:999px; padding:6px 10px; font-size:.78rem; cursor:pointer; }
   .filter-chip.is-active, .filter-chip:hover { background:#dbeafe; color:#2563eb; border-color:rgba(37,99,235,0.22); }
   .direction-desc { margin:0 0 12px; color:#64748b; font-size:.85rem; }
-  .work-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; }
-  .work-card { position: relative; border: 1px solid rgba(148,163,184,0.16); border-radius: 12px; overflow: hidden; background: #fff; cursor: pointer; transition: transform .18s ease, border-color .18s ease, box-shadow .18s ease, border-width .18s ease; }
-  .work-card:hover { transform: translateY(-3px); border-color: rgba(37,99,235,0.38); border-width: 1px; box-shadow: 0 12px 24px rgba(15,23,42,0.10); }
-  .work-card > img { width: 100%; height: 148px; object-fit: cover; display: block; }
-  .work-copy { padding: 10px 12px 12px; position: relative; }
-  .work-copy h3 { margin: 2px 0 0; font-size: .92rem; color: #0f172a; line-height: 1.28; }
-  .overlay-tags { position: absolute; top: -42px; left: 10px; z-index: 2; }
-  .work-card.is-expanded { border-color: rgba(37,99,235,0.45); box-shadow: 0 12px 24px rgba(15,23,42,0.10); }
-  .selected-detail-panel { grid-column: 1 / -1; border: 1px solid rgba(37,99,235,0.18); border-radius: 16px; background: linear-gradient(180deg, rgba(255,255,255,0.98), rgba(248,250,252,0.96)); box-shadow: 0 16px 32px rgba(15,23,42,0.08); padding: 16px; margin-top: 4px; transform-origin: top center; animation: detailPop .28s ease; }
-  .selected-detail-panel.is-collapsing { animation: detailCollapse .24s ease forwards; }
-  @keyframes detailPop {
-    from { opacity: 0; transform: scale(.96) translateY(-6px); }
-    to { opacity: 1; transform: scale(1) translateY(0); }
-  }
-  @keyframes detailCollapse {
-    from { opacity: 1; transform: scale(1) translateY(0); }
-    to { opacity: 0; transform: scale(.97) translateY(-4px); }
-  }
-  .work-detail { display: grid; grid-template-columns: .92fr 1.38fr; gap: 16px; align-items: stretch; min-height: 0; height: 100%; }
-  .work-detail-media img { width: 100%; height: 100%; min-height: 0; max-height: 213px; object-fit: cover; border-radius: 10px; display: block; }
-  .work-detail-copy { min-height: 0; overflow: hidden; display:flex; flex-direction:column; position: relative; padding-top: 24px; }
-  .detail-topbar { position:absolute; top:0; right:0; display:flex; justify-content:flex-end; margin-bottom:0; }
-  .work-detail-copy p { margin: 0 0 6px; color: #334155; line-height: 1.38; font-size: .82rem; }
-  .detail-tldr { font-size: .94rem; color:#0f172a !important; font-weight:700; }
-    .detail-related { display:flex; flex-wrap:wrap; gap:8px; }
-  .related-link { display:inline-flex; align-items:center; text-decoration:none; color:#2563eb; background:#eff6ff; border-radius:999px; padding:4px 8px; font-size:.76rem; }
-  .related-link:hover { background:#dbeafe; }
-  .detail-actions { margin-top: 6px; }
-  .detail-actions-top { margin-top: 0; gap: 8px; }
-  .related-row, .detail-related, .detail-meta-inline { display: flex; flex-wrap: nowrap; gap: 10px; align-items: center; white-space: nowrap; }
-  .related-row > *, .detail-related > *, .detail-meta-inline > * { font-size: .82rem; line-height: 1.2; }
-  .detail-meta-inline { display: flex; flex-wrap: nowrap; gap: 10px; align-items: center; white-space: nowrap; overflow: hidden; }
-  .detail-meta-inline > * { font-size: .82rem; line-height: 1.2; }
-  .detail-link { display: inline-flex; align-items: center; text-decoration: none; color: #0f172a; border: 1px solid rgba(15,23,42,0.12); border-radius: 999px; padding: 5px 9px; font-size: .76rem; }
-  .detail-link:hover { border-color: rgba(37,99,235,0.35); color: #2563eb; }
-  .work-grid.has-expanded .work-card:not(.is-expanded) .work-copy h3,
-  .work-grid.has-expanded .work-card:not(.is-expanded) .work-copy p,
-  .work-grid.has-expanded .work-card:not(.is-expanded) .badge.venue,
-  .work-grid.has-expanded .work-card:not(.is-expanded) > img { opacity: .42; }
-  .work-grid.has-expanded .work-card:not(.is-expanded) { border-color: rgba(148,163,184,0.12); box-shadow: none; }
-
+  
   .badge.venue { display: inline-block; font-size: .6rem; color: #ffffff; background: rgba(15,23,42,0.72); padding: 4px 8px; border-radius: 999px; backdrop-filter: blur(6px); }
     .repo-card, .note-card { text-decoration: none; color: inherit; transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease; display: block; }
   .repo-card { cursor: pointer; }
@@ -811,7 +649,7 @@ const selectedWorks = [
 
   @media (max-width: 1200px) {
     .grid-2 { grid-template-columns: 1fr 2.2fr; }
-    .work-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .selected-entry { grid-template-columns: 150px minmax(0, 1fr); }
     .stack.dense.four-cols { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   }
   @media (max-width: 720px) {
@@ -824,9 +662,11 @@ const selectedWorks = [
     .grid-2 { grid-template-columns: 1fr; }
     .left-col { order: 1; }
     .right-col-main { order: 2; }
-    .work-grid { grid-template-columns: 1fr; }
-    .work-detail { grid-template-columns: 1fr; }
-    .selected-detail-panel { position: static; width: 100% !important; left: auto; top: auto; padding: 12px; margin-top: 0; }
+    .selected-list { gap: 10px; }
+    .selected-entry { grid-template-columns: 1fr; }
+    .selected-thumb { height: 168px; }
+    .selected-head { flex-direction: column; gap: 6px; }
+    .selected-hover-card { display: none; }
     .work-detail-media img { height: 190px; }
     .stack.dense.four-cols { grid-template-columns: 1fr; }
     .updates { gap: 10px; }
