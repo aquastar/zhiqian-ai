@@ -770,10 +770,11 @@ const selectedWorks = [
     from { opacity: 1; transform: scale(1) translateY(0); }
     to { opacity: 0; transform: scale(.97) translateY(-4px); }
   }
-  .work-detail { display: grid; grid-template-columns: .92fr 1.38fr; gap: 22px; align-items: center; }
-  .work-detail-media img { width: 100%; height: 240px; object-fit: cover; border-radius: 10px; display: block; }
-  .work-detail-copy h3 { margin: 8px 0 8px; font-size: 1.08rem; color: #0f172a; }
-  .work-detail-copy p { margin: 0 0 10px; color: #334155; line-height: 1.58; }
+  .work-detail { display: grid; grid-template-columns: .92fr 1.38fr; gap: 16px; align-items: stretch; min-height: 0; height: 100%; }
+  .work-detail-media img { width: 100%; height: 100%; min-height: 0; max-height: 213px; object-fit: cover; border-radius: 10px; display: block; }
+  .work-detail-copy { min-height: 0; overflow: hidden; }
+  .work-detail-copy h3 { margin: 4px 0 6px; font-size: 1rem; color: #0f172a; line-height: 1.2; }
+  .work-detail-copy p { margin: 0 0 8px; color: #334155; line-height: 1.42; font-size: .86rem; }
   .detail-tldr { font-size: .94rem; color:#0f172a !important; font-weight:700; }
   .detail-support a { color:#2563eb; text-decoration:none; }
   .detail-support a:hover { text-decoration:underline; }
@@ -781,10 +782,10 @@ const selectedWorks = [
   .related-link { display:inline-flex; align-items:center; text-decoration:none; color:#2563eb; background:#eff6ff; border-radius:999px; padding:4px 8px; font-size:.76rem; }
   .related-link:hover { background:#dbeafe; }
   .detail-meta { margin-top: 2px; }
-  .detail-label { display: inline-block; font-size: .68rem; text-transform: uppercase; letter-spacing: .04em; color: #64748b; margin-bottom: 4px; }
+  .detail-label { display: inline-block; font-size: .64rem; text-transform: uppercase; letter-spacing: .04em; color: #64748b; margin-bottom: 2px; }
   .work-keywords { font-size: .82rem; color: #2563eb !important; font-weight: 600; margin: 0 !important; }
-  .detail-actions { margin-top: 14px; }
-  .detail-link { display: inline-flex; align-items: center; text-decoration: none; color: #0f172a; border: 1px solid rgba(15,23,42,0.12); border-radius: 999px; padding: 6px 10px; font-size: .8rem; }
+  .detail-actions { margin-top: 8px; }
+  .detail-link { display: inline-flex; align-items: center; text-decoration: none; color: #0f172a; border: 1px solid rgba(15,23,42,0.12); border-radius: 999px; padding: 5px 9px; font-size: .76rem; }
   .detail-link:hover { border-color: rgba(37,99,235,0.35); color: #2563eb; }
   .work-grid.has-expanded .work-card:not(.is-expanded) .work-copy h3,
   .work-grid.has-expanded .work-card:not(.is-expanded) .work-copy p,
