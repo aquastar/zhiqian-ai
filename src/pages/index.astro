@@ -59,6 +59,48 @@ const researchDirections = [
   { key: 'drone', label: 'Drone Systems', desc: 'Distributed systems and planning infrastructure for autonomous drone applications.' },
 ];
 
+const parseBibtexField = (bibtex, field) => {
+  const match = bibtex?.match(new RegExp(`(?:^|[\\s,{])${field}\\s*=\\s*\\{([^}]*)\\}`, 'i'));
+  return match?.[1]?.trim() ?? '';
+};
+
+const normalizeAuthorName = (name) => {
+  const trimmed = name.trim();
+  if (!trimmed.includes(',')) return trimmed;
+  const [last, first] = trimmed.split(',').map((part) => part.trim());
+  return [first, last].filter(Boolean).join(' ');
+};
+
+const formatChicagoAuthors = (authorsRaw, fallback = 'Zhiqian Chen') => {
+  const authors = authorsRaw
+    .split(/\s+and\s+/i)
+    .map((name) => normalizeAuthorName(name))
+    .filter(Boolean);
+
+  if (!authors.length) return fallback;
+  if (authors.length === 1) return authors[0];
+  if (authors.length === 2) return `${authors[0]} and ${authors[1]}`;
+  return `${authors.slice(0, -1).join(', ')}, and ${authors[authors.length - 1]}`;
+};
+
+const formatChicagoCitation = (work) => {
+  const authorsRaw = parseBibtexField(work.bibtex, 'author');
+  const titleRaw = parseBibtexField(work.bibtex, 'title');
+  const booktitleRaw = parseBibtexField(work.bibtex, 'booktitle');
+  const journalRaw = parseBibtexField(work.bibtex, 'journal');
+
+  const authors = formatChicagoAuthors(authorsRaw);
+  const venue = journalRaw || booktitleRaw || `${work.venue} ${work.year}`;
+  const title = titleRaw || work.name;
+
+  return {
+    authors,
+    title,
+    venue,
+    year: work.year,
+  };
+};
+
 const selectedWorks = [
   {
     slug: 'yuan-2024-multiplex-gbo',
@@ -95,7 +137,14 @@ const selectedWorks = [
     ],
     support: { label: 'AAAI 2024 accepted-paper context', href: 'https://aaai.org/aaai-conference/' },
     href: 'https://ojs.aaai.org/index.php/AAAI/article/view/30262',
-    bibtex: `@inproceedings{yuan2024multiple, title = {Multiple-source localization from a single-snapshot observation using graph Bayesian optimization}, booktitle = {Proceedings of the AAAI Conference on Artificial Intelligence}, year = {2024}}`,
+    doi: 'https://doi.org/10.1609/aaai.v38i20.30262',
+    bibtex: `@inproceedings{yuan2024multiple, author = {Zijian Zhang and Zonghan Zhang and Zhiqian Chen}, title = {Multiple-Source Localization from a Single-Snapshot Observation Using Graph Bayesian Optimization}, booktitle = {Proceedings of the AAAI Conference on Artificial Intelligence}, volume = {38}, number = {20}, pages = {22538--22546}, year = {2024}, doi = {10.1609/aaai.v38i20.30262}}`,
+    citationOverride: {
+      authors: 'Zijian Zhang, Zonghan Zhang, and Zhiqian Chen',
+      title: 'Multiple-Source Localization from a Single-Snapshot Observation Using Graph Bayesian Optimization',
+      venue: 'Proceedings of the AAAI Conference on Artificial Intelligence 38, no. 20',
+      year: '2024: 22538–22546'
+    },
     image: '/selected-images/bosoul_figure.png'
   },
   {
@@ -122,6 +171,7 @@ const selectedWorks = [
     venue: 'Nature Communications',
     year: '2019',
     direction: 'materials',
+    awardHighlight: 'Top 50 Chemistry & Materials Sciences article',
     tldr: 'A graph-driven route to discover promising solid-state lithium-ion conductors at scale.',
     detail: 'This work uses machine learning to accelerate the search for solid-state lithium-ion conductors, a key materials bottleneck for safer and denser energy storage. It is one of the clearest examples in my portfolio where graph-based learning contributes directly to scientific discovery beyond standard ML benchmarks.',
     keywords: ['materials discovery', 'energy storage', 'scientific ML'],
@@ -156,7 +206,7 @@ const selectedWorks = [
     name: 'Traffic Forecasting',
     venue: 'SIGSPATIAL',
     year: '2020',
-    direction: 'uq',
+    direction: 'spatial',
     tldr: 'One of our early uncertainty-aware graph forecasting efforts for real traffic systems.',
     detail: 'This work combines graph convolution with Kalman filtering to improve traffic prediction under uncertainty and temporal noise. It is one piece of the broader uncertainty-quantification line that later connects to our WSDM tutorial on UQ for graph dynamics.',
     keywords: ['traffic forecasting', 'kalman filtering', 'uncertainty'],
@@ -210,7 +260,7 @@ const selectedWorks = [
     name: 'Accident Impact',
     venue: 'SDM',
     year: '2022',
-    direction: 'unified-graph',
+    direction: 'spatial',
     tldr: 'A graph-wavelet flavored forecasting view that also sharpens the distinction between wavelets and generic spectral operators.',
     detail: 'This paper is another piece in the broader unified framework series. It focuses on graph wavelets and early forecasting from limited observations, and in doing so highlights the distinction between wavelet operators and more general spectral operators. That makes it conceptually connected to the broader unification line, not just a standalone traffic paper.',
     keywords: ['graph wavelets', 'forecasting', 'unified framework'],
@@ -224,11 +274,27 @@ const selectedWorks = [
     image: 'https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=1600&q=80'
   },
   {
+    slug: 'biswas-2020-memetic-spatial-optimization',
+    name: 'Spatial Optimization',
+    venue: 'SIGSPATIAL',
+    year: '2020',
+    direction: 'spatial',
+    awardHighlight: 'Best Paper Award',
+    tldr: 'Domain knowledge strengthens memetic search for hard spatial optimization problems.',
+    detail: 'This SIGSPATIAL 2020 paper integrates domain knowledge into memetic algorithms for spatial optimization. It is the paper that received the Best Paper Award and fits naturally in the spatial line of the selected list.',
+    keywords: ['spatial optimization', 'memetic algorithms', 'domain knowledge'],
+    related: [],
+    support: { label: 'Spatial optimization context', href: 'https://sigspatial2020.sigspatial.org/' },
+    href: 'https://dl.acm.org/doi/10.1145/3397536.3422263',
+    bibtex: `@inproceedings{biswas2020incorporating, author = {Subhodip Biswas and Fanglan Chen and Zhiqian Chen and Chang-Tien Lu and Naren Ramakrishnan}, booktitle = {Proceedings of the 28th International Conference on Advances in Geographic Information Systems}, pages = {25--35}, title = {Incorporating domain knowledge into memetic algorithms for solving spatial optimization problems}, year = {2020}}`,
+    image: 'https://images.unsplash.com/photo-1465447142348-e9952c393450?auto=format&fit=crop&w=1600&q=80'
+  },
+  {
     slug: 'chen-2020-estimating',
     name: 'Circuit Security',
     venue: 'DATE',
     year: '2020',
-    direction: 'hw-sw',
+    direction: 'software-hardware',
     tldr: 'Among the earliest attempts to bring GNN reasoning into hardware security workflows.',
     detail: 'This paper applies graph deep learning to estimate the runtime of circuit de-obfuscation, connecting learning-based reasoning to practical hardware-security bottlenecks. It reflects an early hardware/ML direction where we were among the first researchers applying GNN ideas in this space.',
     keywords: ['hardware security', 'graph deep learning', 'EDA'],
@@ -263,7 +329,7 @@ const selectedWorks = [
     name: 'ML Security Limits',
     venue: 'EMSE',
     year: '2024',
-    direction: 'software',
+    direction: 'software-hardware',
     tldr: 'A careful look at why text-only ML pipelines underperform on vulnerability detection in practice.',
     detail: 'This paper is my software engineering line in the selected set. Rather than proposing yet another benchmark improvement, it asks a more diagnostic question: why do text-based models fail on vulnerability detection? That kind of explanation work is important if we want security ML systems that are actually trustworthy in practice.',
     keywords: ['software engineering', 'security', 'model diagnosis'],
@@ -328,11 +394,34 @@ const selectedWorks = [
     image: 'https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&w=1600&q=80'
   },
   {
+    slug: 'benbrahim-2026-sumo-x-pypsa',
+    name: 'Power-Traffic Co-Simulation Demo',
+    venue: 'WWW',
+    year: '2026',
+    direction: 'cross-network',
+    tldr: 'Interactive web demo for real-time urban power-traffic co-simulation with vehicle-to-grid coupling.',
+    detail: 'This demo paper presents Sumo x PyPSA, an interactive web system for real-time urban power-traffic co-simulation with vehicle-to-grid. It fits naturally into the cross-network line because it explicitly couples transportation and power systems in a single operational loop.',
+    keywords: ['power-traffic co-simulation', 'vehicle-to-grid', 'cross-network interaction'],
+    related: [
+      { label: 'SumoXPypsa repo', href: 'https://github.com/XGraph-Team/SumoXPypsa' }
+    ],
+    support: { label: 'Urban power-traffic co-simulation context', href: 'https://www.thewebconf.org/' },
+    href: 'https://dl.acm.org/doi/10.1145/3696410.3714755',
+    bibtex: `@inproceedings{benbrahim2026sumo, author = {Marouane Benbrahim and Xin Fang and Zhiqian Chen}, booktitle = {Proceedings of the ACM Web Conference 2026}, title = {Sumo x PyPSA: Interactive Web Demo of Real-Time Urban Power-Traffic Co-Simulation with Vehicle-to-Grid}, year = {2026}}`,
+    citationOverride: {
+      authors: 'Marouane Benbrahim, Xin Fang, and Zhiqian Chen',
+      title: 'Sumo x PyPSA: Interactive Web Demo of Real-Time Urban Power-Traffic Co-Simulation with Vehicle-to-Grid',
+      venue: 'Proceedings of the ACM Web Conference',
+      year: '2026'
+    },
+    image: 'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1600&q=80'
+  },
+  {
     slug: 'chen-2017-learning',
     name: 'Music Genre Fusion',
     venue: 'ICDM',
     year: '2017',
-    direction: 'music-ai',
+    direction: 'music',
     tldr: 'A favorite personal project: genre fusion as a creative AI problem, not just a classification task.',
     detail: 'This remains one of my favorite projects. It treats music generation as genre fusion through adversarial dual learning, and even though I have not continued it yet, I still hope to revisit it with the right collaborators in music AI.',
     keywords: ['music AI', 'generative models', 'creative ML'],
@@ -345,6 +434,59 @@ const selectedWorks = [
     image: 'https://raw.githubusercontent.com/aquastar/imczq/master/content/publication/chen-2017-learning/featured.png'
   }
 ];
+
+const selectedFilters = [
+  { key: 'all', label: 'All' },
+  { key: 'cross-network', label: 'Cross-Network' },
+  { key: 'uq', label: 'UQ' },
+  { key: 'unified-graph', label: 'Spectral Graph' },
+  { key: 'spatial', label: 'Spatial' },
+  { key: 'software-hardware', label: 'Software/Hardware' },
+  { key: 'symbolic', label: 'Symbolic' },
+  { key: 'materials', label: 'Material Sci.' },
+  { key: 'music', label: 'Music' },
+];
+
+const selectedCategoryLabels = Object.fromEntries(
+  selectedFilters.filter((filter) => filter.key !== 'all').map((filter) => [filter.key, filter.label])
+);
+
+const coreRankings = {
+  AAAI: 'CORE A*',
+  KDD: 'CORE A*',
+  WWW: 'CORE A*',
+  SDM: 'CORE A',
+  ICDM: 'CORE A',
+  SIGSPATIAL: 'CORE A',
+  DATE: 'CORE A',
+  BigData: 'CORE B',
+};
+
+const selectedOrder = {
+  'benbrahim-2026-sumo-x-pypsa': 1,
+  'yuan-2024-multiplex-gbo': 2,
+  'zhang-2025-interdiction': 3,
+};
+
+const selectedCitations = selectedWorks
+  .filter((work) => selectedFilters.some((filter) => filter.key === 'all' || filter.key === work.direction))
+  .sort((a, b) => {
+    const orderA = selectedOrder[a.slug] ?? 999;
+    const orderB = selectedOrder[b.slug] ?? 999;
+    if (orderA !== orderB) return orderA - orderB;
+    return Number(b.year) - Number(a.year);
+  })
+  .map((work) => ({
+    ...work,
+    citation: work.citationOverride || formatChicagoCitation(work),
+    categoryLabel: selectedCategoryLabels[work.direction] || work.direction,
+    coreRanking: coreRankings[work.venue] || null,
+    links: [
+      { label: 'paper', href: work.href },
+      ...(work.related?.filter((r) => /code|repo/i.test(r.label)).slice(0, 1).map((r) => ({ label: 'code', href: r.href })) ?? []),
+      ...(work.doi ? [{ label: 'doi', href: work.doi }] : []),
+    ]
+  }));
 
 ---
 
@@ -371,7 +513,8 @@ const selectedWorks = [
           <img class="avatar" src="https://imczq.com/authors/admin/avatar_huff586cc3096ffa7a7257f5a661abe783_130497_270x270_fill_q75_lanczos_center.jpg" alt="Zhiqian Chen" />
           <h1 class="name-en">Chen, Zhiqian</h1>
           <p class="name-zh">陈枳扦
-            <span class="name-tip" tabindex="0" aria-label="Name meaning note">?
+            <span class="name-tip" tabindex="0" aria-label="Name meaning note">
+              <i class="fas fa-sparkles"></i>
               <span class="tip-pop">物理含义：根据五行八卦算的</span>
             </span>
           </p>
@@ -391,7 +534,7 @@ const selectedWorks = [
           </div>
         </article>
 
-        <article class="card module">
+        <article class="card module updates-module">
           <h2>Recent Updates</h2>
           <ul class="updates" id="updates-list">
             {updates.map((u, idx) => (
@@ -409,79 +552,162 @@ const selectedWorks = [
 
       <section class="right-col-main">
         <article class="card module rich hero-module" id="research">
-          <h2>Research Statement</h2>
-          <p class="lead">I study graph-structured intelligence for dynamic, uncertain, and knowledge-rich systems.</p>
-          <div class="direction-visual">
-            <img src="https://imczq.com/media/research_statement_hucb80f2447a0a6a816bf6ea6adae9c7ee_371656_1200x1200_fit_q75_h2_lanczos_3.webp" alt="Research statement visual" />
+          <h2>Research Map</h2>
+          <p class="lead">Graph-structured intelligence for dynamic, uncertain, and interacting systems.</p>
+          <p class="lead-sub">A research pipeline from representation to intervention on complex networks.</p>
+
+          <div class="research-flow" aria-label="Research pipeline">
+            <div class="flow-step" data-flow="structure">
+              <div class="flow-kicker">01</div>
+              <h3>Structure</h3>
+              <p>operators · representations · spectral views</p>
+              <div class="flow-support">e.g., <span class="map-chip map-chip-paper">ACM CSUR 2023</span> <span class="map-chip map-chip-paper">ICDM 2018</span></div>
+            </div>
+            <div class="flow-arrow" aria-hidden="true">→</div>
+            <div class="flow-step" data-flow="interaction">
+              <div class="flow-kicker">02</div>
+              <h3>Interaction</h3>
+              <p>coupled systems · cross-network effects</p>
+              <div class="flow-support">e.g., <span class="map-chip map-chip-paper">AAAI 2024</span> <span class="map-chip map-chip-paper">WWW 2026</span> <span class="map-chip map-chip-paper">KDD 2025</span></div>
+            </div>
+            <div class="flow-arrow" aria-hidden="true">→</div>
+            <div class="flow-step" data-flow="uncertainty">
+              <div class="flow-kicker">03</div>
+              <h3>Uncertainty</h3>
+              <p>partial observation · sensitivity · robustness</p>
+              <div class="flow-support">e.g., <span class="map-chip map-chip-paper">AAAI 2024</span> <span class="map-chip map-chip-paper">SDM 2023</span> <span class="map-chip map-chip-paper">WSDM Tutorial</span></div>
+            </div>
+            <div class="flow-arrow" aria-hidden="true">→</div>
+            <div class="flow-step" data-flow="intervention">
+              <div class="flow-kicker">04</div>
+              <h3>Intervention</h3>
+              <p>optimization · control · scientific discovery</p>
+              <div class="flow-support">e.g., <span class="map-chip map-chip-award">SIGSPATIAL Best Paper</span> <span class="map-chip map-chip-award">Nature Top 50</span></div>
+            </div>
           </div>
-          <div class="statement-copy">
-            <p>My goal is to understand how structure, interaction, and uncertainty shape decision-making across complex networks, from social and epidemiological systems to transportation, infrastructure, and emerging AI systems.</p>
-            <p>My work combines spectral graph theory, uncertainty quantification, and cross-network modeling to build methods that are not only predictive, but also interpretable, transferable, and theoretically grounded. More broadly, I am interested in a general theory of graph dynamics that connects learning, inference, and control across interacting systems.</p>
+
+          <div class="statement-copy compact-copy">
+            <p>I study how structure, interaction, and uncertainty shape learning, inference, and decision-making across complex networks. My work combines spectral graph theory, machine learning, uncertainty quantification, and optimization to build models that are not only predictive, but also interpretable and transferable.</p>
+          </div>
+
+          <div class="research-pillars" aria-label="Research directions">
+            <div class="pillar-card" data-pillar="interaction uncertainty intervention">
+              <h3>Cross-Network</h3>
+              <p>power–traffic · diffusion · interdiction</p>
+              <div class="pillar-meta"><span class="map-chip map-chip-paper">WWW 2026</span> <span class="map-chip map-chip-paper">AAAI 2024</span> <span class="map-chip map-chip-paper">KDD 2025</span></div>
+            </div>
+            <div class="pillar-card" data-pillar="structure">
+              <h3>Spectral Graph</h3>
+              <p>operators · unification · theory</p>
+              <div class="pillar-meta"><span class="map-chip map-chip-paper">ACM CSUR 2023</span> <span class="map-chip map-chip-paper">ICDM 2018</span></div>
+            </div>
+            <div class="pillar-card" data-pillar="uncertainty">
+              <h3>UQ</h3>
+              <p>localization · sensitivity · reliability</p>
+              <div class="pillar-meta"><span class="map-chip map-chip-paper">AAAI 2024</span> <span class="map-chip map-chip-paper">SDM 2023</span> <span class="map-chip map-chip-paper">BigData 2025</span></div>
+            </div>
+            <div class="pillar-card" data-pillar="uncertainty intervention">
+              <h3>Spatial</h3>
+              <p>mobility · forecasting · optimization</p>
+              <div class="pillar-meta"><span class="map-chip map-chip-paper">SIGSPATIAL 2020</span> <span class="map-chip map-chip-paper">SDM 2022</span></div>
+            </div>
+            <div class="pillar-card" data-pillar="intervention">
+              <h3>Scientific Systems</h3>
+              <p>materials · symbolic models · software</p>
+              <div class="pillar-meta"><span class="map-chip map-chip-paper">Nature Commun.</span> <span class="map-chip map-chip-paper">SIGSPATIAL 2025</span> <span class="map-chip map-chip-paper">EMSE 2024</span></div>
+            </div>
+          </div>
+
+          <div class="validation-strip" aria-label="Selected validation">
+            <span class="validation-label">Selected validation</span>
+            <span class="map-chip map-chip-grant">NSF CAREER</span>
+            <span class="map-chip map-chip-award">SIGSPATIAL Best Paper</span>
+            <span class="map-chip map-chip-paper">WSDM Tutorial</span>
+            <span class="map-chip map-chip-award">Nature Top 50</span>
           </div>
         </article>
 
         <article class="card module rich" id="selected-work">
-          <h2>Selected</h2>
-          <div class="selected-list" id="selected-list">
-            {selectedWorks.map((p) => (
-              <article class="selected-entry" data-hover-entry data-title={p.name} data-detail={p.detail} data-href={p.href}>
-                <img class="selected-thumb" src={p.image} alt={p.name} />
-                <div class="selected-main">
-                  <div class="selected-head">
-                    <h3>{p.name}</h3>
-                    <span class="selected-badge">{p.venue} {p.year}</span>
-                  </div>
-                  <p class="selected-summary">{p.tldr}</p>
-                  <div class="selected-links">
-                    <a href={p.href} target="_blank" rel="noopener">Paper</a>
-                    {p.related?.slice(0,2).map((r) => (
-                      <a href={r.href} target="_blank" rel="noopener">{r.label}</a>
+          <div class="section-head inline-head">
+            <h2>Selected Paper</h2>
+            <a class="section-link inline-link" href="https://scholar.google.com/citations?hl=en&user=NC3-O6UAAAAJ" target="_blank" rel="noopener" aria-label="Open Google Scholar profile">
+              <span>Full publication</span>
+              <i class="ai ai-google-scholar-square ai-sm"></i>
+            </a>
+          </div>
+          <p class="section-intro">These papers reflect a broader goal: understanding graph dynamics in ways that connect representation, reasoning, and intervention across infrastructure, epidemics, scientific discovery, and AI systems.</p>
+          <div class="selected-filter" role="tablist" aria-label="Selected work categories">
+            {selectedFilters.map((filter, index) => (
+              <button
+                class={`selected-filter-btn ${index === 0 ? 'is-active' : ''}`}
+                type="button"
+                data-selected-filter={filter.key}
+                aria-pressed={index === 0 ? 'true' : 'false'}
+              >
+                {filter.label}
+              </button>
+            ))}
+          </div>
+          <div class="selected-list citation-list" id="selected-list">
+            {selectedCitations.map((p) => (
+              <article class="selected-entry citation-entry" data-direction={p.direction}>
+                <p class="citation-line">
+                  <span class="citation-authors">{p.citation.authors}</span>. 
+                  <span class="citation-title">“{p.citation.title}.”</span>
+                  <span class="citation-venue"> <strong><em>{p.citation.venue}</em></strong>, {p.citation.year}.</span>
+                  <span class="citation-links">
+                    {p.links.map((link) => (
+                      <a class={`citation-chip citation-chip-link citation-chip-${link.label}`} href={link.href} target="_blank" rel="noopener">{link.label}</a>
                     ))}
-                  </div>
-                </div>
+                    <span class="citation-chip citation-chip-category">{p.categoryLabel}</span>
+                    {p.awardHighlight && <span class="citation-chip citation-chip-award">{p.awardHighlight}</span>}
+                    {p.coreRanking && <span class="citation-chip citation-chip-core">{p.coreRanking}</span>}
+                  </span>
+                </p>
               </article>
             ))}
           </div>
-          <div class="selected-hover-card" id="selected-hover-card" hidden>
-            <div class="selected-hover-inner">
-              <h3 id="hover-title"></h3>
-              <p id="hover-detail"></p>
-              <a id="hover-link" href="#" target="_blank" rel="noopener">Open paper</a>
+        </article>
+
+        <section class="subgrid-2">
+          <article class="card module" id="github-projects">
+            <div class="section-head inline-head">
+              <h2>Selected Repo</h2>
+              <a class="section-link inline-link" href="https://github.com/aquastar" target="_blank" rel="noopener" aria-label="Open GitHub profile">
+                <span>Full repo</span>
+                <i class="fab fa-github"></i>
+              </a>
             </div>
-          </div>
-        </article>
+            <div class="stack dense one-col">
+              {githubCards.map((repo) => (
+                <article class="mini-card repo-card" data-href={repo.href} tabindex="0" role="link">
+                  <div class="row repo-top">
+                    <h3>{repo.name}</h3>
+                    <i class="fab fa-github repo-icon"></i>
+                  </div>
+                  <p>{repo.desc}</p>
+                  <div class="repo-meta repo-badges">
+                    <img src={`https://img.shields.io/badge/${encodeURIComponent(repo.owner)}-f8fafc.svg?style=flat-square&logo=github&logoColor=181717&labelColor=f8fafc&color=f8fafc`} alt={`owner ${repo.owner}`} />
+                    <img src={`https://img.shields.io/badge/${encodeURIComponent(repo.language)}-f8fafc.svg?style=flat-square&logo=python&logoColor=3776AB&labelColor=f8fafc&color=f8fafc`} alt={`language ${repo.language}`} />
+                    <iframe class="github-star-btn" src={`https://ghbtns.com/github-btn.html?user=${repo.owner}&repo=${repo.repo}&type=star&count=true&size=small`} title={`Star ${repo.name} on GitHub`} width="96" height="20"></iframe>
+                  </div>
+                </article>
+              ))}
+            </div>
+          </article>
 
-        <article class="card module" id="github-projects">
-          <h2>Tutorial-related Repos</h2>
-          <div class="stack dense four-cols">
-            {githubCards.map((repo) => (
-              <article class="mini-card repo-card" data-href={repo.href} tabindex="0" role="link">
-                <div class="row repo-top">
-                  <h3>{repo.name}</h3>
-                  <i class="fab fa-github repo-icon"></i>
+          <article class="card module ghost-card" id="ghost-entries">
+            <h2>Tech Notes</h2>
+            <div class="stack dense one-col">
+              {ghostEntries.map((entry) => (
+                <div class="mini-card note-card placeholder">
+                  <div class="row"><h3>{entry.title}</h3><span class="repo-pill muted">{entry.meta}</span></div>
+                  <p>{entry.desc}</p>
                 </div>
-                <p>{repo.desc}</p>
-                <div class="repo-meta repo-badges">
-                  <img src={`https://img.shields.io/badge/${encodeURIComponent(repo.owner)}-f8fafc.svg?style=flat-square&logo=github&logoColor=181717&labelColor=f8fafc&color=f8fafc`} alt={`owner ${repo.owner}`} />
-                  <img src={`https://img.shields.io/badge/${encodeURIComponent(repo.language)}-f8fafc.svg?style=flat-square&logo=python&logoColor=3776AB&labelColor=f8fafc&color=f8fafc`} alt={`language ${repo.language}`} />
-                  <iframe class="github-star-btn" src={`https://ghbtns.com/github-btn.html?user=${repo.owner}&repo=${repo.repo}&type=star&count=true&size=small`} title={`Star ${repo.name} on GitHub`} width="96" height="20"></iframe>
-                </div>
-              </article>
-            ))}
-          </div>
-        </article>
-
-        <article class="card module ghost-card" id="ghost-entries">
-          <h2>Tech Notes</h2>
-          <div class="stack dense four-cols">
-            {ghostEntries.map((entry) => (
-              <div class="mini-card note-card placeholder">
-                <div class="row"><h3>{entry.title}</h3><span class="repo-pill muted">{entry.meta}</span></div>
-                <p>{entry.desc}</p>
-              </div>
-            ))}
-          </div>
-        </article>
+              ))}
+            </div>
+          </article>
+        </section>
       </section>
   </main>
 
@@ -499,39 +725,59 @@ const selectedWorks = [
       });
     });
 
-    const hoverCard = document.getElementById('selected-hover-card');
-    const hoverTitle = document.getElementById('hover-title');
-    const hoverDetail = document.getElementById('hover-detail');
-    const hoverLink = document.getElementById('hover-link');
-    const entries = Array.from(document.querySelectorAll('[data-hover-entry]'));
-    const mobileQuery = window.matchMedia('(max-width: 900px)');
-    let hoverTimer;
 
-    function placeHoverCard(entry) {
-      const rect = entry.getBoundingClientRect();
-      hoverCard.style.top = `${window.scrollY + rect.top}px`;
-      hoverCard.style.left = `${window.scrollX + rect.left}px`;
-      hoverCard.style.width = `${rect.width}px`;
-      hoverCard.style.height = `${rect.height}px`;
-    }
+    const selectedFilterButtons = Array.from(document.querySelectorAll('[data-selected-filter]'));
+    const selectedEntries = Array.from(document.querySelectorAll('#selected-list .citation-entry'));
+    const flowSteps = Array.from(document.querySelectorAll('[data-flow]'));
+    const pillarCards = Array.from(document.querySelectorAll('[data-pillar]'));
 
-    entries.forEach((entry) => {
-      entry.addEventListener('mouseenter', () => {
-        if (mobileQuery.matches) return;
-        clearTimeout(hoverTimer);
-        hoverTitle.textContent = entry.dataset.title || '';
-        hoverDetail.textContent = entry.dataset.detail || '';
-        hoverLink.href = entry.dataset.href || '#';
-        placeHoverCard(entry);
-        hoverCard.hidden = false;
+    const applySelectedFilter = (button) => {
+      const filter = button.getAttribute('data-selected-filter') || 'all';
+      selectedFilterButtons.forEach((btn) => {
+        const active = btn === button;
+        btn.classList.toggle('is-active', active);
+        btn.setAttribute('aria-pressed', active ? 'true' : 'false');
       });
-      entry.addEventListener('mouseleave', () => {
-        if (mobileQuery.matches) return;
-        hoverTimer = setTimeout(() => { hoverCard.hidden = true; }, 80);
+      selectedEntries.forEach((entry) => {
+        const matches = filter === 'all' || entry.getAttribute('data-direction') === filter;
+        entry.hidden = !matches;
       });
+    };
+
+    selectedFilterButtons.forEach((button) => {
+      button.addEventListener('mouseenter', () => applySelectedFilter(button));
+      button.addEventListener('focus', () => applySelectedFilter(button));
+      button.addEventListener('click', () => applySelectedFilter(button));
     });
-    hoverCard?.addEventListener('mouseenter', () => clearTimeout(hoverTimer));
-    hoverCard?.addEventListener('mouseleave', () => { hoverCard.hidden = true; });
+
+    const setFlowHighlight = (key) => {
+      flowSteps.forEach((step) => step.classList.toggle('is-active', step.getAttribute('data-flow') === key));
+      pillarCards.forEach((card) => {
+        const groups = (card.getAttribute('data-pillar') || '').split(/\s+/).filter(Boolean);
+        card.classList.toggle('is-dim', !!key && !groups.includes(key));
+        card.classList.toggle('is-active', !!key && groups.includes(key));
+      });
+    };
+
+    flowSteps.forEach((step) => {
+      const key = step.getAttribute('data-flow');
+      step.addEventListener('mouseenter', () => setFlowHighlight(key));
+      step.addEventListener('focusin', () => setFlowHighlight(key));
+      step.addEventListener('mouseleave', () => setFlowHighlight(null));
+      step.addEventListener('focusout', () => setFlowHighlight(null));
+    });
+
+    const updatesMoreBtn = document.getElementById('updates-more-btn');
+    const extraUpdates = Array.from(document.querySelectorAll('[data-extra-update="true"]'));
+    let updatesExpanded = false;
+
+    updatesMoreBtn?.addEventListener('click', () => {
+      updatesExpanded = !updatesExpanded;
+      extraUpdates.forEach((item) => {
+        item.classList.toggle('update-hidden', !updatesExpanded);
+      });
+      updatesMoreBtn.textContent = updatesExpanded ? 'Collapse' : 'More';
+    });
 
     document.querySelectorAll('.repo-card[data-href]').forEach((card) => {
       card.addEventListener('click', (event) => {
@@ -564,7 +810,8 @@ const selectedWorks = [
   .top-nav a:hover { background: var(--accent-soft); color: var(--accent); }
   .top-nav a[aria-current="page"] { background: #eef2ff; color: var(--accent); box-shadow: inset 0 1px 2px rgba(15,23,42,0.10), inset 0 -1px 2px rgba(37,99,235,0.08); }
   .nav-ghost { font-size: 0.78rem; margin-left: 4px; opacity: .85; }
-  .grid-2 { display: grid; grid-template-columns: 1.1fr 3.9fr; gap: 28px; align-items: start; }
+  .grid-2 { display: grid; grid-template-columns: 1fr 3fr; gap: 28px; align-items: start; }
+  .subgrid-2 { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; align-items: start; }
   .module { padding: 16px; margin-bottom: 14px; }
   .profile, .hero-module, .accent, .direction, .placeholder, .repo-card, .note-card { background: #fff; }
   .avatar { width: 100%; height: auto; aspect-ratio: 1 / 1; border-radius: 16px; object-fit: cover; border: none; }
@@ -572,8 +819,9 @@ const selectedWorks = [
   h1 { font-size: 1.9rem; margin: 12px 0 4px; }
   .name-en { font-size: 2rem; letter-spacing: .01em; text-align: center; }
   .name-zh { margin: 2px 0 0; font-size: 1rem; color: #334155; display: inline-flex; align-items: center; justify-content: center; gap: 6px; width: 100%; text-align: center; }
-  .name-tip { position: relative; display: inline-flex; align-items: center; justify-content: center; width: 16px; height: 16px; border-radius: 999px; background: #cbd5e1; color: #0f172a; font-size: .72rem; line-height: 1; cursor: help; }
-  .tip-pop { position: absolute; left: 22px; top: 50%; transform: translateY(-50%); white-space: nowrap; background: #0f172a; color: #fff; padding: 4px 8px; border-radius: 6px; font-size: .72rem; opacity: 0; pointer-events: none; transition: opacity .15s ease; }
+  .name-tip { position: relative; display: inline-flex; align-items: center; justify-content: center; width: 18px; height: 18px; border-radius: 999px; background: linear-gradient(135deg, #fde68a 0%, #f59e0b 100%); color: #7c2d12; font-size: .68rem; line-height: 1; cursor: help; box-shadow: 0 4px 10px rgba(245,158,11,0.22); z-index: 50; }
+  .name-tip i { font-size: .62rem; }
+  .tip-pop { position: absolute; left: 26px; top: 50%; transform: translateY(-50%); white-space: nowrap; background: #0f172a; color: #fff; padding: 4px 8px; border-radius: 6px; font-size: .72rem; opacity: 0; pointer-events: none; transition: opacity .15s ease; z-index: 999; box-shadow: 0 10px 24px rgba(15,23,42,0.22); }
   .name-tip:hover .tip-pop, .name-tip:focus .tip-pop { opacity: 1; }
   .role { margin: 0; color: #334155; font-size: .92rem; text-align: center; }
   .bio { text-align: justify; text-justify: inter-word; color: #334155; font-size: .92rem; margin-top: 10px; }
@@ -582,11 +830,20 @@ const selectedWorks = [
   .icons a:hover { color: #0f172a; transform: translateY(-1px); }
   .icons i { font-size: 1.95rem; }
   h2 { font-size: 1.2rem; margin: 0 0 12px; }
+  .section-head { display: flex; align-items: center; justify-content: space-between; gap: 10px; margin-bottom: 12px; }
+  .section-head h2 { margin: 0; }
+  .inline-head { justify-content: flex-start; gap: 10px; }
+  .section-link { color: #475569; text-decoration: none; display: inline-flex; align-items: center; }
+  .inline-link { gap: 6px; font-size: .78rem; color: #64748b; }
+  .inline-link i { font-size: .9rem; }
+  .inline-link:hover { color: #0f172a; }
+  .section-intro { margin: -2px 0 12px; color: #64748b; font-size: .88rem; line-height: 1.5; max-width: 84ch; }
   h3 { font-size: 1rem; margin: 0 0 6px; }
-  .updates { list-style: none; padding-left: 0; display: grid; gap: 8px; }
-  .updates li { display: block; line-height: 1.35; }
+  .updates { list-style: none; padding-left: 0; display: grid; gap: 8px; text-align: left; }
+  .updates li { display: block; line-height: 1.35; text-align: left; }
   .updates li.update-hidden { display: none; }
   .updates-more { margin-top: 8px; }
+  .updates-module h2 { text-align: left; }
   .meta-inline { font-size: .88rem; color: #1e293b; line-height: 1.35; }
   .date-strong { font-size: .8rem; font-weight: 700; color: #334155; margin-right: 6px; }
   .tag { display: inline-block; font-size: .62rem; font-weight: 800; letter-spacing: .03em; text-transform: uppercase; border-radius: 999px; padding: 2px 6px; margin-right: 6px; }
@@ -595,28 +852,57 @@ const selectedWorks = [
   .tag.honor { background: #ede9fe; color: #5b21b6; }
   .tag.paper { background: #e0f2fe; color: #075985; }
   .tag.tutorial { background: #fce7f3; color: #9d174d; }
-  .lead { margin: 0 0 8px; color: #1e293b; }
+  .lead { margin: 0 0 4px; color: #1e293b; }
+  .lead-sub { margin: 0 0 14px; color: #64748b; font-size: .9rem; }
 
-  .selected-list { display: grid; gap: 12px; position: relative; }
-  .selected-entry { display: grid; grid-template-columns: 170px minmax(0, 1fr); gap: 14px; align-items: stretch; border: 1px solid rgba(148,163,184,0.16); border-radius: 14px; background: #fff; padding: 10px; transition: transform .18s ease, border-color .18s ease, box-shadow .18s ease; }
-  .selected-entry:hover { transform: translateY(-2px); border-color: rgba(37,99,235,0.32); box-shadow: 0 12px 24px rgba(15,23,42,0.08); }
-  .selected-thumb { width: 100%; height: 112px; object-fit: cover; border-radius: 10px; display: block; }
-  .selected-main { min-width: 0; }
-  .selected-head { display:flex; justify-content:space-between; align-items:flex-start; gap:10px; margin-bottom: 6px; }
-  .selected-head h3 { margin: 0; font-size: .98rem; line-height: 1.2; }
-  .selected-badge { flex: 0 0 auto; font-size: .68rem; color: #2563eb; background: #dbeafe; padding: 3px 8px; border-radius: 999px; }
-  .selected-summary { margin: 0 0 8px; color: #334155; font-size: .84rem; line-height: 1.4; }
-  .selected-links { display:flex; flex-wrap: wrap; gap: 8px; }
-  .selected-links a { text-decoration: none; font-size: .76rem; color:#2563eb; background:#eff6ff; padding:4px 8px; border-radius:999px; }
-  .selected-links a:hover { background:#dbeafe; }
-  .selected-hover-card { position: fixed; z-index: 30; pointer-events: auto; border: 1px solid rgba(37,99,235,0.22); border-radius: 14px; background: rgba(255,255,255,0.98); box-shadow: 0 18px 36px rgba(15,23,42,0.12); padding: 12px 14px; animation: detailPop .18s ease; overflow: hidden; }
-  .selected-hover-inner { display:flex; flex-direction:column; height:100%; }
-  .selected-hover-inner h3 { margin: 0 0 6px; font-size: .95rem; line-height: 1.2; }
-  .selected-hover-inner p { margin: 0; color:#334155; font-size:.8rem; line-height:1.35; display:-webkit-box; -webkit-line-clamp: 4; -webkit-box-orient: vertical; overflow:hidden; }
-  .selected-hover-inner a { margin-top:auto; align-self:flex-end; text-decoration:none; font-size:.76rem; color:#2563eb; }
+  .research-flow { display: grid; grid-template-columns: minmax(0,1fr) auto minmax(0,1fr) auto minmax(0,1fr) auto minmax(0,1fr); gap: 10px; align-items: stretch; margin: 0 0 16px; }
+  .flow-step { border: 1px solid rgba(148,163,184,0.12); border-radius: 16px; background: rgba(255,255,255,0.96); padding: 14px; min-width: 0; transition: border-color .16s ease, box-shadow .16s ease, transform .16s ease; }
+  .flow-step.is-active { border-color: rgba(37,99,235,0.28); box-shadow: 0 10px 24px rgba(37,99,235,0.08); transform: translateY(-1px); }
+  .flow-kicker { font-size: .68rem; color: #2563eb; font-weight: 700; letter-spacing: .06em; margin-bottom: 8px; }
+  .flow-step h3 { margin: 0 0 6px; font-size: .98rem; }
+  .flow-step p { margin: 0; color: #475569; font-size: .82rem; line-height: 1.45; }
+  .flow-support { margin-top: 10px; font-size: .74rem; color: #64748b; line-height: 1.6; }
+  .flow-arrow { display: flex; align-items: center; justify-content: center; color: #94a3b8; font-size: 1.1rem; }
+  .compact-copy p { margin: 0 0 10px; color: #334155; }
+  .research-pillars { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 10px; margin-top: 8px; }
+  .pillar-card { border: 1px solid rgba(148,163,184,0.14); border-radius: 14px; padding: 12px; background: #fff; transition: opacity .16s ease, border-color .16s ease, box-shadow .16s ease, transform .16s ease; }
+  .pillar-card.is-active { border-color: rgba(37,99,235,0.26); box-shadow: 0 10px 24px rgba(37,99,235,0.08); transform: translateY(-1px); }
+  .pillar-card.is-dim { opacity: .55; }
+  .pillar-card h3 { margin: 0 0 6px; font-size: .92rem; }
+  .pillar-card p { margin: 0; color: #64748b; font-size: .8rem; line-height: 1.4; }
+  .pillar-meta { margin-top: 10px; font-size: .74rem; color: #334155; line-height: 1.6; }
+  .map-chip { display: inline-flex; align-items: center; border-radius: 10px; padding: 2px 8px; margin: 0 6px 6px 0; font-size: .7rem; line-height: 1.25; border: 1px solid transparent; white-space: nowrap; }
+  .map-chip-paper { color: #1d4ed8; background: #eff6ff; border-color: rgba(37,99,235,0.16); }
+  .map-chip-award { color: #991b1b; background: #fef2f2; border-color: rgba(185,28,28,0.16); }
+  .map-chip-grant { color: #166534; background: #f0fdf4; border-color: rgba(34,197,94,0.16); }
+  .validation-strip { margin-top: 14px; padding-top: 12px; border-top: 1px solid rgba(148,163,184,0.14); color: #64748b; font-size: .78rem; display: flex; flex-wrap: wrap; gap: 6px; align-items: center; }
+  .validation-label { color: #334155; font-weight: 600; margin-right: 4px; }
 
-  .direction-visual { margin: 8px 0 14px; border-radius: 0; overflow: hidden; border: none; }
-  .direction-visual img { width: 100%; display: block; aspect-ratio: 16 / 7; object-fit: cover; }
+  .selected-filter { display: flex; flex-wrap: wrap; gap: 8px; margin: 0 0 12px; }
+  .selected-filter-btn { border: 1px solid rgba(148,163,184,0.18); background: #f8fafc; color: #475569; padding: 6px 10px; border-radius: 999px; font-size: .78rem; line-height: 1; cursor: pointer; transition: background .15s ease, color .15s ease, border-color .15s ease; }
+  .selected-filter-btn.is-active { background: #0f172a; color: #fff; border-color: #0f172a; }
+  .selected-filter-btn:hover { background: #e2e8f0; color: #0f172a; border-color: rgba(100,116,139,0.28); }
+  .selected-list { display: grid; gap: 8px; }
+  .selected-entry { padding: 2px 0; background: transparent; }
+  .selected-entry:first-child { padding-top: 0; }
+  .citation-list { gap: 8px; }
+  .citation-entry { border-radius: 0; }
+  .citation-line { margin: 0; color: #334155; font-size: .86rem; line-height: 1.6; }
+  .citation-authors { color: #334155; }
+  .citation-title { color: #0f172a; }
+  .citation-venue { color: #475569; }
+  .citation-venue strong { font-weight: 700; color: #0f172a; }
+  .citation-links { display: inline-flex; flex-wrap: wrap; gap: 6px; margin-left: 6px; vertical-align: middle; }
+  .citation-chip { display: inline-flex; align-items: center; border: 1px solid transparent; border-radius: 999px; padding: 2px 8px; font-size: .7rem; line-height: 1.2; white-space: nowrap; }
+  .citation-chip-link { text-decoration: none; }
+  .citation-chip-paper { color: #1d4ed8; background: #eff6ff; border-color: rgba(37,99,235,0.18); }
+  .citation-chip-doi { color: #0f766e; background: #ecfeff; border-color: rgba(13,148,136,0.18); }
+  .citation-chip-code { color: #7c3aed; background: #f5f3ff; border-color: rgba(124,58,237,0.18); }
+  .citation-chip-award { color: #991b1b; background: #fef2f2; border-color: rgba(185,28,28,0.16); font-weight: 600; }
+  .citation-chip-category { color: #475569; background: #f8fafc; border-color: rgba(148,163,184,0.2); }
+  .citation-chip-core { color: #6d28d9; background: rgba(245,243,255,0.9); border-color: rgba(124,58,237,0.24); }
+  .citation-chip:hover { filter: brightness(0.98); }
+
   .statement-copy p { margin: 0 0 12px; color: #334155; }
   .direction-filter { display:flex; flex-wrap:wrap; gap:8px; margin: 0 0 10px; }
   .filter-chip { border:1px solid rgba(148,163,184,0.18); background:#fff; color:#334155; border-radius:999px; padding:6px 10px; font-size:.78rem; cursor:pointer; }
@@ -646,10 +932,13 @@ const selectedWorks = [
   .small { font-size: .8rem; color: #475569; }
   .stack.dense { display: grid; gap: 8px; }
   .stack.dense.four-cols { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  .stack.dense.one-col { grid-template-columns: 1fr; }
 
   @media (max-width: 1200px) {
     .grid-2 { grid-template-columns: 1fr 2.2fr; }
-    .selected-entry { grid-template-columns: 150px minmax(0, 1fr); }
+    .research-flow { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .flow-arrow { display: none; }
+    .research-pillars { grid-template-columns: repeat(3, minmax(0, 1fr)); }
     .stack.dense.four-cols { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   }
   @media (max-width: 720px) {
@@ -660,13 +949,12 @@ const selectedWorks = [
     .top-nav.nav-open .nav-links { display: flex; }
     .nav-links a { width: auto; min-width: 0; text-align: left; justify-content: flex-start; padding: 10px 12px; font-size: .98rem; white-space: nowrap; }
     .grid-2 { grid-template-columns: 1fr; }
+    .subgrid-2 { grid-template-columns: 1fr; }
+    .research-flow { grid-template-columns: 1fr; gap: 8px; }
+    .research-pillars { grid-template-columns: 1fr 1fr; gap: 8px; }
     .left-col { order: 1; }
     .right-col-main { order: 2; }
-    .selected-list { gap: 10px; }
-    .selected-entry { grid-template-columns: 1fr; }
-    .selected-thumb { height: 168px; }
-    .selected-head { flex-direction: column; gap: 6px; }
-    .selected-hover-card { display: none; }
+    .selected-head { flex-direction: column; gap: 4px; }
     .work-detail-media img { height: 190px; }
     .stack.dense.four-cols { grid-template-columns: 1fr; }
     .updates { gap: 10px; }
