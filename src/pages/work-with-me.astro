@@ -1,0 +1,111 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const tracks = [
+  {
+    title: 'Ph.D.',
+    body: 'Apply to the Department of Computer Science and Engineering if you wish to work with me. Send me an email, schedule a meeting, or visit my office if you are currently enrolled at Mississippi State.',
+  },
+  {
+    title: 'Online Ph.D.',
+    body: 'Since online program students do not have as much time as full-time PhD students, to ensure your future success, I would expect you to justify your interest in my research, such as demonstrating past experience that may overlap with mine. Additionally, I would anticipate regular meetings if you select me as your primary advisor.',
+  },
+  {
+    title: 'Student Worker',
+    body: 'There are dynamic opportunities available, even at month-level. I frequently share these opportunities via the mailing list for graduate and undergraduate students in Computer Science and Engineering. You are welcome to send your CV if you wish to be placed on my waiting list for consideration for the next project.',
+  },
+  {
+    title: 'Research Intern',
+    body: 'If you are interested in joining our team as a research intern, I kindly invite you to submit your CV along with a brief introductory email. We also welcome high school research applicants, including those engaged in Advanced Placement (AP) courses or research with Mississippi State University. There are openings on a case-by-case basis.',
+  },
+];
+
+const msExamPoints = [
+  'The exam typically lasts one hour, with 40 minutes for presentation and the remaining 15–20 minutes for Q&A.',
+  'Invite the professors who previously taught you as instructors to the committee and select their courses to present as your main content. Additionally, inform the committee members about the specific courses and topics you plan to present.',
+  'A good way to organize content is to aim for about 10 slides per course, making it 30 slides in total, with an additional 3 slides for the intro and one slide to wrap things up. It is more effective if you highlight your own grasp of the course using specific details.',
+  'Request feedback on slides from all committee members 1–2 weeks prior to the exam.',
+  'Schedule a meeting with the committee members one to two months prior to the exam, and allow approximately two weeks for selection using Doodle or when2meet.',
+  'Kindly request that the department prepare and send the necessary documentation report file to the committee prior to the examination day.',
+];
+---
+<Layout title="Work With Me | Zhiqian Chen">
+  <main class="container">
+    <nav class="top-nav" aria-label="Sections">
+      <a href="/">Home</a>
+      <a href="/research">Research</a>
+      <a href="/grant">Grant</a>
+      <a href="/people">People</a>
+      <a href="/teach">Teach</a>
+      <a href="https://scholar.google.com/scholar?q=Zhiqian+Chen" target="_blank" rel="noopener">Paper <i class="ai ai-google-scholar-square ai-sm nav-ghost"></i> <i class="fas fa-arrow-up-right-from-square nav-ghost"></i></a>
+      <a href="https://substack.com/@zhiqianchen1" target="_blank" rel="noopener">Zhiqian's Note <i class="fas fa-arrow-up-right-from-square nav-ghost"></i></a>
+    </nav>
+
+    <section class="hero">
+      <h1>For Prospective Students</h1>
+      <p class="lead">Please check the ways you may work with me below.</p>
+      <p class="contact">
+        Please send CV / transcripts to
+        <a href="mailto:zchen@cse.msstate.edu">zchen AT cse DOT msstate DOT edu</a>
+        or
+        <a href="mailto:chen.zhiqian.work@gmail.com">chen DOT zhiqian DOT work AT gmail DOT com</a>.
+      </p>
+    </section>
+
+    <section class="section">
+      <h2>Tracks</h2>
+      <div class="tracks">
+        {tracks.map((t) => (
+          <article class="track">
+            <h3>{t.title}</h3>
+            <p>{t.body}</p>
+          </article>
+        ))}
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Course-Track M.S.</h2>
+      <p>If you are doing a course-track MS degree and want to include me as a major professor, follow the general suggestion on the slides / presentation:</p>
+      <ul class="ms-list">
+        {msExamPoints.map((pt) => <li>{pt}</li>)}
+      </ul>
+    </section>
+
+    <section class="section">
+      <h2>Project-Track M.S.</h2>
+      <p>Replace the course-related content above with your project content.</p>
+    </section>
+  </main>
+</Layout>
+<style>
+  :root { --accent:#2563eb; --ink:#0f172a; --muted:#475569; }
+  .container { max-width: 1100px; margin: 0 auto; padding: 20px; }
+  .top-nav { margin-bottom: 14px; padding: 10px 0 14px; display:flex; flex-wrap:wrap; gap:8px; align-items:center; }
+  .top-nav a { text-decoration:none; color:var(--ink); font-family:'Montserrat',sans-serif; font-size:.9rem; padding:7px 10px; border-radius:999px; background:transparent; }
+  .top-nav a:hover { background:#dbeafe; color:var(--accent); }
+  .nav-ghost { font-size:.78rem; margin-left:4px; opacity:.85; }
+
+  .hero { margin: 10px 0 28px; }
+  .hero h1 { font-family:'Montserrat',sans-serif; font-size:2rem; margin:0 0 8px; color:var(--ink); }
+  .hero .lead { margin: 0 0 6px; color:#334155; font-size:1rem; }
+  .hero .contact { margin: 0; color:var(--muted); font-size:.92rem; }
+  .hero .contact a { color: var(--accent); text-decoration: none; }
+  .hero .contact a:hover { text-decoration: underline; }
+
+  .section { padding-top: 6px; margin-top: 22px; }
+  .section h2 { font-family:'Montserrat',sans-serif; font-size:.82rem; font-weight:700; letter-spacing:.14em; text-transform:uppercase; color:var(--accent); margin: 0 0 12px; }
+  .section > p { color:#334155; font-size:.95rem; line-height:1.55; margin: 0 0 10px; max-width: 80ch; }
+
+  .tracks { display:grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 14px; }
+  .track { background:#fafbfc; padding:16px 18px; }
+  .track h3 { font-family:'Montserrat',sans-serif; font-size:1.02rem; margin:0 0 8px; color:var(--ink); }
+  .track p { margin:0; color:#334155; font-size:.92rem; line-height:1.55; }
+
+  .ms-list { padding-left:22px; margin:6px 0 0; }
+  .ms-list li { color:#334155; font-size:.94rem; line-height:1.55; margin-bottom:6px; max-width: 82ch; }
+
+  @media (max-width: 720px) {
+    .tracks { grid-template-columns: 1fr; }
+  }
+</style>

@@ -1,9 +1,22 @@
 ---
 import Layout from '../layouts/Layout.astro';
 
-const currentPhD = ['Marouane Benbrahim','Tamanna Rashme','Amin George','Josh Waldbieser','Xinyuan Chen','Zijian Zhang','Jiashan Wu',"Rocker D'Antonio"];
-const currentMS = ['Sai Harika Gade','Pavan Dharma Adapa'];
-const graduated = ['Zonghan Zhang','Matthew Rester','Henry Smith','Samuel Prabhakar','Rajeev Jogi','Piero Bracamonte','Suman Adhikari','Ramyasri Veerapaneni','Aymane Jouhari'];
+const currentPhD = ['Marouane Benbrahim','Tamanna Rashme','Josh Waldbieser','Xinyuan Chen','Zijian Zhang','Jiashan Wu',"Rocker D'Antonio",'Shaowen Wang'];
+const currentMS = [];
+const graduated = [
+  { name: 'Zonghan Zhang', role: 'Ph.D.' },
+  { name: 'Amin George', role: 'Ph.D.' },
+  { name: 'Sai Harika Gade', role: 'M.S.' },
+  { name: 'Pavan Dharma Adapa', role: 'M.S.' },
+  { name: 'Matthew Rester', role: 'M.S.' },
+  { name: 'Henry Smith', role: 'M.S.' },
+  { name: 'Samuel Prabhakar', role: 'M.S.' },
+  { name: 'Rajeev Jogi', role: 'M.S.' },
+  { name: 'Piero Bracamonte', role: 'M.S.' },
+  { name: 'Suman Adhikari', role: 'M.S.' },
+  { name: 'Ramyasri Veerapaneni', role: 'M.S.' },
+  { name: 'Aymane Jouhari', role: 'M.S.' },
+];
 ---
 <Layout title="People | Zhiqian Chen">
   <main class="container">
@@ -14,42 +27,23 @@ const graduated = ['Zonghan Zhang','Matthew Rester','Henry Smith','Samuel Prabha
       <a href="/people" aria-current="page">People</a>
       <a href="/teach">Teach</a>
       <a href="https://scholar.google.com/scholar?q=Zhiqian+Chen" target="_blank" rel="noopener">Paper <i class="ai ai-google-scholar-square ai-sm nav-ghost"></i> <i class="fas fa-arrow-up-right-from-square nav-ghost"></i></a>
-      <a href="https://zhiqian.ai" target="_blank" rel="noopener">Zhiqian's Note <i class="fas fa-arrow-up-right-from-square nav-ghost"></i></a>
+      <a href="https://substack.com/@zhiqianchen1" target="_blank" rel="noopener">Zhiqian's Note <i class="fas fa-arrow-up-right-from-square nav-ghost"></i></a>
     </nav>
     <section class="hero">
       <h1>People</h1>
     </section>
     <section class="section">
       <h2>Current Advisees</h2>
-      <div class="people-grid">
-        {currentPhD.map((name) => (<div class="person"><strong>{name}</strong><span>Ph.D. Student</span></div>))}
-        {currentMS.map((name) => (<div class="person"><strong>{name}</strong><span>M.S. Student</span></div>))}
-      </div>
+      <ul class="people-list">
+        {currentPhD.map((name) => (<li><span class="name">{name}</span><span class="role">Ph.D.</span></li>))}
+        {currentMS.map((name) => (<li><span class="name">{name}</span><span class="role">M.S.</span></li>))}
+      </ul>
     </section>
     <section class="section">
       <h2>Recent Alumni</h2>
-      <div class="people-grid">
-        {graduated.map((name) => (<div class="person"><strong>{name}</strong><span>Graduate / Alumni</span></div>))}
-      </div>
-    </section>
-    <section class="section">
-      <h2>Spring 2026 Friday Meeting Schedule</h2>
-      <div class="schedule-box">
-        <p><strong>Spring 2026 group meetings</strong> start at <strong>2pm CST</strong>. Each presentation takes up to 30 minutes including Q&amp;A.</p>
-        <p><strong>Feb 6:</strong> Anim, George · Chen, Xinyuan</p>
-        <p><strong>Feb 13:</strong> Benbrahim, Marouane · Wang, Shaowen</p>
-        <p><strong>Feb 20:</strong> D’Antonio, Rocker · Wu, Jiashan</p>
-        <p><strong>Feb 27:</strong> Zhang, Zijian · Gogihed, Rayane</p>
-        <p><strong>Mar 6:</strong> Jiachen Zhong · Jebbar, Abdelqoddouss</p>
-        <p><strong>Mar 20:</strong> Gade, Sai Harika · Adapa, Pavan Dharma</p>
-        <p><strong>Mar 27:</strong> Rashme, Tamanna · Chen, Xinyuan</p>
-        <p><strong>Apr 10:</strong> Benbrahim, Marouane · Wang, Shaowen</p>
-        <p><strong>Apr 17:</strong> D’Antonio, Rocker · Anim, George</p>
-        <p><strong>Apr 24:</strong> Wu, Jiashan · Zhang, Zijian</p>
-        <p><strong>May 1:</strong> Rashme, Tamanna · Chen, Xinyuan</p>
-        <p><strong>May 8:</strong> Benbrahim, Marouane · Wang, Shaowen</p>
-        <p><strong>May 15:</strong> D’Antonio, Rocker · Rashme, Tamanna</p>
-      </div>
+      <ul class="people-list alumni">
+        {graduated.map((p) => (<li><span class="name">{p.name}</span><span class="role">{p.role}</span></li>))}
+      </ul>
     </section>
   </main>
 </Layout>
@@ -66,10 +60,11 @@ const graduated = ['Zonghan Zhang','Matthew Rester','Henry Smith','Samuel Prabha
   .hero p { margin:0; color:var(--muted); max-width:780px; }
   .section { padding-top:18px; margin-top:26px; border-top:none; }
   .section h2 { font-family:'Montserrat',sans-serif; font-size:1.1rem; margin:0 0 14px; }
-  .people-grid { display:grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap:12px; }
-  .person { border:1px solid rgba(148,163,184,.16); border-radius:14px; background:#fff; padding:14px; }
-  .person strong { display:block; margin-bottom:4px; }
-  .person span { color:var(--muted); font-size:.9rem; }
-  .schedule-box { border:1px dashed rgba(37,99,235,.28); border-radius:14px; padding:14px; background:#f8fbff; color:#334155; }
-  @media (max-width: 900px) { .people-grid { grid-template-columns:1fr; } }
+  .people-list { list-style:none; padding:0; margin:0; display:grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap:4px 24px; }
+  .people-list li { display:flex; align-items:baseline; justify-content:space-between; gap:10px; padding:4px 0; border-bottom:1px solid rgba(148,163,184,.14); }
+  .people-list .name { color:var(--ink); font-size:.95rem; }
+  .people-list .role { color:var(--muted); font-size:.78rem; letter-spacing:.04em; text-transform:uppercase; }
+  .people-list.alumni li { border-bottom-style:dotted; }
+  @media (max-width: 900px) { .people-list { grid-template-columns: 1fr 1fr; } }
+  @media (max-width: 600px) { .people-list { grid-template-columns: 1fr; } }
 </style>
