@@ -24,7 +24,7 @@ const works = [
       <a href="/people">People</a>
       <a href="/teach">Teach</a>
       <a href="https://scholar.google.com/scholar?q=Zhiqian+Chen" target="_blank" rel="noopener">Paper <i class="ai ai-google-scholar-square ai-sm nav-ghost"></i> <i class="fas fa-arrow-up-right-from-square nav-ghost"></i></a>
-      <a href="https://substack.com/@zhiqianchen1" target="_blank" rel="noopener">Zhiqian's Note <i class="fas fa-arrow-up-right-from-square nav-ghost"></i></a>
+      <a href="https://substack.com/@zhiqianchen1" target="_blank" rel="noopener">Zhiqian's Note <svg class="nav-ghost nav-substack" viewBox="0 0 24 24" fill="currentColor" width="11" height="11" aria-hidden="true"><path d="M22.539 8.242H1.46V5.406h21.08v2.836zM1.46 10.812V24L12 18.11 22.54 24V10.812H1.46zM22.54 0H1.46v2.836h21.08V0z"/></svg> <i class="fas fa-arrow-up-right-from-square nav-ghost"></i></a>
     </nav>
     <section class="hero">
       <h1>Research</h1>
@@ -41,28 +41,17 @@ const works = [
         ))}
       </div>
     </section>
-    <section class="section">
-      <h2>Selected Work</h2>
-      <div class="cards two">
-        {works.map((w) => (
-          <article class="card">
-            <span class="tag">{w.venue}</span>
-            <h3>{w.title}</h3>
-            <p>{w.desc}</p>
-          </article>
-        ))}
-      </div>
-    </section>
   </main>
 </Layout>
 <style>
   :root { --accent:#2563eb; --ink:#0f172a; --muted:#475569; }
-  .container { max-width: 1800px; margin: 0 auto; padding: 20px; }
+  .container { max-width: min(95vw, 1600px); margin: 0 auto; padding: 20px; box-sizing: border-box; }
   .top-nav { margin-bottom: 14px; padding: 10px 0 14px; display:flex; flex-wrap:wrap; gap:8px; align-items:center; background:transparent; border:none; border-bottom:none; border-radius:0; box-shadow:none; }
   .top-nav a { text-decoration:none; color:var(--ink); font-family:'Montserrat',sans-serif; font-size:.9rem; padding:7px 10px; border-radius:999px; background:transparent; }
   .top-nav a:hover { background:#dbeafe; color:var(--accent); }
   .top-nav a[aria-current="page"] { background: #eef2ff; color: var(--accent); box-shadow: inset 0 1px 2px rgba(15,23,42,0.10), inset 0 -1px 2px rgba(37,99,235,0.08); }
   .nav-ghost { font-size:.78rem; margin-left:4px; opacity:.85; }
+  .nav-substack { vertical-align: -1px; opacity: .85; }
   .hero { margin: 10px 0 28px; }
   .hero h1 { font-family:'Montserrat',sans-serif; font-size:2rem; margin:0 0 8px; }
   .hero p { margin:0; color:var(--muted); max-width:780px; }

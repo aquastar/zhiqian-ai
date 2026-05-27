@@ -1,9 +1,13 @@
 ---
+import Analytics from '@vercel/analytics/astro';
+
 interface Props {
 	title?: string;
 }
 
 const { title = 'Zhiqian Chen | Homepage Prototype' } = Astro.props;
+const GA_ID = import.meta.env.PUBLIC_GA_ID;
+const CLARITY_ID = import.meta.env.PUBLIC_CLARITY_ID;
 ---
 
 <!doctype html>
@@ -12,15 +16,37 @@ const { title = 'Zhiqian Chen | Homepage Prototype' } = Astro.props;
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
+		<link rel="icon" type="image/png" href="/favicon.png" />
+		<link rel="apple-touch-icon" href="/favicon.png" />
 		<meta name="generator" content={Astro.generator} />
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
 		<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1.9.4/css/academicons.min.css" />
 		<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" />
 		<title>{title}</title>
+		{GA_ID && (
+			<Fragment>
+				<script async src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`}></script>
+				<script is:inline define:vars={{ GA_ID }}>
+					window.dataLayer = window.dataLayer || [];
+					function gtag(){dataLayer.push(arguments);}
+					gtag('js', new Date());
+					gtag('config', GA_ID, { anonymize_ip: true });
+				</script>
+			</Fragment>
+		)}
+		{CLARITY_ID && (
+			<script is:inline define:vars={{ CLARITY_ID }}>
+				(function(c,l,a,r,i,t,y){
+					c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+					t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+					y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+				})(window, document, "clarity", "script", CLARITY_ID);
+			</script>
+		)}
 	</head>
 	<body>
 		<slot />
+		<Analytics />
 	</body>
 </html>
 
