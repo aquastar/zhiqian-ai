@@ -2,14 +2,13 @@
 import Layout from '../layouts/Layout.astro';
 
 const updates = [
-  { type: 'paper', date: '05/2026', text: 'Our AI-assisted simulation system <strong>LLM-to-Map: Transparent Conversational Tool Orchestration for Real-Time Multi-Domain Simulation</strong> has been accepted by <strong>IJCAI 2026</strong>.' },
+  { type: 'paper', date: '05/2026', text: 'Our AI-assisted simulation system <strong>LLM-to-Map</strong> has been accepted by <strong>IJCAI 2026</strong>.' },
   { type: 'paper', date: '01/2026', text: 'Our co-simulation of power network and transportation network has been accepted by <strong>WebConf (WWW) 2026</strong>.' },
   { type: 'tutorial', date: '01/2026', text: 'Will give a tutorial on uncertainty quantification on graph dynamics at <strong>WSDM 2026</strong>.' },
   { type: 'honor', date: '11/2025', text: 'Recognized as a <strong>Research Fellow</strong> at the Social Science Research Center, Mississippi State University.' },
   { type: 'grant', date: '08/2025', text: 'Received <strong class="funder">Turing AI Gift</strong> funding for LLM research.' },
   { type: 'grant', date: '06/2025', text: 'Received <strong class="funder">NSF CAREER Award</strong> <a class="ext" href="https://www.nsf.gov/awardsearch/showAward?AWD_ID=2443266" target="_blank" rel="noopener" aria-label="NSF award page"><i class="fas fa-arrow-up-right-from-square"></i></a> for unification and interactions across heterogeneous graph dynamics.' },
   { type: 'award', date: '05/2025', text: 'Received <strong>Ottilie Schillig Teaching Award</strong> (AI teaching gamification with Lego Edu Kit).' },
-  { type: 'tutorial', date: '02/2025', text: 'Tutorial: Uncertainty Quantification for Dynamical Networks (<strong>WSDM 2025</strong>).' },
   { type: 'tutorial', date: '10/2024', text: 'Tutorial series on unifying spectral and spatial GNNs (<strong>CIKM 2024</strong> / <strong>SIAM MDS 2024</strong>).' },
   { type: 'grant', date: '08/2024', text: 'Received <strong class="funder">NSF CNS/MSI</strong> <a class="ext" href="https://www.nsf.gov/awardsearch/showAward?AWD_ID=2431176" target="_blank" rel="noopener" aria-label="NSF award page"><i class="fas fa-arrow-up-right-from-square"></i></a> fund (co-PI) for speech recognition in English and Spanish with graph learning + LLMs.' },
   { type: 'grant', date: '07/2024', text: 'Received <strong class="funder">NSF CNS/CIRC</strong> <a class="ext" href="https://www.nsf.gov/awardsearch/showAward?AWD_ID=2345921" target="_blank" rel="noopener" aria-label="NSF award page"><i class="fas fa-arrow-up-right-from-square"></i></a> fund (PI) to develop research infrastructure for graph dynamics.' },
@@ -18,7 +17,6 @@ const updates = [
   { type: 'grant', date: '04/2024', text: 'Received <strong class="funder">NSF EDU/ITEST</strong> <a class="ext" href="https://www.nsf.gov/awardsearch/showAward?AWD_ID=2342574" target="_blank" rel="noopener" aria-label="NSF award page"><i class="fas fa-arrow-up-right-from-square"></i></a> fund (co-PI) for AI education research.' },
   { type: 'grant', date: '01/2024', text: 'Received <strong class="funder">NSF IIS/III REU Supplement</strong> <a class="ext" href="https://www.nsf.gov/awardsearch/showAward?AWD_ID=2153369" target="_blank" rel="noopener" aria-label="NSF award page"><i class="fas fa-arrow-up-right-from-square"></i></a> (PI) for undergraduate research.' },
   { type: 'paper', date: '12/2023', text: 'Two papers accepted by <strong>AAAI 2024</strong> on Graph Bayesian Optimization.' },
-  { type: 'grant', date: '12/2023', text: 'Launched cross-disciplinary <strong>Graph AI Working Group</strong> (supported by BCoE).' },
   { type: 'grant', date: '08/2023', text: 'Received support from <strong class="funder">USDA-ARS</strong> funded project (co-PI) on disease genetics.' },
   { type: 'paper', date: '12/2022', text: 'Paper accepted by <strong>SIAM SDM 2023</strong>: higher-order decomposition for influence maximization.' },
   { type: 'grant', date: '04/2022', text: 'Received <strong class="funder">NSF IIS/III</strong> <a class="ext" href="https://www.nsf.gov/awardsearch/showAward?AWD_ID=2153369" target="_blank" rel="noopener" aria-label="NSF award page"><i class="fas fa-arrow-up-right-from-square"></i></a> fund (PI) for interpretable graph dynamics.' },
@@ -573,14 +571,18 @@ const selectedCitations = selectedWorks
       <aside class="left-col">
         <article class="card module profile">
           <img class="avatar" src="/avatar.jpg" alt="Zhiqian Chen" />
-          <h1 class="name-en">Chen, Zhiqian</h1>
-          <p class="name-zh">陈枳扦
+          <h1 class="name-row">
+            <span class="name-en">Chen, Zhiqian</span>
+            <span class="name-zh">陈枳扦</span>
+            <button class="name-audio" id="name-audio" type="button" aria-label="Play Chinese pronunciation" title="Chén Zhǐqiān">
+              <i class="fas fa-volume-high"></i>
+            </button>
             <span class="name-tip" tabindex="0" aria-label="Name meaning note">
               <i class="fas fa-circle-info"></i>
               <span class="tip-pop">物理含义：根据五行八卦算的</span>
             </span>
-          </p>
-          <p class="bio">I am an Assistant Professor of Computer Science &amp; Engineering at Mississippi State University, focusing on graph-structured intelligence for dynamic, uncertain, and knowledge-rich systems (see <a href="/research">details of my research interests</a>). I obtained my Ph.D. at Virginia Tech in 2020, under the supervision of Dr. Chang-Tien Lu. For students interested in me, check <a href="#connect-form">ways to work with me</a>. If interested in my courses, please check the <a href="/teach">course syllabi</a>.</p>
+          </h1>
+          <p class="bio">I am an Assistant Professor of Computer Science &amp; Engineering at Mississippi State University. I obtained my Ph.D. at Virginia Tech in 2020, under the supervision of Dr. Chang-Tien Lu. For students interested in working with me, check <a href="/work-with-me">ways to work with me</a>. If interested in my courses, please check the <a href="/teach">course syllabi</a>.</p>
 
           <div class="icons" aria-label="social links">
             <a href="/cv.pdf" title="CV" target="_blank" rel="noopener"><i class="ai ai-cv"></i></a>
@@ -593,25 +595,23 @@ const selectedCitations = selectedWorks
             <a href="https://orcid.org/0000-0003-4112-9647" title="ORCID"><i class="fab fa-orcid"></i></a>
             <a href="mailto:zchen@cse.msstate.edu" title="Email"><i class="fas fa-envelope"></i></a>
           </div>
-          <div class="globe-wrap">
-            <canvas id="cobe" class="globe-canvas"></canvas>
-          </div>
         </article>
 
         <article class="card module updates-module">
           <h2>Recent Updates</h2>
           <ul class="updates" id="updates-list">
             {updates.map((u, idx) => (
-              <li class={idx >= 20 ? 'update-hidden' : ''} data-extra-update={idx >= 20 ? 'true' : 'false'}>
+              <li class={idx >= 15 ? 'update-hidden' : ''} data-extra-update={idx >= 15 ? 'true' : 'false'}>
                 <span class={`tag ${u.type}`}>{u.type}</span>
                 <span class="date-strong">{u.date}</span><span class="meta-inline" set:html={u.text}></span>
               </li>
             ))}
           </ul>
-          {updates.length > 10 && (
+          {updates.length > 15 && (
             <button class="btn full updates-more" id="updates-more-btn" type="button">More</button>
           )}
         </article>
+
       </aside>
 
       <section class="right-col-main">
@@ -629,7 +629,7 @@ const selectedCitations = selectedWorks
 
         <article class="card module rich hero-module narrative" id="research">
           <h2 class="module-title">Research Interest</h2>
-          <p class="narr-statement">I study <strong>behaviors in dynamical and structural systems</strong>, and how to <strong>estimate</strong> and <strong>control</strong> them. Recently I focus on <strong>cross-system behaviors</strong> and <strong>generalized patterns</strong> across very different real-world systems, including traffic grids, power networks, epidemics, social networks, banking, supply chains, and most recently large language models viewed as dynamical systems with structural representations. Techniques I've been working on include spectral / functional analysis and uncertainty quantification (UQ).</p>
+          <p class="narr-statement">I study <strong>behaviors in dynamical and structural systems</strong> — graph-structured, dynamic, uncertain, and knowledge-rich — and how to <strong>estimate</strong> and <strong>control</strong> them. Recently I focus on <strong>cross-system behaviors</strong> and <strong>generalized patterns</strong> across very different real-world systems, including traffic grids, power networks, epidemics, social networks, banking, supply chains, and most recently large language models viewed as dynamical systems with structural representations. Techniques I've been working on include spectral / functional analysis and uncertainty quantification (UQ).</p>
           <p class="narr-fund">Relevant support: <a href="https://www.nsf.gov/awardsearch/showAward?AWD_ID=2443266" target="_blank" rel="noopener">NSF CAREER #2443266</a> · <a href="https://www.nsf.gov/awardsearch/showAward?AWD_ID=2345921" target="_blank" rel="noopener">NSF CIRC #2345921</a> · <a href="/grant">all grants →</a></p>
 
           <div class="thrust-pair">
@@ -710,79 +710,22 @@ const selectedCitations = selectedWorks
       </section>
   </main>
 
-  <script is:inline type="module">
-    import createGlobe from 'https://esm.sh/cobe@0.6.3';
-
-    const globeCanvas = document.getElementById('cobe');
-    if (globeCanvas) {
-      let width = globeCanvas.offsetWidth || 280;
-      const onResize = () => { width = globeCanvas.offsetWidth || width; };
-      window.addEventListener('resize', onResize);
-
-      // Drag-to-rotate state
-      let currentPhi = 0;                 // auto-rotation accumulator
-      let pointerInteracting = null;      // start X when dragging
-      let pointerMovement = 0;            // committed drag offset (px)
-      let liveMovement = 0;               // current drag offset (px)
-      let smoothMovement = 0;             // eased offset for inertia feel
-
-      globeCanvas.style.cursor = 'grab';
-      globeCanvas.addEventListener('pointerdown', (e) => {
-        pointerInteracting = e.clientX - liveMovement;
-        globeCanvas.style.cursor = 'grabbing';
-      });
-      window.addEventListener('pointerup', () => {
-        if (pointerInteracting !== null) {
-          pointerInteracting = null;
-          pointerMovement = liveMovement;
-          globeCanvas.style.cursor = 'grab';
-        }
-      });
-      window.addEventListener('pointermove', (e) => {
-        if (pointerInteracting !== null) {
-          liveMovement = e.clientX - pointerInteracting;
-        }
-      });
-
-      createGlobe(globeCanvas, {
-        devicePixelRatio: 2,
-        width: width * 2,
-        height: width * 2,
-        phi: 0,
-        theta: 0.2,
-        dark: 0,
-        diffuse: 1.2,
-        mapSamples: 16000,
-        mapBrightness: 2.2,
-        baseColor: [1, 1, 1],
-        markerColor: [0.1, 0.45, 0.95],
-        glowColor: [0.92, 0.96, 1],
-        markers: [
-          { location: [33.4552, -88.7944], size: 0.09 },  // Mississippi State (home)
-          { location: [37.2296, -80.4139], size: 0.05 },   // Virginia Tech (PhD)
-          { location: [39.9042, 116.4074], size: 0.05 },   // Beijing (Peking Univ.)
-          { location: [30.5928, 114.3055], size: 0.045 },  // Wuhan (HUST)
-          { location: [47.6062, -122.3321], size: 0.035 }, // Seattle (CVPR)
-          { location: [43.6150, -116.2023], size: 0.035 }, // Boise (WSDM/CIKM)
-          { location: [38.9072, -77.0369], size: 0.035 },  // Washington DC (SDM)
-          { location: [33.7490, -84.3880], size: 0.035 },  // Atlanta (SIAM MDS)
-          { location: [44.9778, -93.2650], size: 0.035 },  // Minneapolis (SDM 2022)
-          { location: [40.7128, -74.0060], size: 0.03 },   // New York (AAAI venue)
-        ],
-        onRender: (state) => {
-          // keep auto-spinning only when the user isn't dragging
-          if (pointerInteracting === null) currentPhi += 0.004;
-          // ease the drag offset toward its live value for an inertia feel
-          smoothMovement += (liveMovement - smoothMovement) * 0.12;
-          state.phi = currentPhi + smoothMovement / 180;
-          state.width = width * 2;
-          state.height = width * 2;
-        },
-      });
-    }
-  </script>
-
   <script>
+    const nameAudioBtn = document.getElementById('name-audio');
+    nameAudioBtn?.addEventListener('click', () => {
+      const synth = window.speechSynthesis;
+      if (!synth) return;
+      synth.cancel();
+      const u = new SpeechSynthesisUtterance('陈枳扦');
+      u.lang = 'zh-CN';
+      u.rate = 0.85;
+      const zh = synth.getVoices().find((v) => v.lang && v.lang.toLowerCase().startsWith('zh'));
+      if (zh) u.voice = zh;
+      u.onstart = () => nameAudioBtn.classList.add('is-playing');
+      u.onend = () => nameAudioBtn.classList.remove('is-playing');
+      synth.speak(u);
+    });
+
     const navToggle = document.querySelector('.nav-toggle');
     const topNav = document.querySelector('.top-nav');
     navToggle?.addEventListener('click', () => {
@@ -935,18 +878,21 @@ const selectedCitations = selectedWorks
   .avatar { width: 100%; height: auto; aspect-ratio: 1 / 1; border-radius: 16px; object-fit: cover; border: none; }
   h1, h2, h3 { font-family: Montserrat, sans-serif; font-weight: 700; }
   h1 { font-size: 1.9rem; margin: 12px 0 4px; }
-  .name-en { font-size: 2rem; letter-spacing: .01em; text-align: center; }
-  .name-zh { margin: 2px 0 0; font-size: 1rem; color: #334155; display: inline-flex; align-items: center; justify-content: center; gap: 6px; width: 100%; text-align: center; }
-  .name-tip { position: relative; display: inline-flex; align-items: center; justify-content: center; color: #64748b; line-height: 1; cursor: help; z-index: 50; transition: color .15s ease; }
+  .name-row { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: center; gap: 4px; margin: 12px 0 4px; }
+  .name-en { font-size: 1.2rem; letter-spacing: .01em; }
+  .name-zh { font-size: 1.15rem; color: #334155; font-weight: 600; }
+  .name-audio { display: inline-flex; align-items: center; justify-content: center; align-self: center; padding: 0; border: none; background: none; color: #64748b; cursor: pointer; line-height: 1; transition: color .15s ease, transform .15s ease; }
+  .name-audio i { font-size: .82rem; }
+  .name-audio:hover { color: #2563eb; transform: scale(1.1); }
+  .name-audio.is-playing { color: #2563eb; }
+  .name-tip { position: relative; display: inline-flex; align-items: center; justify-content: center; align-self: center; color: #64748b; line-height: 1; cursor: help; z-index: 50; transition: color .15s ease; }
   .name-tip:hover, .name-tip:focus { color: #0f172a; }
   .name-tip i { font-size: .82rem; }
-  .tip-pop { position: absolute; left: 26px; top: 50%; transform: translateY(-50%); white-space: nowrap; background: #0f172a; color: #fff; padding: 4px 8px; border-radius: 6px; font-size: .72rem; opacity: 0; pointer-events: none; transition: opacity .15s ease; z-index: 999; box-shadow: 0 10px 24px rgba(15,23,42,0.22); }
+  .tip-pop { position: absolute; right: 0; left: auto; top: calc(100% + 6px); transform: none; white-space: nowrap; background: #0f172a; color: #fff; padding: 4px 8px; border-radius: 6px; font-size: .72rem; opacity: 0; pointer-events: none; transition: opacity .15s ease; z-index: 999; box-shadow: 0 10px 24px rgba(15,23,42,0.22); }
   .name-tip:hover .tip-pop, .name-tip:focus .tip-pop { opacity: 1; }
   .role { margin: 0; color: #334155; font-size: .92rem; text-align: center; }
   .bio { text-align: justify; text-justify: inter-word; color: #334155; font-size: .92rem; margin-top: 10px; }
   .icons { display: flex; flex-wrap: wrap; justify-content: center; gap: 6px; margin-top: 14px; }
-  .globe-wrap { margin-top: 16px; display: flex; justify-content: center; }
-  .globe-canvas { width: 100%; max-width: 280px; aspect-ratio: 1 / 1; }
   .icons a { color: #334155; text-decoration: none; transition: color .15s ease, transform .15s ease, filter .15s ease; }
   .icons a:hover { color: #0f172a; transform: translateY(-1px); filter: drop-shadow(0 4px 8px rgba(15,23,42,0.28)); }
   .icons i { font-size: 1.95rem; }
