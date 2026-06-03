@@ -467,6 +467,10 @@ const selectedWorks = [
     ],
     support: { label: 'Urban power-traffic co-simulation context', href: 'https://www.thewebconf.org/' },
     href: 'https://dl.acm.org/doi/10.1145/3774905.3793131',
+    videos: [
+      'https://www.youtube.com/watch?v=36mGJWjrSxw',
+      'https://www.youtube.com/watch?v=09E4cgdvTSQ',
+    ],
     bibtex: `@inproceedings{benbrahim2026sumo, author = {Marouane Benbrahim and Xin Fang and Zhiqian Chen}, booktitle = {Proceedings of the ACM Web Conference 2026}, title = {Sumo x PyPSA: Interactive Web Demo of Real-Time Urban Power-Traffic Co-Simulation with Vehicle-to-Grid}, year = {2026}}`,
     citationOverride: {
       authors: 'Marouane Benbrahim, Xin Fang, and Zhiqian Chen',
@@ -545,6 +549,7 @@ const selectedCitations = selectedWorks
       { label: 'paper', href: work.href },
       ...(work.related?.filter((r) => /code|repo/i.test(r.label)).slice(0, 1).map((r) => ({ label: 'code', href: r.href })) ?? []),
       ...(work.doi ? [{ label: 'doi', href: work.doi }] : []),
+      ...(work.videos?.map((v, i) => ({ label: work.videos.length > 1 ? `video ${i+1}` : 'video', href: v })) ?? []),
     ]
   }));
 
@@ -970,6 +975,7 @@ const selectedCitations = selectedWorks
   .citation-chip-paper { color: #1d4ed8; background: #eff6ff; border-color: rgba(37,99,235,0.18); }
   .citation-chip-doi { color: #0f766e; background: #ecfeff; border-color: rgba(13,148,136,0.18); }
   .citation-chip-code { color: #7c3aed; background: #f5f3ff; border-color: rgba(124,58,237,0.18); }
+  .citation-chip-video { color: #b91c1c; background: #fef2f2; border-color: rgba(185,28,28,0.20); }
   .citation-chip-award { color: #991b1b; background: #fef2f2; border-color: rgba(185,28,28,0.16); font-weight: 600; }
   .citation-chip-category { color: #475569; background: #f8fafc; border-color: rgba(148,163,184,0.2); }
   .citation-chip-core { color: #6d28d9; background: rgba(245,243,255,0.9); border-color: rgba(124,58,237,0.24); }
