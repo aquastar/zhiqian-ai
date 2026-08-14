@@ -705,11 +705,11 @@ const selectedCitations = selectedWorks
             {selectedCitations.map((p) => (
               <article class="selected-entry citation-entry" data-direction={p.direction}>
                 <p class="citation-line">
-                  <strong class="citation-title">{p.citation.title}.</strong>
+                  <a class="citation-title" href={p.href} target="_blank" rel="noopener"><strong>{p.citation.title}.</strong></a>
                   <span class="citation-authors" set:html={p.citation.authors.replace(/Zhiqian Chen/g, '<strong>Zhiqian Chen</strong>')}></span>.
                   <span class="citation-venue"><em>{p.citation.venue}</em>, {p.citation.year}.</span>
                   <span class="citation-links">
-                    {p.links.map((link) => (
+                    {p.links.filter((link) => link.label !== 'paper').map((link) => (
                       <a class={`citation-chip citation-chip-link citation-chip-${link.label}`} href={link.href} target="_blank" rel="noopener">{link.label}</a>
                     ))}
                     <span class="citation-chip citation-chip-category">{p.categoryLabel}</span>
@@ -1212,7 +1212,9 @@ const selectedCitations = selectedWorks
   .right-col-main #selected-work .citation-list { gap: 6px !important; }
   .right-col-main #selected-work .citation-entry { padding: 0 !important; }
   .right-col-main #selected-work .citation-line { font-size: .86rem !important; line-height: 1.4 !important; margin: 0 !important; }
-  .right-col-main #selected-work .citation-title { color: #0f172a; font-weight: 700; margin-right: 3px; }
+  .right-col-main #selected-work a.citation-title { color: #0f172a; text-decoration: none; margin-right: 3px; }
+  .right-col-main #selected-work a.citation-title strong { font-weight: 700; }
+  .right-col-main #selected-work a.citation-title:hover strong { text-decoration: underline; text-underline-offset: 2px; color: #2563eb; }
   .right-col-main #selected-work .citation-authors strong { color: #0f172a; font-weight: 700; }
   .right-col-main #selected-work .citation-venue em { font-style: italic; color: #475569; }
   .right-col-main #selected-work .citation-links { display: inline-flex; flex-wrap: wrap; gap: 4px; margin-left: 4px; vertical-align: middle; }
