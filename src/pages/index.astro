@@ -704,21 +704,19 @@ const selectedCitations = selectedWorks
           <div class="selected-list citation-list" id="selected-list">
             {selectedCitations.map((p) => (
               <article class="selected-entry citation-entry" data-direction={p.direction}>
-                <div class="citation-row">
-                  <p class="citation-line">
-                    <span class="citation-authors">{p.citation.authors}</span>.
-                    <span class="citation-title">“{p.citation.title}.”</span>
-                    <span class="citation-venue"> <strong><em>{p.citation.venue}</em></strong>, {p.citation.year}.</span>
-                  </p>
-                  <div class="citation-tags">
+                <p class="citation-line">
+                  <strong class="citation-title">{p.citation.title}.</strong>
+                  <span class="citation-authors" set:html={p.citation.authors.replace(/Zhiqian Chen/g, '<strong>Zhiqian Chen</strong>')}></span>.
+                  <span class="citation-venue"><em>{p.citation.venue}</em>, {p.citation.year}.</span>
+                  <span class="citation-links">
                     {p.links.map((link) => (
                       <a class={`citation-chip citation-chip-link citation-chip-${link.label}`} href={link.href} target="_blank" rel="noopener">{link.label}</a>
                     ))}
                     <span class="citation-chip citation-chip-category">{p.categoryLabel}</span>
                     {p.awardHighlight && <span class="citation-chip citation-chip-award">{p.awardHighlight}</span>}
                     {p.coreRanking && <span class="citation-chip citation-chip-core">{p.coreRanking}</span>}
-                  </div>
-                </div>
+                  </span>
+                </p>
               </article>
             ))}
           </div>
@@ -1210,21 +1208,20 @@ const selectedCitations = selectedWorks
   .right-col-main .section-head > h2 { margin: 0 !important; }
   .right-col-main .section-head .section-link { font-size: .72rem; color: #64748b; }
 
-  /* Tighten Selected Paper citation entries — 80/20 split */
-  .right-col-main #selected-work .citation-list { gap: 8px !important; }
+  /* Compact single-column paper listing (Binghui-style) */
+  .right-col-main #selected-work .citation-list { gap: 6px !important; }
   .right-col-main #selected-work .citation-entry { padding: 0 !important; }
-  .right-col-main #selected-work .citation-row { display: grid; grid-template-columns: 80% 20%; gap: 12px; align-items: start; }
-  .right-col-main #selected-work .citation-line { font-size: .88rem !important; line-height: 1.45 !important; margin: 0 !important; }
-  .right-col-main #selected-work .citation-tags { display: flex; flex-wrap: wrap; gap: 4px; align-content: flex-start; }
-  .right-col-main #selected-work .citation-chip { font-size: .64rem !important; padding: 1px 6px !important; margin: 0 !important; }
+  .right-col-main #selected-work .citation-line { font-size: .86rem !important; line-height: 1.4 !important; margin: 0 !important; }
+  .right-col-main #selected-work .citation-title { color: #0f172a; font-weight: 700; margin-right: 3px; }
+  .right-col-main #selected-work .citation-authors strong { color: #0f172a; font-weight: 700; }
+  .right-col-main #selected-work .citation-venue em { font-style: italic; color: #475569; }
+  .right-col-main #selected-work .citation-links { display: inline-flex; flex-wrap: wrap; gap: 4px; margin-left: 4px; vertical-align: middle; }
+  .right-col-main #selected-work .citation-chip { font-size: .62rem !important; padding: 1px 5px !important; margin: 0 !important; }
   /* Clickable vs static chips */
   .right-col-main #selected-work a.citation-chip-link { font-weight: 700 !important; text-decoration: underline !important; text-underline-offset: 2px; cursor: pointer; }
   .right-col-main #selected-work a.citation-chip-link::before { content: "↗ "; opacity: .7; }
   .right-col-main #selected-work a.citation-chip-link:hover { filter: brightness(.94); text-decoration-thickness: 2px; }
   .right-col-main #selected-work span.citation-chip { font-weight: 400 !important; opacity: .8; }
-  @media (max-width: 720px) {
-    .right-col-main #selected-work .citation-row { grid-template-columns: 1fr; }
-  }
 
   /* Module separation via subtle background tints (tighter spacing) */
   .right-col-main > .module { margin-top: 8px; padding: 14px 18px; }
