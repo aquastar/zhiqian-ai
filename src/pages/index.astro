@@ -704,10 +704,10 @@ const selectedCitations = selectedWorks
           <div class="selected-list citation-list" id="selected-list">
             {selectedCitations.map((p) => (
               <article class="selected-entry citation-entry" data-direction={p.direction}>
-                <p class="citation-line">
-                  <a class="citation-title" href={p.href} target="_blank" rel="noopener">{p.citation.title}.</a>
-                  <span class="citation-authors" set:html={p.citation.authors.replace(/Zhiqian Chen/g, '<strong>Zhiqian Chen</strong>')}></span>.
-                  <span class="citation-venue"><em>{p.citation.venue}</em>, {p.citation.year}.</span>
+                <a class="citation-title" href={p.href} target="_blank" rel="noopener">{p.citation.title}</a>
+                <div class="citation-authors" set:html={p.citation.authors.replace(/Zhiqian Chen/g, '<strong>Zhiqian Chen</strong>')}></div>
+                <div class="citation-venue-row">
+                  <em class="citation-venue">{p.citation.venue}</em>, {p.citation.year}
                   <span class="citation-links">
                     {p.links.filter((link) => link.label !== 'paper').map((link) => (
                       <a class={`citation-chip citation-chip-link citation-chip-${link.label}`} href={link.href} target="_blank" rel="noopener">{link.label}</a>
@@ -716,7 +716,7 @@ const selectedCitations = selectedWorks
                     {p.awardHighlight && <span class="citation-chip citation-chip-award">{p.awardHighlight}</span>}
                     {p.coreRanking && <span class="citation-chip citation-chip-core">{p.coreRanking}</span>}
                   </span>
-                </p>
+                </div>
               </article>
             ))}
           </div>
@@ -1208,15 +1208,16 @@ const selectedCitations = selectedWorks
   .right-col-main .section-head > h2 { margin: 0 !important; }
   .right-col-main .section-head .section-link { font-size: .72rem; color: #64748b; }
 
-  /* Compact single-column paper listing (Binghui-style) */
-  .right-col-main #selected-work .citation-list { gap: 6px !important; }
-  .right-col-main #selected-work .citation-entry { padding: 0 !important; }
-  .right-col-main #selected-work .citation-line { font-size: .86rem !important; line-height: 1.4 !important; margin: 0 !important; }
-  .right-col-main #selected-work a.citation-title { color: #2563eb; text-decoration: none; font-weight: 400; margin-right: 3px; }
+  /* Compact three-line paper listing (Binghui-style) */
+  .right-col-main #selected-work .citation-list { gap: 12px !important; }
+  .right-col-main #selected-work .citation-entry { padding: 0 !important; display: block; }
+  .right-col-main #selected-work a.citation-title { display: block; color: #2563eb; text-decoration: none; font-size: .95rem; font-weight: 600; line-height: 1.3; margin-bottom: 2px; }
   .right-col-main #selected-work a.citation-title:hover { color: #1d4ed8; text-decoration: underline; text-underline-offset: 2px; }
+  .right-col-main #selected-work .citation-authors { color: #334155; font-size: .84rem; line-height: 1.35; margin: 0; }
   .right-col-main #selected-work .citation-authors strong { color: #0f172a; font-weight: 700; }
-  .right-col-main #selected-work .citation-venue em { font-style: italic; color: #475569; }
-  .right-col-main #selected-work .citation-links { display: inline-flex; flex-wrap: wrap; gap: 4px; margin-left: 4px; vertical-align: middle; }
+  .right-col-main #selected-work .citation-venue-row { color: #475569; font-size: .82rem; line-height: 1.35; margin-top: 1px; display: flex; flex-wrap: wrap; align-items: center; gap: 6px; }
+  .right-col-main #selected-work .citation-venue { font-style: italic; }
+  .right-col-main #selected-work .citation-links { display: inline-flex; flex-wrap: wrap; gap: 4px; margin-left: 4px; }
   .right-col-main #selected-work .citation-chip { font-size: .62rem !important; padding: 1px 5px !important; margin: 0 !important; }
   /* Clickable vs static chips */
   .right-col-main #selected-work a.citation-chip-link { font-weight: 700 !important; text-decoration: underline !important; text-underline-offset: 2px; cursor: pointer; }
