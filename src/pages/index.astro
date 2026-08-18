@@ -667,26 +667,6 @@ const selectedGroups = selectedFilters
 
         </article>
 
-        <article class="card module" id="github-projects">
-          <div class="section-head inline-head">
-            <h2>Selected Repo</h2>
-            <a class="section-link inline-link" href="https://github.com/aquastar" target="_blank" rel="noopener" aria-label="Open GitHub profile">
-              <span>Full repo</span>
-              <i class="fab fa-github"></i>
-            </a>
-          </div>
-          <div class="repo-row">
-            {githubCards.map((repo) => (
-              <article class="mini-card repo-card" data-href={repo.href} tabindex="0" role="link">
-                <div class="row repo-top">
-                  <h3>{repo.name}</h3>
-                  <iframe class="github-star-btn" src={`https://ghbtns.com/github-btn.html?user=${repo.owner}&repo=${repo.repo}&type=star&count=true&size=small`} title={`Star ${repo.name} on GitHub`} width="96" height="20" loading="lazy"></iframe>
-                </div>
-              </article>
-            ))}
-          </div>
-        </article>
-
         <article class="card module rich" id="selected-work">
           <div class="section-head inline-head">
             <h2>Selected Paper</h2>
@@ -718,6 +698,27 @@ const selectedGroups = selectedFilters
               </section>
             ))}
           </div>
+        </article>
+
+        <article class="card module" id="github-projects">
+          <div class="section-head inline-head">
+            <h2>Selected Repo</h2>
+            <a class="section-link inline-link" href="https://github.com/aquastar" target="_blank" rel="noopener" aria-label="Open GitHub profile">
+              <span>Full repo</span>
+              <i class="fab fa-github"></i>
+            </a>
+          </div>
+          <ul class="repo-inline">
+            {githubCards.map((repo) => (
+              <li>
+                <a class="repo-inline-link" href={repo.href} target="_blank" rel="noopener">
+                  <i class="fab fa-github" aria-hidden="true"></i>
+                  <span class="repo-inline-name">{repo.name}</span>
+                  <span class="repo-inline-stars"><i class="fas fa-star" aria-hidden="true"></i>{repo.stars}</span>
+                </a>
+              </li>
+            ))}
+          </ul>
         </article>
 
       </section>
@@ -1237,7 +1238,16 @@ const selectedGroups = selectedFilters
   .right-col-main > #research .module-title { margin: 0 0 6px; }
   .right-col-main > #announcement .narr-highlights { gap: 4px; padding-left: 20px; }
   .right-col-main > #announcement .narr-highlight-text { font-size: .88rem; line-height: 1.4; }
-  .right-col-main > #github-projects { background: #f8fafc; border: 1px solid rgba(148,163,184,0.32) !important; border-radius: 12px !important; padding: 12px 16px; }
+  .right-col-main > #github-projects { background: transparent; border: none !important; padding: 0 4px; margin-top: 16px; }
+  .right-col-main > #github-projects .section-head { margin-bottom: 8px; }
+  .right-col-main .repo-inline { list-style: none; padding: 0; margin: 0; display: flex; flex-wrap: wrap; gap: 8px; }
+  .right-col-main .repo-inline li { display: inline-flex; }
+  .right-col-main .repo-inline-link { display: inline-flex; align-items: center; gap: 6px; padding: 4px 10px; border-radius: 999px; background: #f1f5f9; border: 1px solid rgba(148,163,184,0.22); color: #334155; text-decoration: none; font-size: .8rem; transition: background .15s ease, color .15s ease, border-color .15s ease; }
+  .right-col-main .repo-inline-link:hover { background: #e2e8f0; color: #0f172a; border-color: rgba(148,163,184,0.36); }
+  .right-col-main .repo-inline-link i.fa-github { color: #475569; font-size: .82rem; }
+  .right-col-main .repo-inline-name { font-weight: 600; color: #0f172a; }
+  .right-col-main .repo-inline-stars { display: inline-flex; align-items: center; gap: 3px; color: #64748b; font-size: .74rem; font-variant-numeric: tabular-nums; }
+  .right-col-main .repo-inline-stars i.fa-star { color: #eab308; font-size: .72rem; }
   .right-col-main > #selected-work { background: transparent; }
 
   /* Selected Repo: single horizontal row */
