@@ -556,6 +556,16 @@ const selectedCitations = selectedWorks
     ]
   }));
 
+// Plan B: group Selected Paper by research theme instead of tab filter
+const selectedGroups = selectedFilters
+  .filter((f) => f.key !== 'all')
+  .map((f) => ({
+    key: f.key,
+    label: f.label,
+    items: selectedCitations.filter((c) => c.direction === f.key),
+  }))
+  .filter((g) => g.items.length > 0);
+
 ---
 
 <Layout title="Zhiqian Chen">
@@ -686,35 +696,27 @@ const selectedCitations = selectedWorks
               <i class="ai ai-google-scholar-square ai-sm"></i>
             </a>
           </div>
-          <div class="selected-filter" role="tablist" aria-label="Selected work categories">
-            {selectedFilters.map((filter, index) => (
-              <button
-                class={`selected-filter-btn ${index === 0 ? 'is-active' : ''}`}
-                type="button"
-                data-selected-filter={filter.key}
-                aria-pressed={index === 0 ? 'true' : 'false'}
-              >
-                {filter.label}
-              </button>
-            ))}
-          </div>
           <div class="selected-list citation-list" id="selected-list">
-            {selectedCitations.map((p) => (
-              <article class="selected-entry citation-entry" data-direction={p.direction}>
-                <a class="citation-title" href={p.href} target="_blank" rel="noopener">{p.citation.title}</a>
-                <div class="citation-authors" set:html={p.citation.authors.replace(/Zhiqian Chen/g, '<strong>Zhiqian Chen</strong>')}></div>
-                <div class="citation-venue-row">
-                  <em class="citation-venue">{p.citation.venue}</em>, {p.citation.year}
-                  <span class="citation-links">
-                    {p.links.filter((link) => link.label !== 'paper').map((link) => (
-                      <a class={`citation-chip citation-chip-link citation-chip-${link.label}`} href={link.href} target="_blank" rel="noopener">{link.label}</a>
-                    ))}
-                    <span class="citation-chip citation-chip-category">{p.categoryLabel}</span>
-                    {p.awardHighlight && <span class="citation-chip citation-chip-award">{p.awardHighlight}</span>}
-                    {p.coreRanking && <span class="citation-chip citation-chip-core">{p.coreRanking}</span>}
-                  </span>
-                </div>
-              </article>
+            {selectedGroups.map((group) => (
+              <section class="citation-group" data-group={group.key}>
+                <h3 class="citation-group-title">{group.label}</h3>
+                {group.items.map((p) => (
+                  <article class="selected-entry citation-entry" data-direction={p.direction}>
+                    <a class="citation-title" href={p.href} target="_blank" rel="noopener">{p.citation.title}</a>
+                    <div class="citation-authors" set:html={p.citation.authors.replace(/Zhiqian Chen/g, '<strong>Zhiqian Chen</strong>')}></div>
+                    <div class="citation-venue-row">
+                      <em class="citation-venue">{p.citation.venue}</em>, {p.citation.year}
+                      <span class="citation-links">
+                        {p.links.filter((link) => link.label !== 'paper').map((link) => (
+                          <a class={`citation-chip citation-chip-link citation-chip-${link.label}`} href={link.href} target="_blank" rel="noopener">{link.label}</a>
+                        ))}
+                        {p.awardHighlight && <span class="citation-chip citation-chip-award">{p.awardHighlight}</span>}
+                        {p.coreRanking && <span class="citation-chip citation-chip-core">{p.coreRanking}</span>}
+                      </span>
+                    </div>
+                  </article>
+                ))}
+              </section>
             ))}
           </div>
         </article>
@@ -1205,6 +1207,11 @@ const selectedCitations = selectedWorks
   .right-col-main .section-head > h2 { margin: 0 !important; }
   .right-col-main .section-head .section-link { font-size: .72rem; color: #64748b; }
 
+  /* Plan B — Selected Paper grouped by theme */
+  .right-col-main #selected-work .citation-group { margin: 0 0 18px; }
+  .right-col-main #selected-work .citation-group:last-child { margin-bottom: 0; }
+  .right-col-main #selected-work .citation-group-title { font-family: Montserrat, sans-serif; font-size: .78rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: #2563eb; margin: 0 0 8px; padding-bottom: 4px; border-bottom: 1px solid rgba(37,99,235,0.18); }
+  .right-col-main #selected-work .citation-group .citation-entry + .citation-entry { margin-top: 10px; }
   /* Compact three-line paper listing (Binghui-style) */
   .right-col-main #selected-work .citation-list { gap: 12px !important; }
   .right-col-main #selected-work .citation-entry { padding: 0 !important; display: block; }
