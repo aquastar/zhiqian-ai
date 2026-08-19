@@ -614,6 +614,15 @@ const selectedGroups = selectedFilters
             <a href="https://github.com/aquastar" title="GitHub"><i class="fab fa-github"></i></a>
             <a href="https://www.linkedin.com/in/zhiqian-chen-ai/" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
             <a href="mailto:zhiqian.chen@rit.edu" title="Email"><i class="fas fa-envelope"></i></a>
+            <span class="icon-more" tabindex="0" aria-label="More links">
+              <i class="fas fa-ellipsis-h"></i>
+              <span class="icon-more-pop" role="menu">
+                <a href="https://twitter.com/imczq" title="X/Twitter" target="_blank" rel="noopener"><i class="fab fa-square-x-twitter"></i></a>
+                <a href="https://orcid.org/0000-0003-4112-9647" title="ORCID" target="_blank" rel="noopener"><i class="fab fa-orcid"></i></a>
+                <a href="https://www.zhihu.com/people/aquastar" title="Zhihu" target="_blank" rel="noopener"><i class="fab fa-zhihu"></i></a>
+                <a href="https://www.xiaohongshu.com/user/profile/64769efb000000001c029738" title="Xiaohongshu" target="_blank" rel="noopener"><i class="fas fa-book"></i></a>
+              </span>
+            </span>
           </div>
         </article>
 
@@ -910,7 +919,15 @@ const selectedGroups = selectedFilters
   .affiliation .aff-secondary { margin-top: 6px; padding-top: 6px; border-top: 1px dashed rgba(148,163,184,0.28); font-size: .78rem; line-height: 1.3; color: #64748b; }
   .bio { text-align: justify; text-justify: inter-word; color: #334155; font-size: .92rem; margin-top: 10px; }
   .icons { display: flex; flex-wrap: wrap; justify-content: center; gap: 6px; margin-top: 14px; }
-  .icons a { color: #334155; text-decoration: none; transition: color .15s ease, transform .15s ease, filter .15s ease; }
+  .icons a, .icons .icon-more { color: #334155; text-decoration: none; transition: color .15s ease, transform .15s ease, filter .15s ease; }
+  .icon-more { position: relative; display: inline-flex; align-items: center; justify-content: center; cursor: pointer; }
+  .icon-more > i { font-size: 1.95rem; }
+  .icon-more:hover > i, .icon-more:focus > i { color: #0f172a; transform: translateY(-1px); }
+  .icon-more-pop { position: absolute; bottom: calc(100% + 8px); left: 50%; transform: translateX(-50%) translateY(4px); display: flex; gap: 8px; padding: 8px 10px; background: #ffffff; border: 1px solid rgba(148,163,184,0.28); border-radius: 12px; box-shadow: 0 12px 28px rgba(15,23,42,0.14); opacity: 0; visibility: hidden; transition: opacity .15s ease, transform .15s ease, visibility .15s; z-index: 100; white-space: nowrap; }
+  .icon-more-pop a { color: #334155; display: inline-flex; align-items: center; }
+  .icon-more-pop a i { font-size: 1.5rem; }
+  .icon-more-pop a:hover { color: #0f172a; transform: translateY(-1px); }
+  .icon-more:hover .icon-more-pop, .icon-more:focus .icon-more-pop, .icon-more:focus-within .icon-more-pop { opacity: 1; visibility: visible; transform: translateX(-50%) translateY(0); }
   .icons a:hover { color: #0f172a; transform: translateY(-1px); filter: drop-shadow(0 4px 8px rgba(15,23,42,0.28)); }
   .icons i { font-size: 1.95rem; }
   h2 { font-size: 1.2rem; margin: 0 0 12px; }
