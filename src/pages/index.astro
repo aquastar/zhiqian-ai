@@ -503,15 +503,15 @@ const selectedWorks = [
 ];
 
 const selectedFilters = [
-  { key: 'all', label: 'All' },
-  { key: 'cross-network', label: 'Cross-Network' },
-  { key: 'uq', label: 'UQ' },
-  { key: 'unified-graph', label: 'Spectral Graph' },
-  { key: 'spatial', label: 'Spatial' },
-  { key: 'software-hardware', label: 'Software/Hardware' },
-  { key: 'symbolic', label: 'Symbolic' },
-  { key: 'materials', label: 'Material Sci.' },
-  { key: 'music', label: 'Music' },
+  { key: 'all', label: 'All', icon: '' },
+  { key: 'cross-network', label: 'Cross-Network Dynamics', icon: 'fa-network-wired' },
+  { key: 'uq', label: 'Uncertainty Quantification', icon: 'fa-chart-line' },
+  { key: 'unified-graph', label: 'Spectral Graph Theory', icon: 'fa-wave-square' },
+  { key: 'spatial', label: 'Spatial Forecasting', icon: 'fa-map-location-dot' },
+  { key: 'software-hardware', label: 'Software / Hardware', icon: 'fa-microchip' },
+  { key: 'symbolic', label: 'Symbolic Discovery', icon: 'fa-square-root-variable' },
+  { key: 'materials', label: 'Materials Science', icon: 'fa-flask' },
+  { key: 'music', label: 'Music', icon: 'fa-music' },
 ];
 
 const selectedCategoryLabels = Object.fromEntries(
@@ -562,6 +562,7 @@ const selectedGroups = selectedFilters
   .map((f) => ({
     key: f.key,
     label: f.label,
+    icon: f.icon,
     items: selectedCitations.filter((c) => c.direction === f.key),
   }))
   .filter((g) => g.items.length > 0);
@@ -630,13 +631,13 @@ const selectedGroups = selectedFilters
           <h2>Recent Updates</h2>
           <ul class="updates" id="updates-list">
             {updates.map((u, idx) => (
-              <li class={idx >= 15 ? 'update-hidden' : ''} data-extra-update={idx >= 15 ? 'true' : 'false'}>
+              <li class={idx >= 25 ? 'update-hidden' : ''} data-extra-update={idx >= 25 ? 'true' : 'false'}>
                 <span class={`tag ${u.type}`}>{u.type}</span>
                 <span class="date-strong">{u.date}</span><span class="meta-inline" set:html={u.text}></span>
               </li>
             ))}
           </ul>
-          {updates.length > 15 && (
+          {updates.length > 25 && (
             <button class="btn full updates-more" id="updates-more-btn" type="button">More</button>
           )}
         </article>
@@ -658,7 +659,7 @@ const selectedGroups = selectedFilters
 
         <article class="card module rich hero-module narrative" id="research">
           <h2 class="module-title">Research Interest</h2>
-          <p class="narr-statement"><strong class="bio-label">Bio:</strong> I received my Ph.D. from <strong>Virginia Tech</strong> in 2020, advised by <a href="https://people.cs.vt.edu/ctlu/" target="_blank" rel="noopener">Prof. Chang-Tien Lu</a>. I previously served as an Assistant Professor at <strong>Mississippi State University</strong> before joining RIT. I study <strong>behaviors in dynamical and structural systems</strong> — graph-structured, dynamic, uncertain, and knowledge-rich — and how to <strong>estimate</strong> and <strong>control</strong> them. Recently I focus on <strong>cross-system behaviors</strong> and <strong>generalized patterns</strong> across very different real-world systems, including <a href="https://github.com/XGraph-Team/SumoXPypsa" target="_blank" rel="noopener">traffic grids</a>, <a href="https://dl.acm.org/doi/10.1145/3774905.3793131" target="_blank" rel="noopener">power networks</a>, <a href="https://github.com/XGraph-Team/XFlow" target="_blank" rel="noopener">epidemics</a>, <a href="https://ojs.aaai.org/index.php/AAAI/article/view/30255" target="_blank" rel="noopener">social networks</a>, banking, supply chains, and most recently <a href="https://scholar.google.com/citations?hl=en&user=NC3-O6UAAAAJ" target="_blank" rel="noopener">large language models</a> viewed as dynamical systems with structural representations. Techniques I've been working on include spectral / functional analysis and uncertainty quantification (UQ).</p>
+          <p class="narr-statement">I received my Ph.D. from <strong>Virginia Tech</strong> in 2020, advised by <a href="https://people.cs.vt.edu/ctlu/" target="_blank" rel="noopener">Prof. Chang-Tien Lu</a>. I previously served as an Assistant Professor at <strong>Mississippi State University</strong> before joining RIT. I study <strong>behaviors in dynamical and structural systems</strong> — graph-structured, dynamic, uncertain, and knowledge-rich — and how to <strong>estimate</strong> and <strong>control</strong> them. Recently I focus on <strong>cross-system behaviors</strong> and <strong>generalized patterns</strong> across very different real-world systems, including <a href="https://github.com/XGraph-Team/SumoXPypsa" target="_blank" rel="noopener">traffic grids</a>, <a href="https://dl.acm.org/doi/10.1145/3774905.3793131" target="_blank" rel="noopener">power networks</a>, <a href="https://github.com/XGraph-Team/XFlow" target="_blank" rel="noopener">epidemics</a>, <a href="https://ojs.aaai.org/index.php/AAAI/article/view/30255" target="_blank" rel="noopener">social networks</a>, banking, supply chains, and most recently <a href="https://scholar.google.com/citations?hl=en&user=NC3-O6UAAAAJ" target="_blank" rel="noopener">large language models</a> viewed as dynamical systems with structural representations. Techniques I've been working on include spectral / functional analysis and uncertainty quantification (UQ).</p>
           <p class="narr-fund">Relevant support: <a href="https://www.nsf.gov/awardsearch/showAward?AWD_ID=2443266" target="_blank" rel="noopener">NSF CAREER #2443266</a> · <a href="https://www.nsf.gov/awardsearch/showAward?AWD_ID=2345921" target="_blank" rel="noopener">NSF CIRC #2345921</a> · <a href="/grant">all grants →</a></p>
 
           <div class="thrust-pair">
@@ -683,7 +684,7 @@ const selectedGroups = selectedFilters
           <div class="selected-list citation-list" id="selected-list">
             {selectedGroups.map((group) => (
               <section class="citation-group" data-group={group.key}>
-                <h3 class="citation-group-title">{group.label}</h3>
+                <h3 class="citation-group-title">{group.label} {group.icon && <i class={`fas ${group.icon} group-icon`} aria-hidden="true"></i>}</h3>
                 {group.items.map((p) => (
                   <article class="selected-entry citation-entry" data-direction={p.direction}>
                     <a class="citation-title" href={p.href} target="_blank" rel="noopener">{p.citation.title}</a>
@@ -922,7 +923,7 @@ const selectedGroups = selectedFilters
   .icon-more { position: relative; display: inline-flex; align-items: center; justify-content: center; cursor: pointer; }
   .icon-more > i { font-size: 1.95rem; }
   .icon-more:hover > i, .icon-more:focus > i { color: #0f172a; transform: translateY(-1px); }
-  .icon-more-pop { position: absolute; bottom: calc(100% + 8px); left: 50%; transform: translateX(-50%) translateY(4px); display: flex; gap: 8px; padding: 8px 10px; background: #ffffff; border: 1px solid rgba(148,163,184,0.28); border-radius: 12px; box-shadow: 0 12px 28px rgba(15,23,42,0.14); opacity: 0; visibility: hidden; transition: opacity .15s ease, transform .15s ease, visibility .15s; z-index: 100; white-space: nowrap; }
+  .icon-more-pop { position: absolute; top: calc(100% + 8px); left: 50%; transform: translateX(-50%) translateY(-4px); display: flex; gap: 8px; padding: 8px 10px; background: #ffffff; border: 1px solid rgba(148,163,184,0.28); border-radius: 12px; box-shadow: 0 12px 28px rgba(15,23,42,0.14); opacity: 0; visibility: hidden; transition: opacity .15s ease, transform .15s ease, visibility .15s; z-index: 100; white-space: nowrap; }
   .icon-more-pop a { color: #334155; display: inline-flex; align-items: center; }
   .icon-more-pop a i { font-size: 1.5rem; }
   .icon-more-pop a:hover { color: #0f172a; transform: translateY(-1px); }
@@ -946,9 +947,13 @@ const selectedGroups = selectedFilters
   .updates-module h2 { text-align: left; }
   .meta-inline { font-size: .88rem; color: #1e293b; line-height: 1.35; }
   .date-strong { font-size: .8rem; font-weight: 700; color: #334155; margin-right: 6px; }
-  .tag { display: inline-block; font-size: .62rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; padding: 0; margin-right: 6px; background: transparent; color: #64748b; }
+  .tag { display: inline-block; font-size: .62rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; padding: 0; margin-right: 6px; background: transparent; }
   .tag::after { content: " ·"; opacity: .5; }
-  .tag.grant, .tag.award, .tag.honor, .tag.paper, .tag.tutorial { background: transparent; }
+  .tag.paper { color: #1d4ed8; }
+  .tag.grant { color: #9d174d; }
+  .tag.tutorial { color: #0f766e; }
+  .tag.honor { color: #6d28d9; }
+  .tag.award { color: #92400e; }
   .updates :global(.funder) { color: #9d174d !important; font-weight: 700 !important; }
   .updates :global(.venue) { color: #1d4ed8 !important; font-weight: 700 !important; }
   .updates :global(a.ext) { color: #64748b; text-decoration: none; margin-left: 2px; font-size: .68rem; opacity: .8; }
@@ -1171,7 +1176,7 @@ const selectedGroups = selectedFilters
   .narr-title .narr-em { color: #2563eb; font-style: normal; }
   .narr-lede em { font-style: italic; color: #1e293b; }
   .narr-lede strong { color: #0f172a; font-weight: 700; }
-  .narr-fund { font-size: .82rem; color: #64748b; margin: -2px 0 10px; }
+  .narr-fund { font-size: .82rem; color: #64748b; margin: -2px 0 0; }
   .narr-fund a { color: #2563eb; text-decoration: none; font-weight: 600; }
   .narr-fund a:hover { text-decoration: underline; }
 
@@ -1227,6 +1232,7 @@ const selectedGroups = selectedFilters
   .right-col-main #selected-work .citation-group { margin: 0 0 18px; }
   .right-col-main #selected-work .citation-group:last-child { margin-bottom: 0; }
   .right-col-main #selected-work .citation-group-title { font-family: Montserrat, sans-serif; font-size: .78rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: #475569; margin: 0 0 8px; padding-bottom: 4px; border-bottom: 1px solid rgba(148,163,184,0.22); }
+  .right-col-main #selected-work .citation-group-title .group-icon { color: #94a3b8; margin-left: 6px; font-size: .78rem; opacity: .8; }
   .right-col-main #selected-work .citation-group .citation-entry + .citation-entry { margin-top: 10px; }
   /* Compact three-line paper listing (Binghui-style) */
   .right-col-main #selected-work .citation-list { gap: 12px !important; }
