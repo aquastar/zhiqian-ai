@@ -47,6 +47,11 @@ const CLARITY_ID = import.meta.env.PUBLIC_CLARITY_ID;
 	</head>
 	<body>
 		<slot />
+		<footer class="site-footer">
+			<span>&copy; 2026 Zhiqian Chen</span>
+			<span class="sep">·</span>
+			<span>Designed by Zhiqian Chen</span>
+		</footer>
 		<Analytics />
 		<SpeedInsights />
 	</body>
@@ -66,4 +71,18 @@ const CLARITY_ID = import.meta.env.PUBLIC_CLARITY_ID;
 		text-align: justify;
 		text-justify: inter-word;
 	}
+	.site-footer {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		gap: 8px;
+		flex-wrap: wrap;
+		padding: 24px 20px 28px;
+		margin-top: 32px;
+		border-top: 1px solid rgba(148, 163, 184, 0.18);
+		color: #64748b;
+		font-size: 0.78rem;
+		text-align: center;
+	}
+	.site-footer .sep { opacity: 0.55; }
 </style>
