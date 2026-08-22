@@ -658,8 +658,7 @@ const selectedGroups = selectedFilters
 
         <article class="card module rich hero-module narrative" id="research">
           <h2 class="module-title">Research Interest</h2>
-          <p class="narr-bio">I received my Ph.D. from <strong>Virginia Tech</strong> in 2020, advised by <a href="https://people.cs.vt.edu/ctlu/" target="_blank" rel="noopener">Prof. Chang-Tien Lu</a>. I previously served as an Assistant Professor at <strong>Mississippi State University</strong> before joining RIT.</p>
-          <p class="narr-statement">I study <strong>behaviors in dynamical and structural systems</strong> — graph-structured, dynamic, uncertain, and knowledge-rich — and how to <strong>estimate</strong> and <strong>control</strong> them. Recently I focus on <strong>cross-system behaviors</strong> and <strong>generalized patterns</strong> across very different real-world systems, including traffic grids, power networks, epidemics, social networks, banking, supply chains, and most recently large language models viewed as dynamical systems with structural representations. Techniques I've been working on include spectral / functional analysis and uncertainty quantification (UQ).</p>
+          <p class="narr-statement"><strong class="bio-label">Bio:</strong> I received my Ph.D. from <strong>Virginia Tech</strong> in 2020, advised by <a href="https://people.cs.vt.edu/ctlu/" target="_blank" rel="noopener">Prof. Chang-Tien Lu</a>. I previously served as an Assistant Professor at <strong>Mississippi State University</strong> before joining RIT. I study <strong>behaviors in dynamical and structural systems</strong> — graph-structured, dynamic, uncertain, and knowledge-rich — and how to <strong>estimate</strong> and <strong>control</strong> them. Recently I focus on <strong>cross-system behaviors</strong> and <strong>generalized patterns</strong> across very different real-world systems, including <a href="https://github.com/XGraph-Team/SumoXPypsa" target="_blank" rel="noopener">traffic grids</a>, <a href="https://dl.acm.org/doi/10.1145/3774905.3793131" target="_blank" rel="noopener">power networks</a>, <a href="https://github.com/XGraph-Team/XFlow" target="_blank" rel="noopener">epidemics</a>, <a href="https://ojs.aaai.org/index.php/AAAI/article/view/30255" target="_blank" rel="noopener">social networks</a>, banking, supply chains, and most recently <a href="https://scholar.google.com/citations?hl=en&user=NC3-O6UAAAAJ" target="_blank" rel="noopener">large language models</a> viewed as dynamical systems with structural representations. Techniques I've been working on include spectral / functional analysis and uncertainty quantification (UQ).</p>
           <p class="narr-fund">Relevant support: <a href="https://www.nsf.gov/awardsearch/showAward?AWD_ID=2443266" target="_blank" rel="noopener">NSF CAREER #2443266</a> · <a href="https://www.nsf.gov/awardsearch/showAward?AWD_ID=2345921" target="_blank" rel="noopener">NSF CIRC #2345921</a> · <a href="/grant">all grants →</a></p>
 
           <div class="thrust-pair">
@@ -1121,12 +1120,11 @@ const selectedGroups = selectedFilters
   .narr-title em { font-style: italic; color: #1e40af; font-weight: 700; }
   .narr-arrow { display: inline-block; margin: 0 6px; color: #94a3b8; font-style: normal; font-weight: 500; }
   .narr-lede { font-size: 1rem; line-height: 1.6; color: #334155; margin: 0 0 22px; }
-  .narr-bio { font-size: .88rem; line-height: 1.5; color: #475569; margin: 0 0 8px; }
-  .narr-bio strong { color: #0f172a; font-weight: 700; }
-  .narr-bio a { color: #334155; text-decoration: underline; text-underline-offset: 2px; text-decoration-color: rgba(148,163,184,0.4); }
-  .narr-bio a:hover { color: #0f172a; text-decoration-color: #0f172a; }
   .narr-statement { font-size: .88rem; line-height: 1.5; color: #475569; margin: 0 0 10px; }
   .narr-statement strong { color: #0f172a; font-weight: 700; }
+  .narr-statement .bio-label { color: #2563eb; font-family: Montserrat, sans-serif; font-size: .72rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; margin-right: 4px; }
+  .narr-statement a { color: #334155; text-decoration: underline; text-underline-offset: 2px; text-decoration-color: rgba(148,163,184,0.4); }
+  .narr-statement a:hover { color: #0f172a; text-decoration-color: #0f172a; }
   .narr-statement + .narr-statement { margin-top: -2px; }
   .narr-statement strong { color: #0f172a; font-weight: 700; }
 
