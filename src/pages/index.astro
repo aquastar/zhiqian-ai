@@ -2,30 +2,30 @@
 import Layout from '../layouts/Layout.astro';
 
 const updates = [
-  { type: 'paper', date: '08/2026', text: 'Paper accepted at <strong>CIKM 2026</strong>: a formal pre-condition for checking whether a knowledge graph structurally supports a query before an LLM generates from it.' },
-  { type: 'paper', date: '07/2026', text: 'Two papers accepted at <strong>SDM 2026</strong>: (i) <em>Delta-Graph Signatures</em> — catching silent failures in edited LLMs via activation-graph deltas; (ii) <em>MasterSet</em> — a 153K-paper "must-cite" citation benchmark for AI/ML.' },
+  { type: 'paper', date: '08/2026', text: 'Paper accepted at <strong class="venue">CIKM 2026</strong>: a formal pre-condition for checking whether a knowledge graph structurally supports a query before an LLM generates from it.' },
+  { type: 'paper', date: '07/2026', text: 'Two papers accepted at <strong class="venue">SDM 2026</strong>: (i) <em>Delta-Graph Signatures</em> — catching silent failures in edited LLMs via activation-graph deltas; (ii) <em>MasterSet</em> — a 153K-paper "must-cite" citation benchmark for AI/ML.' },
   { type: 'grant', date: '07/2026', text: 'Received a <a href="https://www.nsf.gov/awardsearch/show-award/?AWD_ID=2342574" target="_blank" rel="noopener">supplemental award</a> from <strong class="funder">NSF EDU/ITEST</strong> to extend our project on AI-career pathways for high-school students.' },
-  { type: 'paper', date: '05/2026', text: 'Our AI-assisted simulation system <strong>LLM-to-Map</strong> has been accepted by <strong>IJCAI 2026</strong>.' },
-  { type: 'paper', date: '01/2026', text: 'Our co-simulation of power network and transportation network has been accepted by <strong>WebConf (WWW) 2026</strong>.' },
-  { type: 'tutorial', date: '01/2026', text: 'Will give a tutorial on uncertainty quantification on graph dynamics at <strong>WSDM 2026</strong>.' },
+  { type: 'paper', date: '05/2026', text: 'Our AI-assisted simulation system <strong>LLM-to-Map</strong> has been accepted by <strong class="venue">IJCAI 2026</strong>.' },
+  { type: 'paper', date: '01/2026', text: 'Our co-simulation of power network and transportation network has been accepted by <strong class="venue">WebConf (WWW) 2026</strong>.' },
+  { type: 'tutorial', date: '01/2026', text: 'Will give a tutorial on uncertainty quantification on graph dynamics at <strong class="venue">WSDM 2026</strong>.' },
   { type: 'honor', date: '11/2025', text: 'Recognized as a <strong>Research Fellow</strong> at the Social Science Research Center, Mississippi State University.' },
   { type: 'grant', date: '08/2025', text: 'Received <strong class="funder">Turing AI Gift</strong> funding for LLM research.' },
   { type: 'grant', date: '06/2025', text: 'Received <strong class="funder">NSF CAREER Award</strong> <a class="ext" href="https://www.nsf.gov/awardsearch/showAward?AWD_ID=2443266" target="_blank" rel="noopener" aria-label="NSF award page"><i class="fas fa-arrow-up-right-from-square"></i></a> for unification and interactions across heterogeneous graph dynamics.' },
   { type: 'award', date: '05/2025', text: 'Received <strong>Ottilie Schillig Teaching Award</strong> (AI teaching gamification with Lego Edu Kit).' },
-  { type: 'tutorial', date: '10/2024', text: 'Tutorial series on unifying spectral and spatial GNNs (<strong>CIKM 2024</strong> / <strong>SIAM MDS 2024</strong>).' },
+  { type: 'tutorial', date: '10/2024', text: 'Tutorial series on unifying spectral and spatial GNNs (<strong class="venue">CIKM 2024</strong> / <strong class="venue">SIAM MDS 2024</strong>).' },
   { type: 'grant', date: '08/2024', text: 'Received <strong class="funder">NSF CNS/MSI</strong> <a class="ext" href="https://www.nsf.gov/awardsearch/showAward?AWD_ID=2431176" target="_blank" rel="noopener" aria-label="NSF award page"><i class="fas fa-arrow-up-right-from-square"></i></a> fund (co-PI) for speech recognition in English and Spanish with graph learning + LLMs.' },
   { type: 'grant', date: '07/2024', text: 'Received <strong class="funder">NSF CNS/CIRC</strong> <a class="ext" href="https://www.nsf.gov/awardsearch/showAward?AWD_ID=2345921" target="_blank" rel="noopener" aria-label="NSF award page"><i class="fas fa-arrow-up-right-from-square"></i></a> fund (PI) to develop research infrastructure for graph dynamics.' },
-  { type: 'paper', date: '07/2024', text: '1 paper accepted at <strong>IJCAI 2024</strong> and 2 papers accepted at <strong>EMBC 2024</strong>.' },
+  { type: 'paper', date: '07/2024', text: '1 paper accepted at <strong class="venue">IJCAI 2024</strong> and 2 papers accepted at <strong class="venue">EMBC 2024</strong>.' },
   { type: 'grant', date: '06/2024', text: 'Started spatial epidemiology of animal disease collaboration under <strong class="funder">USDA-ARS</strong> funded project.' },
   { type: 'grant', date: '04/2024', text: 'Received <strong class="funder">NSF EDU/ITEST</strong> <a class="ext" href="https://www.nsf.gov/awardsearch/showAward?AWD_ID=2342574" target="_blank" rel="noopener" aria-label="NSF award page"><i class="fas fa-arrow-up-right-from-square"></i></a> fund (co-PI) for AI education research.' },
   { type: 'grant', date: '01/2024', text: 'Received <strong class="funder">NSF IIS/III REU Supplement</strong> <a class="ext" href="https://www.nsf.gov/awardsearch/showAward?AWD_ID=2153369" target="_blank" rel="noopener" aria-label="NSF award page"><i class="fas fa-arrow-up-right-from-square"></i></a> (PI) for undergraduate research.' },
-  { type: 'paper', date: '12/2023', text: 'Two papers accepted by <strong>AAAI 2024</strong> on Graph Bayesian Optimization.' },
+  { type: 'paper', date: '12/2023', text: 'Two papers accepted by <strong class="venue">AAAI 2024</strong> on Graph Bayesian Optimization.' },
   { type: 'grant', date: '08/2023', text: 'Received support from <strong class="funder">USDA-ARS</strong> funded project (co-PI) on disease genetics.' },
-  { type: 'paper', date: '12/2022', text: 'Paper accepted by <strong>SIAM SDM 2023</strong>: higher-order decomposition for influence maximization.' },
+  { type: 'paper', date: '12/2022', text: 'Paper accepted by <strong class="venue">SIAM SDM 2023</strong>: higher-order decomposition for influence maximization.' },
   { type: 'grant', date: '04/2022', text: 'Received <strong class="funder">NSF IIS/III</strong> <a class="ext" href="https://www.nsf.gov/awardsearch/showAward?AWD_ID=2153369" target="_blank" rel="noopener" aria-label="NSF award page"><i class="fas fa-arrow-up-right-from-square"></i></a> fund (PI) for interpretable graph dynamics.' },
-  { type: 'tutorial', date: '05/2021', text: 'Tutorial on spreading models for epidemics at <strong>SDM 2021</strong> (GNN/RNN/SIR/PDE).' },
-  { type: 'award', date: '09/2020', text: '<strong>Best Paper Award</strong> at <strong>ACM SIGSPATIAL 2020</strong>.' },
-  { type: 'paper', date: '12/2019', text: '<strong>Nature Communications</strong> paper selected in Top 50 Chemistry & Materials Sciences articles.' },
+  { type: 'tutorial', date: '05/2021', text: 'Tutorial on spreading models for epidemics at <strong class="venue">SDM 2021</strong> (GNN/RNN/SIR/PDE).' },
+  { type: 'award', date: '09/2020', text: '<strong>Best Paper Award</strong> at <strong class="venue">ACM SIGSPATIAL 2020</strong>.' },
+  { type: 'paper', date: '12/2019', text: '<strong class="venue">Nature Communications</strong> paper selected in Top 50 Chemistry & Materials Sciences articles.' },
 ];
 
 const openProblems = [
@@ -951,6 +951,7 @@ const selectedGroups = selectedFilters
   .tag::after { content: " ·"; opacity: .5; }
   .tag.grant, .tag.award, .tag.honor, .tag.paper, .tag.tutorial { background: transparent; }
   .updates :global(.funder) { color: #9d174d !important; font-weight: 700 !important; }
+  .updates :global(.venue) { color: #1d4ed8 !important; font-weight: 700 !important; }
   .updates :global(a.ext) { color: #64748b; text-decoration: none; margin-left: 2px; font-size: .68rem; opacity: .8; }
   .updates :global(a.ext:hover) { color: #2563eb; opacity: 1; }
   .updates :global(a.ext i) { font-size: .68rem; }
