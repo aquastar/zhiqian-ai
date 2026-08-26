@@ -25,3 +25,7 @@ pnpm-debug.log*
 
 # local agent / preview config
 .claude/
+
+# vercel cli local state + prebuilt output (must NOT be committed:
+# its presence makes Vercel skip the build and deploy stale artifacts)
+.vercel/
