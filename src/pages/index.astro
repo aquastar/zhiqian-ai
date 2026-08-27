@@ -712,18 +712,18 @@ const selectedGroups = selectedFilters
                     </div>
                     {p.tutorial && (
                       <div class="citation-tutorial">
-                        <i class="fas fa-chalkboard-user citation-tutorial-icon" aria-hidden="true"></i>
                         <span class="citation-tutorial-text">
+                          <i class="fas fa-chalkboard-user citation-tutorial-icon" aria-hidden="true"></i>
                           Tutorial series: <strong>{p.tutorial.title}</strong>
-                          <span class="citation-links">
-                            <a class="citation-chip citation-chip-link citation-chip-slides" href={p.tutorial.slides} target="_blank" rel="noopener">slides</a>
-                            {p.tutorial.venues.map((v) => (
-                              <a class="citation-chip citation-chip-link citation-chip-venue" href={v.href} target="_blank" rel="noopener">{v.label}</a>
-                            ))}
-                            {p.tutorial.collection && (
-                              <a class="citation-chip citation-chip-link citation-chip-code" href={p.tutorial.collection.href} target="_blank" rel="noopener">{p.tutorial.collection.label}</a>
-                            )}
-                          </span>
+                        </span>
+                        <span class="citation-links citation-tutorial-links">
+                          <a class="citation-chip citation-chip-link citation-chip-slides" href={p.tutorial.slides} target="_blank" rel="noopener">slides</a>
+                          {p.tutorial.venues.map((v) => (
+                            <a class="citation-chip citation-chip-link citation-chip-venue" href={v.href} target="_blank" rel="noopener">{v.label}</a>
+                          ))}
+                          {p.tutorial.collection && (
+                            <a class="citation-chip citation-chip-link citation-chip-code" href={p.tutorial.collection.href} target="_blank" rel="noopener">{p.tutorial.collection.label}</a>
+                          )}
                         </span>
                       </div>
                     )}
@@ -1044,10 +1044,10 @@ const selectedGroups = selectedFilters
   .citation-chip-slides { color: #b45309; background: #fffbeb; border-color: rgba(180,83,9,0.20); }
   .citation-chip-venue { color: #1d4ed8; background: #eff6ff; border-color: rgba(37,99,235,0.18); }
   .citation-chip:hover { filter: brightness(0.98); }
-  .citation-tutorial { display: flex; align-items: baseline; gap: 6px; margin-top: 6px; }
-  .citation-tutorial-icon { color: #b45309; font-size: .72rem; flex: none; }
+  .citation-tutorial { margin-top: 6px; }
+  .citation-tutorial-icon { color: #b45309; font-size: .72rem; margin-right: 5px; }
   /* body sets text-align: justify globally; this line reads better ragged-right */
-  .citation-tutorial-text { font-size: .78rem; line-height: 1.6; color: #475569; text-align: left; }
+  .citation-tutorial-text { display: block; font-size: .78rem; line-height: 1.6; color: #475569; text-align: left; }
   .citation-tutorial-text strong { color: #0f172a; font-weight: 700; }
 
   .statement-copy p { margin: 0 0 12px; color: #334155; }
@@ -1297,8 +1297,9 @@ const selectedGroups = selectedFilters
      leaving the tutorial title line half empty. Going inline lets the chips flow on
      after the title and wrap one by one. Needs #selected-work to outrank the rules
      above, including their !important margin. */
-  .right-col-main #selected-work .citation-tutorial-text .citation-links { display: inline; margin-left: 4px; }
-  .right-col-main #selected-work .citation-tutorial-text .citation-chip { margin: 0 4px 2px 0 !important; }
+  /* Own row, flush with the entry's left edge (no icon indent). The extra class
+     outranks .right-col-main #selected-work .citation-links above. */
+  .right-col-main #selected-work .citation-links.citation-tutorial-links { display: flex; flex-wrap: wrap; gap: 4px; margin-left: 0; margin-top: 3px; }
 
   /* Module separation via subtle background tints (tighter spacing) */
   .right-col-main > .module { margin-top: 8px; padding: 14px 18px; }
