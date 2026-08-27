@@ -660,7 +660,7 @@ const selectedGroups = selectedFilters
           <h2 class="module-title">Highlights</h2>
           <ul class="narr-highlights" aria-label="Highlights">
             <li class="narr-highlight">
-              <span class="narr-highlight-text"><strong class="hl-recruiting">Recruiting:</strong> I am looking for <strong>Ph.D. students</strong> to join my group at RIT in <strong>Spring 2027</strong> or <strong>Fall 2027</strong>, working on graph dynamics, uncertainty quantification, and LLMs viewed as structured dynamical systems.</span>
+              <span class="narr-highlight-text"><strong class="hl-recruiting">Recruiting:</strong> I am looking for <strong>Ph.D. students</strong> to join my group at RIT in <strong>Spring 2027</strong> or <strong>Fall 2027</strong>.</span>
             </li>
             <li class="narr-highlight">
               <span class="narr-highlight-text">Students interested in working with me can check the <a href="/work-with-me"><strong>Work With Me</strong></a> for application forms and next steps.</span>
@@ -1049,6 +1049,10 @@ const selectedGroups = selectedFilters
   /* body sets text-align: justify globally; this line reads better ragged-right */
   .citation-tutorial-text { font-size: .78rem; line-height: 1.6; color: #475569; text-align: left; }
   .citation-tutorial-text strong { color: #0f172a; font-weight: 700; }
+  /* inline-flex keeps the chip group unbreakable, so it drops to its own line and
+     leaves the title line half empty; inline lets the chips flow and wrap. */
+  .citation-tutorial-text .citation-links { display: inline; margin-left: 0; }
+  .citation-tutorial-text .citation-links .citation-chip { margin: 0 4px 2px 0; }
 
   .statement-copy p { margin: 0 0 12px; color: #334155; }
   .direction-filter { display:flex; flex-wrap:wrap; gap:8px; margin: 0 0 10px; }
