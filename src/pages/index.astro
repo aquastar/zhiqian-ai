@@ -660,7 +660,7 @@ const selectedGroups = selectedFilters
           <h2 class="module-title">Highlights</h2>
           <ul class="narr-highlights" aria-label="Highlights">
             <li class="narr-highlight">
-              <span class="narr-highlight-text"><strong>Recruiting:</strong> I am looking for <strong>Ph.D. students</strong> to join my group at RIT in <strong>Spring 2027</strong> or <strong>Fall 2027</strong>, working on graph dynamics, uncertainty quantification, and LLMs viewed as structured dynamical systems.</span>
+              <span class="narr-highlight-text"><strong class="hl-recruiting">Recruiting:</strong> I am looking for <strong>Ph.D. students</strong> to join my group at RIT in <strong>Spring 2027</strong> or <strong>Fall 2027</strong>, working on graph dynamics, uncertainty quantification, and LLMs viewed as structured dynamical systems.</span>
             </li>
             <li class="narr-highlight">
               <span class="narr-highlight-text">Students interested in working with me can check the <a href="/work-with-me"><strong>Work With Me</strong></a> for application forms and next steps.</span>
@@ -1243,6 +1243,7 @@ const selectedGroups = selectedFilters
   .narr-highlight-text strong { font-weight: 700; color: #0f172a; }
   .narr-highlight-text a { color: #2563eb; text-decoration: underline; text-underline-offset: 2px; font-weight: 600; }
   .narr-highlight-text a:hover { text-decoration-thickness: 2px; }
+  .narr-highlight-text strong.hl-recruiting { color: #b91c1c; }
 
   /* Minimal right column: no nested frames */
   .right-col-main,
