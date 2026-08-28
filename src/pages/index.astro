@@ -1296,6 +1296,11 @@ const selectedGroups = selectedFilters
     font-size: .85em; margin-right: 4px; opacity: .7;
   }
   .right-col-main #selected-work a.citation-chip-link:hover { filter: brightness(.94); }
+  /* Source-specific brand glyphs replace the generic external-link arrow.
+     Same specificity as the rule above, so these must stay after it. */
+  .right-col-main #selected-work a.citation-chip-slides::before { font-family: "Font Awesome 6 Brands"; font-weight: 400; content: "\f3aa"; }
+  .right-col-main #selected-work a.citation-chip-code::before { font-family: "Font Awesome 6 Brands"; font-weight: 400; content: "\f09b"; }
+  .right-col-main #selected-work a.citation-chip-video::before { font-family: "Font Awesome 6 Brands"; font-weight: 400; content: "\f167"; }
   /* No outline, soft rounded rectangle (a bare .right-col-main * rule forces
      border-radius: 0, so this needs the id to outrank it) */
   .right-col-main #selected-work .citation-chip { border: none !important; border-radius: 5px !important; }
