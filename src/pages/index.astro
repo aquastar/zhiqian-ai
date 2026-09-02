@@ -616,7 +616,7 @@ const selectedGroups = selectedFilters
             <p>Assistant Professor</p>
             <p>Computer Science</p>
             <p class="aff-college">Golisano College of Computing &amp; Info. Sci.</p>
-            <p class="aff-secondary">Affiliated with ESL Global Cybersecurity Institute (GCI)<br />and Center for Human-aware AI (CHAI)</p>
+            <p class="aff-secondary">Affiliated with ESL Global Cybersecurity Institute (GCI) and Center for Human-aware AI (CHAI)</p>
             <p class="aff-univ">Rochester Institute of Technology</p>
           </div>
 
@@ -947,9 +947,9 @@ const selectedGroups = selectedFilters
   .affiliation p:first-child { color: #0f172a; font-weight: 600; }
   .affiliation .aff-univ { color: #0f172a; font-weight: 700; }
   .affiliation .aff-college { font-size: .8rem; line-height: 1.25; }
-  /* Affiliate appointments sit between the home college and the university,
-     so they need separating on both sides, not just above. */
-  .affiliation .aff-secondary { margin: 6px 0; padding: 6px 0; border-top: 1px dashed rgba(148,163,184,0.28); border-bottom: 1px dashed rgba(148,163,184,0.28); font-size: .76rem; line-height: 1.35; color: #64748b; }
+  /* Affiliate appointments sit between the home college and the university.
+     Set apart by type alone -- italic, smaller, lighter -- rather than rules. */
+  .affiliation .aff-secondary { margin: 5px 0; font-style: italic; font-size: .72rem; line-height: 1.3; color: #94a3b8; letter-spacing: .01em; }
   .bio { text-align: justify; text-justify: inter-word; color: #334155; font-size: .92rem; margin-top: 10px; }
   .icons { display: flex; flex-wrap: wrap; justify-content: center; gap: 6px; margin-top: 14px; }
   .icons a, .icons .icon-more { color: #334155; text-decoration: none; transition: color .15s ease, transform .15s ease, filter .15s ease; }
