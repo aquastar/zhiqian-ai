@@ -712,7 +712,6 @@ const selectedGroups = selectedFilters
                 )}
                 <p class="thrust-line">
                   <strong>{t.mark} {t.subtitle}: {t.title}.</strong> {t.body}
-                  {t.media.type === 'video' && <> <a class="thrust-video-link" href={t.media.href} target="_blank" rel="noopener">Full demo <i class="fas fa-arrow-up-right-from-square nav-ghost" aria-hidden="true"></i></a></>}
                 </p>
               </div>
             ))}
@@ -1377,10 +1376,10 @@ const selectedGroups = selectedFilters
      Every citation title fits on one line well short of the column's right edge,
      so the category name moves into a left gutter instead of spending a
      full-width row of its own, and the entries take the width back. */
-  .right-col-main #selected-work .citation-group { display: grid; grid-template-columns: 112px minmax(0, 1fr); column-gap: 16px; margin: 0; padding: 12px 0 0; border-top: 1px solid rgba(148,163,184,0.22); }
+  .right-col-main #selected-work .citation-group { display: grid; grid-template-columns: 136px minmax(0, 1fr); column-gap: 16px; margin: 0; padding: 12px 0 0; border-top: 1px solid rgba(148,163,184,0.22); }
   .right-col-main #selected-work .citation-group:first-child { padding-top: 0; border-top: none; }
   .right-col-main #selected-work .citation-group-title { grid-column: 1; grid-row: 1; font-family: Montserrat, sans-serif; font-size: .68rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: #64748b; line-height: 1.35; text-align: right; margin: 2px 0 0; padding: 0; border-bottom: none; }
-  .right-col-main #selected-work .citation-group-title .group-icon { color: #94a3b8; margin-left: 5px; font-size: .68rem; opacity: .8; }
+  .right-col-main #selected-work .citation-group-title .group-icon { display: block; color: #94a3b8; margin: 5px 0 0; font-size: .74rem; opacity: .8; }
   .right-col-main #selected-work .citation-entry { grid-column: 2; }
   .right-col-main #selected-work .citation-group .citation-entry + .citation-entry { margin-top: 10px; }
   /* Compact three-line paper listing (Binghui-style) */
@@ -1459,7 +1458,7 @@ const selectedGroups = selectedFilters
   }
 
   /* Combined thrust column: figure + text in one block per thrust */
-  .thrust-pair { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1.7fr); gap: 18px; margin: 0; }
+  .thrust-pair { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1.41fr); gap: 18px; margin: 0; }
   .thrust-col { display: flex; flex-direction: column; gap: 12px; padding: 16px; border: 1px solid rgba(148,163,184,0.22); border-radius: 14px; background: #fff; }
   /* Line up the three captions even though the media blocks differ in height */
   @supports (grid-template-rows: subgrid) {
@@ -1479,7 +1478,7 @@ const selectedGroups = selectedFilters
      would letterbox it, and would crop the matching bars out of the poster.
      The player is layered over the poster rather than swapped in for it, so a
      blocked or failed embed leaves the poster and its play button standing. */
-  .thrust-video { position: relative; width: 90%; aspect-ratio: 1280 / 656; overflow: hidden; background: #0f172a; transition: transform .2s ease, box-shadow .2s ease; }
+  .thrust-video { position: relative; width: 100%; aspect-ratio: 1280 / 656; overflow: hidden; background: #0f172a; transition: transform .2s ease, box-shadow .2s ease; }
   .thrust-video:not(.is-playing):hover { transform: translateY(-2px); }
   .right-col-main .thrust-video { box-shadow: 0 10px 26px rgba(15,23,42,0.14) !important; }
   .right-col-main .thrust-video:not(.is-playing):hover { box-shadow: 0 18px 40px rgba(15,23,42,0.22) !important; }
@@ -1496,7 +1495,6 @@ const selectedGroups = selectedFilters
   .thrust-video-sound { position: absolute; right: 8px; bottom: 8px; display: inline-flex; align-items: center; gap: 6px; padding: 5px 10px; border: none; border-radius: 999px; background: rgba(15,23,42,0.72); color: #fff; font: 600 .72rem/1 Inter, sans-serif; cursor: pointer; backdrop-filter: blur(6px); transition: background .2s ease; z-index: 2; }
   .thrust-video-sound:hover { background: rgba(220,38,38,0.92); }
   .thrust-video-sound[hidden] { display: none; }
-  .thrust-video-link { color: #dc2626; text-decoration: none; font-weight: 600; white-space: nowrap; }
   .thrust-video-link:hover { text-decoration: underline; }
   .thrust-video-link i { font-size: .82em; margin-left: 3px; }
 
@@ -1508,8 +1506,6 @@ const selectedGroups = selectedFilters
   }
   @media (max-width: 720px) {
     .thrust-pair { grid-template-columns: 1fr; }
-    /* Single column: the reel shares its column with full-width figures, so drop the 90% inset */
-    .thrust-video { width: 100%; }
   }
 
   @media (max-width: 720px) {
