@@ -1373,11 +1373,15 @@ const selectedGroups = selectedFilters
   .right-col-main .section-head > h2 { margin: 0 !important; }
   .right-col-main .section-head .section-link { font-size: .72rem; color: #64748b; }
 
-  /* Plan B — Selected Paper grouped by theme */
-  .right-col-main #selected-work .citation-group { margin: 0 0 18px; }
-  .right-col-main #selected-work .citation-group:last-child { margin-bottom: 0; }
-  .right-col-main #selected-work .citation-group-title { font-family: Montserrat, sans-serif; font-size: .78rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: #475569; margin: 0 0 8px; padding-bottom: 4px; border-bottom: 1px solid rgba(148,163,184,0.22); }
-  .right-col-main #selected-work .citation-group-title .group-icon { color: #94a3b8; margin-left: 6px; font-size: .78rem; opacity: .8; }
+  /* Plan B — Selected Paper grouped by theme.
+     Every citation title fits on one line well short of the column's right edge,
+     so the category name moves into a left gutter instead of spending a
+     full-width row of its own, and the entries take the width back. */
+  .right-col-main #selected-work .citation-group { display: grid; grid-template-columns: 112px minmax(0, 1fr); column-gap: 16px; margin: 0; padding: 12px 0 0; border-top: 1px solid rgba(148,163,184,0.22); }
+  .right-col-main #selected-work .citation-group:first-child { padding-top: 0; border-top: none; }
+  .right-col-main #selected-work .citation-group-title { grid-column: 1; grid-row: 1; font-family: Montserrat, sans-serif; font-size: .68rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: #64748b; line-height: 1.35; text-align: right; margin: 2px 0 0; padding: 0; border-bottom: none; }
+  .right-col-main #selected-work .citation-group-title .group-icon { color: #94a3b8; margin-left: 5px; font-size: .68rem; opacity: .8; }
+  .right-col-main #selected-work .citation-entry { grid-column: 2; }
   .right-col-main #selected-work .citation-group .citation-entry + .citation-entry { margin-top: 10px; }
   /* Compact three-line paper listing (Binghui-style) */
   .right-col-main #selected-work .citation-list { gap: 12px !important; }
@@ -1388,6 +1392,11 @@ const selectedGroups = selectedFilters
   .right-col-main #selected-work .citation-authors strong { color: #0f172a; font-weight: 700; }
   .right-col-main #selected-work .citation-venue-row { color: #475569; font-size: .82rem; line-height: 1.35; margin-top: 1px; display: flex; flex-wrap: wrap; align-items: center; gap: 6px; }
   .right-col-main #selected-work .citation-venue { font-style: italic; }
+  @media (max-width: 720px) {
+    .right-col-main #selected-work .citation-group { grid-template-columns: minmax(0, 1fr); column-gap: 0; }
+    .right-col-main #selected-work .citation-group-title { grid-column: 1; text-align: left; font-size: .74rem; letter-spacing: .12em; margin: 0 0 8px; padding-bottom: 4px; border-bottom: 1px solid rgba(148,163,184,0.22); }
+    .right-col-main #selected-work .citation-entry { grid-column: 1; }
+  }
   .right-col-main #selected-work .citation-links { display: inline-flex; flex-wrap: wrap; gap: 4px; margin-left: 4px; }
   .right-col-main #selected-work .citation-chip { font-size: .62rem !important; padding: 1px 5px !important; margin: 0 !important; }
   /* Clickable vs static chips */
