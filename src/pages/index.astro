@@ -488,7 +488,7 @@ const selectedWorks = [
     ],
     support: { label: 'Animal disease propagation context', href: 'https://www.aphis.usda.gov/livestock-poultry-disease/cattle/vesicular-stomatitis' },
     href: 'https://scholar.google.com/citations?view_op=view_citation&citation_for_view=NC3-O6UAAAAJ:u-x6o8ySG0sC',
-    bibtex: `@inproceedings{rashme2025graph, author = {Rashme, T. and Zhang, Z. and Weeks, J. and others and Chen, Zhiqian}, booktitle = {Proceedings of the 33rd ACM International Conference on Advances in Geographic Information Systems}, title = {Graph symbolic regression to interpret the propagation of Vesicular Stomatitis Virus across the US and Mexico}, year = {2025}}`,
+    bibtex: `@inproceedings{rashme2025graph, author = {Rashme, Tamanna and Zhang, Zonghan and Weeks, Jason and Benbrahim, Marouane and Zhang, Zijian and Chen, Zhiqian and Pillai, Nisha and Ramkumar, Ram and Nanduri, Bindu}, booktitle = {Proceedings of the 33rd ACM International Conference on Advances in Geographic Information Systems}, pages = {977--980}, title = {Graph symbolic regression to interpret the propagation of Vesicular Stomatitis Virus across the US and Mexico}, year = {2025}}`,
     image: 'https://images.unsplash.com/photo-1518152006812-edab29b069ac?auto=format&fit=crop&w=1600&q=80'
   },
   {
@@ -766,7 +766,7 @@ const selectedGroups = selectedFilters
                       </span>
                     </div>
                     {p.tutorial && (
-                      <div class="citation-tutorial">
+                      <div class:list={['citation-tutorial', { 'is-inline': ((p.tutorial.slides ? 1 : 0) + (p.tutorial.venues?.length ?? 0) + (p.tutorial.collection ? 1 : 0)) <= 1 }]}>
                         <span class="citation-tutorial-text">
                           <i class="fas fa-chalkboard-user citation-tutorial-icon" aria-hidden="true"></i>
                           Tutorial series: <strong>{p.tutorial.title}</strong>
@@ -805,8 +805,9 @@ const selectedGroups = selectedFilters
                 <a class="repo-inline-link" href={repo.href} target="_blank" rel="noopener">
                   <i class="fab fa-github" aria-hidden="true"></i>
                   <span class="repo-inline-name">{repo.name}</span>
-                  <span class="repo-inline-stars"><i class="fas fa-star" aria-hidden="true"></i>{repo.stars}</span>
                 </a>
+                <span class="repo-inline-stars"><i class="fas fa-star" aria-hidden="true"></i>{repo.stars}</span>
+                <span class="repo-inline-desc">{repo.desc}</span>
               </li>
             ))}
           </ul>
@@ -1450,6 +1451,9 @@ const selectedGroups = selectedFilters
   /* Own row, flush with the entry's left edge (no icon indent). The extra class
      outranks .right-col-main #selected-work .citation-links above. */
   .right-col-main #selected-work .citation-links.citation-tutorial-links { display: flex; flex-wrap: wrap; gap: 4px; margin-left: 0; margin-top: 3px; }
+  /* One chip does not need a row of its own — keep it on the title's line. */
+  .right-col-main #selected-work .citation-tutorial.is-inline .citation-tutorial-text { display: inline; }
+  .right-col-main #selected-work .citation-tutorial.is-inline .citation-links.citation-tutorial-links { display: inline-flex; margin-left: 6px; margin-top: 0; }
 
   /* Module separation via subtle background tints (tighter spacing) */
   .right-col-main > .module { margin-top: 8px; padding: 14px 18px; }
@@ -1462,25 +1466,22 @@ const selectedGroups = selectedFilters
   .right-col-main > #announcement .narr-highlight-text { font-size: .88rem; line-height: 1.4; }
   .right-col-main > #github-projects { background: transparent; border: none !important; padding: 0 4px; margin-top: 16px; }
   .right-col-main > #github-projects .section-head { margin-bottom: 8px; }
-  .right-col-main .repo-inline { list-style: none; padding: 0; margin: 0; display: flex; flex-wrap: wrap; gap: 8px; }
-  .right-col-main .repo-inline li { display: inline-flex; }
-  .right-col-main .repo-inline-link { display: inline-flex; align-items: center; gap: 6px; padding: 4px 10px; border-radius: 999px; background: #f1f5f9; border: 1px solid rgba(148,163,184,0.22); color: #334155; text-decoration: none; font-size: .8rem; transition: background .15s ease, color .15s ease, border-color .15s ease; }
-  .right-col-main .repo-inline-link:hover { background: #e2e8f0; color: #0f172a; border-color: rgba(148,163,184,0.36); }
-  .right-col-main .repo-inline-link i.fa-github { color: #475569; font-size: .82rem; }
+  /* One repo per row: icon, name, stars, then a one-sentence tl;dr. The old
+     pill chrome went with the wrapping chip row — a pill trailed by a sentence
+     reads as two competing objects, so the row is plain type instead. */
+  .right-col-main .repo-inline { list-style: none; padding: 0; margin: 0; display: grid; gap: 7px; }
+  .right-col-main .repo-inline li { display: block; line-height: 1.45; }
+  .right-col-main .repo-inline-link { display: inline; color: #0f172a; text-decoration: none; font-size: .9rem; }
+  .right-col-main .repo-inline-link:hover .repo-inline-name { color: #2563eb; text-decoration: underline; text-underline-offset: 2px; }
+  .right-col-main .repo-inline-link i.fa-github { color: #475569; font-size: .82rem; margin-right: 5px; }
   .right-col-main .repo-inline-name { font-weight: 600; color: #0f172a; }
-  .right-col-main .repo-inline-stars { display: inline-flex; align-items: center; gap: 3px; color: #64748b; font-size: .74rem; font-variant-numeric: tabular-nums; }
+  .right-col-main .repo-inline-stars { display: inline-flex; align-items: center; gap: 3px; margin-left: 7px; color: #64748b; font-size: .74rem; font-variant-numeric: tabular-nums; }
   .right-col-main .repo-inline-stars i.fa-star { color: #eab308; font-size: .72rem; }
+  .right-col-main .repo-inline-desc { color: #475569; font-size: .82rem; }
+  .right-col-main .repo-inline-desc::before { content: '·'; margin: 0 6px; opacity: .55; }
   .right-col-main > #selected-work { background: transparent; }
 
   /* Selected Repo: single horizontal row */
-  .right-col-main #github-projects .repo-row { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; }
-  .right-col-main #github-projects .repo-card { padding: 12px; background: #fff; }
-  .right-col-main #github-projects .repo-card p { font-size: .82rem; line-height: 1.45; }
-  .right-col-main #github-projects .repo-top h3 { font-size: .92rem; max-width: 100%; }
-  .right-col-main #github-projects .repo-meta { gap: 6px; }
-  @media (max-width: 1200px) {
-    .right-col-main #github-projects .repo-row { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  }
   @media (max-width: 720px) {
     .right-col-main #github-projects .repo-row { grid-template-columns: 1fr; }
   }
