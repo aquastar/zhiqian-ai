@@ -100,7 +100,7 @@ const researchDomains = [
   { key: 'traffic', label: 'Traffic', sub: 'forecasting', x: 560, y: 60, filter: 'spatial' },
   { key: 'epidemic', label: 'Epidemic', sub: 'spread · UQ', x: 605, y: 140, filter: 'spatial' },
   { key: 'brain', label: 'Brain', sub: 'neural signals', x: 620, y: 220, filter: 'uq' },
-  { key: 'materials', label: 'Materials', sub: 'energy storage', x: 605, y: 300, filter: 'materials' },
+  { key: 'materials', label: 'Materials', sub: 'energy storage', x: 605, y: 300, filter: 'science' },
   { key: 'circuit', label: 'Circuit', sub: 'HW/SW', x: 560, y: 370, filter: 'software-hardware' },
   { key: 'music', label: 'Music', sub: 'generative', x: 460, y: 405, filter: 'music' },
 ];
@@ -244,17 +244,37 @@ const selectedWorks = [
       { label: 'SDM 2023 paper page', href: 'https://epubs.siam.org/doi/abs/10.1137/1.9781611977653.ch86' },
       { label: 'WSDM 2026 tutorial on UQ for graph dynamics', href: 'https://wsdm-conference.org/2026/index.php/tutorials/' }
     ],
+    tutorial: {
+      title: 'Uncertainty Quantification for Dynamical Networks',
+      venues: [
+        { label: "WSDM 26'", href: 'https://wsdm-conference.org/2026/index.php/tutorials/' }
+      ]
+    },
     support: { label: 'Why influence analysis needs interaction-aware reasoning', href: 'https://epubs.siam.org/doi/abs/10.1137/1.9781611977653.ch86' },
     href: 'https://scholar.google.com/citations?view_op=view_citation&citation_for_view=NC3-O6UAAAAJ:Se3iqnhoufwC',
     bibtex: `@inproceedings{zhang2023understanding, author = {Zhang, Zonghan and Chen, Zhiqian}, booktitle = {Proceedings of the 2023 SIAM International Conference on Data Mining (SDM)}, organization = {Society for Industrial and Applied Mathematics}, pages = {766--774}, title = {Understanding Influence Maximization via Higher-Order Decomposition}, year = {2023}}`,
     image: '/pub-images/zhang-2023-understanding.png'
   },
   {
+    slug: 'zhang-2024-mic-gnn',
+    name: 'Gene Graphs for AMR',
+    venue: 'EMBC',
+    year: '2024',
+    direction: 'science',
+    tldr: 'Predicting minimum inhibitory concentrations with a graph neural network instead of waiting on broth microdilution.',
+    keywords: ['antimicrobial resistance', 'MIC prediction', 'genomics'],
+    related: [
+      { label: 'IEEE paper page', href: 'https://ieeexplore.ieee.org/document/10782350/' }
+    ],
+    href: 'https://doi.org/10.1109/EMBC53108.2024.10782350',
+    bibtex: `@inproceedings{zhang2024leveraging, author = {Zhang, Zonghan and Veerapaneni, Ramyasri and Ayoola, Moses and Das, Athish Ram and Chen, Zhiqian and Nanduri, Bindu and Ramkumar, Mahalingam}, booktitle = {2024 46th Annual International Conference of the IEEE Engineering in Medicine and Biology Society (EMBC)}, organization = {IEEE}, pages = {1--4}, title = {Leveraging graph neural networks for MIC prediction in antimicrobial resistance studies}, year = {2024}}`
+  },
+  {
     slug: 'zhang-2019-unsupervised',
     name: 'Solid-State Discovery',
     venue: 'Nature Communications',
     year: '2019',
-    direction: 'materials',
+    direction: 'science',
     awardHighlight: 'Top 50 Chemistry & Materials Sciences article',
     tldr: 'A graph-driven route to discover promising solid-state lithium-ion conductors at scale.',
     detail: 'This work uses machine learning to accelerate the search for solid-state lithium-ion conductors, a key materials bottleneck for safer and denser energy storage. It is one of the clearest examples in my portfolio where graph-based learning contributes directly to scientific discovery beyond standard ML benchmarks.',
@@ -542,7 +562,7 @@ const selectedFilters = [
   { key: 'spatial', label: 'Spatial Forecasting', icon: 'fa-map-location-dot' },
   { key: 'software-hardware', label: 'Software / Hardware', icon: 'fa-microchip' },
   { key: 'symbolic', label: 'Symbolic Discovery', icon: 'fa-square-root-variable' },
-  { key: 'materials', label: 'Materials Science', icon: 'fa-flask' },
+  { key: 'science', label: 'Science', icon: 'fa-flask' },
   { key: 'music', label: 'Music', icon: 'fa-music' },
 ];
 
@@ -752,7 +772,9 @@ const selectedGroups = selectedFilters
                           Tutorial series: <strong>{p.tutorial.title}</strong>
                         </span>
                         <span class="citation-links citation-tutorial-links">
-                          <a class="citation-chip citation-chip-link citation-chip-slides" href={p.tutorial.slides} target="_blank" rel="noopener">slides</a>
+                          {p.tutorial.slides && (
+                            <a class="citation-chip citation-chip-link citation-chip-slides" href={p.tutorial.slides} target="_blank" rel="noopener">slides</a>
+                          )}
                           {p.tutorial.venues.map((v) => (
                             <a class="citation-chip citation-chip-link citation-chip-venue" href={v.href} target="_blank" rel="noopener">{v.label}</a>
                           ))}
@@ -1470,6 +1492,9 @@ const selectedGroups = selectedFilters
   @supports (grid-template-rows: subgrid) {
     .thrust-pair { grid-template-rows: auto auto; }
     .thrust-col { display: grid; grid-row: span 2; grid-template-rows: subgrid; row-gap: 12px; align-content: start; }
+    /* The reel's 1.95:1 frame is shorter than the figures' 1.35:1, so the shared
+       media row leaves it slack; sit it in the middle of that rather than at the top. */
+    .thrust-video { align-self: center; }
   }
   .thrust-fig { display: block; }
   .thrust-img { width: 100%; height: auto; display: block; border: none; transition: transform .2s ease, box-shadow .2s ease; }
