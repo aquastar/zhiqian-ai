@@ -66,9 +66,9 @@ const thrusts = [
     subtitle: '"Network Digital Twin"',
     body: 'Simulation testbeds that couple traffic, power, and communication networks, so estimation and control can be stress-tested before deployment.',
     media: {
-      type: 'youtube',
-      id: '09E4cgdvTSQ',
-      start: 12,
+      type: 'video',
+      src: '/digital-twin.mp4',
+      poster: '/digital-twin-poster.jpg',
       autoplay: true,
       label: 'Network Digital Twin demo',
       caption: 'Real-time Manhattan power–traffic co-simulation, with EV charging load fed back into the grid.',
@@ -700,9 +700,9 @@ const selectedGroups = selectedFilters
                 {t.media.type === 'image' ? (
                   <img class="thrust-img" src={t.media.src} alt={t.title} />
                 ) : (
-                  <div class="thrust-video">
-                    <button class="thrust-video-btn" type="button" data-yt={t.media.id} data-yt-start={t.media.start} data-yt-autoplay={t.media.autoplay ? "" : undefined} aria-label={`Play video: ${t.media.label}`}>
-                      <img class="thrust-video-thumb" src={`https://i.ytimg.com/vi/${t.media.id}/maxresdefault.jpg`} alt="" loading="lazy" />
+                  <div class="thrust-video" data-reel-autoplay={t.media.autoplay ? "" : undefined}>
+                    <video class="thrust-video-el" src={t.media.src} poster={t.media.poster} preload="none" muted loop playsinline aria-label={t.media.label}></video>
+                    <button class="thrust-video-btn" type="button" aria-label={`Play video: ${t.media.label}`}>
                       <span class="thrust-video-play" aria-hidden="true"><i class="fas fa-play"></i></span>
                     </button>
                     <button class="thrust-video-sound" type="button" hidden aria-label="Play with sound">
@@ -712,7 +712,7 @@ const selectedGroups = selectedFilters
                 )}
                 <p class="thrust-line">
                   <strong>{t.mark} {t.subtitle}: {t.title}.</strong> {t.body}
-                  {t.media.type === 'youtube' && <> <a class="thrust-video-link" href={t.media.href} target="_blank" rel="noopener">Watch the demo <i class="fab fa-youtube" aria-hidden="true"></i></a></>}
+                  {t.media.type === 'video' && <> <a class="thrust-video-link" href={t.media.href} target="_blank" rel="noopener">Watch the demo <i class="fab fa-youtube" aria-hidden="true"></i></a></>}
                 </p>
               </div>
             ))}
@@ -796,57 +796,42 @@ const selectedGroups = selectedFilters
 
   <script>
     // Browsers only grant autoplay to muted video, so the reel starts silent and
-    // keeps its controls: the player's own unmute button is the way to sound.
-    // Muted autoplay runs bare — no control bar, no annotations, just the picture.
-    // Sound is a deliberate act, and it brings the real player back with it.
-    const playReel = (btn, muted) => {
-      const id = btn.getAttribute('data-yt');
-      const wrap = btn.closest('.thrust-video');
-      if (!id || !wrap) return;
+    // bare: no controls, just the picture, looping. Sound is a deliberate act, and
+    // it brings the native control bar back with it.
+    const playReel = (wrap, muted) => {
+      const video = wrap.querySelector('.thrust-video-el');
+      if (!video) return;
       if (muted && wrap.classList.contains('is-playing')) return;
-      const start = btn.getAttribute('data-yt-start');
-      const params = new URLSearchParams({ autoplay: '1', rel: '0', playsinline: '1' });
-      if (start) params.set('start', start);
-      if (muted) {
-        params.set('mute', '1');
-        params.set('loop', '1');
-        params.set('playlist', id);
-        params.set('controls', '0');
-        params.set('disablekb', '1');
-        params.set('iv_load_policy', '3');
-      }
-      const frame = document.createElement('iframe');
-      frame.className = 'thrust-video-frame';
-      frame.src = `https://www.youtube-nocookie.com/embed/${id}?${params}`;
-      frame.title = btn.getAttribute('aria-label')?.replace(/^Play video: /, '') || 'Video';
-      frame.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share';
-      frame.allowFullscreen = true;
-      // Only reveal the player once the embed actually loads; until then the poster
-      // stays visible underneath, so a blocked embed degrades to a click target.
-      frame.addEventListener('load', () => {
-        frame.classList.add('is-ready');
+      video.muted = muted;
+      if (!muted) video.controls = true;
+      const started = () => {
         wrap.classList.add('is-playing');
-        btn.setAttribute('aria-hidden', 'true');
-        btn.tabIndex = -1;
         const soundBtn = wrap.querySelector('.thrust-video-sound');
         if (soundBtn) soundBtn.hidden = !muted;
-      });
-      wrap.querySelector('.thrust-video-frame')?.remove();
-      wrap.appendChild(frame);
+      };
+      // A rejected play() leaves the poster and the play button in place, so a
+      // blocked autoplay degrades to a click target rather than an empty box.
+      const attempt = video.play();
+      if (attempt && typeof attempt.then === 'function') {
+        attempt.then(started).catch(() => { video.controls = false; });
+      } else {
+        started();
+      }
     };
 
-    const reelBtns = document.querySelectorAll('.thrust-video-btn');
-    reelBtns.forEach((btn) => {
-      btn.addEventListener('click', () => playReel(btn, false));
-      const soundBtn = btn.closest('.thrust-video')?.querySelector('.thrust-video-sound');
+    const reels = document.querySelectorAll('.thrust-video');
+    reels.forEach((wrap) => {
+      wrap.querySelector('.thrust-video-btn')?.addEventListener('click', () => playReel(wrap, false));
+      const soundBtn = wrap.querySelector('.thrust-video-sound');
       soundBtn?.addEventListener('click', () => {
         soundBtn.hidden = true;
-        playReel(btn, false);
+        playReel(wrap, false);
       });
     });
 
     // Hold the autoplay back until the reel is actually on screen, and skip it for
     // anyone on a metered connection or asking for reduced motion — they still click.
+    // preload="none" means the file is only ever fetched for one of those two.
     const wantsQuiet = window.matchMedia('(prefers-reduced-motion: reduce)').matches
       || navigator.connection?.saveData === true;
     if (!wantsQuiet && 'IntersectionObserver' in window) {
@@ -857,8 +842,8 @@ const selectedGroups = selectedFilters
           playReel(entry.target, true);
         });
       }, { threshold: 0.5 });
-      reelBtns.forEach((btn) => {
-        if (btn.hasAttribute('data-yt-autoplay')) observer.observe(btn);
+      reels.forEach((wrap) => {
+        if (wrap.hasAttribute('data-reel-autoplay')) observer.observe(wrap);
       });
     }
 
@@ -1489,16 +1474,16 @@ const selectedGroups = selectedFilters
   .thrust-video:not(.is-playing):hover { transform: translateY(-2px); }
   .right-col-main .thrust-video { box-shadow: 0 10px 26px rgba(15,23,42,0.14) !important; }
   .right-col-main .thrust-video:not(.is-playing):hover { box-shadow: 0 18px 40px rgba(15,23,42,0.22) !important; }
-  .thrust-video-btn { position: absolute; inset: 0; width: 100%; height: 100%; padding: 0; border: none; background: #0f172a; cursor: pointer; overflow: hidden; }
+  .thrust-video-btn { position: absolute; inset: 0; width: 100%; height: 100%; padding: 0; border: none; background: transparent; cursor: pointer; overflow: hidden; }
   .thrust-video-btn::after { content: ''; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(15,23,42,0) 45%, rgba(15,23,42,0.42) 100%); opacity: 0; transition: opacity .25s ease; }
   .thrust-video:hover .thrust-video-btn::after { opacity: 1; }
   .thrust-video.is-playing .thrust-video-btn { pointer-events: none; }
-  .thrust-video-thumb { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .thrust-video-el { width: 100%; height: 100%; object-fit: cover; display: block; background: #0f172a; }
   .thrust-video-play { position: absolute; inset: 0; margin: auto; width: 58px; height: 40px; display: flex; align-items: center; justify-content: center; border-radius: 10px; background: rgba(220,38,38,0.9); color: #fff; font-size: .95rem; pointer-events: none; transition: background .2s ease, transform .2s ease; }
   .thrust-video:hover .thrust-video-play { background: #dc2626; transform: scale(1.06); }
-  :global(.thrust-video-frame) { position: absolute; inset: 0; width: 100%; height: 100%; border: none; opacity: 0; transition: opacity .3s ease; }
-  :global(.thrust-video-frame.is-ready) { opacity: 1; }
-  /* Our own sound affordance: controls=0 leaves the muted reel with no way back to audio */
+  .thrust-video.is-playing .thrust-video-play { opacity: 0; }
+  .thrust-video-play { transition: background .2s ease, transform .2s ease, opacity .2s ease; }
+  /* Our own sound affordance: the muted loop runs without controls, so give it a way back to audio */
   .thrust-video-sound { position: absolute; right: 8px; bottom: 8px; display: inline-flex; align-items: center; gap: 6px; padding: 5px 10px; border: none; border-radius: 999px; background: rgba(15,23,42,0.72); color: #fff; font: 600 .72rem/1 Inter, sans-serif; cursor: pointer; backdrop-filter: blur(6px); transition: background .2s ease; z-index: 2; }
   .thrust-video-sound:hover { background: rgba(220,38,38,0.92); }
   .thrust-video-sound[hidden] { display: none; }
