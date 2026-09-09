@@ -48,7 +48,7 @@ const thrusts = [
     mark: '①',
     title: 'Generalized patterns across systems',
     subtitle: '"Analogy learning"',
-    body: 'Operators and invariants that transfer across unrelated graph domains.',
+    body: 'Shared operators, conserved quantities, and structural invariants that transfer across unrelated graph domains.',
     media: { type: 'image', src: '/circ-analogy.jpg' },
   },
   {
@@ -64,7 +64,7 @@ const thrusts = [
     mark: '③',
     title: 'Executable replicas of coupled infrastructure',
     subtitle: '"Network Digital Twin"',
-    body: 'Traffic, power, and communication testbeds for stress-testing estimation and control before deployment.',
+    body: 'Traffic, power, and communication testbeds for stress-testing estimation and control.',
     media: {
       type: 'video',
       src: '/digital-twin.mp4',
@@ -1141,7 +1141,10 @@ const selectedGroups = selectedFilters
   .citation-chip-slides { color: #b45309; background: #fffbeb; border-color: rgba(180,83,9,0.20); }
   .citation-chip-venue { color: #1d4ed8; background: #eff6ff; border-color: rgba(37,99,235,0.18); }
   .citation-chip:hover { filter: brightness(0.98); }
-  .citation-tutorial { margin-top: 6px; }
+  /* A tutorial is a different kind of artifact from the paper it hangs off,
+     so tint it in the amber its icon already uses — light enough to read as
+     a grouping rather than a highlight. */
+  .citation-tutorial { margin-top: 6px; padding: 6px 9px; border-radius: 8px; background: rgba(180, 83, 9, 0.06); }
   .citation-tutorial-icon { color: #b45309; font-size: .72rem; margin-right: 5px; }
   /* body sets text-align: justify globally; this line reads better ragged-right */
   .citation-tutorial-text { display: block; font-size: .78rem; line-height: 1.6; color: #475569; text-align: left; }
@@ -1414,6 +1417,9 @@ const selectedGroups = selectedFilters
   /* No outline, soft rounded rectangle (a bare .right-col-main * rule forces
      border-radius: 0, so this needs the id to outrank it) */
   .right-col-main #selected-work .citation-chip { border: none !important; border-radius: 5px !important; }
+  /* Same story for the tutorial's tinted block — the blanket rule above would
+     square it off, and a square tint reads as a band rather than a grouping. */
+  .right-col-main #selected-work .citation-tutorial { border-radius: 6px !important; }
   .right-col-main #selected-work span.citation-chip { font-weight: 400 !important; opacity: .8; }
   /* The chip group is inline-flex, so it cannot break and drops to its own line,
      leaving the tutorial title line half empty. Going inline lets the chips flow on
@@ -1458,7 +1464,7 @@ const selectedGroups = selectedFilters
   }
 
   /* Combined thrust column: figure + text in one block per thrust */
-  .thrust-pair { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1.41fr); gap: 18px; margin: 0; }
+  .thrust-pair { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; margin: 0; }
   .thrust-col { display: flex; flex-direction: column; gap: 12px; padding: 16px; border: 1px solid rgba(148,163,184,0.22); border-radius: 14px; background: #fff; }
   /* Line up the three captions even though the media blocks differ in height */
   @supports (grid-template-rows: subgrid) {
