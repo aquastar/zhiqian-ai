@@ -76,7 +76,6 @@ const thrusts = [
   },
 ];
 
-const featureVideo = thrusts.find((t) => t.media.type === 'youtube');
 
 const domainPills = [
   { label: 'Traffic', tone: 'core' },
@@ -697,24 +696,21 @@ const selectedGroups = selectedFilters
           <div class="thrust-pair">
             {thrusts.map((t) => (
               <div class={`thrust-col thrust-col-${t.key}`}>
-                {t.media.type === 'image' && <img class="thrust-img" src={t.media.src} alt={t.title} />}
-                <p class="thrust-line"><strong>{t.mark} {t.subtitle}: {t.title}.</strong> {t.body}</p>
+                {t.media.type === 'image' ? (
+                  <img class="thrust-img" src={t.media.src} alt={t.title} />
+                ) : (
+                  <button class="thrust-video-btn" type="button" data-yt={t.media.id} data-yt-start={t.media.start} aria-label={`Play video: ${t.media.label}`}>
+                    <img class="thrust-video-thumb" src={`https://i.ytimg.com/vi/${t.media.id}/maxresdefault.jpg`} alt="" loading="lazy" />
+                    <span class="thrust-video-play" aria-hidden="true"><i class="fas fa-play"></i></span>
+                  </button>
+                )}
+                <p class="thrust-line">
+                  <strong>{t.mark} {t.subtitle}: {t.title}.</strong> {t.body}
+                  {t.media.type === 'youtube' && <> <a class="thrust-video-link" href={t.media.href} target="_blank" rel="noopener">Watch the demo <i class="fab fa-youtube" aria-hidden="true"></i></a></>}
+                </p>
               </div>
             ))}
           </div>
-
-          {featureVideo && (
-            <figure class="thrust-feature">
-              <button class="thrust-video-btn" type="button" data-yt={featureVideo.media.id} data-yt-start={featureVideo.media.start} aria-label={`Play video: ${featureVideo.media.label}`}>
-                <img class="thrust-video-thumb" src={`https://i.ytimg.com/vi/${featureVideo.media.id}/maxresdefault.jpg`} alt="" loading="lazy" />
-                <span class="thrust-video-play" aria-hidden="true"><i class="fas fa-play"></i></span>
-              </button>
-              <figcaption class="thrust-feature-cap">
-                <strong>{featureVideo.mark} {featureVideo.media.label}.</strong> {featureVideo.media.caption}
-                <a class="thrust-video-link" href={featureVideo.media.href} target="_blank" rel="noopener">Watch on YouTube <i class="fab fa-youtube" aria-hidden="true"></i></a>
-              </figcaption>
-            </figure>
-          )}
 
         </article>
 
@@ -1399,7 +1395,7 @@ const selectedGroups = selectedFilters
   }
 
   /* Combined thrust column: figure + text in one block per thrust */
-  .thrust-pair { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; margin: 0; }
+  .thrust-pair { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1.7fr); gap: 18px; margin: 0; }
   .thrust-col { display: flex; flex-direction: column; gap: 12px; padding: 16px; border: 1px solid rgba(148,163,184,0.22); border-radius: 14px; background: #fff; }
   /* Line up the three captions even though the media blocks differ in height */
   @supports (grid-template-rows: subgrid) {
@@ -1415,34 +1411,29 @@ const selectedGroups = selectedFilters
   .thrust-line { margin: 0; font-size: .86rem; line-height: 1.5; color: #334155; }
   .thrust-line strong { color: #0f172a; font-weight: 700; }
 
-  /* The third thrust carries no figure of its own; centre it against the two that do */
-  @supports (grid-template-rows: subgrid) {
-    .thrust-col-twin .thrust-line { grid-row: 1 / -1; align-self: center; }
-  }
-
-  /* Featured demo reel, sitting full width under the three thrusts */
-  .thrust-feature { margin: 20px auto 0; max-width: 640px; display: flex; flex-direction: column; gap: 10px; }
-  .thrust-feature-cap { margin: 0; font-size: .82rem; line-height: 1.5; color: #64748b; text-align: center; }
-  .thrust-feature-cap strong { color: #0f172a; font-weight: 700; }
-  .thrust-feature-cap .thrust-video-link { margin-left: 6px; }
-
-  /* Click-to-load YouTube facade: no third-party frame until the visitor asks for it */
-  .thrust-video-btn { position: relative; display: block; width: 100%; aspect-ratio: 16 / 9; padding: 0; border: none; background: #0f172a; cursor: pointer; overflow: hidden; transition: transform .2s ease, box-shadow .2s ease; }
+  /* Click-to-load YouTube facade: no third-party frame until the visitor asks for it.
+     The reel is a 1.95:1 screen capture, so frame it at its own ratio — a 16/9 box
+     would letterbox it, and would crop the matching bars out of the poster. */
+  .thrust-video-btn { position: relative; display: block; width: 100%; aspect-ratio: 1280 / 656; padding: 0; border: none; background: #0f172a; cursor: pointer; overflow: hidden; transition: transform .2s ease, box-shadow .2s ease; }
   .thrust-video-btn::after { content: ''; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(15,23,42,0) 45%, rgba(15,23,42,0.42) 100%); opacity: 0; transition: opacity .25s ease; }
   .thrust-video-btn:hover { transform: translateY(-2px); }
   .thrust-video-btn:hover::after { opacity: 1; }
   .right-col-main .thrust-video-btn { box-shadow: 0 10px 26px rgba(15,23,42,0.14) !important; }
   .right-col-main .thrust-video-btn:hover { box-shadow: 0 18px 40px rgba(15,23,42,0.22) !important; }
   .thrust-video-thumb { width: 100%; height: 100%; object-fit: cover; display: block; }
-  .thrust-video-play { position: absolute; inset: 0; margin: auto; width: 68px; height: 48px; display: flex; align-items: center; justify-content: center; border-radius: 12px; background: rgba(220,38,38,0.9); color: #fff; font-size: 1.1rem; pointer-events: none; transition: background .2s ease, transform .2s ease; }
+  .thrust-video-play { position: absolute; inset: 0; margin: auto; width: 58px; height: 40px; display: flex; align-items: center; justify-content: center; border-radius: 10px; background: rgba(220,38,38,0.9); color: #fff; font-size: .95rem; pointer-events: none; transition: background .2s ease, transform .2s ease; }
   .thrust-video-btn:hover .thrust-video-play { background: #dc2626; transform: scale(1.06); }
-  .thrust-video-frame { width: 100%; aspect-ratio: 16 / 9; border: none; display: block; }
+  :global(.thrust-video-frame) { width: 100%; aspect-ratio: 1280 / 656; border: none; display: block; }
   .thrust-video-link { color: #dc2626; text-decoration: none; font-weight: 600; white-space: nowrap; }
   .thrust-video-link:hover { text-decoration: underline; }
   .thrust-video-link i { font-size: .82em; margin-left: 3px; }
 
   @media (max-width: 1200px) {
+    /* Two columns can't hold three thrusts, so let the reel own the wrap row outright */
     .thrust-pair { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .thrust-col-twin { grid-column: 1 / -1; }
+    .thrust-col-twin .thrust-video-btn,
+    .thrust-col-twin :global(.thrust-video-frame) { max-width: 520px; margin: 0 auto; }
   }
   @media (max-width: 720px) {
     .thrust-pair { grid-template-columns: 1fr; }
