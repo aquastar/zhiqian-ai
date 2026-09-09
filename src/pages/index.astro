@@ -69,6 +69,7 @@ const thrusts = [
       type: 'youtube',
       id: '09E4cgdvTSQ',
       start: 12,
+      autoplay: true,
       label: 'Network Digital Twin demo',
       caption: 'Real-time Manhattan power–traffic co-simulation, with EV charging load fed back into the grid.',
       href: 'https://www.youtube.com/watch?v=09E4cgdvTSQ&t=12s',
@@ -699,10 +700,12 @@ const selectedGroups = selectedFilters
                 {t.media.type === 'image' ? (
                   <img class="thrust-img" src={t.media.src} alt={t.title} />
                 ) : (
-                  <button class="thrust-video-btn" type="button" data-yt={t.media.id} data-yt-start={t.media.start} aria-label={`Play video: ${t.media.label}`}>
-                    <img class="thrust-video-thumb" src={`https://i.ytimg.com/vi/${t.media.id}/maxresdefault.jpg`} alt="" loading="lazy" />
-                    <span class="thrust-video-play" aria-hidden="true"><i class="fas fa-play"></i></span>
-                  </button>
+                  <div class="thrust-video">
+                    <button class="thrust-video-btn" type="button" data-yt={t.media.id} data-yt-start={t.media.start} data-yt-autoplay={t.media.autoplay ? "" : undefined} aria-label={`Play video: ${t.media.label}`}>
+                      <img class="thrust-video-thumb" src={`https://i.ytimg.com/vi/${t.media.id}/maxresdefault.jpg`} alt="" loading="lazy" />
+                      <span class="thrust-video-play" aria-hidden="true"><i class="fas fa-play"></i></span>
+                    </button>
+                  </div>
                 )}
                 <p class="thrust-line">
                   <strong>{t.mark} {t.subtitle}: {t.title}.</strong> {t.body}
@@ -789,20 +792,56 @@ const selectedGroups = selectedFilters
   </main>
 
   <script>
-    document.querySelectorAll('.thrust-video-btn').forEach((btn) => {
-      btn.addEventListener('click', () => {
-        const id = btn.getAttribute('data-yt');
-        if (!id) return;
-        const start = btn.getAttribute('data-yt-start');
-        const frame = document.createElement('iframe');
-        frame.className = 'thrust-video-frame';
-        frame.src = `https://www.youtube-nocookie.com/embed/${id}?autoplay=1&rel=0${start ? `&start=${start}` : ''}`;
-        frame.title = btn.getAttribute('aria-label')?.replace(/^Play video: /, '') || 'Video';
-        frame.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share';
-        frame.allowFullscreen = true;
-        btn.replaceWith(frame);
+    // Browsers only grant autoplay to muted video, so the reel starts silent and
+    // keeps its controls: the player's own unmute button is the way to sound.
+    const playReel = (btn, muted) => {
+      const id = btn.getAttribute('data-yt');
+      const wrap = btn.closest('.thrust-video');
+      if (!id || !wrap || wrap.classList.contains('is-playing')) return;
+      const start = btn.getAttribute('data-yt-start');
+      const params = new URLSearchParams({ autoplay: '1', rel: '0', playsinline: '1' });
+      if (start) params.set('start', start);
+      if (muted) {
+        params.set('mute', '1');
+        params.set('loop', '1');
+        params.set('playlist', id);
+      }
+      const frame = document.createElement('iframe');
+      frame.className = 'thrust-video-frame';
+      frame.src = `https://www.youtube-nocookie.com/embed/${id}?${params}`;
+      frame.title = btn.getAttribute('aria-label')?.replace(/^Play video: /, '') || 'Video';
+      frame.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share';
+      frame.allowFullscreen = true;
+      // Only reveal the player once the embed actually loads; until then the poster
+      // stays visible underneath, so a blocked embed degrades to a click target.
+      frame.addEventListener('load', () => {
+        frame.classList.add('is-ready');
+        wrap.classList.add('is-playing');
+        btn.setAttribute('aria-hidden', 'true');
+        btn.tabIndex = -1;
       });
-    });
+      wrap.appendChild(frame);
+    };
+
+    const reelBtns = document.querySelectorAll('.thrust-video-btn');
+    reelBtns.forEach((btn) => btn.addEventListener('click', () => playReel(btn, false)));
+
+    // Hold the autoplay back until the reel is actually on screen, and skip it for
+    // anyone on a metered connection or asking for reduced motion — they still click.
+    const wantsQuiet = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+      || navigator.connection?.saveData === true;
+    if (!wantsQuiet && 'IntersectionObserver' in window) {
+      const observer = new IntersectionObserver((entries, obs) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return;
+          obs.unobserve(entry.target);
+          playReel(entry.target, true);
+        });
+      }, { threshold: 0.5 });
+      reelBtns.forEach((btn) => {
+        if (btn.hasAttribute('data-yt-autoplay')) observer.observe(btn);
+      });
+    }
 
     const nameAudioBtn = document.getElementById('name-audio');
     nameAudioBtn?.addEventListener('click', () => {
@@ -1411,19 +1450,23 @@ const selectedGroups = selectedFilters
   .thrust-line { margin: 0; font-size: .86rem; line-height: 1.5; color: #334155; }
   .thrust-line strong { color: #0f172a; font-weight: 700; }
 
-  /* Click-to-load YouTube facade: no third-party frame until the visitor asks for it.
-     The reel is a 1.95:1 screen capture, so frame it at its own ratio — a 16/9 box
-     would letterbox it, and would crop the matching bars out of the poster. */
-  .thrust-video-btn { position: relative; display: block; width: 100%; aspect-ratio: 1280 / 656; padding: 0; border: none; background: #0f172a; cursor: pointer; overflow: hidden; transition: transform .2s ease, box-shadow .2s ease; }
+  /* The reel is a 1.95:1 screen capture, so frame it at its own ratio — a 16/9 box
+     would letterbox it, and would crop the matching bars out of the poster.
+     The player is layered over the poster rather than swapped in for it, so a
+     blocked or failed embed leaves the poster and its play button standing. */
+  .thrust-video { position: relative; width: 100%; aspect-ratio: 1280 / 656; overflow: hidden; background: #0f172a; transition: transform .2s ease, box-shadow .2s ease; }
+  .thrust-video:not(.is-playing):hover { transform: translateY(-2px); }
+  .right-col-main .thrust-video { box-shadow: 0 10px 26px rgba(15,23,42,0.14) !important; }
+  .right-col-main .thrust-video:not(.is-playing):hover { box-shadow: 0 18px 40px rgba(15,23,42,0.22) !important; }
+  .thrust-video-btn { position: absolute; inset: 0; width: 100%; height: 100%; padding: 0; border: none; background: #0f172a; cursor: pointer; overflow: hidden; }
   .thrust-video-btn::after { content: ''; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(15,23,42,0) 45%, rgba(15,23,42,0.42) 100%); opacity: 0; transition: opacity .25s ease; }
-  .thrust-video-btn:hover { transform: translateY(-2px); }
-  .thrust-video-btn:hover::after { opacity: 1; }
-  .right-col-main .thrust-video-btn { box-shadow: 0 10px 26px rgba(15,23,42,0.14) !important; }
-  .right-col-main .thrust-video-btn:hover { box-shadow: 0 18px 40px rgba(15,23,42,0.22) !important; }
+  .thrust-video:hover .thrust-video-btn::after { opacity: 1; }
+  .thrust-video.is-playing .thrust-video-btn { pointer-events: none; }
   .thrust-video-thumb { width: 100%; height: 100%; object-fit: cover; display: block; }
   .thrust-video-play { position: absolute; inset: 0; margin: auto; width: 58px; height: 40px; display: flex; align-items: center; justify-content: center; border-radius: 10px; background: rgba(220,38,38,0.9); color: #fff; font-size: .95rem; pointer-events: none; transition: background .2s ease, transform .2s ease; }
-  .thrust-video-btn:hover .thrust-video-play { background: #dc2626; transform: scale(1.06); }
-  :global(.thrust-video-frame) { width: 100%; aspect-ratio: 1280 / 656; border: none; display: block; }
+  .thrust-video:hover .thrust-video-play { background: #dc2626; transform: scale(1.06); }
+  :global(.thrust-video-frame) { position: absolute; inset: 0; width: 100%; height: 100%; border: none; opacity: 0; transition: opacity .3s ease; }
+  :global(.thrust-video-frame.is-ready) { opacity: 1; }
   .thrust-video-link { color: #dc2626; text-decoration: none; font-weight: 600; white-space: nowrap; }
   .thrust-video-link:hover { text-decoration: underline; }
   .thrust-video-link i { font-size: .82em; margin-left: 3px; }
@@ -1432,8 +1475,7 @@ const selectedGroups = selectedFilters
     /* Two columns can't hold three thrusts, so let the reel own the wrap row outright */
     .thrust-pair { grid-template-columns: repeat(2, minmax(0, 1fr)); }
     .thrust-col-twin { grid-column: 1 / -1; }
-    .thrust-col-twin .thrust-video-btn,
-    .thrust-col-twin :global(.thrust-video-frame) { max-width: 520px; margin: 0 auto; }
+    .thrust-col-twin .thrust-video { max-width: 520px; margin: 0 auto; }
   }
   @media (max-width: 720px) {
     .thrust-pair { grid-template-columns: 1fr; }
