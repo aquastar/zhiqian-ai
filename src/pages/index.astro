@@ -705,6 +705,9 @@ const selectedGroups = selectedFilters
                       <img class="thrust-video-thumb" src={`https://i.ytimg.com/vi/${t.media.id}/maxresdefault.jpg`} alt="" loading="lazy" />
                       <span class="thrust-video-play" aria-hidden="true"><i class="fas fa-play"></i></span>
                     </button>
+                    <button class="thrust-video-sound" type="button" hidden aria-label="Play with sound">
+                      <i class="fas fa-volume-xmark" aria-hidden="true"></i><span>Sound</span>
+                    </button>
                   </div>
                 )}
                 <p class="thrust-line">
@@ -794,10 +797,13 @@ const selectedGroups = selectedFilters
   <script>
     // Browsers only grant autoplay to muted video, so the reel starts silent and
     // keeps its controls: the player's own unmute button is the way to sound.
+    // Muted autoplay runs bare — no control bar, no annotations, just the picture.
+    // Sound is a deliberate act, and it brings the real player back with it.
     const playReel = (btn, muted) => {
       const id = btn.getAttribute('data-yt');
       const wrap = btn.closest('.thrust-video');
-      if (!id || !wrap || wrap.classList.contains('is-playing')) return;
+      if (!id || !wrap) return;
+      if (muted && wrap.classList.contains('is-playing')) return;
       const start = btn.getAttribute('data-yt-start');
       const params = new URLSearchParams({ autoplay: '1', rel: '0', playsinline: '1' });
       if (start) params.set('start', start);
@@ -805,6 +811,9 @@ const selectedGroups = selectedFilters
         params.set('mute', '1');
         params.set('loop', '1');
         params.set('playlist', id);
+        params.set('controls', '0');
+        params.set('disablekb', '1');
+        params.set('iv_load_policy', '3');
       }
       const frame = document.createElement('iframe');
       frame.className = 'thrust-video-frame';
@@ -819,12 +828,22 @@ const selectedGroups = selectedFilters
         wrap.classList.add('is-playing');
         btn.setAttribute('aria-hidden', 'true');
         btn.tabIndex = -1;
+        const soundBtn = wrap.querySelector('.thrust-video-sound');
+        if (soundBtn) soundBtn.hidden = !muted;
       });
+      wrap.querySelector('.thrust-video-frame')?.remove();
       wrap.appendChild(frame);
     };
 
     const reelBtns = document.querySelectorAll('.thrust-video-btn');
-    reelBtns.forEach((btn) => btn.addEventListener('click', () => playReel(btn, false)));
+    reelBtns.forEach((btn) => {
+      btn.addEventListener('click', () => playReel(btn, false));
+      const soundBtn = btn.closest('.thrust-video')?.querySelector('.thrust-video-sound');
+      soundBtn?.addEventListener('click', () => {
+        soundBtn.hidden = true;
+        playReel(btn, false);
+      });
+    });
 
     // Hold the autoplay back until the reel is actually on screen, and skip it for
     // anyone on a metered connection or asking for reduced motion — they still click.
@@ -1467,6 +1486,10 @@ const selectedGroups = selectedFilters
   .thrust-video:hover .thrust-video-play { background: #dc2626; transform: scale(1.06); }
   :global(.thrust-video-frame) { position: absolute; inset: 0; width: 100%; height: 100%; border: none; opacity: 0; transition: opacity .3s ease; }
   :global(.thrust-video-frame.is-ready) { opacity: 1; }
+  /* Our own sound affordance: controls=0 leaves the muted reel with no way back to audio */
+  .thrust-video-sound { position: absolute; right: 8px; bottom: 8px; display: inline-flex; align-items: center; gap: 6px; padding: 5px 10px; border: none; border-radius: 999px; background: rgba(15,23,42,0.72); color: #fff; font: 600 .72rem/1 Inter, sans-serif; cursor: pointer; backdrop-filter: blur(6px); transition: background .2s ease; z-index: 2; }
+  .thrust-video-sound:hover { background: rgba(220,38,38,0.92); }
+  .thrust-video-sound[hidden] { display: none; }
   .thrust-video-link { color: #dc2626; text-decoration: none; font-weight: 600; white-space: nowrap; }
   .thrust-video-link:hover { text-decoration: underline; }
   .thrust-video-link i { font-size: .82em; margin-left: 3px; }
