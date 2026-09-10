@@ -1,18 +1,184 @@
 ---
 import Layout from '../layouts/Layout.astro';
 
-const directions = [
-  { title: 'Spectral graph theory', desc: 'Using spectral perspectives to understand graph structure, operators, and learning behavior.' },
-  { title: 'UQ for graph dynamics', desc: 'Studying uncertainty quantification, inference, and intervention in graph-driven dynamical systems.' },
-  { title: 'Cross-network graph dynamics', desc: 'Understanding how heterogeneous networks interact, couple, and evolve together over time.' },
-  { title: 'General theory for graph dynamics', desc: 'Searching for broader principles that unify dynamics, interaction, and controllability on graphs.' },
+const pillars = [
+  {
+    key: 'theory',
+    label: 'Theoretical / tool study',
+    topics: ['Spectral graph theory', 'Uncertainty quantification', 'Higher-order analysis', 'Approximation theory'],
+  },
+  {
+    key: 'application',
+    label: 'Application study',
+    topics: ['Traffic / urban computing', 'Spatial epidemiology', 'Circuit / power networks', 'Social networks', 'Genetics / genomics', 'Brain networks'],
+  },
 ];
 
-const works = [
-  { venue: 'ACM CSUR 2023', title: 'Unified GNN framework', desc: 'Survey and tutorial-building effort toward unifying spectral and spatial graph learning.' },
-  { venue: 'AAAI 2024', title: 'Influence on graphs', desc: 'Graph Bayesian Optimization, source localization, and influence maximization for dynamic and multiplex networks.' },
-  { venue: 'SIGSPATIAL 2020', title: 'Spatiotemporal and urban forecasting', desc: 'Graph-temporal forecasting for traffic and mobility, including award-winning work on urban intelligence.' },
-  { venue: 'Nature Communications 2019', title: 'Materials and scientific discovery', desc: 'Graph/ML-enabled discovery for solid-state lithium-ion conductors and related science-facing systems.' },
+const projects = [
+  {
+    funder: 'NSF CAREER',
+    role: 'Sole PI',
+    award: '#2443266',
+    amount: '$517,594',
+    period: '06/2025–05/2030',
+    title: 'From Fragmentation to Integration: Advancing Cross-Graph Dynamics in Interdependent Networks',
+    desc: 'Integrates graph dynamics across real-world applications while investigating the interactions among heterogeneous graph dynamics.',
+    href: 'https://www.nsf.gov/awardsearch/showAward?AWD_ID=2443266',
+  },
+  {
+    funder: 'NSF CISE III CRII',
+    role: 'Sole PI',
+    award: '#2153369',
+    amount: '$174,004',
+    period: '05/2022–11/2024',
+    title: 'Interpretable Influence Propagating and Blocking on Graphs',
+    desc: 'Higher-order analysis and uncertainty quantification in graph dynamics, aimed at understanding information propagation on complex networks.',
+    href: 'https://www.nsf.gov/awardsearch/showAward?AWD_ID=2153369',
+  },
+  {
+    funder: 'NSF CISE CNS CIRC',
+    role: 'PI',
+    award: '#2345921',
+    amount: '$99,998',
+    period: '07/2024–06/2025',
+    title: 'Planning-C: Synergistic Graph Flow Analytics',
+    desc: 'Builds unified research infrastructure for cross-disciplinary research.',
+    href: 'https://www.nsf.gov/awardsearch/showAward?AWD_ID=2345921',
+  },
+  {
+    funder: 'NSF CISE CNS MSI:RCBP',
+    role: 'Co-PI and school PI',
+    award: '#2431176',
+    amount: '$400,000',
+    period: '',
+    title: 'Advancing Speech Detection: A Hybrid Approach Using Large Language Models and Graph Neural Networks',
+    desc: 'Advances speech detection through hybrid approaches combining large language models and graph neural networks.',
+    href: 'https://www.nsf.gov/awardsearch/showAward?AWD_ID=2431176',
+  },
+  {
+    funder: 'NSF EDU ITEST',
+    role: 'Co-PI',
+    award: '#2342574',
+    amount: '$1,192,951',
+    period: '09/2024–08/2027',
+    title: 'Learning to Create Intelligent Solutions with Machine Learning and Computer Vision',
+    desc: 'Gives high-school (K-12) students from diverse backgrounds opportunities to pursue AI learning and AI careers.',
+    href: 'https://www.nsf.gov/awardsearch/showAward?AWD_ID=2342574',
+  },
+  {
+    funder: 'USDA ARS',
+    role: 'Co-PI',
+    award: '#58-6064-3-017',
+    amount: '$3,073,602',
+    period: '10/2023–08/2028',
+    title: 'Developing Detection and Modeling Tools for the Geospatial and Environmental Epidemiology of Animal Disease',
+    desc: 'Develops geospatial tools for understanding animal disease epidemiology.',
+    href: '',
+  },
+  {
+    funder: 'USDA ARS',
+    role: 'Co-PI',
+    award: '#58-0200-0-002',
+    amount: '$5,690,689',
+    period: '10/2022–08/2024',
+    title: 'Advancing Agricultural Research through High Performance Computing',
+    desc: 'Applies high-performance computing to agricultural research; my part focuses on graph representation for genetics.',
+    href: '',
+  },
+  {
+    funder: 'NSF REU · USDA summer intern',
+    role: 'PI',
+    award: '',
+    amount: '$14,000 · $8,199',
+    period: '',
+    title: 'Undergraduate and graduate research experiences',
+    desc: 'Four undergraduate students and one graduate student recruited for work on graph dynamics, quantum machine learning, and Vesicular Stomatitis Virus.',
+    href: '',
+  },
+];
+
+const futurePlan = [
+  {
+    title: 'Unified graph theory',
+    desc: 'A framework that generalizes the interaction between graph structures and the dynamics running on them, drawing on dynamical systems and fluid dynamics.',
+  },
+  {
+    title: 'Cross-network behaviors',
+    desc: 'How dynamics interact implicitly across interdependent networks — power grids, transportation, financial networks, supply chains. The hard part is the missing evaluation environments and the difficulty of collecting real data or building simulations.',
+  },
+  {
+    title: 'Graph dynamics foundation model',
+    desc: 'Graph dynamics modeled as sequential data in a high-dimensional space, which makes a transformer-based model for graph dynamics trainable.',
+  },
+];
+
+// Deadlines, Sep 2026 – Feb 2027. `kind` drives the colour chip and follows the
+// source legend: NSF grant, NIH grant, other grant, paper, review/report.
+const deadlines = [
+  { month: 'Sep 2026', items: [
+    { date: 'Sep 15', day: 'Tue', name: 'Sony Research Award (FRA)', kind: 'other' },
+    { date: 'Sep 18', day: 'Fri', name: 'ICLR 2027 abstract registration (mandatory)', kind: 'paper' },
+    { date: 'Sep 25', day: 'Fri', name: 'ICLR 2027 full paper', kind: 'paper' },
+    { date: 'Sep 28', day: 'Mon', name: 'NIH R16 SuRE', kind: 'nih' },
+  ]},
+  { month: 'Oct 2026', items: [
+    { date: 'Oct 9', day: 'Fri', name: 'NSF MFAI', kind: 'nsf' },
+    { date: 'Oct 12', day: 'Mon', name: 'NAACL 2027 (main)', kind: 'paper' },
+    { date: 'Oct 12', day: 'Mon', name: 'COLING 2027 (main)', kind: 'paper' },
+    { date: 'Oct 14', day: 'Wed', name: 'IEEE BigData reviews due', kind: 'review' },
+    { date: 'Oct 15', day: 'Thu', name: 'WSDM 2027 demo', kind: 'paper' },
+    { date: 'Oct 16', day: 'Fri', name: 'NIH R21 new (standing date)', kind: 'nih' },
+    { date: 'Oct 18', day: 'Sun', name: 'WebConf abstract (research + industry)', kind: 'paper' },
+    { date: 'Oct 25', day: 'Sun', name: 'WebConf full paper', kind: 'paper' },
+    { date: 'Oct 26', day: 'Mon', name: 'NIH R15 AREA new (Oct 25 shift)', kind: 'nih' },
+    { date: 'Oct 29', day: 'Thu', name: 'NSF CIRC final + outcomes report', kind: 'review' },
+    { date: 'Oct 30', day: 'Fri', name: 'RIT Global Seed', kind: 'other' },
+    { date: 'Oct 30', day: 'Fri', name: 'ONR YIP', kind: 'other' },
+  ]},
+  { month: 'Nov 2026', items: [
+    { date: 'Nov 4', day: 'Wed', name: 'NSF AI Datasets', kind: 'nsf' },
+    { date: 'Nov 4', day: 'Wed', name: 'NSF SBIR/STTR', kind: 'nsf' },
+    { date: 'Nov 7', day: 'Sat', name: 'CVPR 2027 abstract', kind: 'paper', est: true },
+    { date: 'Nov 9', day: 'Mon', name: 'WebConf short abstract', kind: 'paper' },
+    { date: 'Nov 9', day: 'Mon', name: 'Web4Good abstract', kind: 'paper' },
+    { date: 'Nov 13', day: 'Fri', name: 'CVPR 2027 main paper', kind: 'paper', est: true },
+    { date: 'Nov 16', day: 'Mon', name: 'WebConf short paper', kind: 'paper' },
+    { date: 'Nov 16', day: 'Mon', name: 'Web4Good full paper', kind: 'paper' },
+    { date: 'Nov 16', day: 'Mon', name: 'WebConf demo paper', kind: 'paper' },
+    { date: 'Nov 17', day: 'Tue', name: 'WSDM 2027 short paper', kind: 'paper' },
+    { date: 'Nov 17', day: 'Tue', name: 'NSF TTP', kind: 'nsf' },
+  ]},
+  { month: 'Dec 2026', items: [
+    { date: 'Dec 1', day: 'Tue', name: 'Simons Empire AI (noon ET)', kind: 'other' },
+    { date: 'Dec 2', day: 'Wed', name: 'NSF Expeditions preliminary proposal', kind: 'nsf' },
+  ]},
+  { month: 'Jan 2027', items: [
+    { date: 'Jan 20', day: 'Wed', name: 'NSF CICI', kind: 'nsf' },
+    { date: 'Jan 31', day: 'Sun', name: 'NSF CISE Core eligible again', kind: 'nsf' },
+  ]},
+  { month: 'Feb 2027', items: [
+    { date: 'Feb 3', day: 'Wed', name: 'NIH R35 MIRA for ESIs', kind: 'nih' },
+    { date: 'Feb 8', day: 'Mon', name: 'NSF GCR', kind: 'nsf' },
+    { date: 'Feb 15', day: 'Mon', name: 'NeuroArts Fleming (mid Feb)', kind: 'other', est: true },
+    { date: 'Feb 16', day: 'Tue', name: 'NIH R21 new (standing date)', kind: 'nih' },
+    { date: 'Feb 25', day: 'Thu', name: 'NIH R15 AREA new (standing date)', kind: 'nih' },
+  ]},
+];
+
+const deadlineCount = deadlines.reduce((n, m) => n + m.items.length, 0);
+
+const kindLabels = {
+  nsf: 'NSF grant',
+  nih: 'NIH grant',
+  other: 'Other grant',
+  paper: 'Paper',
+  review: 'Review / report',
+};
+
+const openCalls = [
+  { heading: 'Submit anytime (no fixed deadline)', items: ['NSF BIO Core', 'NSF CMMI / IIDS (NSF 26-515)', 'NSF CMMI / EME', 'NSF TTP-E', 'NSF CISE Core — 2 per rolling 12 months; next slot opens Jan 31, 2027'] },
+  { heading: 'Date not announced', items: ['ARPA-H EHI (call not yet announced)', 'NSF Future CoRe', 'CVPR 2027 demo (historically spring)', 'NeuroArts Fleming (mid Feb 2027)'] },
+  { heading: 'NIH due dates (new applications)', items: ['R35 MIRA for ESIs: Feb 3, 2027 (Feb and Oct cycles)', 'R21: Feb 16 / Jun 16 / Oct 16', 'R15 AREA: Feb 25 / Jun 25 / Oct 25'] },
 ];
 ---
 <Layout title="Research | Zhiqian Chen">
@@ -26,17 +192,109 @@ const works = [
       <a href="https://scholar.google.com/citations?user=NC3-O6UAAAAJ&hl=en&oi=ao" target="_blank" rel="noopener">Paper <i class="ai ai-google-scholar-square ai-sm nav-ghost"></i> <i class="fas fa-arrow-up-right-from-square nav-ghost"></i></a>
       <a href="https://substack.com/@zhiqianchen1" target="_blank" rel="noopener">Zhiqian's Note <svg class="nav-ghost nav-substack" viewBox="0 0 24 24" fill="currentColor" width="11" height="11" aria-hidden="true"><path d="M22.539 8.242H1.46V5.406h21.08v2.836zM1.46 10.812V24L12 18.11 22.54 24V10.812H1.46zM22.54 0H1.46v2.836h21.08V0z"/></svg> <i class="fas fa-arrow-up-right-from-square nav-ghost"></i></a>
     </nav>
+
     <section class="hero">
-      <h1>Research</h1>
-      <p>I study graph-structured intelligence for dynamic, uncertain, and interconnected systems, with current emphasis on theory, cross-network dynamics, and AI systems.</p>
+      <h1>Research Statement</h1>
+      <p class="lead">COVID-19 has caused over 6 million deaths worldwide since late 2019 and an estimated $12.5 trillion in economic loss as of 2024. The pandemic exposed deep vulnerabilities in modern networked systems — disrupted supply chains, financial market volatility, misinformation amplified across social networks. The July 2024 CrowdStrike update failure brought airlines, hospitals, and businesses to a standstill worldwide, underscoring how far cascading effects travel inside interconnected systems. Climate change, pandemics, and food security all run on interdependent networks — transportation, finance, supply chains, ecology, social networks — that form the backbone of our societal and economic infrastructure. As the world grows more interconnected, resilient and interpretable network models become essential.</p>
+      <blockquote class="statement">
+        <strong>Research interest.</strong> I explore the fundamental principles of networked system dynamics by integrating machine learning, network science, and dynamical systems theory. The work spans theoretical innovation and practical application, and centers on efficient, interpretable models that improve decision-making in real-world contexts.
+      </blockquote>
     </section>
+
     <section class="section">
-      <h2>Current Directions</h2>
+      <h2>Current research</h2>
+      <p class="section-lead">I study graph dynamics through spectral graph theory, uncertainty quantification, higher-order analysis, and physics-inspired methods. My current focus is the behavior of coupled and interdependent networks — prevalent in practice, but still thinly developed.</p>
       <div class="cards two">
-        {directions.map((d) => (
+        {pillars.map((p) => (
           <article class="card">
-            <h3>{d.title}</h3>
-            <p>{d.desc}</p>
+            <h3>{p.label}</h3>
+            <ul class="topics">
+              {p.topics.map((t) => <li>{t}</li>)}
+            </ul>
+          </article>
+        ))}
+      </div>
+      <div class="prose">
+        <p><strong>Theoretical study.</strong> Developing new methodology to represent and analyze graphs and their dynamics. I have explored spectral graph theory as a unified framework for representing complex networks — several papers, a survey, tutorials at prestigious venues, and a widely used paper collection. I also investigate higher-order methods such as Shapley values and Sobol indices to understand combinatorial interactions among nodes, and use Bayesian optimization, Gaussian processes, and Kalman filtering to address efficiency in graph-based problems.</p>
+        <p><strong>Application research.</strong> The work reaches key social infrastructure and biological networks: transportation and urban systems, spatial epidemiology, and genetic networks. Collaborations with ecologists, medical researchers, and engineers have extended these methods to ecological networks, circuit dynamics, and brain signals in conditions such as ADHD and sleep disorders.</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Funded projects</h2>
+      <p class="section-lead">External support totals <strong>$11,196,037</strong>, with <strong>$1,665,222</strong> in personal funding credits.</p>
+      <ol class="projects">
+        {projects.map((p) => (
+          <li class="project">
+            <div class="project-head">
+              <span class="project-funder">{p.funder}</span>
+              <span class="project-role">{p.role}</span>
+              <span class="project-amount">{p.amount}</span>
+              {p.period && <span class="project-period">{p.period}</span>}
+              {p.award && (p.href
+                ? <a class="project-award" href={p.href} target="_blank" rel="noopener">{p.award} <i class="fas fa-arrow-up-right-from-square" aria-hidden="true"></i></a>
+                : <span class="project-award">{p.award}</span>)}
+            </div>
+            <p class="project-title">{p.title}</p>
+            <p class="project-desc">{p.desc}</p>
+          </li>
+        ))}
+      </ol>
+    </section>
+
+    <section class="section">
+      <h2>Collaborators</h2>
+      <p class="prose-p">To reach both theoretical insight and applicable outcomes — and to keep a full perspective on the problem — I work with faculty and researchers across mathematics, social science, cybersecurity, power and circuit networks, epidemiology, veterinary medicine, animal science, healthcare, and psychology. These collaborations, at both the paper and grant level, span USDA, UC Davis, George Mason University, the University of Connecticut, Emory University, the University of Mississippi Medical Center, and the University of Georgia, among others.</p>
+    </section>
+
+    <section class="section">
+      <h2>Future plan</h2>
+      <div class="cards three">
+        {futurePlan.map((f, i) => (
+          <article class="card">
+            <span class="card-mark">{i + 1}</span>
+            <h3>{f.title}</h3>
+            <p>{f.desc}</p>
+          </article>
+        ))}
+      </div>
+      <div class="prose">
+        <p><strong>Funding.</strong> I intend to keep applying this research to significant application domains — power grids, disease transmission, supply chain management, financial systems — and to build support through federal programs that align with graph dynamics, cross-network behavior, and data-driven modeling: NSF MPS for fluid dynamics and spectral methods, NSF CCF for algorithmic foundations and robust intelligence, and NSF III for real applications. NSF ENG programs in materials research and biological systems fit where a project connects to graph representations of physical or biological processes. Work on disease transmission, intervention planning, and biomedical networks motivates NIH applications; coupled infrastructure, energy systems, and uncertainty in large interconnected networks guide DOE applications. I also seek industry partnerships for translational studies on complex systems.</p>
+        <p><strong>Reach-out.</strong> I plan to expand connections with experts in material science, circuit modeling, quantum computing, financial mathematics, power grids, biomedical and biological systems, disease transmission, transportation systems, dynamical systems, and network science.</p>
+      </div>
+    </section>
+
+    <section class="section" id="deadlines">
+      <h2>Deadlines · Sep 2026 – Feb 2027</h2>
+      <p class="section-lead">Funding, papers, and service — {deadlineCount} dated items. Verify each against its own solicitation; a date falling on a weekend or federal holiday shifts to the next business day, and NIH resubmissions run one month later (Mar / Jul / Nov).</p>
+      <ul class="legend">
+        {Object.entries(kindLabels).map(([k, label]) => (
+          <li><span class={`dot dot-${k}`} aria-hidden="true"></span>{label}</li>
+        ))}
+        <li><span class="dot dot-est" aria-hidden="true"></span>Estimated date</li>
+      </ul>
+      <div class="months">
+        {deadlines.map((m) => (
+          <section class="month">
+            <h3>{m.month}</h3>
+            <ul class="deadline-list">
+              {m.items.map((d) => (
+                <li class={`deadline kind-${d.kind}${d.est ? ' is-est' : ''}`}>
+                  <span class="deadline-date">{d.date}<span class="deadline-day">{d.day}</span></span>
+                  <span class="deadline-name">{d.name}{d.est && <span class="est-flag">est.</span>}</span>
+                </li>
+              ))}
+            </ul>
+          </section>
+        ))}
+      </div>
+      <div class="cards three open-calls">
+        {openCalls.map((c) => (
+          <article class="card">
+            <h3>{c.heading}</h3>
+            <ul class="topics">
+              {c.items.map((i) => <li>{i}</li>)}
+            </ul>
           </article>
         ))}
       </div>
@@ -52,16 +310,76 @@ const works = [
   .top-nav a[aria-current="page"] { background: #e2e8f0; color: #0f172a; box-shadow: inset 0 1px 2px rgba(15,23,42,0.10); }
   .nav-ghost { font-size:.78rem; margin-left:4px; opacity:.85; }
   .nav-substack { vertical-align: -1px; opacity: .85; }
+
   .hero { margin: 10px 0 28px; }
-  .hero h1 { font-family:'Montserrat',sans-serif; font-size:2rem; margin:0 0 8px; }
-  .hero p { margin:0; color:var(--muted); max-width:780px; }
-  .section { padding-top:18px; margin-top:26px; border-top:none; }
-  .section h2 { font-family:'Montserrat',sans-serif; font-size:1.1rem; margin:0 0 14px; }
+  .hero h1 { font-family:'Montserrat',sans-serif; font-size:2rem; margin:0 0 10px; }
+  .lead { margin:0; color:var(--muted); max-width:80ch; font-size:.95rem; line-height:1.6; }
+  .statement { margin:16px 0 0; max-width:80ch; padding:14px 16px; border-left:3px solid var(--accent); border-radius:0 12px 12px 0; background:#f8fafc; color:#1e293b; font-size:1rem; line-height:1.6; }
+  .statement strong { color:var(--ink); }
+
+  .section { padding-top:18px; margin-top:26px; border-top:1px solid rgba(148,163,184,.18); }
+  .section h2 { font-family:'Montserrat',sans-serif; font-size:1.1rem; margin:0 0 12px; }
+  .section-lead { margin:0 0 14px; color:var(--muted); max-width:80ch; font-size:.92rem; line-height:1.55; }
+  .prose { margin-top:14px; }
+  .prose p, .prose-p { margin:0 0 10px; color:#334155; max-width:80ch; font-size:.93rem; line-height:1.6; }
+  .prose p:last-child { margin-bottom:0; }
+
   .cards { display:grid; gap:14px; }
   .cards.two { grid-template-columns: repeat(2, minmax(0,1fr)); }
-  .card { border:1px solid rgba(148,163,184,.16); border-radius:16px; background:#fff; padding:16px; }
-  .card h3 { font-family:'Montserrat',sans-serif; font-size:1rem; margin:0 0 8px; }
-  .card p { margin:0; color:#334155; font-size:.95rem; }
-  .tag { display:inline-block; font-size:.72rem; color:var(--accent); background:#dbeafe; padding:3px 8px; border-radius:999px; margin-bottom:8px; }
-  @media (max-width: 900px) { .cards.two { grid-template-columns:1fr; } }
+  .cards.three { grid-template-columns: repeat(3, minmax(0,1fr)); }
+  .card { position:relative; border:1px solid rgba(148,163,184,.16); border-radius:16px; background:#fff; padding:16px; }
+  .card h3 { font-family:'Montserrat',sans-serif; font-size:.95rem; margin:0 0 8px; }
+  .card p { margin:0; color:#334155; font-size:.9rem; line-height:1.55; }
+  .card-mark { position:absolute; top:14px; right:16px; font-family:'Montserrat',sans-serif; font-size:.8rem; font-weight:700; color:#cbd5e1; }
+  .topics { list-style:none; margin:0; padding:0; display:flex; flex-wrap:wrap; gap:6px; }
+  .topics li { font-size:.78rem; color:#334155; background:#f1f5f9; border:1px solid rgba(148,163,184,.2); border-radius:999px; padding:3px 9px; }
+
+  .projects { list-style:none; margin:0; padding:0; display:grid; gap:12px; counter-reset:proj; }
+  .project { padding:12px 14px; border:1px solid rgba(148,163,184,.16); border-radius:14px; background:#fff; }
+  .project-head { display:flex; flex-wrap:wrap; align-items:baseline; gap:8px; margin-bottom:5px; }
+  .project-funder { font-family:'Montserrat',sans-serif; font-weight:700; font-size:.82rem; color:#0f172a; }
+  .project-role { font-size:.72rem; color:#475569; background:#f1f5f9; border-radius:999px; padding:2px 8px; }
+  .project-amount { font-size:.78rem; font-weight:700; color:#166534; font-variant-numeric:tabular-nums; }
+  .project-period { font-size:.75rem; color:#64748b; font-variant-numeric:tabular-nums; }
+  .project-award { font-size:.72rem; color:#64748b; text-decoration:none; }
+  .project-award:hover { color:var(--accent); }
+  .project-award i { font-size:.62rem; }
+  .project-title { margin:0 0 3px; font-size:.9rem; font-weight:600; color:#0f172a; line-height:1.35; }
+  .project-desc { margin:0; font-size:.86rem; color:#475569; line-height:1.5; }
+
+  .legend { list-style:none; margin:0 0 14px; padding:0; display:flex; flex-wrap:wrap; gap:12px; font-size:.76rem; color:#475569; }
+  .legend li { display:inline-flex; align-items:center; gap:5px; }
+  .dot { width:9px; height:9px; border-radius:50%; display:inline-block; }
+  .dot-nsf { background:#2563eb; }
+  .dot-nih { background:#0f766e; }
+  .dot-other { background:#9d174d; }
+  .dot-paper { background:#b45309; }
+  .dot-review { background:#6d28d9; }
+  .dot-est { background:transparent; border:1px dashed #94a3b8; }
+
+  .months { display:grid; grid-template-columns:repeat(3, minmax(0,1fr)); gap:14px; }
+  .month h3 { font-family:'Montserrat',sans-serif; font-size:.78rem; font-weight:700; letter-spacing:.1em; text-transform:uppercase; color:#64748b; margin:0 0 8px; padding-bottom:4px; border-bottom:1px solid rgba(148,163,184,.2); }
+  .deadline-list { list-style:none; margin:0; padding:0; display:grid; gap:5px; }
+  .deadline { display:grid; grid-template-columns:60px minmax(0,1fr); gap:8px; align-items:baseline; padding:4px 8px; border-radius:7px; border-left:3px solid transparent; background:#f8fafc; }
+  .deadline-date { font-size:.76rem; font-weight:700; color:#0f172a; font-variant-numeric:tabular-nums; }
+  .deadline-day { display:block; font-size:.66rem; font-weight:400; color:#94a3b8; }
+  .deadline-name { font-size:.82rem; color:#334155; line-height:1.35; }
+  .kind-nsf { border-left-color:#2563eb; }
+  .kind-nih { border-left-color:#0f766e; }
+  .kind-other { border-left-color:#9d174d; }
+  .kind-paper { border-left-color:#b45309; }
+  .kind-review { border-left-color:#6d28d9; }
+  .is-est { border-left-style:dashed; }
+  .est-flag { margin-left:5px; font-size:.66rem; color:#94a3b8; border:1px dashed #cbd5e1; border-radius:4px; padding:0 4px; }
+
+  .open-calls { margin-top:16px; }
+  .open-calls .topics { flex-direction:column; gap:5px; align-items:flex-start; }
+  .open-calls .topics li { background:transparent; border:none; padding:0; font-size:.82rem; color:#475569; line-height:1.45; }
+
+  @media (max-width: 1100px) {
+    .cards.three, .months { grid-template-columns:repeat(2, minmax(0,1fr)); }
+  }
+  @media (max-width: 720px) {
+    .cards.two, .cards.three, .months { grid-template-columns:1fr; }
+  }
 </style>
