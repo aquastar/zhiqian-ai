@@ -179,6 +179,7 @@ const openCalls = [
                 <li class={`deadline kind-${d.kind}${d.est ? ' is-est' : ''}`} data-key={`${mo.y}-${mo.m}-${d.d}`}>
                   <span class="deadline-date">{labelFor(mo, d)}<span class="deadline-day">{dayName(mo, d.d)}</span></span>
                   <span class="deadline-name">{d.name}{d.est && <span class="est-flag">est.</span>}</span>
+                  <span class="deadline-left" data-countdown></span>
                 </li>
               ))}
             </ul>
@@ -212,6 +213,28 @@ const openCalls = [
       if (!key) return;
       el.addEventListener('mouseenter', () => setLinked(key, true));
       el.addEventListener('mouseleave', () => setLinked(key, false));
+    });
+
+    // Days remaining, counted from the viewer's own today. Both endpoints go
+    // through Date.UTC so a DST boundary in between cannot cost or add a day.
+    const now = new Date();
+    const today = Date.UTC(now.getFullYear(), now.getMonth(), now.getDate());
+    document.querySelectorAll('.deadline[data-key]').forEach((row) => {
+      const slot = row.querySelector('[data-countdown]');
+      if (!slot) return;
+      const [y, m, d] = row.getAttribute('data-key').split('-').map(Number);
+      const days = Math.round((Date.UTC(y, m, d) - today) / 86400000);
+      if (days < 0) {
+        slot.textContent = 'past';
+        slot.classList.add('is-past');
+      } else if (days === 0) {
+        slot.textContent = 'today';
+        slot.classList.add('is-soon');
+      } else {
+        slot.textContent = `${days}d`;
+        if (days <= 7) slot.classList.add('is-soon');
+      }
+      slot.title = `${days < 0 ? `${-days} days ago` : days === 0 ? 'due today' : `${days} days from today`}`;
     });
   </script>
 </Layout>
@@ -300,10 +323,14 @@ const openCalls = [
   .deadline { break-inside:avoid; }
   .month h3 { font-family:'Montserrat',sans-serif; font-size:.72rem; font-weight:700; letter-spacing:.1em; text-transform:uppercase; color:#64748b; margin:0 0 6px; padding-bottom:3px; border-bottom:1px solid rgba(148,163,184,.2); }
   .deadline-list { list-style:none; margin:0; padding:0; display:grid; gap:3px; }
-  .deadline { display:grid; grid-template-columns:52px minmax(0,1fr); gap:7px; align-items:baseline; padding:3px 7px; border-radius:6px; border-left:2px solid transparent; background:#f8fafc; }
+  .deadline { display:grid; grid-template-columns:52px minmax(0,1fr) auto; gap:7px; align-items:baseline; padding:3px 7px; border-radius:6px; border-left:2px solid transparent; background:#f8fafc; }
   .deadline-date { font-size:.68rem; font-weight:700; color:#0f172a; font-variant-numeric:tabular-nums; }
   .deadline-day { display:block; font-size:.6rem; font-weight:400; color:#94a3b8; }
   .deadline-name { font-size:.74rem; color:#334155; line-height:1.3; }
+  /* Filled in the browser: a build-time number would freeze on deploy day. */
+  .deadline-left { font-size:.64rem; color:#94a3b8; font-variant-numeric:tabular-nums; white-space:nowrap; }
+  .deadline-left.is-soon { color:#b91c1c; font-weight:700; }
+  .deadline-left.is-past { color:#cbd5e1; }
   .kind-nsf { border-left-color:#2563eb; }
   .kind-nih { border-left-color:#0f766e; }
   .kind-other { border-left-color:#9d174d; }
