@@ -1,58 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
-
-// Deadlines, Sep 2026 - Feb 2027. `kind` drives the colour and follows the
-// source legend: NSF grant, NIH grant, other grant, paper, review/report.
-const deadlines = [
-  { month: 'Sep 2026', y: 2026, m: 8, items: [
-    { d: 15, name: 'Sony Research Award (FRA)', kind: 'other' },
-    { d: 18, name: 'ICLR 2027 abstract registration (mandatory)', kind: 'paper' },
-    { d: 25, name: 'ICLR 2027 full paper', kind: 'paper' },
-    { d: 28, name: 'NIH R16 SuRE', kind: 'nih' },
-  ]},
-  { month: 'Oct 2026', y: 2026, m: 9, items: [
-    { d: 9, name: 'NSF MFAI', kind: 'nsf' },
-    { d: 12, name: 'NAACL 2027 (main)', kind: 'paper' },
-    { d: 12, name: 'COLING 2027 (main)', kind: 'paper' },
-    { d: 14, name: 'IEEE BigData reviews due', kind: 'review' },
-    { d: 15, name: 'WSDM 2027 demo', kind: 'paper' },
-    { d: 16, name: 'NIH R21 new (standing date)', kind: 'nih' },
-    { d: 18, name: 'WebConf abstract (research + industry)', kind: 'paper' },
-    { d: 25, name: 'WebConf full paper', kind: 'paper' },
-    { d: 26, name: 'NIH R15 AREA new (Oct 25 shift)', kind: 'nih' },
-    { d: 29, name: 'NSF CIRC final + outcomes report', kind: 'review' },
-    { d: 30, name: 'RIT Global Seed', kind: 'other' },
-    { d: 30, name: 'ONR YIP', kind: 'other' },
-  ]},
-  { month: 'Nov 2026', y: 2026, m: 10, items: [
-    { d: 4, name: 'NSF AI Datasets', kind: 'nsf' },
-    { d: 4, name: 'NSF SBIR/STTR', kind: 'nsf' },
-    { d: 7, name: 'CVPR 2027 abstract', kind: 'paper', est: true },
-    { d: 9, name: 'WebConf short abstract', kind: 'paper' },
-    { d: 9, name: 'Web4Good abstract', kind: 'paper' },
-    { d: 13, name: 'CVPR 2027 main paper', kind: 'paper', est: true },
-    { d: 16, name: 'WebConf short paper', kind: 'paper' },
-    { d: 16, name: 'Web4Good full paper', kind: 'paper' },
-    { d: 16, name: 'WebConf demo paper', kind: 'paper' },
-    { d: 17, name: 'WSDM 2027 short paper', kind: 'paper' },
-    { d: 17, name: 'NSF TTP', kind: 'nsf' },
-  ]},
-  { month: 'Dec 2026', y: 2026, m: 11, items: [
-    { d: 1, name: 'Simons Empire AI (noon ET)', kind: 'other' },
-    { d: 2, name: 'NSF Expeditions preliminary proposal', kind: 'nsf' },
-  ]},
-  { month: 'Jan 2027', y: 2027, m: 0, items: [
-    { d: 20, name: 'NSF CICI', kind: 'nsf' },
-    { d: 31, name: 'NSF CISE Core eligible again', kind: 'nsf' },
-  ]},
-  { month: 'Feb 2027', y: 2027, m: 1, items: [
-    { d: 3, name: 'NIH R35 MIRA for ESIs', kind: 'nih' },
-    { d: 8, name: 'NSF GCR', kind: 'nsf' },
-    { d: 15, name: 'NeuroArts Fleming (mid Feb)', kind: 'other', est: true },
-    { d: 16, name: 'NIH R21 new (standing date)', kind: 'nih' },
-    { d: 25, name: 'NIH R15 AREA new (standing date)', kind: 'nih' },
-  ]},
-];
+import { deadlines, kindLabels, openCalls } from '../data/deadlines.js';
 
 const DOW = ['S', 'M', 'T', 'W', 'T', 'F', 'S'];
 const SHORT_MONTH = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
@@ -72,20 +20,6 @@ const buildWeeks = (mo) => {
 
 const labelFor = (mo, item) => `${SHORT_MONTH[mo.m]} ${item.d}`;
 const dayName = (mo, d) => ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'][new Date(Date.UTC(mo.y, mo.m, d)).getUTCDay()];
-
-const kindLabels = {
-  nsf: 'NSF grant',
-  nih: 'NIH grant',
-  other: 'Other grant',
-  paper: 'Paper',
-  review: 'Review / report',
-};
-
-const openCalls = [
-  { heading: 'Submit anytime (no fixed deadline)', items: ['NSF BIO Core', 'NSF CMMI / IIDS (NSF 26-515)', 'NSF CMMI / EME', 'NSF TTP-E', 'NSF CISE Core — 2 per rolling 12 months; next slot opens Jan 31, 2027'] },
-  { heading: 'Date not announced', items: ['ARPA-H EHI (call not yet announced)', 'CVPR 2027 demo (historically spring)', 'NeuroArts Fleming (mid Feb 2027)'] },
-  { heading: 'NIH due dates (new applications)', items: ['R35 MIRA for ESIs: Feb 3, 2027 (Feb and Oct cycles)', 'R21: Feb 16 / Jun 16 / Oct 16', 'R15 AREA: Feb 25 / Jun 25 / Oct 25'] },
-];
 ---
 <Layout title="Agenda | Zhiqian Chen">
   <main class="container">
@@ -99,16 +33,18 @@ const openCalls = [
       <a href="https://substack.com/@zhiqianchen1" target="_blank" rel="noopener">Zhiqian's Note <svg class="nav-ghost nav-substack" viewBox="0 0 24 24" fill="currentColor" width="11" height="11" aria-hidden="true"><path d="M22.539 8.242H1.46V5.406h21.08v2.836zM1.46 10.812V24L12 18.11 22.54 24V10.812H1.46zM22.54 0H1.46v2.836h21.08V0z"/></svg> <i class="fas fa-arrow-up-right-from-square nav-ghost"></i></a>
     </nav>
 
-    <section class="hero">
-      <h1>Research Calendar</h1>
-    </section>
-
     <section class="section" id="deadlines">
       <ul class="legend">
         {Object.entries(kindLabels).map(([k, label]) => (
           <li><span class={`dot dot-${k}`} aria-hidden="true"></span>{label}</li>
         ))}
         <li><span class="dot dot-est" aria-hidden="true"></span>Estimated date</li>
+        <li class="legend-action">
+          <a class="ics-link" href="/research-calendar.ics" download>
+            <i class="fas fa-download" aria-hidden="true"></i>
+            Download .ics
+          </a>
+        </li>
       </ul>
 
       <div class="cals">
@@ -188,8 +124,7 @@ const openCalls = [
 
     // Days remaining, counted from the viewer's own today. Both endpoints go
     // through Date.UTC so a DST boundary in between cannot cost or add a day.
-    // The band drives the pill colour: under a month, one to three, three to
-    // six, and beyond.
+    // The band drives the pill colour: under 30 days, 30-60, 60-90, and beyond.
     const now = new Date();
     const today = Date.UTC(now.getFullYear(), now.getMonth(), now.getDate());
     document.querySelectorAll('.deadline[data-key]').forEach((row) => {
@@ -200,8 +135,8 @@ const openCalls = [
       let band = 'far';
       if (days < 0) band = 'past';
       else if (days < 30) band = 'urgent';
-      else if (days < 90) band = 'soon';
-      else if (days < 180) band = 'later';
+      else if (days < 60) band = 'soon';
+      else if (days < 90) band = 'later';
       slot.classList.add(`band-${band}`);
       slot.textContent = days < 0 ? 'past' : days === 0 ? 'today' : `${days}d`;
       slot.title = days < 0 ? `${-days} days ago` : days === 0 ? 'due today' : `${days} days from today`;
@@ -218,12 +153,13 @@ const openCalls = [
   .nav-ghost { font-size:.78rem; margin-left:4px; opacity:.85; }
   .nav-substack { vertical-align: -1px; opacity: .85; }
 
-  .hero { margin: 10px 0 18px; }
-  .hero h1 { font-family:'Montserrat',sans-serif; font-size:2rem; margin:0; }
-  .section { margin-top:8px; }
+  .section { margin-top:6px; }
 
   .legend { list-style:none; margin:0 0 16px; padding:0; display:flex; flex-wrap:wrap; gap:14px; font-size:.8rem; color:#475569; }
   .legend li { display:inline-flex; align-items:center; gap:6px; }
+  .legend-action { margin-left:auto; }
+  .ics-link { display:inline-flex; align-items:center; gap:6px; padding:4px 11px; border:1px solid rgba(148,163,184,.35); border-radius:999px; background:#fff; color:var(--accent); font-weight:600; font-size:.78rem; text-decoration:none; transition:background .15s ease, border-color .15s ease; }
+  .ics-link:hover { background:#eff6ff; border-color:rgba(37,99,235,.45); }
   .dot { width:9px; height:9px; border-radius:50%; display:inline-block; flex:none; }
   .dot-nsf { background:#2563eb; }
   .dot-nih { background:#0f766e; }
@@ -238,7 +174,8 @@ const openCalls = [
   .cal h3 { font-family:'Montserrat',sans-serif; font-size:.86rem; font-weight:700; letter-spacing:.08em; text-transform:uppercase; color:#334155; margin:0 0 8px; text-align:center; }
   .cal-dow, .cal-week { display:grid; grid-template-columns:repeat(7, 1fr); gap:2px; }
   .cal-dow span { text-align:center; font-size:.72rem; font-weight:700; color:#94a3b8; padding-bottom:3px; }
-  .cal-cell { position:relative; aspect-ratio:1; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:3px; border-radius:7px; }
+  /* Wider than tall: six month grids stacked full-square ran the page long. */
+  .cal-cell { position:relative; aspect-ratio:1.55; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:2px; border-radius:6px; }
   .cal-cell.is-blank { visibility:hidden; }
   .cal-num { font-size:.86rem; color:#64748b; font-variant-numeric:tabular-nums; line-height:1; }
   .cal-cell.is-due { background:#f1f5f9; }
@@ -262,9 +199,9 @@ const openCalls = [
   /* White on a solid band, so the countdown is the loudest thing in the row. */
   .deadline-left { min-width:34px; text-align:center; padding:2px 6px; border-radius:999px; font-size:.72rem; font-weight:700; color:#fff; font-variant-numeric:tabular-nums; white-space:nowrap; background:#94a3b8; }
   .deadline-left.band-urgent { background:#b91c1c; }
-  .deadline-left.band-soon { background:#c2410c; }
-  .deadline-left.band-later { background:#a16207; }
-  .deadline-left.band-far { background:#1d4ed8; }
+  .deadline-left.band-soon { background:#a16207; }
+  .deadline-left.band-later { background:#1d4ed8; }
+  .deadline-left.band-far { background:#94a3b8; }
   .deadline-left.band-past { background:#e2e8f0; color:#94a3b8; }
   .deadline-left:empty { display:none; }
 
