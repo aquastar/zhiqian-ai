@@ -2,30 +2,31 @@
 import Layout from '../layouts/Layout.astro';
 
 const updates = [
-  { type: 'paper', date: '08/2026', text: 'Paper accepted at <strong class="venue">CIKM 2026</strong>: a formal pre-condition for checking whether a knowledge graph structurally supports a query before an LLM generates from it.' },
-  { type: 'paper', date: '07/2026', text: 'Two papers accepted at <strong class="venue">SDM 2026</strong>: (i) <em>Delta-Graph Signatures</em> — catching silent failures in edited LLMs via activation-graph deltas; (ii) <em>MasterSet</em> — a 153K-paper "must-cite" citation benchmark for AI/ML.' },
-  { type: 'grant', date: '07/2026', text: 'Received a <a href="https://www.nsf.gov/awardsearch/show-award/?AWD_ID=2342574" target="_blank" rel="noopener">supplemental award</a> from <strong class="funder">NSF EDU/ITEST</strong> to extend our project on AI-career pathways for high-school students.' },
-  { type: 'paper', date: '05/2026', text: 'Our AI-assisted simulation system <strong>LLM-to-Map</strong> has been accepted by <strong class="venue">IJCAI 2026</strong>.' },
-  { type: 'paper', date: '01/2026', text: 'Our co-simulation of power network and transportation network has been accepted by <strong class="venue">WebConf (WWW) 2026</strong>.' },
-  { type: 'tutorial', date: '01/2026', text: 'Will give a tutorial on uncertainty quantification on graph dynamics at <strong class="venue">WSDM 2026</strong>.' },
-  { type: 'honor', date: '11/2025', text: 'Recognized as a <strong>Research Fellow</strong> at the Social Science Research Center, Mississippi State University.' },
-  { type: 'grant', date: '08/2025', text: 'Received <strong class="funder">Turing AI Gift</strong> funding for LLM research.' },
-  { type: 'grant', date: '06/2025', text: 'Received <strong class="funder">NSF CAREER Award</strong> <a class="ext" href="https://www.nsf.gov/awardsearch/showAward?AWD_ID=2443266" target="_blank" rel="noopener" aria-label="NSF award page"><i class="fas fa-arrow-up-right-from-square"></i></a> for unification and interactions across heterogeneous graph dynamics.' },
-  { type: 'award', date: '05/2025', text: 'Received <strong>Ottilie Schillig Teaching Award</strong> (AI teaching gamification with Lego Edu Kit).' },
-  { type: 'tutorial', date: '10/2024', text: 'Tutorial series on unifying spectral and spatial GNNs (<strong class="venue">CIKM 2024</strong> / <strong class="venue">SIAM MDS 2024</strong>).' },
-  { type: 'grant', date: '08/2024', text: 'Received <strong class="funder">NSF CNS/MSI</strong> <a class="ext" href="https://www.nsf.gov/awardsearch/showAward?AWD_ID=2431176" target="_blank" rel="noopener" aria-label="NSF award page"><i class="fas fa-arrow-up-right-from-square"></i></a> fund (co-PI) for speech recognition in English and Spanish with graph learning + LLMs.' },
-  { type: 'grant', date: '07/2024', text: 'Received <strong class="funder">NSF CNS/CIRC</strong> <a class="ext" href="https://www.nsf.gov/awardsearch/showAward?AWD_ID=2345921" target="_blank" rel="noopener" aria-label="NSF award page"><i class="fas fa-arrow-up-right-from-square"></i></a> fund (PI) to develop research infrastructure for graph dynamics.' },
-  { type: 'paper', date: '07/2024', text: '1 paper accepted at <strong class="venue">IJCAI 2024</strong> and 2 papers accepted at <strong class="venue">EMBC 2024</strong>.' },
-  { type: 'grant', date: '06/2024', text: 'Started spatial epidemiology of animal disease collaboration under <strong class="funder">USDA-ARS</strong> funded project.' },
-  { type: 'grant', date: '04/2024', text: 'Received <strong class="funder">NSF EDU/ITEST</strong> <a class="ext" href="https://www.nsf.gov/awardsearch/showAward?AWD_ID=2342574" target="_blank" rel="noopener" aria-label="NSF award page"><i class="fas fa-arrow-up-right-from-square"></i></a> fund (co-PI) for AI education research.' },
-  { type: 'grant', date: '01/2024', text: 'Received <strong class="funder">NSF IIS/III REU Supplement</strong> <a class="ext" href="https://www.nsf.gov/awardsearch/showAward?AWD_ID=2153369" target="_blank" rel="noopener" aria-label="NSF award page"><i class="fas fa-arrow-up-right-from-square"></i></a> (PI) for undergraduate research.' },
-  { type: 'paper', date: '12/2023', text: 'Two papers accepted by <strong class="venue">AAAI 2024</strong> on Graph Bayesian Optimization.' },
-  { type: 'grant', date: '08/2023', text: 'Received support from <strong class="funder">USDA-ARS</strong> funded project (co-PI) on disease genetics.' },
-  { type: 'paper', date: '12/2022', text: 'Paper accepted by <strong class="venue">SIAM SDM 2023</strong>: higher-order decomposition for influence maximization.' },
-  { type: 'grant', date: '04/2022', text: 'Received <strong class="funder">NSF IIS/III</strong> <a class="ext" href="https://www.nsf.gov/awardsearch/showAward?AWD_ID=2153369" target="_blank" rel="noopener" aria-label="NSF award page"><i class="fas fa-arrow-up-right-from-square"></i></a> fund (PI) for interpretable graph dynamics.' },
-  { type: 'tutorial', date: '05/2021', text: 'Tutorial on spreading models for epidemics at <strong class="venue">SDM 2021</strong> (GNN/RNN/SIR/PDE).' },
-  { type: 'award', date: '09/2020', text: '<strong>Best Paper Award</strong> at <strong class="venue">ACM SIGSPATIAL 2020</strong>.' },
-  { type: 'paper', date: '12/2019', text: '<strong class="venue">Nature Communications</strong> paper selected in Top 50 Chemistry & Materials Sciences articles.' },
+  { type: 'paper', date: '08/2026', venue: '<strong class="venue">CIKM 2026</strong>', text: 'A formal pre-condition for checking whether a knowledge graph structurally supports a query before an LLM generates from it.' },
+  { type: 'paper', date: '07/2026', venue: '<strong class="venue">SDM 2026</strong>', text: 'Two papers: (i) <em>Delta-Graph Signatures</em> — catching silent failures in edited LLMs via activation-graph deltas; (ii) <em>MasterSet</em> — a 153K-paper "must-cite" citation benchmark for AI/ML.' },
+  { type: 'grant', date: '07/2026', venue: '<strong class="funder">NSF EDU/ITEST</strong>', text: 'A <a href="https://www.nsf.gov/awardsearch/show-award/?AWD_ID=2342574" target="_blank" rel="noopener">supplemental award</a> extending our project on AI-career pathways for high-school students.' },
+  { type: 'paper', date: '05/2026', venue: '<strong class="venue">IJCAI 2026</strong>', text: 'Our AI-assisted simulation system <strong>LLM-to-Map</strong>.' },
+  { type: 'paper', date: '01/2026', venue: '<strong class="venue">WebConf (WWW) 2026</strong>', text: 'Co-simulation of a power network and a transportation network.' },
+  { type: 'tutorial', date: '01/2026', venue: '<strong class="venue">WSDM 2026</strong>', text: 'Tutorial on uncertainty quantification for graph dynamics.' },
+  { type: 'honor', date: '11/2025', venue: 'Social Science Research Center, Mississippi State University', text: 'Recognized as a <strong>Research Fellow</strong>.' },
+  { type: 'grant', date: '08/2025', venue: '<strong class="funder">Turing AI Gift</strong>', text: 'Funding for LLM research.' },
+  { type: 'grant', date: '06/2025', venue: '<strong class="funder">NSF CAREER Award</strong> <a class="ext" href="https://www.nsf.gov/awardsearch/showAward?AWD_ID=2443266" target="_blank" rel="noopener" aria-label="NSF award page"><i class="fas fa-arrow-up-right-from-square"></i></a>', text: 'Unification and interactions across heterogeneous graph dynamics.' },
+  { type: 'award', date: '05/2025', venue: '<strong>Ottilie Schillig Teaching Award</strong>', text: 'AI teaching gamification with the Lego Edu Kit.' },
+  { type: 'tutorial', date: '10/2024', venue: '<strong class="venue">CIKM 2024</strong> / <strong class="venue">SIAM MDS 2024</strong>', text: 'Tutorial series on unifying spectral and spatial GNNs.' },
+  { type: 'grant', date: '08/2024', venue: '<strong class="funder">NSF CNS/MSI</strong> <a class="ext" href="https://www.nsf.gov/awardsearch/showAward?AWD_ID=2431176" target="_blank" rel="noopener" aria-label="NSF award page"><i class="fas fa-arrow-up-right-from-square"></i></a>', text: 'Co-PI. Speech recognition in English and Spanish with graph learning and LLMs.' },
+  { type: 'grant', date: '07/2024', venue: '<strong class="funder">NSF CNS/CIRC</strong> <a class="ext" href="https://www.nsf.gov/awardsearch/showAward?AWD_ID=2345921" target="_blank" rel="noopener" aria-label="NSF award page"><i class="fas fa-arrow-up-right-from-square"></i></a>', text: 'PI. Research infrastructure for graph dynamics.' },
+  { type: 'paper', date: '07/2024', venue: '<strong class="venue">IJCAI 2024</strong>', text: 'One paper accepted.' },
+  { type: 'paper', date: '07/2024', venue: '<strong class="venue">EMBC 2024</strong>', text: 'Two papers accepted.' },
+  { type: 'grant', date: '06/2024', venue: '<strong class="funder">USDA-ARS</strong>', text: 'Started a collaboration on spatial epidemiology of animal disease.' },
+  { type: 'grant', date: '04/2024', venue: '<strong class="funder">NSF EDU/ITEST</strong> <a class="ext" href="https://www.nsf.gov/awardsearch/showAward?AWD_ID=2342574" target="_blank" rel="noopener" aria-label="NSF award page"><i class="fas fa-arrow-up-right-from-square"></i></a>', text: 'Co-PI. AI education research.' },
+  { type: 'grant', date: '01/2024', venue: '<strong class="funder">NSF IIS/III REU Supplement</strong> <a class="ext" href="https://www.nsf.gov/awardsearch/showAward?AWD_ID=2153369" target="_blank" rel="noopener" aria-label="NSF award page"><i class="fas fa-arrow-up-right-from-square"></i></a>', text: 'PI. Undergraduate research.' },
+  { type: 'paper', date: '12/2023', venue: '<strong class="venue">AAAI 2024</strong>', text: 'Two papers on Graph Bayesian Optimization.' },
+  { type: 'grant', date: '08/2023', venue: '<strong class="funder">USDA-ARS</strong>', text: 'Co-PI. Disease genetics.' },
+  { type: 'paper', date: '12/2022', venue: '<strong class="venue">SIAM SDM 2023</strong>', text: 'Higher-order decomposition for influence maximization.' },
+  { type: 'grant', date: '04/2022', venue: '<strong class="funder">NSF IIS/III</strong> <a class="ext" href="https://www.nsf.gov/awardsearch/showAward?AWD_ID=2153369" target="_blank" rel="noopener" aria-label="NSF award page"><i class="fas fa-arrow-up-right-from-square"></i></a>', text: 'PI. Interpretable graph dynamics.' },
+  { type: 'tutorial', date: '05/2021', venue: '<strong class="venue">SDM 2021</strong>', text: 'Tutorial on spreading models for epidemics (GNN/RNN/SIR/PDE).' },
+  { type: 'award', date: '09/2020', venue: '<strong class="venue">ACM SIGSPATIAL 2020</strong>', text: '<strong>Best Paper Award</strong>.' },
+  { type: 'paper', date: '12/2019', venue: '<strong class="venue">Nature Communications</strong>', text: 'Selected among the Top 50 Chemistry &amp; Materials Sciences articles.' },
 ];
 
 const openProblems = [
@@ -657,7 +658,7 @@ const selectedGroups = selectedFilters
             <p>Assistant Professor</p>
             <p>Computer Science</p>
             <p class="aff-college">Golisano College of Computing &amp; Info. Sci.</p>
-            <p class="aff-secondary">Affiliated with ESL Global Cybersecurity Institute (GCI), Center for Human-aware AI (CHAI), and Personalized Healthcare Technology (PHT180)</p>
+            <p class="aff-secondary">Affiliated with ESL Global Cybersecurity Institute (GCI), Center for Human-aware AI (CHAI),<br />and Personalized Healthcare Technology (PHT180)</p>
             <p class="aff-univ">Rochester Institute of Technology</p>
           </div>
 
@@ -684,8 +685,12 @@ const selectedGroups = selectedFilters
           <ul class="updates" id="updates-list">
             {updates.map((u, idx) => (
               <li class={idx >= 25 ? 'update-hidden' : ''} data-extra-update={idx >= 25 ? 'true' : 'false'}>
-                <span class={`tag ${u.type}`}>{u.type}</span>
-                <span class="date-strong">{u.date}</span><span class="meta-inline" set:html={u.text}></span>
+                <span class="update-head">
+                  <span class={`tag ${u.type}`}>{u.type}</span>
+                  <span class="date-strong">{u.date}</span>
+                  {u.venue && <span class="update-venue" set:html={u.venue}></span>}
+                </span>
+                <span class="meta-inline" set:html={u.text}></span>
               </li>
             ))}
           </ul>
@@ -806,8 +811,10 @@ const selectedGroups = selectedFilters
                   <i class="fab fa-github" aria-hidden="true"></i>
                   <span class="repo-inline-name">{repo.name}</span>
                 </a>
-                <span class="repo-inline-stars"><i class="fas fa-star" aria-hidden="true"></i>{repo.stars}</span>
-                <span class="repo-inline-desc">{repo.desc}</span>
+                <span class="repo-inline-body">
+                  <span class="repo-inline-desc">{repo.desc}</span>
+                  <span class="repo-inline-stars"><i class="fas fa-star" aria-hidden="true"></i>{repo.stars}</span>
+                </span>
               </li>
             ))}
           </ul>
@@ -1091,13 +1098,19 @@ const selectedGroups = selectedFilters
   .inline-link:hover { color: #0f172a; }
   .section-intro { margin: -2px 0 12px; color: #64748b; font-size: .88rem; line-height: 1.5; max-width: 84ch; }
   h3 { font-size: 1rem; margin: 0 0 6px; }
-  .updates { list-style: none; padding-left: 0; display: grid; gap: 8px; text-align: left; }
-  .updates li { display: block; line-height: 1.35; text-align: left; }
+  /* Type / date / venue on their own line, the content below it, and a zebra
+     wash so a run of entries reads as separate rows without any rules. */
+  .updates { list-style: none; padding-left: 0; display: grid; gap: 0; text-align: left; }
+  .updates li { display: block; line-height: 1.35; text-align: left; padding: 7px 9px; border-radius: 7px; }
+  .updates li:nth-child(2n) { background: rgba(148, 163, 184, 0.11); }
+  .update-head { display: block; margin-bottom: 2px; }
+  .update-venue::before { content: '· '; opacity: .5; font-weight: 400; }
   .updates li.update-hidden { display: none; }
   .updates-more { margin-top: 8px; }
   .updates-module h2 { text-align: left; }
-  .meta-inline { font-size: .88rem; color: #1e293b; line-height: 1.35; }
+  .meta-inline { display: block; font-size: .88rem; color: #1e293b; line-height: 1.35; }
   .date-strong { font-size: .8rem; font-weight: 700; color: #334155; margin-right: 6px; }
+  .updates .update-venue { font-size: .8rem; }
   .tag { display: inline-block; font-size: .62rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; padding: 0; margin-right: 6px; background: transparent; }
   .tag::after { content: " ·"; opacity: .5; }
   .tag.paper { color: #1d4ed8; }
@@ -1464,21 +1477,29 @@ const selectedGroups = selectedFilters
   .right-col-main > #research .module-title { margin: 0 0 6px; }
   .right-col-main > #announcement .narr-highlights { gap: 4px; padding-left: 20px; }
   .right-col-main > #announcement .narr-highlight-text { font-size: .88rem; line-height: 1.4; }
-  .right-col-main > #github-projects { background: transparent; border: none !important; padding: 0 4px; margin-top: 16px; }
+  /* Match #selected-work's 18px inset so both sections share one left edge —
+     their headings and their 136px gutters line up. */
+  .right-col-main > #github-projects { background: transparent; border: none !important; padding: 0 18px; margin-top: 16px; }
   .right-col-main > #github-projects .section-head { margin-bottom: 8px; }
-  /* One repo per row: icon, name, stars, then a one-sentence tl;dr. The old
-     pill chrome went with the wrapping chip row — a pill trailed by a sentence
-     reads as two competing objects, so the row is plain type instead. */
-  .right-col-main .repo-inline { list-style: none; padding: 0; margin: 0; display: grid; gap: 7px; }
-  .right-col-main .repo-inline li { display: block; line-height: 1.45; }
-  .right-col-main .repo-inline-link { display: inline; color: #0f172a; text-decoration: none; font-size: .9rem; }
+  /* Same two-column shape as Selected Paper, and the same 136px gutter, so the
+     two sections share one left edge: repo name right-aligned in the gutter, the
+     one-sentence tl;dr left-aligned beside it. */
+  .right-col-main .repo-inline { list-style: none; padding: 0; margin: 0; display: grid; gap: 9px; }
+  .right-col-main .repo-inline li { display: grid; grid-template-columns: 136px minmax(0, 1fr); column-gap: 16px; align-items: baseline; line-height: 1.45; }
+  .right-col-main .repo-inline-link { display: block; text-align: right; color: #0f172a; text-decoration: none; font-size: .86rem; }
   .right-col-main .repo-inline-link:hover .repo-inline-name { color: #2563eb; text-decoration: underline; text-underline-offset: 2px; }
-  .right-col-main .repo-inline-link i.fa-github { color: #475569; font-size: .82rem; margin-right: 5px; }
+  .right-col-main .repo-inline-link i.fa-github { color: #475569; font-size: .8rem; margin-right: 5px; }
   .right-col-main .repo-inline-name { font-weight: 600; color: #0f172a; }
+  .right-col-main .repo-inline-body { display: block; text-align: left; }
+  .right-col-main .repo-inline-desc { color: #475569; font-size: .82rem; }
   .right-col-main .repo-inline-stars { display: inline-flex; align-items: center; gap: 3px; margin-left: 7px; color: #64748b; font-size: .74rem; font-variant-numeric: tabular-nums; }
   .right-col-main .repo-inline-stars i.fa-star { color: #eab308; font-size: .72rem; }
-  .right-col-main .repo-inline-desc { color: #475569; font-size: .82rem; }
-  .right-col-main .repo-inline-desc::before { content: '·'; margin: 0 6px; opacity: .55; }
+  @media (max-width: 720px) {
+    /* Single column: a 136px gutter would leave the tl;dr about 140px, so stack
+       the name over its sentence the way Selected Paper stacks its labels. */
+    .right-col-main .repo-inline li { grid-template-columns: minmax(0, 1fr); column-gap: 0; }
+    .right-col-main .repo-inline-link { text-align: left; }
+  }
   .right-col-main > #selected-work { background: transparent; }
 
   /* Selected Repo: single horizontal row */
@@ -1504,6 +1525,9 @@ const selectedGroups = selectedFilters
   .right-col-main .thrust-img:hover { box-shadow: 0 14px 32px rgba(15,23,42,0.16) !important; }
   .right-col-main .repo-card:hover { box-shadow: 0 12px 26px rgba(15,23,42,0.14) !important; }
   .thrust-line { margin: 0; font-size: .86rem; line-height: 1.5; color: #334155; }
+  /* The blurbs read as loose captions against the figures above them, so give
+     each one a frame. Two classes to outrank .right-col-main *'s !important 0. */
+  .right-col-main .thrust-col .thrust-line { padding: 10px 12px; background: #f8fafc; border: 1px solid rgba(148,163,184,0.2); border-radius: 10px !important; }
   .thrust-line strong { color: #0f172a; font-weight: 700; }
 
   /* The reel is a 1.95:1 screen capture, so frame it at its own ratio — a 16/9 box
