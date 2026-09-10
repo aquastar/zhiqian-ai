@@ -116,12 +116,14 @@ const openCalls = [
     <section class="section">
       <h2>Current research</h2>
       <p class="section-lead">I study graph dynamics through spectral graph theory, uncertainty quantification, higher-order analysis, and physics-inspired methods. My current focus is the behavior of coupled and interdependent networks — prevalent in practice, but still thinly developed.</p>
+      <div class="scope-row">
       <figure class="scope-figure">
         <img src="/research-scope.png" alt="Two overlapping sets. Theoretical/Tool Study covers higher-order analysis, uncertainty quantification, spectral graph theory, and approximation theory. Application Study covers traffic and urban computing, spatial epidemiology, circuit and power networks, social networks, brain networks, and genetics and genomics. Graph dynamics sits in the overlap, feeding both." />
       </figure>
-      <div class="prose two-col">
+      <div class="prose scope-prose">
         <p><strong>Theoretical study.</strong> Developing new methodology to represent and analyze graphs and their dynamics. I have explored spectral graph theory as a unified framework for representing complex networks — several papers, a survey, tutorials at prestigious venues, and a widely used paper collection. I also investigate higher-order methods such as Shapley values and Sobol indices to understand combinatorial interactions among nodes, and use Bayesian optimization, Gaussian processes, and Kalman filtering to address efficiency in graph-based problems.</p>
         <p><strong>Application research.</strong> The work reaches key social infrastructure and biological networks: transportation and urban systems, spatial epidemiology, and genetic networks. Collaborations with ecologists, medical researchers, and engineers have extended these methods to ecological networks, circuit dynamics, and brain signals in conditions such as ADHD and sleep disorders.</p>
+      </div>
       </div>
       <a class="page-link" href="/grant">
         <span class="page-link-title">Funded projects</span>
@@ -153,6 +155,7 @@ const openCalls = [
                     ? <span class="cal-cell is-blank"></span>
                     : <span
                         class={`cal-cell${cell.items.length ? ' is-due' : ''}`}
+                        data-key={cell.items.length ? `${mo.y}-${mo.m}-${cell.d}` : undefined}
                         title={cell.items.length ? `${labelFor(mo, cell)}: ${cell.items.map((i) => i.name).join('; ')}` : undefined}
                       >
                         <span class="cal-num">{cell.d}</span>
@@ -175,7 +178,7 @@ const openCalls = [
             <h3>{mo.month}</h3>
             <ul class="deadline-list">
               {mo.items.map((d) => (
-                <li class={`deadline kind-${d.kind}${d.est ? ' is-est' : ''}`}>
+                <li class={`deadline kind-${d.kind}${d.est ? ' is-est' : ''}`} data-key={`${mo.y}-${mo.m}-${d.d}`}>
                   <span class="deadline-date">{labelFor(mo, d)}<span class="deadline-day">{dayName(mo, d.d)}</span></span>
                   <span class="deadline-name">{d.name}{d.est && <span class="est-flag">est.</span>}</span>
                 </li>
@@ -198,6 +201,21 @@ const openCalls = [
       <p class="fineprint">Verify each against its own solicitation. A date on a weekend or federal holiday shifts to the next business day; NIH resubmissions run one month later (Mar / Jul / Nov).</p>
     </section>
   </main>
+
+  <script>
+    // A calendar cell and its list rows carry the same data-key, so hovering
+    // either side can light up the other without knowing anything about dates.
+    const paired = document.querySelectorAll('[data-key]');
+    const setLinked = (key, on) => {
+      document.querySelectorAll(`[data-key="${key}"]`).forEach((el) => el.classList.toggle('is-linked', on));
+    };
+    paired.forEach((el) => {
+      const key = el.getAttribute('data-key');
+      if (!key) return;
+      el.addEventListener('mouseenter', () => setLinked(key, true));
+      el.addEventListener('mouseleave', () => setLinked(key, false));
+    });
+  </script>
 </Layout>
 <style>
   :root { --accent:#2563eb; --ink:#0f172a; --muted:#475569; }
@@ -226,8 +244,8 @@ const openCalls = [
   .prose p:last-child { margin-bottom:0; }
   /* Theory and application read as a pair, and two columns keep the measure
      readable at full width instead of running to ~180 characters. */
-  .prose.two-col { display:grid; grid-template-columns:repeat(2, minmax(0,1fr)); gap:24px; }
-  .prose.two-col p { margin:0; }
+  .prose.scope-prose { margin:0; }
+  .prose.scope-prose p { margin:0; }
 
   .cards { display:grid; gap:14px; }
   .cards.three { grid-template-columns: repeat(3, minmax(0,1fr)); }
@@ -239,8 +257,10 @@ const openCalls = [
 
   /* The figure ships from the statement itself, rendered at 300dpi so it stays
      sharp across the full container width. */
-  .scope-figure { margin:0 0 18px; }
+  .scope-row { display:grid; grid-template-columns:1.4fr 1fr; gap:24px; align-items:start; margin-bottom:4px; }
+  .scope-figure { margin:0; }
   .scope-figure img { display:block; width:100%; height:auto; }
+  .scope-prose p + p { margin-top:12px; }
 
   .page-link { display:flex; align-items:baseline; gap:10px; flex-wrap:wrap; margin-top:16px; padding:12px 14px; border:1px solid rgba(148,163,184,.22); border-radius:14px; background:#f8fafc; text-decoration:none; transition:border-color .15s ease, background .15s ease; }
   .page-link:hover { border-color:rgba(37,99,235,.4); background:#f1f5f9; }
@@ -271,8 +291,15 @@ const openCalls = [
   .cal-dots { display:flex; gap:1px; }
   .cal-dots .dot { width:4px; height:4px; }
 
-  /* The list repeats the same items in words, one tier smaller than the grids. */
-  .months { display:grid; grid-template-columns:repeat(3, minmax(0,1fr)); gap:12px; }
+  /* The list repeats the same items in words, one tier smaller than the grids.
+     Multicol rather than a grid: a four-item September would otherwise pad its
+     cell down to November's height before October could start. */
+  .months { columns:4; column-gap:16px; }
+  /* Months must be splittable, or a short September holds a whole column and
+     October cannot start under it. Rows stay whole; a heading keeps its first row. */
+  .month { break-inside:auto; margin-bottom:12px; }
+  .month h3 { break-after:avoid; }
+  .deadline { break-inside:avoid; }
   .month h3 { font-family:'Montserrat',sans-serif; font-size:.72rem; font-weight:700; letter-spacing:.1em; text-transform:uppercase; color:#64748b; margin:0 0 6px; padding-bottom:3px; border-bottom:1px solid rgba(148,163,184,.2); }
   .deadline-list { list-style:none; margin:0; padding:0; display:grid; gap:3px; }
   .deadline { display:grid; grid-template-columns:52px minmax(0,1fr); gap:7px; align-items:baseline; padding:3px 7px; border-radius:6px; border-left:2px solid transparent; background:#f8fafc; }
@@ -287,6 +314,13 @@ const openCalls = [
   .is-est { border-left-style:dashed; }
   .est-flag { margin-left:5px; font-size:.66rem; color:#94a3b8; border:1px dashed #cbd5e1; border-radius:4px; padding:0 4px; }
 
+  /* Hovering either side lights up its counterpart on the other. */
+  .cal-cell.is-linked { background:#dbeafe; box-shadow:inset 0 0 0 1px rgba(37,99,235,.55); }
+  .cal-cell.is-linked .cal-num { color:#1d4ed8; }
+  .deadline.is-linked { background:#dbeafe; }
+  .deadline.is-linked .deadline-name, .deadline.is-linked .deadline-date { color:#1d4ed8; }
+  .cal-cell.is-due, .deadline { cursor:default; }
+
   .fineprint { margin:14px 0 0; font-size:.72rem; color:#94a3b8; line-height:1.5; }
   .open-calls { margin-top:16px; }
   .open-calls .topics { flex-direction:column; gap:5px; align-items:flex-start; }
@@ -296,17 +330,21 @@ const openCalls = [
     .cals { grid-template-columns:repeat(3, minmax(0,1fr)); }
   }
   @media (max-width: 1100px) {
-    .cards.three, .months { grid-template-columns:repeat(2, minmax(0,1fr)); }
+    .cards.three { grid-template-columns:repeat(2, minmax(0,1fr)); }
+    .months { columns:2; }
   }
   @media (max-width: 900px) {
-    .hero-grid, .prose.two-col { grid-template-columns:1fr; }
+    .hero-grid, .scope-row { grid-template-columns:1fr; }
     .statement { border-radius:0 12px 12px 0; }
+  }
+  @media (max-width: 620px) {
+    .months { columns:1; }
   }
   @media (max-width: 620px) {
     .cals { grid-template-columns:repeat(2, minmax(0,1fr)); }
   }
   @media (max-width: 720px) {
-    .cards.three, .months { grid-template-columns:1fr; }
+    .cards.three { grid-template-columns:1fr; }
     .page-link i { margin-left:0; }
   }
 </style>
