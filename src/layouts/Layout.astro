@@ -58,6 +58,12 @@ const CLARITY_ID = import.meta.env.PUBLIC_CLARITY_ID;
 </html>
 
 <style>
+	html {
+		/* Reserve the scrollbar gutter on every page: without it, short pages
+		   (Teach, People) centre their container 7px further right than pages
+		   that scroll, and the nav visibly jumps between them. */
+		scrollbar-gutter: stable;
+	}
 	html,
 	body {
 		margin: 0;
