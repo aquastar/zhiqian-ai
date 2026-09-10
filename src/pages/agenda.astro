@@ -1,0 +1,295 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+// Deadlines, Sep 2026 - Feb 2027. `kind` drives the colour and follows the
+// source legend: NSF grant, NIH grant, other grant, paper, review/report.
+const deadlines = [
+  { month: 'Sep 2026', y: 2026, m: 8, items: [
+    { d: 15, name: 'Sony Research Award (FRA)', kind: 'other' },
+    { d: 18, name: 'ICLR 2027 abstract registration (mandatory)', kind: 'paper' },
+    { d: 25, name: 'ICLR 2027 full paper', kind: 'paper' },
+    { d: 28, name: 'NIH R16 SuRE', kind: 'nih' },
+  ]},
+  { month: 'Oct 2026', y: 2026, m: 9, items: [
+    { d: 9, name: 'NSF MFAI', kind: 'nsf' },
+    { d: 12, name: 'NAACL 2027 (main)', kind: 'paper' },
+    { d: 12, name: 'COLING 2027 (main)', kind: 'paper' },
+    { d: 14, name: 'IEEE BigData reviews due', kind: 'review' },
+    { d: 15, name: 'WSDM 2027 demo', kind: 'paper' },
+    { d: 16, name: 'NIH R21 new (standing date)', kind: 'nih' },
+    { d: 18, name: 'WebConf abstract (research + industry)', kind: 'paper' },
+    { d: 25, name: 'WebConf full paper', kind: 'paper' },
+    { d: 26, name: 'NIH R15 AREA new (Oct 25 shift)', kind: 'nih' },
+    { d: 29, name: 'NSF CIRC final + outcomes report', kind: 'review' },
+    { d: 30, name: 'RIT Global Seed', kind: 'other' },
+    { d: 30, name: 'ONR YIP', kind: 'other' },
+  ]},
+  { month: 'Nov 2026', y: 2026, m: 10, items: [
+    { d: 4, name: 'NSF AI Datasets', kind: 'nsf' },
+    { d: 4, name: 'NSF SBIR/STTR', kind: 'nsf' },
+    { d: 7, name: 'CVPR 2027 abstract', kind: 'paper', est: true },
+    { d: 9, name: 'WebConf short abstract', kind: 'paper' },
+    { d: 9, name: 'Web4Good abstract', kind: 'paper' },
+    { d: 13, name: 'CVPR 2027 main paper', kind: 'paper', est: true },
+    { d: 16, name: 'WebConf short paper', kind: 'paper' },
+    { d: 16, name: 'Web4Good full paper', kind: 'paper' },
+    { d: 16, name: 'WebConf demo paper', kind: 'paper' },
+    { d: 17, name: 'WSDM 2027 short paper', kind: 'paper' },
+    { d: 17, name: 'NSF TTP', kind: 'nsf' },
+  ]},
+  { month: 'Dec 2026', y: 2026, m: 11, items: [
+    { d: 1, name: 'Simons Empire AI (noon ET)', kind: 'other' },
+    { d: 2, name: 'NSF Expeditions preliminary proposal', kind: 'nsf' },
+  ]},
+  { month: 'Jan 2027', y: 2027, m: 0, items: [
+    { d: 20, name: 'NSF CICI', kind: 'nsf' },
+    { d: 31, name: 'NSF CISE Core eligible again', kind: 'nsf' },
+  ]},
+  { month: 'Feb 2027', y: 2027, m: 1, items: [
+    { d: 3, name: 'NIH R35 MIRA for ESIs', kind: 'nih' },
+    { d: 8, name: 'NSF GCR', kind: 'nsf' },
+    { d: 15, name: 'NeuroArts Fleming (mid Feb)', kind: 'other', est: true },
+    { d: 16, name: 'NIH R21 new (standing date)', kind: 'nih' },
+    { d: 25, name: 'NIH R15 AREA new (standing date)', kind: 'nih' },
+  ]},
+];
+
+const DOW = ['S', 'M', 'T', 'W', 'T', 'F', 'S'];
+const SHORT_MONTH = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+
+// Weekday placement is computed, not transcribed, so the grid cannot drift from
+// the dates in the list beneath it.
+const buildWeeks = (mo) => {
+  const lead = new Date(Date.UTC(mo.y, mo.m, 1)).getUTCDay();
+  const length = new Date(Date.UTC(mo.y, mo.m + 1, 0)).getUTCDate();
+  const byDay = new Map();
+  mo.items.forEach((i) => byDay.set(i.d, [...(byDay.get(i.d) ?? []), i]));
+  const cells = Array.from({ length: lead }, () => null);
+  for (let d = 1; d <= length; d += 1) cells.push({ d, items: byDay.get(d) ?? [] });
+  while (cells.length % 7 !== 0) cells.push(null);
+  return Array.from({ length: cells.length / 7 }, (_, w) => cells.slice(w * 7, w * 7 + 7));
+};
+
+const labelFor = (mo, item) => `${SHORT_MONTH[mo.m]} ${item.d}`;
+const dayName = (mo, d) => ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'][new Date(Date.UTC(mo.y, mo.m, d)).getUTCDay()];
+
+const kindLabels = {
+  nsf: 'NSF grant',
+  nih: 'NIH grant',
+  other: 'Other grant',
+  paper: 'Paper',
+  review: 'Review / report',
+};
+
+const openCalls = [
+  { heading: 'Submit anytime (no fixed deadline)', items: ['NSF BIO Core', 'NSF CMMI / IIDS (NSF 26-515)', 'NSF CMMI / EME', 'NSF TTP-E', 'NSF CISE Core — 2 per rolling 12 months; next slot opens Jan 31, 2027'] },
+  { heading: 'Date not announced', items: ['ARPA-H EHI (call not yet announced)', 'CVPR 2027 demo (historically spring)', 'NeuroArts Fleming (mid Feb 2027)'] },
+  { heading: 'NIH due dates (new applications)', items: ['R35 MIRA for ESIs: Feb 3, 2027 (Feb and Oct cycles)', 'R21: Feb 16 / Jun 16 / Oct 16', 'R15 AREA: Feb 25 / Jun 25 / Oct 25'] },
+];
+---
+<Layout title="Agenda | Zhiqian Chen">
+  <main class="container">
+    <nav class="top-nav" aria-label="Sections">
+      <a href="/">Home</a>
+      <a href="/research">Research</a>
+      <a href="/agenda" aria-current="page">Agenda</a>
+      <a href="/people">People</a>
+      <a href="/teach">Teach</a>
+      <a href="https://scholar.google.com/citations?user=NC3-O6UAAAAJ&hl=en&oi=ao" target="_blank" rel="noopener">Paper <i class="ai ai-google-scholar-square ai-sm nav-ghost"></i> <i class="fas fa-arrow-up-right-from-square nav-ghost"></i></a>
+      <a href="https://substack.com/@zhiqianchen1" target="_blank" rel="noopener">Zhiqian's Note <svg class="nav-ghost nav-substack" viewBox="0 0 24 24" fill="currentColor" width="11" height="11" aria-hidden="true"><path d="M22.539 8.242H1.46V5.406h21.08v2.836zM1.46 10.812V24L12 18.11 22.54 24V10.812H1.46zM22.54 0H1.46v2.836h21.08V0z"/></svg> <i class="fas fa-arrow-up-right-from-square nav-ghost"></i></a>
+    </nav>
+
+    <section class="hero">
+      <h1>Research Calendar</h1>
+    </section>
+
+    <section class="section" id="deadlines">
+      <ul class="legend">
+        {Object.entries(kindLabels).map(([k, label]) => (
+          <li><span class={`dot dot-${k}`} aria-hidden="true"></span>{label}</li>
+        ))}
+        <li><span class="dot dot-est" aria-hidden="true"></span>Estimated date</li>
+      </ul>
+
+      <div class="cals">
+        {deadlines.map((mo) => (
+          <section class="cal">
+            <h3>{mo.month}</h3>
+            <div class="cal-dow" aria-hidden="true">
+              {DOW.map((d) => <span>{d}</span>)}
+            </div>
+            {buildWeeks(mo).map((week) => (
+              <div class="cal-week">
+                {week.map((cell) => (
+                  cell === null
+                    ? <span class="cal-cell is-blank"></span>
+                    : <span
+                        class={`cal-cell${cell.items.length ? ' is-due' : ''}`}
+                        data-key={cell.items.length ? `${mo.y}-${mo.m}-${cell.d}` : undefined}
+                        title={cell.items.length ? `${labelFor(mo, cell)}: ${cell.items.map((i) => i.name).join('; ')}` : undefined}
+                      >
+                        <span class="cal-num">{cell.d}</span>
+                        {cell.items.length > 0 && (
+                          <span class="cal-dots">
+                            {cell.items.map((i) => <span class={`dot dot-${i.kind}${i.est ? ' is-est' : ''}`}></span>)}
+                          </span>
+                        )}
+                      </span>
+                ))}
+              </div>
+            ))}
+          </section>
+        ))}
+      </div>
+
+      <div class="months">
+        {deadlines.map((mo) => (
+          <section class="month">
+            <h3>{mo.month}</h3>
+            <ul class="deadline-list">
+              {mo.items.map((d) => (
+                <li class={`deadline kind-${d.kind}${d.est ? ' is-est' : ''}`} data-key={`${mo.y}-${mo.m}-${d.d}`}>
+                  <span class="deadline-date">{labelFor(mo, d)}<span class="deadline-day">{dayName(mo, d.d)}</span></span>
+                  <span class="deadline-name"><span class={`dot dot-${d.kind}${d.est ? ' is-est' : ''}`} aria-hidden="true"></span>{d.name}{d.est && <span class="est-flag">est.</span>}</span>
+                  <span class="deadline-left" data-countdown></span>
+                </li>
+              ))}
+            </ul>
+          </section>
+        ))}
+      </div>
+
+      <div class="cards three open-calls">
+        {openCalls.map((c) => (
+          <article class="card">
+            <h3>{c.heading}</h3>
+            <ul class="topics">
+              {c.items.map((i) => <li>{i}</li>)}
+            </ul>
+          </article>
+        ))}
+      </div>
+      <p class="fineprint">Verify each against its own solicitation. A date on a weekend or federal holiday shifts to the next business day; NIH resubmissions run one month later (Mar / Jul / Nov).</p>
+    </section>
+  </main>
+
+  <script>
+    // A calendar cell and its list rows carry the same data-key, so hovering
+    // either side can light up the other without knowing anything about dates.
+    const setLinked = (key, on) => {
+      document.querySelectorAll(`[data-key="${key}"]`).forEach((el) => el.classList.toggle('is-linked', on));
+    };
+    document.querySelectorAll('[data-key]').forEach((el) => {
+      const key = el.getAttribute('data-key');
+      if (!key) return;
+      el.addEventListener('mouseenter', () => setLinked(key, true));
+      el.addEventListener('mouseleave', () => setLinked(key, false));
+    });
+
+    // Days remaining, counted from the viewer's own today. Both endpoints go
+    // through Date.UTC so a DST boundary in between cannot cost or add a day.
+    // The band drives the pill colour: under a month, one to three, three to
+    // six, and beyond.
+    const now = new Date();
+    const today = Date.UTC(now.getFullYear(), now.getMonth(), now.getDate());
+    document.querySelectorAll('.deadline[data-key]').forEach((row) => {
+      const slot = row.querySelector('[data-countdown]');
+      if (!slot) return;
+      const [y, m, d] = row.getAttribute('data-key').split('-').map(Number);
+      const days = Math.round((Date.UTC(y, m, d) - today) / 86400000);
+      let band = 'far';
+      if (days < 0) band = 'past';
+      else if (days < 30) band = 'urgent';
+      else if (days < 90) band = 'soon';
+      else if (days < 180) band = 'later';
+      slot.classList.add(`band-${band}`);
+      slot.textContent = days < 0 ? 'past' : days === 0 ? 'today' : `${days}d`;
+      slot.title = days < 0 ? `${-days} days ago` : days === 0 ? 'due today' : `${days} days from today`;
+    });
+  </script>
+</Layout>
+<style>
+  :root { --accent:#2563eb; --ink:#0f172a; --muted:#475569; }
+  .container { max-width: min(95vw, 1600px); margin: 0 auto; padding: 20px; box-sizing: border-box; }
+  .top-nav { margin-bottom: 14px; padding: 10px 0 14px; display:flex; flex-wrap:wrap; gap:8px; align-items:center; background:transparent; border:none; border-bottom:none; border-radius:0; box-shadow:none; }
+  .top-nav a { text-decoration:none; color:var(--ink); font-family:'Montserrat',sans-serif; font-size:.9rem; padding:7px 10px; border-radius:999px; background:transparent; }
+  .top-nav a:hover { background: #f1f5f9; color: #0f172a; }
+  .top-nav a[aria-current="page"] { background: #e2e8f0; color: #0f172a; box-shadow: inset 0 1px 2px rgba(15,23,42,0.10); }
+  .nav-ghost { font-size:.78rem; margin-left:4px; opacity:.85; }
+  .nav-substack { vertical-align: -1px; opacity: .85; }
+
+  .hero { margin: 10px 0 18px; }
+  .hero h1 { font-family:'Montserrat',sans-serif; font-size:2rem; margin:0; }
+  .section { margin-top:8px; }
+
+  .legend { list-style:none; margin:0 0 16px; padding:0; display:flex; flex-wrap:wrap; gap:14px; font-size:.8rem; color:#475569; }
+  .legend li { display:inline-flex; align-items:center; gap:6px; }
+  .dot { width:9px; height:9px; border-radius:50%; display:inline-block; flex:none; }
+  .dot-nsf { background:#2563eb; }
+  .dot-nih { background:#0f766e; }
+  .dot-other { background:#9d174d; }
+  .dot-paper { background:#b45309; }
+  .dot-review { background:#6d28d9; }
+  .dot-est { background:transparent; border:1px dashed #94a3b8; }
+
+  /* Three across on a page of its own, so each month gets roughly twice the
+     width it had as a section inside Research. */
+  .cals { display:grid; grid-template-columns:repeat(3, minmax(0,1fr)); gap:20px; margin-bottom:28px; }
+  .cal h3 { font-family:'Montserrat',sans-serif; font-size:.86rem; font-weight:700; letter-spacing:.08em; text-transform:uppercase; color:#334155; margin:0 0 8px; text-align:center; }
+  .cal-dow, .cal-week { display:grid; grid-template-columns:repeat(7, 1fr); gap:2px; }
+  .cal-dow span { text-align:center; font-size:.72rem; font-weight:700; color:#94a3b8; padding-bottom:3px; }
+  .cal-cell { position:relative; aspect-ratio:1; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:3px; border-radius:7px; }
+  .cal-cell.is-blank { visibility:hidden; }
+  .cal-num { font-size:.86rem; color:#64748b; font-variant-numeric:tabular-nums; line-height:1; }
+  .cal-cell.is-due { background:#f1f5f9; }
+  .cal-cell.is-due .cal-num { font-weight:700; color:#0f172a; }
+  .cal-dots { display:flex; gap:2px; }
+  .cal-dots .dot { width:5px; height:5px; }
+
+  .months { columns:4; column-gap:18px; }
+  .month { break-inside:auto; margin-bottom:14px; }
+  .month h3 { font-family:'Montserrat',sans-serif; font-size:.78rem; font-weight:700; letter-spacing:.1em; text-transform:uppercase; color:#64748b; margin:0 0 7px; padding-bottom:4px; border-bottom:1px solid rgba(148,163,184,.2); break-after:avoid; }
+  .deadline-list { list-style:none; margin:0; padding:0; display:grid; gap:4px; }
+  /* No colour bar down the left edge — the category rides on a dot beside the
+     name, and the right-hand pill carries the urgency. */
+  .deadline { display:grid; grid-template-columns:58px minmax(0,1fr) auto; gap:8px; align-items:baseline; padding:4px 8px; border-radius:7px; background:#f8fafc; break-inside:avoid; }
+  .deadline-date { font-size:.76rem; font-weight:700; color:#0f172a; font-variant-numeric:tabular-nums; }
+  .deadline-day { display:block; font-size:.66rem; font-weight:400; color:#94a3b8; }
+  .deadline-name { font-size:.82rem; color:#334155; line-height:1.35; }
+  .deadline-name .dot { margin-right:6px; transform:translateY(-1px); }
+  .est-flag { margin-left:6px; font-size:.68rem; color:#94a3b8; border:1px dashed #cbd5e1; border-radius:4px; padding:0 4px; }
+
+  /* White on a solid band, so the countdown is the loudest thing in the row. */
+  .deadline-left { min-width:34px; text-align:center; padding:2px 6px; border-radius:999px; font-size:.72rem; font-weight:700; color:#fff; font-variant-numeric:tabular-nums; white-space:nowrap; background:#94a3b8; }
+  .deadline-left.band-urgent { background:#b91c1c; }
+  .deadline-left.band-soon { background:#c2410c; }
+  .deadline-left.band-later { background:#a16207; }
+  .deadline-left.band-far { background:#1d4ed8; }
+  .deadline-left.band-past { background:#e2e8f0; color:#94a3b8; }
+  .deadline-left:empty { display:none; }
+
+  .cal-cell.is-linked { background:#dbeafe; box-shadow:inset 0 0 0 1px rgba(37,99,235,.55); }
+  .cal-cell.is-linked .cal-num { color:#1d4ed8; }
+  .deadline.is-linked { background:#dbeafe; }
+  .deadline.is-linked .deadline-name, .deadline.is-linked .deadline-date { color:#1d4ed8; }
+
+  .cards { display:grid; gap:14px; }
+  .cards.three { grid-template-columns:repeat(3, minmax(0,1fr)); }
+  .card { border:1px solid rgba(148,163,184,.16); border-radius:16px; background:#fff; padding:16px; }
+  .card h3 { font-family:'Montserrat',sans-serif; font-size:.95rem; margin:0 0 8px; }
+  .topics { list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:5px; align-items:flex-start; }
+  .topics li { font-size:.84rem; color:#475569; line-height:1.45; }
+  .open-calls { margin-top:20px; }
+  .fineprint { margin:16px 0 0; font-size:.76rem; color:#94a3b8; line-height:1.5; }
+
+  @media (max-width: 1100px) {
+    .cals { grid-template-columns:repeat(2, minmax(0,1fr)); }
+    .months { columns:2; }
+    .cards.three { grid-template-columns:repeat(2, minmax(0,1fr)); }
+  }
+  @media (max-width: 720px) {
+    .cals { grid-template-columns:1fr; }
+    .months { columns:1; }
+    .cards.three { grid-template-columns:1fr; }
+  }
+</style>

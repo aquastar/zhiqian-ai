@@ -3,90 +3,129 @@ import Layout from '../layouts/Layout.astro';
 
 
 
-// Deadlines, Sep 2026 - Feb 2027. `kind` drives the colour and follows the
-// source legend: NSF grant, NIH grant, other grant, paper, review/report.
-const deadlines = [
-  { month: 'Sep 2026', y: 2026, m: 8, items: [
-    { d: 15, name: 'Sony Research Award (FRA)', kind: 'other' },
-    { d: 18, name: 'ICLR 2027 abstract registration (mandatory)', kind: 'paper' },
-    { d: 25, name: 'ICLR 2027 full paper', kind: 'paper' },
-    { d: 28, name: 'NIH R16 SuRE', kind: 'nih' },
-  ]},
-  { month: 'Oct 2026', y: 2026, m: 9, items: [
-    { d: 9, name: 'NSF MFAI', kind: 'nsf' },
-    { d: 12, name: 'NAACL 2027 (main)', kind: 'paper' },
-    { d: 12, name: 'COLING 2027 (main)', kind: 'paper' },
-    { d: 14, name: 'IEEE BigData reviews due', kind: 'review' },
-    { d: 15, name: 'WSDM 2027 demo', kind: 'paper' },
-    { d: 16, name: 'NIH R21 new (standing date)', kind: 'nih' },
-    { d: 18, name: 'WebConf abstract (research + industry)', kind: 'paper' },
-    { d: 25, name: 'WebConf full paper', kind: 'paper' },
-    { d: 26, name: 'NIH R15 AREA new (Oct 25 shift)', kind: 'nih' },
-    { d: 29, name: 'NSF CIRC final + outcomes report', kind: 'review' },
-    { d: 30, name: 'RIT Global Seed', kind: 'other' },
-    { d: 30, name: 'ONR YIP', kind: 'other' },
-  ]},
-  { month: 'Nov 2026', y: 2026, m: 10, items: [
-    { d: 4, name: 'NSF AI Datasets', kind: 'nsf' },
-    { d: 4, name: 'NSF SBIR/STTR', kind: 'nsf' },
-    { d: 7, name: 'CVPR 2027 abstract', kind: 'paper', est: true },
-    { d: 9, name: 'WebConf short abstract', kind: 'paper' },
-    { d: 9, name: 'Web4Good abstract', kind: 'paper' },
-    { d: 13, name: 'CVPR 2027 main paper', kind: 'paper', est: true },
-    { d: 16, name: 'WebConf short paper', kind: 'paper' },
-    { d: 16, name: 'Web4Good full paper', kind: 'paper' },
-    { d: 16, name: 'WebConf demo paper', kind: 'paper' },
-    { d: 17, name: 'WSDM 2027 short paper', kind: 'paper' },
-    { d: 17, name: 'NSF TTP', kind: 'nsf' },
-  ]},
-  { month: 'Dec 2026', y: 2026, m: 11, items: [
-    { d: 1, name: 'Simons Empire AI (noon ET)', kind: 'other' },
-    { d: 2, name: 'NSF Expeditions preliminary proposal', kind: 'nsf' },
-  ]},
-  { month: 'Jan 2027', y: 2027, m: 0, items: [
-    { d: 20, name: 'NSF CICI', kind: 'nsf' },
-    { d: 31, name: 'NSF CISE Core eligible again', kind: 'nsf' },
-  ]},
-  { month: 'Feb 2027', y: 2027, m: 1, items: [
-    { d: 3, name: 'NIH R35 MIRA for ESIs', kind: 'nih' },
-    { d: 8, name: 'NSF GCR', kind: 'nsf' },
-    { d: 15, name: 'NeuroArts Fleming (mid Feb)', kind: 'other', est: true },
-    { d: 16, name: 'NIH R21 new (standing date)', kind: 'nih' },
-    { d: 25, name: 'NIH R15 AREA new (standing date)', kind: 'nih' },
-  ]},
+const externalGrants = [
+  {
+    agency: 'NSF', logo: '/icons/nsf.svg',
+    title: 'NSF CAREER: From Fragmentation to Integration: Advancing Cross-Graph Dynamics in Interdependent Networks',
+    awardNo: '#2443266', period: '06/2025–05/2030', amount: '$517,594', role: 'Sole PI',
+    desc: 'CAREER project on unification and interactions across graph dynamics in interdependent networks.',
+    link: 'https://www.nsf.gov/awardsearch/showAward?AWD_ID=2443266',
+  },
+  {
+    agency: 'NSF', logo: '/icons/nsf.svg',
+    title: 'NSF CISE MSI: RCBP: III: Advancing Speech Detection: A Hybrid Approach Using Large Language Models and Graph Neural Networks',
+    awardNo: '#2431176', period: '01/2025–12/2026', amount: '$400,000', role: 'Co-PI / University PI',
+    desc: 'Speech detection using LLMs and graph neural networks.',
+    link: 'https://www.nsf.gov/awardsearch/showAward?AWD_ID=2431176&HistoricalAwards=false',
+  },
+  {
+    agency: 'NSF', logo: '/icons/nsf.svg',
+    title: 'NSF CIRC: Planning-C: Synergistic Graph Flow Analytics: An Integrated Infrastructure for Bridging Complexity, Fragmentation, and Interdisciplinary Gaps',
+    awardNo: '#2345921', period: '07/2024–06/2025', amount: '$99,998', role: 'PI',
+    desc: 'Planning-C project on graph flow analytics and integrated infrastructure.',
+    link: 'https://www.nsf.gov/awardsearch/showAward?AWD_ID=2345921&HistoricalAwards=false',
+  },
+  {
+    agency: 'NSF', logo: '/icons/nsf.svg',
+    title: 'NSF CRII: Interpretable Influence Propagating and Blocking on Graphs',
+    awardNo: '#2153369', period: '05/2022–11/2024', amount: '$174,004', role: 'Sole PI',
+    desc: 'CRII project on interpretable influence propagation and blocking on graphs.',
+    link: 'https://www.nsf.gov/awardsearch/showAward?AWD_ID=2153369&HistoricalAwards=false',
+  },
+  {
+    agency: 'NSF', logo: '/icons/nsf.svg',
+    title: 'ITEST: Learning to Create Intelligent Solutions with Machine Learning and Computer Vision: A Pathway to AI Careers for Diverse High School Students',
+    awardNo: '#2342574', period: '09/2024–08/2027', amount: '$1,408,467', role: 'Co-PI',
+    desc: 'AI education and pathway-building program for diverse high school students (with supplemental award).',
+    link: 'https://www.nsf.gov/awardsearch/showAward?AWD_ID=2342574',
+  },
+  {
+    agency: 'Turing AI', logo: '/icons/turing_ai.svg',
+    title: 'Turing AI Gift Money',
+    awardNo: '', period: '08/2025', amount: '$25,000', role: 'Gift Funding',
+    desc: 'Gift support for LLM-related research.',
+    link: '',
+  },
+  {
+    agency: 'USDA-ARS', logo: '/icons/usda.svg',
+    title: 'Developing Detection and Modeling Tools for the Geospatial and Environmental Epidemiology of Animal Disease',
+    awardNo: '#58-6064-3-017', period: '10/2023–08/2028', amount: '$3,073,602', role: 'Co-PI',
+    desc: 'Detection and modeling tools for animal disease epidemiology.',
+    link: '#',
+  },
+  {
+    agency: 'USDA-ARS', logo: '/icons/usda.svg',
+    title: 'Advancing Agricultural Research through High Performance Computing',
+    awardNo: '#58-0200-0-002', period: '10/2022–08/2024', amount: '$5,690,689', role: 'Co-PI',
+    desc: 'Agricultural research enabled by HPC infrastructure and collaboration.',
+    link: '#',
+  },
+  {
+    agency: 'NSF', logo: '/icons/nsf.svg',
+    title: 'REU Supplementary',
+    awardNo: '', period: '11/2023–11/2024', amount: '$14,000', role: 'PI',
+    desc: 'Supplementary undergraduate research support.',
+    link: '',
+  },
+  {
+    agency: 'USDA-ARS', logo: '/icons/usda.svg',
+    title: 'Summer Internship Project',
+    awardNo: '', period: '05/2024–04/2025', amount: '$8,199', role: 'PI',
+    desc: 'Summer internship support connected to USDA research activity.',
+    link: '',
+  },
+  {
+    agency: 'Google', logo: '/icons/google_cloud.svg',
+    title: 'Google Cloud Research Credits',
+    awardNo: '', period: '11/2024–11/2026', amount: '$5,000', role: 'Sole PI',
+    desc: 'Cloud compute credits for research.',
+    link: '',
+  },
+  {
+    agency: 'CRA', logo: '/icons/cra.svg',
+    title: 'CRA REU',
+    awardNo: '', period: '05/2026–08/2026', amount: '$10,000', role: 'Sole PI',
+    desc: 'CRA-sponsored undergraduate research experience.',
+    link: '',
+  },
+  {
+    agency: 'NAIRR', logo: '/icons/nairr.svg',
+    title: 'NAIRR Start-up Project',
+    awardNo: '', period: '02/2026–05/2026', amount: '2,000 GPU Hours', role: 'Sole PI',
+    desc: 'NAIRR pilot allocation for GPU-based research.',
+    link: '',
+  },
 ];
 
-const DOW = ['S', 'M', 'T', 'W', 'T', 'F', 'S'];
-const SHORT_MONTH = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
-
-// Weekday placement is computed, not transcribed, so the grid cannot drift from
-// the dates in the list beneath it.
-const buildWeeks = (mo) => {
-  const lead = new Date(Date.UTC(mo.y, mo.m, 1)).getUTCDay();
-  const length = new Date(Date.UTC(mo.y, mo.m + 1, 0)).getUTCDate();
-  const byDay = new Map();
-  mo.items.forEach((i) => byDay.set(i.d, [...(byDay.get(i.d) ?? []), i]));
-  const cells = Array.from({ length: lead }, () => null);
-  for (let d = 1; d <= length; d += 1) cells.push({ d, items: byDay.get(d) ?? [] });
-  while (cells.length % 7 !== 0) cells.push(null);
-  return Array.from({ length: cells.length / 7 }, (_, w) => cells.slice(w * 7, w * 7 + 7));
-};
-
-const labelFor = (mo, item) => `${SHORT_MONTH[mo.m]} ${item.d}`;
-const dayName = (mo, d) => ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'][new Date(Date.UTC(mo.y, mo.m, d)).getUTCDay()];
-
-const kindLabels = {
-  nsf: 'NSF grant',
-  nih: 'NIH grant',
-  other: 'Other grant',
-  paper: 'Paper',
-  review: 'Review / report',
-};
-
-const openCalls = [
-  { heading: 'Submit anytime (no fixed deadline)', items: ['NSF BIO Core', 'NSF CMMI / IIDS (NSF 26-515)', 'NSF CMMI / EME', 'NSF TTP-E', 'NSF CISE Core — 2 per rolling 12 months; next slot opens Jan 31, 2027'] },
-  { heading: 'Date not announced', items: ['ARPA-H EHI (call not yet announced)', 'CVPR 2027 demo (historically spring)', 'NeuroArts Fleming (mid Feb 2027)'] },
-  { heading: 'NIH due dates (new applications)', items: ['R35 MIRA for ESIs: Feb 3, 2027 (Feb and Oct cycles)', 'R21: Feb 16 / Jun 16 / Oct 16', 'R15 AREA: Feb 25 / Jun 25 / Oct 25'] },
+const internalSupport = [
+  {
+    agency: 'MS State', logo: '/icons/mississippi_state.svg',
+    title: 'Ottilie Schillig Special Teaching Award',
+    period: '2025', amount: '$2,994.50', role: 'PI',
+    desc: 'Internal teaching award support through the Center for Teaching and Learning.',
+    link: 'https://www.ctl.msstate.edu/resources/ottilie-schillig-special-teaching-projects-grants',
+  },
+  {
+    agency: 'MS State', logo: '/icons/mississippi_state.svg',
+    title: 'Global Development Seed Grant Award',
+    period: '2025', amount: '$6,000', role: 'PI',
+    desc: 'Internal seed grant support through the International Institute.',
+    link: '',
+  },
+  {
+    agency: 'MS State', logo: '/icons/mississippi_state.svg',
+    title: 'Working Group in Graph AI',
+    period: '2023', amount: '$4,100', role: 'PI',
+    desc: 'Internal support from Bagley College of Engineering.',
+    link: '',
+  },
+  {
+    agency: 'MS State', logo: '/icons/mississippi_state.svg',
+    title: 'Undergrad Research Program',
+    period: '2022 / 2023 / 2024 / 2025', amount: '$2,000 (2022/2024/2025), $1,500 (2023)', role: 'PI / Co-PI',
+    desc: 'Office of Research and Economic Development undergraduate research support.',
+    link: '',
+  },
 ];
 ---
 <Layout title="Research | Zhiqian Chen">
@@ -94,7 +133,7 @@ const openCalls = [
     <nav class="top-nav" aria-label="Sections">
       <a href="/">Home</a>
       <a href="/research" aria-current="page">Research</a>
-      <a href="/grant">Grant</a>
+      <a href="/agenda">Agenda</a>
       <a href="/people">People</a>
       <a href="/teach">Teach</a>
       <a href="https://scholar.google.com/citations?user=NC3-O6UAAAAJ&hl=en&oi=ao" target="_blank" rel="noopener">Paper <i class="ai ai-google-scholar-square ai-sm nav-ghost"></i> <i class="fas fa-arrow-up-right-from-square nav-ghost"></i></a>
@@ -123,120 +162,47 @@ const openCalls = [
         <p><strong>Application research.</strong> The work reaches key social infrastructure and biological networks: transportation and urban systems, spatial epidemiology, and genetic networks. Collaborations with ecologists, medical researchers, and engineers have extended these methods to ecological networks, circuit dynamics, and brain signals in conditions such as ADHD and sleep disorders.</p>
       </div>
       </div>
-      <a class="page-link" href="/grant">
-        <span class="page-link-title">Funded projects</span>
-        <span class="page-link-desc">Every external and internal award — funder, role, amount, period</span>
-        <i class="fas fa-arrow-right" aria-hidden="true"></i>
-      </a>
     </section>
 
-    <section class="section" id="deadlines">
-      <h2>Research Calendar</h2>
-      <ul class="legend">
-        {Object.entries(kindLabels).map(([k, label]) => (
-          <li><span class={`dot dot-${k}`} aria-hidden="true"></span>{label}</li>
-        ))}
-        <li><span class="dot dot-est" aria-hidden="true"></span>Estimated date</li>
-      </ul>
-
-      <div class="cals">
-        {deadlines.map((mo) => (
-          <section class="cal">
-            <h3>{mo.month}</h3>
-            <div class="cal-dow" aria-hidden="true">
-              {DOW.map((d) => <span>{d}</span>)}
-            </div>
-            {buildWeeks(mo).map((week) => (
-              <div class="cal-week">
-                {week.map((cell) => (
-                  cell === null
-                    ? <span class="cal-cell is-blank"></span>
-                    : <span
-                        class={`cal-cell${cell.items.length ? ' is-due' : ''}`}
-                        data-key={cell.items.length ? `${mo.y}-${mo.m}-${cell.d}` : undefined}
-                        title={cell.items.length ? `${labelFor(mo, cell)}: ${cell.items.map((i) => i.name).join('; ')}` : undefined}
-                      >
-                        <span class="cal-num">{cell.d}</span>
-                        {cell.items.length > 0 && (
-                          <span class="cal-dots">
-                            {cell.items.map((i) => <span class={`dot dot-${i.kind}${i.est ? ' is-est' : ''}`}></span>)}
-                          </span>
-                        )}
-                      </span>
-                ))}
+    <section class="section">
+      <h2>Funding · External</h2>
+      <div class="list">
+        {externalGrants.map((g) => {
+          const RowTag = g.link ? 'a' : 'article';
+          return (
+            <RowTag class="grant-row" href={g.link || undefined} target={g.link ? '_blank' : undefined} rel={g.link ? 'noopener' : undefined}>
+              <div class="logo-box"><img src={g.logo} alt={g.agency} loading="lazy" /></div>
+              <div class="grant-content">
+                <h3>{g.title}</h3>
+                <p class="grant-meta">{g.awardNo ? `${g.awardNo} · ` : ''}{g.period} · {g.amount} · {g.role}</p>
+                <p class="grant-desc">{g.desc}</p>
               </div>
-            ))}
-          </section>
-        ))}
+            </RowTag>
+          );
+        })}
       </div>
+    </section>
 
-      <div class="months">
-        {deadlines.map((mo) => (
-          <section class="month">
-            <h3>{mo.month}</h3>
-            <ul class="deadline-list">
-              {mo.items.map((d) => (
-                <li class={`deadline kind-${d.kind}${d.est ? ' is-est' : ''}`} data-key={`${mo.y}-${mo.m}-${d.d}`}>
-                  <span class="deadline-date">{labelFor(mo, d)}<span class="deadline-day">{dayName(mo, d.d)}</span></span>
-                  <span class="deadline-name">{d.name}{d.est && <span class="est-flag">est.</span>}</span>
-                  <span class="deadline-left" data-countdown></span>
-                </li>
-              ))}
-            </ul>
-          </section>
-        ))}
+    <section class="section">
+      <h2>Funding · Internal</h2>
+      <div class="list">
+        {internalSupport.map((g) => {
+          const RowTag = g.link ? 'a' : 'article';
+          return (
+            <RowTag class="grant-row" href={g.link || undefined} target={g.link ? '_blank' : undefined} rel={g.link ? 'noopener' : undefined}>
+              <div class="logo-box"><img src={g.logo} alt={g.agency} loading="lazy" /></div>
+              <div class="grant-content">
+                <h3>{g.title}</h3>
+                <p class="grant-meta">{g.period} · {g.amount} · {g.role}</p>
+                <p class="grant-desc">{g.desc}</p>
+              </div>
+            </RowTag>
+          );
+        })}
       </div>
-
-      <div class="cards three open-calls">
-        {openCalls.map((c) => (
-          <article class="card">
-            <h3>{c.heading}</h3>
-            <ul class="topics">
-              {c.items.map((i) => <li>{i}</li>)}
-            </ul>
-          </article>
-        ))}
-      </div>
-      <p class="fineprint">Verify each against its own solicitation. A date on a weekend or federal holiday shifts to the next business day; NIH resubmissions run one month later (Mar / Jul / Nov).</p>
     </section>
   </main>
 
-  <script>
-    // A calendar cell and its list rows carry the same data-key, so hovering
-    // either side can light up the other without knowing anything about dates.
-    const paired = document.querySelectorAll('[data-key]');
-    const setLinked = (key, on) => {
-      document.querySelectorAll(`[data-key="${key}"]`).forEach((el) => el.classList.toggle('is-linked', on));
-    };
-    paired.forEach((el) => {
-      const key = el.getAttribute('data-key');
-      if (!key) return;
-      el.addEventListener('mouseenter', () => setLinked(key, true));
-      el.addEventListener('mouseleave', () => setLinked(key, false));
-    });
-
-    // Days remaining, counted from the viewer's own today. Both endpoints go
-    // through Date.UTC so a DST boundary in between cannot cost or add a day.
-    const now = new Date();
-    const today = Date.UTC(now.getFullYear(), now.getMonth(), now.getDate());
-    document.querySelectorAll('.deadline[data-key]').forEach((row) => {
-      const slot = row.querySelector('[data-countdown]');
-      if (!slot) return;
-      const [y, m, d] = row.getAttribute('data-key').split('-').map(Number);
-      const days = Math.round((Date.UTC(y, m, d) - today) / 86400000);
-      if (days < 0) {
-        slot.textContent = 'past';
-        slot.classList.add('is-past');
-      } else if (days === 0) {
-        slot.textContent = 'today';
-        slot.classList.add('is-soon');
-      } else {
-        slot.textContent = `${days}d`;
-        if (days <= 7) slot.classList.add('is-soon');
-      }
-      slot.title = `${days < 0 ? `${-days} days ago` : days === 0 ? 'due today' : `${days} days from today`}`;
-    });
-  </script>
 </Layout>
 <style>
   :root { --accent:#2563eb; --ink:#0f172a; --muted:#475569; }
@@ -283,93 +249,23 @@ const openCalls = [
   .scope-figure img { display:block; width:100%; height:auto; }
   .scope-prose p + p { margin-top:12px; }
 
-  .page-link { display:flex; align-items:baseline; gap:10px; flex-wrap:wrap; margin-top:16px; padding:12px 14px; border:1px solid rgba(148,163,184,.22); border-radius:14px; background:#f8fafc; text-decoration:none; transition:border-color .15s ease, background .15s ease; }
-  .page-link:hover { border-color:rgba(37,99,235,.4); background:#f1f5f9; }
-  .page-link-title { font-family:'Montserrat',sans-serif; font-weight:700; font-size:.88rem; color:var(--accent); }
-  .page-link-desc { font-size:.84rem; color:#475569; }
-  .page-link i { margin-left:auto; font-size:.78rem; color:var(--accent); }
+  /* Award rows, carried over from the grant page this section absorbed. */
+  .list { display:grid; gap:10px; }
+  .grant-row { display:grid; grid-template-columns:60px 1fr; gap:12px; align-items:start; border:1px solid rgba(148,163,184,.14); border-radius:12px; background:#fff; padding:10px 12px; text-decoration:none; color:inherit; transition:transform .16s ease, box-shadow .16s ease, border-color .16s ease; }
+  .grant-row:hover { transform:translateY(-1px); box-shadow:0 10px 20px rgba(15,23,42,0.06); border-color:rgba(37,99,235,0.24); }
+  .logo-box { width:60px; height:60px; display:flex; align-items:center; justify-content:center; overflow:hidden; border-radius:10px; background:#fff; }
+  .logo-box img { width:100%; height:100%; object-fit:contain; }
+  .grant-content h3 { margin:0 0 4px; font-family:'Montserrat',sans-serif; font-size:.95rem; line-height:1.25; }
+  .grant-meta { margin:0 0 4px; font-size:.8rem; color:#334155; line-height:1.25; }
+  .grant-desc { margin:0; font-size:.82rem; color:#64748b; line-height:1.32; }
 
-  .legend { list-style:none; margin:0 0 14px; padding:0; display:flex; flex-wrap:wrap; gap:12px; font-size:.76rem; color:#475569; }
-  .legend li { display:inline-flex; align-items:center; gap:5px; }
-  .dot { width:9px; height:9px; border-radius:50%; display:inline-block; }
-  .dot-nsf { background:#2563eb; }
-  .dot-nih { background:#0f766e; }
-  .dot-other { background:#9d174d; }
-  .dot-paper { background:#b45309; }
-  .dot-review { background:#6d28d9; }
-  .dot-est { background:transparent; border:1px dashed #94a3b8; }
-
-  /* Six month grids, the way the source sheet lays them out. */
-  .cals { display:grid; grid-template-columns:repeat(6, minmax(0,1fr)); gap:12px; margin-bottom:22px; }
-  .cal h3 { font-family:'Montserrat',sans-serif; font-size:.72rem; font-weight:700; letter-spacing:.08em; text-transform:uppercase; color:#334155; margin:0 0 6px; text-align:center; }
-  .cal-dow, .cal-week { display:grid; grid-template-columns:repeat(7, 1fr); gap:1px; }
-  .cal-dow span { text-align:center; font-size:.6rem; font-weight:700; color:#94a3b8; padding-bottom:2px; }
-  .cal-cell { position:relative; aspect-ratio:1; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:1px; border-radius:4px; }
-  .cal-cell.is-blank { visibility:hidden; }
-  .cal-num { font-size:.62rem; color:#64748b; font-variant-numeric:tabular-nums; line-height:1; }
-  .cal-cell.is-due { background:#f1f5f9; }
-  .cal-cell.is-due .cal-num { font-weight:700; color:#0f172a; }
-  .cal-dots { display:flex; gap:1px; }
-  .cal-dots .dot { width:4px; height:4px; }
-
-  /* The list repeats the same items in words, one tier smaller than the grids.
-     Multicol rather than a grid: a four-item September would otherwise pad its
-     cell down to November's height before October could start. */
-  .months { columns:4; column-gap:16px; }
-  /* Months must be splittable, or a short September holds a whole column and
-     October cannot start under it. Rows stay whole; a heading keeps its first row. */
-  .month { break-inside:auto; margin-bottom:12px; }
-  .month h3 { break-after:avoid; }
-  .deadline { break-inside:avoid; }
-  .month h3 { font-family:'Montserrat',sans-serif; font-size:.72rem; font-weight:700; letter-spacing:.1em; text-transform:uppercase; color:#64748b; margin:0 0 6px; padding-bottom:3px; border-bottom:1px solid rgba(148,163,184,.2); }
-  .deadline-list { list-style:none; margin:0; padding:0; display:grid; gap:3px; }
-  .deadline { display:grid; grid-template-columns:52px minmax(0,1fr) auto; gap:7px; align-items:baseline; padding:3px 7px; border-radius:6px; border-left:2px solid transparent; background:#f8fafc; }
-  .deadline-date { font-size:.68rem; font-weight:700; color:#0f172a; font-variant-numeric:tabular-nums; }
-  .deadline-day { display:block; font-size:.6rem; font-weight:400; color:#94a3b8; }
-  .deadline-name { font-size:.74rem; color:#334155; line-height:1.3; }
-  /* Filled in the browser: a build-time number would freeze on deploy day. */
-  .deadline-left { font-size:.64rem; color:#94a3b8; font-variant-numeric:tabular-nums; white-space:nowrap; }
-  .deadline-left.is-soon { color:#b91c1c; font-weight:700; }
-  .deadline-left.is-past { color:#cbd5e1; }
-  .kind-nsf { border-left-color:#2563eb; }
-  .kind-nih { border-left-color:#0f766e; }
-  .kind-other { border-left-color:#9d174d; }
-  .kind-paper { border-left-color:#b45309; }
-  .kind-review { border-left-color:#6d28d9; }
-  .is-est { border-left-style:dashed; }
-  .est-flag { margin-left:5px; font-size:.66rem; color:#94a3b8; border:1px dashed #cbd5e1; border-radius:4px; padding:0 4px; }
-
-  /* Hovering either side lights up its counterpart on the other. */
-  .cal-cell.is-linked { background:#dbeafe; box-shadow:inset 0 0 0 1px rgba(37,99,235,.55); }
-  .cal-cell.is-linked .cal-num { color:#1d4ed8; }
-  .deadline.is-linked { background:#dbeafe; }
-  .deadline.is-linked .deadline-name, .deadline.is-linked .deadline-date { color:#1d4ed8; }
-  .cal-cell.is-due, .deadline { cursor:default; }
-
-  .fineprint { margin:14px 0 0; font-size:.72rem; color:#94a3b8; line-height:1.5; }
-  .open-calls { margin-top:16px; }
-  .open-calls .topics { flex-direction:column; gap:5px; align-items:flex-start; }
-  .open-calls .topics li { background:transparent; border:none; padding:0; font-size:.82rem; color:#475569; line-height:1.45; }
-
-  @media (max-width: 1350px) {
-    .cals { grid-template-columns:repeat(3, minmax(0,1fr)); }
-  }
-  @media (max-width: 1100px) {
-    .cards.three { grid-template-columns:repeat(2, minmax(0,1fr)); }
-    .months { columns:2; }
-  }
   @media (max-width: 900px) {
     .hero-grid, .scope-row { grid-template-columns:1fr; }
     .statement { border-radius:0 12px 12px 0; }
   }
-  @media (max-width: 620px) {
-    .months { columns:1; }
-  }
-  @media (max-width: 620px) {
-    .cals { grid-template-columns:repeat(2, minmax(0,1fr)); }
-  }
   @media (max-width: 720px) {
-    .cards.three { grid-template-columns:1fr; }
-    .page-link i { margin-left:0; }
+    .grant-row { gap:10px; padding:10px; }
+    .grant-content h3 { font-size:.88rem; }
+    .grant-meta, .grant-desc { font-size:.76rem; }
   }
 </style>
