@@ -1,169 +1,79 @@
 ---
 import Layout from '../layouts/Layout.astro';
 
-const pillars = [
-  {
-    key: 'theory',
-    label: 'Theoretical / tool study',
-    topics: ['Spectral graph theory', 'Uncertainty quantification', 'Higher-order analysis', 'Approximation theory'],
-  },
-  {
-    key: 'application',
-    label: 'Application study',
-    topics: ['Traffic / urban computing', 'Spatial epidemiology', 'Circuit / power networks', 'Social networks', 'Genetics / genomics', 'Brain networks'],
-  },
-];
 
-const projects = [
-  {
-    funder: 'NSF CAREER',
-    role: 'Sole PI',
-    award: '#2443266',
-    amount: '$517,594',
-    period: '06/2025–05/2030',
-    title: 'From Fragmentation to Integration: Advancing Cross-Graph Dynamics in Interdependent Networks',
-    desc: 'Integrates graph dynamics across real-world applications while investigating the interactions among heterogeneous graph dynamics.',
-    href: 'https://www.nsf.gov/awardsearch/showAward?AWD_ID=2443266',
-  },
-  {
-    funder: 'NSF CISE III CRII',
-    role: 'Sole PI',
-    award: '#2153369',
-    amount: '$174,004',
-    period: '05/2022–11/2024',
-    title: 'Interpretable Influence Propagating and Blocking on Graphs',
-    desc: 'Higher-order analysis and uncertainty quantification in graph dynamics, aimed at understanding information propagation on complex networks.',
-    href: 'https://www.nsf.gov/awardsearch/showAward?AWD_ID=2153369',
-  },
-  {
-    funder: 'NSF CISE CNS CIRC',
-    role: 'PI',
-    award: '#2345921',
-    amount: '$99,998',
-    period: '07/2024–06/2025',
-    title: 'Planning-C: Synergistic Graph Flow Analytics',
-    desc: 'Builds unified research infrastructure for cross-disciplinary research.',
-    href: 'https://www.nsf.gov/awardsearch/showAward?AWD_ID=2345921',
-  },
-  {
-    funder: 'NSF CISE CNS MSI:RCBP',
-    role: 'Co-PI and school PI',
-    award: '#2431176',
-    amount: '$400,000',
-    period: '',
-    title: 'Advancing Speech Detection: A Hybrid Approach Using Large Language Models and Graph Neural Networks',
-    desc: 'Advances speech detection through hybrid approaches combining large language models and graph neural networks.',
-    href: 'https://www.nsf.gov/awardsearch/showAward?AWD_ID=2431176',
-  },
-  {
-    funder: 'NSF EDU ITEST',
-    role: 'Co-PI',
-    award: '#2342574',
-    amount: '$1,192,951',
-    period: '09/2024–08/2027',
-    title: 'Learning to Create Intelligent Solutions with Machine Learning and Computer Vision',
-    desc: 'Gives high-school (K-12) students from diverse backgrounds opportunities to pursue AI learning and AI careers.',
-    href: 'https://www.nsf.gov/awardsearch/showAward?AWD_ID=2342574',
-  },
-  {
-    funder: 'USDA ARS',
-    role: 'Co-PI',
-    award: '#58-6064-3-017',
-    amount: '$3,073,602',
-    period: '10/2023–08/2028',
-    title: 'Developing Detection and Modeling Tools for the Geospatial and Environmental Epidemiology of Animal Disease',
-    desc: 'Develops geospatial tools for understanding animal disease epidemiology.',
-    href: '',
-  },
-  {
-    funder: 'USDA ARS',
-    role: 'Co-PI',
-    award: '#58-0200-0-002',
-    amount: '$5,690,689',
-    period: '10/2022–08/2024',
-    title: 'Advancing Agricultural Research through High Performance Computing',
-    desc: 'Applies high-performance computing to agricultural research; my part focuses on graph representation for genetics.',
-    href: '',
-  },
-  {
-    funder: 'NSF REU · USDA summer intern',
-    role: 'PI',
-    award: '',
-    amount: '$14,000 · $8,199',
-    period: '',
-    title: 'Undergraduate and graduate research experiences',
-    desc: 'Four undergraduate students and one graduate student recruited for work on graph dynamics, quantum machine learning, and Vesicular Stomatitis Virus.',
-    href: '',
-  },
-];
 
-const futurePlan = [
-  {
-    title: 'Unified graph theory',
-    desc: 'A framework that generalizes the interaction between graph structures and the dynamics running on them, drawing on dynamical systems and fluid dynamics.',
-  },
-  {
-    title: 'Cross-network behaviors',
-    desc: 'How dynamics interact implicitly across interdependent networks — power grids, transportation, financial networks, supply chains. The hard part is the missing evaluation environments and the difficulty of collecting real data or building simulations.',
-  },
-  {
-    title: 'Graph dynamics foundation model',
-    desc: 'Graph dynamics modeled as sequential data in a high-dimensional space, which makes a transformer-based model for graph dynamics trainable.',
-  },
-];
-
-// Deadlines, Sep 2026 – Feb 2027. `kind` drives the colour chip and follows the
+// Deadlines, Sep 2026 - Feb 2027. `kind` drives the colour and follows the
 // source legend: NSF grant, NIH grant, other grant, paper, review/report.
 const deadlines = [
-  { month: 'Sep 2026', items: [
-    { date: 'Sep 15', day: 'Tue', name: 'Sony Research Award (FRA)', kind: 'other' },
-    { date: 'Sep 18', day: 'Fri', name: 'ICLR 2027 abstract registration (mandatory)', kind: 'paper' },
-    { date: 'Sep 25', day: 'Fri', name: 'ICLR 2027 full paper', kind: 'paper' },
-    { date: 'Sep 28', day: 'Mon', name: 'NIH R16 SuRE', kind: 'nih' },
+  { month: 'Sep 2026', y: 2026, m: 8, items: [
+    { d: 15, name: 'Sony Research Award (FRA)', kind: 'other' },
+    { d: 18, name: 'ICLR 2027 abstract registration (mandatory)', kind: 'paper' },
+    { d: 25, name: 'ICLR 2027 full paper', kind: 'paper' },
+    { d: 28, name: 'NIH R16 SuRE', kind: 'nih' },
   ]},
-  { month: 'Oct 2026', items: [
-    { date: 'Oct 9', day: 'Fri', name: 'NSF MFAI', kind: 'nsf' },
-    { date: 'Oct 12', day: 'Mon', name: 'NAACL 2027 (main)', kind: 'paper' },
-    { date: 'Oct 12', day: 'Mon', name: 'COLING 2027 (main)', kind: 'paper' },
-    { date: 'Oct 14', day: 'Wed', name: 'IEEE BigData reviews due', kind: 'review' },
-    { date: 'Oct 15', day: 'Thu', name: 'WSDM 2027 demo', kind: 'paper' },
-    { date: 'Oct 16', day: 'Fri', name: 'NIH R21 new (standing date)', kind: 'nih' },
-    { date: 'Oct 18', day: 'Sun', name: 'WebConf abstract (research + industry)', kind: 'paper' },
-    { date: 'Oct 25', day: 'Sun', name: 'WebConf full paper', kind: 'paper' },
-    { date: 'Oct 26', day: 'Mon', name: 'NIH R15 AREA new (Oct 25 shift)', kind: 'nih' },
-    { date: 'Oct 29', day: 'Thu', name: 'NSF CIRC final + outcomes report', kind: 'review' },
-    { date: 'Oct 30', day: 'Fri', name: 'RIT Global Seed', kind: 'other' },
-    { date: 'Oct 30', day: 'Fri', name: 'ONR YIP', kind: 'other' },
+  { month: 'Oct 2026', y: 2026, m: 9, items: [
+    { d: 9, name: 'NSF MFAI', kind: 'nsf' },
+    { d: 12, name: 'NAACL 2027 (main)', kind: 'paper' },
+    { d: 12, name: 'COLING 2027 (main)', kind: 'paper' },
+    { d: 14, name: 'IEEE BigData reviews due', kind: 'review' },
+    { d: 15, name: 'WSDM 2027 demo', kind: 'paper' },
+    { d: 16, name: 'NIH R21 new (standing date)', kind: 'nih' },
+    { d: 18, name: 'WebConf abstract (research + industry)', kind: 'paper' },
+    { d: 25, name: 'WebConf full paper', kind: 'paper' },
+    { d: 26, name: 'NIH R15 AREA new (Oct 25 shift)', kind: 'nih' },
+    { d: 29, name: 'NSF CIRC final + outcomes report', kind: 'review' },
+    { d: 30, name: 'RIT Global Seed', kind: 'other' },
+    { d: 30, name: 'ONR YIP', kind: 'other' },
   ]},
-  { month: 'Nov 2026', items: [
-    { date: 'Nov 4', day: 'Wed', name: 'NSF AI Datasets', kind: 'nsf' },
-    { date: 'Nov 4', day: 'Wed', name: 'NSF SBIR/STTR', kind: 'nsf' },
-    { date: 'Nov 7', day: 'Sat', name: 'CVPR 2027 abstract', kind: 'paper', est: true },
-    { date: 'Nov 9', day: 'Mon', name: 'WebConf short abstract', kind: 'paper' },
-    { date: 'Nov 9', day: 'Mon', name: 'Web4Good abstract', kind: 'paper' },
-    { date: 'Nov 13', day: 'Fri', name: 'CVPR 2027 main paper', kind: 'paper', est: true },
-    { date: 'Nov 16', day: 'Mon', name: 'WebConf short paper', kind: 'paper' },
-    { date: 'Nov 16', day: 'Mon', name: 'Web4Good full paper', kind: 'paper' },
-    { date: 'Nov 16', day: 'Mon', name: 'WebConf demo paper', kind: 'paper' },
-    { date: 'Nov 17', day: 'Tue', name: 'WSDM 2027 short paper', kind: 'paper' },
-    { date: 'Nov 17', day: 'Tue', name: 'NSF TTP', kind: 'nsf' },
+  { month: 'Nov 2026', y: 2026, m: 10, items: [
+    { d: 4, name: 'NSF AI Datasets', kind: 'nsf' },
+    { d: 4, name: 'NSF SBIR/STTR', kind: 'nsf' },
+    { d: 7, name: 'CVPR 2027 abstract', kind: 'paper', est: true },
+    { d: 9, name: 'WebConf short abstract', kind: 'paper' },
+    { d: 9, name: 'Web4Good abstract', kind: 'paper' },
+    { d: 13, name: 'CVPR 2027 main paper', kind: 'paper', est: true },
+    { d: 16, name: 'WebConf short paper', kind: 'paper' },
+    { d: 16, name: 'Web4Good full paper', kind: 'paper' },
+    { d: 16, name: 'WebConf demo paper', kind: 'paper' },
+    { d: 17, name: 'WSDM 2027 short paper', kind: 'paper' },
+    { d: 17, name: 'NSF TTP', kind: 'nsf' },
   ]},
-  { month: 'Dec 2026', items: [
-    { date: 'Dec 1', day: 'Tue', name: 'Simons Empire AI (noon ET)', kind: 'other' },
-    { date: 'Dec 2', day: 'Wed', name: 'NSF Expeditions preliminary proposal', kind: 'nsf' },
+  { month: 'Dec 2026', y: 2026, m: 11, items: [
+    { d: 1, name: 'Simons Empire AI (noon ET)', kind: 'other' },
+    { d: 2, name: 'NSF Expeditions preliminary proposal', kind: 'nsf' },
   ]},
-  { month: 'Jan 2027', items: [
-    { date: 'Jan 20', day: 'Wed', name: 'NSF CICI', kind: 'nsf' },
-    { date: 'Jan 31', day: 'Sun', name: 'NSF CISE Core eligible again', kind: 'nsf' },
+  { month: 'Jan 2027', y: 2027, m: 0, items: [
+    { d: 20, name: 'NSF CICI', kind: 'nsf' },
+    { d: 31, name: 'NSF CISE Core eligible again', kind: 'nsf' },
   ]},
-  { month: 'Feb 2027', items: [
-    { date: 'Feb 3', day: 'Wed', name: 'NIH R35 MIRA for ESIs', kind: 'nih' },
-    { date: 'Feb 8', day: 'Mon', name: 'NSF GCR', kind: 'nsf' },
-    { date: 'Feb 15', day: 'Mon', name: 'NeuroArts Fleming (mid Feb)', kind: 'other', est: true },
-    { date: 'Feb 16', day: 'Tue', name: 'NIH R21 new (standing date)', kind: 'nih' },
-    { date: 'Feb 25', day: 'Thu', name: 'NIH R15 AREA new (standing date)', kind: 'nih' },
+  { month: 'Feb 2027', y: 2027, m: 1, items: [
+    { d: 3, name: 'NIH R35 MIRA for ESIs', kind: 'nih' },
+    { d: 8, name: 'NSF GCR', kind: 'nsf' },
+    { d: 15, name: 'NeuroArts Fleming (mid Feb)', kind: 'other', est: true },
+    { d: 16, name: 'NIH R21 new (standing date)', kind: 'nih' },
+    { d: 25, name: 'NIH R15 AREA new (standing date)', kind: 'nih' },
   ]},
 ];
+
+const DOW = ['S', 'M', 'T', 'W', 'T', 'F', 'S'];
+const SHORT_MONTH = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+
+// Weekday placement is computed, not transcribed, so the grid cannot drift from
+// the dates in the list beneath it.
+const buildWeeks = (mo) => {
+  const lead = new Date(Date.UTC(mo.y, mo.m, 1)).getUTCDay();
+  const length = new Date(Date.UTC(mo.y, mo.m + 1, 0)).getUTCDate();
+  const byDay = new Map();
+  mo.items.forEach((i) => byDay.set(i.d, [...(byDay.get(i.d) ?? []), i]));
+  const cells = Array.from({ length: lead }, () => null);
+  for (let d = 1; d <= length; d += 1) cells.push({ d, items: byDay.get(d) ?? [] });
+  while (cells.length % 7 !== 0) cells.push(null);
+  return Array.from({ length: cells.length / 7 }, (_, w) => cells.slice(w * 7, w * 7 + 7));
+};
+
+const labelFor = (mo, item) => `${SHORT_MONTH[mo.m]} ${item.d}`;
+const dayName = (mo, d) => ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'][new Date(Date.UTC(mo.y, mo.m, d)).getUTCDay()];
 
 const deadlineCount = deadlines.reduce((n, m) => n + m.items.length, 0);
 
@@ -204,83 +114,67 @@ const openCalls = [
     <section class="section">
       <h2>Current research</h2>
       <p class="section-lead">I study graph dynamics through spectral graph theory, uncertainty quantification, higher-order analysis, and physics-inspired methods. My current focus is the behavior of coupled and interdependent networks — prevalent in practice, but still thinly developed.</p>
-      <div class="cards two">
-        {pillars.map((p) => (
-          <article class="card">
-            <h3>{p.label}</h3>
-            <ul class="topics">
-              {p.topics.map((t) => <li>{t}</li>)}
-            </ul>
-          </article>
-        ))}
-      </div>
+      <figure class="scope-figure">
+        <img src="/research-scope.png" alt="Two overlapping sets. Theoretical/Tool Study covers higher-order analysis, uncertainty quantification, spectral graph theory, and approximation theory. Application Study covers traffic and urban computing, spatial epidemiology, circuit and power networks, social networks, brain networks, and genetics and genomics. Graph dynamics sits in the overlap, feeding both." />
+      </figure>
       <div class="prose">
         <p><strong>Theoretical study.</strong> Developing new methodology to represent and analyze graphs and their dynamics. I have explored spectral graph theory as a unified framework for representing complex networks — several papers, a survey, tutorials at prestigious venues, and a widely used paper collection. I also investigate higher-order methods such as Shapley values and Sobol indices to understand combinatorial interactions among nodes, and use Bayesian optimization, Gaussian processes, and Kalman filtering to address efficiency in graph-based problems.</p>
         <p><strong>Application research.</strong> The work reaches key social infrastructure and biological networks: transportation and urban systems, spatial epidemiology, and genetic networks. Collaborations with ecologists, medical researchers, and engineers have extended these methods to ecological networks, circuit dynamics, and brain signals in conditions such as ADHD and sleep disorders.</p>
       </div>
-    </section>
-
-    <section class="section">
-      <h2>Funded projects</h2>
-      <p class="section-lead">External support totals <strong>$11,196,037</strong>, with <strong>$1,665,222</strong> in personal funding credits.</p>
-      <ol class="projects">
-        {projects.map((p) => (
-          <li class="project">
-            <div class="project-head">
-              <span class="project-funder">{p.funder}</span>
-              <span class="project-role">{p.role}</span>
-              <span class="project-amount">{p.amount}</span>
-              {p.period && <span class="project-period">{p.period}</span>}
-              {p.award && (p.href
-                ? <a class="project-award" href={p.href} target="_blank" rel="noopener">{p.award} <i class="fas fa-arrow-up-right-from-square" aria-hidden="true"></i></a>
-                : <span class="project-award">{p.award}</span>)}
-            </div>
-            <p class="project-title">{p.title}</p>
-            <p class="project-desc">{p.desc}</p>
-          </li>
-        ))}
-      </ol>
-    </section>
-
-    <section class="section">
-      <h2>Collaborators</h2>
-      <p class="prose-p">To reach both theoretical insight and applicable outcomes — and to keep a full perspective on the problem — I work with faculty and researchers across mathematics, social science, cybersecurity, power and circuit networks, epidemiology, veterinary medicine, animal science, healthcare, and psychology. These collaborations, at both the paper and grant level, span USDA, UC Davis, George Mason University, the University of Connecticut, Emory University, the University of Mississippi Medical Center, and the University of Georgia, among others.</p>
-    </section>
-
-    <section class="section">
-      <h2>Future plan</h2>
-      <div class="cards three">
-        {futurePlan.map((f, i) => (
-          <article class="card">
-            <span class="card-mark">{i + 1}</span>
-            <h3>{f.title}</h3>
-            <p>{f.desc}</p>
-          </article>
-        ))}
-      </div>
-      <div class="prose">
-        <p><strong>Funding.</strong> I intend to keep applying this research to significant application domains — power grids, disease transmission, supply chain management, financial systems — and to build support through federal programs that align with graph dynamics, cross-network behavior, and data-driven modeling: NSF MPS for fluid dynamics and spectral methods, NSF CCF for algorithmic foundations and robust intelligence, and NSF III for real applications. NSF ENG programs in materials research and biological systems fit where a project connects to graph representations of physical or biological processes. Work on disease transmission, intervention planning, and biomedical networks motivates NIH applications; coupled infrastructure, energy systems, and uncertainty in large interconnected networks guide DOE applications. I also seek industry partnerships for translational studies on complex systems.</p>
-        <p><strong>Reach-out.</strong> I plan to expand connections with experts in material science, circuit modeling, quantum computing, financial mathematics, power grids, biomedical and biological systems, disease transmission, transportation systems, dynamical systems, and network science.</p>
-      </div>
+      <a class="page-link" href="/grant">
+        <span class="page-link-title">Funded projects</span>
+        <span class="page-link-desc">Every external and internal award — funder, role, amount, period</span>
+        <i class="fas fa-arrow-right" aria-hidden="true"></i>
+      </a>
     </section>
 
     <section class="section" id="deadlines">
-      <h2>Deadlines · Sep 2026 – Feb 2027</h2>
-      <p class="section-lead">Funding, papers, and service — {deadlineCount} dated items. Verify each against its own solicitation; a date falling on a weekend or federal holiday shifts to the next business day, and NIH resubmissions run one month later (Mar / Jul / Nov).</p>
+      <h2>Fall 2025 Agenda</h2>
       <ul class="legend">
         {Object.entries(kindLabels).map(([k, label]) => (
           <li><span class={`dot dot-${k}`} aria-hidden="true"></span>{label}</li>
         ))}
         <li><span class="dot dot-est" aria-hidden="true"></span>Estimated date</li>
       </ul>
+
+      <div class="cals">
+        {deadlines.map((mo) => (
+          <section class="cal">
+            <h3>{mo.month}</h3>
+            <div class="cal-dow" aria-hidden="true">
+              {DOW.map((d) => <span>{d}</span>)}
+            </div>
+            {buildWeeks(mo).map((week) => (
+              <div class="cal-week">
+                {week.map((cell) => (
+                  cell === null
+                    ? <span class="cal-cell is-blank"></span>
+                    : <span
+                        class={`cal-cell${cell.items.length ? ' is-due' : ''}`}
+                        title={cell.items.length ? `${labelFor(mo, cell)}: ${cell.items.map((i) => i.name).join('; ')}` : undefined}
+                      >
+                        <span class="cal-num">{cell.d}</span>
+                        {cell.items.length > 0 && (
+                          <span class="cal-dots">
+                            {cell.items.map((i) => <span class={`dot dot-${i.kind}${i.est ? ' is-est' : ''}`}></span>)}
+                          </span>
+                        )}
+                      </span>
+                ))}
+              </div>
+            ))}
+          </section>
+        ))}
+      </div>
+
       <div class="months">
-        {deadlines.map((m) => (
+        {deadlines.map((mo) => (
           <section class="month">
-            <h3>{m.month}</h3>
+            <h3>{mo.month}</h3>
             <ul class="deadline-list">
-              {m.items.map((d) => (
+              {mo.items.map((d) => (
                 <li class={`deadline kind-${d.kind}${d.est ? ' is-est' : ''}`}>
-                  <span class="deadline-date">{d.date}<span class="deadline-day">{d.day}</span></span>
+                  <span class="deadline-date">{labelFor(mo, d)}<span class="deadline-day">{dayName(mo, d.d)}</span></span>
                   <span class="deadline-name">{d.name}{d.est && <span class="est-flag">est.</span>}</span>
                 </li>
               ))}
@@ -288,6 +182,7 @@ const openCalls = [
           </section>
         ))}
       </div>
+
       <div class="cards three open-calls">
         {openCalls.map((c) => (
           <article class="card">
@@ -298,6 +193,7 @@ const openCalls = [
           </article>
         ))}
       </div>
+      <p class="fineprint">Verify each against its own solicitation. A date on a weekend or federal holiday shifts to the next business day; NIH resubmissions run one month later (Mar / Jul / Nov).</p>
     </section>
   </main>
 </Layout>
@@ -325,27 +221,23 @@ const openCalls = [
   .prose p:last-child { margin-bottom:0; }
 
   .cards { display:grid; gap:14px; }
-  .cards.two { grid-template-columns: repeat(2, minmax(0,1fr)); }
   .cards.three { grid-template-columns: repeat(3, minmax(0,1fr)); }
   .card { position:relative; border:1px solid rgba(148,163,184,.16); border-radius:16px; background:#fff; padding:16px; }
   .card h3 { font-family:'Montserrat',sans-serif; font-size:.95rem; margin:0 0 8px; }
   .card p { margin:0; color:#334155; font-size:.9rem; line-height:1.55; }
-  .card-mark { position:absolute; top:14px; right:16px; font-family:'Montserrat',sans-serif; font-size:.8rem; font-weight:700; color:#cbd5e1; }
   .topics { list-style:none; margin:0; padding:0; display:flex; flex-wrap:wrap; gap:6px; }
   .topics li { font-size:.78rem; color:#334155; background:#f1f5f9; border:1px solid rgba(148,163,184,.2); border-radius:999px; padding:3px 9px; }
 
-  .projects { list-style:none; margin:0; padding:0; display:grid; gap:12px; counter-reset:proj; }
-  .project { padding:12px 14px; border:1px solid rgba(148,163,184,.16); border-radius:14px; background:#fff; }
-  .project-head { display:flex; flex-wrap:wrap; align-items:baseline; gap:8px; margin-bottom:5px; }
-  .project-funder { font-family:'Montserrat',sans-serif; font-weight:700; font-size:.82rem; color:#0f172a; }
-  .project-role { font-size:.72rem; color:#475569; background:#f1f5f9; border-radius:999px; padding:2px 8px; }
-  .project-amount { font-size:.78rem; font-weight:700; color:#166534; font-variant-numeric:tabular-nums; }
-  .project-period { font-size:.75rem; color:#64748b; font-variant-numeric:tabular-nums; }
-  .project-award { font-size:.72rem; color:#64748b; text-decoration:none; }
-  .project-award:hover { color:var(--accent); }
-  .project-award i { font-size:.62rem; }
-  .project-title { margin:0 0 3px; font-size:.9rem; font-weight:600; color:#0f172a; line-height:1.35; }
-  .project-desc { margin:0; font-size:.86rem; color:#475569; line-height:1.5; }
+  /* The figure ships from the statement itself; 1903px of source against a
+     950px cap keeps it at 2x on retina. */
+  .scope-figure { margin:0 0 16px; }
+  .scope-figure img { display:block; width:100%; max-width:950px; height:auto; }
+
+  .page-link { display:flex; align-items:baseline; gap:10px; flex-wrap:wrap; margin-top:16px; padding:12px 14px; border:1px solid rgba(148,163,184,.22); border-radius:14px; background:#f8fafc; text-decoration:none; transition:border-color .15s ease, background .15s ease; }
+  .page-link:hover { border-color:rgba(37,99,235,.4); background:#f1f5f9; }
+  .page-link-title { font-family:'Montserrat',sans-serif; font-weight:700; font-size:.88rem; color:var(--accent); }
+  .page-link-desc { font-size:.84rem; color:#475569; }
+  .page-link i { margin-left:auto; font-size:.78rem; color:var(--accent); }
 
   .legend { list-style:none; margin:0 0 14px; padding:0; display:flex; flex-wrap:wrap; gap:12px; font-size:.76rem; color:#475569; }
   .legend li { display:inline-flex; align-items:center; gap:5px; }
@@ -357,13 +249,27 @@ const openCalls = [
   .dot-review { background:#6d28d9; }
   .dot-est { background:transparent; border:1px dashed #94a3b8; }
 
-  .months { display:grid; grid-template-columns:repeat(3, minmax(0,1fr)); gap:14px; }
-  .month h3 { font-family:'Montserrat',sans-serif; font-size:.78rem; font-weight:700; letter-spacing:.1em; text-transform:uppercase; color:#64748b; margin:0 0 8px; padding-bottom:4px; border-bottom:1px solid rgba(148,163,184,.2); }
-  .deadline-list { list-style:none; margin:0; padding:0; display:grid; gap:5px; }
-  .deadline { display:grid; grid-template-columns:60px minmax(0,1fr); gap:8px; align-items:baseline; padding:4px 8px; border-radius:7px; border-left:3px solid transparent; background:#f8fafc; }
-  .deadline-date { font-size:.76rem; font-weight:700; color:#0f172a; font-variant-numeric:tabular-nums; }
-  .deadline-day { display:block; font-size:.66rem; font-weight:400; color:#94a3b8; }
-  .deadline-name { font-size:.82rem; color:#334155; line-height:1.35; }
+  /* Six month grids, the way the source sheet lays them out. */
+  .cals { display:grid; grid-template-columns:repeat(6, minmax(0,1fr)); gap:12px; margin-bottom:22px; }
+  .cal h3 { font-family:'Montserrat',sans-serif; font-size:.72rem; font-weight:700; letter-spacing:.08em; text-transform:uppercase; color:#334155; margin:0 0 6px; text-align:center; }
+  .cal-dow, .cal-week { display:grid; grid-template-columns:repeat(7, 1fr); gap:1px; }
+  .cal-dow span { text-align:center; font-size:.6rem; font-weight:700; color:#94a3b8; padding-bottom:2px; }
+  .cal-cell { position:relative; aspect-ratio:1; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:1px; border-radius:4px; }
+  .cal-cell.is-blank { visibility:hidden; }
+  .cal-num { font-size:.62rem; color:#64748b; font-variant-numeric:tabular-nums; line-height:1; }
+  .cal-cell.is-due { background:#f1f5f9; }
+  .cal-cell.is-due .cal-num { font-weight:700; color:#0f172a; }
+  .cal-dots { display:flex; gap:1px; }
+  .cal-dots .dot { width:4px; height:4px; }
+
+  /* The list repeats the same items in words, one tier smaller than the grids. */
+  .months { display:grid; grid-template-columns:repeat(3, minmax(0,1fr)); gap:12px; }
+  .month h3 { font-family:'Montserrat',sans-serif; font-size:.72rem; font-weight:700; letter-spacing:.1em; text-transform:uppercase; color:#64748b; margin:0 0 6px; padding-bottom:3px; border-bottom:1px solid rgba(148,163,184,.2); }
+  .deadline-list { list-style:none; margin:0; padding:0; display:grid; gap:3px; }
+  .deadline { display:grid; grid-template-columns:52px minmax(0,1fr); gap:7px; align-items:baseline; padding:3px 7px; border-radius:6px; border-left:2px solid transparent; background:#f8fafc; }
+  .deadline-date { font-size:.68rem; font-weight:700; color:#0f172a; font-variant-numeric:tabular-nums; }
+  .deadline-day { display:block; font-size:.6rem; font-weight:400; color:#94a3b8; }
+  .deadline-name { font-size:.74rem; color:#334155; line-height:1.3; }
   .kind-nsf { border-left-color:#2563eb; }
   .kind-nih { border-left-color:#0f766e; }
   .kind-other { border-left-color:#9d174d; }
@@ -372,14 +278,22 @@ const openCalls = [
   .is-est { border-left-style:dashed; }
   .est-flag { margin-left:5px; font-size:.66rem; color:#94a3b8; border:1px dashed #cbd5e1; border-radius:4px; padding:0 4px; }
 
+  .fineprint { margin:14px 0 0; font-size:.72rem; color:#94a3b8; line-height:1.5; max-width:80ch; }
   .open-calls { margin-top:16px; }
   .open-calls .topics { flex-direction:column; gap:5px; align-items:flex-start; }
   .open-calls .topics li { background:transparent; border:none; padding:0; font-size:.82rem; color:#475569; line-height:1.45; }
 
+  @media (max-width: 1350px) {
+    .cals { grid-template-columns:repeat(3, minmax(0,1fr)); }
+  }
   @media (max-width: 1100px) {
     .cards.three, .months { grid-template-columns:repeat(2, minmax(0,1fr)); }
   }
+  @media (max-width: 620px) {
+    .cals { grid-template-columns:repeat(2, minmax(0,1fr)); }
+  }
   @media (max-width: 720px) {
-    .cards.two, .cards.three, .months { grid-template-columns:1fr; }
+    .cards.three, .months { grid-template-columns:1fr; }
+    .page-link i { margin-left:0; }
   }
 </style>
