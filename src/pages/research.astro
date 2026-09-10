@@ -75,8 +75,6 @@ const buildWeeks = (mo) => {
 const labelFor = (mo, item) => `${SHORT_MONTH[mo.m]} ${item.d}`;
 const dayName = (mo, d) => ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'][new Date(Date.UTC(mo.y, mo.m, d)).getUTCDay()];
 
-const deadlineCount = deadlines.reduce((n, m) => n + m.items.length, 0);
-
 const kindLabels = {
   nsf: 'NSF grant',
   nih: 'NIH grant',
@@ -133,7 +131,7 @@ const openCalls = [
     </section>
 
     <section class="section" id="deadlines">
-      <h2>Fall 2025 Agenda</h2>
+      <h2>Research Calendar</h2>
       <ul class="legend">
         {Object.entries(kindLabels).map(([k, label]) => (
           <li><span class={`dot dot-${k}`} aria-hidden="true"></span>{label}</li>
