@@ -171,10 +171,8 @@ const dayName = (mo, d) => ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'][new
   /* Three across on a page of its own, so each month gets roughly twice the
      width it had as a section inside Research. */
   .cals { display:grid; grid-template-columns:repeat(3, minmax(0,1fr)); gap:20px; margin-bottom:28px; }
-  /* Alternating wash so neighbouring months read as separate blocks. Three
-     across means odd/even lands as a checkerboard, which also separates rows. */
-  .cal { padding:10px 10px 8px; border-radius:12px; }
-  .cal:nth-child(odd) { background:rgba(148,163,184,.10); }
+  /* A hairline dashed frame separates the months without tinting anything. */
+  .cal { padding:10px 10px 8px; border:1px dashed rgba(148,163,184,.42); border-radius:12px; }
   .cal h3 { font-family:'Montserrat',sans-serif; font-size:.86rem; font-weight:700; letter-spacing:.08em; text-transform:uppercase; color:#334155; margin:0 0 8px; text-align:center; }
   .cal-dow, .cal-week { display:grid; grid-template-columns:repeat(7, 1fr); gap:2px; }
   .cal-dow span { text-align:center; font-size:.72rem; font-weight:700; color:#94a3b8; padding-bottom:3px; }
@@ -201,11 +199,11 @@ const dayName = (mo, d) => ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'][new
   .est-flag { margin-left:6px; font-size:.68rem; color:#94a3b8; border:1px dashed #cbd5e1; border-radius:4px; padding:0 4px; }
 
   /* White on a solid band, so the countdown is the loudest thing in the row. */
-  .deadline-left { min-width:34px; text-align:center; padding:2px 6px; border-radius:999px; font-size:.72rem; font-weight:700; color:#fff; font-variant-numeric:tabular-nums; white-space:nowrap; background:#94a3b8; }
+  .deadline-left { min-width:34px; text-align:center; padding:2px 6px; border-radius:999px; font-size:.72rem; font-weight:700; color:#fff; font-variant-numeric:tabular-nums; white-space:nowrap; background:#64748b; }
   .deadline-left.band-urgent { background:#b91c1c; }
-  .deadline-left.band-soon { background:#a16207; }
+  .deadline-left.band-soon { background:#fde68a; color:#92400e; }
   .deadline-left.band-later { background:#1d4ed8; }
-  .deadline-left.band-far { background:#94a3b8; }
+  .deadline-left.band-far { background:#64748b; }
   .deadline-left.band-past { background:#e2e8f0; color:#94a3b8; }
   .deadline-left:empty { display:none; }
 
