@@ -4,6 +4,7 @@ export const deadlines = [
   { month: 'Sep 2026', y: 2026, m: 8, items: [
     { d: 15, name: 'Sony Research Award (FRA)', kind: 'other' },
     { d: 18, name: 'ICLR 2027 abstract registration (mandatory)', kind: 'paper' },
+    { d: 21, name: 'eBay 2027 eRUPT Academic Research Grants', kind: 'other' },
     { d: 25, name: 'ICLR 2027 full paper', kind: 'paper' },
     { d: 28, name: 'NIH R16 SuRE', kind: 'nih' },
   ]},
