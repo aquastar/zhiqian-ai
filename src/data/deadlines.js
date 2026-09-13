@@ -6,10 +6,12 @@ export const deadlines = [
     { d: 18, name: 'ICLR 2027 abstract registration (mandatory)', kind: 'paper' },
     { d: 21, name: 'eBay 2027 eRUPT Academic Research Grants', kind: 'other' },
     { d: 25, name: 'ICLR 2027 full paper', kind: 'paper' },
+    { d: 25, name: 'Grammy Museum Scientific Research LOI', kind: 'other' },
     { d: 28, name: 'NIH R16 SuRE', kind: 'nih' },
   ]},
   { month: 'Oct 2026', y: 2026, m: 9, items: [
     { d: 9, name: 'NSF MFAI', kind: 'nsf' },
+    { d: 9, name: 'Air Force YIP FY2027 white paper', kind: 'other' },
     { d: 12, name: 'NAACL 2027 (main)', kind: 'paper' },
     { d: 12, name: 'COLING 2027 (main)', kind: 'paper' },
     { d: 14, name: 'IEEE BigData reviews due', kind: 'review' },
