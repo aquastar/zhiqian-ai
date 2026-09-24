@@ -8,6 +8,7 @@ export const deadlines = [
     { d: 25, name: 'ICLR 2027 full paper', kind: 'paper' },
     { d: 25, name: 'Grammy Museum Scientific Research LOI', kind: 'other' },
     { d: 28, name: 'NIH R16 SuRE', kind: 'nih' },
+    { d: 29, name: 'AISTATS 2027 abstract submission', kind: 'paper' },
   ]},
   { month: 'Oct 2026', y: 2026, m: 9, items: [
     { d: 9, name: 'NSF MFAI', kind: 'nsf' },

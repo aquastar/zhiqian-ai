@@ -107,10 +107,6 @@ const dayName = (mo, d) => ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'][new
       </div>
 
       <div class="cards three open-calls" id="open-calls">
-        <article class="card past-card" id="past-card" hidden>
-          <h3>Already passed</h3>
-          <ul class="topics" id="past-list"></ul>
-        </article>
         {openCalls.map((c) => (
           <article class="card">
             <h3>{c.heading}</h3>
@@ -119,6 +115,15 @@ const dayName = (mo, d) => ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'][new
             </ul>
           </article>
         ))}
+        <article class="card past-card" id="past-card" hidden>
+          <details>
+            <summary>
+              <h3>Already passed</h3>
+              <span class="past-count" id="past-count"></span>
+            </summary>
+            <ul class="topics" id="past-list"></ul>
+          </details>
+        </article>
       </div>
       <p class="fineprint">Verify each against its own solicitation. A date on a weekend or federal holiday shifts to the next business day; NIH resubmissions run one month later (Mar / Jul / Nov).</p>
     </section>
@@ -199,6 +204,7 @@ const dayName = (mo, d) => ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'][new
         li.innerHTML = `<span class="${item.dotClass}"></span><span class="past-when">${item.label}</span><span>${item.name}</span>`;
         list.appendChild(li);
       });
+      document.getElementById('past-count').textContent = String(pastItems.length);
       document.getElementById('past-card').hidden = false;
       document.getElementById('open-calls').classList.add('has-past');
     }
@@ -295,7 +301,15 @@ const dayName = (mo, d) => ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'][new
   .topics li { font-size:.84rem; color:#475569; line-height:1.45; }
   .open-calls { margin-top:20px; }
   .open-calls.has-past { grid-template-columns:repeat(4, minmax(0,1fr)); }
+  /* Folded by default: what has gone by is reference, not the working list. */
   .past-card { border-style:dashed; }
+  .past-card details > summary { display:flex; align-items:center; gap:7px; cursor:pointer; list-style:none; }
+  .past-card details > summary::-webkit-details-marker { display:none; }
+  .past-card details > summary::after { content:'\f078'; font-family:'Font Awesome 6 Free'; font-weight:900; margin-left:auto; font-size:.7rem; color:#94a3b8; transition:transform .15s ease; }
+  .past-card details[open] > summary::after { transform:rotate(180deg); }
+  .past-card details > summary h3 { margin:0; }
+  .past-card details[open] > summary { margin-bottom:8px; }
+  .past-count { font-size:.72rem; font-weight:700; color:#64748b; background:#f1f5f9; border-radius:999px; padding:1px 7px; }
   .past-item { display:grid; grid-template-columns:auto 46px minmax(0,1fr); align-items:baseline; gap:6px; }
   .past-item .dot { transform:translateY(-1px); }
   .past-when { font-weight:700; color:#94a3b8; font-variant-numeric:tabular-nums; }
