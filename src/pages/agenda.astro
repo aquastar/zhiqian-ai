@@ -76,7 +76,12 @@ const dayName = (mo, d) => ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'][new
                             {cell.items.map((i) => (
                               <span class="cal-pop-item">
                                 <span class={`dot dot-${i.kind}${i.est ? ' is-est' : ''}`}></span>
-                                <span>{i.name}{i.est && <span class="est-flag">est.</span>}</span>
+                                <span>
+                                  {i.href
+                                    ? <a class="cal-pop-link" href={i.href} target="_blank" rel="noopener">{i.name}</a>
+                                    : i.name}
+                                  {i.est && <span class="est-flag">est.</span>}
+                                </span>
                               </span>
                             ))}
                           </span>
@@ -97,7 +102,13 @@ const dayName = (mo, d) => ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'][new
               {mo.items.map((d) => (
                 <li class={`deadline kind-${d.kind}${d.est ? ' is-est' : ''}`} data-key={`${mo.y}-${mo.m}-${d.d}`}>
                   <span class="deadline-date">{labelFor(mo, d)}</span>
-                  <span class="deadline-name"><span class={`dot dot-${d.kind}${d.est ? ' is-est' : ''}`} aria-hidden="true"></span>{d.name}{d.est && <span class="est-flag">est.</span>}</span>
+                  <span class="deadline-name">
+                    <span class={`dot dot-${d.kind}${d.est ? ' is-est' : ''}`} aria-hidden="true"></span>
+                    {d.href
+                      ? <a class="deadline-link" href={d.href} target="_blank" rel="noopener">{d.name}</a>
+                      : d.name}
+                    {d.est && <span class="est-flag">est.</span>}
+                  </span>
                   <span class="deadline-left" data-countdown></span>
                 </li>
               ))}
@@ -237,7 +248,7 @@ const dayName = (mo, d) => ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'][new
 
   /* Three across on a page of its own, so each month gets roughly twice the
      width it had as a section inside Research. */
-  .cals { display:grid; grid-template-columns:repeat(3, minmax(0,1fr)); gap:16px; margin-bottom:16px; }
+  .cals { display:grid; grid-template-columns:repeat(4, minmax(0,1fr)); gap:14px; margin-bottom:16px; }
   /* A hairline dashed frame separates the months without tinting anything. */
   .cal { padding:8px 8px 6px; border:1px dashed rgba(148,163,184,.42); border-radius:12px; }
   .cal h3 { font-family:'Montserrat',sans-serif; font-size:.76rem; font-weight:700; letter-spacing:.08em; text-transform:uppercase; color:#334155; margin:0 0 5px; text-align:center; }
@@ -258,7 +269,7 @@ const dayName = (mo, d) => ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'][new
   .cal-cell.is-gone .cal-num { color:#cbd5e1; }
 
   /* Detail panel, CSS-only so it needs no scripting and cannot drift. */
-  .cal-pop { display:none; position:absolute; top:calc(100% + 5px); left:50%; transform:translateX(-50%); z-index:30; width:max-content; max-width:260px; padding:8px 10px; border-radius:10px; background:#0f172a; color:#e2e8f0; font-size:.74rem; line-height:1.35; text-align:left; box-shadow:0 12px 28px rgba(15,23,42,.28); }
+  .cal-pop { display:none; position:absolute; top:calc(100% + 1px); padding-top:9px; left:50%; transform:translateX(-50%); z-index:30; width:max-content; max-width:260px; padding:8px 10px; border-radius:10px; background:#0f172a; color:#e2e8f0; font-size:.74rem; line-height:1.35; text-align:left; box-shadow:0 12px 28px rgba(15,23,42,.28); }
   .cal-cell.is-due:hover .cal-pop { display:block; }
   .cal-cell.is-gone:hover .cal-pop { display:none; }
   .cal-pop-head { display:block; font-weight:700; color:#fff; margin-bottom:4px; }
@@ -281,6 +292,10 @@ const dayName = (mo, d) => ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'][new
   .deadline-date { font-size:.76rem; font-weight:700; color:#0f172a; font-variant-numeric:tabular-nums; }
   .deadline-name { font-size:.82rem; color:#334155; line-height:1.35; }
   .deadline-name .dot { margin-right:6px; transform:translateY(-1px); }
+  .deadline-link { color:inherit; text-decoration:none; border-bottom:1px solid rgba(37,99,235,.35); }
+  .deadline-link:hover { color:#2563eb; border-bottom-color:#2563eb; }
+  .cal-pop-link { color:#bfdbfe; text-decoration:underline; text-underline-offset:2px; }
+  .cal-pop-link:hover { color:#fff; }
   .est-flag { margin-left:6px; font-size:.68rem; color:#94a3b8; border:1px dashed #cbd5e1; border-radius:4px; padding:0 4px; }
 
   /* White on a solid band, so the countdown is the loudest thing in the row. */
@@ -320,6 +335,9 @@ const dayName = (mo, d) => ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'][new
   .past-card .topics li { color:#94a3b8; }
   .fineprint { margin:16px 0 0; font-size:.76rem; color:#94a3b8; line-height:1.5; }
 
+  @media (max-width: 1350px) {
+    .cals { grid-template-columns:repeat(3, minmax(0,1fr)); }
+  }
   @media (max-width: 1100px) {
     .cals { grid-template-columns:repeat(2, minmax(0,1fr)); }
     .months { columns:2; }

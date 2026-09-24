@@ -40,6 +40,7 @@ export const deadlines = [
   ]},
   { month: 'Dec 2026', y: 2026, m: 11, items: [
     { d: 1, name: 'Simons Empire AI (noon ET)', kind: 'other' },
+    { d: 3, name: 'ACM CCS 2027', kind: 'paper', est: true, href: 'https://www.sigsac.org/ccs/CCS2027/' },
     { d: 2, name: 'NSF Expeditions preliminary proposal', kind: 'nsf' },
   ]},
   { month: 'Jan 2027', y: 2027, m: 0, items: [
@@ -53,7 +54,13 @@ export const deadlines = [
     { d: 16, name: 'NIH R21 new (standing date)', kind: 'nih' },
     { d: 25, name: 'NIH R15 AREA new (standing date)', kind: 'nih' },
   ]},
+  { month: 'Mar 2027', y: 2027, m: 2, items: [] },
+  { month: 'Apr 2027', y: 2027, m: 3, items: [] },
 ];
+
+// Sort on the way out, so an item dropped anywhere in a month still lands in
+// date order in both the page and the .ics.
+deadlines.forEach((mo) => mo.items.sort((a, b) => a.d - b.d));
 
 export const kindLabels = {
   nsf: 'NSF grant',

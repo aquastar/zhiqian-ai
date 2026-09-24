@@ -45,6 +45,7 @@ export function GET() {
         `DTEND;VALUE=DATE:${stamp(end.getUTCFullYear(), end.getUTCMonth(), end.getUTCDate())}`,
         `SUMMARY:${esc(item.name)}${item.est ? ' (estimated)' : ''}`,
         `CATEGORIES:${esc(kindLabels[item.kind] ?? item.kind)}`,
+        ...(item.href ? [`URL:${item.href}`] : []),
         `DESCRIPTION:${esc(kindLabels[item.kind] ?? item.kind)}${item.est ? esc('. Date is an estimate; verify against the call.') : esc('. Verify against its own solicitation.')}`,
         'TRANSP:TRANSPARENT',
         'END:VEVENT',
