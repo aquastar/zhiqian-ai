@@ -13,6 +13,7 @@ export const deadlines = [
   { month: 'Oct 2026', y: 2026, m: 9, items: [
     { d: 9, name: 'NSF MFAI', kind: 'nsf' },
     { d: 9, name: 'Air Force YIP FY2027 white paper', kind: 'other' },
+    { d: 6, name: 'AISTATS 2027 full paper (incl. supplementary)', kind: 'paper', href: 'https://aistats.org/aistats2027/' },
     { d: 12, name: 'NAACL 2027 (main)', kind: 'paper' },
     { d: 12, name: 'COLING 2027 (main)', kind: 'paper' },
     { d: 14, name: 'IEEE BigData reviews due', kind: 'review' },
@@ -44,10 +45,16 @@ export const deadlines = [
     { d: 2, name: 'NSF Expeditions preliminary proposal', kind: 'nsf' },
   ]},
   { month: 'Jan 2027', y: 2027, m: 0, items: [
+    { d: 11, name: 'IJCAI 2027 abstract', kind: 'paper', est: true },
+    { d: 18, name: 'IJCAI 2027 full paper', kind: 'paper', est: true },
+    { d: 22, name: 'ICML 2027 abstract', kind: 'paper', est: true },
+    { d: 27, name: 'ICML 2027 full paper', kind: 'paper', est: true },
     { d: 20, name: 'NSF CICI', kind: 'nsf' },
     { d: 31, name: 'NSF CISE Core eligible again', kind: 'nsf' },
   ]},
   { month: 'Feb 2027', y: 2027, m: 1, items: [
+    { d: 7, name: 'KDD 2027 Cycle 2 abstract', kind: 'paper', est: true, href: 'https://kdd2027.kdd.org/research-track-call-for-papers/' },
+    { d: 14, name: 'KDD 2027 Cycle 2 full paper', kind: 'paper', est: true, href: 'https://kdd2027.kdd.org/research-track-call-for-papers/' },
     { d: 3, name: 'NIH R35 MIRA for ESIs', kind: 'nih' },
     { d: 8, name: 'NSF GCR', kind: 'nsf' },
     { d: 15, name: 'NeuroArts Fleming (mid Feb)', kind: 'other', est: true },
