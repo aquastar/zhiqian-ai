@@ -16,7 +16,7 @@ export const deadlines = [
     { d: 6, name: 'AISTATS 2027 full paper (incl. supplementary)', kind: 'paper', href: 'https://aistats.org/aistats2027/' },
     { d: 12, name: 'NAACL 2027 (main)', kind: 'paper' },
     { d: 12, name: 'COLING 2027 (main)', kind: 'paper' },
-    { d: 14, name: 'IEEE BigData reviews due', kind: 'review' },
+    { d: 13, name: 'ARPA-H EHI Proposers\' Day', kind: 'other', href: 'https://sam.gov/workspace/contract/opp/97049f3d1bb44fa292b998d15ce99c6a/view' },
     { d: 15, name: 'WSDM 2027 demo', kind: 'paper' },
     { d: 16, name: 'NIH R21 new (standing date)', kind: 'nih' },
     { d: 18, name: 'WebConf abstract (research + industry)', kind: 'paper' },
@@ -25,6 +25,7 @@ export const deadlines = [
     { d: 29, name: 'NSF CIRC final + outcomes report', kind: 'review' },
     { d: 30, name: 'RIT Global Seed', kind: 'other' },
     { d: 30, name: 'ONR YIP', kind: 'other' },
+    { d: 30, name: 'ARPA-H EHI Solution Summary (required, 2:00 PM ET)', kind: 'other', href: 'https://sam.gov/workspace/contract/opp/97049f3d1bb44fa292b998d15ce99c6a/view' },
   ]},
   { month: 'Nov 2026', y: 2026, m: 10, items: [
     { d: 4, name: 'NSF AI Datasets', kind: 'nsf' },
@@ -79,6 +80,6 @@ export const kindLabels = {
 
 export const openCalls = [
   { heading: 'Submit anytime (no fixed deadline)', items: ['NSF BIO Core', 'NSF CMMI / IIDS (NSF 26-515)', 'NSF CMMI / EME', 'NSF TTP-E', 'NSF CISE Core — 2 per rolling 12 months; next slot opens Jan 31, 2027'] },
-  { heading: 'Date not announced', items: ['ARPA-H EHI (call not yet announced)', 'CVPR 2027 demo (historically spring)', 'NeuroArts Fleming (mid Feb 2027)'] },
+  { heading: 'Date not announced', items: ['CVPR 2027 demo (historically spring)', 'NeuroArts Fleming (mid Feb 2027)'] },
   { heading: 'NIH due dates (new applications)', items: ['R35 MIRA for ESIs: Feb 3, 2027 (Feb and Oct cycles)', 'R21: Feb 16 / Jun 16 / Oct 16', 'R15 AREA: Feb 25 / Jun 25 / Oct 25'] },
 ];
