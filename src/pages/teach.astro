@@ -1,6 +1,58 @@
 ---
 import Layout from '../layouts/Layout.astro';
 
+const talks = [
+  {
+    tag: 'Talk', year: '2026',
+    title: 'From Networks to Neural Networks: What Internal Structure Tells Us About Generative Models',
+    desc: 'A tutorial-style talk on the ways a trained model gets changed after release (editing, stitching, merging, pruning, steering, unlearning, fine-tuning), why exams miss what breaks inside, and how reading the model as a graph helps.',
+    events: [],
+    links: [
+      { label: 'Slides (online)', href: 'https://aquastar.github.io/neural-networks-to-networks/', kind: 'slides' },
+      { label: 'Source', href: 'https://github.com/aquastar/neural-networks-to-networks', kind: 'code' },
+    ],
+  },
+  {
+    tag: 'Tutorial', year: '2026',
+    title: 'Uncertainty Quantification for Dynamical Networks',
+    desc: 'Uncertainty quantification and state estimation for graph dynamics.',
+    events: [{ label: 'WSDM 2026 · Feb 22 to 26 · Boise, ID', href: 'https://wsdm-conference.org/2026/index.php/tutorials/' }],
+    links: [
+      { label: 'Slides (online)', href: 'https://aquastar.github.io/wsdm25-revealjs-slides/', kind: 'slides' },
+      { label: 'PDF', href: 'https://github.com/aquastar/wsdm25-revealjs-slides/blob/master/State%20Estimation%20for%20Dynamical%20Networks.pdf', kind: 'pdf' },
+    ],
+  },
+  {
+    tag: 'Tutorial series', year: '2024 to 2025',
+    title: 'Unifying Spectral and Spatial Graph Neural Networks',
+    desc: 'An operator-level view that connects spectral and spatial GNNs.',
+    events: [
+      { label: 'CVPR 2024 · Jun 18 · Seattle, WA', href: 'https://cvpr.thecvf.com/virtual/2024/tutorial/23726' },
+      { label: 'CIKM 2024 · Oct 21 · Boise, ID', href: 'https://cikm2024.org/tutorials/' },
+      { label: 'SIAM MDS 2024 · Oct 23 · Atlanta, GA', href: 'https://meetings.siam.org/sess/dsp_programsess.cfm?SESSIONCODE=80791' },
+      { label: 'SIAM SDM 2025 · May 3 · Washington, DC', href: 'https://meetings.siam.org/sess/dsp_programsess.cfm?SESSIONCODE=84896' },
+    ],
+    links: [
+      { label: 'Slides', href: 'https://drive.google.com/file/d/1gbe9xxNHPHHHN5DKRu3fC8f_G9TPcayt/view?usp=sharing', kind: 'slides' },
+      { label: 'Awesome Spectral GNN', href: 'https://github.com/XGraph-Team/Spectral-Graph-Survey/tree/master', kind: 'code' },
+    ],
+  },
+  {
+    tag: 'Paper talk', year: '2022',
+    title: 'Early Forecasting of the Impact of Traffic Accidents Using a Single Shot Observation',
+    desc: '',
+    events: [{ label: 'SIAM SDM 2022 · Minneapolis, MN' }],
+    links: [],
+  },
+  {
+    tag: 'Tutorial', year: '2021',
+    title: 'Studying Spread Patterns of COVID-19 Based on Spatiotemporal Data',
+    desc: 'With Beiyu Lin and Xiaowei Jia. Spreading models for epidemics (GNN, RNN, SIR, PDE).',
+    events: [{ label: 'SIAM SDM 2021 · online' }],
+    links: [],
+  },
+];
+
 const courses = [
   { tag: 'Undergraduate', title: 'CSCI 431.02 Intro to Computer Vision', desc: 'Introductory computer vision for undergraduates.', school: 'Rochester Institute of Technology', current: true },
   { tag: 'Split-level', title: 'CSE 4633/6633 Artificial Intelligence', desc: 'Introductory AI course spanning core concepts and methods.', school: 'Mississippi State University' },
@@ -9,19 +61,49 @@ const courses = [
   { tag: 'Graduate', title: 'CSE 8990 Graph Machine Learning', desc: 'Advanced topics in graph machine learning and networked intelligence.', school: 'Mississippi State University' },
 ];
 ---
-<Layout title="Teach | Zhiqian Chen">
+<Layout title="Talk &amp; Teach | Zhiqian Chen">
   <main class="container">
     <nav class="top-nav" aria-label="Sections">
       <a href="/">Home</a>
       <a href="/research">Research</a>
       <a href="/agenda">Agenda</a>
       <a href="/people">People</a>
-      <a href="/teach" aria-current="page">Teach</a>
+      <a href="/teach" aria-current="page">Talk &amp; Teach</a>
       <a href="https://scholar.google.com/citations?user=NC3-O6UAAAAJ&hl=en&oi=ao" target="_blank" rel="noopener">Paper <i class="ai ai-google-scholar-square ai-sm nav-ghost"></i> <i class="fas fa-arrow-up-right-from-square nav-ghost"></i></a>
       <a href="https://substack.com/@zhiqianchen1" target="_blank" rel="noopener">Zhiqian's Note <svg class="nav-ghost nav-substack" viewBox="0 0 24 24" fill="currentColor" width="11" height="11" aria-hidden="true"><path d="M22.539 8.242H1.46V5.406h21.08v2.836zM1.46 10.812V24L12 18.11 22.54 24V10.812H1.46zM22.54 0H1.46v2.836h21.08V0z"/></svg> <i class="fas fa-arrow-up-right-from-square nav-ghost"></i></a>
     </nav>
     <section class="hero">
-      <h1>Teach</h1>
+      <h1>Talk &amp; Teach</h1>
+      <p>Slides and tutorial materials, kept online for collaborators and students.</p>
+    </section>
+    <section class="section">
+      <h2>Talks &amp; tutorials</h2>
+      <div class="cards two">
+        {talks.map((t) => (
+          <article class="card">
+            <span class="tags">
+              <span class="tag">{t.tag}</span>
+              <span class="tag tag-past">{t.year}</span>
+            </span>
+            <h3>{t.title}</h3>
+            {t.events.length > 0 && (
+              <ul class="events">
+                {t.events.map((e) => (
+                  <li>{e.href ? <a href={e.href} target="_blank" rel="noopener">{e.label}</a> : e.label}</li>
+                ))}
+              </ul>
+            )}
+            {t.desc && <p>{t.desc}</p>}
+            {t.links.length > 0 && (
+              <p class="links">
+                {t.links.map((l) => (
+                  <a class={`chip chip-${l.kind}`} href={l.href} target="_blank" rel="noopener">{l.label}</a>
+                ))}
+              </p>
+            )}
+          </article>
+        ))}
+      </div>
     </section>
     <section class="section">
       <h2>Courses</h2>
@@ -60,6 +142,7 @@ const courses = [
   .cards { display:grid; gap:14px; }
   .cards.two { grid-template-columns: repeat(2, minmax(0,1fr)); }
   .card { border:1px solid rgba(148,163,184,.16); border-radius:16px; background:#fff; padding:16px; }
+  .card h3, .card p { text-align:left; }
   .card h3 { font-family:'Montserrat',sans-serif; font-size:1rem; margin:0 0 8px; }
   .card p { margin:0; color:#334155; font-size:.95rem; }
   .tags { display:flex; flex-wrap:wrap; gap:6px; margin-bottom:8px; }
@@ -69,5 +152,14 @@ const courses = [
   .card.is-current { border-color:rgba(22,101,52,.28); }
   .school { margin:0 0 6px !important; font-size:.8rem; color:#64748b; }
   .schedule-box { border:1px dashed rgba(37,99,235,.28); border-radius:14px; padding:14px; background:#f8fbff; color:#334155; }
+  .events { list-style:none; margin:0 0 8px; padding:0; font-size:.82rem; color:#475569; }
+  .events li { margin:2px 0; }
+  .events a { color:#475569; text-decoration:none; border-bottom:1px dotted #94a3b8; }
+  .events a:hover { color:#0f172a; }
+  .links { margin-top:10px !important; display:flex; flex-wrap:wrap; gap:6px; }
+  .chip { font-size:.75rem; text-decoration:none; padding:3px 9px; border-radius:999px; border:1px solid rgba(148,163,184,.4); color:#0f172a; background:#f8fafc; }
+  .chip-slides { color:#b45309; background:#fffbeb; border-color:rgba(180,83,9,.25); }
+  .chip-pdf { color:#b91c1c; background:#fef2f2; border-color:rgba(185,28,28,.2); }
+  .chip-code { color:#1d4ed8; background:#eff6ff; border-color:rgba(29,78,216,.2); }
   @media (max-width: 900px) { .cards.two { grid-template-columns:1fr; } }
 </style>
