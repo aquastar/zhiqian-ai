@@ -13,7 +13,7 @@ export const deadlines = [
   ]},
   { month: 'Oct 2026', y: 2026, m: 9, items: [
     { d: 9, name: 'NSF MFAI', kind: 'nsf' },
-    { d: 9, name: 'Air Force YIP FY2027 white paper', kind: 'other', href: 'https://grants.gov/search-results-detail/363829' },
+    { d: 9, name: 'Air Force YIP FY2027 white paper', kind: 'other', href: 'https://afosr.gov1.qualtrics.com/jfe/form/SV_eKuTqm9qezoDYep' },
     { d: 12, name: 'NAACL 2027 (main)', kind: 'paper' },
     { d: 13, name: 'ARPA-H EHI Proposers\' Day', kind: 'other', href: 'https://sam.gov/workspace/contract/opp/97049f3d1bb44fa292b998d15ce99c6a/view' },
     { d: 15, name: 'WSDM 2027 demo', kind: 'paper' },
