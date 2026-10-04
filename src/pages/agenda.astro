@@ -1,6 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import { deadlines, kindLabels, openCalls } from '../data/deadlines.js';
+import { kindLabels, openCalls, monthWindow } from '../data/deadlines.js';
 
 const DOW = ['S', 'M', 'T', 'W', 'T', 'F', 'S'];
 const SHORT_MONTH = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
@@ -17,6 +17,15 @@ const buildWeeks = (mo) => {
   while (cells.length % 7 !== 0) cells.push(null);
   return Array.from({ length: cells.length / 7 }, (_, w) => cells.slice(w * 7, w * 7 + 7));
 };
+
+// Eight months on the board, the first of them the current one. The build
+// renders a few extra past that: it can only know its own today, so the spare
+// months let a deploy that has sat for a while still fill the window from the
+// viewer's today, and the script trims the board back to eight.
+const BOARD_MONTHS = 8;
+const BUILD_SPARE = 4;
+const built = new Date();
+const months = monthWindow(built.getUTCFullYear(), built.getUTCMonth(), BOARD_MONTHS + BUILD_SPARE);
 
 const labelFor = (mo, item) => `${SHORT_MONTH[mo.m]} ${item.d}`;
 const dayName = (mo, d) => ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'][new Date(Date.UTC(mo.y, mo.m, d)).getUTCDay()];
@@ -48,8 +57,8 @@ const dayName = (mo, d) => ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'][new
       </ul>
 
       <div class="cals">
-        {deadlines.map((mo) => (
-          <section class="cal">
+        {months.map((mo) => (
+          <section class="cal" data-month={`${mo.y}-${mo.m}`}>
             <h3>{mo.month}</h3>
             <div class="cal-dow" aria-hidden="true">
               {DOW.map((d) => <span>{d}</span>)}
@@ -95,8 +104,8 @@ const dayName = (mo, d) => ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'][new
       </div>
 
       <div class="months">
-        {deadlines.map((mo) => (
-          <section class="month">
+        {months.map((mo) => (
+          <section class="month" data-month={`${mo.y}-${mo.m}`} hidden={mo.items.length === 0}>
             <h3>{mo.month}</h3>
             <ul class="deadline-list">
               {mo.items.map((d) => (
@@ -158,6 +167,18 @@ const dayName = (mo, d) => ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'][new
     // The band drives the pill colour: under 30 days, 30-60, 60-90, and beyond.
     const now = new Date();
     const today = Date.UTC(now.getFullYear(), now.getMonth(), now.getDate());
+
+    // The board starts at the viewer's current month and runs eight months, so
+    // a month that has gone by drops off on its own without a redeploy. The
+    // build renders spares past the eighth; everything outside the window goes.
+    const BOARD_MONTHS = 8;
+    const firstMonth = now.getFullYear() * 12 + now.getMonth();
+    document.querySelectorAll('[data-month]').forEach((el) => {
+      const [y, m] = el.getAttribute('data-month').split('-').map(Number);
+      const idx = y * 12 + m;
+      if (idx < firstMonth || idx >= firstMonth + BOARD_MONTHS) el.hidden = true;
+    });
+
     const pastItems = [];
     document.querySelectorAll('.deadline[data-key]').forEach((row) => {
       const slot = row.querySelector('[data-countdown]');
@@ -206,6 +227,7 @@ const dayName = (mo, d) => ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'][new
       const visible = [...month.querySelectorAll('.deadline')].some((row) => !row.hidden);
       if (!visible) month.hidden = true;
     });
+
 
     if (pastItems.length) {
       const list = document.getElementById('past-list');

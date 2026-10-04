@@ -1,5 +1,7 @@
-// Deadlines, Sep 2026 - Feb 2027. `kind` drives the colour and follows the
-// source legend: NSF grant, NIH grant, other grant, paper, review/report.
+// Authored month by month, in any order within a month. `kind` drives the
+// colour and follows the source legend: NSF grant, NIH grant, other grant,
+// paper, review/report. Only months that actually hold something belong here —
+// the board generates the empty ones it needs via monthWindow().
 export const deadlines = [
   { month: 'Sep 2026', y: 2026, m: 8, items: [
     { d: 15, name: 'Sony Research Award (FRA)', kind: 'other' },
@@ -59,13 +61,26 @@ export const deadlines = [
     { d: 16, name: 'NIH R21 new (standing date)', kind: 'nih' },
     { d: 25, name: 'NIH R15 AREA new (standing date)', kind: 'nih' },
   ]},
-  { month: 'Mar 2027', y: 2027, m: 2, items: [] },
-  { month: 'Apr 2027', y: 2027, m: 3, items: [] },
 ];
 
 // Sort on the way out, so an item dropped anywhere in a month still lands in
 // date order in both the page and the .ics.
 deadlines.forEach((mo) => mo.items.sort((a, b) => a.d - b.d));
+
+const MONTH_NAMES = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+
+// The board is a window that rolls with the calendar, so its months are
+// generated rather than authored: a quiet month still needs a grid, and a
+// month that has rolled out of range should not have to be deleted by hand.
+export const monthWindow = (y, m, count) => {
+  const authored = new Map(deadlines.map((mo) => [mo.y * 12 + mo.m, mo]));
+  return Array.from({ length: count }, (_, i) => {
+    const idx = y * 12 + m + i;
+    const yy = Math.floor(idx / 12);
+    const mm = idx % 12;
+    return authored.get(idx) ?? { month: `${MONTH_NAMES[mm]} ${yy}`, y: yy, m: mm, items: [] };
+  });
+};
 
 export const kindLabels = {
   nsf: 'NSF grant',
