@@ -44,7 +44,6 @@ const dayName = (mo, d) => ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'][new
       <a href="/">Home</a>
       <a href="/research">Research</a>
       <a href="/agenda" aria-current="page">Agenda</a>
-      <a href="/conferences">Confs</a>
       <a href="/people">People</a>
       <a href="/teach">Talk &amp; Teach</a>
       <a href="https://scholar.google.com/citations?user=NC3-O6UAAAAJ&hl=en&oi=ao" target="_blank" rel="noopener">Paper <i class="ai ai-google-scholar-square ai-sm nav-ghost"></i> <i class="fas fa-arrow-up-right-from-square nav-ghost"></i></a>
@@ -57,6 +56,10 @@ const dayName = (mo, d) => ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'][new
           <a class="ics-link" href="/research-calendar.ics" download>
             <i class="fas fa-download" aria-hidden="true"></i>
             Download .ics
+          </a>
+          <a class="ics-link confs-link" href="/conferences">
+            <i class="fas fa-ranking-star" aria-hidden="true"></i>
+            CCF &times; CORE
           </a>
         </li>
         {bands.map((b) => (
@@ -263,7 +266,7 @@ const dayName = (mo, d) => ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'][new
 
   .legend { list-style:none; margin:0 0 12px; padding:0; display:flex; flex-wrap:wrap; gap:14px; font-size:.8rem; color:#475569; }
   .legend li { display:inline-flex; align-items:center; gap:6px; }
-  .legend-action { margin-right:auto; }
+  .legend-action { margin-right:auto; display:inline-flex; gap:8px; }
   .ics-link { display:inline-flex; align-items:center; gap:6px; padding:4px 11px; border:1px solid rgba(148,163,184,.35); border-radius:999px; background:#fff; color:var(--accent); font-weight:600; font-size:.78rem; text-decoration:none; transition:background .15s ease, border-color .15s ease; }
   .ics-link:hover { background:#eff6ff; border-color:rgba(37,99,235,.45); }
   .dot { width:9px; height:9px; border-radius:50%; display:inline-block; flex:none; background:#94a3b8; }

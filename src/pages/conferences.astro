@@ -2,8 +2,12 @@
 import Layout from '../layouts/Layout.astro';
 import { ranked, others } from '../data/conferences.js';
 
-const areas = ['AI / ML', 'Security', 'Bio / Health'];
-const coreTiers = ['A*', 'A', 'B', 'C', 'N'];
+const areas = ['AI / ML', 'Security', 'Data & DB', 'Bio / Health', 'Interdisciplinary'];
+const coreTiers = ['A*', 'A', 'B', 'C', 'TBR', 'JP', 'N'];
+// CORE publishes statuses that are not ranks; keep them rather than
+// flattening a venue under review into 'unranked'.
+const coreLabel = { 'A*': 'A*', A: 'A', B: 'B', C: 'C', TBR: 'TBR', JP: 'jrnl', N: '\u2014' };
+const coreClass = (c) => `core-${c === 'A*' ? 'as' : c.toLowerCase()}`;
 
 const countBy = (list, key, value) => list.filter((c) => c[key] === value).length;
 ---
@@ -12,8 +16,7 @@ const countBy = (list, key, value) => list.filter((c) => c[key] === value).lengt
     <nav class="top-nav" aria-label="Sections">
       <a href="/">Home</a>
       <a href="/research">Research</a>
-      <a href="/agenda">Agenda</a>
-      <a href="/conferences" aria-current="page">Confs</a>
+      <a href="/agenda" aria-current="page">Agenda</a>
       <a href="/people">People</a>
       <a href="/teach">Talk &amp; Teach</a>
       <a href="https://scholar.google.com/citations?user=NC3-O6UAAAAJ&hl=en&oi=ao" target="_blank" rel="noopener">Paper <i class="ai ai-google-scholar-square ai-sm nav-ghost"></i> <i class="fas fa-arrow-up-right-from-square nav-ghost"></i></a>
@@ -23,12 +26,13 @@ const countBy = (list, key, value) => list.filter((c) => c[key] === value).lengt
     <section class="head">
       <h1>Conferences</h1>
       <p class="sub">
-        AI / ML, security and bio venues at CCF A–B or CORE A*–B, ordered by CORE first.
-        Dates are the 2026 editions. Everything below the bar is folded away at the foot.
+        AI/ML, security, data and interdisciplinary venues, ordered by CORE first, then CCF.
+        Dates are the 2026 editions. Folded at the foot: everything that is CORE B or lower
+        <em>and</em> CCF C or lower.
       </p>
       <ul class="summary">
         {coreTiers.filter((t) => countBy(ranked, 'core', t)).map((t) => (
-          <li><span class={`pill core-${t === 'A*' ? 'as' : t.toLowerCase()}`}>CORE {t}</span>{countBy(ranked, 'core', t)}</li>
+          <li><span class={`pill ${coreClass(t)}`}>CORE {coreLabel[t]}</span>{countBy(ranked, 'core', t)}</li>
         ))}
         <li class="summary-sep">·</li>
         {areas.map((a) => <li><span class="pill pill-area">{a}</span>{countBy(ranked, 'area', a)}</li>)}
@@ -51,7 +55,7 @@ const countBy = (list, key, value) => list.filter((c) => c[key] === value).lengt
           <tbody>
             {ranked.map((c) => (
               <tr>
-                <td class="c-core"><span class={`pill core-${c.core === 'A*' ? 'as' : c.core.toLowerCase()}`}>{c.core === 'N' ? '—' : c.core}</span></td>
+                <td class="c-core"><span class={`pill ${coreClass(c.core)}`} title={c.verified ? 'Confirmed against the official CORE2023 list' : 'Not found in the official CORE2023 export'}>{coreLabel[c.core]}</span></td>
                 <td class="c-ccf"><span class={`pill ccf-${c.ccf.toLowerCase()}`}>{c.ccf === 'N' ? '—' : c.ccf}</span></td>
                 <td class="c-name">
                   {c.link
@@ -85,14 +89,14 @@ const countBy = (list, key, value) => list.filter((c) => c[key] === value).lengt
         <summary>
           <h2>Below the bar</h2>
           <span class="rest-count">{others.length}</span>
-          <span class="rest-note">CCF C or unranked, and CORE C or unranked</span>
+          <span class="rest-note">CORE B or lower and CCF C or lower</span>
         </summary>
         <div class="table-wrap">
           <table class="confs">
             <tbody>
               {others.map((c) => (
                 <tr>
-                  <td class="c-core"><span class={`pill core-${c.core === 'A*' ? 'as' : c.core.toLowerCase()}`}>{c.core === 'N' ? '—' : c.core}</span></td>
+                  <td class="c-core"><span class={`pill ${coreClass(c.core)}`} title={c.verified ? 'Confirmed against the official CORE2023 list' : 'Not found in the official CORE2023 export'}>{coreLabel[c.core]}</span></td>
                   <td class="c-ccf"><span class={`pill ccf-${c.ccf.toLowerCase()}`}>{c.ccf === 'N' ? '—' : c.ccf}</span></td>
                   <td class="c-name">
                     {c.link
@@ -113,9 +117,13 @@ const countBy = (list, key, value) => list.filter((c) => c[key] === value).lengt
         </div>
       </details>
       <p class="fineprint">
-        Rankings and 2026 editions from <a href="https://github.com/ccfddl/ccf-deadlines" target="_blank" rel="noopener">ccfddl/ccf-deadlines</a>,
-        which tracks the CCF catalogue and CORE. Layout follows <a href="https://www.myhuiban.com/conferences/tracked" target="_blank" rel="noopener">myhuiban</a>.
-        A venue is listed when it clears either bar, not both. Deadlines are the first round as published for the 2026 edition; check each call before relying on one.
+CORE ranks are taken from the official <a href="https://portal.core.edu.au/conf-ranks/" target="_blank" rel="noopener">CORE2023 list</a>;
+        122 of the 157 venues here were matched in it by full name, and the rest keep the community value.
+        TBR means CORE has it under review, <em>jrnl</em> means CORE records it as having become a journal.
+        CCF ranks and the 2026 editions come from <a href="https://github.com/ccfddl/ccf-deadlines" target="_blank" rel="noopener">ccfddl/ccf-deadlines</a>,
+        a community mirror of the CCF catalogue — CCF itself publishes only a PDF, so those ranks are not machine-verified here.
+        Layout follows <a href="https://www.myhuiban.com/conferences/tracked" target="_blank" rel="noopener">myhuiban</a>.
+        Deadlines are the first round published for 2026; check each call before relying on one.
       </p>
     </section>
   </main>
@@ -155,7 +163,7 @@ const countBy = (list, key, value) => list.filter((c) => c[key] === value).lengt
   .core-a { background:#2563eb; }
   .core-b { background:#60a5fa; color:#0f172a; }
   .core-c { background:#dbeafe; color:#1e3a8a; }
-  .core-n { background:#f1f5f9; color:#94a3b8; }
+  .core-tbr, .core-jp, .core-n { background:#f1f5f9; color:#94a3b8; }
   .ccf-a { background:#7f1d1d; }
   .ccf-b { background:#b91c1c; }
   .ccf-c { background:#fecaca; color:#7f1d1d; }
