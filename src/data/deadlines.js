@@ -47,8 +47,9 @@ export const deadlines = [
     { d: 2, name: 'NSF Expeditions preliminary proposal', kind: 'nsf' },
   ]},
   { month: 'Jan 2027', y: 2027, m: 0, items: [
-    { d: 11, name: 'IJCAI 2027 abstract', kind: 'paper', est: true },
-    { d: 18, name: 'IJCAI 2027 full paper', kind: 'paper', est: true },
+    { d: 4, name: 'IJCAI 2027 abstract', kind: 'paper', href: 'https://2027.ijcai.org/' },
+    { d: 11, name: 'IJCAI 2027 full paper', kind: 'paper', href: 'https://2027.ijcai.org/' },
+    { d: 4, name: 'ACL 2027 ARR submission', kind: 'paper', href: 'https://2027.aclweb.org/' },
     { d: 22, name: 'ICML 2027 abstract', kind: 'paper', est: true },
     { d: 27, name: 'ICML 2027 full paper', kind: 'paper', est: true },
     { d: 26, name: 'USENIX Security 2027 Cycle 2', kind: 'paper', href: 'https://www.usenix.org/conference/usenixsecurity27/call-for-papers' },
@@ -95,6 +96,6 @@ export const kindLabels = {
 
 export const openCalls = [
   { heading: 'Submit anytime (no fixed deadline)', items: ['NSF BIO Core', 'NSF CMMI / IIDS (NSF 26-515)', 'NSF CMMI / EME', 'NSF TTP-E', 'NSF CISE Core — 2 per rolling 12 months; next slot opens Jan 31, 2027'] },
-  { heading: 'Date not announced', items: ['CVPR 2027 demo (historically spring)', 'NeuroArts Fleming (mid Feb 2027)'] },
+  { heading: 'Date not announced', items: ['ACL 2027 commitment deadline (follows the Jan 4 ARR cycle)', 'CVPR 2027 demo (historically spring)', 'NeuroArts Fleming (mid Feb 2027)'] },
   { heading: 'NIH due dates (new applications)', items: ['R35 MIRA for ESIs: Feb 3, 2027 (Feb and Oct cycles)', 'R21: Feb 16 / Jun 16 / Oct 16', 'R15 AREA: Feb 25 / Jun 25 / Oct 25'] },
 ];
