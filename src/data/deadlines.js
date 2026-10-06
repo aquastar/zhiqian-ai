@@ -65,6 +65,8 @@ export const deadlines = [
     { d: 8, name: 'NSF GCR', kind: 'nsf' },
     { d: 15, name: 'NeuroArts Fleming (mid Feb)', kind: 'other', est: true },
     { d: 16, name: 'NIH R21 new (standing date)', kind: 'nih' },
+    { d: 12, name: 'MICCAI 2027 abstract registration', kind: 'paper', est: true, href: 'https://miccai.org/2026/02/18/announcing-miccai-2027-and-miccai-2028-locations/' },
+    { d: 26, name: 'MICCAI 2027 submission', kind: 'paper', est: true, href: 'https://miccai.org/2026/02/18/announcing-miccai-2027-and-miccai-2028-locations/' },
     { d: 25, name: 'NIH R15 AREA new (standing date)', kind: 'nih' },
   ]},
 ];
