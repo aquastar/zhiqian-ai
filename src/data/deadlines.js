@@ -16,6 +16,7 @@ export const deadlines = [
     { d: 9, name: 'Air Force YIP FY2027 white paper', kind: 'other', href: 'https://afosr.gov1.qualtrics.com/jfe/form/SV_eKuTqm9qezoDYep' },
     { d: 12, name: 'NAACL 2027 (main)', kind: 'paper' },
     { d: 13, name: 'ARPA-H EHI Proposers\' Day', kind: 'other', href: 'https://sam.gov/workspace/contract/opp/97049f3d1bb44fa292b998d15ce99c6a/view' },
+    { d: 14, name: 'NSF CIRC report drafted (self-set; due Oct 29)', kind: 'review' },
     { d: 15, name: 'WSDM 2027 demo', kind: 'paper' },
     { d: 16, name: 'NIH R21 new (standing date)', kind: 'nih' },
     { d: 18, name: 'WebConf abstract (research + industry)', kind: 'paper' },
