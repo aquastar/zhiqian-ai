@@ -1,0 +1,191 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { ranked, others } from '../data/conferences.js';
+
+const areas = ['AI / ML', 'Security', 'Bio / Health'];
+const coreTiers = ['A*', 'A', 'B', 'C', 'N'];
+
+const countBy = (list, key, value) => list.filter((c) => c[key] === value).length;
+---
+<Layout title="Conferences | Zhiqian Chen">
+  <main class="container">
+    <nav class="top-nav" aria-label="Sections">
+      <a href="/">Home</a>
+      <a href="/research">Research</a>
+      <a href="/agenda">Agenda</a>
+      <a href="/conferences" aria-current="page">Confs</a>
+      <a href="/people">People</a>
+      <a href="/teach">Talk &amp; Teach</a>
+      <a href="https://scholar.google.com/citations?user=NC3-O6UAAAAJ&hl=en&oi=ao" target="_blank" rel="noopener">Paper <i class="ai ai-google-scholar-square ai-sm nav-ghost"></i> <i class="fas fa-arrow-up-right-from-square nav-ghost"></i></a>
+      <a href="https://substack.com/@zhiqianchen1" target="_blank" rel="noopener">Zhiqian's Note <svg class="nav-ghost nav-substack" viewBox="0 0 24 24" fill="currentColor" width="11" height="11" aria-hidden="true"><path d="M22.539 8.242H1.46V5.406h21.08v2.836zM1.46 10.812V24L12 18.11 22.54 24V10.812H1.46zM22.54 0H1.46v2.836h21.08V0z"/></svg> <i class="fas fa-arrow-up-right-from-square nav-ghost"></i></a>
+    </nav>
+
+    <section class="head">
+      <h1>Conferences</h1>
+      <p class="sub">
+        AI / ML, security and bio venues at CCF A–B or CORE A*–B, ordered by CORE first.
+        Dates are the 2026 editions. Everything below the bar is folded away at the foot.
+      </p>
+      <ul class="summary">
+        {coreTiers.filter((t) => countBy(ranked, 'core', t)).map((t) => (
+          <li><span class={`pill core-${t === 'A*' ? 'as' : t.toLowerCase()}`}>CORE {t}</span>{countBy(ranked, 'core', t)}</li>
+        ))}
+        <li class="summary-sep">·</li>
+        {areas.map((a) => <li><span class="pill pill-area">{a}</span>{countBy(ranked, 'area', a)}</li>)}
+      </ul>
+    </section>
+
+    <section class="section">
+      <div class="table-wrap">
+        <table class="confs">
+          <thead>
+            <tr>
+              <th class="c-core">CORE</th>
+              <th class="c-ccf">CCF</th>
+              <th class="c-name">Conference</th>
+              <th class="c-area">Area</th>
+              <th class="c-date">2026 deadline</th>
+              <th class="c-when">2026 meeting</th>
+            </tr>
+          </thead>
+          <tbody>
+            {ranked.map((c) => (
+              <tr>
+                <td class="c-core"><span class={`pill core-${c.core === 'A*' ? 'as' : c.core.toLowerCase()}`}>{c.core === 'N' ? '—' : c.core}</span></td>
+                <td class="c-ccf"><span class={`pill ccf-${c.ccf.toLowerCase()}`}>{c.ccf === 'N' ? '—' : c.ccf}</span></td>
+                <td class="c-name">
+                  {c.link
+                    ? <a class="conf-name" href={c.link} target="_blank" rel="noopener">{c.title}</a>
+                    : <span class="conf-name">{c.title}</span>}
+                  <span class="conf-desc">{c.desc}</span>
+                </td>
+                <td class="c-area"><span class="area-tag">{c.area}</span></td>
+                <td class="c-date">
+                  {c.deadline
+                    ? <>
+                        <span class="dl">{c.deadline}</span>
+                        {c.abstract && c.abstract !== c.deadline && <span class="dl-abs">abs {c.abstract}</span>}
+                        {c.rounds > 1 && <span class="dl-abs">{c.rounds} rounds</span>}
+                      </>
+                    : <span class="none">—</span>}
+                </td>
+                <td class="c-when">
+                  {c.date ? <span class="when">{c.date}</span> : <span class="none">no 2026 edition</span>}
+                  {c.place && <span class="where">{c.place}</span>}
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="section">
+      <details class="rest">
+        <summary>
+          <h2>Below the bar</h2>
+          <span class="rest-count">{others.length}</span>
+          <span class="rest-note">CCF C or unranked, and CORE C or unranked</span>
+        </summary>
+        <div class="table-wrap">
+          <table class="confs">
+            <tbody>
+              {others.map((c) => (
+                <tr>
+                  <td class="c-core"><span class={`pill core-${c.core === 'A*' ? 'as' : c.core.toLowerCase()}`}>{c.core === 'N' ? '—' : c.core}</span></td>
+                  <td class="c-ccf"><span class={`pill ccf-${c.ccf.toLowerCase()}`}>{c.ccf === 'N' ? '—' : c.ccf}</span></td>
+                  <td class="c-name">
+                    {c.link
+                      ? <a class="conf-name" href={c.link} target="_blank" rel="noopener">{c.title}</a>
+                      : <span class="conf-name">{c.title}</span>}
+                    <span class="conf-desc">{c.desc}</span>
+                  </td>
+                  <td class="c-area"><span class="area-tag">{c.area}</span></td>
+                  <td class="c-date">{c.deadline ? <span class="dl">{c.deadline}</span> : <span class="none">—</span>}</td>
+                  <td class="c-when">
+                    {c.date ? <span class="when">{c.date}</span> : <span class="none">no 2026 edition</span>}
+                    {c.place && <span class="where">{c.place}</span>}
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </details>
+      <p class="fineprint">
+        Rankings and 2026 editions from <a href="https://github.com/ccfddl/ccf-deadlines" target="_blank" rel="noopener">ccfddl/ccf-deadlines</a>,
+        which tracks the CCF catalogue and CORE. Layout follows <a href="https://www.myhuiban.com/conferences/tracked" target="_blank" rel="noopener">myhuiban</a>.
+        A venue is listed when it clears either bar, not both. Deadlines are the first round as published for the 2026 edition; check each call before relying on one.
+      </p>
+    </section>
+  </main>
+</Layout>
+<style>
+  :root { --accent:#2563eb; --ink:#0f172a; --muted:#475569; }
+  .container { max-width: min(95vw, 1600px); margin: 0 auto; padding: 20px; box-sizing: border-box; }
+  .top-nav { margin-bottom: 14px; padding: 10px 0 14px; display:flex; flex-wrap:wrap; gap:8px; align-items:center; background:transparent; border:none; border-radius:0; box-shadow:none; }
+  .top-nav a { text-decoration:none; color:var(--ink); font-family:'Montserrat',sans-serif; font-size:.9rem; padding:7px 10px; border-radius:999px; background:transparent; }
+  .top-nav a:hover { background:#f1f5f9; color:#0f172a; }
+  .top-nav a[aria-current="page"] { background:#e2e8f0; color:#0f172a; box-shadow:inset 0 1px 2px rgba(15,23,42,0.10); }
+  .nav-ghost { font-size:.78rem; margin-left:4px; opacity:.85; }
+  .nav-substack { vertical-align:-1px; opacity:.85; }
+
+  .head { margin:6px 0 16px; }
+  .head h1 { font-family:'Montserrat',sans-serif; font-size:2rem; margin:0 0 8px; }
+  .sub { margin:0 0 12px; color:var(--muted); font-size:.92rem; line-height:1.55; }
+  .summary { list-style:none; margin:0; padding:0; display:flex; flex-wrap:wrap; gap:12px; align-items:center; font-size:.8rem; color:#475569; font-variant-numeric:tabular-nums; }
+  .summary li { display:inline-flex; align-items:center; gap:5px; }
+  .summary-sep { opacity:.4; }
+
+  .section { margin-top:14px; }
+  .table-wrap { overflow-x:auto; }
+  .confs { width:100%; border-collapse:collapse; font-size:.84rem; }
+  .confs thead th { text-align:left; font-family:'Montserrat',sans-serif; font-size:.68rem; font-weight:700; letter-spacing:.1em; text-transform:uppercase; color:#64748b; padding:0 10px 6px; border-bottom:1px solid rgba(148,163,184,.3); white-space:nowrap; }
+  .confs td { padding:7px 10px; border-bottom:1px solid rgba(148,163,184,.14); vertical-align:baseline; }
+  .confs tbody tr:hover { background:#f8fafc; }
+
+  .c-core, .c-ccf { width:1%; white-space:nowrap; }
+  .c-area { width:1%; white-space:nowrap; }
+  .c-date { width:1%; white-space:nowrap; }
+  .c-when { width:26%; }
+
+  /* Rank is the only place colour is spent, and it runs one scale: darker is higher. */
+  .pill { display:inline-block; min-width:30px; text-align:center; padding:2px 7px; border-radius:999px; font-size:.7rem; font-weight:700; color:#fff; }
+  .core-as { background:#1e3a8a; }
+  .core-a { background:#2563eb; }
+  .core-b { background:#60a5fa; color:#0f172a; }
+  .core-c { background:#dbeafe; color:#1e3a8a; }
+  .core-n { background:#f1f5f9; color:#94a3b8; }
+  .ccf-a { background:#7f1d1d; }
+  .ccf-b { background:#b91c1c; }
+  .ccf-c { background:#fecaca; color:#7f1d1d; }
+  .ccf-n { background:#f1f5f9; color:#94a3b8; }
+  .pill-area { background:#e2e8f0; color:#334155; }
+
+  .conf-name { display:inline; font-weight:700; color:#0f172a; text-decoration:none; border-bottom:1px solid rgba(37,99,235,.35); }
+  a.conf-name:hover { color:var(--accent); border-bottom-color:var(--accent); }
+  .conf-desc { display:block; font-size:.76rem; color:#64748b; line-height:1.35; margin-top:1px; }
+  .area-tag { font-size:.72rem; color:#475569; background:#f1f5f9; border-radius:999px; padding:2px 8px; }
+  .dl { font-weight:600; color:#0f172a; font-variant-numeric:tabular-nums; }
+  .dl-abs { display:block; font-size:.7rem; color:#94a3b8; font-variant-numeric:tabular-nums; }
+  .when { color:#334155; }
+  .where { display:block; font-size:.74rem; color:#94a3b8; }
+  .none { color:#cbd5e1; }
+
+  .rest > summary { display:flex; align-items:center; gap:10px; cursor:pointer; list-style:none; padding:10px 0; border-top:1px solid rgba(148,163,184,.3); }
+  .rest > summary::-webkit-details-marker { display:none; }
+  .rest > summary h2 { font-family:'Montserrat',sans-serif; font-size:1rem; margin:0; }
+  .rest > summary::after { content:'\f078'; font-family:'Font Awesome 6 Free'; font-weight:900; font-size:.72rem; color:#94a3b8; transition:transform .15s ease; }
+  .rest[open] > summary::after { transform:rotate(180deg); }
+  .rest-count { font-size:.72rem; font-weight:700; color:#64748b; background:#f1f5f9; border-radius:999px; padding:1px 8px; }
+  .rest-note { font-size:.78rem; color:#94a3b8; margin-right:auto; }
+
+  .fineprint { margin:16px 0 0; font-size:.76rem; color:#94a3b8; line-height:1.55; }
+  .fineprint a { color:#64748b; }
+
+  @media (max-width: 900px) {
+    .confs { font-size:.8rem; }
+    .c-when { width:auto; }
+    .conf-desc { display:none; }
+  }
+</style>
