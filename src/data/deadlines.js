@@ -60,6 +60,7 @@ export const deadlines = [
   { month: 'Feb 2027', y: 2027, m: 1, items: [
     { d: 7, name: 'KDD 2027 Cycle 2 abstract', kind: 'paper', est: true, href: 'https://kdd2027.kdd.org/research-track-call-for-papers/' },
     { d: 14, name: 'KDD 2027 Cycle 2 full paper', kind: 'paper', est: true, href: 'https://kdd2027.kdd.org/research-track-call-for-papers/' },
+    { d: 4, name: 'COLT 2027 submission', kind: 'paper', est: true, href: 'https://learningtheory.org/colt2027/' },
     { d: 3, name: 'NIH R35 MIRA for ESIs', kind: 'nih' },
     { d: 8, name: 'NSF GCR', kind: 'nsf' },
     { d: 15, name: 'NeuroArts Fleming (mid Feb)', kind: 'other', est: true },

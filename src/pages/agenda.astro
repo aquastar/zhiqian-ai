@@ -2,6 +2,14 @@
 import Layout from '../layouts/Layout.astro';
 import { kindLabels, openCalls, monthWindow } from '../data/deadlines.js';
 
+// Colour carries one meaning on this page: how far out a date is.
+const bands = [
+  { key: 'urgent', label: 'Under 30 days' },
+  { key: 'soon', label: '30-60 days' },
+  { key: 'later', label: '60-90 days' },
+  { key: 'far', label: '90+ days' },
+];
+
 const DOW = ['S', 'M', 'T', 'W', 'T', 'F', 'S'];
 const SHORT_MONTH = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
 
@@ -50,8 +58,8 @@ const dayName = (mo, d) => ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'][new
             Download .ics
           </a>
         </li>
-        {Object.entries(kindLabels).map(([k, label]) => (
-          <li><span class={`dot dot-${k}`} aria-hidden="true"></span>{label}</li>
+        {bands.map((b) => (
+          <li><span class={`chip band-${b.key}`} aria-hidden="true"></span>{b.label}</li>
         ))}
         <li><span class="dot dot-est" aria-hidden="true"></span>Estimated date</li>
       </ul>
@@ -76,7 +84,7 @@ const dayName = (mo, d) => ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'][new
                         <span class="cal-num">{cell.d}</span>
                         {cell.items.length > 0 && (
                           <span class="cal-dots">
-                            {cell.items.map((i) => <span class={`dot dot-${i.kind}${i.est ? ' is-est' : ''}`}></span>)}
+                            {cell.items.map((i) => <span class={`dot${i.est ? ' is-est' : ''}`}></span>)}
                           </span>
                         )}
                         {cell.items.length > 0 && (
@@ -84,7 +92,6 @@ const dayName = (mo, d) => ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'][new
                             <span class="cal-pop-head">{labelFor(mo, cell)} · {dayName(mo, cell.d)}</span>
                             {cell.items.map((i) => (
                               <span class="cal-pop-item">
-                                <span class={`dot dot-${i.kind}${i.est ? ' is-est' : ''}`}></span>
                                 <span>
                                   {i.href
                                     ? <a class="cal-pop-link" href={i.href} target="_blank" rel="noopener">{i.name}</a>
@@ -112,7 +119,6 @@ const dayName = (mo, d) => ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'][new
                 <li class={`deadline kind-${d.kind}${d.est ? ' is-est' : ''}`} data-key={`${mo.y}-${mo.m}-${d.d}`}>
                   <span class="deadline-date">{labelFor(mo, d)}</span>
                   <span class="deadline-name">
-                    <span class={`dot dot-${d.kind}${d.est ? ' is-est' : ''}`} aria-hidden="true"></span>
                     {d.href
                       ? <a class="deadline-link" href={d.href} target="_blank" rel="noopener">{d.name}</a>
                       : d.name}
@@ -192,7 +198,6 @@ const dayName = (mo, d) => ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'][new
         pastItems.push({
           label: row.querySelector('.deadline-date').textContent.trim(),
           name: row.querySelector('.deadline-name').textContent.trim(),
-          dotClass: row.querySelector('.deadline-name .dot')?.className ?? 'dot',
           days: -days,
         });
         row.hidden = true;
@@ -234,7 +239,7 @@ const dayName = (mo, d) => ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'][new
       pastItems.forEach((item) => {
         const li = document.createElement('li');
         li.className = 'past-item';
-        li.innerHTML = `<span class="${item.dotClass}"></span><span class="past-when">${item.label}</span><span>${item.name}</span>`;
+        li.innerHTML = `<span class="past-when">${item.label}</span><span>${item.name}</span>`;
         list.appendChild(li);
       });
       document.getElementById('past-count').textContent = String(pastItems.length);
@@ -260,13 +265,14 @@ const dayName = (mo, d) => ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'][new
   .legend-action { margin-right:auto; }
   .ics-link { display:inline-flex; align-items:center; gap:6px; padding:4px 11px; border:1px solid rgba(148,163,184,.35); border-radius:999px; background:#fff; color:var(--accent); font-weight:600; font-size:.78rem; text-decoration:none; transition:background .15s ease, border-color .15s ease; }
   .ics-link:hover { background:#eff6ff; border-color:rgba(37,99,235,.45); }
-  .dot { width:9px; height:9px; border-radius:50%; display:inline-block; flex:none; }
-  .dot-nsf { background:#2563eb; }
-  .dot-nih { background:#0f766e; }
-  .dot-other { background:#9d174d; }
-  .dot-paper { background:#b45309; }
-  .dot-review { background:#6d28d9; }
+  .dot { width:9px; height:9px; border-radius:50%; display:inline-block; flex:none; background:#94a3b8; }
   .dot-est { background:transparent; border:1px dashed #94a3b8; }
+  /* Legend swatch for the countdown bands, same shape as the row pills. */
+  .chip { width:20px; height:11px; border-radius:999px; display:inline-block; flex:none; }
+  .chip.band-urgent { background:#b91c1c; }
+  .chip.band-soon { background:#fde68a; }
+  .chip.band-later { background:#1d4ed8; }
+  .chip.band-far { background:#64748b; }
 
   /* Three across on a page of its own, so each month gets roughly twice the
      width it had as a section inside Research. */
@@ -283,7 +289,9 @@ const dayName = (mo, d) => ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'][new
   .cal-cell.is-due { background:#e2e8f0; }
   .cal-cell.is-due .cal-num { font-weight:700; color:#0f172a; }
   .cal-dots { display:flex; gap:2px; }
-  .cal-dots .dot { width:4px; height:4px; }
+  /* Neutral: these count the day's items, they no longer encode a category. */
+  .cal-dots .dot { width:4px; height:4px; background:#64748b; }
+  .cal-dots .dot.is-est { opacity:.4; }
   /* Set by the script once it knows the viewer's today. */
   .cal-cell.is-today { box-shadow:inset 0 0 0 2px #b91c1c; }
   .cal-cell.is-today .cal-num { color:#b91c1c; font-weight:700; }
@@ -297,7 +305,6 @@ const dayName = (mo, d) => ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'][new
   .cal-pop-head { display:block; font-weight:700; color:#fff; margin-bottom:4px; }
   .cal-pop-item { display:flex; align-items:baseline; gap:6px; }
   .cal-pop-item + .cal-pop-item { margin-top:3px; }
-  .cal-pop-item .dot { flex:none; transform:translateY(-1px); }
   .cal-pop .est-flag { border-color:#475569; color:#94a3b8; }
 
   .months { columns:4; column-gap:18px; }
@@ -318,7 +325,6 @@ const dayName = (mo, d) => ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'][new
   .deadline-date { font-size:.76rem; font-weight:700; color:#0f172a; font-variant-numeric:tabular-nums; }
   /* The site body is justified; short labels just gap out under it. */
   .deadline-name { font-size:.82rem; color:#334155; line-height:1.35; text-align:left; }
-  .deadline-name .dot { margin-right:6px; transform:translateY(-1px); }
   .deadline-link { color:inherit; text-decoration:none; border-bottom:1px solid rgba(37,99,235,.35); }
   .deadline-link:hover { color:#2563eb; border-bottom-color:#2563eb; }
   .cal-pop-link { color:#bfdbfe; text-decoration:underline; text-underline-offset:2px; }
@@ -357,8 +363,7 @@ const dayName = (mo, d) => ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'][new
   .past-card details > summary h3 { margin:0; }
   .past-card details[open] > summary { margin-bottom:8px; }
   .past-count { font-size:.72rem; font-weight:700; color:#64748b; background:#f1f5f9; border-radius:999px; padding:1px 7px; }
-  .past-item { display:grid; grid-template-columns:auto 46px minmax(0,1fr); align-items:baseline; gap:6px; }
-  .past-item .dot { transform:translateY(-1px); }
+  .past-item { display:grid; grid-template-columns:46px minmax(0,1fr); align-items:baseline; gap:6px; }
   .past-when { font-weight:700; color:#94a3b8; font-variant-numeric:tabular-nums; }
   .past-card .topics li { color:#94a3b8; }
   .fineprint { margin:16px 0 0; font-size:.76rem; color:#94a3b8; line-height:1.5; }
