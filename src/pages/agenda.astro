@@ -66,6 +66,7 @@ const dayName = (mo, d) => ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'][new
           <li><span class={`chip band-${b.key}`} aria-hidden="true"></span>{b.label}</li>
         ))}
         <li><span class="dot dot-est" aria-hidden="true"></span>Estimated date</li>
+        <li><i class="fas fa-star star-mark" aria-hidden="true"></i>Targeting</li>
       </ul>
 
       <div class="cals">
@@ -88,7 +89,7 @@ const dayName = (mo, d) => ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'][new
                         <span class="cal-num">{cell.d}</span>
                         {cell.items.length > 0 && (
                           <span class="cal-dots">
-                            {cell.items.map((i) => <span class={`dot${i.est ? ' is-est' : ''}`}></span>)}
+                            {cell.items.map((i) => <span class={`dot${i.est ? ' is-est' : ''}${i.star ? ' is-star' : ''}`}></span>)}
                           </span>
                         )}
                         {cell.items.length > 0 && (
@@ -97,6 +98,7 @@ const dayName = (mo, d) => ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'][new
                             {cell.items.map((i) => (
                               <span class="cal-pop-item">
                                 <span>
+                                  {i.star && <i class="fas fa-star star-mark" aria-hidden="true"></i>}
                                   {i.href
                                     ? <a class="cal-pop-link" href={i.href} target="_blank" rel="noopener">{i.name}</a>
                                     : i.name}
@@ -120,9 +122,10 @@ const dayName = (mo, d) => ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'][new
             <h3>{mo.month}</h3>
             <ul class="deadline-list">
               {mo.items.map((d) => (
-                <li class={`deadline kind-${d.kind}${d.est ? ' is-est' : ''}`} data-key={`${mo.y}-${mo.m}-${d.d}`}>
+                <li class={`deadline kind-${d.kind}${d.est ? ' is-est' : ''}${d.star ? ' is-star' : ''}`} data-key={`${mo.y}-${mo.m}-${d.d}`}>
                   <span class="deadline-date">{labelFor(mo, d)}</span>
                   <span class="deadline-name">
+                    {d.star && <i class="fas fa-star star-mark" aria-label="Targeting this one"></i>}
                     {d.href
                       ? <a class="deadline-link" href={d.href} target="_blank" rel="noopener">{d.name}</a>
                       : d.name}
@@ -325,6 +328,12 @@ const dayName = (mo, d) => ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'][new
   .deadline + .deadline { margin-top:3px; }
   /* No colour bar down the left edge — the category rides on a dot beside the
      name, and the right-hand pill carries the urgency. */
+  /* Targeted venues: a wash plus a star, no new pill colour, so the countdown
+     bands keep their monopoly on meaning-by-colour. */
+  .deadline.is-star { background:#eff6ff; box-shadow:inset 0 0 0 1px rgba(37,99,235,.18); }
+  .deadline.is-star .deadline-name, .deadline.is-star .deadline-link { color:#1e3a8a; font-weight:700; }
+  .star-mark { color:#2563eb; font-size:.62rem; margin-right:5px; }
+  .cal-dots .dot.is-star { background:#2563eb; }
   .deadline { display:grid; grid-template-columns:52px minmax(0,1fr) auto; gap:8px; align-items:baseline; padding:3px 8px; border-radius:6px; background:#f8fafc; break-inside:avoid; }
   .deadline-date { font-size:.76rem; font-weight:700; color:#0f172a; font-variant-numeric:tabular-nums; }
   /* The site body is justified; short labels just gap out under it. */
