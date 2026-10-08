@@ -35,6 +35,9 @@ export function GET() {
 
   deadlines.forEach((mo) => {
     mo.items.forEach((item) => {
+      // A rolling call has no due date; publishing one would put a deadline in
+      // the reader's calendar that does not exist.
+      if (item.anytime) return;
       // All-day event: DTEND is exclusive, so it points at the following day.
       const end = new Date(Date.UTC(mo.y, mo.m, item.d + 1));
       lines.push(
