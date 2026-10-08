@@ -82,20 +82,20 @@ const dayName = (mo, d) => ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'][new
                   cell === null
                     ? <span class="cal-cell is-blank"></span>
                     : <span
-                        class={`cal-cell${cell.items.length ? ' is-due' : ''}`}
+                        class={`cal-cell${cell.items.some((i) => !i.anytime) ? ' is-due' : ''}`}
                         data-today={`${mo.y}-${mo.m}-${cell.d}`}
-                        data-key={cell.items.length ? `${mo.y}-${mo.m}-${cell.d}` : undefined}
+                        data-key={cell.items.some((i) => !i.anytime) ? `${mo.y}-${mo.m}-${cell.d}` : undefined}
                       >
                         <span class="cal-num">{cell.d}</span>
-                        {cell.items.length > 0 && (
+                        {cell.items.some((i) => !i.anytime) && (
                           <span class="cal-dots">
-                            {cell.items.map((i) => <span class={`dot${i.est ? ' is-est' : ''}${i.star ? ' is-star' : ''}`}></span>)}
+                            {cell.items.filter((i) => !i.anytime).map((i) => <span class={`dot${i.est ? ' is-est' : ''}${i.star ? ' is-star' : ''}`}></span>)}
                           </span>
                         )}
-                        {cell.items.length > 0 && (
+                        {cell.items.some((i) => !i.anytime) && (
                           <span class="cal-pop" role="tooltip">
                             <span class="cal-pop-head">{labelFor(mo, cell)} · {dayName(mo, cell.d)}</span>
-                            {cell.items.map((i) => (
+                            {cell.items.filter((i) => !i.anytime).map((i) => (
                               <span class="cal-pop-item">
                                 <span>
                                   {i.star && <i class="fas fa-star star-mark" aria-hidden="true"></i>}
@@ -122,7 +122,7 @@ const dayName = (mo, d) => ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'][new
             <h3>{mo.month}</h3>
             <ul class="deadline-list">
               {mo.items.map((d) => (
-                <li class={`deadline kind-${d.kind}${d.est ? ' is-est' : ''}${d.star ? ' is-star' : ''}`} data-key={`${mo.y}-${mo.m}-${d.d}`}>
+                <li class={`deadline kind-${d.kind}${d.est ? ' is-est' : ''}${d.star ? ' is-star' : ''}`} data-key={d.anytime ? undefined : `${mo.y}-${mo.m}-${d.d}`}>
                   <span class="deadline-date">{labelFor(mo, d)}</span>
                   <span class="deadline-name">
                     {d.star && <i class="fas fa-star star-mark" aria-label="Targeting this one"></i>}
@@ -131,7 +131,9 @@ const dayName = (mo, d) => ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'][new
                       : d.name}
                     {d.est && <span class="est-flag">est.</span>}
                   </span>
-                  <span class="deadline-left" data-countdown></span>
+                  {d.anytime
+                    ? <span class="deadline-left band-anytime">anytime</span>
+                    : <span class="deadline-left" data-countdown></span>}
                 </li>
               ))}
             </ul>
@@ -351,6 +353,8 @@ const dayName = (mo, d) => ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'][new
   .deadline-left.band-later { background:#1d4ed8; }
   .deadline-left.band-far { background:#64748b; }
   .deadline-left.band-past { background:#e2e8f0; color:#94a3b8; }
+  /* A rolling call has no date to count down to. */
+  .deadline-left.band-anytime { background:#e2e8f0; color:#64748b; font-weight:600; letter-spacing:.02em; }
   .deadline-left:empty { display:none; }
 
   .cal-cell.is-linked { background:#dbeafe; box-shadow:inset 0 0 0 1px rgba(37,99,235,.55); }

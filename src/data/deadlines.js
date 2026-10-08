@@ -41,6 +41,8 @@ export const deadlines = [
   ]},
   { month: 'Dec 2026', y: 2026, m: 11, items: [
     { d: 1, name: 'Simons Empire AI (noon ET)', kind: 'other', star: true },
+    { d: 1, name: 'NSF TTP-E', kind: 'nsf', anytime: true },
+    { d: 1, name: 'NSF CMMI / IIDS (NSF 26-515)', kind: 'nsf', anytime: true },
     { d: 3, name: 'ACM CCS 2027', kind: 'paper', est: true, href: 'https://www.sigsac.org/ccs/CCS2027/' },
     { d: 2, name: 'NSF Expeditions preliminary proposal', kind: 'nsf' },
   ]},
@@ -96,7 +98,7 @@ export const kindLabels = {
 };
 
 export const openCalls = [
-  { heading: 'Submit anytime (no fixed deadline)', items: ['NSF BIO Core', 'NSF CMMI / IIDS (NSF 26-515)', 'NSF CMMI / EME', 'NSF TTP-E', 'NSF CISE Core — 2 per rolling 12 months; next slot opens Jan 31, 2027'] },
+  { heading: 'Submit anytime (no fixed deadline)', items: ['NSF BIO Core', 'NSF CMMI / EME'] },
   { heading: 'Date not announced', items: ['ACL 2027 commitment deadline (follows the Jan 4 ARR cycle)', 'CVPR 2027 demo (historically spring)', 'NeuroArts Fleming (mid Feb 2027)'] },
   { heading: 'NIH due dates (new applications)', items: ['R35 MIRA for ESIs: Feb 3, 2027 (Feb and Oct cycles)', 'R21: Feb 16 / Jun 16 / Oct 16', 'R15 AREA: Feb 25 / Jun 25 / Oct 25'] },
 ];
