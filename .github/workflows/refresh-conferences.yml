@@ -31,20 +31,26 @@ jobs:
       - name: Rebuild src/data/topics.js
         run: python3 scripts/build-topics.py
 
+      # Reuses the ccf-deadlines clone that build-conferences.py just pulled,
+      # so this costs nothing beyond parsing it a second time.
+      - name: Rebuild src/data/destinations.js
+        run: python3 scripts/build-destinations.py
+
       - name: Commit if the data moved
         run: |
-          if git diff --quiet -- src/data/conferences.js src/data/topics.js; then
+          if git diff --quiet -- src/data/conferences.js src/data/topics.js src/data/destinations.js; then
             echo "No upstream change this week."
             exit 0
           fi
           git config user.name  "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add src/data/conferences.js src/data/topics.js
+          git add src/data/conferences.js src/data/topics.js src/data/destinations.js
           git commit -m "Conferences: weekly data refresh
 
           Rebuilt from ccf-deadlines, the official CORE2023 export,
           cs-conf-stats, CSRankings, the older acceptance-rate table,
-          and paperlists for the per-topic acceptance rates.
+          paperlists for the per-topic acceptance rates, and the
+          by-destination index.
 
           Co-Authored-By: Claude Opus 5 <noreply@anthropic.com>"
           git push
