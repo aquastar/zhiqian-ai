@@ -38,6 +38,55 @@ export const topicRates = {
               "c": 109,
               "k": "Poster",
               "u": "https://iclr.cc/virtual/2024/poster/19524"
+            },
+            {
+              "t": "How Many Pretraining Tasks Are Needed for In-Context Learning of Linear Regression?",
+              "y": 2024,
+              "c": 70,
+              "k": "Spotlight",
+              "u": "https://iclr.cc/virtual/2024/poster/17535"
+            },
+            {
+              "t": "The Expressive Power of Low-Rank Adaptation",
+              "y": 2024,
+              "c": 68,
+              "k": "Poster",
+              "u": "https://iclr.cc/virtual/2024/poster/17923"
+            },
+            {
+              "t": "Transformers as Decision Makers: Provable In-Context Reinforcement Learning via Supervised Pretraining",
+              "y": 2024,
+              "c": 60,
+              "k": "Poster",
+              "u": "https://iclr.cc/virtual/2024/poster/17421"
+            },
+            {
+              "t": "How to Capture Higher-order Correlations? Generalizing Matrix Softmax Attention to Kronecker Computation",
+              "y": 2024,
+              "c": 48,
+              "k": "Spotlight",
+              "u": "https://iclr.cc/virtual/2024/poster/17555"
+            },
+            {
+              "t": "Exploratory Preference Optimization: Harnessing Implicit Q*-Approximation for Sample-Efficient RLHF",
+              "y": 2025,
+              "c": 37,
+              "k": "Poster",
+              "u": "https://iclr.cc/virtual/2025/poster/29685"
+            },
+            {
+              "t": "Benign Overfitting and Grokking in ReLU Networks for XOR Cluster Data",
+              "y": 2024,
+              "c": 33,
+              "k": "Poster",
+              "u": "https://iclr.cc/virtual/2024/poster/19192"
+            },
+            {
+              "t": "Towards Non-Asymptotic Convergence for Diffusion-Based Generative Models",
+              "y": 2024,
+              "c": 31,
+              "k": "Poster",
+              "u": "https://iclr.cc/virtual/2024/poster/19463"
             }
           ]
         },
@@ -68,6 +117,55 @@ export const topicRates = {
               "c": 164,
               "k": "Poster",
               "u": "https://iclr.cc/virtual/2025/poster/28376"
+            },
+            {
+              "t": "NV-Embed: Improved Techniques for Training LLMs as Generalist Embedding Models",
+              "y": 2025,
+              "c": 158,
+              "k": "Spotlight",
+              "u": "https://iclr.cc/virtual/2025/poster/28505"
+            },
+            {
+              "t": "Transfusion: Predict the Next Token and Diffuse Images with One Multi-Modal Model",
+              "y": 2025,
+              "c": 150,
+              "k": "Oral",
+              "u": "https://iclr.cc/virtual/2025/poster/29617"
+            },
+            {
+              "t": "Can LLMs Generate Novel Research Ideas? A Large-Scale Human Study with 100+ NLP Researchers",
+              "y": 2025,
+              "c": 127,
+              "k": "Poster",
+              "u": "https://iclr.cc/virtual/2025/poster/29961"
+            },
+            {
+              "t": "Generative Representational Instruction Tuning",
+              "y": 2025,
+              "c": 113,
+              "k": "Poster",
+              "u": "https://iclr.cc/virtual/2025/poster/30586"
+            },
+            {
+              "t": "Training Language Models to Self-Correct via Reinforcement Learning",
+              "y": 2025,
+              "c": 113,
+              "k": "Oral",
+              "u": "https://iclr.cc/virtual/2025/poster/30501"
+            },
+            {
+              "t": "Generative Verifiers: Reward Modeling as Next-Token Prediction",
+              "y": 2025,
+              "c": 107,
+              "k": "Poster",
+              "u": "https://iclr.cc/virtual/2025/poster/30506"
+            },
+            {
+              "t": "mPLUG-Owl3: Towards Long Image-Sequence Understanding in Multi-Modal Large Language Models",
+              "y": 2025,
+              "c": 101,
+              "k": "Poster",
+              "u": "https://iclr.cc/virtual/2025/poster/28277"
             }
           ]
         },
@@ -98,6 +196,55 @@ export const topicRates = {
               "c": 832,
               "k": "Spotlight",
               "u": "https://iclr.cc/virtual/2024/poster/19044"
+            },
+            {
+              "t": "WizardCoder: Empowering Code Large Language Models with Evol-Instruct",
+              "y": 2024,
+              "c": 661,
+              "k": "Poster",
+              "u": "https://iclr.cc/virtual/2024/poster/18519"
+            },
+            {
+              "t": "ToolLLM: Facilitating Large Language Models to Master 16000+ Real-world APIs",
+              "y": 2024,
+              "c": 639,
+              "k": "Spotlight",
+              "u": "https://iclr.cc/virtual/2024/poster/18267"
+            },
+            {
+              "t": "DreamGaussian: Generative Gaussian Splatting for Efficient 3D Content Creation",
+              "y": 2024,
+              "c": 636,
+              "k": "Oral",
+              "u": "https://iclr.cc/virtual/2024/poster/18512"
+            },
+            {
+              "t": "MVDream: Multi-view Diffusion for 3D Generation",
+              "y": 2024,
+              "c": 630,
+              "k": "Poster",
+              "u": "https://iclr.cc/virtual/2024/poster/19063"
+            },
+            {
+              "t": "PixArt-$\\alpha$: Fast Training of Diffusion Transformer for Photorealistic Text-to-Image Synthesis",
+              "y": 2024,
+              "c": 546,
+              "k": "Spotlight",
+              "u": "https://iclr.cc/virtual/2024/poster/18231"
+            },
+            {
+              "t": "ChatEval: Towards Better LLM-based Evaluators through Multi-Agent Debate",
+              "y": 2024,
+              "c": 461,
+              "k": "Poster",
+              "u": "https://iclr.cc/virtual/2024/poster/19065"
+            },
+            {
+              "t": "CogVideoX: Text-to-Video Diffusion Models with An Expert Transformer",
+              "y": 2025,
+              "c": 383,
+              "k": "Poster",
+              "u": "https://iclr.cc/virtual/2025/poster/29998"
             }
           ]
         },
@@ -128,6 +275,55 @@ export const topicRates = {
               "c": 846,
               "k": "Oral",
               "u": "https://iclr.cc/virtual/2025/poster/30219"
+            },
+            {
+              "t": "MetaMath: Bootstrap Your Own Mathematical Questions for Large Language Models",
+              "y": 2024,
+              "c": 613,
+              "k": "Spotlight",
+              "u": "https://iclr.cc/virtual/2024/poster/18796"
+            },
+            {
+              "t": "Efficient Streaming Language Models with Attention Sinks",
+              "y": 2024,
+              "c": 598,
+              "k": "Poster",
+              "u": "https://iclr.cc/virtual/2024/poster/18794"
+            },
+            {
+              "t": "Time-LLM: Time Series Forecasting by Reprogramming Large Language Models",
+              "y": 2024,
+              "c": 577,
+              "k": "Poster",
+              "u": "https://iclr.cc/virtual/2024/poster/18518"
+            },
+            {
+              "t": "Self-RAG: Learning to Retrieve, Generate, and Critique through Self-Reflection",
+              "y": 2024,
+              "c": 517,
+              "k": "Oral",
+              "u": "https://iclr.cc/virtual/2024/poster/18095"
+            },
+            {
+              "t": "LRM: Large Reconstruction Model for Single Image to 3D",
+              "y": 2024,
+              "c": 411,
+              "k": "Oral",
+              "u": "https://iclr.cc/virtual/2024/poster/17635"
+            },
+            {
+              "t": "LongLoRA: Efficient Fine-tuning of Long-Context Large Language Models",
+              "y": 2024,
+              "c": 360,
+              "k": "Oral",
+              "u": "https://iclr.cc/virtual/2024/poster/19390"
+            },
+            {
+              "t": "Can LLMs Express Their Uncertainty? An Empirical Evaluation of Confidence Elicitation in LLMs",
+              "y": 2024,
+              "c": 355,
+              "k": "Poster",
+              "u": "https://iclr.cc/virtual/2024/poster/18135"
             }
           ]
         },
@@ -158,6 +354,55 @@ export const topicRates = {
               "c": 233,
               "k": "Oral",
               "u": "https://iclr.cc/virtual/2024/poster/19300"
+            },
+            {
+              "t": "DiLu: A Knowledge-Driven Approach to Autonomous Driving with Large Language Models",
+              "y": 2024,
+              "c": 197,
+              "k": "Poster",
+              "u": "https://iclr.cc/virtual/2024/poster/18729"
+            },
+            {
+              "t": "Learning Interactive Real-World Simulators",
+              "y": 2024,
+              "c": 132,
+              "k": "Oral",
+              "u": "https://iclr.cc/virtual/2024/poster/17660"
+            },
+            {
+              "t": "Zero-Shot Robotic Manipulation with Pre-Trained Image-Editing Diffusion Models",
+              "y": 2024,
+              "c": 123,
+              "k": "Poster",
+              "u": "https://iclr.cc/virtual/2024/poster/18313"
+            },
+            {
+              "t": "Multimodal Web Navigation with Instruction-Finetuned Foundation Models",
+              "y": 2024,
+              "c": 111,
+              "k": "Poster",
+              "u": "https://iclr.cc/virtual/2024/poster/18215"
+            },
+            {
+              "t": "Unleashing Large-Scale Video Generative Pre-training for Visual Robot Manipulation",
+              "y": 2024,
+              "c": 89,
+              "k": "Poster",
+              "u": "https://iclr.cc/virtual/2024/poster/18762"
+            },
+            {
+              "t": "GenSim: Generating Robotic Simulation Tasks via Large Language Models",
+              "y": 2024,
+              "c": 89,
+              "k": "Spotlight",
+              "u": "https://iclr.cc/virtual/2024/poster/18747"
+            },
+            {
+              "t": "Retroformer: Retrospective Large Language Agents with Policy Gradient Optimization",
+              "y": 2024,
+              "c": 76,
+              "k": "Spotlight",
+              "u": "https://iclr.cc/virtual/2024/poster/18908"
             }
           ]
         },
@@ -188,6 +433,55 @@ export const topicRates = {
               "c": 363,
               "k": "Poster",
               "u": "https://iclr.cc/virtual/2024/poster/17826"
+            },
+            {
+              "t": "InternVid: A Large-scale Video-Text Dataset for Multimodal Understanding and Generation",
+              "y": 2024,
+              "c": 295,
+              "k": "Spotlight",
+              "u": "https://iclr.cc/virtual/2024/poster/18829"
+            },
+            {
+              "t": "Mitigating Hallucination in Large Multi-Modal Models via Robust Instruction Tuning",
+              "y": 2024,
+              "c": 270,
+              "k": "Poster",
+              "u": "https://iclr.cc/virtual/2024/poster/18947"
+            },
+            {
+              "t": "PandaLM: An Automatic Evaluation Benchmark for LLM Instruction Tuning Optimization",
+              "y": 2024,
+              "c": 227,
+              "k": "Poster",
+              "u": "https://iclr.cc/virtual/2024/poster/19427"
+            },
+            {
+              "t": "LiveCodeBench: Holistic and Contamination Free Evaluation of Large Language Models for Code",
+              "y": 2025,
+              "c": 224,
+              "k": "Poster",
+              "u": "https://iclr.cc/virtual/2025/poster/29033"
+            },
+            {
+              "t": "Prometheus: Inducing Fine-Grained Evaluation Capability in Language Models",
+              "y": 2024,
+              "c": 193,
+              "k": "Poster",
+              "u": "https://iclr.cc/virtual/2024/poster/19321"
+            },
+            {
+              "t": "WildChat: 1M ChatGPT Interaction Logs in the Wild",
+              "y": 2024,
+              "c": 178,
+              "k": "Spotlight",
+              "u": "https://iclr.cc/virtual/2024/poster/19206"
+            },
+            {
+              "t": "AgentBench: Evaluating LLMs as Agents",
+              "y": 2024,
+              "c": 175,
+              "k": "Poster",
+              "u": "https://iclr.cc/virtual/2024/poster/17388"
             }
           ]
         },
@@ -218,6 +512,55 @@ export const topicRates = {
               "c": 77,
               "k": "Spotlight",
               "u": "https://iclr.cc/virtual/2024/poster/18658"
+            },
+            {
+              "t": "Learning Delays in Spiking Neural Networks using Dilated Convolutions with Learnable Spacings",
+              "y": 2024,
+              "c": 59,
+              "k": "Poster",
+              "u": "https://iclr.cc/virtual/2024/poster/19447"
+            },
+            {
+              "t": "Brain decoding: toward real-time reconstruction of visual perception",
+              "y": 2024,
+              "c": 54,
+              "k": "Poster",
+              "u": "https://iclr.cc/virtual/2024/poster/19487"
+            },
+            {
+              "t": "BrainLM: A foundation model for brain activity recordings",
+              "y": 2024,
+              "c": 34,
+              "k": "Poster",
+              "u": "https://iclr.cc/virtual/2024/poster/18625"
+            },
+            {
+              "t": "Decoding Natural Images from EEG for Object Recognition",
+              "y": 2024,
+              "c": 31,
+              "k": "Poster",
+              "u": "https://iclr.cc/virtual/2024/poster/18251"
+            },
+            {
+              "t": "Forward Learning with Top-Down Feedback: Empirical and Analytical Characterization",
+              "y": 2024,
+              "c": 21,
+              "k": "Poster",
+              "u": "https://iclr.cc/virtual/2024/poster/18804"
+            },
+            {
+              "t": "Towards Energy Efficient Spiking Neural Networks: An Unstructured Pruning Framework",
+              "y": 2024,
+              "c": 20,
+              "k": "Spotlight",
+              "u": "https://iclr.cc/virtual/2024/poster/18207"
+            },
+            {
+              "t": "How connectivity structure shapes rich and lazy learning in neural circuits",
+              "y": 2024,
+              "c": 19,
+              "k": "Poster",
+              "u": "https://iclr.cc/virtual/2024/poster/17636"
             }
           ]
         },
@@ -248,6 +591,55 @@ export const topicRates = {
               "c": 155,
               "k": "Poster",
               "u": "https://iclr.cc/virtual/2024/poster/19378"
+            },
+            {
+              "t": "TD-MPC2: Scalable, Robust World Models for Continuous Control",
+              "y": 2024,
+              "c": 117,
+              "k": "Spotlight",
+              "u": "https://iclr.cc/virtual/2024/poster/18722"
+            },
+            {
+              "t": "Reward Model Ensembles Help Mitigate Overoptimization",
+              "y": 2024,
+              "c": 112,
+              "k": "Poster",
+              "u": "https://iclr.cc/virtual/2024/poster/18253"
+            },
+            {
+              "t": "Vision-Language Models are Zero-Shot Reward Models for Reinforcement Learning",
+              "y": 2024,
+              "c": 76,
+              "k": "Poster",
+              "u": "https://iclr.cc/virtual/2024/poster/18802"
+            },
+            {
+              "t": "Curiosity-driven Red-teaming for Large Language Models",
+              "y": 2024,
+              "c": 71,
+              "k": "Poster",
+              "u": "https://iclr.cc/virtual/2024/poster/19471"
+            },
+            {
+              "t": "Motif: Intrinsic Motivation from Artificial Intelligence Feedback",
+              "y": 2024,
+              "c": 64,
+              "k": "Poster",
+              "u": "https://iclr.cc/virtual/2024/poster/17604"
+            },
+            {
+              "t": "Text2Reward: Reward Shaping with Language Models for Reinforcement Learning",
+              "y": 2024,
+              "c": 51,
+              "k": "Spotlight",
+              "u": "https://iclr.cc/virtual/2024/poster/17616"
+            },
+            {
+              "t": "True Knowledge Comes from Practice: Aligning Large Language Models with Embodied Environments via Reinforcement Learning",
+              "y": 2024,
+              "c": 47,
+              "k": "Poster",
+              "u": "https://iclr.cc/virtual/2024/poster/18102"
             }
           ]
         },
@@ -278,6 +670,55 @@ export const topicRates = {
               "c": 75,
               "k": "Poster",
               "u": "https://iclr.cc/virtual/2024/poster/17755"
+            },
+            {
+              "t": "Amortizing intractable inference in large language models",
+              "y": 2024,
+              "c": 66,
+              "k": "Oral",
+              "u": "https://iclr.cc/virtual/2024/poster/18725"
+            },
+            {
+              "t": "Improved sampling via learned diffusions",
+              "y": 2024,
+              "c": 60,
+              "k": "Poster",
+              "u": "https://iclr.cc/virtual/2024/poster/18116"
+            },
+            {
+              "t": "Transport meets Variational Inference: Controlled Monte Carlo Diffusions",
+              "y": 2024,
+              "c": 44,
+              "k": "Poster",
+              "u": "https://iclr.cc/virtual/2024/poster/18708"
+            },
+            {
+              "t": "Diffusion Generative Flow Samplers: Improving learning signals through partial trajectory optimization",
+              "y": 2024,
+              "c": 37,
+              "k": "Poster",
+              "u": "https://iclr.cc/virtual/2024/poster/18746"
+            },
+            {
+              "t": "Variational Bayesian Last Layers",
+              "y": 2024,
+              "c": 36,
+              "k": "Spotlight",
+              "u": "https://iclr.cc/virtual/2024/poster/18585"
+            },
+            {
+              "t": "On Diffusion Modeling for Anomaly Detection",
+              "y": 2024,
+              "c": 33,
+              "k": "Spotlight",
+              "u": "https://iclr.cc/virtual/2024/poster/17930"
+            },
+            {
+              "t": "A Study of Bayesian Neural Network Surrogates for Bayesian Optimization",
+              "y": 2024,
+              "c": 29,
+              "k": "Poster",
+              "u": "https://iclr.cc/virtual/2024/poster/18615"
             }
           ]
         },
@@ -308,6 +749,55 @@ export const topicRates = {
               "c": 164,
               "k": "Poster",
               "u": "https://iclr.cc/virtual/2024/poster/17903"
+            },
+            {
+              "t": "Fine-Tuned Language Models Generate Stable Inorganic Materials as Text",
+              "y": 2024,
+              "c": 77,
+              "k": "Poster",
+              "u": "https://iclr.cc/virtual/2024/poster/17538"
+            },
+            {
+              "t": "LLM-CXR: Instruction-Finetuned LLM for CXR Image Understanding and Generation",
+              "y": 2024,
+              "c": 56,
+              "k": "Poster",
+              "u": "https://iclr.cc/virtual/2024/poster/19198"
+            },
+            {
+              "t": "Scalable Diffusion for Materials Generation",
+              "y": 2024,
+              "c": 55,
+              "k": "Poster",
+              "u": "https://iclr.cc/virtual/2024/poster/17481"
+            },
+            {
+              "t": "PINNsFormer: A Transformer-Based Framework For Physics-Informed Neural Networks",
+              "y": 2024,
+              "c": 50,
+              "k": "Poster",
+              "u": "https://iclr.cc/virtual/2024/poster/19142"
+            },
+            {
+              "t": "Deep Confident Steps to New Pockets: Strategies for Docking Generalization",
+              "y": 2024,
+              "c": 49,
+              "k": "Poster",
+              "u": "https://iclr.cc/virtual/2024/poster/18522"
+            },
+            {
+              "t": "Large-scale Training of Foundation Models for Wearable Biosignals",
+              "y": 2024,
+              "c": 49,
+              "k": "Poster",
+              "u": "https://iclr.cc/virtual/2024/poster/17787"
+            },
+            {
+              "t": "From Molecules to Materials: Pre-training Large Generalizable Models for Atomic Property Prediction",
+              "y": 2024,
+              "c": 46,
+              "k": "Poster",
+              "u": "https://iclr.cc/virtual/2024/poster/18696"
             }
           ]
         },
@@ -338,6 +828,55 @@ export const topicRates = {
               "c": 287,
               "k": "Poster",
               "u": "https://iclr.cc/virtual/2024/poster/17381"
+            },
+            {
+              "t": "Multilingual Jailbreak Challenges in Large Language Models",
+              "y": 2024,
+              "c": 238,
+              "k": "Poster",
+              "u": "https://iclr.cc/virtual/2024/poster/17543"
+            },
+            {
+              "t": "GPT-4 Is Too Smart To Be Safe: Stealthy Chat with LLMs via Cipher",
+              "y": 2024,
+              "c": 236,
+              "k": "Poster",
+              "u": "https://iclr.cc/virtual/2024/poster/18817"
+            },
+            {
+              "t": "Towards Understanding Sycophancy in Language Models",
+              "y": 2024,
+              "c": 225,
+              "k": "Poster",
+              "u": "https://iclr.cc/virtual/2024/poster/17593"
+            },
+            {
+              "t": "Can LLM-Generated Misinformation Be Detected?",
+              "y": 2024,
+              "c": 214,
+              "k": "Poster",
+              "u": "https://iclr.cc/virtual/2024/poster/18287"
+            },
+            {
+              "t": "Self-contradictory Hallucinations of Large Language Models: Evaluation, Detection and Mitigation",
+              "y": 2024,
+              "c": 181,
+              "k": "Poster",
+              "u": "https://iclr.cc/virtual/2024/poster/19094"
+            },
+            {
+              "t": "Safety-Tuned LLaMAs: Lessons From Improving the Safety of Large Language Models that Follow Instructions",
+              "y": 2024,
+              "c": 172,
+              "k": "Poster",
+              "u": "https://iclr.cc/virtual/2024/poster/18143"
+            },
+            {
+              "t": "Provable Robust Watermarking for AI-Generated Text",
+              "y": 2024,
+              "c": 166,
+              "k": "Poster",
+              "u": "https://iclr.cc/virtual/2024/poster/18588"
             }
           ]
         },
@@ -368,6 +907,55 @@ export const topicRates = {
               "c": 138,
               "k": "Oral",
               "u": "https://iclr.cc/virtual/2025/poster/28040"
+            },
+            {
+              "t": "Sparse Feature Circuits: Discovering and Editing Interpretable Causal Graphs in Language Models",
+              "y": 2025,
+              "c": 100,
+              "k": "Oral",
+              "u": "https://iclr.cc/virtual/2025/poster/30192"
+            },
+            {
+              "t": "Interpreting CLIP's Image Representation via Text-Based Decomposition",
+              "y": 2024,
+              "c": 91,
+              "k": "Oral",
+              "u": "https://iclr.cc/virtual/2024/poster/19436"
+            },
+            {
+              "t": "Towards Best Practices of Activation Patching in Language Models: Metrics and Methods",
+              "y": 2024,
+              "c": 78,
+              "k": "Poster",
+              "u": "https://iclr.cc/virtual/2024/poster/18984"
+            },
+            {
+              "t": "Linearity of Relation Decoding in Transformer Language Models",
+              "y": 2024,
+              "c": 76,
+              "k": "Spotlight",
+              "u": "https://iclr.cc/virtual/2024/poster/17504"
+            },
+            {
+              "t": "Circuit Component Reuse Across Tasks in Transformer Language Models",
+              "y": 2024,
+              "c": 63,
+              "k": "Spotlight",
+              "u": "https://iclr.cc/virtual/2024/poster/18171"
+            },
+            {
+              "t": "Mechanistically analyzing the effects of fine-tuning on procedurally defined tasks",
+              "y": 2024,
+              "c": 62,
+              "k": "Poster",
+              "u": "https://iclr.cc/virtual/2024/poster/19277"
+            },
+            {
+              "t": "Sudden Drops in the Loss: Syntax Acquisition, Phase Transitions, and Simplicity Bias in MLMs",
+              "y": 2024,
+              "c": 62,
+              "k": "Spotlight",
+              "u": "https://iclr.cc/virtual/2024/poster/18825"
             }
           ]
         },
@@ -398,6 +986,55 @@ export const topicRates = {
               "c": 79,
               "k": "Oral",
               "u": "https://iclr.cc/virtual/2024/poster/18273"
+            },
+            {
+              "t": "Large Language Models to Enhance Bayesian Optimization",
+              "y": 2024,
+              "c": 62,
+              "k": "Poster",
+              "u": "https://iclr.cc/virtual/2024/poster/18743"
+            },
+            {
+              "t": "JoMA: Demystifying Multilayer Transformers via Joint Dynamics of MLP and Attention",
+              "y": 2024,
+              "c": 58,
+              "k": "Poster",
+              "u": "https://iclr.cc/virtual/2024/poster/18857"
+            },
+            {
+              "t": "Linear attention is (maybe) all you need (to understand Transformer optimization)",
+              "y": 2024,
+              "c": 54,
+              "k": "Poster",
+              "u": "https://iclr.cc/virtual/2024/poster/19602"
+            },
+            {
+              "t": "DeepZero: Scaling Up Zeroth-Order Optimization for Deep Model Training",
+              "y": 2024,
+              "c": 49,
+              "k": "Poster",
+              "u": "https://iclr.cc/virtual/2024/poster/17745"
+            },
+            {
+              "t": "Tensor Programs VI: Feature Learning in Infinite Depth Neural Networks",
+              "y": 2024,
+              "c": 45,
+              "k": "Poster",
+              "u": "https://iclr.cc/virtual/2024/poster/19599"
+            },
+            {
+              "t": "Zeroth-Order Optimization Meets Human Feedback: Provable Learning via Ranking Oracles",
+              "y": 2024,
+              "c": 35,
+              "k": "Poster",
+              "u": "https://iclr.cc/virtual/2024/poster/18570"
+            },
+            {
+              "t": "Adam-mini: Use Fewer Learning Rates To Gain More",
+              "y": 2025,
+              "c": 31,
+              "k": "Poster",
+              "u": "https://iclr.cc/virtual/2025/poster/28710"
             }
           ]
         },
@@ -428,6 +1065,55 @@ export const topicRates = {
               "c": 27,
               "k": "Spotlight",
               "u": "https://iclr.cc/virtual/2024/poster/17398"
+            },
+            {
+              "t": "Identifying Representations for Intervention Extrapolation",
+              "y": 2024,
+              "c": 18,
+              "k": "Poster",
+              "u": "https://iclr.cc/virtual/2024/poster/19502"
+            },
+            {
+              "t": "A Versatile Causal Discovery Framework to Allow Causally-Related Hidden Variables",
+              "y": 2024,
+              "c": 17,
+              "k": "Poster",
+              "u": "https://iclr.cc/virtual/2024/poster/19054"
+            },
+            {
+              "t": "Bayesian Neural Controlled Differential Equations for Treatment Effect Estimation",
+              "y": 2024,
+              "c": 16,
+              "k": "Poster",
+              "u": "https://iclr.cc/virtual/2024/poster/17558"
+            },
+            {
+              "t": "Causal Modelling Agents: Causal Graph Discovery through Synergising Metadata- and Data-driven Reasoning",
+              "y": 2024,
+              "c": 15,
+              "k": "Poster",
+              "u": "https://iclr.cc/virtual/2024/poster/17791"
+            },
+            {
+              "t": "Signature Kernel Conditional Independence Tests in Causal Discovery for Stochastic Processes",
+              "y": 2025,
+              "c": 14,
+              "k": "Spotlight",
+              "u": "https://iclr.cc/virtual/2025/poster/29848"
+            },
+            {
+              "t": "Be Aware of the Neighborhood Effect: Modeling Selection Bias under Interference",
+              "y": 2024,
+              "c": 13,
+              "k": "Poster",
+              "u": "https://iclr.cc/virtual/2024/poster/19441"
+            },
+            {
+              "t": "Bounds on Representation-Induced Confounding Bias for Treatment Effect Estimation",
+              "y": 2024,
+              "c": 11,
+              "k": "Spotlight",
+              "u": "https://iclr.cc/virtual/2024/poster/18278"
             }
           ]
         },
@@ -458,6 +1144,55 @@ export const topicRates = {
               "c": 202,
               "k": "Poster",
               "u": "https://iclr.cc/virtual/2024/poster/18463"
+            },
+            {
+              "t": "QA-LoRA: Quantization-Aware Low-Rank Adaptation of Large Language Models",
+              "y": 2024,
+              "c": 168,
+              "k": "Poster",
+              "u": "https://iclr.cc/virtual/2024/poster/18462"
+            },
+            {
+              "t": "Finite Scalar Quantization: VQ-VAE Made Simple",
+              "y": 2024,
+              "c": 166,
+              "k": "Poster",
+              "u": "https://iclr.cc/virtual/2024/poster/19317"
+            },
+            {
+              "t": "From Sparse to Soft Mixtures of Experts",
+              "y": 2024,
+              "c": 138,
+              "k": "Spotlight",
+              "u": "https://iclr.cc/virtual/2024/poster/17998"
+            },
+            {
+              "t": "ReLoRA: High-Rank Training Through Low-Rank Updates",
+              "y": 2024,
+              "c": 111,
+              "k": "Poster",
+              "u": "https://iclr.cc/virtual/2024/poster/19143"
+            },
+            {
+              "t": "Deep Temporal Graph Clustering",
+              "y": 2024,
+              "c": 76,
+              "k": "Poster",
+              "u": "https://iclr.cc/virtual/2024/poster/18498"
+            },
+            {
+              "t": "Deconstructing Denoising Diffusion Models for Self-Supervised Learning",
+              "y": 2025,
+              "c": 75,
+              "k": "Poster",
+              "u": "https://iclr.cc/virtual/2025/poster/30665"
+            },
+            {
+              "t": "MogaNet: Multi-order Gated Aggregation Network",
+              "y": 2024,
+              "c": 65,
+              "k": "Poster",
+              "u": "https://iclr.cc/virtual/2024/poster/18447"
             }
           ]
         },
@@ -488,6 +1223,55 @@ export const topicRates = {
               "c": 19,
               "k": "Poster",
               "u": "https://iclr.cc/virtual/2025/poster/29900"
+            },
+            {
+              "t": "On Scaling Up 3D Gaussian Splatting Training",
+              "y": 2025,
+              "c": 11,
+              "k": "Oral",
+              "u": "https://iclr.cc/virtual/2025/poster/28300"
+            },
+            {
+              "t": "Preble: Efficient Distributed Prompt Scheduling for LLM Serving",
+              "y": 2025,
+              "c": 9,
+              "k": "Poster",
+              "u": "https://iclr.cc/virtual/2025/poster/28456"
+            },
+            {
+              "t": "TorchTitan: One-stop PyTorch native solution for production ready LLM pretraining",
+              "y": 2025,
+              "c": 6,
+              "k": "Poster",
+              "u": "https://iclr.cc/virtual/2025/poster/29620"
+            },
+            {
+              "t": "CircuitFusion: Multimodal Circuit Representation Learning for Agile Chip Design",
+              "y": 2025,
+              "c": 4,
+              "k": "Poster",
+              "u": "https://iclr.cc/virtual/2025/poster/28186"
+            },
+            {
+              "t": "Interactive Speculative Planning: Enhance Agent Efficiency through Co-design of System and User Interface",
+              "y": 2025,
+              "c": 3,
+              "k": "Poster",
+              "u": "https://iclr.cc/virtual/2025/poster/30539"
+            },
+            {
+              "t": "DeFT: Decoding with Flash Tree-attention for Efficient Tree-structured LLM Inference",
+              "y": 2025,
+              "c": 2,
+              "k": "Spotlight",
+              "u": "https://iclr.cc/virtual/2025/poster/31131"
+            },
+            {
+              "t": "HexGen-2: Disaggregated Generative Inference of LLMs in Heterogeneous Environment",
+              "y": 2025,
+              "c": 2,
+              "k": "Poster",
+              "u": "https://iclr.cc/virtual/2025/poster/30492"
             }
           ]
         },
@@ -518,6 +1302,55 @@ export const topicRates = {
               "c": 582,
               "k": "Poster",
               "u": "https://iclr.cc/virtual/2024/poster/18687"
+            },
+            {
+              "t": "AutoDAN: Generating Stealthy Jailbreak Prompts on Aligned Large Language Models",
+              "y": 2024,
+              "c": 508,
+              "k": "Poster",
+              "u": "https://iclr.cc/virtual/2024/poster/19366"
+            },
+            {
+              "t": "Large Language Models Cannot Self-Correct Reasoning Yet",
+              "y": 2024,
+              "c": 431,
+              "k": "Poster",
+              "u": "https://iclr.cc/virtual/2024/poster/18956"
+            },
+            {
+              "t": "Effective Data Augmentation With Diffusion Models",
+              "y": 2024,
+              "c": 284,
+              "k": "Poster",
+              "u": "https://iclr.cc/virtual/2024/poster/18392"
+            },
+            {
+              "t": "SpQR: A Sparse-Quantized Representation for Near-Lossless LLM Weight Compression",
+              "y": 2024,
+              "c": 247,
+              "k": "Poster",
+              "u": "https://iclr.cc/virtual/2024/poster/18686"
+            },
+            {
+              "t": "OmniQuant: Omnidirectionally Calibrated Quantization for Large Language Models",
+              "y": 2024,
+              "c": 246,
+              "k": "Spotlight",
+              "u": "https://iclr.cc/virtual/2024/poster/19323"
+            },
+            {
+              "t": "Reasoning on Graphs: Faithful and Interpretable Large Language Model Reasoning",
+              "y": 2024,
+              "c": 231,
+              "k": "Poster",
+              "u": "https://iclr.cc/virtual/2024/poster/18404"
+            },
+            {
+              "t": "The Alignment Problem from a Deep Learning Perspective",
+              "y": 2024,
+              "c": 225,
+              "k": "Poster",
+              "u": "https://iclr.cc/virtual/2024/poster/18177"
             }
           ]
         },
@@ -548,6 +1381,55 @@ export const topicRates = {
               "c": 121,
               "k": "Poster",
               "u": "https://iclr.cc/virtual/2024/poster/17853"
+            },
+            {
+              "t": "Massive Editing for Large Language Models via Meta Learning",
+              "y": 2024,
+              "c": 74,
+              "k": "Poster",
+              "u": "https://iclr.cc/virtual/2024/poster/18873"
+            },
+            {
+              "t": "Understanding Catastrophic Forgetting in Language Models via Implicit Inference",
+              "y": 2024,
+              "c": 67,
+              "k": "Poster",
+              "u": "https://iclr.cc/virtual/2024/poster/18492"
+            },
+            {
+              "t": "Parameter-Efficient Orthogonal Finetuning via Butterfly Factorization",
+              "y": 2024,
+              "c": 57,
+              "k": "Poster",
+              "u": "https://iclr.cc/virtual/2024/poster/19363"
+            },
+            {
+              "t": "Model Merging by Uncertainty-Based Gradient Matching",
+              "y": 2024,
+              "c": 52,
+              "k": "Poster",
+              "u": "https://iclr.cc/virtual/2024/poster/19152"
+            },
+            {
+              "t": "Convolution Meets LoRA: Parameter Efficient Finetuning for Segment Anything Model",
+              "y": 2024,
+              "c": 49,
+              "k": "Poster",
+              "u": "https://iclr.cc/virtual/2024/poster/18201"
+            },
+            {
+              "t": "Divide and not forget: Ensemble of selectively trained experts in Continual Learning",
+              "y": 2024,
+              "c": 44,
+              "k": "Poster",
+              "u": "https://iclr.cc/virtual/2024/poster/17645"
+            },
+            {
+              "t": "ViDA: Homeostatic Visual Domain Adapter for Continual Test Time Adaptation",
+              "y": 2024,
+              "c": 43,
+              "k": "Poster",
+              "u": "https://iclr.cc/virtual/2024/poster/17657"
             }
           ]
         },
@@ -578,6 +1460,55 @@ export const topicRates = {
               "c": 65,
               "k": "Poster",
               "u": "https://iclr.cc/virtual/2024/poster/17650"
+            },
+            {
+              "t": "Flow Matching on General Geometries",
+              "y": 2024,
+              "c": 55,
+              "k": "Oral",
+              "u": "https://iclr.cc/virtual/2024/poster/18157"
+            },
+            {
+              "t": "One For All: Towards Training One Graph Model For All Classification Tasks",
+              "y": 2024,
+              "c": 47,
+              "k": "Spotlight",
+              "u": "https://iclr.cc/virtual/2024/poster/19474"
+            },
+            {
+              "t": "Graph Neural Networks for Learning Equivariant Representations of Neural Networks",
+              "y": 2024,
+              "c": 39,
+              "k": "Oral",
+              "u": "https://iclr.cc/virtual/2024/poster/17821"
+            },
+            {
+              "t": "Towards Foundational Models for Molecular Learning on Large-Scale Multi-Task Datasets",
+              "y": 2024,
+              "c": 38,
+              "k": "Poster",
+              "u": "https://iclr.cc/virtual/2024/poster/18388"
+            },
+            {
+              "t": "Graph Metanetworks for Processing Diverse Neural Architectures",
+              "y": 2024,
+              "c": 37,
+              "k": "Spotlight",
+              "u": "https://iclr.cc/virtual/2024/poster/18054"
+            },
+            {
+              "t": "On the Stability of Expressive Positional Encodings for Graphs",
+              "y": 2024,
+              "c": 36,
+              "k": "Poster",
+              "u": "https://iclr.cc/virtual/2024/poster/17465"
+            },
+            {
+              "t": "VCR-Graphormer: A Mini-batch Graph Transformer via Virtual Connections",
+              "y": 2024,
+              "c": 31,
+              "k": "Poster",
+              "u": "https://iclr.cc/virtual/2024/poster/18601"
             }
           ]
         },
@@ -608,6 +1539,55 @@ export const topicRates = {
               "c": 9,
               "k": "Oral",
               "u": "https://iclr.cc/virtual/2025/poster/31219"
+            },
+            {
+              "t": "Timer-XL: Long-Context Transformers for Unified Time Series Forecasting",
+              "y": 2025,
+              "c": 6,
+              "k": "Poster",
+              "u": "https://iclr.cc/virtual/2025/poster/30062"
+            },
+            {
+              "t": "In-context Time Series Predictor",
+              "y": 2025,
+              "c": 6,
+              "k": "Poster",
+              "u": "https://iclr.cc/virtual/2025/poster/28999"
+            },
+            {
+              "t": "Towards a General Time Series Anomaly Detector with Adaptive Bottlenecks and Dual Adversarial Decoders",
+              "y": 2025,
+              "c": 5,
+              "k": "Poster",
+              "u": "https://iclr.cc/virtual/2025/poster/29176"
+            },
+            {
+              "t": "Latent-EnSF: A Latent Ensemble Score Filter for High-Dimensional Data Assimilation with Sparse Observation Data",
+              "y": 2025,
+              "c": 4,
+              "k": "Poster",
+              "u": "https://iclr.cc/virtual/2025/poster/27953"
+            },
+            {
+              "t": "Oscillatory State-Space Models",
+              "y": 2025,
+              "c": 3,
+              "k": "Oral",
+              "u": "https://iclr.cc/virtual/2025/poster/30278"
+            },
+            {
+              "t": "Air Quality Prediction with Physics-Guided Dual Neural ODEs in Open Systems",
+              "y": 2025,
+              "c": 3,
+              "k": "Poster",
+              "u": "https://iclr.cc/virtual/2025/poster/28589"
+            },
+            {
+              "t": "Efficiently Parameterized Neural Metriplectic Systems",
+              "y": 2025,
+              "c": 3,
+              "k": "Poster",
+              "u": "https://iclr.cc/virtual/2025/poster/27984"
             }
           ]
         },
@@ -638,6 +1618,55 @@ export const topicRates = {
               "c": 193,
               "k": "Poster",
               "u": "https://iclr.cc/virtual/2024/poster/19091"
+            },
+            {
+              "t": "Hypothesis Search: Inductive Reasoning with Language Models",
+              "y": 2024,
+              "c": 104,
+              "k": "Poster",
+              "u": "https://iclr.cc/virtual/2024/poster/19039"
+            },
+            {
+              "t": "LEGO-Prover: Neural Theorem Proving with Growing Libraries",
+              "y": 2024,
+              "c": 61,
+              "k": "Oral",
+              "u": "https://iclr.cc/virtual/2024/poster/19499"
+            },
+            {
+              "t": "Magnushammer: A Transformer-Based Approach to Premise Selection",
+              "y": 2024,
+              "c": 44,
+              "k": "Poster",
+              "u": "https://iclr.cc/virtual/2024/poster/17814"
+            },
+            {
+              "t": "Don't Trust: Verify -- Grounding LLM Quantitative Reasoning with Autoformalization",
+              "y": 2024,
+              "c": 31,
+              "k": "Poster",
+              "u": "https://iclr.cc/virtual/2024/poster/18508"
+            },
+            {
+              "t": "Lemur: Integrating Large Language Models in Automated Program Verification",
+              "y": 2024,
+              "c": 30,
+              "k": "Poster",
+              "u": "https://iclr.cc/virtual/2024/poster/18684"
+            },
+            {
+              "t": "PINNACLE: PINN Adaptive ColLocation and Experimental points selection",
+              "y": 2024,
+              "c": 29,
+              "k": "Spotlight",
+              "u": "https://iclr.cc/virtual/2024/poster/19012"
+            },
+            {
+              "t": "Image Translation as Diffusion Visual Programmers",
+              "y": 2024,
+              "c": 25,
+              "k": "Poster",
+              "u": "https://iclr.cc/virtual/2024/poster/17402"
             }
           ]
         }

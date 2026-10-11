@@ -171,8 +171,10 @@ const freshRated = rows.filter((c) => c.rates.length && c.rates[c.rates.length -
           </span>
           </summary>
           <div class="topic-head">
-            <span title={`Of the ${b.decided.toLocaleString()} submissions that reached a decision. The ${b.withdrawn.toLocaleString()} withdrawn before one are excluded, which is why these read higher than the ${b.headline}% headline.`}>accept rate</span><span>vs {b.prevYear}</span><span></span>
-            <span>topic <i class="fas fa-angle-down hint" aria-hidden="true"></i> click for its most cited papers</span><span class="th-mute">% of all<br/>subs</span><span class="th-mute">vs {b.prevYear}</span><span>rate<br/>trend</span>
+            <span class="th-rate" title={`Of the ${b.decided.toLocaleString()} submissions that reached a decision. The ${b.withdrawn.toLocaleString()} withdrawn before one are excluded, which is why these read higher than the ${b.headline}% headline.`}>acceptance rate</span>
+            <span class="th-topic">topic</span>
+            <span class="th-share th-mute">% of submissions</span>
+            <span class="th-trend">trend</span>
           </div>
           <ul class="topic-list">
             {b.rows.map((t) => (
@@ -181,7 +183,7 @@ const freshRated = rows.filter((c) => c.rates.length && c.rates[c.rates.length -
                 <span class={`t-drate ${(t.delta || 0) > 0 ? 't-up' : (t.delta || 0) < 0 ? 't-down' : 't-flat'}`}
                       title={`acceptance rate against ${b.prevYear}`}>{t.delta === null ? '' : (t.delta > 0 ? '+' : '') + t.delta}</span>
                 <span class="t-bar"><span class="t-fill" style={`width:${t.pct.toFixed(1)}%`}></span></span>
-                <span class="t-name">{t.area}</span>
+                <span class="t-name">{t.area}{t.papers && <span class="t-open">{t.papers.length} papers <i class="fas fa-angle-down" aria-hidden="true"></i></span>}</span>
                 <span class="t-share" title={`${t.n} decided submissions`}>{t.share}%</span>
                 <span class="t-dshare" title={`share of submissions against ${b.prevYear}`}>{t.shareDelta === null ? '' : (t.shareDelta > 0 ? '+' : '') + t.shareDelta}</span>
                 {t.spark
@@ -196,6 +198,7 @@ const freshRated = rows.filter((c) => c.rates.length && c.rates[c.rates.length -
                   <ol class="t-papers">
                     {t.papers.map((pp) => (
                       <li>
+                        <span class="pp-n"></span>
                         <span class="pp-c" title="Google Scholar citations">{pp.c}</span>
                         <span class={`pp-k pp-${pp.k.toLowerCase()}`}>{pp.k}</span>
                         <span class="pp-y">{pp.y}</span>
@@ -470,8 +473,8 @@ const freshRated = rows.filter((c) => c.rates.length && c.rates[c.rates.length -
   table.confs { width:100%; min-width:1340px; table-layout:fixed; border-collapse:collapse; font-size:.84rem; }
   .confs thead th { position:sticky; top:0; z-index:2; background:#f8fafc; text-align:left; font-size:.64rem;
     letter-spacing:.08em; text-transform:uppercase; color:#64748b; font-weight:700;
-    padding:6px 10px; border-bottom:1px solid rgba(148,163,184,.3); white-space:nowrap; }
-  .confs td { padding:6px 10px; border-bottom:1px solid rgba(148,163,184,.17); vertical-align:top; }
+    padding:6px 6px; border-bottom:1px solid rgba(148,163,184,.3); white-space:nowrap; }
+  .confs td { padding:6px 6px; border-bottom:1px solid rgba(148,163,184,.17); vertical-align:top; }
   .confs tbody tr:last-child td { border-bottom:0; }
 
   .confs tbody tr:hover { background:#f8fafc; }
@@ -483,7 +486,7 @@ const freshRated = rows.filter((c) => c.rates.length && c.rates[c.rates.length -
   .tt-2 { background:#1d4ed8; }
   .tt-3 { background:#15803d; }
 
-  .c-name { width:362px; }
+  .c-name { width:378px; }
   .name-line { display:flex; align-items:center; gap:7px; flex-wrap:wrap; }
   .conf-name { overflow-wrap:anywhere; font-weight:700; color:#0f172a; text-decoration:none; font-size:.9rem; }
   a.conf-name:hover { color:var(--accent); text-decoration:underline; }
@@ -507,7 +510,7 @@ const freshRated = rows.filter((c) => c.rates.length && c.rates[c.rates.length -
   .new-tag { font-size:.62rem; font-weight:800; letter-spacing:.05em; text-transform:uppercase;
     color:#5b21b6; background:#ede9fe; border:1px solid #ddd6fe; border-radius:4px; padding:1px 6px; }
 
-  .c-date { white-space:nowrap; width:204px; }
+  .c-date { white-space:nowrap; width:196px; }
   .round { display:flex; align-items:center; flex-wrap:wrap; gap:5px; margin-bottom:3px; }
   .round:last-of-type { margin-bottom:0; }
   .round-label { flex:0 0 100%; font-size:.62rem; color:#94a3b8; line-height:1.25; margin-top:-1px;
@@ -566,7 +569,7 @@ const freshRated = rows.filter((c) => c.rates.length && c.rates[c.rates.length -
   .rate-stale-note { font-size:.62rem; font-weight:700; color:#64748b; background:#f1f5f9;
     border-radius:4px; padding:1px 5px; white-space:nowrap; }
 
-  .c-rank { white-space:nowrap; width:156px; }
+  .c-rank { white-space:nowrap; width:150px; }
   .ranks { display:flex; flex-direction:column; gap:4px; align-items:flex-start; }
   .pill { display:inline-block; min-width:86px; text-align:center; padding:2px 8px; border-radius:5px;
     font-size:.68rem; font-weight:800; color:#fff; letter-spacing:.02em; }
@@ -601,34 +604,45 @@ const freshRated = rows.filter((c) => c.rates.length && c.rates[c.rates.length -
   .rest > summary h2 { font-size:.98rem; margin:0; }
   .rest-count { font-size:.72rem; font-weight:700; color:#64748b; background:#f1f5f9; border-radius:999px; padding:2px 8px; }
   .rest-note { font-size:.74rem; color:#94a3b8; margin-left:auto; text-align:right; }
-  .topic-list { list-style:none; margin:0; padding:0 16px 14px; display:grid;
+  .topic-list { list-style:none; margin:0; padding:0 10px 14px; display:grid;
     grid-template-columns:1fr; gap:1px; }
   .topic-head, .topic-list li {
-    display:grid; grid-template-columns:52px 44px 110px minmax(0,1fr) 52px 40px 44px; gap:11px; align-items:center; }
-  .topic-head span:first-child { cursor:help; }
-  .topic-head { padding:0 16px 7px; font-size:.6rem; align-items:end; letter-spacing:.07em; text-transform:uppercase; color:#64748b;
-    font-weight:700; }
-  .topic-head span:nth-child(1), .topic-head span:nth-child(2),
-  .topic-head span:nth-child(5), .topic-head span:nth-child(6),
-  .topic-head span:nth-child(7) { text-align:right; }
+    display:grid; grid-template-columns:62px 46px 92px minmax(0,1fr) 60px 46px 44px; gap:8px; align-items:center; }
+  /* Each label spans its pair of columns, so "acceptance rate" and
+     "% of submissions" fit on one line instead of being cut to fit a
+     number-sized column. */
+  .th-rate  { grid-column:1 / span 3; }
+  .th-topic { grid-column:4; }
+  .th-share { grid-column:5 / span 2; text-align:right; }
+  .th-trend { grid-column:7; text-align:right; }
+  .th-rate { cursor:help; }
+  .topic-head { padding:0 10px 7px; font-size:.6rem; align-items:end; letter-spacing:.06em;
+    text-transform:uppercase; color:#64748b; font-weight:700; white-space:nowrap; }
   .topic-head .th-mute { color:#94a3b8; font-weight:700; line-height:1.15; }
-  .topic-list li { font-size:.8rem; padding:3px 16px 3px 0; }
+  .topic-list li { font-size:.8rem; padding:3px 10px 3px 0; }
   .topic-list li.has-papers { cursor:pointer; }
-  .topic-list li.has-papers .t-name::after { content:'\f107'; font-family:'Font Awesome 6 Free'; font-weight:900;
-    margin-left:7px; font-size:.64rem; color:#cbd5e1; }
-  .topic-list li.is-open .t-name::after { content:'\f106'; color:#64748b; }
-  .topic-head .hint { font-size:.6rem; color:#cbd5e1; margin:0 3px 0 5px; }
+  .t-open { display:inline-flex; align-items:center; gap:4px; margin-left:9px; padding:1px 7px;
+    border:1px solid rgba(148,163,184,.55); border-radius:999px; background:#fff;
+    font-size:.62rem; font-weight:700; color:#64748b; white-space:nowrap; vertical-align:1px; }
+  .topic-list li.has-papers:hover .t-open { border-color:rgba(37,99,235,.55); color:var(--accent); }
+  .topic-list li.is-open .t-open { background:#1e293b; border-color:#1e293b; color:#fff; }
+  .topic-list li.is-open .t-open i { transform:rotate(180deg); }
   /* The exemplars sit inside the row and break out of its grid. */
-  .t-papers { display:none; grid-column:1 / -1; list-style:none; margin:4px 0 7px; padding:7px 0 2px 107px;
+  .t-papers { display:none; grid-column:1 / -1; list-style:none; margin:4px 0 7px; padding:7px 0 2px 108px;
+    text-align:left;
     border-top:1px dashed rgba(148,163,184,.35); }
   .topic-list li.is-open .t-papers { display:block; }
-  .t-papers li { display:grid; grid-template-columns:44px 74px 34px minmax(0,1fr); gap:9px;
+  .t-papers { counter-reset:pp; }
+  .t-papers li { display:grid; grid-template-columns:20px 40px 70px 32px minmax(0,1fr); gap:8px;
     align-items:baseline; padding:2px 0; font-size:.74rem; }
+  .pp-n::before { counter-increment:pp; content:counter(pp) '.'; }
+  .pp-n { text-align:right; font-size:.66rem; color:#cbd5e1; font-variant-numeric:tabular-nums; }
   .pp-c { text-align:right; font-weight:800; color:#0f172a; font-variant-numeric:tabular-nums; }
   .pp-k { font-size:.6rem; font-weight:800; letter-spacing:.04em; text-transform:uppercase; text-align:center;
     border-radius:4px; padding:1px 0; color:#fff; background:#94a3b8; }
   .pp-oral { background:#dc2626; } .pp-spotlight { background:#1d4ed8; } .pp-poster { background:#94a3b8; }
   .pp-y { font-size:.66rem; color:#94a3b8; font-variant-numeric:tabular-nums; }
+  .t-papers li > *:last-child { text-align:left; }
   .t-papers a { color:#334155; text-decoration:none; border-bottom:1px solid rgba(148,163,184,.45); }
   .t-papers a:hover { color:var(--accent); border-color:currentColor; }
   .topic-list li:hover { background:#eef2f7; border-radius:5px; }
