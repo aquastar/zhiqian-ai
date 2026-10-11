@@ -46,6 +46,13 @@ SELECTED = [
     ('EDA, chip design', r'electronic design automation|chip design|circuit design|logic synthesis'
                          r'|\bnetlist\b|\bVLSI\b|analog circuit|place(ment)? and rout|standard cell'
                          r'|lithograph|\bRTL\b|hardware description|\bverilog\b|chip floorplan'),
+    # LLM interpretability. Requiring an interpretability word plus any
+    # mention of a language model pulled in 361 papers, most of them not
+    # about interpretability at all, because nearly everything mentions LLMs
+    # now. These terms only appear in work that is actually doing it.
+    ('LLM interpretability', r'mechanistic interpretability|sparse autoencoder|activation patching'
+                             r'|logit lens|logit attribution|steering vector|activation steering'
+                             r'|circuit discovery|induction head|superposition'),
 ]
 
 # ICLR renamed four of its primary areas for 2025. These are renames, not new
@@ -142,6 +149,13 @@ for venue in ('iclr', 'nips', 'icml'):
                 RENAME.get((p.get('primary_area') or '').strip(), (p.get('primary_area') or '').strip())
                 for p in hits if p.get('primary_area'))
             top, top_n = home.most_common(1)[0] if home else ('', 0)
+            for pp_ in hits:
+                cites = pp_.get('gs_citation') or 0
+                if cites > 0 and pp_.get('title') and norm_status(pp_.get('status')) in ACCEPT:
+                    exemplars[(venue, 'sub:' + label)].append(
+                        {'t': pp_['title'].strip(), 'y': year, 'c': cites,
+                         'k': (pp_.get('status') or '').strip(),
+                         'u': (pp_.get('site') or pp_.get('openreview') or '').strip()})
             subs[(venue, year)][label] = {
                 'label': label, 'n': len(hits), 'acc': a,
                 'rate': round(100 * a / len(hits), 1),
@@ -178,6 +192,8 @@ for venue, eds in out.items():
         enough = was and was['n'] >= MIN_FOR_DELTA and cur['n'] >= MIN_FOR_DELTA
         cur['delta'] = round(cur['rate'] - was['rate'], 1) if enough else None
         cur['prevN'] = was['n'] if was else 0
+        got = sorted(exemplars.get((key, 'sub:' + label), []), key=lambda x: -x['c'])[:10]
+        if got: cur['papers'] = got
         picked.append(cur)
     # They are listed separately rather than nested under an area. Most of
     # them cut across several: only 18% of the quantum papers sit in the area

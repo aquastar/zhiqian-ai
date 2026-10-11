@@ -222,17 +222,30 @@ const freshRated = rows.filter((c) => c.rates.length && c.rates[c.rates.length -
               <div class="sel-head">Selected topics <em>matched on author keywords, so they cut across the areas above</em></div>
               <ul class="topic-list sel-list">
                 {b.selected.map((x) => (
-                  <li>
+                  <li class={x.papers ? 'has-papers' : ''}>
                     <span class="t-rate">{x.rate}%</span>
                     <span class={`t-drate ${(x.delta || 0) > 0 ? 't-up' : (x.delta || 0) < 0 ? 't-down' : 't-flat'}`}
                           title={x.delta === null
                             ? `No change shown: only ${x.prevN} matching papers in ${b.prevYear}, too few for the rate to mean anything`
                             : `${b.prevYear}: ${Math.round((x.rate - x.delta) * 10) / 10}%`}>{x.delta === null ? <span class="t-flat">&middot;</span> : <>{(x.delta > 0 ? '+' : '') + x.delta}<i>%</i></>}</span>
                     <span class="t-bar"><span class="t-fill" style={`width:${x.pct.toFixed(1)}%`}></span></span>
-                    <span class="t-name">{x.label}<span class="sel-home">most of them in {x.area} ({x.concentration}%)</span></span>
+                    <span class="t-name">{x.label}{x.papers && <span class="t-open">{x.papers.length} papers <i class="fas fa-angle-down" aria-hidden="true"></i></span>}<span class="sel-home">most of them in {x.area} ({x.concentration}%)</span></span>
                     <span class="t-share" title="decided submissions matching this term">{x.n}</span>
                     <span class="t-dshare"></span>
                     <span class="t-dshare"></span>
+                    {x.papers && (
+                      <ol class="t-papers">
+                        {x.papers.map((pp) => (
+                          <li>
+                            <span class="pp-n"></span>
+                            <span class="pp-c" title="Google Scholar citations">{pp.c}</span>
+                            <span class={`pp-k pp-${pp.k.toLowerCase()}`}>{pp.k}</span>
+                            <span class="pp-y">{pp.y}</span>
+                            {pp.u ? <a href={pp.u} target="_blank" rel="noopener">{pp.t}</a> : <span>{pp.t}</span>}
+                          </li>
+                        ))}
+                      </ol>
+                    )}
                   </li>
                 ))}
               </ul>

@@ -1685,7 +1685,79 @@ export const topicRates = {
           "area": "transfer learning, meta learning, and lifelong learning",
           "concentration": 22,
           "delta": 13.3,
-          "prevN": 42
+          "prevN": 42,
+          "papers": [
+            {
+              "t": "AdaMerging: Adaptive Model Merging for Multi-Task Learning",
+              "y": 2024,
+              "c": 121,
+              "k": "Poster",
+              "u": "https://iclr.cc/virtual/2024/poster/17853"
+            },
+            {
+              "t": "Can Sensitive Information Be Deleted From LLMs? Objectives for Defending Against Extraction Attacks",
+              "y": 2024,
+              "c": 96,
+              "k": "Spotlight",
+              "u": "https://iclr.cc/virtual/2024/poster/19353"
+            },
+            {
+              "t": "Massive Editing for Large Language Models via Meta Learning",
+              "y": 2024,
+              "c": 74,
+              "k": "Poster",
+              "u": "https://iclr.cc/virtual/2024/poster/18873"
+            },
+            {
+              "t": "BadEdit: Backdooring Large Language Models by Model Editing",
+              "y": 2024,
+              "c": 60,
+              "k": "Poster",
+              "u": "https://iclr.cc/virtual/2024/poster/18240"
+            },
+            {
+              "t": "Model Merging by Uncertainty-Based Gradient Matching",
+              "y": 2024,
+              "c": 52,
+              "k": "Poster",
+              "u": "https://iclr.cc/virtual/2024/poster/19152"
+            },
+            {
+              "t": "Unveiling the Pitfalls of Knowledge Editing for Large Language Models",
+              "y": 2024,
+              "c": 52,
+              "k": "Poster",
+              "u": "https://iclr.cc/virtual/2024/poster/18188"
+            },
+            {
+              "t": "Circumventing Concept Erasure Methods For Text-To-Image Generative Models",
+              "y": 2024,
+              "c": 41,
+              "k": "Poster",
+              "u": "https://iclr.cc/virtual/2024/poster/18359"
+            },
+            {
+              "t": "What does the Knowledge Neuron Thesis Have to do with Knowledge?",
+              "y": 2024,
+              "c": 23,
+              "k": "Spotlight",
+              "u": "https://iclr.cc/virtual/2024/poster/19556"
+            },
+            {
+              "t": "AlphaEdit: Null-Space Constrained Knowledge Editing for Language Models",
+              "y": 2025,
+              "c": 21,
+              "k": "Oral",
+              "u": "https://iclr.cc/virtual/2025/poster/30202"
+            },
+            {
+              "t": "Localizing and Editing Knowledge In Text-to-Image Generative Models",
+              "y": 2024,
+              "c": 21,
+              "k": "Poster",
+              "u": "https://iclr.cc/virtual/2024/poster/18667"
+            }
+          ]
         },
         {
           "label": "music generation",
@@ -1695,7 +1767,161 @@ export const topicRates = {
           "area": "applications to computer vision, audio, language, and other modalities",
           "concentration": 61,
           "delta": null,
-          "prevN": 12
+          "prevN": 12,
+          "papers": [
+            {
+              "t": "SALMONN: Towards Generic Hearing Abilities for Large Language Models",
+              "y": 2024,
+              "c": 286,
+              "k": "Poster",
+              "u": "https://iclr.cc/virtual/2024/poster/19600"
+            },
+            {
+              "t": "MERT: Acoustic Music Understanding Model with Large-Scale Self-supervised Training",
+              "y": 2024,
+              "c": 120,
+              "k": "Poster",
+              "u": "https://iclr.cc/virtual/2024/poster/17510"
+            },
+            {
+              "t": "Masked Audio Generation using a Single Non-Autoregressive Transformer",
+              "y": 2024,
+              "c": 50,
+              "k": "Poster",
+              "u": "https://iclr.cc/virtual/2024/poster/18760"
+            },
+            {
+              "t": "Multi-Source Diffusion Models for Simultaneous Music Generation and Separation",
+              "y": 2024,
+              "c": 46,
+              "k": "Oral",
+              "u": "https://iclr.cc/virtual/2024/poster/18110"
+            },
+            {
+              "t": "Whole-Song Hierarchical Generation of Symbolic Music Using Cascaded Diffusion Models",
+              "y": 2024,
+              "c": 11,
+              "k": "Spotlight",
+              "u": "https://iclr.cc/virtual/2024/poster/17633"
+            },
+            {
+              "t": "MuPT: A Generative Symbolic Music Pretrained Transformer",
+              "y": 2025,
+              "c": 10,
+              "k": "Poster",
+              "u": "https://iclr.cc/virtual/2025/poster/28712"
+            },
+            {
+              "t": "Dynamic-SUPERB Phase-2: A Collaboratively Expanding Benchmark for Measuring the Capabilities of Spoken Language Models with 180 Tasks",
+              "y": 2025,
+              "c": 10,
+              "k": "Poster",
+              "u": "https://iclr.cc/virtual/2025/poster/32056"
+            },
+            {
+              "t": "Presto! Distilling Steps and Layers for Accelerating Music Generation",
+              "y": 2025,
+              "c": 4,
+              "k": "Spotlight",
+              "u": "https://iclr.cc/virtual/2025/poster/30264"
+            },
+            {
+              "t": "Diversity-Rewarded CFG Distillation",
+              "y": 2025,
+              "c": 3,
+              "k": "Poster",
+              "u": "https://iclr.cc/virtual/2025/poster/32061"
+            },
+            {
+              "t": "PianoMotion10M: Dataset and Benchmark for Hand Motion Generation in Piano Performance",
+              "y": 2025,
+              "c": 1,
+              "k": "Spotlight",
+              "u": "https://iclr.cc/virtual/2025/poster/28158"
+            }
+          ]
+        },
+        {
+          "label": "LLM interpretability",
+          "n": 204,
+          "acc": 86,
+          "rate": 42.2,
+          "area": "interpretability and explainable AI",
+          "concentration": 68,
+          "delta": -2.9,
+          "prevN": 102,
+          "papers": [
+            {
+              "t": "Sparse Autoencoders Find Highly Interpretable Features in Language Models",
+              "y": 2024,
+              "c": 257,
+              "k": "Poster",
+              "u": "https://iclr.cc/virtual/2024/poster/19081"
+            },
+            {
+              "t": "Scaling and evaluating sparse autoencoders",
+              "y": 2025,
+              "c": 138,
+              "k": "Oral",
+              "u": "https://iclr.cc/virtual/2025/poster/28040"
+            },
+            {
+              "t": "Sparse Feature Circuits: Discovering and Editing Interpretable Causal Graphs in Language Models",
+              "y": 2025,
+              "c": 100,
+              "k": "Oral",
+              "u": "https://iclr.cc/virtual/2025/poster/30192"
+            },
+            {
+              "t": "Towards Best Practices of Activation Patching in Language Models: Metrics and Methods",
+              "y": 2024,
+              "c": 78,
+              "k": "Poster",
+              "u": "https://iclr.cc/virtual/2024/poster/18984"
+            },
+            {
+              "t": "The mechanistic basis of data dependence and abrupt learning in an in-context classification task",
+              "y": 2024,
+              "c": 64,
+              "k": "Oral",
+              "u": "https://iclr.cc/virtual/2024/poster/18368"
+            },
+            {
+              "t": "Circuit Component Reuse Across Tasks in Transformer Language Models",
+              "y": 2024,
+              "c": 63,
+              "k": "Spotlight",
+              "u": "https://iclr.cc/virtual/2024/poster/18171"
+            },
+            {
+              "t": "Overthinking the Truth: Understanding how Language Models Process False Demonstrations",
+              "y": 2024,
+              "c": 45,
+              "k": "Spotlight",
+              "u": "https://iclr.cc/virtual/2024/poster/18562"
+            },
+            {
+              "t": "Fine-Tuning Enhances Existing Mechanisms: A Case Study on Entity Tracking",
+              "y": 2024,
+              "c": 43,
+              "k": "Poster",
+              "u": "https://iclr.cc/virtual/2024/poster/19313"
+            },
+            {
+              "t": "Towards Principled Evaluations of Sparse Autoencoders for Interpretability and Control",
+              "y": 2025,
+              "c": 30,
+              "k": "Poster",
+              "u": "https://iclr.cc/virtual/2025/poster/31206"
+            },
+            {
+              "t": "Scaling Laws for Associative Memories",
+              "y": 2024,
+              "c": 21,
+              "k": "Spotlight",
+              "u": "https://iclr.cc/virtual/2024/poster/18538"
+            }
+          ]
         },
         {
           "label": "EDA, chip design",
@@ -1705,7 +1931,58 @@ export const topicRates = {
           "area": "datasets and benchmarks",
           "concentration": 26,
           "delta": null,
-          "prevN": 13
+          "prevN": 13,
+          "papers": [
+            {
+              "t": "CircuitFusion: Multimodal Circuit Representation Learning for Agile Chip Design",
+              "y": 2025,
+              "c": 4,
+              "k": "Poster",
+              "u": "https://iclr.cc/virtual/2025/poster/28186"
+            },
+            {
+              "t": "DeepRTL: Bridging Verilog Understanding and Generation with a Unified Representation Model",
+              "y": 2025,
+              "c": 3,
+              "k": "Spotlight",
+              "u": "https://iclr.cc/virtual/2025/poster/31123"
+            },
+            {
+              "t": "CraftRTL: High-quality Synthetic Data Generation for Verilog Code Models with Correct-by-Construction Non-Textual Representations and Targeted Code Repair",
+              "y": 2025,
+              "c": 3,
+              "k": "Poster",
+              "u": "https://iclr.cc/virtual/2025/poster/30772"
+            },
+            {
+              "t": "Circuit Representation Learning with Masked Gate Modeling and Verilog-AIG Alignment",
+              "y": 2025,
+              "c": 2,
+              "k": "Poster",
+              "u": "https://iclr.cc/virtual/2025/poster/29473"
+            },
+            {
+              "t": "LaMPlace: Learning to Optimize Cross-Stage Metrics in Macro Placement",
+              "y": 2025,
+              "c": 2,
+              "k": "Oral",
+              "u": "https://iclr.cc/virtual/2025/poster/29266"
+            },
+            {
+              "t": "DeepGate4: Efficient and Effective Representation Learning for Circuit Design at Scale",
+              "y": 2025,
+              "c": 2,
+              "k": "Poster",
+              "u": "https://iclr.cc/virtual/2025/poster/29131"
+            },
+            {
+              "t": "AnalogGenie: A Generative Engine for Automatic Discovery of Analog Circuit Topologies",
+              "y": 2025,
+              "c": 1,
+              "k": "Spotlight",
+              "u": "https://iclr.cc/virtual/2025/poster/28646"
+            }
+          ]
         },
         {
           "label": "quantum computing",
@@ -1715,7 +1992,79 @@ export const topicRates = {
           "area": "applications to physical sciences (physics, chemistry, biology, etc.)",
           "concentration": 18,
           "delta": -20.8,
-          "prevN": 37
+          "prevN": 37,
+          "papers": [
+            {
+              "t": "Towards Foundational Models for Molecular Learning on Large-Scale Multi-Task Datasets",
+              "y": 2024,
+              "c": 38,
+              "k": "Poster",
+              "u": "https://iclr.cc/virtual/2024/poster/18388"
+            },
+            {
+              "t": "Long-Short-Range Message-Passing: A Physics-Informed Framework to Capture Non-Local Interaction for Scalable Molecular Dynamics Simulation",
+              "y": 2024,
+              "c": 25,
+              "k": "Poster",
+              "u": "https://iclr.cc/virtual/2024/poster/17673"
+            },
+            {
+              "t": "Curriculum reinforcement learning for quantum architecture search under hardware errors",
+              "y": 2024,
+              "c": 23,
+              "k": "Poster",
+              "u": "https://iclr.cc/virtual/2024/poster/17697"
+            },
+            {
+              "t": "On the Relation between Trainability and Dequantization of Variational Quantum Learning Models",
+              "y": 2025,
+              "c": 14,
+              "k": "Poster",
+              "u": "https://iclr.cc/virtual/2025/poster/29529"
+            },
+            {
+              "t": "Neural Auto-designer for Enhanced Quantum Kernels",
+              "y": 2024,
+              "c": 8,
+              "k": "Poster",
+              "u": "https://iclr.cc/virtual/2024/poster/19319"
+            },
+            {
+              "t": "Robustness of Quantum Algorithms for Nonconvex Optimization",
+              "y": 2025,
+              "c": 7,
+              "k": "Poster",
+              "u": "https://iclr.cc/virtual/2025/poster/30083"
+            },
+            {
+              "t": "Topological data analysis on noisy quantum computers",
+              "y": 2024,
+              "c": 6,
+              "k": "Oral",
+              "u": "https://iclr.cc/virtual/2024/poster/18263"
+            },
+            {
+              "t": "A Quantum Circuit-Based Compression Perspective for Parameter-Efficient Learning",
+              "y": 2025,
+              "c": 5,
+              "k": "Poster",
+              "u": "https://iclr.cc/virtual/2025/poster/29122"
+            },
+            {
+              "t": "A Unified Theory of Quantum Neural Network Loss Landscapes",
+              "y": 2025,
+              "c": 5,
+              "k": "Poster",
+              "u": "https://iclr.cc/virtual/2025/poster/28843"
+            },
+            {
+              "t": "Towards LLM4QPE: Unsupervised Pretraining of Quantum Property Estimation and A Benchmark",
+              "y": 2024,
+              "c": 3,
+              "k": "Spotlight",
+              "u": "https://iclr.cc/virtual/2024/poster/17517"
+            }
+          ]
         }
       ]
     },
