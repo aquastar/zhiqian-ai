@@ -15,127 +15,148 @@ export const topicRates = {
           "area": "learning theory",
           "n": 410,
           "acc": 190,
-          "rate": 46.3
+          "rate": 46.3,
+          "share": 3.0
         },
         {
           "area": "foundation or frontier models, including LLMs",
           "n": 1903,
           "acc": 831,
-          "rate": 43.7
+          "rate": 43.7,
+          "share": 13.8
         },
         {
           "area": "generative models",
           "n": 1148,
           "acc": 496,
-          "rate": 43.2
+          "rate": 43.2,
+          "share": 8.3
         },
         {
           "area": "applications to computer vision, audio, language, and other modalities",
           "n": 1708,
           "acc": 737,
-          "rate": 43.1
+          "rate": 43.1,
+          "share": 12.4
         },
         {
           "area": "applications to robotics, autonomy, planning",
           "n": 421,
           "acc": 178,
-          "rate": 42.3
+          "rate": 42.3,
+          "share": 3.0
         },
         {
           "area": "datasets and benchmarks",
           "n": 1077,
           "acc": 443,
-          "rate": 41.1
+          "rate": 41.1,
+          "share": 7.8
         },
         {
           "area": "applications to neuroscience & cognitive science",
           "n": 282,
           "acc": 114,
-          "rate": 40.4
+          "rate": 40.4,
+          "share": 2.0
         },
         {
           "area": "reinforcement learning",
           "n": 796,
           "acc": 308,
-          "rate": 38.7
+          "rate": 38.7,
+          "share": 5.8
         },
         {
           "area": "probabilistic methods (Bayesian methods, variational inference, sampling, UQ, etc.)",
           "n": 306,
           "acc": 116,
-          "rate": 37.9
+          "rate": 37.9,
+          "share": 2.2
         },
         {
           "area": "applications to physical sciences (physics, chemistry, biology, etc.)",
           "n": 596,
           "acc": 221,
-          "rate": 37.1
+          "rate": 37.1,
+          "share": 4.3
         },
         {
           "area": "alignment, fairness, safety, privacy, and societal considerations",
           "n": 1161,
           "acc": 423,
-          "rate": 36.4
+          "rate": 36.4,
+          "share": 8.4
         },
         {
           "area": "interpretability and explainable AI",
           "n": 558,
           "acc": 199,
-          "rate": 35.7
+          "rate": 35.7,
+          "share": 4.0
         },
         {
           "area": "optimization",
           "n": 557,
           "acc": 191,
-          "rate": 34.3
+          "rate": 34.3,
+          "share": 4.0
         },
         {
           "area": "causal reasoning",
           "n": 142,
           "acc": 47,
-          "rate": 33.1
+          "rate": 33.1,
+          "share": 1.0
         },
         {
           "area": "unsupervised, self-supervised, semi-supervised, and supervised representation learning",
           "n": 814,
           "acc": 265,
-          "rate": 32.6
+          "rate": 32.6,
+          "share": 5.9
         },
         {
           "area": "infrastructure, software libraries, hardware, systems, etc.",
           "n": 133,
           "acc": 43,
-          "rate": 32.3
+          "rate": 32.3,
+          "share": 1.0
         },
         {
           "area": "other topics in machine learning (i.e., none of the above)",
           "n": 557,
           "acc": 177,
-          "rate": 31.8
+          "rate": 31.8,
+          "share": 4.0
         },
         {
           "area": "transfer learning, meta learning, and lifelong learning",
           "n": 378,
           "acc": 118,
-          "rate": 31.2
+          "rate": 31.2,
+          "share": 2.7
         },
         {
           "area": "learning on graphs and other geometries & topologies",
           "n": 369,
           "acc": 113,
-          "rate": 30.6
+          "rate": 30.6,
+          "share": 2.7
         },
         {
           "area": "learning on time series and dynamical systems",
           "n": 336,
           "acc": 101,
-          "rate": 30.1
+          "rate": 30.1,
+          "share": 2.4
         },
         {
           "area": "neurosymbolic & hybrid AI systems (physics-informed, logic & formal reasoning, etc.)",
           "n": 159,
           "acc": 47,
-          "rate": 29.6
+          "rate": 29.6,
+          "share": 1.2
         }
       ],
       "decided": 13811
@@ -148,127 +169,148 @@ export const topicRates = {
           "area": "applications to robotics, autonomy, planning",
           "n": 176,
           "acc": 91,
-          "rate": 51.7
+          "rate": 51.7,
+          "share": 2.0
         },
         {
           "area": "generative models",
           "n": 767,
           "acc": 377,
-          "rate": 49.2
+          "rate": 49.2,
+          "share": 8.9
         },
         {
           "area": "learning theory",
           "n": 297,
           "acc": 141,
-          "rate": 47.5
+          "rate": 47.5,
+          "share": 3.4
         },
         {
           "area": "applications to computer vision, audio, language, and other modalities",
           "n": 895,
           "acc": 420,
-          "rate": 46.9
+          "rate": 46.9,
+          "share": 10.4
         },
         {
           "area": "foundation or frontier models, including LLMs",
           "n": 1014,
           "acc": 469,
-          "rate": 46.3
+          "rate": 46.3,
+          "share": 11.8
         },
         {
           "area": "infrastructure, software libraries, hardware, systems, etc.",
           "n": 62,
           "acc": 28,
-          "rate": 45.2
+          "rate": 45.2,
+          "share": 0.7
         },
         {
           "area": "probabilistic methods (Bayesian methods, variational inference, sampling, UQ, etc.)",
           "n": 187,
           "acc": 84,
-          "rate": 44.9
+          "rate": 44.9,
+          "share": 2.2
         },
         {
           "area": "alignment, fairness, safety, privacy, and societal considerations",
           "n": 764,
           "acc": 332,
-          "rate": 43.5
+          "rate": 43.5,
+          "share": 8.9
         },
         {
           "area": "applications to physical sciences (physics, chemistry, biology, etc.)",
           "n": 423,
           "acc": 178,
-          "rate": 42.1
+          "rate": 42.1,
+          "share": 4.9
         },
         {
           "area": "reinforcement learning",
           "n": 553,
           "acc": 230,
-          "rate": 41.6
+          "rate": 41.6,
+          "share": 6.4
         },
         {
           "area": "datasets and benchmarks",
           "n": 551,
           "acc": 228,
-          "rate": 41.4
+          "rate": 41.4,
+          "share": 6.4
         },
         {
           "area": "applications to neuroscience & cognitive science",
           "n": 163,
           "acc": 67,
-          "rate": 41.1
+          "rate": 41.1,
+          "share": 1.9
         },
         {
           "area": "transfer learning, meta learning, and lifelong learning",
           "n": 239,
           "acc": 95,
-          "rate": 39.7
+          "rate": 39.7,
+          "share": 2.8
         },
         {
           "area": "optimization",
           "n": 409,
           "acc": 162,
-          "rate": 39.6
+          "rate": 39.6,
+          "share": 4.7
         },
         {
           "area": "learning on graphs and other geometries & topologies",
           "n": 341,
           "acc": 134,
-          "rate": 39.3
+          "rate": 39.3,
+          "share": 4.0
         },
         {
           "area": "other topics in machine learning (i.e., none of the above)",
           "n": 392,
           "acc": 152,
-          "rate": 38.8
+          "rate": 38.8,
+          "share": 4.6
         },
         {
           "area": "unsupervised, self-supervised, semi-supervised, and supervised representation learning",
           "n": 610,
           "acc": 236,
-          "rate": 38.7
+          "rate": 38.7,
+          "share": 7.1
         },
         {
           "area": "interpretability and explainable AI",
           "n": 401,
           "acc": 155,
-          "rate": 38.7
+          "rate": 38.7,
+          "share": 4.7
         },
         {
           "area": "neurosymbolic & hybrid AI systems (physics-informed, logic & formal reasoning, etc.)",
           "n": 86,
           "acc": 29,
-          "rate": 33.7
+          "rate": 33.7,
+          "share": 1.0
         },
         {
           "area": "causal reasoning",
           "n": 101,
           "acc": 34,
-          "rate": 33.7
+          "rate": 33.7,
+          "share": 1.2
         },
         {
           "area": "learning on time series and dynamical systems",
           "n": 183,
           "acc": 61,
-          "rate": 33.3
+          "rate": 33.3,
+          "share": 2.1
         }
       ],
       "decided": 8614
@@ -281,109 +323,127 @@ export const topicRates = {
           "area": "learning theory",
           "n": 188,
           "acc": 102,
-          "rate": 54.3
+          "rate": 54.3,
+          "share": 3.3
         },
         {
           "area": "generative models",
           "n": 596,
           "acc": 300,
-          "rate": 50.3
+          "rate": 50.3,
+          "share": 10.5
         },
         {
           "area": "applications to neuroscience & cognitive science",
           "n": 110,
           "acc": 49,
-          "rate": 44.5
+          "rate": 44.5,
+          "share": 1.9
         },
         {
           "area": "datasets and benchmarks",
           "n": 212,
           "acc": 89,
-          "rate": 42.0
+          "rate": 42.0,
+          "share": 3.7
         },
         {
           "area": "probabilistic methods (Bayesian methods, variational inference, sampling, UQ, etc.)",
           "n": 163,
           "acc": 68,
-          "rate": 41.7
+          "rate": 41.7,
+          "share": 2.9
         },
         {
           "area": "learning on graphs and other geometries & topologies",
           "n": 167,
           "acc": 69,
-          "rate": 41.3
+          "rate": 41.3,
+          "share": 2.9
         },
         {
           "area": "representation learning for computer vision, audio, language, and other modalities",
           "n": 745,
           "acc": 307,
-          "rate": 41.2
+          "rate": 41.2,
+          "share": 13.1
         },
         {
           "area": "applications to robotics, autonomy, planning",
           "n": 141,
           "acc": 57,
-          "rate": 40.4
+          "rate": 40.4,
+          "share": 2.5
         },
         {
           "area": "applications to physical sciences (physics, chemistry, biology, etc.)",
           "n": 248,
           "acc": 96,
-          "rate": 38.7
+          "rate": 38.7,
+          "share": 4.4
         },
         {
           "area": "reinforcement learning",
           "n": 541,
           "acc": 206,
-          "rate": 38.1
+          "rate": 38.1,
+          "share": 9.5
         },
         {
           "area": "visualization or interpretation of learned representations",
           "n": 165,
           "acc": 62,
-          "rate": 37.6
+          "rate": 37.6,
+          "share": 2.9
         },
         {
           "area": "causal reasoning",
           "n": 83,
           "acc": 31,
-          "rate": 37.3
+          "rate": 37.3,
+          "share": 1.5
         },
         {
           "area": "optimization",
           "n": 256,
           "acc": 95,
-          "rate": 37.1
+          "rate": 37.1,
+          "share": 4.5
         },
         {
           "area": "societal considerations including fairness, safety, privacy",
           "n": 432,
           "acc": 159,
-          "rate": 36.8
+          "rate": 36.8,
+          "share": 7.6
         },
         {
           "area": "neurosymbolic & hybrid AI systems (physics-informed, logic & formal reasoning, etc.)",
           "n": 85,
           "acc": 31,
-          "rate": 36.5
+          "rate": 36.5,
+          "share": 1.5
         },
         {
           "area": "general machine learning (i.e., none of the above)",
           "n": 594,
           "acc": 214,
-          "rate": 36.0
+          "rate": 36.0,
+          "share": 10.4
         },
         {
           "area": "transfer learning, meta learning, and lifelong learning",
           "n": 255,
           "acc": 86,
-          "rate": 33.7
+          "rate": 33.7,
+          "share": 4.5
         },
         {
           "area": "unsupervised, self-supervised, semi-supervised, and supervised representation learning",
           "n": 651,
           "acc": 218,
-          "rate": 33.5
+          "rate": 33.5,
+          "share": 11.4
         }
       ],
       "decided": 5632

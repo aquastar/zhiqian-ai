@@ -61,8 +61,10 @@ const topicBlocks = Object.entries(topicRates).map(([venue, eds]) => {
     venue, year: now.year, overall: now.overall, decided: now.decided,
     prevYear: prev ? prev.year : null, lo, hi,
     rows: now.topics.map((t) => {
-      const was = prev ? (prev.topics.find((x) => x.area === t.area) || {}).rate : undefined;
-      return { ...t, delta: was === undefined ? null : Math.round((t.rate - was) * 10) / 10,
+      const before = prev ? prev.topics.find((x) => x.area === t.area) : undefined;
+      const d = (now_, then_) => (then_ === undefined ? null : Math.round((now_ - then_) * 10) / 10);
+      return { ...t, delta: d(t.rate, before && before.rate),
+               shareDelta: d(t.share, before && before.share),
                pct: ((t.rate - lo) / (hi - lo)) * 100 };
     }),
   };
@@ -273,17 +275,18 @@ const freshRated = rows.filter((c) => c.rates.length && c.rates[c.rates.length -
             <span class="rest-count">{b.venue} {b.year}</span>
             <span class="rest-note">{b.overall}% overall across {b.decided.toLocaleString()} decided submissions</span>
           </summary>
+          <div class="topic-head"><span>rate</span><span></span><span>topic</span><span>share</span><span>&Delta;sh</span><span>&Delta;rate</span></div>
           <ul class="topic-list">
             {b.rows.map((t) => (
               <li>
                 <span class="t-rate">{t.rate}%</span>
                 <span class="t-bar"><span class="t-fill" style={`width:${t.pct.toFixed(1)}%`}></span></span>
                 <span class="t-name">{t.area}</span>
-                <span class="t-n">{t.n}</span>
-                {t.delta === null
-                  ? <span class="t-d t-flat">new</span>
-                  : <span class={`t-d ${t.delta > 0 ? 't-up' : t.delta < 0 ? 't-down' : 't-flat'}`}
-                          title={`against ${b.prevYear}`}>{t.delta > 0 ? '+' : ''}{t.delta}</span>}
+                <span class="t-n" title={`${t.n} decided submissions, ${t.share}% of the pool`}>{t.share}%</span>
+                <span class={`t-d ${(t.shareDelta || 0) > 0 ? 't-up' : (t.shareDelta || 0) < 0 ? 't-down' : 't-flat'}`}
+                      title={`share of submissions against ${b.prevYear}`}>{t.shareDelta === null ? '' : (t.shareDelta > 0 ? '+' : '') + t.shareDelta}</span>
+                <span class={`t-d ${(t.delta || 0) > 0 ? 't-up' : (t.delta || 0) < 0 ? 't-down' : 't-flat'}`}
+                      title={`acceptance rate against ${b.prevYear}`}>{t.delta === null ? 'new' : (t.delta > 0 ? '+' : '') + t.delta}</span>
               </li>
             ))}
           </ul>
@@ -291,7 +294,8 @@ const freshRated = rows.filter((c) => c.rates.length && c.rates[c.rates.length -
             Topic is the area the authors themselves picked at submission. The denominator is every submission that reached
             a decision, so withdrawn and desk-rejected papers are excluded, and topics with fewer than 40 of them are left out.
             The bars are scaled to the range {b.lo} to {b.hi}%, not to zero, because otherwise every topic looks the same.
-            The number on the right is the change against {b.prevYear}.
+            The percentage after the topic is its share of the submission pool, then two changes against {b.prevYear}:
+            share first, acceptance rate second. A topic rising in share while its rate falls is one getting crowded.
             Only {b.venue} appears here: it is the one venue that publishes its full submission pool. The NeurIPS and ICML
             lists hold accepted papers only, so a rate computed from them would read about 94%.
           </p>
@@ -563,8 +567,12 @@ const freshRated = rows.filter((c) => c.rates.length && c.rates[c.rates.length -
   .rest-count { font-size:.72rem; font-weight:700; color:#64748b; background:#f1f5f9; border-radius:999px; padding:2px 8px; }
   .rest-note { font-size:.74rem; color:#94a3b8; margin-left:auto; }
   .topic-list { list-style:none; margin:0; padding:0 16px 14px; display:grid;
-    grid-template-columns:repeat(auto-fill, minmax(420px,1fr)); gap:3px 28px; }
-  .topic-list li { display:grid; grid-template-columns:44px 90px minmax(0,1fr) 44px 44px;
+    grid-template-columns:repeat(auto-fill, minmax(440px,1fr)); gap:3px 28px; }
+  .topic-head { display:grid; grid-template-columns:44px 76px minmax(0,1fr) 40px 38px 40px; gap:8px;
+    padding:0 16px 4px; font-size:.62rem; letter-spacing:.06em; text-transform:uppercase; color:#94a3b8; }
+  .topic-head span:nth-child(1), .topic-head span:nth-child(4),
+  .topic-head span:nth-child(5), .topic-head span:nth-child(6) { text-align:right; }
+  .topic-list li { display:grid; grid-template-columns:44px 76px minmax(0,1fr) 40px 38px 40px;
     gap:8px; align-items:center; font-size:.78rem; }
   .t-rate { font-weight:800; color:#0f172a; font-variant-numeric:tabular-nums; text-align:right; }
   .t-bar { height:7px; border-radius:999px; background:rgba(148,163,184,.25); overflow:hidden; }

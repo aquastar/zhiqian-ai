@@ -74,7 +74,12 @@ for venue in ('iclr', 'nips', 'icml'):
             if not area or s == 'undecided': continue
             rows[area][0] += 1
             if s in ACCEPT: rows[area][1] += 1
-        topics = [{'area': a, 'n': n, 'acc': k, 'rate': round(100 * k / n, 1)}
+        pool = sum(n for n, _ in rows.values())
+        topics = [{'area': a, 'n': n, 'acc': k, 'rate': round(100 * k / n, 1),
+                   # Share of the submission pool. Absolute counts rise with
+                   # the conference, so share is what says a topic is getting
+                   # crowded rather than the field just getting bigger.
+                   'share': round(100 * n / pool, 1)}
                   for a, (n, k) in rows.items() if n >= MIN_PER_TOPIC]
         if not topics: continue
         topics.sort(key=lambda t: -t['rate'])
