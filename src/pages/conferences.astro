@@ -46,6 +46,19 @@ const CSC = 'https://csconfstats.xoveexu.com/conferences';
 const DBLP = 'https://dblp.org/db/conf';
 const BEST = 'https://jeffhuang.com/best_paper_awards/conferences.html';
 const MAX_ROUNDS = 3;
+const CSR = 'https://csrankings.org/';
+// Google Scholar Metrics has no API, so the h5-index itself is not pulled in.
+// What is linkable is the category page, which is the field-native ranking.
+// Every slug below was opened and confirmed to resolve. Society meetings get
+// no link: they publish no papers, so Scholar Metrics does not index them.
+const GSM = 'https://scholar.google.com/citations?view_op=top_venues&hl=en&vq=';
+const SCHOLAR = {
+  'AI / ML / Data Mining': GSM + 'eng_artificialintelligence',
+  'Security & Privacy': GSM + 'eng_computersecuritycryptography',
+  'Medicine, Biology & Genetics': GSM + 'bio_bioinformatics',
+  'Science & Interdisciplinary': GSM + 'eng',
+  'Society meetings': '',
+};
 const TIER = { 1: 'Top', 2: 'Strong', 3: 'Listed' };
 
 const coreLabel = { 'A*': 'A*', A: 'A', B: 'B', C: 'C', TBR: 'TBR', JP: 'jrnl', N: 'n/a' };
@@ -84,10 +97,14 @@ const freshRated = rows.filter((c) => c.rates.length && c.rates[c.rates.length -
     <section class="head">
       <div class="filter" role="group" aria-label="Filter by field">
         {counts.map((c) => (
-          <button class={`fbtn area-${slug(c.area)}${c.area === DEFAULT_AREA ? ' is-on' : ''}`} data-area={slug(c.area)} type="button">
+          <button class={`fbtn area-${slug(c.area)}${c.area === DEFAULT_AREA ? ' is-on' : ''}`} data-area={slug(c.area)} type="button" data-scholar={SCHOLAR[c.area] || ''}>
             <i class={`fas ${AREA_ICON[c.area]}`} aria-hidden="true"></i>{AREA_SHORT[c.area]}<span class="fcount">{c.n}</span>
           </button>
         ))}
+        <a class="scholar-link" id="scholar-link" href={SCHOLAR[DEFAULT_AREA]} target="_blank" rel="noopener"
+           title="This field's h5-index ranking on Google Scholar Metrics, journals and conferences together">
+          h5-index <i class="fas fa-arrow-up-right-from-square" aria-hidden="true"></i>
+        </a>
       </div>
 
       <ul class="legend">
@@ -165,13 +182,21 @@ const freshRated = rows.filter((c) => c.rates.length && c.rates[c.rates.length -
                     : <span class="none">date unavailable</span>}
                 </td>
                 <td class="c-when">
+                  {c.edition && <span class="ed-ord" title="Edition number, projected from the last one on record">{c.edition}</span>}
                   {c.nextYear && !(c.date || '').includes(String(c.nextYear)) ? <span class="ed">{c.nextYear}</span> : null}
-                  {c.date ? <span class="when">{c.date}</span> : <span class="none">&mdash;</span>}
+                  {c.date ? <span class="when">{c.date}</span> : <span class="none">date to be set</span>}
                   {c.place && <span class="where">{c.cc && <span class={`fi fi-${c.cc}`} aria-hidden="true"></span>}{c.place}</span>}
+                  {c.city && <span class="city"><i class="fas fa-camera" aria-hidden="true"></i>{c.city}</span>}
                 </td>
                 <td class="c-rate">
                   {last
                     ? <div class={`rate ${stale ? 'is-stale' : ''}`}>
+                        <div class="rate-side">
+                          <a class="rate-more" href={c.rateSrc === 'csc' ? `${CSC}/${c.rateSlug}/` : `${AR_REPO_OLD}#${c.rateSection}`} target="_blank" rel="noopener" title="Full year-by-year history at the source">
+                            {c.rates.length} yrs <i class="fas fa-arrow-up-right-from-square" aria-hidden="true"></i>
+                          </a>
+                          {stale && <span class="rate-stale-note">ends {last.y}</span>}
+                        </div>
                         {c.chart && (
                           <svg class="spark" viewBox={`-2 -6 ${CHART.w + 34} ${CHART.h + 12}`} width={CHART.w + 34} height={CHART.h + 12} role="img" aria-label={`Acceptance rate ${c.chart.span}`}>
                             {c.chart.grid.map((g) => (
@@ -189,12 +214,7 @@ const freshRated = rows.filter((c) => c.rates.length && c.rates[c.rates.length -
                             <span class="rn"><b>{p.r}%</b><i>'{String(p.y).slice(2)}</i></span>
                           ))}
                         </div>
-                        <div class="rate-foot">
-                          {stale && <span class="rate-stale-note">ends {last.y}</span>}
-                          <a class="rate-more" href={c.rateSrc === 'csc' ? `${CSC}/${c.rateSlug}/` : `${AR_REPO_OLD}#${c.rateSection}`} target="_blank" rel="noopener">
-                            {c.rates.length} yrs <i class="fas fa-arrow-up-right-from-square" aria-hidden="true"></i>
-                          </a>
-                        </div>
+
                       </div>
                     : <span class="none">no published rate</span>}
                 </td>
@@ -206,6 +226,9 @@ const freshRated = rows.filter((c) => c.rates.length && c.rates[c.rates.length -
                     : <span class="ranks">
                         <span class={`pill ccf-${c.ccf.toLowerCase()}`} title="CCF catalogue">CCF {c.ccf === 'N' ? 'n/a' : c.ccf}</span>
                         <span class={`pill ${coreClass(c.core)}`} title={c.coreVerified ? 'Confirmed against the official CORE2023 export' : 'Not found in the official CORE2023 export'}>CORE {coreLabel[c.core]}</span>
+                        {c.csr
+                          ? <a class="pill csr-yes" href={CSR} target="_blank" rel="noopener" title={`Counted by CSRankings under ${c.csr}`}>CSR {c.csr}</a>
+                          : <span class="pill csr-no" title="Not on the CSRankings venue list">CSR n/a</span>}
                       </span>}
                 </td>
               </tr>
@@ -265,6 +288,14 @@ const freshRated = rows.filter((c) => c.rates.length && c.rates[c.rates.length -
           <span>Best-paper awards since 1996 for 32 conferences, compiled by Jeff Huang. Sixteen of them appear on this page.</span>
         </li>
         <li>
+          <a href="https://csrankings.org/" target="_blank" rel="noopener">CSRankings</a>
+          <span>Whether a venue is on the fixed list CSRankings counts, matched on DBLP key. It ranks institutions, not conferences, but that list is the closest thing the field has to a statement of which venues count. Thirty-two of the venues here are on it.</span>
+        </li>
+        <li>
+          <a href="https://scholar.google.com/citations?view_op=top_venues&hl=en" target="_blank" rel="noopener">Google Scholar Metrics</a>
+          <span>Not pulled in, because there is no API. It ranks journals and conferences together by h5-index per field, which is the only ranking biology and medicine actually use, so each field's category is linked from the filter above.</span>
+        </li>
+        <li>
           <a href="https://dblp.org/" target="_blank" rel="noopener">DBLP</a>
           <span>The full proceedings history every venue's "past proceedings" link points at.</span>
         </li>
@@ -312,6 +343,11 @@ const freshRated = rows.filter((c) => c.rates.length && c.rates[c.rates.length -
   .filter { display:flex; flex-wrap:nowrap; gap:6px; align-items:center;
     justify-content:flex-start; overflow-x:auto; scrollbar-width:none; }
   .filter::-webkit-scrollbar { display:none; }
+  .scholar-link[hidden] { display:none; }
+  .scholar-link { flex:0 0 auto; margin-left:auto; display:inline-flex; align-items:center; gap:5px;
+    font-size:.72rem; font-weight:700; color:#475569; text-decoration:none; white-space:nowrap;
+    border:1px solid rgba(148,163,184,.45); border-radius:999px; padding:5px 11px; background:#fff; }
+  .scholar-link:hover { color:var(--accent); border-color:rgba(37,99,235,.5); }
   .fbtn { flex:0 0 auto; display:inline-flex; white-space:nowrap; align-items:center; gap:6px; padding:5px 11px; border-radius:999px; cursor:pointer;
     border:1px solid rgba(148,163,184,.4); background:#fff; color:#475569; font:inherit; font-size:.76rem; font-weight:600;
     transition:background .15s ease, border-color .15s ease, color .15s ease; }
@@ -400,23 +436,33 @@ const freshRated = rows.filter((c) => c.rates.length && c.rates[c.rates.length -
 
   .c-when { font-size:.73rem; color:#475569; min-width:150px; line-height:1.35; }
   .ed { display:inline-block; font-weight:700; color:#1e293b; font-size:.76rem; margin-right:5px; }
+  .ed-ord { display:inline-block; margin-right:5px; padding:1px 6px; border-radius:4px;
+    background:#1e293b; color:#fff; font-size:.63rem; font-weight:800; letter-spacing:.02em; }
+  .city { display:flex; align-items:flex-start; gap:5px; margin-top:3px; font-size:.69rem;
+    color:#94a3b8; line-height:1.35; max-width:30ch; }
+  .city i { margin-top:2px; font-size:.6rem; flex:0 0 auto; }
   .when { display:inline; }
   .where { display:flex; align-items:center; gap:5px; color:#94a3b8; }
   .where .fi { flex:0 0 auto; border-radius:2px; box-shadow:0 0 0 1px rgba(15,23,42,.08); }
 
-  .c-rate { min-width:196px; }
+  .c-rate { min-width:230px; }
   .spark { display:block; overflow:visible; color:#1d4ed8; }
   .spark .grid { stroke:rgba(148,163,184,.35); stroke-width:.6; stroke-dasharray:2 2; }
   .spark .glab { font-size:6px; fill:#94a3b8; }
   .spark .line { fill:none; stroke:currentColor; stroke-width:1.6; stroke-linejoin:round; stroke-linecap:round; }
   .spark .dot  { fill:currentColor; }
   .rate.is-stale .spark { color:#94a3b8; }
+  /* chart and numbers on the left, the link to the full history on the right */
+  .rate { display:grid; grid-template-columns:minmax(0,1fr) auto; column-gap:10px; align-items:center; }
+  .rate > .spark { grid-column:1; grid-row:1; }
+  .rate > .rate-nums { grid-column:1; grid-row:2; }
+  .rate > .rate-side { grid-column:2; grid-row:1 / span 2; }
+  .rate-side { display:flex; flex-direction:column; gap:4px; align-items:flex-start; }
   .rate-nums { display:flex; gap:9px; margin-top:1px; }
   .rn { display:flex; align-items:baseline; gap:3px; font-variant-numeric:tabular-nums; }
   .rn b { font-size:.76rem; font-weight:800; color:#0f172a; }
   .rn i { font-style:normal; font-size:.62rem; color:#94a3b8; }
   .rate.is-stale .rn b { color:#64748b; }
-  .rate-foot { display:flex; align-items:center; gap:6px; margin-top:2px; }
   .rate-more { font-size:.63rem; font-weight:700; color:#475569; text-decoration:none; white-space:nowrap;
     border:1px solid rgba(148,163,184,.45); border-radius:999px; padding:1px 7px; background:#fff; }
   .rate-more:hover { color:var(--accent); border-color:rgba(37,99,235,.5); }
@@ -434,6 +480,11 @@ const freshRated = rows.filter((c) => c.rates.length && c.rates[c.rates.length -
   .core-as { background:#dc2626; } .core-a { background:#1d4ed8; } .core-b { background:#15803d; }
   .core-c { background:#64748b; }
   .core-tbr, .core-jp, .core-n { background:#e2e8f0; color:#64748b; }
+  /* CSRankings is a yes or no, not a grade, so it gets one colour and a
+     muted off state rather than a place on the red/blue/green scale. */
+  a.pill.csr-yes { background:#0f172a; color:#fff; text-decoration:none; }
+  a.pill.csr-yes:hover { background:#334155; }
+  .csr-no { background:#f1f5f9; color:#94a3b8; }
   .eqv-none { color:#475569; background:#f8fafc; border-color:#cbd5e1; }
   .why { margin:4px 0 0; text-align:left; font-size:.72rem; line-height:1.5; color:#64748b; max-width:44ch;
     border-left:2px solid rgba(148,163,184,.4); padding-left:8px; }
@@ -496,8 +547,14 @@ const freshRated = rows.filter((c) => c.rates.length && c.rates[c.rates.length -
   // date order never changes underneath the reader.
   const rows = Array.from(document.querySelectorAll('table.confs tbody tr'));
   const empty = document.querySelector('.empty-note');
+  const scholar = document.getElementById('scholar-link');
   const apply = (btn) => {
     const want = btn.dataset.area;
+    if (scholar) {
+      const url = btn.dataset.scholar || '';
+      scholar.hidden = !url;
+      if (url) scholar.href = url;
+    }
     document.querySelectorAll('.fbtn').forEach((b) => b.classList.toggle('is-on', b === btn));
     let shown = 0;
     rows.forEach((r) => {

@@ -4,7 +4,7 @@ Run from the repo root:  python3 scripts/build-conferences.py
 It clones ccf-deadlines, pulls the official CORE2023 export and the
 acceptance-rate table into .conf-cache/, then rewrites the data module.
 """
-import yaml, glob, csv, re, json, datetime, collections, os, subprocess, urllib.request
+import yaml, glob, csv, re, json, datetime, collections, os, subprocess, urllib.request, unicodedata
 
 TODAY = datetime.date.today()
 CACHE = '.conf-cache'
@@ -24,6 +24,7 @@ else:
     subprocess.run(['git','-C','ccf-deadlines','pull','-q'], check=True)
 
 for url, dest in [
+    ('https://raw.githubusercontent.com/emeryberger/CSrankings/gh-pages/csrankings.js', 'csrankings.js'),
     ('https://portal.core.edu.au/conf-ranks/?search=&by=all&source=CORE2023&sort=atitle&page=1&do=Export', 'core2023.csv'),
     ('https://raw.githubusercontent.com/lixin4ever/Conference-Acceptance-Rate/master/README.md', 'ar.md'),
 ]:
@@ -84,7 +85,7 @@ for line in open('ar.md'):
 # 2026 for most venues, so it is the primary source; the older compilation is
 # kept only to fill venues it does not cover.
 CSC_ALIAS={'KDD':'SIGKDD','IEEE S&P':'S&P','Interspeech':'InterSpeech'}
-csc_rates={}; csc_slug={}
+csc_rates={}; csc_slug={}; csc_ordinal={}
 for c in json.load(open('cs-conf-stats/data/conf.json'))['conferences']:
     t=CSC_ALIAS.get(c['series'], c['series'])
     hist={}
@@ -95,6 +96,8 @@ for c in json.load(open('cs-conf-stats/data/conf.json'))['conferences']:
     if hist:
         csc_rates[t]=hist
         csc_slug[t]=c['series'].lower().replace(' ','-').replace('&','')
+    ords={y['year']: y['ordinal'] for y in (c.get('yearly_data') or []) if y.get('ordinal')}
+    if ords: csc_ordinal[t]=max(ords.items())
 print('cs-conf-stats venues with rates:', len(csc_rates))
 
 # Best-paper awards: Jeff Huang's compilation, the only maintained
@@ -102,6 +105,166 @@ print('cs-conf-stats venues with rates:', len(csc_rates))
 BEST={'AAAI':'aaai','ACL':'acl','CIKM':'cikm','CVPR':'cvpr','ICCV':'iccv','ICML':'icml',
       'IJCAI':'ijcai','SIGKDD':'kdd','NeurIPS':'neurips','PODS':'pods','S&P':'s&p',
       'SIGIR':'sigir','SIGMOD':'sigmod','VLDB':'vldb','WWW':'www','FSE':'fse'}
+
+# ---------- CSRankings ----------
+# CSRankings counts publications only at a fixed venue list per area, which is
+# the closest thing the field has to a statement of which venues "count".
+# Match on the DBLP key, which both sides already use.
+CSR_ALIAS={'oakland':'sp','usenixsec':'uss','chiconf':'chi','nips':'nips'}
+# Upstream gives AsiaCCS the DBLP key of ACM CCS, which both sends its
+# proceedings link to the wrong venue and makes it look like a CSRankings
+# venue. It is the only duplicate key in the whole catalogue.
+DBLP_FIX={'AsiaCCS':'asiaccs'}
+_csr=open('csrankings.js', encoding='utf-8', errors='ignore').read()
+_i=_csr.find('areaMap = ['); _j=_csr.find('];', _i)
+_pairs=re.findall(r'\{\s*area:\s*"([^"]+)",\s*title:\s*"([^"]+)"\s*\}', _csr[_i:_j])
+CSR={CSR_ALIAS.get(a, a): t for a, t in _pairs if a.lower() != t.lower()}
+if len(CSR) < 50:
+    raise SystemExit(f'CSRankings areaMap parse found only {len(CSR)} venues; '
+                     'the upstream file changed shape, fix the parser rather '
+                     'than shipping an empty column.')
+print('CSRankings venues:', len(CSR))
+
+def ordinal_for(title, year, period):
+    """Project the edition number forward from the last one on record.
+
+    cs-conf-stats records an ordinal per year. Only project a few editions
+    ahead: past that a skipped or merged year makes the count wrong.
+    """
+    rec=csc_ordinal.get(title)
+    if not rec or not year: return ''
+    base_year, label = rec
+    m=re.match(r'(\d+)', str(label))
+    if not m: return ''
+    ahead = round((year - base_year) / max(period, 1))
+    if ahead < 0 or ahead > 3: return ''
+    n = int(m.group(1)) + ahead
+    suf = 'th' if 10 <= n % 100 <= 20 else {1:'st', 2:'nd', 3:'rd'}.get(n % 10, 'th')
+    return f'{n}{suf}'
+
+# ---------- what the host city is good for ----------
+# Three things per city, hand written. There is no data source for this, so a
+# city that is not in the map simply shows nothing rather than a guess.
+CITY_SKIP = re.compile(r'hotel|hilton|marriott|hyatt|sheraton|university|college|'
+                       r'campus|convention|conference|cent(er|re)|holloway|springs|'
+                       r'^online$|^virtual$|^cordis$|^westin$|^sofitel$', re.I)
+def city_key(place):
+    if not place: return ''
+    p = re.sub(r'\(.*?\)', '', place.split(';')[0])
+    for part in [x.strip() for x in p.split(',') if x.strip()]:
+        if CITY_SKIP.search(part): continue
+        c = ''.join(ch for ch in unicodedata.normalize('NFD', part)
+                    if unicodedata.category(ch) != 'Mn')
+        c = re.sub(r'[^a-z ]', '', c.lower()).strip()
+        c = re.sub(r' sar$', '', c)
+        if c and c not in ('sar', 'usa', 'uk'): return c
+    return ''
+
+CITY = {
+ 'amsterdam': 'Rijksmuseum, Van Gogh Museum, canal belt',
+ 'athens': 'Acropolis, Ancient Agora, Plaka',
+ 'atlanta': 'Georgia Aquarium, MLK Historic Site, BeltLine',
+ 'austin': 'live music on 6th Street, Barton Springs, Texas Capitol',
+ 'barcelona': 'Sagrada Familia, Park Guell, Gothic Quarter',
+ 'bari': 'Basilica di San Nicola, Bari Vecchia, Adriatic seafront',
+ 'beijing': 'Forbidden City, Great Wall at Mutianyu, Temple of Heaven',
+ 'bellevue': 'Bellevue Botanical Garden, Seattle 20 minutes west, Cascade day trips',
+ 'bengaluru': 'Lalbagh Botanical Garden, Bangalore Palace, Cubbon Park',
+ 'berlin': 'Museum Island, Brandenburg Gate, East Side Gallery',
+ 'bremen': 'Town Musicians statue, Schnoor quarter, Bottcherstrasse',
+ 'brisbane': 'South Bank Parklands, Story Bridge climb, Moreton Island',
+ 'bruges': 'Markt and Belfry, canal boats, Groeningemuseum',
+ 'budapest': 'Szechenyi baths, Buda Castle, Parliament on the Danube',
+ 'buenos aires': 'Recoleta Cemetery, Teatro Colon, San Telmo tango',
+ 'cancun': 'Chichen Itza, cenotes, Isla Mujeres',
+ 'cape town': 'Table Mountain, Cape Point, Robben Island',
+ 'chania': 'Venetian harbour, Samaria Gorge, Balos lagoon',
+ 'chengdu': 'giant panda base, Jinli street, Mount Qingcheng',
+ 'copenhagen': 'Nyhavn, Tivoli Gardens, Louisiana Museum',
+ 'dallas': 'Sixth Floor Museum, Dallas Arts District, Deep Ellum',
+ 'danang': 'Marble Mountains, Hoi An old town, My Khe beach',
+ 'delft': 'Vermeer sights, Oude Kerk, Delft Blue potteries',
+ 'denver': 'Red Rocks, Rocky Mountain National Park, Denver Art Museum',
+ 'dublin': 'Trinity College and the Book of Kells, Guinness Storehouse, Howth cliffs',
+ 'durham': 'Duke Chapel, Sarah P. Duke Gardens, Research Triangle',
+ 'edinburgh': 'Edinburgh Castle, Arthur Seat, the Royal Mile',
+ 'eindhoven': 'Van Abbemuseum, Strijp-S, Philips Museum',
+ 'florence': 'Uffizi, Duomo, Ponte Vecchio',
+ 'fukui': 'Fukui Dinosaur Museum, Eiheiji temple, Tojinbo cliffs',
+ 'guangzhou': 'Canton Tower, Shamian Island, Chen Clan Academy',
+ 'hangzhou': 'West Lake, Lingyin Temple, Longjing tea terraces',
+ 'hanoi': 'Old Quarter, Hoan Kiem Lake, Ha Long Bay day trip',
+ 'hefei': 'Lord Bao Park, Sanhe ancient town, Huangshan day trip',
+ 'hong kong': 'Victoria Peak, Star Ferry, Tian Tan Buddha',
+ 'honolulu': 'Waikiki, Pearl Harbor, Diamond Head',
+ 'huntington beach': 'the pier and surf break, Bolsa Chica wetlands, Pacific Coast Highway',
+ 'jinan': 'Baotu Spring, Daming Lake, Mount Tai day trip',
+ 'krakow': 'Wawel Castle, Main Market Square, Auschwitz-Birkenau',
+ 'kuala lumpur': 'Petronas Towers, Batu Caves, Jalan Alor night food',
+ 'kunming': 'Stone Forest, Dianchi Lake, Green Lake Park',
+ 'kyoto': 'Fushimi Inari, Kinkaku-ji, Arashiyama bamboo grove',
+ 'leiden': 'Rijksmuseum van Oudheden, Hortus Botanicus, canal walks',
+ 'lille': 'Vieux-Lille, Palais des Beaux-Arts, Braderie in September',
+ 'limassol': 'Kourion ruins, Limassol Marina, Troodos mountains',
+ 'london': 'British Museum, Tate Modern, Borough Market',
+ 'los angeles': 'Getty Center, Griffith Observatory, Santa Monica',
+ 'luxembourg': 'Bock Casemates, Old Quarter, Mullerthal trails',
+ 'maastricht': 'Vrijthof, Sint-Pietersberg caves, Bonnefanten Museum',
+ 'macau': 'Ruins of St Paul, Senado Square, Taipa Village',
+ 'madrid': 'Prado, Retiro Park, Reina Sofia',
+ 'mainz': 'Gutenberg Museum, Mainz Cathedral, Rhine valley',
+ 'malmo': 'Turning Torso, Malmo Castle, Copenhagen over the bridge',
+ 'marrakesh': 'Jemaa el-Fnaa, Majorelle Garden, Atlas Mountains',
+ 'melbourne': 'laneway coffee, NGV, Great Ocean Road',
+ 'milan': 'Duomo, Last Supper, Navigli',
+ 'montreal': 'Old Montreal, Mount Royal, Jean-Talon Market',
+ 'new delhi': 'Red Fort, Humayun Tomb, Taj Mahal day trip',
+ 'new york': 'the Met, Central Park, Broadway',
+ 'new york city': 'the Met, Central Park, Broadway',
+ 'newark': 'Newark Museum of Art, Branch Brook cherry blossoms, Manhattan 20 minutes away',
+ 'osaka': 'Osaka Castle, Dotonbori, Kyoto and Nara by train',
+ 'ottawa': 'Parliament Hill, National Gallery, Rideau Canal',
+ 'phoenix': 'Desert Botanical Garden, Camelback Mountain, Sedona day trip',
+ 'poznan': 'Old Market Square, Imperial Castle, Lake Malta',
+ 'rennes': 'medieval half-timbered centre, Parlement de Bretagne, Mont Saint-Michel day trip',
+ 'reykjavik': 'Blue Lagoon, Golden Circle, northern lights in winter',
+ 'rio de janeiro': 'Christ the Redeemer, Sugarloaf, Copacabana',
+ 'riverside': 'Mission Inn, Box Springs Mountain, Joshua Tree day trip',
+ 'rome': 'Colosseum, Vatican Museums, Trastevere',
+ 'saarbrucken': 'Saarschleife bend, Ludwigskirche, Volklingen Ironworks',
+ 'sacramento': 'Old Sacramento, State Capitol, Napa and Tahoe day trips',
+ 'salt lake city': 'Temple Square, Big Cottonwood Canyon, Great Salt Lake',
+ 'san diego': 'Balboa Park, La Jolla Cove, the zoo',
+ 'san francisco': 'Golden Gate Bridge, Alcatraz, Muir Woods',
+ 'san jose': 'Winchester Mystery House, Santana Row, Santa Cruz over the hill',
+ 'santa barbara': 'Santa Barbara Mission, Stearns Wharf, wine country',
+ 'sao paulo': 'MASP, Ibirapuera Park, Liberdade',
+ 'seattle': 'Pike Place Market, Chihuly Garden, Mount Rainier',
+ 'seoul': 'Gyeongbokgung, Bukchon Hanok Village, Han River parks',
+ 'shanghai': 'the Bund, Yu Garden, Power Station of Art',
+ 'shenyang': 'Mukden Palace, Zhaoling Tomb, Qipanshan',
+ 'singapore': 'Gardens by the Bay, hawker centres, Sentosa',
+ 'southampton': 'SeaCity Museum, Tudor House, New Forest',
+ 'sydney': 'Opera House, Bondi to Coogee walk, Blue Mountains',
+ 'taipei': 'Taipei 101, National Palace Museum, Jiufen',
+ 'tokyo': 'Senso-ji, teamLab, Tsukiji outer market',
+ 'toronto': 'CN Tower, Royal Ontario Museum, Niagara Falls day trip',
+ 'trento': 'Buonconsiglio Castle, MUSE science museum, Dolomites',
+ 'vancouver': 'Stanley Park, Granville Island, Grouse Mountain',
+ 'venice': "St Mark's Basilica, Grand Canal, Murano and Burano",
+ 'vilnius': 'Old Town, Gediminas Tower, Uzupis',
+ 'wellington': 'Te Papa, Mount Victoria, Zealandia',
+ 'yokohama': 'Minato Mirai, Chinatown, Sankeien Garden',
+ 'the hague': 'Mauritshuis, Peace Palace, Scheveningen beach',
+ 'pittsburgh': 'Andy Warhol Museum, Duquesne Incline, Carnegie Museums',
+ 'cleveland': 'Rock and Roll Hall of Fame, Cleveland Museum of Art, Lake Erie',
+ 'columbia': 'South Carolina State House, Riverbanks Zoo, Congaree National Park',
+ 'lancaster': 'Lancaster Castle, Williamson Park, Lake District an hour north',
+ 'buena vista': 'Walt Disney World, Universal Orlando, Kennedy Space Center',
+ 'barbados': 'Carlisle Bay, Harrison Cave, Bridgetown Garrison',
+}
+def city_note(place):
+    return CITY.get(city_key(place), '')
 
 # ---------- country flags ----------
 # place strings are free text from the upstream catalogue, so normalize the
@@ -246,11 +409,14 @@ for sub in ['AI','SC','DB','MX','CG','HI']:
                 'estimated': est,
                 'estFrom': (rounds[0].get('from','') if rounds else '') if est else '',
                 'rounds': rounds,
-                'dblp': c.get('dblp',''),
+                'dblp': DBLP_FIX.get(t, c.get('dblp','')),
+                'csr': CSR.get(DBLP_FIX.get(t, c.get('dblp','')), ''),
+                'edition': ordinal_for(t, nxt[1] if nxt else None, period),
                 'best': BEST.get(t,''),
                 'link': (nxt[2] if nxt else latest.get('link','')) or '',
                 'date': latest.get('date',''), 'place': latest.get('place',''),
                 'cc': flag(latest.get('place','')),
+                'city': city_note(latest.get('place','')),
                 'cycles': cycles, 'roundLabels': roundLabels,
                 'proceedings': 'full',
                 'rates': [{'y':y,'r':v} for y,v in hist],
@@ -337,7 +503,7 @@ for n in NOTABLE:
     n.setdefault('equivalent', None)   # editorial, not an official rank
     nd, ny, est = roll(n.get('lastDeadline',''), n.get('period',1))
     n.update({'ccf':n.get('ccfManual','N'),'core':n.get('coreManual','N'),'coreVerified':False,'nextAbstract':'',
-              'cycles':1,'roundLabels':[],'rates':[],'rateSection':'','rateSrc':'','rateSlug':'','rounds':[],'dblp':'','best':'',
+              'cycles':1,'roundLabels':[],'rates':[],'rateSection':'','rateSrc':'','rateSlug':'','rounds':[],'dblp':'','best':'','csr':'','edition':'',
               'estimated':est,'estFrom':n.get('lastDeadline','') if est else '',
               # For a society meeting the deadline year is not the edition
               # year, so do not print one. The date string names the edition.
@@ -345,6 +511,7 @@ for n in NOTABLE:
               'notable':True})
     n.setdefault('date',''); n.setdefault('place','')
     n['cc']=flag(n['place'])
+    n['city']=city_note(n['place'])
     # An emerging venue carries a stated equivalence so it sorts with its peers;
     # a society meeting has no proceedings, so no tier is claimed for it.
     n['tier'] = 2 if n['equivalent'] else tier_of(n['ccf'], n['core'])
