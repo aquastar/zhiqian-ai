@@ -1,6 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import { ranked, others, notable } from '../data/conferences.js';
+import { topicRates } from '../data/topics.js';
 
 const SOCIETY = 'Society meetings';
 const AREAS = ['AI / ML / Data Mining', 'Security & Privacy', 'Medicine, Biology & Genetics', 'Science & Interdisciplinary', SOCIETY];
@@ -46,6 +47,26 @@ const CSC = 'https://csconfstats.xoveexu.com/conferences';
 const DBLP = 'https://dblp.org/db/conf';
 const BEST = 'https://jeffhuang.com/best_paper_awards/conferences.html';
 const MAX_ROUNDS = 3;
+
+// Per-topic acceptance, newest edition, with the change against the one
+// before it. Scaled to the spread rather than to zero, because every topic
+// sits between about 25 and 50 percent and a zero baseline flattens them.
+const topicBlocks = Object.entries(topicRates).map(([venue, eds]) => {
+  const now = eds[0];
+  const prev = eds[1];
+  const rates = now.topics.map((t) => t.rate);
+  const lo = Math.floor(Math.min(...rates) - 2);
+  const hi = Math.ceil(Math.max(...rates) + 2);
+  return {
+    venue, year: now.year, overall: now.overall, decided: now.decided,
+    prevYear: prev ? prev.year : null, lo, hi,
+    rows: now.topics.map((t) => {
+      const was = prev ? (prev.topics.find((x) => x.area === t.area) || {}).rate : undefined;
+      return { ...t, delta: was === undefined ? null : Math.round((t.rate - was) * 10) / 10,
+               pct: ((t.rate - lo) / (hi - lo)) * 100 };
+    }),
+  };
+});
 const CSR = 'https://csrankings.org/';
 // Google Scholar Metrics has no API, so the h5-index itself is not pulled in.
 // What is linkable is the category page, which is the field-native ranking.
@@ -244,6 +265,40 @@ const freshRated = rows.filter((c) => c.rates.length && c.rates[c.rates.length -
       </p>
     </section>
 
+    {topicBlocks.map((b) => (
+      <section class="section">
+        <details class="rest topics" open>
+          <summary>
+            <h2>Which topics get in</h2>
+            <span class="rest-count">{b.venue} {b.year}</span>
+            <span class="rest-note">{b.overall}% overall across {b.decided.toLocaleString()} decided submissions</span>
+          </summary>
+          <ul class="topic-list">
+            {b.rows.map((t) => (
+              <li>
+                <span class="t-rate">{t.rate}%</span>
+                <span class="t-bar"><span class="t-fill" style={`width:${t.pct.toFixed(1)}%`}></span></span>
+                <span class="t-name">{t.area}</span>
+                <span class="t-n">{t.n}</span>
+                {t.delta === null
+                  ? <span class="t-d t-flat">new</span>
+                  : <span class={`t-d ${t.delta > 0 ? 't-up' : t.delta < 0 ? 't-down' : 't-flat'}`}
+                          title={`against ${b.prevYear}`}>{t.delta > 0 ? '+' : ''}{t.delta}</span>}
+              </li>
+            ))}
+          </ul>
+          <p class="area-note">
+            Topic is the area the authors themselves picked at submission. The denominator is every submission that reached
+            a decision, so withdrawn and desk-rejected papers are excluded, and topics with fewer than 40 of them are left out.
+            The bars are scaled to the range {b.lo} to {b.hi}%, not to zero, because otherwise every topic looks the same.
+            The number on the right is the change against {b.prevYear}.
+            Only {b.venue} appears here: it is the one venue that publishes its full submission pool. The NeurIPS and ICML
+            lists hold accepted papers only, so a rate computed from them would read about 94%.
+          </p>
+        </details>
+      </section>
+    ))}
+
     <section class="section">
       <details class="rest">
         <summary>
@@ -294,6 +349,10 @@ const freshRated = rows.filter((c) => c.rates.length && c.rates[c.rates.length -
         <li>
           <a href="https://scholar.google.com/citations?view_op=top_venues&hl=en" target="_blank" rel="noopener">Google Scholar Metrics</a>
           <span>Not pulled in, because there is no API. It ranks journals and conferences together by h5-index per field, which is the only ranking biology and medicine actually use, so each field's category is linked from the filter above.</span>
+        </li>
+        <li>
+          <a href="https://github.com/papercopilot/paperlists" target="_blank" rel="noopener">papercopilot/paperlists</a>
+          <span>Per-topic acceptance. Mirrors OpenReview into one JSON per venue-year, carrying each submission's author-declared topic and final status. Only ICLR's file is a full submission pool, so only ICLR gets a rate.</span>
         </li>
         <li>
           <a href="https://dblp.org/" target="_blank" rel="noopener">DBLP</a>
@@ -503,6 +562,18 @@ const freshRated = rows.filter((c) => c.rates.length && c.rates[c.rates.length -
   .rest > summary h2 { font-size:.98rem; margin:0; }
   .rest-count { font-size:.72rem; font-weight:700; color:#64748b; background:#f1f5f9; border-radius:999px; padding:2px 8px; }
   .rest-note { font-size:.74rem; color:#94a3b8; margin-left:auto; }
+  .topic-list { list-style:none; margin:0; padding:0 16px 14px; display:grid;
+    grid-template-columns:repeat(auto-fill, minmax(420px,1fr)); gap:3px 28px; }
+  .topic-list li { display:grid; grid-template-columns:44px 90px minmax(0,1fr) 44px 44px;
+    gap:8px; align-items:center; font-size:.78rem; }
+  .t-rate { font-weight:800; color:#0f172a; font-variant-numeric:tabular-nums; text-align:right; }
+  .t-bar { height:7px; border-radius:999px; background:rgba(148,163,184,.25); overflow:hidden; }
+  .t-fill { display:block; height:100%; border-radius:999px; background:linear-gradient(90deg,#60a5fa,#1d4ed8); }
+  .t-name { color:#475569; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+  .t-n { font-size:.68rem; color:#94a3b8; text-align:right; font-variant-numeric:tabular-nums; }
+  .t-d { font-size:.68rem; font-weight:700; text-align:right; font-variant-numeric:tabular-nums; }
+  .t-up { color:#15803d; } .t-down { color:#dc2626; } .t-flat { color:#94a3b8; }
+  .topics > summary { border-bottom:1px solid rgba(148,163,184,.2); }
   .rest-list { list-style:none; margin:0; padding:0 16px 14px; display:grid;
     grid-template-columns:repeat(auto-fill, minmax(300px,1fr)); gap:7px 18px; }
   .rest-list li { display:grid; grid-template-columns:auto auto auto 1fr; gap:7px; align-items:center; font-size:.78rem; }

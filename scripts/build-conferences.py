@@ -270,6 +270,7 @@ CITY = {
  'boca raton': 'Atlantic beaches, sea turtle rehab at Gumbo Limbo, Mizner Park',
  'linkoping': 'Gamla Linkoping, fika, boats stepping down the Gota Canal locks',
  'sooke': 'swimming the Sooke Potholes, West Coast seafood, Vancouver Island rainforest',
+ 'auckland': 'Waiheke Island wineries by ferry, a fish and chips sunset at Mission Bay, Hobbiton two hours south',
 }
 def city_note(place):
     return CITY.get(city_key(place), '')
@@ -420,6 +421,10 @@ for sub in ['AI','SC','DB','MX','CG','HI']:
                 else:
                     nxt=(r0['d'], r0.get('year'), r0.get('link',''), r0.get('abstract',''))
             latest=max(confs, key=lambda e: e.get('year',0)) if confs else {}
+            # Where and when the meeting is only belongs to the edition the
+            # next deadline points at. Carrying last year's city over to an
+            # estimated date is simply wrong: the venue moves every year.
+            this_ed=next((e for e in confs if e.get('year')==(nxt[1] if nxt else None)), {})
             # Count rounds only within the edition being shown. Taking the max
             # across every edition flagged AAAI, whose old NeurIPS fast track
             # looks like a second cycle but no longer exists.
@@ -447,9 +452,9 @@ for sub in ['AI','SC','DB','MX','CG','HI']:
                 'edition': ordinal_for(t, nxt[1] if nxt else None, period),
                 'best': BEST.get(t,''),
                 'link': (nxt[2] if nxt else latest.get('link','')) or '',
-                'date': latest.get('date',''), 'place': latest.get('place',''),
-                'cc': flag(latest.get('place','')),
-                'city': city_note(latest.get('place','')),
+                'date': this_ed.get('date','') or '', 'place': this_ed.get('place','') or '',
+                'cc': flag(this_ed.get('place','')),
+                'city': city_note(this_ed.get('place','')),
                 'cycles': cycles, 'roundLabels': roundLabels,
                 'proceedings': 'full',
                 'rates': [{'y':y,'r':v} for y,v in hist],
@@ -543,6 +548,13 @@ for n in NOTABLE:
               'nextDeadline':nd,'nextYear':(None if n['proceedings']=='none' else ny),
               'notable':True})
     n.setdefault('date',''); n.setdefault('place','')
+    if est and n['date']:
+        # The meeting on record is the next one to attend, not the one this
+        # estimated deadline belongs to. Say so in the note and leave the
+        # edition column empty rather than pairing a date with the wrong call.
+        where=f" {n['place']}" if n['place'] else ''
+        n['note']=n['note'].rstrip() + f" Next meeting: {n['date']}{where}."
+        n['date']=''; n['place']=''
     n['cc']=flag(n['place'])
     n['city']=city_note(n['place'])
     # An emerging venue carries a stated equivalence so it sorts with its peers;
