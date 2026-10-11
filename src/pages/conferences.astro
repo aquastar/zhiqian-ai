@@ -218,8 +218,12 @@ const freshRated = rows.filter((c) => c.rates.length && c.rates[c.rates.length -
             ))}
           </ul>
           {b.selected.length > 0 && (
-            <>
-              <div class="sel-head">Selected topics <em>matched on author keywords, so they cut across the areas above</em></div>
+            <details class="sel-block">
+              <summary class="sel-head">
+                Selected topics <span class="sel-count">{b.selected.length}</span>
+                <em>matched on author keywords, so they cut across the areas above</em>
+                <i class="fas fa-angle-down sel-arrow" aria-hidden="true"></i>
+              </summary>
               <ul class="topic-list sel-list">
                 {b.selected.map((x) => (
                   <li class={x.papers ? 'has-papers' : ''}>
@@ -249,7 +253,7 @@ const freshRated = rows.filter((c) => c.rates.length && c.rates[c.rates.length -
                   </li>
                 ))}
               </ul>
-            </>
+            </details>
           )}
         </details>
       </section>
@@ -657,8 +661,19 @@ const freshRated = rows.filter((c) => c.rates.length && c.rates[c.rates.length -
   .t-papers a { color:#334155; text-decoration:none; border-bottom:1px solid rgba(148,163,184,.45); }
   .t-papers a:hover { color:var(--accent); border-color:currentColor; }
   .topic-list li:hover { background:#eef2f7; border-radius:5px; }
-  .sel-head { margin:10px 10px 4px; padding-top:9px; border-top:1px solid rgba(148,163,184,.3);
-    font-size:.6rem; letter-spacing:.06em; text-transform:uppercase; color:#64748b; font-weight:700; }
+  /* Folded by default: it is a personal side list, not part of the main
+     breakdown, so it should not push the table down until someone wants it. */
+  .sel-block { margin:10px 10px 0; border-top:1px solid rgba(148,163,184,.3); }
+  .sel-head { display:flex; align-items:center; gap:7px; cursor:pointer; list-style:none;
+    padding:9px 0 7px; font-size:.6rem; letter-spacing:.06em; text-transform:uppercase;
+    color:#64748b; font-weight:700; }
+  .sel-head::-webkit-details-marker { display:none; }
+  .sel-count { font-size:.62rem; font-weight:800; color:#6d28d9; background:#f3f0ff;
+    border:1px solid #ddd6fe; border-radius:999px; padding:0 7px; letter-spacing:0; }
+  .sel-arrow { margin-left:auto; font-size:.7rem; color:#94a3b8; transition:transform .15s ease; }
+  .sel-block[open] .sel-arrow { transform:rotate(180deg); }
+  .sel-head:hover { color:var(--accent); }
+  .sel-list { padding-bottom:10px; }
   .sel-head em { font-style:normal; font-weight:600; color:#cbd5e1; letter-spacing:.03em; margin-left:6px; }
   .sel-list .t-fill { background:linear-gradient(90deg,#c4b5fd,#6d28d9); }
   .sel-home { display:block; font-size:.66rem; color:#94a3b8; line-height:1.3; }
