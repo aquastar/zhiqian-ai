@@ -149,6 +149,8 @@ const courses = [
                       src={c.project.video}
                       poster={c.project.poster}
                       preload="none"
+                      muted
+                      loop
                       controls
                       playsinline
                       aria-label={`${c.project.title} demonstration`}
@@ -162,6 +164,30 @@ const courses = [
       </ol>
     </section>
   </main>
+  <script>
+    // Hold the fetch back until the clip is actually on screen, then loop it
+    // muted — preload="none" means nothing moves for a visitor who never
+    // scrolls this far. Controls stay on throughout: the clip carries readable
+    // terminal text, so being able to pause it matters. Reduced-motion and
+    // Save-Data visitors are left with the poster and the play button.
+    const clips = document.querySelectorAll('.project-video');
+    const wantsQuiet = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+      || navigator.connection?.saveData === true;
+    if (clips.length && (!wantsQuiet && 'IntersectionObserver' in window)) {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          const video = entry.target;
+          if (entry.isIntersecting) {
+            // A rejected play() just leaves the poster and the control bar.
+            video.play()?.catch(() => {});
+          } else if (!video.paused) {
+            video.pause();
+          }
+        });
+      }, { threshold: 0.4 });
+      clips.forEach((v) => observer.observe(v));
+    }
+  </script>
 </Layout>
 <style>
   :root { --accent:#2563eb; --ink:#0f172a; --muted:#475569; }
@@ -203,17 +229,16 @@ const courses = [
   .talk-links a { color:#1d4ed8; text-decoration:none; }
   .talk-links a:hover { text-decoration:underline; }
   /* The award project sits inside its course row, media beside the copy. */
-  .course-project { display:grid; grid-template-columns:1fr 1fr; gap:16px; align-items:start; margin-top:10px; padding:12px; border:1px solid rgba(148,163,184,.22); border-radius:12px; background:#f8fafc; }
+  .course-project { display:block; margin-top:10px; padding:12px; border:1px solid rgba(148,163,184,.22); border-radius:12px; background:#f8fafc; }
   .project-head { display:flex; flex-wrap:wrap; align-items:baseline; gap:8px; margin-bottom:5px; }
   .project-title { font-family:'Montserrat',sans-serif; font-weight:700; font-size:.9rem; color:#0f172a; }
   .project-award { display:inline-flex; align-items:center; gap:5px; font-size:.72rem; font-weight:700; color:#92400e; background:#fde68a; border-radius:999px; padding:2px 9px; }
   .project-award i { font-size:.68rem; }
   .project-desc { margin:0; font-size:.86rem; color:#475569; line-height:1.5; text-align:left; }
-  .project-media { margin:0; }
+  .project-media { margin:10px 0 0; max-width:720px; }
   /* preload="none": the 4.8MB file is only fetched if someone presses play. */
   .project-video { display:block; width:100%; height:auto; border-radius:10px; background:#0f172a; }
 
-  @media (max-width: 900px) { .course-project { grid-template-columns:1fr; } }
   @media (max-width: 700px) { .talk { grid-template-columns:1fr; gap:4px; } }
   @media (max-width: 900px) { .cards.two { grid-template-columns:1fr; } }
 </style>
