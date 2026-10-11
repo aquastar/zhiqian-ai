@@ -362,7 +362,7 @@ export const topicRates = {
           "share": 2.9
         },
         {
-          "area": "representation learning for computer vision, audio, language, and other modalities",
+          "area": "applications to computer vision, audio, language, and other modalities",
           "n": 745,
           "acc": 307,
           "rate": 41.2,
@@ -390,7 +390,7 @@ export const topicRates = {
           "share": 9.5
         },
         {
-          "area": "visualization or interpretation of learned representations",
+          "area": "interpretability and explainable AI",
           "n": 165,
           "acc": 62,
           "rate": 37.6,
@@ -411,7 +411,7 @@ export const topicRates = {
           "share": 4.5
         },
         {
-          "area": "societal considerations including fairness, safety, privacy",
+          "area": "alignment, fairness, safety, privacy, and societal considerations",
           "n": 432,
           "acc": 159,
           "rate": 36.8,
@@ -425,7 +425,7 @@ export const topicRates = {
           "share": 1.5
         },
         {
-          "area": "general machine learning (i.e., none of the above)",
+          "area": "other topics in machine learning (i.e., none of the above)",
           "n": 594,
           "acc": 214,
           "rate": 36.0,

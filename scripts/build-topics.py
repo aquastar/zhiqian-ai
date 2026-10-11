@@ -26,6 +26,21 @@ NOT_DECIDED = {'withdraw', 'desk reject', 'desk rejected', 'withdrawn'}
 MIN_REJECT_SHARE = 0.15
 MIN_PER_TOPIC = 40
 
+# ICLR renamed four of its primary areas for 2025. These are renames, not new
+# topics, so the series is joined across them. The three areas genuinely added
+# in 2025 (foundation models, infrastructure, time series) are left alone and
+# simply start that year.
+RENAME = {
+ 'representation learning for computer vision, audio, language, and other modalities':
+   'applications to computer vision, audio, language, and other modalities',
+ 'societal considerations including fairness, safety, privacy':
+   'alignment, fairness, safety, privacy, and societal considerations',
+ 'visualization or interpretation of learned representations':
+   'interpretability and explainable AI',
+ 'general machine learning (i.e., none of the above)':
+   'other topics in machine learning (i.e., none of the above)',
+}
+
 def norm_status(s):
     s = (s or '').lower()
     s = re.sub(r'^.*\b(conditional)?', lambda m: m.group(0), s)
@@ -71,6 +86,7 @@ for venue in ('iclr', 'nips', 'icml'):
         rows = collections.defaultdict(lambda: [0, 0])   # decided, accepted
         for p, s in zip(papers, st):
             area = (p.get('primary_area') or '').strip()
+            area = RENAME.get(area, area)
             if not area or s == 'undecided': continue
             rows[area][0] += 1
             if s in ACCEPT: rows[area][1] += 1
