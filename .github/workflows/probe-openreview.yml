@@ -1,0 +1,19 @@
+# Throwaway probe: does the OpenReview API answer an anonymous request from a
+# GitHub runner? From a home IP it returns 403 ChallengeRequiredError. If the
+# runner gets 200, no account and no secret are needed. Delete after use.
+name: Probe OpenReview
+on: workflow_dispatch
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Anonymous API call
+        run: |
+          for path in \
+            "notes?content.venueid=ICLR.cc/2025/Conference&limit=1" \
+            "notes?invitation=ICLR.cc/2025/Conference/-/Submission&limit=1"
+          do
+            code=$(curl -sS -o body.json -w '%{http_code}' "https://api2.openreview.net/$path")
+            echo "=== $path -> HTTP $code"
+            head -c 400 body.json; echo
+          done
