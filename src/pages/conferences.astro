@@ -76,9 +76,9 @@ const freshRated = rows.filter((c) => c.rates.length && c.rates[c.rates.length -
       <a href="/agenda">Agenda</a>
       <a href="/people">People</a>
       <a href="/teach">Talk &amp; Teach</a>
-      <a class="nav-right-start" href="/conferences" aria-current="page">Conferences</a>
       <a href="https://scholar.google.com/citations?user=NC3-O6UAAAAJ&hl=en&oi=ao" target="_blank" rel="noopener">Paper <i class="ai ai-google-scholar-square ai-sm nav-ghost"></i> <i class="fas fa-arrow-up-right-from-square nav-ghost"></i></a>
       <a href="https://substack.com/@zhiqianchen1" target="_blank" rel="noopener">Zhiqian's Note <svg class="nav-ghost nav-substack" viewBox="0 0 24 24" fill="currentColor" width="11" height="11" aria-hidden="true"><path d="M22.539 8.242H1.46V5.406h21.08v2.836zM1.46 10.812V24L12 18.11 22.54 24V10.812H1.46zM22.54 0H1.46v2.836h21.08V0z"/></svg> <i class="fas fa-arrow-up-right-from-square nav-ghost"></i></a>
+      <a class="nav-right-start" href="/conferences" aria-current="page">Conferences</a>
     </nav>
 
     <section class="head">
@@ -261,6 +261,8 @@ const freshRated = rows.filter((c) => c.rates.length && c.rates[c.rates.length -
   .top-nav a[aria-current="page"] { background: #e2e8f0; color: #0f172a; box-shadow: inset 0 1px 2px rgba(15,23,42,0.10); }
   /* The right-hand group of the nav starts here. Conferences only joins it on
      the agenda side of the site, where it is the thing a reader wants next. */
+  /* Only this item moves. margin-left:auto pushes it to the far right
+     and leaves every other nav link exactly where it was. */
   .nav-right-start { margin-left:auto; }
   .head { margin-bottom: 12px; }
   .head-row { display:flex; align-items:flex-start; justify-content:space-between; gap:28px; flex-wrap:wrap; }
@@ -269,9 +271,12 @@ const freshRated = rows.filter((c) => c.rates.length && c.rates[c.rates.length -
   .sub { margin: 0; color: #475569; font-size: .92rem; line-height: 1.6; max-width: 62ch; }
 
   /* Field filter, top-right. */
-  .filter { flex:0 0 auto; display:flex; flex-wrap:wrap; gap:6px; align-items:center; justify-content:flex-end; max-width:420px; }
-  .filter-label { width:100%; text-align:right; font-size:.7rem; letter-spacing:.09em; text-transform:uppercase; color:#94a3b8; margin-bottom:2px; }
-  .fbtn { display:inline-flex; align-items:center; gap:6px; padding:5px 11px; border-radius:999px; cursor:pointer;
+  /* One straight row. The labels are short enough to fit, and wrapping them
+     into three ragged lines made the header look heavier than the table. */
+  .filter { display:flex; flex-wrap:nowrap; gap:6px; align-items:center;
+    justify-content:flex-start; overflow-x:auto; scrollbar-width:none; }
+  .filter::-webkit-scrollbar { display:none; }
+  .fbtn { flex:0 0 auto; display:inline-flex; white-space:nowrap; align-items:center; gap:6px; padding:5px 11px; border-radius:999px; cursor:pointer;
     border:1px solid rgba(148,163,184,.4); background:#fff; color:#475569; font:inherit; font-size:.76rem; font-weight:600;
     transition:background .15s ease, border-color .15s ease, color .15s ease; }
   .fbtn:hover { border-color:rgba(37,99,235,.45); color:var(--accent); }
@@ -423,8 +428,6 @@ const freshRated = rows.filter((c) => c.rates.length && c.rates[c.rates.length -
 
   @media (max-width: 760px) {
     .head-row { flex-direction:column; }
-    .filter { justify-content:flex-start; max-width:none; }
-    .filter-label { text-align:left; }
     .c-when, .c-rate { display:none; }
   }
 </style>
