@@ -159,7 +159,9 @@ export const topicRates = {
           "share": 1.2
         }
       ],
-      "decided": 13811
+      "decided": 13811,
+      "submitted": 19814,
+      "headline": 27.0
     },
     {
       "year": 2025,
@@ -313,7 +315,9 @@ export const topicRates = {
           "share": 2.1
         }
       ],
-      "decided": 8614
+      "decided": 8614,
+      "submitted": 11677,
+      "headline": 31.7
     },
     {
       "year": 2024,
@@ -446,7 +450,9 @@ export const topicRates = {
           "share": 11.4
         }
       ],
-      "decided": 5632
+      "decided": 5632,
+      "submitted": 7407,
+      "headline": 30.5
     }
   ]
 };

@@ -61,6 +61,7 @@ const topicBlocks = Object.entries(topicRates).map(([venue, eds]) => {
   const hi = Math.ceil(Math.max(...rates) + 2);
   return {
     venue, year: now.year, overall: now.overall, decided: now.decided,
+    headline: now.headline, submitted: now.submitted,
     prevYear: prev ? prev.year : null, lo, hi,
     rows: now.topics.map((t) => {
       const before = prev ? prev.topics.find((x) => x.area === t.area) : undefined;
@@ -164,7 +165,10 @@ const freshRated = rows.filter((c) => c.rates.length && c.rates[c.rates.length -
           <summary>
             <h2>Which topics get in</h2>
             <span class="rest-count">{b.venue} {b.year}</span>
-            <span class="rest-note">{b.overall}% overall, {b.decided.toLocaleString()} decided submissions, {b.rows.length} topics</span>
+            <span class="rest-note">
+            {b.headline}% of all {b.submitted.toLocaleString()} submissions &middot;
+            {b.overall}% of the {b.decided.toLocaleString()} that reached a decision &middot; {b.rows.length} topics
+          </span>
           </summary>
           <div class="topic-head"><span>rate</span><span></span><span>topic</span><span>share</span><span>&Delta;sh</span><span>rate trend</span></div>
           <ul class="topic-list">
@@ -188,6 +192,9 @@ const freshRated = rows.filter((c) => c.rates.length && c.rates[c.rates.length -
             ))}
           </ul>
           <p class="area-note">
+            Two rates, both correct. The conference quotes acceptances over every submission, which is the {b.headline}%
+            headline. The per-topic rates here divide by submissions that reached a decision, because a withdrawal is not a
+            rejection, which is why they read higher.
             Topic is what the authors picked at submission. Share is of the submission pool, then two changes against
             {b.prevYear}: share first, rate second, so a topic rising in share while its rate falls is one getting crowded.
             The last column is the rate across {b.year - (b.rows[0].series.length - 1)} to {b.year}, hover for the numbers.
@@ -584,7 +591,7 @@ const freshRated = rows.filter((c) => c.rates.length && c.rates[c.rates.length -
   .rest > summary::-webkit-details-marker { display:none; }
   .rest > summary h2 { font-size:.98rem; margin:0; }
   .rest-count { font-size:.72rem; font-weight:700; color:#64748b; background:#f1f5f9; border-radius:999px; padding:2px 8px; }
-  .rest-note { font-size:.74rem; color:#94a3b8; margin-left:auto; }
+  .rest-note { font-size:.74rem; color:#94a3b8; margin-left:auto; text-align:right; }
   .topic-list { list-style:none; margin:0; padding:0 16px 14px; display:grid;
     grid-template-columns:repeat(auto-fill, minmax(440px,1fr)); gap:3px 28px; }
   .topic-head { display:grid; grid-template-columns:44px 76px minmax(0,1fr) 40px 38px 42px; gap:8px;

@@ -100,9 +100,18 @@ for venue in ('iclr', 'nips', 'icml'):
         if not topics: continue
         topics.sort(key=lambda t: -t['rate'])
         overall = round(100 * sum(t['acc'] for t in topics) / sum(t['n'] for t in topics), 1)
+        # Two denominators, because both are in circulation. The conference
+        # quotes acceptances over every submission, which is the lower,
+        # headline number. Per-topic rates have to use decided submissions,
+        # since a withdrawal is not a rejection. Printing both stops the page
+        # from looking like it disagrees with the official fact sheet.
+        n_all = len(papers)
+        n_acc = sum(1 for x in st if x in ACCEPT)
+        headline = round(100 * n_acc / n_all, 1) if n_all else 0
         out.setdefault(venue.upper().replace('NIPS', 'NeurIPS'), []).append(
             {'year': year, 'overall': overall, 'topics': topics,
-             'decided': sum(t['n'] for t in topics)})
+             'decided': sum(t['n'] for t in topics),
+             'submitted': n_all, 'headline': headline})
 
 for v in out: out[v].sort(key=lambda e: -e['year'])
 
