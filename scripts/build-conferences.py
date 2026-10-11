@@ -543,9 +543,10 @@ for n in NOTABLE:
     n.update({'ccf':n.get('ccfManual','N'),'core':n.get('coreManual','N'),'coreVerified':False,'nextAbstract':'',
               'cycles':1,'roundLabels':[],'rates':[],'rateSection':'','rateSrc':'','rateSlug':'','rounds':[],'dblp':'','best':'','csr':'','edition':'',
               'estimated':est,'estFrom':n.get('lastDeadline','') if est else '',
-              # For a society meeting the deadline year is not the edition
-              # year, so do not print one. The date string names the edition.
-              'nextDeadline':nd,'nextYear':(None if n['proceedings']=='none' else ny),
+              # The deadline year is not the edition year for any of these:
+              # MLSys closes in October for the following year's conference.
+              # The date string, where there is one, names the edition.
+              'nextDeadline':nd,'nextYear':None,
               'notable':True})
     n.setdefault('date',''); n.setdefault('place','')
     if est and n['date']:
