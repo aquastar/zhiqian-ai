@@ -10,6 +10,19 @@ const AREA_SHORT = {
   'Science & Interdisciplinary': 'Science & Interdisciplinary',
 };
 const slug = (a) => a.toLowerCase().replace(/[^a-z]+/g, '-').replace(/^-|-$/g, '');
+// Each field gets one icon and one hue, used identically in the filter and in
+// every row, so the two can be matched at a glance instead of by reading.
+const AREA_ICON = {
+  'AI / ML / Data Mining': 'fa-brain',
+  'Security & Privacy': 'fa-shield-halved',
+  'Biomedical & Health': 'fa-dna',
+  'Science & Interdisciplinary': 'fa-flask',
+};
+const DEFAULT_AREA = 'AI / ML / Data Mining';
+const AR_REPO = 'https://github.com/lixin4ever/Conference-Acceptance-Rate';
+// Fixed 0-45% scale: the point of the bars is to compare venues to each other,
+// which a per-row scale would destroy.
+const RATE_MAX = 40;
 
 const coreLabel = { 'A*': 'A*', A: 'A', B: 'B', C: 'C', TBR: 'TBR', JP: 'jrnl', N: '—' };
 const coreClass = (c) => `core-${c === 'A*' ? 'as' : c.toLowerCase()}`;
@@ -55,9 +68,11 @@ const freshRated = rows.filter((c) => c.rates.length && c.rates[c.rates.length -
         </div>
         <div class="filter" role="group" aria-label="Filter by field">
           <span class="filter-label">Field</span>
-          <button class="fbtn is-on" data-area="all" type="button">All<span class="fcount">{rows.length}</span></button>
+          <button class="fbtn" data-area="all" type="button"><i class="fas fa-layer-group" aria-hidden="true"></i>All<span class="fcount">{rows.length}</span></button>
           {counts.map((c) => (
-            <button class="fbtn" data-area={slug(c.area)} type="button">{AREA_SHORT[c.area]}<span class="fcount">{c.n}</span></button>
+            <button class={`fbtn area-${slug(c.area)}${c.area === DEFAULT_AREA ? ' is-on' : ''}`} data-area={slug(c.area)} type="button">
+              <i class={`fas ${AREA_ICON[c.area]}`} aria-hidden="true"></i>{AREA_SHORT[c.area]}<span class="fcount">{c.n}</span>
+            </button>
           ))}
         </div>
       </div>
@@ -102,7 +117,7 @@ const freshRated = rows.filter((c) => c.rates.length && c.rates[c.rates.length -
                     {c.society && <span class="proc proc-none">no proceedings</span>}
                   </span>
                   <span class="conf-desc">{c.desc}</span>
-                  <span class="area-tag">{AREA_SHORT[c.area]}</span>
+                  <span class={`area-tag area-${slug(c.area)}`}><i class={`fas ${AREA_ICON[c.area]}`} aria-hidden="true"></i>{AREA_SHORT[c.area]}</span>
                   {c.note && <p class="why">{c.note}</p>}
                 </td>
                 <td class="c-date">
@@ -120,13 +135,22 @@ const freshRated = rows.filter((c) => c.rates.length && c.rates[c.rates.length -
                 </td>
                 <td class="c-rate">
                   {last
-                    ? <div class={`rate ${stale ? 'is-stale' : ''}`} title={c.rates.map((p) => `${p.y}: ${p.r}%`).join('\n')}>
-                        <div class="rate-top">
-                          <span class="rate-now">{last.r}%</span>
-                          <span class="rate-year">{stale ? `as of ${last.y}` : last.y}</span>
+                    ? <div class={`rate ${stale ? 'is-stale' : ''}`}>
+                        <div class="bars">
+                          {c.rates.slice(-3).map((p) => (
+                            <div class="bar-col" title={`${p.y}: ${p.r}%`}>
+                              <span class="bar-pct">{p.r}%</span>
+                              <span class="bar-track"><span class="bar-fill" style={`height:${Math.min(p.r / RATE_MAX, 1) * 100}%`}></span></span>
+                              <span class="bar-year">'{String(p.y).slice(2)}</span>
+                            </div>
+                          ))}
                         </div>
-                        <div class="rate-track"><span class="rate-fill" style={`width:${Math.min(last.r / 45, 1) * 100}%`}></span></div>
-                        <span class="rate-n">{c.rates.length} yr{c.rates.length > 1 ? 's' : ''} on record</span>
+                        {c.rates.length > 3 && (
+                          <a class="rate-more" href={`${AR_REPO}#${c.rateSection}`} target="_blank" rel="noopener">
+                            {c.rates.length} yrs <i class="fas fa-arrow-up-right-from-square" aria-hidden="true"></i>
+                          </a>
+                        )}
+                        {stale && <span class="rate-stale-note">ends {last.y}</span>}
                       </div>
                     : <span class="none">no published rate</span>}
                 </td>
@@ -184,7 +208,11 @@ const freshRated = rows.filter((c) => c.rates.length && c.rates[c.rates.length -
 </Layout>
 
 <style>
-  .container { max-width: 1120px; margin: 0 auto; padding: 32px 24px 64px; }
+.container { max-width: min(95vw, 1600px); margin: 0 auto; padding: 20px; box-sizing: border-box; }
+  .top-nav { margin-bottom: 14px; padding: 10px 0 14px; display:flex; flex-wrap:wrap; gap:8px; align-items:center; background:transparent; border:none; border-bottom:none; border-radius:0; box-shadow:none; }
+  .top-nav a { text-decoration:none; color:var(--ink); font-family:'Montserrat',sans-serif; font-size:.9rem; padding:7px 10px; border-radius:999px; background:transparent; }
+  .top-nav a:hover { background: #f1f5f9; color: #0f172a; }
+  .top-nav a[aria-current="page"] { background: #e2e8f0; color: #0f172a; box-shadow: inset 0 1px 2px rgba(15,23,42,0.10); }
   .head { margin-bottom: 18px; }
   .head-row { display:flex; align-items:flex-start; justify-content:space-between; gap:28px; flex-wrap:wrap; }
   .head-text { flex:1 1 440px; min-width:0; }
@@ -207,9 +235,9 @@ const freshRated = rows.filter((c) => c.rates.length && c.rates[c.rates.length -
   .legend strong { font-weight:700; color:#1e293b; }
   .legend-gap { margin-left:10px; }
   .tier-swatch { width:22px; height:12px; border-radius:3px; border:1px solid rgba(148,163,184,.4); }
-  .tier-swatch.t1 { background:#fee2e2; border-color:#fca5a5; }
-  .tier-swatch.t2 { background:#ffedd5; border-color:#fdba74; }
-  .tier-swatch.t3 { background:#fef9c3; border-color:#fde047; }
+  .tier-swatch.t1 { background:#fde9e9; border-color:#dc2626; border-left-width:4px; }
+  .tier-swatch.t2 { background:#fdedd6; border-color:#ea7317; border-left-width:4px; }
+  .tier-swatch.t3 { background:#f8f4cd; border-color:#d4b106; border-left-width:4px; }
   .chip { width:11px; height:11px; border-radius:3px; display:inline-block; }
   .chip.band-urgent { background:#dc2626; } .chip.band-soon { background:#fde68a; }
   .chip.band-later { background:#2563eb; } .chip.band-far { background:#64748b; }
@@ -228,17 +256,32 @@ const freshRated = rows.filter((c) => c.rates.length && c.rates[c.rates.length -
   .confs tbody tr:last-child td { border-bottom:0; }
 
   /* Row tint is the importance tier and nothing else. */
-  tr.tier-1 { background:#fef1f1; } tr.tier-1:hover { background:#fde4e4; }
-  tr.tier-2 { background:#fff7ed; } tr.tier-2:hover { background:#ffecd6; }
-  tr.tier-3 { background:#fefce4; } tr.tier-3:hover { background:#fdf7cc; }
+  tr.tier-1 { background:#fde9e9; } tr.tier-1:hover { background:#fbdada; }
+  tr.tier-2 { background:#fdedd6; } tr.tier-2:hover { background:#fbe1bd; }
+  tr.tier-3 { background:#f8f4cd; } tr.tier-3:hover { background:#f3edb4; }
+  .confs tbody td:first-child { border-left:4px solid transparent; }
+  tr.tier-1 td:first-child { border-left-color:#dc2626; }
+  tr.tier-2 td:first-child { border-left-color:#ea7317; }
+  tr.tier-3 td:first-child { border-left-color:#d4b106; }
 
   .c-name { min-width:230px; }
   .name-line { display:flex; align-items:center; gap:7px; flex-wrap:wrap; }
   .conf-name { font-weight:700; color:#0f172a; text-decoration:none; font-size:.9rem; }
   a.conf-name:hover { color:var(--accent); text-decoration:underline; }
   .conf-desc { display:block; text-align:left; color:#64748b; font-size:.74rem; line-height:1.45; margin-top:2px; max-width:42ch; }
-  .area-tag { display:inline-block; margin-top:5px; font-size:.65rem; letter-spacing:.05em; text-transform:uppercase;
-    color:#64748b; background:rgba(148,163,184,.17); border-radius:4px; padding:1px 6px; }
+  .area-tag { display:inline-flex; align-items:center; gap:5px; margin-top:5px; font-size:.65rem; letter-spacing:.05em;
+    text-transform:uppercase; font-weight:700; border-radius:4px; padding:2px 7px; border:1px solid currentColor; }
+  .area-tag i { font-size:.72rem; }
+  /* One hue per field, shared by the tag and the filter button. */
+  .area-ai-ml-data-mining        { color:#6d28d9; background:#f3f0ff; }
+  .area-security-privacy         { color:#0f766e; background:#effcfa; }
+  .area-biomedical-health        { color:#be185d; background:#fdf2f8; }
+  .area-science-interdisciplinary{ color:#1d4ed8; background:#eff6ff; }
+  .fbtn i { font-size:.8rem; }
+  .fbtn.area-ai-ml-data-mining:not(.is-on)         { color:#6d28d9; border-color:#ddd6fe; }
+  .fbtn.area-security-privacy:not(.is-on)          { color:#0f766e; border-color:#99f6e4; }
+  .fbtn.area-biomedical-health:not(.is-on)         { color:#be185d; border-color:#fbcfe8; }
+  .fbtn.area-science-interdisciplinary:not(.is-on) { color:#1d4ed8; border-color:#bfdbfe; }
   .rounds-tag { font-size:.64rem; font-weight:800; color:#0369a1; background:#e0f2fe; border-radius:4px; padding:1px 5px; }
   .new-tag { font-size:.62rem; font-weight:800; letter-spacing:.05em; text-transform:uppercase;
     color:#5b21b6; background:#ede9fe; border:1px solid #ddd6fe; border-radius:4px; padding:1px 6px; }
@@ -258,15 +301,26 @@ const freshRated = rows.filter((c) => c.rates.length && c.rates[c.rates.length -
   .when { display:block; }
   .where { display:block; color:#94a3b8; }
 
-  .c-rate { min-width:148px; }
-  .rate-top { display:flex; align-items:baseline; gap:7px; }
-  .rate-now { font-weight:800; color:#0f172a; font-variant-numeric:tabular-nums; }
-  .rate-year { font-size:.68rem; color:#64748b; font-variant-numeric:tabular-nums; }
-  .rate.is-stale .rate-year { color:#b45309; background:#fef3c7; border-radius:4px; padding:0 5px; font-weight:700; }
-  .rate-track { margin-top:5px; height:6px; border-radius:999px; background:rgba(148,163,184,.26); overflow:hidden; }
-  .rate-fill { display:block; height:100%; border-radius:999px; background:linear-gradient(90deg,#2563eb,#60a5fa); }
-  .rate.is-stale .rate-fill { background:linear-gradient(90deg,#94a3b8,#cbd5e1); }
-  .rate-n { display:block; margin-top:4px; font-size:.65rem; color:#94a3b8; }
+  .c-rate { min-width:150px; }
+  .rate { display:flex; align-items:flex-end; gap:10px; }
+  .bars { display:flex; align-items:flex-end; gap:6px; }
+  .bar-col { display:flex; flex-direction:column; align-items:center; gap:2px; width:34px; }
+  .bar-pct { font-size:.64rem; font-weight:800; color:#0f172a; font-variant-numeric:tabular-nums; }
+  .bar-track { position:relative; width:100%; height:44px; display:flex; align-items:flex-end;
+    background:rgba(148,163,184,.2); border-radius:3px; overflow:hidden; }
+  /* Reference line at 25% — most CS rates sit near it, so it turns a cluster
+     of similar bars into an above/below read. */
+  .bar-track::before { content:''; position:absolute; left:0; right:0; bottom:62.5%; height:1px;
+    background:rgba(71,85,105,.33); z-index:1; }
+  .bar-fill { position:relative; z-index:0; width:100%; background:linear-gradient(180deg,#60a5fa,#2563eb); border-radius:3px 3px 0 0; }
+  .bar-year { font-size:.62rem; color:#64748b; font-variant-numeric:tabular-nums; }
+  .rate.is-stale .bar-fill { background:linear-gradient(180deg,#cbd5e1,#94a3b8); }
+  .rate.is-stale .bar-pct { color:#64748b; }
+  .rate-more { font-size:.63rem; font-weight:700; color:#475569; text-decoration:none; white-space:nowrap;
+    border:1px solid rgba(148,163,184,.45); border-radius:999px; padding:2px 7px; background:#fff; margin-bottom:18px; }
+  .rate-more:hover { color:var(--accent); border-color:rgba(37,99,235,.5); }
+  .rate-stale-note { font-size:.62rem; font-weight:700; color:#b45309; background:#fef3c7;
+    border-radius:4px; padding:1px 5px; margin-bottom:19px; white-space:nowrap; }
 
   .c-rank { white-space:nowrap; }
   .ranks { display:flex; flex-direction:column; gap:4px; align-items:flex-start; }
@@ -337,17 +391,19 @@ const freshRated = rows.filter((c) => c.rates.length && c.rates[c.rates.length -
   // date order never changes underneath the reader.
   const rows = Array.from(document.querySelectorAll('table.confs tbody tr'));
   const empty = document.querySelector('.empty-note');
-  document.querySelectorAll('.fbtn').forEach((btn) => {
-    btn.addEventListener('click', () => {
-      const want = btn.dataset.area;
-      document.querySelectorAll('.fbtn').forEach((b) => b.classList.toggle('is-on', b === btn));
-      let shown = 0;
-      rows.forEach((r) => {
-        const on = want === 'all' || r.dataset.area === want;
-        r.style.display = on ? '' : 'none';
-        if (on) shown++;
-      });
-      if (empty) empty.hidden = shown > 0;
+  const apply = (btn) => {
+    const want = btn.dataset.area;
+    document.querySelectorAll('.fbtn').forEach((b) => b.classList.toggle('is-on', b === btn));
+    let shown = 0;
+    rows.forEach((r) => {
+      const on = want === 'all' || r.dataset.area === want;
+      r.style.display = on ? '' : 'none';
+      if (on) shown++;
     });
-  });
+    if (empty) empty.hidden = shown > 0;
+  };
+  document.querySelectorAll('.fbtn').forEach((btn) => btn.addEventListener('click', () => apply(btn)));
+  // The markup marks AI as selected; run the filter so the rows agree with it.
+  const start = document.querySelector('.fbtn.is-on');
+  if (start) apply(start);
 </script>

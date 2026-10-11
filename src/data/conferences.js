@@ -25,6 +25,7 @@ export const ranked = [
     ],
     "proceedings": "full",
     "rates": [],
+    "rateSection": "",
     "tier": 2
   },
   {
@@ -72,6 +73,7 @@ export const ranked = [
         "r": 33.4
       }
     ],
+    "rateSection": "natural-language-processing-and-computational-linguistics",
     "tier": 2
   },
   {
@@ -119,6 +121,7 @@ export const ranked = [
         "r": 29.2
       }
     ],
+    "rateSection": "natural-language-processing-and-computational-linguistics",
     "tier": 2
   },
   {
@@ -143,6 +146,7 @@ export const ranked = [
     ],
     "proceedings": "full",
     "rates": [],
+    "rateSection": "",
     "tier": 2
   },
   {
@@ -166,6 +170,7 @@ export const ranked = [
     ],
     "proceedings": "full",
     "rates": [],
+    "rateSection": "",
     "tier": 2
   },
   {
@@ -190,6 +195,7 @@ export const ranked = [
     ],
     "proceedings": "full",
     "rates": [],
+    "rateSection": "",
     "tier": 1
   },
   {
@@ -250,6 +256,7 @@ export const ranked = [
         "r": 19.2
       }
     ],
+    "rateSection": "data-mining-and-information-retrieval",
     "tier": 1
   },
   {
@@ -269,6 +276,7 @@ export const ranked = [
     "roundLabels": [],
     "proceedings": "full",
     "rates": [],
+    "rateSection": "",
     "tier": 1
   },
   {
@@ -288,6 +296,7 @@ export const ranked = [
     "roundLabels": [],
     "proceedings": "full",
     "rates": [],
+    "rateSection": "",
     "tier": 2
   },
   {
@@ -310,6 +319,7 @@ export const ranked = [
     ],
     "proceedings": "full",
     "rates": [],
+    "rateSection": "",
     "tier": 1
   },
   {
@@ -378,6 +388,7 @@ export const ranked = [
         "r": 22.1
       }
     ],
+    "rateSection": "computer-vision-and-pattern-recognition",
     "tier": 1
   },
   {
@@ -400,6 +411,7 @@ export const ranked = [
     ],
     "proceedings": "full",
     "rates": [],
+    "rateSection": "",
     "tier": 1
   },
   {
@@ -419,6 +431,7 @@ export const ranked = [
     "roundLabels": [],
     "proceedings": "full",
     "rates": [],
+    "rateSection": "",
     "tier": 2
   },
   {
@@ -443,6 +456,7 @@ export const ranked = [
     ],
     "proceedings": "full",
     "rates": [],
+    "rateSection": "",
     "tier": 2
   },
   {
@@ -465,6 +479,7 @@ export const ranked = [
     ],
     "proceedings": "full",
     "rates": [],
+    "rateSection": "",
     "tier": 2
   },
   {
@@ -484,6 +499,7 @@ export const ranked = [
     "roundLabels": [],
     "proceedings": "full",
     "rates": [],
+    "rateSection": "",
     "tier": 2
   },
   {
@@ -503,6 +519,7 @@ export const ranked = [
     "roundLabels": [],
     "proceedings": "full",
     "rates": [],
+    "rateSection": "",
     "tier": 2
   },
   {
@@ -525,6 +542,7 @@ export const ranked = [
     ],
     "proceedings": "full",
     "rates": [],
+    "rateSection": "",
     "tier": 1
   },
   {
@@ -547,6 +565,7 @@ export const ranked = [
     ],
     "proceedings": "full",
     "rates": [],
+    "rateSection": "",
     "tier": 2
   },
   {
@@ -566,6 +585,7 @@ export const ranked = [
     "roundLabels": [],
     "proceedings": "full",
     "rates": [],
+    "rateSection": "",
     "tier": 1
   },
   {
@@ -622,6 +642,7 @@ export const ranked = [
         "r": 23.5
       }
     ],
+    "rateSection": "natural-language-processing-and-computational-linguistics",
     "tier": 1
   },
   {
@@ -682,6 +703,7 @@ export const ranked = [
         "r": 14.1
       }
     ],
+    "rateSection": "artificial-intelligence",
     "tier": 1
   },
   {
@@ -701,6 +723,7 @@ export const ranked = [
     "roundLabels": [],
     "proceedings": "full",
     "rates": [],
+    "rateSection": "",
     "tier": 2
   },
   {
@@ -757,6 +780,7 @@ export const ranked = [
         "r": 20.3
       }
     ],
+    "rateSection": "data-mining-and-information-retrieval",
     "tier": 1
   },
   {
@@ -779,6 +803,7 @@ export const ranked = [
     ],
     "proceedings": "full",
     "rates": [],
+    "rateSection": "",
     "tier": 1
   },
   {
@@ -798,6 +823,7 @@ export const ranked = [
     "roundLabels": [],
     "proceedings": "full",
     "rates": [],
+    "rateSection": "",
     "tier": 2
   },
   {
@@ -817,6 +843,7 @@ export const ranked = [
     "roundLabels": [],
     "proceedings": "full",
     "rates": [],
+    "rateSection": "",
     "tier": 2
   },
   {
@@ -836,6 +863,7 @@ export const ranked = [
     "roundLabels": [],
     "proceedings": "full",
     "rates": [],
+    "rateSection": "",
     "tier": 2
   },
   {
@@ -855,6 +883,7 @@ export const ranked = [
     "roundLabels": [],
     "proceedings": "full",
     "rates": [],
+    "rateSection": "",
     "tier": 1
   },
   {
@@ -907,6 +936,7 @@ export const ranked = [
         "r": 9.9
       }
     ],
+    "rateSection": "data-mining-and-information-retrieval",
     "tier": 1
   },
   {
@@ -975,6 +1005,7 @@ export const ranked = [
         "r": 23.4
       }
     ],
+    "rateSection": "artificial-intelligence",
     "tier": 1
   },
   {
@@ -994,6 +1025,7 @@ export const ranked = [
     "roundLabels": [],
     "proceedings": "full",
     "rates": [],
+    "rateSection": "",
     "tier": 1
   },
   {
@@ -1013,6 +1045,7 @@ export const ranked = [
     "roundLabels": [],
     "proceedings": "full",
     "rates": [],
+    "rateSection": "",
     "tier": 2
   },
   {
@@ -1077,6 +1110,7 @@ export const ranked = [
         "r": 31.3
       }
     ],
+    "rateSection": "machine-learning-and-learning-theory",
     "tier": 2
   },
   {
@@ -1096,6 +1130,7 @@ export const ranked = [
     "cycles": 1,
     "roundLabels": [],
     "rates": [],
+    "rateSection": "",
     "notable": true,
     "nextDeadline": "",
     "nextYear": null,
@@ -1118,6 +1153,7 @@ export const ranked = [
     "roundLabels": [],
     "proceedings": "full",
     "rates": [],
+    "rateSection": "",
     "tier": 2
   },
   {
@@ -1137,6 +1173,7 @@ export const ranked = [
     "roundLabels": [],
     "proceedings": "full",
     "rates": [],
+    "rateSection": "",
     "tier": 2
   },
   {
@@ -1156,6 +1193,7 @@ export const ranked = [
     "roundLabels": [],
     "proceedings": "full",
     "rates": [],
+    "rateSection": "",
     "tier": 2
   },
   {
@@ -1175,6 +1213,7 @@ export const ranked = [
     "roundLabels": [],
     "proceedings": "full",
     "rates": [],
+    "rateSection": "",
     "tier": 1
   },
   {
@@ -1194,6 +1233,7 @@ export const ranked = [
     "roundLabels": [],
     "proceedings": "full",
     "rates": [],
+    "rateSection": "",
     "tier": 2
   },
   {
@@ -1246,6 +1286,7 @@ export const ranked = [
         "r": 21.7
       }
     ],
+    "rateSection": "data-mining-and-information-retrieval",
     "tier": 2
   },
   {
@@ -1265,6 +1306,7 @@ export const ranked = [
     "roundLabels": [],
     "proceedings": "full",
     "rates": [],
+    "rateSection": "",
     "tier": 2
   },
   {
@@ -1284,6 +1326,7 @@ export const ranked = [
     "cycles": 1,
     "roundLabels": [],
     "rates": [],
+    "rateSection": "",
     "notable": true,
     "nextDeadline": "",
     "nextYear": null,
@@ -1335,6 +1378,7 @@ export const ranked = [
         "r": 30.9
       }
     ],
+    "rateSection": "machine-learning-and-learning-theory",
     "tier": 1
   },
   {
@@ -1354,6 +1398,7 @@ export const ranked = [
     "roundLabels": [],
     "proceedings": "full",
     "rates": [],
+    "rateSection": "",
     "tier": 1
   },
   {
@@ -1390,6 +1435,7 @@ export const ranked = [
         "r": 27.1
       }
     ],
+    "rateSection": "computer-vision-and-pattern-recognition",
     "tier": 1
   },
   {
@@ -1409,6 +1455,7 @@ export const ranked = [
     "roundLabels": [],
     "proceedings": "full",
     "rates": [],
+    "rateSection": "",
     "tier": 2
   },
   {
@@ -1428,6 +1475,7 @@ export const ranked = [
     "roundLabels": [],
     "proceedings": "full",
     "rates": [],
+    "rateSection": "",
     "tier": 2
   },
   {
@@ -1449,6 +1497,7 @@ export const ranked = [
     ],
     "proceedings": "full",
     "rates": [],
+    "rateSection": "",
     "tier": 2
   },
   {
@@ -1512,6 +1561,7 @@ export const ranked = [
         "r": 23.3
       }
     ],
+    "rateSection": "natural-language-processing-and-computational-linguistics",
     "tier": 1
   },
   {
@@ -1531,6 +1581,7 @@ export const ranked = [
     "roundLabels": [],
     "proceedings": "full",
     "rates": [],
+    "rateSection": "",
     "tier": 2
   },
   {
@@ -1553,6 +1604,7 @@ export const ranked = [
     ],
     "proceedings": "full",
     "rates": [],
+    "rateSection": "",
     "tier": 2
   },
   {
@@ -1572,6 +1624,7 @@ export const ranked = [
     "roundLabels": [],
     "proceedings": "full",
     "rates": [],
+    "rateSection": "",
     "tier": 1
   },
   {
@@ -1591,6 +1644,7 @@ export const ranked = [
     "roundLabels": [],
     "proceedings": "full",
     "rates": [],
+    "rateSection": "",
     "tier": 2
   },
   {
@@ -1610,6 +1664,7 @@ export const ranked = [
     "roundLabels": [],
     "proceedings": "full",
     "rates": [],
+    "rateSection": "",
     "tier": 2
   },
   {
@@ -1629,6 +1684,7 @@ export const ranked = [
     "roundLabels": [],
     "proceedings": "full",
     "rates": [],
+    "rateSection": "",
     "tier": 2
   },
   {
@@ -1665,6 +1721,7 @@ export const ranked = [
         "r": 25.0
       }
     ],
+    "rateSection": "computer-vision-and-pattern-recognition",
     "tier": 1
   },
   {
@@ -1684,6 +1741,7 @@ export const ranked = [
     "roundLabels": [],
     "proceedings": "full",
     "rates": [],
+    "rateSection": "",
     "tier": 2
   },
   {
@@ -1740,6 +1798,7 @@ export const ranked = [
         "r": 31.75
       }
     ],
+    "rateSection": "machine-learning-and-learning-theory",
     "tier": 1
   },
   {
@@ -1804,6 +1863,7 @@ export const ranked = [
         "r": 27.5
       }
     ],
+    "rateSection": "machine-learning-and-learning-theory",
     "tier": 1
   },
   {
@@ -1823,6 +1883,7 @@ export const ranked = [
     "roundLabels": [],
     "proceedings": "full",
     "rates": [],
+    "rateSection": "",
     "tier": 1
   },
   {
@@ -1842,6 +1903,7 @@ export const ranked = [
     "roundLabels": [],
     "proceedings": "full",
     "rates": [],
+    "rateSection": "",
     "tier": 2
   },
   {
@@ -1861,6 +1923,7 @@ export const ranked = [
     "roundLabels": [],
     "proceedings": "full",
     "rates": [],
+    "rateSection": "",
     "tier": 2
   },
   {
@@ -1880,6 +1943,7 @@ export const ranked = [
     "cycles": 1,
     "roundLabels": [],
     "rates": [],
+    "rateSection": "",
     "notable": true,
     "nextDeadline": "",
     "nextYear": null,
@@ -1905,6 +1969,7 @@ export const ranked = [
     ],
     "proceedings": "full",
     "rates": [],
+    "rateSection": "",
     "tier": 1
   },
   {
@@ -1973,6 +2038,7 @@ export const ranked = [
         "r": 24.5
       }
     ],
+    "rateSection": "machine-learning-and-learning-theory",
     "tier": 1
   },
   {
@@ -1992,6 +2058,7 @@ export const ranked = [
     "roundLabels": [],
     "proceedings": "full",
     "rates": [],
+    "rateSection": "",
     "tier": 2
   },
   {
@@ -2011,6 +2078,7 @@ export const ranked = [
     "roundLabels": [],
     "proceedings": "full",
     "rates": [],
+    "rateSection": "",
     "tier": 2
   },
   {
@@ -2030,6 +2098,7 @@ export const ranked = [
     "roundLabels": [],
     "proceedings": "full",
     "rates": [],
+    "rateSection": "",
     "tier": 2
   },
   {
@@ -2074,6 +2143,7 @@ export const ranked = [
         "r": 17.9
       }
     ],
+    "rateSection": "data-mining-and-information-retrieval",
     "tier": 2
   },
   {
@@ -2093,6 +2163,7 @@ export const ranked = [
     "roundLabels": [],
     "proceedings": "full",
     "rates": [],
+    "rateSection": "",
     "tier": 1
   },
   {
@@ -2112,6 +2183,7 @@ export const ranked = [
     "roundLabels": [],
     "proceedings": "full",
     "rates": [],
+    "rateSection": "",
     "tier": 2
   },
   {
@@ -2131,6 +2203,7 @@ export const ranked = [
     "roundLabels": [],
     "proceedings": "full",
     "rates": [],
+    "rateSection": "",
     "tier": 2
   },
   {
@@ -2187,6 +2260,7 @@ export const ranked = [
         "r": 22.1
       }
     ],
+    "rateSection": "data-mining-and-information-retrieval",
     "tier": 1
   },
   {
@@ -2206,6 +2280,7 @@ export const ranked = [
     "roundLabels": [],
     "proceedings": "full",
     "rates": [],
+    "rateSection": "",
     "tier": 2
   },
   {
@@ -2225,6 +2300,7 @@ export const ranked = [
     "roundLabels": [],
     "proceedings": "full",
     "rates": [],
+    "rateSection": "",
     "tier": 2
   },
   {
@@ -2244,6 +2320,7 @@ export const ranked = [
     "roundLabels": [],
     "proceedings": "full",
     "rates": [],
+    "rateSection": "",
     "tier": 2
   },
   {
@@ -2312,6 +2389,7 @@ export const ranked = [
         "r": 30.7
       }
     ],
+    "rateSection": "machine-learning-and-learning-theory",
     "tier": 2
   },
   {
@@ -2334,6 +2412,7 @@ export const ranked = [
     ],
     "proceedings": "full",
     "rates": [],
+    "rateSection": "",
     "tier": 2
   },
   {
@@ -2353,6 +2432,7 @@ export const ranked = [
     "roundLabels": [],
     "proceedings": "full",
     "rates": [],
+    "rateSection": "",
     "tier": 2
   },
   {
@@ -2372,6 +2452,7 @@ export const ranked = [
     "roundLabels": [],
     "proceedings": "full",
     "rates": [],
+    "rateSection": "",
     "tier": 2
   },
   {
@@ -2432,6 +2513,7 @@ export const ranked = [
         "r": 17.8
       }
     ],
+    "rateSection": "data-mining-and-information-retrieval",
     "tier": 2
   }
 ];
@@ -2454,6 +2536,7 @@ export const others = [
     "roundLabels": [],
     "proceedings": "full",
     "rates": [],
+    "rateSection": "",
     "tier": 3
   },
   {
@@ -2476,6 +2559,7 @@ export const others = [
     ],
     "proceedings": "full",
     "rates": [],
+    "rateSection": "",
     "tier": 3
   },
   {
@@ -2495,6 +2579,7 @@ export const others = [
     "roundLabels": [],
     "proceedings": "full",
     "rates": [],
+    "rateSection": "",
     "tier": 3
   },
   {
@@ -2514,6 +2599,7 @@ export const others = [
     "roundLabels": [],
     "proceedings": "full",
     "rates": [],
+    "rateSection": "",
     "tier": 3
   },
   {
@@ -2533,6 +2619,7 @@ export const others = [
     "roundLabels": [],
     "proceedings": "full",
     "rates": [],
+    "rateSection": "",
     "tier": 3
   },
   {
@@ -2552,6 +2639,7 @@ export const others = [
     "roundLabels": [],
     "proceedings": "full",
     "rates": [],
+    "rateSection": "",
     "tier": 3
   },
   {
@@ -2571,6 +2659,7 @@ export const others = [
     "roundLabels": [],
     "proceedings": "full",
     "rates": [],
+    "rateSection": "",
     "tier": 3
   },
   {
@@ -2590,6 +2679,7 @@ export const others = [
     "roundLabels": [],
     "proceedings": "full",
     "rates": [],
+    "rateSection": "",
     "tier": 3
   },
   {
@@ -2609,6 +2699,7 @@ export const others = [
     "roundLabels": [],
     "proceedings": "full",
     "rates": [],
+    "rateSection": "",
     "tier": 3
   },
   {
@@ -2628,6 +2719,7 @@ export const others = [
     "roundLabels": [],
     "proceedings": "full",
     "rates": [],
+    "rateSection": "",
     "tier": 3
   },
   {
@@ -2647,6 +2739,7 @@ export const others = [
     "roundLabels": [],
     "proceedings": "full",
     "rates": [],
+    "rateSection": "",
     "tier": 3
   },
   {
@@ -2666,6 +2759,7 @@ export const others = [
     "roundLabels": [],
     "proceedings": "full",
     "rates": [],
+    "rateSection": "",
     "tier": 3
   },
   {
@@ -2685,6 +2779,7 @@ export const others = [
     "roundLabels": [],
     "proceedings": "full",
     "rates": [],
+    "rateSection": "",
     "tier": 3
   },
   {
@@ -2704,6 +2799,7 @@ export const others = [
     "roundLabels": [],
     "proceedings": "full",
     "rates": [],
+    "rateSection": "",
     "tier": 3
   },
   {
@@ -2723,6 +2819,7 @@ export const others = [
     "roundLabels": [],
     "proceedings": "full",
     "rates": [],
+    "rateSection": "",
     "tier": 3
   },
   {
@@ -2742,6 +2839,7 @@ export const others = [
     "roundLabels": [],
     "proceedings": "full",
     "rates": [],
+    "rateSection": "",
     "tier": 3
   },
   {
@@ -2761,6 +2859,7 @@ export const others = [
     "roundLabels": [],
     "proceedings": "full",
     "rates": [],
+    "rateSection": "",
     "tier": 3
   },
   {
@@ -2780,6 +2879,7 @@ export const others = [
     "roundLabels": [],
     "proceedings": "full",
     "rates": [],
+    "rateSection": "",
     "tier": 3
   },
   {
@@ -2799,6 +2899,7 @@ export const others = [
     "roundLabels": [],
     "proceedings": "full",
     "rates": [],
+    "rateSection": "",
     "tier": 3
   },
   {
@@ -2818,6 +2919,7 @@ export const others = [
     "roundLabels": [],
     "proceedings": "full",
     "rates": [],
+    "rateSection": "",
     "tier": 3
   },
   {
@@ -2840,6 +2942,7 @@ export const others = [
     ],
     "proceedings": "full",
     "rates": [],
+    "rateSection": "",
     "tier": 3
   },
   {
@@ -2859,6 +2962,7 @@ export const others = [
     "roundLabels": [],
     "proceedings": "full",
     "rates": [],
+    "rateSection": "",
     "tier": 3
   },
   {
@@ -2878,6 +2982,7 @@ export const others = [
     "roundLabels": [],
     "proceedings": "full",
     "rates": [],
+    "rateSection": "",
     "tier": 3
   },
   {
@@ -2897,6 +3002,7 @@ export const others = [
     "roundLabels": [],
     "proceedings": "full",
     "rates": [],
+    "rateSection": "",
     "tier": 3
   },
   {
@@ -2919,6 +3025,7 @@ export const others = [
     ],
     "proceedings": "full",
     "rates": [],
+    "rateSection": "",
     "tier": 3
   },
   {
@@ -2938,6 +3045,7 @@ export const others = [
     "roundLabels": [],
     "proceedings": "full",
     "rates": [],
+    "rateSection": "",
     "tier": 3
   },
   {
@@ -2957,6 +3065,7 @@ export const others = [
     "roundLabels": [],
     "proceedings": "full",
     "rates": [],
+    "rateSection": "",
     "tier": 3
   },
   {
@@ -2976,6 +3085,7 @@ export const others = [
     "roundLabels": [],
     "proceedings": "full",
     "rates": [],
+    "rateSection": "",
     "tier": 3
   },
   {
@@ -2995,6 +3105,7 @@ export const others = [
     "roundLabels": [],
     "proceedings": "full",
     "rates": [],
+    "rateSection": "",
     "tier": 3
   },
   {
@@ -3018,6 +3129,7 @@ export const others = [
     ],
     "proceedings": "full",
     "rates": [],
+    "rateSection": "",
     "tier": 3
   },
   {
@@ -3037,6 +3149,7 @@ export const others = [
     "roundLabels": [],
     "proceedings": "full",
     "rates": [],
+    "rateSection": "",
     "tier": 3
   },
   {
@@ -3056,6 +3169,7 @@ export const others = [
     "roundLabels": [],
     "proceedings": "full",
     "rates": [],
+    "rateSection": "",
     "tier": 3
   },
   {
@@ -3075,6 +3189,7 @@ export const others = [
     "roundLabels": [],
     "proceedings": "full",
     "rates": [],
+    "rateSection": "",
     "tier": 3
   },
   {
@@ -3097,6 +3212,7 @@ export const others = [
     ],
     "proceedings": "full",
     "rates": [],
+    "rateSection": "",
     "tier": 3
   },
   {
@@ -3119,6 +3235,7 @@ export const others = [
     ],
     "proceedings": "full",
     "rates": [],
+    "rateSection": "",
     "tier": 3
   },
   {
@@ -3138,6 +3255,7 @@ export const others = [
     "roundLabels": [],
     "proceedings": "full",
     "rates": [],
+    "rateSection": "",
     "tier": 3
   },
   {
@@ -3160,6 +3278,7 @@ export const others = [
     ],
     "proceedings": "full",
     "rates": [],
+    "rateSection": "",
     "tier": 3
   },
   {
@@ -3179,6 +3298,7 @@ export const others = [
     "roundLabels": [],
     "proceedings": "full",
     "rates": [],
+    "rateSection": "",
     "tier": 3
   },
   {
@@ -3198,6 +3318,7 @@ export const others = [
     "roundLabels": [],
     "proceedings": "full",
     "rates": [],
+    "rateSection": "",
     "tier": 3
   },
   {
@@ -3217,6 +3338,7 @@ export const others = [
     "roundLabels": [],
     "proceedings": "full",
     "rates": [],
+    "rateSection": "",
     "tier": 3
   },
   {
@@ -3236,6 +3358,7 @@ export const others = [
     "roundLabels": [],
     "proceedings": "full",
     "rates": [],
+    "rateSection": "",
     "tier": 3
   },
   {
@@ -3258,6 +3381,7 @@ export const others = [
     ],
     "proceedings": "full",
     "rates": [],
+    "rateSection": "",
     "tier": 3
   },
   {
@@ -3280,6 +3404,7 @@ export const others = [
     ],
     "proceedings": "full",
     "rates": [],
+    "rateSection": "",
     "tier": 3
   },
   {
@@ -3299,6 +3424,7 @@ export const others = [
     "roundLabels": [],
     "proceedings": "full",
     "rates": [],
+    "rateSection": "",
     "tier": 3
   },
   {
@@ -3318,6 +3444,7 @@ export const others = [
     "roundLabels": [],
     "proceedings": "full",
     "rates": [],
+    "rateSection": "",
     "tier": 3
   },
   {
@@ -3337,6 +3464,7 @@ export const others = [
     "roundLabels": [],
     "proceedings": "full",
     "rates": [],
+    "rateSection": "",
     "tier": 3
   },
   {
@@ -3359,6 +3487,7 @@ export const others = [
     ],
     "proceedings": "full",
     "rates": [],
+    "rateSection": "",
     "tier": 3
   },
   {
@@ -3381,6 +3510,7 @@ export const others = [
     ],
     "proceedings": "full",
     "rates": [],
+    "rateSection": "",
     "tier": 3
   },
   {
@@ -3400,6 +3530,7 @@ export const others = [
     "roundLabels": [],
     "proceedings": "full",
     "rates": [],
+    "rateSection": "",
     "tier": 3
   },
   {
@@ -3419,6 +3550,7 @@ export const others = [
     "roundLabels": [],
     "proceedings": "full",
     "rates": [],
+    "rateSection": "",
     "tier": 3
   },
   {
@@ -3438,6 +3570,7 @@ export const others = [
     "roundLabels": [],
     "proceedings": "full",
     "rates": [],
+    "rateSection": "",
     "tier": 3
   },
   {
@@ -3457,6 +3590,7 @@ export const others = [
     "roundLabels": [],
     "proceedings": "full",
     "rates": [],
+    "rateSection": "",
     "tier": 3
   },
   {
@@ -3476,6 +3610,7 @@ export const others = [
     "roundLabels": [],
     "proceedings": "full",
     "rates": [],
+    "rateSection": "",
     "tier": 3
   },
   {
@@ -3495,6 +3630,7 @@ export const others = [
     "roundLabels": [],
     "proceedings": "full",
     "rates": [],
+    "rateSection": "",
     "tier": 3
   },
   {
@@ -3514,6 +3650,7 @@ export const others = [
     "roundLabels": [],
     "proceedings": "full",
     "rates": [],
+    "rateSection": "",
     "tier": 3
   },
   {
@@ -3533,6 +3670,7 @@ export const others = [
     "roundLabels": [],
     "proceedings": "full",
     "rates": [],
+    "rateSection": "",
     "tier": 3
   },
   {
@@ -3552,6 +3690,7 @@ export const others = [
     "roundLabels": [],
     "proceedings": "full",
     "rates": [],
+    "rateSection": "",
     "tier": 3
   },
   {
@@ -3571,6 +3710,7 @@ export const others = [
     "roundLabels": [],
     "proceedings": "full",
     "rates": [],
+    "rateSection": "",
     "tier": 3
   },
   {
@@ -3590,6 +3730,7 @@ export const others = [
     "roundLabels": [],
     "proceedings": "full",
     "rates": [],
+    "rateSection": "",
     "tier": 3
   },
   {
@@ -3609,6 +3750,7 @@ export const others = [
     "roundLabels": [],
     "proceedings": "full",
     "rates": [],
+    "rateSection": "",
     "tier": 3
   },
   {
@@ -3628,6 +3770,7 @@ export const others = [
     "roundLabels": [],
     "proceedings": "full",
     "rates": [],
+    "rateSection": "",
     "tier": 3
   },
   {
@@ -3647,6 +3790,7 @@ export const others = [
     "roundLabels": [],
     "proceedings": "full",
     "rates": [],
+    "rateSection": "",
     "tier": 3
   },
   {
@@ -3666,6 +3810,7 @@ export const others = [
     "roundLabels": [],
     "proceedings": "full",
     "rates": [],
+    "rateSection": "",
     "tier": 3
   },
   {
@@ -3685,6 +3830,7 @@ export const others = [
     "roundLabels": [],
     "proceedings": "full",
     "rates": [],
+    "rateSection": "",
     "tier": 3
   },
   {
@@ -3704,6 +3850,7 @@ export const others = [
     "roundLabels": [],
     "proceedings": "full",
     "rates": [],
+    "rateSection": "",
     "tier": 3
   },
   {
@@ -3723,6 +3870,7 @@ export const others = [
     "roundLabels": [],
     "proceedings": "full",
     "rates": [],
+    "rateSection": "",
     "tier": 3
   },
   {
@@ -3742,6 +3890,7 @@ export const others = [
     "roundLabels": [],
     "proceedings": "full",
     "rates": [],
+    "rateSection": "",
     "tier": 3
   },
   {
@@ -3761,6 +3910,7 @@ export const others = [
     "roundLabels": [],
     "proceedings": "full",
     "rates": [],
+    "rateSection": "",
     "tier": 3
   },
   {
@@ -3780,6 +3930,7 @@ export const others = [
     "roundLabels": [],
     "proceedings": "full",
     "rates": [],
+    "rateSection": "",
     "tier": 3
   },
   {
@@ -3799,6 +3950,7 @@ export const others = [
     "roundLabels": [],
     "proceedings": "full",
     "rates": [],
+    "rateSection": "",
     "tier": 3
   },
   {
@@ -3821,6 +3973,7 @@ export const others = [
     ],
     "proceedings": "full",
     "rates": [],
+    "rateSection": "",
     "tier": 3
   },
   {
@@ -3840,6 +3993,7 @@ export const others = [
     "roundLabels": [],
     "proceedings": "full",
     "rates": [],
+    "rateSection": "",
     "tier": 3
   },
   {
@@ -3859,6 +4013,7 @@ export const others = [
     "roundLabels": [],
     "proceedings": "full",
     "rates": [],
+    "rateSection": "",
     "tier": 3
   },
   {
@@ -3878,6 +4033,7 @@ export const others = [
     "roundLabels": [],
     "proceedings": "full",
     "rates": [],
+    "rateSection": "",
     "tier": 3
   },
   {
@@ -3897,6 +4053,7 @@ export const others = [
     "roundLabels": [],
     "proceedings": "full",
     "rates": [],
+    "rateSection": "",
     "tier": 3
   },
   {
@@ -3916,6 +4073,7 @@ export const others = [
     "roundLabels": [],
     "proceedings": "full",
     "rates": [],
+    "rateSection": "",
     "tier": 3
   },
   {
@@ -3935,6 +4093,7 @@ export const others = [
     "roundLabels": [],
     "proceedings": "full",
     "rates": [],
+    "rateSection": "",
     "tier": 3
   },
   {
@@ -3957,6 +4116,7 @@ export const others = [
     ],
     "proceedings": "full",
     "rates": [],
+    "rateSection": "",
     "tier": 3
   },
   {
@@ -3976,6 +4136,7 @@ export const others = [
     "roundLabels": [],
     "proceedings": "full",
     "rates": [],
+    "rateSection": "",
     "tier": 3
   }
 ];
@@ -3999,6 +4160,7 @@ export const notable = [
     "cycles": 1,
     "roundLabels": [],
     "rates": [],
+    "rateSection": "",
     "notable": true,
     "nextDeadline": "",
     "nextYear": null,
@@ -4021,6 +4183,7 @@ export const notable = [
     "cycles": 1,
     "roundLabels": [],
     "rates": [],
+    "rateSection": "",
     "notable": true,
     "nextDeadline": "",
     "nextYear": null,

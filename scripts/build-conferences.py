@@ -53,7 +53,14 @@ AR_ALIAS={'TheWebConf':'WWW','NAACL-HLT':'NAACL','KDD':'SIGKDD','SIGKDD':'SIGKDD
           'USENIX':'USENIX Security','USENIX Sec':'USENIX Security','SP':'S&P',
           'MM':'ACM MM','ACMMM':'ACM MM'}
 rates=collections.defaultdict(dict)
+# Remember which README section each venue sits under, so the page can link
+# straight to the table the numbers came from instead of the repo root.
+rate_section={}
+_sec=''
 for line in open('ar.md'):
+    if line.startswith('### '):
+        _sec=re.sub(r'[^a-z0-9]+','-',line[4:].strip().lower()).strip('-')
+        continue
     if not line.startswith('|') or '---' in line or line.startswith('| Conference'): continue
     cells=[c.strip() for c in line.strip().strip('|').split('|')]
     m=re.match(r"([A-Za-z0-9&\-\. ]+?)[''](\d{2})(.*)", cells[0])
@@ -63,7 +70,9 @@ for line in open('ar.md'):
     pct=re.search(r'([\d.]+)%', cells[1] if len(cells)>1 else '')
     if not pct: continue
     year = 2000+yy
-    rates[AR_ALIAS.get(name, name)][year]=float(pct.group(1))
+    key=AR_ALIAS.get(name, name)
+    rates[key][year]=float(pct.group(1))
+    rate_section.setdefault(key, _sec)
 
 # ---------- areas ----------
 BIO={'APBC','BIBM','ISMB','ISBRA','RECOMB','MICCAI','EMBC'}
@@ -115,6 +124,7 @@ for sub in ['AI','SC','DB','MX']:
                 'cycles': cycles, 'roundLabels': roundLabels,
                 'proceedings': 'full',
                 'rates': [{'y':y,'r':v} for y,v in hist],
+                'rateSection': rate_section.get(t,''),
             })
 json.dump(out, open('built.json','w'))
 print('conferences:', len(out))
@@ -146,7 +156,7 @@ NOTABLE=[
 for n in NOTABLE:
     n.setdefault('equivalent', None)   # editorial, not an official rank
     n.update({'ccf':'N','core':'N','coreVerified':False,'nextAbstract':'',
-              'date':'','place':'','cycles':1,'roundLabels':[],'rates':[],
+              'date':'','place':'','cycles':1,'roundLabels':[],'rates':[],'rateSection':'',
               'notable':True})
     n.setdefault('nextDeadline',''); n.setdefault('nextYear',None)
     # An emerging venue carries a stated equivalence so it sorts with its peers;
