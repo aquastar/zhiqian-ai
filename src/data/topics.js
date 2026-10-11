@@ -16,151 +16,636 @@ export const topicRates = {
           "n": 410,
           "acc": 190,
           "rate": 46.3,
-          "share": 3.0
+          "share": 3.0,
+          "papers": [
+            {
+              "t": "Nearly $d$-Linear Convergence Bounds for Diffusion Models via Stochastic Localization",
+              "y": 2024,
+              "c": 154,
+              "k": "Spotlight",
+              "u": "https://iclr.cc/virtual/2024/poster/17705"
+            },
+            {
+              "t": "One Step of Gradient Descent is Provably the Optimal In-Context Learner with One Layer of Linear Self-Attention",
+              "y": 2024,
+              "c": 112,
+              "k": "Poster",
+              "u": "https://iclr.cc/virtual/2024/poster/19314"
+            },
+            {
+              "t": "Chain of Thought Empowers Transformers to Solve Inherently Serial Problems",
+              "y": 2024,
+              "c": 109,
+              "k": "Poster",
+              "u": "https://iclr.cc/virtual/2024/poster/19524"
+            }
+          ]
         },
         {
           "area": "foundation or frontier models, including LLMs",
           "n": 1903,
           "acc": 831,
           "rate": 43.7,
-          "share": 13.8
+          "share": 13.8,
+          "papers": [
+            {
+              "t": "WizardMath: Empowering Mathematical Reasoning for Large Language Models via Reinforced Evol-Instruct",
+              "y": 2025,
+              "c": 414,
+              "k": "Oral",
+              "u": "https://iclr.cc/virtual/2025/poster/28471"
+            },
+            {
+              "t": "GSM-Symbolic: Understanding the Limitations of Mathematical Reasoning in Large Language Models",
+              "y": 2025,
+              "c": 209,
+              "k": "Poster",
+              "u": "https://iclr.cc/virtual/2025/poster/30620"
+            },
+            {
+              "t": "Show-o: One Single Transformer to Unify Multimodal Understanding and Generation",
+              "y": 2025,
+              "c": 164,
+              "k": "Poster",
+              "u": "https://iclr.cc/virtual/2025/poster/28376"
+            }
+          ]
         },
         {
           "area": "generative models",
           "n": 1148,
           "acc": 496,
           "rate": 43.2,
-          "share": 8.3
+          "share": 8.3,
+          "papers": [
+            {
+              "t": "SDXL: Improving Latent Diffusion Models for High-Resolution Image Synthesis",
+              "y": 2024,
+              "c": 2203,
+              "k": "Spotlight",
+              "u": "https://iclr.cc/virtual/2024/poster/18250"
+            },
+            {
+              "t": "Let's Verify Step by Step",
+              "y": 2024,
+              "c": 888,
+              "k": "Poster",
+              "u": "https://iclr.cc/virtual/2024/poster/17549"
+            },
+            {
+              "t": "AnimateDiff: Animate Your Personalized Text-to-Image Diffusion Models without Specific Tuning",
+              "y": 2024,
+              "c": 832,
+              "k": "Spotlight",
+              "u": "https://iclr.cc/virtual/2024/poster/19044"
+            }
+          ]
         },
         {
           "area": "applications to computer vision, audio, language, and other modalities",
           "n": 1708,
           "acc": 737,
           "rate": 43.1,
-          "share": 12.4
+          "share": 12.4,
+          "papers": [
+            {
+              "t": "MiniGPT-4: Enhancing Vision-Language Understanding with Advanced Large Language Models",
+              "y": 2024,
+              "c": 2918,
+              "k": "Poster",
+              "u": "https://iclr.cc/virtual/2024/poster/19567"
+            },
+            {
+              "t": "iTransformer: Inverted Transformers Are Effective for Time Series Forecasting",
+              "y": 2024,
+              "c": 912,
+              "k": "Spotlight",
+              "u": "https://iclr.cc/virtual/2024/poster/18933"
+            },
+            {
+              "t": "SAM 2: Segment Anything in Images and Videos",
+              "y": 2025,
+              "c": 846,
+              "k": "Oral",
+              "u": "https://iclr.cc/virtual/2025/poster/30219"
+            }
+          ]
         },
         {
           "area": "applications to robotics, autonomy, planning",
           "n": 421,
           "acc": 178,
           "rate": 42.3,
-          "share": 3.0
+          "share": 3.0,
+          "papers": [
+            {
+              "t": "MetaGPT: Meta Programming for A Multi-Agent Collaborative Framework",
+              "y": 2024,
+              "c": 872,
+              "k": "Oral",
+              "u": "https://iclr.cc/virtual/2024/poster/18491"
+            },
+            {
+              "t": "Building Cooperative Embodied Agents Modularly with Large Language Models",
+              "y": 2024,
+              "c": 238,
+              "k": "Poster",
+              "u": "https://iclr.cc/virtual/2024/poster/19093"
+            },
+            {
+              "t": "A Real-World WebAgent with Planning, Long Context Understanding, and Program Synthesis",
+              "y": 2024,
+              "c": 233,
+              "k": "Oral",
+              "u": "https://iclr.cc/virtual/2024/poster/19300"
+            }
+          ]
         },
         {
           "area": "datasets and benchmarks",
           "n": 1077,
           "acc": 443,
           "rate": 41.1,
-          "share": 7.8
+          "share": 7.8,
+          "papers": [
+            {
+              "t": "MathVista: Evaluating Mathematical Reasoning of Foundation Models in Visual Contexts",
+              "y": 2024,
+              "c": 541,
+              "k": "Oral",
+              "u": "https://iclr.cc/virtual/2024/poster/18900"
+            },
+            {
+              "t": "SWE-bench: Can Language Models Resolve Real-world Github Issues?",
+              "y": 2024,
+              "c": 500,
+              "k": "Oral",
+              "u": "https://iclr.cc/virtual/2024/poster/18505"
+            },
+            {
+              "t": "WebArena: A Realistic Web Environment for Building Autonomous Agents",
+              "y": 2024,
+              "c": 363,
+              "k": "Poster",
+              "u": "https://iclr.cc/virtual/2024/poster/17826"
+            }
+          ]
         },
         {
           "area": "applications to neuroscience & cognitive science",
           "n": 282,
           "acc": 114,
           "rate": 40.4,
-          "share": 2.0
+          "share": 2.0,
+          "papers": [
+            {
+              "t": "Turning large language models into cognitive models",
+              "y": 2024,
+              "c": 104,
+              "k": "Poster",
+              "u": "https://iclr.cc/virtual/2024/poster/18213"
+            },
+            {
+              "t": "Spike-driven Transformer V2: Meta Spiking Neural Network Architecture Inspiring the Design of Next-generation Neuromorphic Chips",
+              "y": 2024,
+              "c": 77,
+              "k": "Poster",
+              "u": "https://iclr.cc/virtual/2024/poster/19587"
+            },
+            {
+              "t": "Large Brain Model for Learning Generic Representations with Tremendous EEG Data in BCI",
+              "y": 2024,
+              "c": 77,
+              "k": "Spotlight",
+              "u": "https://iclr.cc/virtual/2024/poster/18658"
+            }
+          ]
         },
         {
           "area": "reinforcement learning",
           "n": 796,
           "acc": 308,
           "rate": 38.7,
-          "share": 5.8
+          "share": 5.8,
+          "papers": [
+            {
+              "t": "Eureka: Human-Level Reward Design via Coding Large Language Models",
+              "y": 2024,
+              "c": 380,
+              "k": "Poster",
+              "u": "https://iclr.cc/virtual/2024/poster/18971"
+            },
+            {
+              "t": "Safe RLHF: Safe Reinforcement Learning from Human Feedback",
+              "y": 2024,
+              "c": 320,
+              "k": "Spotlight",
+              "u": "https://iclr.cc/virtual/2024/poster/18540"
+            },
+            {
+              "t": "Chain of Hindsight aligns Language Models with Feedback",
+              "y": 2024,
+              "c": 155,
+              "k": "Poster",
+              "u": "https://iclr.cc/virtual/2024/poster/19378"
+            }
+          ]
         },
         {
           "area": "probabilistic methods (Bayesian methods, variational inference, sampling, UQ, etc.)",
           "n": 306,
           "acc": 116,
           "rate": 37.9,
-          "share": 2.2
+          "share": 2.2,
+          "papers": [
+            {
+              "t": "Conformal Risk Control",
+              "y": 2024,
+              "c": 155,
+              "k": "Spotlight",
+              "u": "https://iclr.cc/virtual/2024/poster/19529"
+            },
+            {
+              "t": "Bayesian Low-rank Adaptation for Large Language Models",
+              "y": 2024,
+              "c": 75,
+              "k": "Poster",
+              "u": "https://iclr.cc/virtual/2024/poster/19071"
+            },
+            {
+              "t": "Conformal Language Modeling",
+              "y": 2024,
+              "c": 75,
+              "k": "Poster",
+              "u": "https://iclr.cc/virtual/2024/poster/17755"
+            }
+          ]
         },
         {
           "area": "applications to physical sciences (physics, chemistry, biology, etc.)",
           "n": 596,
           "acc": 221,
           "rate": 37.1,
-          "share": 4.3
+          "share": 4.3,
+          "papers": [
+            {
+              "t": "KAN: Kolmogorov\u2013Arnold Networks",
+              "y": 2025,
+              "c": 1156,
+              "k": "Oral",
+              "u": "https://iclr.cc/virtual/2025/poster/29784"
+            },
+            {
+              "t": "DNABERT-2: Efficient Foundation Model and Benchmark For Multi-Species Genomes",
+              "y": 2024,
+              "c": 262,
+              "k": "Poster",
+              "u": "https://iclr.cc/virtual/2024/poster/17823"
+            },
+            {
+              "t": "EquiformerV2: Improved Equivariant Transformer for Scaling to Higher-Degree Representations",
+              "y": 2024,
+              "c": 164,
+              "k": "Poster",
+              "u": "https://iclr.cc/virtual/2024/poster/17903"
+            }
+          ]
         },
         {
           "area": "alignment, fairness, safety, privacy, and societal considerations",
           "n": 1161,
           "acc": 423,
           "rate": 36.4,
-          "share": 8.4
+          "share": 8.4,
+          "papers": [
+            {
+              "t": "Fine-tuning Aligned Language Models Compromises Safety, Even When Users Do Not Intend To!",
+              "y": 2024,
+              "c": 564,
+              "k": "Oral",
+              "u": "https://iclr.cc/virtual/2024/poster/18094"
+            },
+            {
+              "t": "Catastrophic Jailbreak of Open-source LLMs via Exploiting Generation",
+              "y": 2024,
+              "c": 292,
+              "k": "Spotlight",
+              "u": "https://iclr.cc/virtual/2024/poster/17706"
+            },
+            {
+              "t": "Detecting Pretraining Data from Large Language Models",
+              "y": 2024,
+              "c": 287,
+              "k": "Poster",
+              "u": "https://iclr.cc/virtual/2024/poster/17381"
+            }
+          ]
         },
         {
           "area": "interpretability and explainable AI",
           "n": 558,
           "acc": 199,
           "rate": 35.7,
-          "share": 4.0
+          "share": 4.0,
+          "papers": [
+            {
+              "t": "Language Models Represent Space and Time",
+              "y": 2024,
+              "c": 247,
+              "k": "Poster",
+              "u": "https://iclr.cc/virtual/2024/poster/18036"
+            },
+            {
+              "t": "Function Vectors in Large Language Models",
+              "y": 2024,
+              "c": 147,
+              "k": "Poster",
+              "u": "https://iclr.cc/virtual/2024/poster/19235"
+            },
+            {
+              "t": "Scaling and evaluating sparse autoencoders",
+              "y": 2025,
+              "c": 138,
+              "k": "Oral",
+              "u": "https://iclr.cc/virtual/2025/poster/28040"
+            }
+          ]
         },
         {
           "area": "optimization",
           "n": 557,
           "acc": 191,
           "rate": 34.3,
-          "share": 4.0
+          "share": 4.0,
+          "papers": [
+            {
+              "t": "LoftQ: LoRA-Fine-Tuning-aware Quantization for Large Language Models",
+              "y": 2024,
+              "c": 178,
+              "k": "Oral",
+              "u": "https://iclr.cc/virtual/2024/poster/18843"
+            },
+            {
+              "t": "Sophia: A Scalable Stochastic Second-order Optimizer for Language Model Pre-training",
+              "y": 2024,
+              "c": 151,
+              "k": "Poster",
+              "u": "https://iclr.cc/virtual/2024/poster/19488"
+            },
+            {
+              "t": "Small-scale proxies for large-scale Transformer training instabilities",
+              "y": 2024,
+              "c": 79,
+              "k": "Oral",
+              "u": "https://iclr.cc/virtual/2024/poster/18273"
+            }
+          ]
         },
         {
           "area": "causal reasoning",
           "n": 142,
           "acc": 47,
           "rate": 33.1,
-          "share": 1.0
+          "share": 1.0,
+          "papers": [
+            {
+              "t": "Can Large Language Models Infer Causation from Correlation?",
+              "y": 2024,
+              "c": 125,
+              "k": "Poster",
+              "u": "https://iclr.cc/virtual/2024/poster/17518"
+            },
+            {
+              "t": "Robust agents learn causal world models",
+              "y": 2024,
+              "c": 50,
+              "k": "Oral",
+              "u": "https://iclr.cc/virtual/2024/poster/17779"
+            },
+            {
+              "t": "Empirical Analysis of Model Selection for Heterogeneous Causal Effect Estimation",
+              "y": 2024,
+              "c": 27,
+              "k": "Spotlight",
+              "u": "https://iclr.cc/virtual/2024/poster/17398"
+            }
+          ]
         },
         {
           "area": "unsupervised, self-supervised, semi-supervised, and supervised representation learning",
           "n": 814,
           "acc": 265,
           "rate": 32.6,
-          "share": 5.9
+          "share": 5.9,
+          "papers": [
+            {
+              "t": "Vision Transformers Need Registers",
+              "y": 2024,
+              "c": 360,
+              "k": "Oral",
+              "u": "https://iclr.cc/virtual/2024/poster/19541"
+            },
+            {
+              "t": "Sparse Autoencoders Find Highly Interpretable Features in Language Models",
+              "y": 2024,
+              "c": 257,
+              "k": "Poster",
+              "u": "https://iclr.cc/virtual/2024/poster/19081"
+            },
+            {
+              "t": "RingAttention with Blockwise Transformers for Near-Infinite Context",
+              "y": 2024,
+              "c": 202,
+              "k": "Poster",
+              "u": "https://iclr.cc/virtual/2024/poster/18463"
+            }
+          ]
         },
         {
           "area": "infrastructure, software libraries, hardware, systems, etc.",
           "n": 133,
           "acc": 43,
           "rate": 32.3,
-          "share": 1.0
+          "share": 1.0,
+          "papers": [
+            {
+              "t": "OpenHands: An Open Platform for AI Software Developers as Generalist Agents",
+              "y": 2025,
+              "c": 32,
+              "k": "Poster",
+              "u": "https://iclr.cc/virtual/2025/poster/29831"
+            },
+            {
+              "t": "AgentStudio: A Toolkit for Building General Virtual Agents",
+              "y": 2025,
+              "c": 31,
+              "k": "Poster",
+              "u": "https://iclr.cc/virtual/2025/poster/29133"
+            },
+            {
+              "t": "Fiddler: CPU-GPU Orchestration for Fast Inference of Mixture-of-Experts Models",
+              "y": 2025,
+              "c": 19,
+              "k": "Poster",
+              "u": "https://iclr.cc/virtual/2025/poster/29900"
+            }
+          ]
         },
         {
           "area": "other topics in machine learning (i.e., none of the above)",
           "n": 557,
           "acc": 177,
           "rate": 31.8,
-          "share": 4.0
+          "share": 4.0,
+          "papers": [
+            {
+              "t": "Large Language Models as Optimizers",
+              "y": 2024,
+              "c": 811,
+              "k": "Poster",
+              "u": "https://iclr.cc/virtual/2024/poster/19209"
+            },
+            {
+              "t": "Teaching Large Language Models to Self-Debug",
+              "y": 2024,
+              "c": 636,
+              "k": "Poster",
+              "u": "https://iclr.cc/virtual/2024/poster/18880"
+            },
+            {
+              "t": "A Simple and Effective Pruning Approach for Large Language Models",
+              "y": 2024,
+              "c": 582,
+              "k": "Poster",
+              "u": "https://iclr.cc/virtual/2024/poster/18687"
+            }
+          ]
         },
         {
           "area": "transfer learning, meta learning, and lifelong learning",
           "n": 378,
           "acc": 118,
           "rate": 31.2,
-          "share": 2.7
+          "share": 2.7,
+          "papers": [
+            {
+              "t": "Personalize Segment Anything Model with One Shot",
+              "y": 2024,
+              "c": 233,
+              "k": "Poster",
+              "u": "https://iclr.cc/virtual/2024/poster/19398"
+            },
+            {
+              "t": "VeRA: Vector-based Random Matrix Adaptation",
+              "y": 2024,
+              "c": 184,
+              "k": "Poster",
+              "u": "https://iclr.cc/virtual/2024/poster/18775"
+            },
+            {
+              "t": "AdaMerging: Adaptive Model Merging for Multi-Task Learning",
+              "y": 2024,
+              "c": 121,
+              "k": "Poster",
+              "u": "https://iclr.cc/virtual/2024/poster/17853"
+            }
+          ]
         },
         {
           "area": "learning on graphs and other geometries & topologies",
           "n": 369,
           "acc": 113,
           "rate": 30.6,
-          "share": 2.7
+          "share": 2.7,
+          "papers": [
+            {
+              "t": "Harnessing Explanations: LLM-to-LM Interpreter for Enhanced Text-Attributed Graph Representation Learning",
+              "y": 2024,
+              "c": 129,
+              "k": "Poster",
+              "u": "https://iclr.cc/virtual/2024/poster/18640"
+            },
+            {
+              "t": "Label-free Node Classification on Graphs with Large Language Models (LLMs)",
+              "y": 2024,
+              "c": 77,
+              "k": "Poster",
+              "u": "https://iclr.cc/virtual/2024/poster/18104"
+            },
+            {
+              "t": "Neural Common Neighbor with Completion for Link Prediction",
+              "y": 2024,
+              "c": 65,
+              "k": "Poster",
+              "u": "https://iclr.cc/virtual/2024/poster/17650"
+            }
+          ]
         },
         {
           "area": "learning on time series and dynamical systems",
           "n": 336,
           "acc": 101,
           "rate": 30.1,
-          "share": 2.4
+          "share": 2.4,
+          "papers": [
+            {
+              "t": "FreDF: Learning to Forecast in the Frequency Domain",
+              "y": 2025,
+              "c": 16,
+              "k": "Poster",
+              "u": "https://iclr.cc/virtual/2025/poster/31031"
+            },
+            {
+              "t": "CATCH: Channel-Aware Multivariate Time Series Anomaly Detection via Frequency Patching",
+              "y": 2025,
+              "c": 11,
+              "k": "Poster",
+              "u": "https://iclr.cc/virtual/2025/poster/28489"
+            },
+            {
+              "t": "TimeMixer++: A General Time Series Pattern Machine for Universal Predictive Analysis",
+              "y": 2025,
+              "c": 9,
+              "k": "Oral",
+              "u": "https://iclr.cc/virtual/2025/poster/31219"
+            }
+          ]
         },
         {
           "area": "neurosymbolic & hybrid AI systems (physics-informed, logic & formal reasoning, etc.)",
           "n": 159,
           "acc": 47,
           "rate": 29.6,
-          "share": 1.2
+          "share": 1.2,
+          "papers": [
+            {
+              "t": "CRITIC: Large Language Models Can Self-Correct with Tool-Interactive Critiquing",
+              "y": 2024,
+              "c": 347,
+              "k": "Poster",
+              "u": "https://iclr.cc/virtual/2024/poster/18586"
+            },
+            {
+              "t": "Think-on-Graph: Deep and Responsible Reasoning of Large Language Model on Knowledge Graph",
+              "y": 2024,
+              "c": 275,
+              "k": "Poster",
+              "u": "https://iclr.cc/virtual/2024/poster/17844"
+            },
+            {
+              "t": "ToRA: A Tool-Integrated Reasoning Agent for Mathematical Problem Solving",
+              "y": 2024,
+              "c": 193,
+              "k": "Poster",
+              "u": "https://iclr.cc/virtual/2024/poster/19091"
+            }
+          ]
         }
       ],
       "decided": 13811,
       "submitted": 19814,
+      "accepted": 5358,
+      "withdrawn": 6003,
       "headline": 27.0
     },
     {
@@ -317,6 +802,8 @@ export const topicRates = {
       ],
       "decided": 8614,
       "submitted": 11677,
+      "accepted": 3703,
+      "withdrawn": 3063,
       "headline": 31.7
     },
     {
@@ -452,6 +939,8 @@ export const topicRates = {
       ],
       "decided": 5632,
       "submitted": 7407,
+      "accepted": 2260,
+      "withdrawn": 1709,
       "headline": 30.5
     }
   ]
