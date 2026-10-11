@@ -52,14 +52,10 @@ const dayName = (mo, d) => ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'][new
 
     <section class="section" id="deadlines">
       <ul class="legend">
-        <li class="legend-action">
-          <a class="ics-link" href="/research-calendar.ics" download>
-            <i class="fas fa-download" aria-hidden="true"></i>
-            Download .ics
-          </a>
-          <a class="ics-link confs-link" href="/conferences">
+        <li class="legend-lead">
+          <a class="confs-link" href="/conferences">
             <i class="fas fa-ranking-star" aria-hidden="true"></i>
-            CCF &times; CORE
+            CCF &times; CORE conference table
           </a>
         </li>
         {bands.map((b) => (
@@ -67,6 +63,12 @@ const dayName = (mo, d) => ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'][new
         ))}
         <li><span class="dot dot-est" aria-hidden="true"></span>Estimated date</li>
         <li><i class="fas fa-star star-mark" aria-hidden="true"></i>Targeting</li>
+        <li class="legend-action">
+          <a class="ics-link" href="/research-calendar.ics" download>
+            <i class="fas fa-download" aria-hidden="true"></i>
+            Download .ics
+          </a>
+        </li>
       </ul>
 
       <div class="cals">
@@ -271,7 +273,14 @@ const dayName = (mo, d) => ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'][new
 
   .legend { list-style:none; margin:0 0 12px; padding:0; display:flex; flex-wrap:wrap; gap:14px; font-size:.8rem; color:#475569; }
   .legend li { display:inline-flex; align-items:center; gap:6px; }
-  .legend-action { margin-right:auto; display:inline-flex; gap:8px; }
+  /* The .ics button sits hard right; the conference table leads on the left. */
+  .legend-action { margin-left:auto; display:inline-flex; gap:8px; }
+  .legend-lead { margin-right:4px; }
+  .confs-link { display:inline-flex; align-items:center; gap:7px; padding:5px 13px; border-radius:999px;
+    background:linear-gradient(135deg, #2563eb, #4f46e5); color:#fff; font-weight:650; font-size:.78rem;
+    letter-spacing:.01em; text-decoration:none; border:1px solid rgba(37,99,235,.55);
+    box-shadow:0 1px 2px rgba(37,99,235,.25); transition:filter .15s ease, box-shadow .15s ease; }
+  .confs-link:hover { filter:brightness(1.07); box-shadow:0 2px 8px rgba(37,99,235,.32); }
   .ics-link { display:inline-flex; align-items:center; gap:6px; padding:4px 11px; border:1px solid rgba(148,163,184,.35); border-radius:999px; background:#fff; color:var(--accent); font-weight:600; font-size:.78rem; text-decoration:none; transition:background .15s ease, border-color .15s ease; }
   .ics-link:hover { background:#eff6ff; border-color:rgba(37,99,235,.45); }
   .dot { width:9px; height:9px; border-radius:50%; display:inline-block; flex:none; background:#94a3b8; }

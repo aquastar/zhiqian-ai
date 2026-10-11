@@ -46,7 +46,12 @@ def official(title, desc):
     return None
 
 # ---------- acceptance rates ----------
-AR_ALIAS={'TheWebConf':'WWW','NAACL-HLT':'NAACL'}
+# The rate table and the CCF catalogue spell several venues differently;
+# without these, KDD and friends silently lose their whole history.
+AR_ALIAS={'TheWebConf':'WWW','NAACL-HLT':'NAACL','KDD':'SIGKDD','SIGKDD':'SIGKDD',
+          'CCS':'CCS','S&P':'S&P','Oakland':'S&P','IEEE S&P':'S&P',
+          'USENIX':'USENIX Security','USENIX Sec':'USENIX Security','SP':'S&P',
+          'MM':'ACM MM','ACMMM':'ACM MM'}
 rates=collections.defaultdict(dict)
 for line in open('ar.md'):
     if not line.startswith('|') or '---' in line or line.startswith('| Conference'): continue
@@ -62,7 +67,7 @@ for line in open('ar.md'):
 
 # ---------- areas ----------
 BIO={'APBC','BIBM','ISMB','ISBRA','RECOMB','MICCAI','EMBC'}
-AREA_BY_SUB={'AI':'AI / ML','SC':'Security & Privacy','DB':'Data & Mining'}
+AREA_BY_SUB={'AI':'AI / ML / Data Mining','SC':'Security & Privacy','DB':'AI / ML / Data Mining'}
 def area(sub, title):
     if sub in AREA_BY_SUB: return AREA_BY_SUB[sub]
     if title in BIO: return 'Biomedical & Health'
@@ -122,35 +127,50 @@ print('multi-cycle venues:', [(c['title'],c['cycles']) for c in out if c['cycles
 # CCF and CORE only index conferences with archival proceedings, so society
 # meetings and brand-new venues fall through. Edit this list by hand.
 NOTABLE=[
- {'title':'INFORMS Annual Meeting','desc':'INFORMS Annual Meeting','area':'Science & Interdisciplinary',
+ {'title':'INFORMS Annual Meeting','desc':'Institute for Operations Research and the Management Sciences','area':'Science & Interdisciplinary',
   'proceedings':'none','note':'Abstract-driven society meeting; no archival proceedings. The main annual gathering for operations research and analytics.',
   'link':'https://meetings.informs.org/'},
  {'title':'SIAM MDS','desc':'SIAM Conference on Mathematics of Data Science','area':'Science & Interdisciplinary',
   'proceedings':'none','note':'Minisymposium and talk format, no archival proceedings. Where the mathematical side of data science meets.',
   'link':'https://www.siam.org/conferences-events/siam-conferences/mds26/'},
- {'title':'COLM','desc':'Conference on Language Modeling','area':'AI / ML',
+ {'title':'COLM', 'equivalent':'CCF B / CORE A','desc':'Conference on Language Modeling','area':'AI / ML / Data Mining',
   'proceedings':'full','note':'Full proceedings; founded 2024, too new for either ranking table.',
   'link':'https://colmweb.org/'},
- {'title':'MLSys','desc':'Conference on Machine Learning and Systems','area':'AI / ML',
+ {'title':'MLSys', 'equivalent':'CCF B / CORE A','desc':'Conference on Machine Learning and Systems','area':'AI / ML / Data Mining',
   'proceedings':'full','note':'Full proceedings; unranked by both CCF and CORE despite being the main ML-systems venue.',
   'link':'https://mlsys.org/'},
- {'title':'AMIA','desc':'AMIA Annual Symposium','area':'Biomedical & Health',
+ {'title':'AMIA', 'equivalent':'CCF B / CORE A','desc':'AMIA Annual Symposium','area':'Biomedical & Health',
   'proceedings':'full','note':'Full proceedings, indexed in PubMed; the central US biomedical-informatics meeting.',
   'link':'https://amia.org/education-events/amia-annual-symposium'},
 ]
 for n in NOTABLE:
-    n.update({'ccf':'N','core':'N','coreVerified':False,'nextDeadline':'','nextYear':None,
-              'nextAbstract':'','date':'','place':'','cycles':1,'roundLabels':[],'rates':[],
+    n.setdefault('equivalent', None)   # editorial, not an official rank
+    n.update({'ccf':'N','core':'N','coreVerified':False,'nextAbstract':'',
+              'date':'','place':'','cycles':1,'roundLabels':[],'rates':[],
               'notable':True})
+    n.setdefault('nextDeadline',''); n.setdefault('nextYear',None)
+    # An emerging venue carries a stated equivalence so it sorts with its peers;
+    # a society meeting has no proceedings, so no tier is claimed for it.
+    n['tier'] = 2 if n['equivalent'] else 3
+
+def tier_of(ccf, core):
+    """1 = top by either table, 2 = strong by either, 3 = the rest."""
+    if ccf=='A' or core=='A*': return 1
+    if ccf=='B' or core=='A':  return 2
+    return 3
+for c in out: c['tier']=tier_of(c['ccf'], c['core'])
 
 CORE_ORDER={'A*':0,'A':1,'B':2,'C':3,'TBR':4,'JP':5,'N':6}
 CCF_ORDER={'A':0,'B':1,'C':2,'N':3}
 def listed(c): return c['core'] in ('A*','A') or c['ccf'] in ('A','B')
 # inside an area, soonest deadline first; anything without one trails behind
 def dkey(c): return (0, c['nextDeadline']) if c['nextDeadline'] else (1, c['title'].lower())
-ranked=sorted([c for c in out if listed(c)], key=lambda c:(c['area'], *dkey(c)))
+emerging=[n for n in NOTABLE if n['equivalent']]
+society=[n for n in NOTABLE if not n['equivalent']]
+# One list, ordered by date alone — the reader filters by field in the page.
+ranked=sorted([c for c in out if listed(c)] + emerging, key=dkey)
 others=sorted([c for c in out if not listed(c)], key=lambda c:(CORE_ORDER[c['core']], CCF_ORDER[c['ccf']], c['title'].lower()))
-notable=sorted(NOTABLE, key=lambda c:(c['area'], c['title']))
+notable=sorted(society, key=lambda c:(c['area'], c['title']))
 
 hdr=("// Generated by scripts/build-conferences.py — do not edit by hand.\n"
      "// CCF ranks mirror the CCF catalogue via github.com/ccfddl/ccf-deadlines.\n"
@@ -162,4 +182,7 @@ body=(hdr + "export const ranked = %s;\n\nexport const others = %s;\n\n"
       "// Hand-maintained; the ranking tables do not reach these.\nexport const notable = %s;\n"
       % tuple(json.dumps(x, indent=2, ensure_ascii=False) for x in (ranked, others, notable)))
 open('../src/data/conferences.js','w').write(body)
-print('\nwritten | ranked', len(ranked), '| folded', len(others), '| notable', len(notable))
+import collections as _c
+print('\nwritten | listed', len(ranked), '| folded', len(others), '| society', len(notable))
+print('tiers:', dict(sorted(_c.Counter(c['tier'] for c in ranked).items())))
+print('areas:', dict(_c.Counter(c['area'] for c in ranked)))

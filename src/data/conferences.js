@@ -8,7 +8,7 @@ export const ranked = [
   {
     "title": "EACL",
     "desc": "The Annual Conference of the European Chapter of the Association for Computational Linguistics",
-    "area": "AI / ML",
+    "area": "AI / ML / Data Mining",
     "ccf": "N",
     "core": "A",
     "coreVerified": true,
@@ -24,12 +24,13 @@ export const ranked = [
       "EACL commitment after ARR meta-reviews; reviewed papers only"
     ],
     "proceedings": "full",
-    "rates": []
+    "rates": [],
+    "tier": 2
   },
   {
     "title": "COLING",
     "desc": "International Conference on Computational Linguistics",
-    "area": "AI / ML",
+    "area": "AI / ML / Data Mining",
     "ccf": "B",
     "core": "B",
     "coreVerified": true,
@@ -70,12 +71,13 @@ export const ranked = [
         "y": 2022,
         "r": 33.4
       }
-    ]
+    ],
+    "tier": 2
   },
   {
     "title": "NAACL",
     "desc": "The Annual Conference of the North American Chapter of the Association for Computational Linguistics",
-    "area": "AI / ML",
+    "area": "AI / ML / Data Mining",
     "ccf": "B",
     "core": "A",
     "coreVerified": true,
@@ -116,12 +118,204 @@ export const ranked = [
         "y": 2021,
         "r": 29.2
       }
-    ]
+    ],
+    "tier": 2
+  },
+  {
+    "title": "CHES",
+    "desc": "International Conference on Cryptographic Hardware and Embedded Systems",
+    "area": "Security & Privacy",
+    "ccf": "B",
+    "core": "A",
+    "coreVerified": true,
+    "nextDeadline": "2026-10-15",
+    "nextYear": 2027,
+    "nextAbstract": "",
+    "link": "https://ches.iacr.org/2027/",
+    "date": "September 6 - 9, 2027",
+    "place": "Cancún, Mexico",
+    "cycles": 4,
+    "roundLabels": [
+      "Schedule for TCHES Volume 2027/1",
+      "Schedule for TCHES Volume 2027/2",
+      "Schedule for TCHES Volume 2027/3",
+      "Schedule for TCHES Volume 2027/4"
+    ],
+    "proceedings": "full",
+    "rates": [],
+    "tier": 2
+  },
+  {
+    "title": "CSFW",
+    "desc": "IEEE Computer Security Foundations Symposium",
+    "area": "Security & Privacy",
+    "ccf": "B",
+    "core": "A",
+    "coreVerified": false,
+    "nextDeadline": "2026-10-15",
+    "nextYear": 2027,
+    "nextAbstract": "",
+    "link": "https://www.ieee-security.org/TC/CSF2027/",
+    "date": "September 13-17, 2027",
+    "place": "Tokyo, Japan",
+    "cycles": 3,
+    "roundLabels": [
+      "Summer",
+      "Fall",
+      "Winter"
+    ],
+    "proceedings": "full",
+    "rates": [],
+    "tier": 2
+  },
+  {
+    "title": "SIGMOD",
+    "desc": "ACM Conference on Management of Data",
+    "area": "AI / ML / Data Mining",
+    "ccf": "A",
+    "core": "A*",
+    "coreVerified": true,
+    "nextDeadline": "2026-10-17",
+    "nextYear": 2027,
+    "nextAbstract": "2026-10-10",
+    "link": "https://2027.sigmod.org/",
+    "date": "June 13-19, 2027",
+    "place": "Huntington Beach, CA, USA",
+    "cycles": 4,
+    "roundLabels": [
+      "round 1",
+      "round 2",
+      "round 3",
+      "round 4"
+    ],
+    "proceedings": "full",
+    "rates": [],
+    "tier": 1
+  },
+  {
+    "title": "WWW",
+    "desc": "International World Wide Web Conferences",
+    "area": "Science & Interdisciplinary",
+    "ccf": "A",
+    "core": "A*",
+    "coreVerified": true,
+    "nextDeadline": "2026-10-25",
+    "nextYear": 2027,
+    "nextAbstract": "2026-10-18",
+    "link": "https://www2027.thewebconf.org/",
+    "date": "May 10 - 14, 2027",
+    "place": "Dublin, Ireland",
+    "cycles": 1,
+    "roundLabels": [],
+    "proceedings": "full",
+    "rates": [
+      {
+        "y": 2014,
+        "r": 13.0
+      },
+      {
+        "y": 2015,
+        "r": 14.0
+      },
+      {
+        "y": 2016,
+        "r": 16.0
+      },
+      {
+        "y": 2017,
+        "r": 17.0
+      },
+      {
+        "y": 2018,
+        "r": 15.0
+      },
+      {
+        "y": 2019,
+        "r": 18.0
+      },
+      {
+        "y": 2020,
+        "r": 19.2
+      },
+      {
+        "y": 2021,
+        "r": 20.6
+      },
+      {
+        "y": 2022,
+        "r": 17.7
+      },
+      {
+        "y": 2023,
+        "r": 19.2
+      }
+    ],
+    "tier": 1
+  },
+  {
+    "title": "VLDB",
+    "desc": "International Conference on Very Large Data Bases",
+    "area": "AI / ML / Data Mining",
+    "ccf": "A",
+    "core": "A*",
+    "coreVerified": true,
+    "nextDeadline": "2026-11-01",
+    "nextYear": 2027,
+    "nextAbstract": "2026-10-25",
+    "link": "https://www.vldb.org/2027/",
+    "date": "August 23 - August 27, 2027",
+    "place": "Athens, Greece",
+    "cycles": 12,
+    "roundLabels": [],
+    "proceedings": "full",
+    "rates": [],
+    "tier": 1
+  },
+  {
+    "title": "RECOMB",
+    "desc": "International Conference on Research inComputational Molecular Biology",
+    "area": "Biomedical & Health",
+    "ccf": "B",
+    "core": "B",
+    "coreVerified": true,
+    "nextDeadline": "2026-11-04",
+    "nextYear": 2027,
+    "nextAbstract": "2026-10-28",
+    "link": "https://recomb.org/recomb2027/",
+    "date": "May 17-20, 2027",
+    "place": "Toronto, Canada",
+    "cycles": 1,
+    "roundLabels": [],
+    "proceedings": "full",
+    "rates": [],
+    "tier": 2
+  },
+  {
+    "title": "ICDE",
+    "desc": "IEEE International Conference on Data Engineering",
+    "area": "AI / ML / Data Mining",
+    "ccf": "A",
+    "core": "A*",
+    "coreVerified": true,
+    "nextDeadline": "2026-11-11",
+    "nextYear": 2027,
+    "nextAbstract": "",
+    "link": "https://icde2027.github.io/",
+    "date": "May 17-21, 2027",
+    "place": "Copenhagen, Denmark",
+    "cycles": 2,
+    "roundLabels": [
+      "first round",
+      "second round"
+    ],
+    "proceedings": "full",
+    "rates": [],
+    "tier": 1
   },
   {
     "title": "CVPR",
     "desc": "IEEE/CVF Conference on Computer Vision and Pattern Recognition",
-    "area": "AI / ML",
+    "area": "AI / ML / Data Mining",
     "ccf": "A",
     "core": "A*",
     "coreVerified": true,
@@ -183,12 +377,182 @@ export const ranked = [
         "y": 2025,
         "r": 22.1
       }
-    ]
+    ],
+    "tier": 1
+  },
+  {
+    "title": "S&P",
+    "desc": "IEEE Symposium on Security and Privacy",
+    "area": "Security & Privacy",
+    "ccf": "A",
+    "core": "A*",
+    "coreVerified": true,
+    "nextDeadline": "2026-11-17",
+    "nextYear": 2027,
+    "nextAbstract": "2026-11-10",
+    "link": "https://sp2027.ieee-security.org/index.html",
+    "date": "May 17-19, 2027",
+    "place": "MONTREAL, CANADA",
+    "cycles": 2,
+    "roundLabels": [
+      "First Paper submission deadline",
+      "Second Paper submission deadline"
+    ],
+    "proceedings": "full",
+    "rates": [],
+    "tier": 1
+  },
+  {
+    "title": "DASFAA",
+    "desc": "Database Systems for Advanced Applications",
+    "area": "AI / ML / Data Mining",
+    "ccf": "B",
+    "core": "B",
+    "coreVerified": true,
+    "nextDeadline": "2026-11-25",
+    "nextYear": 2027,
+    "nextAbstract": "",
+    "link": "https://dasfaa2027.github.io/",
+    "date": "May 27-30, 2027",
+    "place": "Shenyang, China",
+    "cycles": 1,
+    "roundLabels": [],
+    "proceedings": "full",
+    "rates": [],
+    "tier": 2
+  },
+  {
+    "title": "PETS",
+    "desc": "Privacy Enhancing Technologies Symposium",
+    "area": "Security & Privacy",
+    "ccf": "C",
+    "core": "A",
+    "coreVerified": true,
+    "nextDeadline": "2026-11-30",
+    "nextYear": 2027,
+    "nextAbstract": "",
+    "link": "https://petsymposium.org/cfp27.php",
+    "date": "July 19-24, 2027",
+    "place": "Delft, The Netherlands",
+    "cycles": 4,
+    "roundLabels": [
+      "Issue 1 Paper Submission Deadline",
+      "Issue 2 Paper Submission Deadline",
+      "Issue 3 Paper Submission Deadline",
+      "Issue 4 Paper Submission Deadline"
+    ],
+    "proceedings": "full",
+    "rates": [],
+    "tier": 2
+  },
+  {
+    "title": "FSE",
+    "desc": "Fast Software Encryption",
+    "area": "Security & Privacy",
+    "ccf": "B",
+    "core": "JP",
+    "coreVerified": true,
+    "nextDeadline": "2026-12-01",
+    "nextYear": 2027,
+    "nextAbstract": "",
+    "link": "https://fse.iacr.org/2027/",
+    "date": "May 24-28, 2027",
+    "place": "Maastricht, Netherlands",
+    "cycles": 2,
+    "roundLabels": [
+      "ToSC, Volume 2026, Issue 4 Submission deadline",
+      "ToSC, Volume 2027, Issue 1 Submission deadline"
+    ],
+    "proceedings": "full",
+    "rates": [],
+    "tier": 2
+  },
+  {
+    "title": "DSN",
+    "desc": "International Conference on Dependable Systems and Networks",
+    "area": "Security & Privacy",
+    "ccf": "B",
+    "core": "A",
+    "coreVerified": true,
+    "nextDeadline": "2026-12-02",
+    "nextYear": 2027,
+    "nextAbstract": "2026-11-25",
+    "link": "https://dsn2027-berlin.github.io/",
+    "date": "June 22-25, 2027",
+    "place": "Berlin, Germany",
+    "cycles": 1,
+    "roundLabels": [],
+    "proceedings": "full",
+    "rates": [],
+    "tier": 2
+  },
+  {
+    "title": "EuroS&P",
+    "desc": "IEEE European Symposium on Security and Privacy",
+    "area": "Security & Privacy",
+    "ccf": "C",
+    "core": "A",
+    "coreVerified": true,
+    "nextDeadline": "2026-12-02",
+    "nextYear": 2027,
+    "nextAbstract": "2026-11-25",
+    "link": "https://eurosp2027.ieee-security.org/",
+    "date": "July 5 - 9, 2027",
+    "place": "Madrid, Spain",
+    "cycles": 1,
+    "roundLabels": [],
+    "proceedings": "full",
+    "rates": [],
+    "tier": 2
+  },
+  {
+    "title": "PODS",
+    "desc": "ACM Symposium on Principles of Database Systems",
+    "area": "AI / ML / Data Mining",
+    "ccf": "B",
+    "core": "A*",
+    "coreVerified": true,
+    "nextDeadline": "2026-12-10",
+    "nextYear": 2027,
+    "nextAbstract": "2026-12-03",
+    "link": "https://2027.sigmod.org/",
+    "date": "June 13-19, 2027",
+    "place": "Huntington Beach, California, USA",
+    "cycles": 2,
+    "roundLabels": [
+      "First Submission Cycle",
+      "Second Submission Cycle"
+    ],
+    "proceedings": "full",
+    "rates": [],
+    "tier": 1
+  },
+  {
+    "title": "AsiaCCS",
+    "desc": "Asia Conference on Computer and Communications Security",
+    "area": "Security & Privacy",
+    "ccf": "C",
+    "core": "A",
+    "coreVerified": true,
+    "nextDeadline": "2026-12-11",
+    "nextYear": 2027,
+    "nextAbstract": "",
+    "link": "https://asiaccs2027.cityu.edu.mo/index.html",
+    "date": "July 12-16, 2027",
+    "place": "Macau, China",
+    "cycles": 2,
+    "roundLabels": [
+      "1st round Deadline",
+      "2nd round Deadline"
+    ],
+    "proceedings": "full",
+    "rates": [],
+    "tier": 2
   },
   {
     "title": "ICAPS",
     "desc": "International Conference on Automated Planning and Scheduling",
-    "area": "AI / ML",
+    "area": "AI / ML / Data Mining",
     "ccf": "B",
     "core": "A*",
     "coreVerified": true,
@@ -201,12 +565,13 @@ export const ranked = [
     "cycles": 1,
     "roundLabels": [],
     "proceedings": "full",
-    "rates": []
+    "rates": [],
+    "tier": 1
   },
   {
     "title": "ACL",
     "desc": "Annual Meeting of the Association for Computational Linguistics",
-    "area": "AI / ML",
+    "area": "AI / ML / Data Mining",
     "ccf": "A",
     "core": "A*",
     "coreVerified": true,
@@ -256,12 +621,13 @@ export const ranked = [
         "y": 2023,
         "r": 23.5
       }
-    ]
+    ],
+    "tier": 1
   },
   {
     "title": "IJCAI",
     "desc": "International Joint Conference on Artificial Intelligence",
-    "area": "AI / ML",
+    "area": "AI / ML / Data Mining",
     "ccf": "B",
     "core": "A*",
     "coreVerified": true,
@@ -315,12 +681,110 @@ export const ranked = [
         "y": 2023,
         "r": 14.1
       }
-    ]
+    ],
+    "tier": 1
+  },
+  {
+    "title": "ISMB",
+    "desc": "International Conference on Intelligent Systems for Molecular Biology",
+    "area": "Biomedical & Health",
+    "ccf": "B",
+    "core": "JP",
+    "coreVerified": true,
+    "nextDeadline": "2027-01-14",
+    "nextYear": 2027,
+    "nextAbstract": "",
+    "link": "https://www.iscb.org/ismbeccb2027/",
+    "date": "July 18-22, 2027",
+    "place": "Copenhagen, Denmark",
+    "cycles": 1,
+    "roundLabels": [],
+    "proceedings": "full",
+    "rates": [],
+    "tier": 2
+  },
+  {
+    "title": "SIGIR",
+    "desc": "International Conference on Research on Development in Information Retrieval",
+    "area": "AI / ML / Data Mining",
+    "ccf": "A",
+    "core": "A*",
+    "coreVerified": true,
+    "nextDeadline": "2027-01-21",
+    "nextYear": 2027,
+    "nextAbstract": "2027-01-14",
+    "link": "https://sigir2027.org/",
+    "date": "July 18-24, 2027",
+    "place": "San Jose, California, USA",
+    "cycles": 1,
+    "roundLabels": [],
+    "proceedings": "full",
+    "rates": [
+      {
+        "y": 2014,
+        "r": 21.0
+      },
+      {
+        "y": 2015,
+        "r": 20.0
+      },
+      {
+        "y": 2016,
+        "r": 18.0
+      },
+      {
+        "y": 2017,
+        "r": 22.0
+      },
+      {
+        "y": 2018,
+        "r": 21.0
+      },
+      {
+        "y": 2019,
+        "r": 19.7
+      },
+      {
+        "y": 2020,
+        "r": 26.5
+      },
+      {
+        "y": 2021,
+        "r": 21.0
+      },
+      {
+        "y": 2022,
+        "r": 20.3
+      }
+    ],
+    "tier": 1
+  },
+  {
+    "title": "USENIX Security",
+    "desc": "USENIX Security Symposium",
+    "area": "Security & Privacy",
+    "ccf": "A",
+    "core": "A*",
+    "coreVerified": true,
+    "nextDeadline": "2027-01-26",
+    "nextYear": 2027,
+    "nextAbstract": "2027-01-19",
+    "link": "https://www.usenix.org/conference/usenixsecurity27",
+    "date": "August 11-13, 2027",
+    "place": "Denver, CO, USA",
+    "cycles": 2,
+    "roundLabels": [
+      "Cycle 1 Deadline",
+      "Cycle 2 Deadline"
+    ],
+    "proceedings": "full",
+    "rates": [],
+    "tier": 1
   },
   {
     "title": "ICDAR",
     "desc": "International Conference on Document Analysis and Recognition",
-    "area": "AI / ML",
+    "area": "AI / ML / Data Mining",
     "ccf": "C",
     "core": "A",
     "coreVerified": true,
@@ -333,12 +797,13 @@ export const ranked = [
     "cycles": 1,
     "roundLabels": [],
     "proceedings": "full",
-    "rates": []
+    "rates": [],
+    "tier": 2
   },
   {
     "title": "IROS",
     "desc": "IEEE/RSJ International Conference on Intelligent Robots and Systems",
-    "area": "AI / ML",
+    "area": "AI / ML / Data Mining",
     "ccf": "C",
     "core": "A",
     "coreVerified": true,
@@ -351,12 +816,13 @@ export const ranked = [
     "cycles": 1,
     "roundLabels": [],
     "proceedings": "full",
-    "rates": []
+    "rates": [],
+    "tier": 2
   },
   {
     "title": "ECAI",
     "desc": "European Conference on Artificial Intelligence",
-    "area": "AI / ML",
+    "area": "AI / ML / Data Mining",
     "ccf": "B",
     "core": "A",
     "coreVerified": true,
@@ -369,12 +835,13 @@ export const ranked = [
     "cycles": 1,
     "roundLabels": [],
     "proceedings": "full",
-    "rates": []
+    "rates": [],
+    "tier": 2
   },
   {
     "title": "KR",
     "desc": "International Conference on Principles of Knowledge Representation and Reasoning",
-    "area": "AI / ML",
+    "area": "AI / ML / Data Mining",
     "ccf": "B",
     "core": "A*",
     "coreVerified": true,
@@ -387,12 +854,65 @@ export const ranked = [
     "cycles": 1,
     "roundLabels": [],
     "proceedings": "full",
-    "rates": []
+    "rates": [],
+    "tier": 1
+  },
+  {
+    "title": "ICDM",
+    "desc": "IEEE International Conference on Data Mining",
+    "area": "AI / ML / Data Mining",
+    "ccf": "B",
+    "core": "A*",
+    "coreVerified": true,
+    "nextDeadline": "2027-06-06",
+    "nextYear": 2027,
+    "nextAbstract": "",
+    "link": "https://icdm2027-website.onrender.com/",
+    "date": "November 15-18, 2027",
+    "place": "Brisbane, Australia",
+    "cycles": 1,
+    "roundLabels": [],
+    "proceedings": "full",
+    "rates": [
+      {
+        "y": 2014,
+        "r": 9.8
+      },
+      {
+        "y": 2015,
+        "r": 8.4
+      },
+      {
+        "y": 2016,
+        "r": 8.6
+      },
+      {
+        "y": 2017,
+        "r": 9.3
+      },
+      {
+        "y": 2018,
+        "r": 8.9
+      },
+      {
+        "y": 2019,
+        "r": 9.1
+      },
+      {
+        "y": 2020,
+        "r": 9.8
+      },
+      {
+        "y": 2021,
+        "r": 9.9
+      }
+    ],
+    "tier": 1
   },
   {
     "title": "AAAI",
     "desc": "AAAI Conference on Artificial Intelligence",
-    "area": "AI / ML",
+    "area": "AI / ML / Data Mining",
     "ccf": "A",
     "core": "A*",
     "coreVerified": true,
@@ -454,12 +974,13 @@ export const ranked = [
         "y": 2025,
         "r": 23.4
       }
-    ]
+    ],
+    "tier": 1
   },
   {
     "title": "AAMAS",
     "desc": "International Conference on Autonomous Agents and Multiagent Systems",
-    "area": "AI / ML",
+    "area": "AI / ML / Data Mining",
     "ccf": "B",
     "core": "A*",
     "coreVerified": true,
@@ -472,12 +993,32 @@ export const ranked = [
     "cycles": 1,
     "roundLabels": [],
     "proceedings": "full",
-    "rates": []
+    "rates": [],
+    "tier": 1
+  },
+  {
+    "title": "ACSAC",
+    "desc": "Annual Computer Security Applications Conference",
+    "area": "Security & Privacy",
+    "ccf": "B",
+    "core": "A",
+    "coreVerified": true,
+    "nextDeadline": "",
+    "nextYear": null,
+    "nextAbstract": "",
+    "link": "https://www.acsac.org/2026/",
+    "date": "December 7-11, 2026",
+    "place": "Los Angeles, California, USA",
+    "cycles": 1,
+    "roundLabels": [],
+    "proceedings": "full",
+    "rates": [],
+    "tier": 2
   },
   {
     "title": "AISTATS",
     "desc": "International Conference on Artificial Intelligence and Statistics",
-    "area": "AI / ML",
+    "area": "AI / ML / Data Mining",
     "ccf": "C",
     "core": "A",
     "coreVerified": true,
@@ -535,12 +1076,73 @@ export const ranked = [
         "y": 2025,
         "r": 31.3
       }
-    ]
+    ],
+    "tier": 2
+  },
+  {
+    "title": "AMIA",
+    "equivalent": "CCF B / CORE A",
+    "desc": "AMIA Annual Symposium",
+    "area": "Biomedical & Health",
+    "proceedings": "full",
+    "note": "Full proceedings, indexed in PubMed; the central US biomedical-informatics meeting.",
+    "link": "https://amia.org/education-events/amia-annual-symposium",
+    "ccf": "N",
+    "core": "N",
+    "coreVerified": false,
+    "nextAbstract": "",
+    "date": "",
+    "place": "",
+    "cycles": 1,
+    "roundLabels": [],
+    "rates": [],
+    "notable": true,
+    "nextDeadline": "",
+    "nextYear": null,
+    "tier": 2
+  },
+  {
+    "title": "ASIACRYPT",
+    "desc": "International Conference on the Theory and Application of Cryptology and Information Security",
+    "area": "Security & Privacy",
+    "ccf": "B",
+    "core": "A",
+    "coreVerified": true,
+    "nextDeadline": "",
+    "nextYear": null,
+    "nextAbstract": "",
+    "link": "https://asiacrypt.iacr.org/2026/",
+    "date": "December 7-11, 2026",
+    "place": "Hong Kong, China",
+    "cycles": 1,
+    "roundLabels": [],
+    "proceedings": "full",
+    "rates": [],
+    "tier": 2
+  },
+  {
+    "title": "BIBM",
+    "desc": "IEEE International Conference on Bioinformatics and Biomedicine",
+    "area": "Biomedical & Health",
+    "ccf": "B",
+    "core": "N",
+    "coreVerified": false,
+    "nextDeadline": "",
+    "nextYear": null,
+    "nextAbstract": "",
+    "link": "https://ieeebibm.org/BIBM2026/",
+    "date": "Dec 1-4, 2026",
+    "place": "Dallas, USA",
+    "cycles": 1,
+    "roundLabels": [],
+    "proceedings": "full",
+    "rates": [],
+    "tier": 2
   },
   {
     "title": "BMVC",
     "desc": "British Machine Vision Conference",
-    "area": "AI / ML",
+    "area": "AI / ML / Data Mining",
     "ccf": "C",
     "core": "A",
     "coreVerified": true,
@@ -553,12 +1155,144 @@ export const ranked = [
     "cycles": 1,
     "roundLabels": [],
     "proceedings": "full",
-    "rates": []
+    "rates": [],
+    "tier": 2
+  },
+  {
+    "title": "CCS",
+    "desc": "ACM Conference on Computer and Communications Security",
+    "area": "Security & Privacy",
+    "ccf": "A",
+    "core": "A*",
+    "coreVerified": true,
+    "nextDeadline": "",
+    "nextYear": null,
+    "nextAbstract": "",
+    "link": "https://www.sigsac.org/ccs/CCS2027/",
+    "date": "October 11-15, 2027",
+    "place": "Atlanta, USA",
+    "cycles": 1,
+    "roundLabels": [],
+    "proceedings": "full",
+    "rates": [],
+    "tier": 1
+  },
+  {
+    "title": "CIDR",
+    "desc": "International Conference on Innovative Data Systems Research",
+    "area": "AI / ML / Data Mining",
+    "ccf": "B",
+    "core": "A",
+    "coreVerified": true,
+    "nextDeadline": "",
+    "nextYear": null,
+    "nextAbstract": "",
+    "link": "https://www.cidrdb.org/cidr2027/",
+    "date": "January 24-27, 2027",
+    "place": "Amsterdam, The Netherlands",
+    "cycles": 1,
+    "roundLabels": [],
+    "proceedings": "full",
+    "rates": [],
+    "tier": 2
+  },
+  {
+    "title": "CIKM",
+    "desc": "ACM International Conference on Information and Knowledge Management",
+    "area": "AI / ML / Data Mining",
+    "ccf": "B",
+    "core": "A",
+    "coreVerified": true,
+    "nextDeadline": "",
+    "nextYear": null,
+    "nextAbstract": "",
+    "link": "https://cikm2026.diag.uniroma1.it/",
+    "date": "November 9-11, 2026",
+    "place": "Rome, Italy",
+    "cycles": 1,
+    "roundLabels": [],
+    "proceedings": "full",
+    "rates": [
+      {
+        "y": 2014,
+        "r": 21.0
+      },
+      {
+        "y": 2015,
+        "r": 26.0
+      },
+      {
+        "y": 2016,
+        "r": 23.0
+      },
+      {
+        "y": 2017,
+        "r": 20.0
+      },
+      {
+        "y": 2018,
+        "r": 17.0
+      },
+      {
+        "y": 2019,
+        "r": 19.4
+      },
+      {
+        "y": 2020,
+        "r": 21.0
+      },
+      {
+        "y": 2021,
+        "r": 21.7
+      }
+    ],
+    "tier": 2
+  },
+  {
+    "title": "CogSci",
+    "desc": "Annual Meeting of the Cognitive Science Society",
+    "area": "Science & Interdisciplinary",
+    "ccf": "B",
+    "core": "B",
+    "coreVerified": true,
+    "nextDeadline": "",
+    "nextYear": null,
+    "nextAbstract": "",
+    "link": "https://cognitivesciencesociety.org/cogsci-2026/",
+    "date": "July 23-25, 2026",
+    "place": "Rio de Janeiro, Brazil (Hybrid)",
+    "cycles": 1,
+    "roundLabels": [],
+    "proceedings": "full",
+    "rates": [],
+    "tier": 2
+  },
+  {
+    "title": "COLM",
+    "equivalent": "CCF B / CORE A",
+    "desc": "Conference on Language Modeling",
+    "area": "AI / ML / Data Mining",
+    "proceedings": "full",
+    "note": "Full proceedings; founded 2024, too new for either ranking table.",
+    "link": "https://colmweb.org/",
+    "ccf": "N",
+    "core": "N",
+    "coreVerified": false,
+    "nextAbstract": "",
+    "date": "",
+    "place": "",
+    "cycles": 1,
+    "roundLabels": [],
+    "rates": [],
+    "notable": true,
+    "nextDeadline": "",
+    "nextYear": null,
+    "tier": 2
   },
   {
     "title": "COLT",
     "desc": "Annual Conference on Learning Theory",
-    "area": "AI / ML",
+    "area": "AI / ML / Data Mining",
     "ccf": "B",
     "core": "A*",
     "coreVerified": true,
@@ -600,12 +1334,32 @@ export const ranked = [
         "y": 2020,
         "r": 30.9
       }
-    ]
+    ],
+    "tier": 1
+  },
+  {
+    "title": "CRYPTO",
+    "desc": "International Cryptology Conference",
+    "area": "Security & Privacy",
+    "ccf": "A",
+    "core": "A*",
+    "coreVerified": false,
+    "nextDeadline": "",
+    "nextYear": null,
+    "nextAbstract": "",
+    "link": "https://crypto.iacr.org/2026/",
+    "date": "August 17-20, 2026",
+    "place": "Santa Barbara, USA",
+    "cycles": 1,
+    "roundLabels": [],
+    "proceedings": "full",
+    "rates": [],
+    "tier": 1
   },
   {
     "title": "ECCV",
     "desc": "European Conference on Computer Vision",
-    "area": "AI / ML",
+    "area": "AI / ML / Data Mining",
     "ccf": "B",
     "core": "A*",
     "coreVerified": true,
@@ -635,12 +1389,72 @@ export const ranked = [
         "y": 2020,
         "r": 27.1
       }
-    ]
+    ],
+    "tier": 1
+  },
+  {
+    "title": "ECIR",
+    "desc": "European Conference on Information Retrieval",
+    "area": "AI / ML / Data Mining",
+    "ccf": "C",
+    "core": "A",
+    "coreVerified": true,
+    "nextDeadline": "",
+    "nextYear": null,
+    "nextAbstract": "",
+    "link": "https://ecir2027.co.uk/",
+    "date": "March 21-25, 2027",
+    "place": "Southampton, UK",
+    "cycles": 1,
+    "roundLabels": [],
+    "proceedings": "full",
+    "rates": [],
+    "tier": 2
+  },
+  {
+    "title": "ECML-PKDD",
+    "desc": "European Conference on Machine Learning and 25th Principles and Practice of Knowledge Discovery in Databases",
+    "area": "AI / ML / Data Mining",
+    "ccf": "B",
+    "core": "A",
+    "coreVerified": true,
+    "nextDeadline": "",
+    "nextYear": null,
+    "nextAbstract": "",
+    "link": "https://ecmlpkdd.org/2027/",
+    "date": "September 20-24, 2027",
+    "place": "Eindhoven, The Netherlands",
+    "cycles": 1,
+    "roundLabels": [],
+    "proceedings": "full",
+    "rates": [],
+    "tier": 2
+  },
+  {
+    "title": "EDBT",
+    "desc": "International Conference on Extending Database Technology",
+    "area": "AI / ML / Data Mining",
+    "ccf": "B",
+    "core": "A",
+    "coreVerified": true,
+    "nextDeadline": "",
+    "nextYear": null,
+    "nextAbstract": "",
+    "link": "https://edbticdt2027.github.io/",
+    "date": "April 6-9, 2027",
+    "place": "Lille, France",
+    "cycles": 3,
+    "roundLabels": [
+      "Official February cutoff is 17:00 PST (UTC-8), represented as the equivalent 13:00 AoE."
+    ],
+    "proceedings": "full",
+    "rates": [],
+    "tier": 2
   },
   {
     "title": "EMNLP",
     "desc": "The annual Conference on Empirical Methods in Natural Language Processing",
-    "area": "AI / ML",
+    "area": "AI / ML / Data Mining",
     "ccf": "B",
     "core": "A*",
     "coreVerified": true,
@@ -697,12 +1511,92 @@ export const ranked = [
         "y": 2023,
         "r": 23.3
       }
-    ]
+    ],
+    "tier": 1
+  },
+  {
+    "title": "EMSOFT",
+    "desc": "International Conference on Embedded Software",
+    "area": "Science & Interdisciplinary",
+    "ccf": "B",
+    "core": "JP",
+    "coreVerified": true,
+    "nextDeadline": "",
+    "nextYear": null,
+    "nextAbstract": "",
+    "link": "https://esweek.org/emsoft/",
+    "date": "October 5-7, 2026",
+    "place": "Barcelona, Spain",
+    "cycles": 1,
+    "roundLabels": [],
+    "proceedings": "full",
+    "rates": [],
+    "tier": 2
+  },
+  {
+    "title": "ESORICS",
+    "desc": "European Symposium on Research in Computer Security",
+    "area": "Security & Privacy",
+    "ccf": "B",
+    "core": "A",
+    "coreVerified": true,
+    "nextDeadline": "",
+    "nextYear": null,
+    "nextAbstract": "",
+    "link": "https://sites.google.com/di.uniroma1.it/esorics2026/home",
+    "date": "September 14-16, 2026",
+    "place": "Rome, Italy",
+    "cycles": 2,
+    "roundLabels": [
+      "Winter",
+      "Spring"
+    ],
+    "proceedings": "full",
+    "rates": [],
+    "tier": 2
+  },
+  {
+    "title": "EUROCRYPT",
+    "desc": "European Cryptology Conference",
+    "area": "Security & Privacy",
+    "ccf": "A",
+    "core": "A*",
+    "coreVerified": false,
+    "nextDeadline": "",
+    "nextYear": null,
+    "nextAbstract": "",
+    "link": "https://eurocrypt.iacr.org/2027/",
+    "date": "April 11-15, 2027",
+    "place": "Eindhoven, Netherlands",
+    "cycles": 1,
+    "roundLabels": [],
+    "proceedings": "full",
+    "rates": [],
+    "tier": 1
+  },
+  {
+    "title": "FC",
+    "desc": "Financial Cryptography and Data Security",
+    "area": "Security & Privacy",
+    "ccf": "C",
+    "core": "A",
+    "coreVerified": true,
+    "nextDeadline": "",
+    "nextYear": null,
+    "nextAbstract": "",
+    "link": "https://fc27.ifca.ai/",
+    "date": "February 8-12, 2027",
+    "place": "Barbados",
+    "cycles": 1,
+    "roundLabels": [],
+    "proceedings": "full",
+    "rates": [],
+    "tier": 2
   },
   {
     "title": "GECCO",
     "desc": "Genetic and Evolutionary Computation Conference",
-    "area": "AI / ML",
+    "area": "AI / ML / Data Mining",
     "ccf": "C",
     "core": "A",
     "coreVerified": true,
@@ -715,12 +1609,13 @@ export const ranked = [
     "cycles": 1,
     "roundLabels": [],
     "proceedings": "full",
-    "rates": []
+    "rates": [],
+    "tier": 2
   },
   {
     "title": "ICCBR",
     "desc": "International Conference on Case-Based Reasoning",
-    "area": "AI / ML",
+    "area": "AI / ML / Data Mining",
     "ccf": "B",
     "core": "C",
     "coreVerified": true,
@@ -733,12 +1628,13 @@ export const ranked = [
     "cycles": 1,
     "roundLabels": [],
     "proceedings": "full",
-    "rates": []
+    "rates": [],
+    "tier": 2
   },
   {
     "title": "ICCV",
     "desc": "IEEE International Conference on Computer Vision",
-    "area": "AI / ML",
+    "area": "AI / ML / Data Mining",
     "ccf": "A",
     "core": "A*",
     "coreVerified": true,
@@ -768,12 +1664,32 @@ export const ranked = [
         "y": 2019,
         "r": 25.0
       }
-    ]
+    ],
+    "tier": 1
+  },
+  {
+    "title": "ICDT",
+    "desc": "International Conference on Database Theory",
+    "area": "AI / ML / Data Mining",
+    "ccf": "B",
+    "core": "A",
+    "coreVerified": true,
+    "nextDeadline": "",
+    "nextYear": null,
+    "nextAbstract": "",
+    "link": "https://edbticdt2027.github.io/",
+    "date": "April 6-9, 2027",
+    "place": "Lille, France",
+    "cycles": 2,
+    "roundLabels": [],
+    "proceedings": "full",
+    "rates": [],
+    "tier": 2
   },
   {
     "title": "ICLR",
     "desc": "International Conference on Learning Representations",
-    "area": "AI / ML",
+    "area": "AI / ML / Data Mining",
     "ccf": "A",
     "core": "A*",
     "coreVerified": true,
@@ -823,12 +1739,13 @@ export const ranked = [
         "y": 2025,
         "r": 31.75
       }
-    ]
+    ],
+    "tier": 1
   },
   {
     "title": "ICML",
     "desc": "International Conference on Machine Learning",
-    "area": "AI / ML",
+    "area": "AI / ML / Data Mining",
     "ccf": "A",
     "core": "A*",
     "coreVerified": true,
@@ -886,12 +1803,13 @@ export const ranked = [
         "y": 2024,
         "r": 27.5
       }
-    ]
+    ],
+    "tier": 1
   },
   {
     "title": "ICRA",
     "desc": "IEEE International Conference on Robotics and Automation",
-    "area": "AI / ML",
+    "area": "AI / ML / Data Mining",
     "ccf": "B",
     "core": "A*",
     "coreVerified": true,
@@ -904,12 +1822,95 @@ export const ranked = [
     "cycles": 1,
     "roundLabels": [],
     "proceedings": "full",
-    "rates": []
+    "rates": [],
+    "tier": 1
+  },
+  {
+    "title": "ISWC",
+    "desc": "International Semantic Web Conference",
+    "area": "AI / ML / Data Mining",
+    "ccf": "B",
+    "core": "A",
+    "coreVerified": true,
+    "nextDeadline": "",
+    "nextYear": null,
+    "nextAbstract": "",
+    "link": "https://iswc2026.semanticweb.org/",
+    "date": "October 27-29, 2026",
+    "place": "Bari, Italy",
+    "cycles": 1,
+    "roundLabels": [],
+    "proceedings": "full",
+    "rates": [],
+    "tier": 2
+  },
+  {
+    "title": "MICCAI",
+    "desc": "International Conference on Medical Image Computing and Computer Assisted Intervention",
+    "area": "Biomedical & Health",
+    "ccf": "B",
+    "core": "A",
+    "coreVerified": true,
+    "nextDeadline": "",
+    "nextYear": null,
+    "nextAbstract": "",
+    "link": "https://conferences.miccai.org/2028/en/",
+    "date": "Oct 16-20, 2028",
+    "place": "São Paulo, Brazil",
+    "cycles": 1,
+    "roundLabels": [],
+    "proceedings": "full",
+    "rates": [],
+    "tier": 2
+  },
+  {
+    "title": "MLSys",
+    "equivalent": "CCF B / CORE A",
+    "desc": "Conference on Machine Learning and Systems",
+    "area": "AI / ML / Data Mining",
+    "proceedings": "full",
+    "note": "Full proceedings; unranked by both CCF and CORE despite being the main ML-systems venue.",
+    "link": "https://mlsys.org/",
+    "ccf": "N",
+    "core": "N",
+    "coreVerified": false,
+    "nextAbstract": "",
+    "date": "",
+    "place": "",
+    "cycles": 1,
+    "roundLabels": [],
+    "rates": [],
+    "notable": true,
+    "nextDeadline": "",
+    "nextYear": null,
+    "tier": 2
+  },
+  {
+    "title": "NDSS",
+    "desc": "Network and Distributed System Security (NDSS) Symposium",
+    "area": "Security & Privacy",
+    "ccf": "A",
+    "core": "A*",
+    "coreVerified": true,
+    "nextDeadline": "",
+    "nextYear": null,
+    "nextAbstract": "",
+    "link": "https://www.ndss-symposium.org/ndss2027/",
+    "date": "March 22 - March 26, 2027",
+    "place": "Seoul, Republic of Korea",
+    "cycles": 2,
+    "roundLabels": [
+      "Summer",
+      "Fall"
+    ],
+    "proceedings": "full",
+    "rates": [],
+    "tier": 1
   },
   {
     "title": "NeurIPS",
     "desc": "Conference on Neural Information Processing Systems",
-    "area": "AI / ML",
+    "area": "AI / ML / Data Mining",
     "ccf": "A",
     "core": "A*",
     "coreVerified": true,
@@ -971,12 +1972,32 @@ export const ranked = [
         "y": 2025,
         "r": 24.5
       }
-    ]
+    ],
+    "tier": 1
+  },
+  {
+    "title": "PKC",
+    "desc": "International Conference on Practice and Theory of Public-Key Cryptography",
+    "area": "Security & Privacy",
+    "ccf": "B",
+    "core": "B",
+    "coreVerified": true,
+    "nextDeadline": "",
+    "nextYear": null,
+    "nextAbstract": "",
+    "link": "https://pkc.iacr.org/2027/",
+    "date": "March 1-4, 2027",
+    "place": "Taipei, Taiwan",
+    "cycles": 1,
+    "roundLabels": [],
+    "proceedings": "full",
+    "rates": [],
+    "tier": 2
   },
   {
     "title": "PPSN",
     "desc": "International Conference on Parallel Problem Solving From Nature",
-    "area": "AI / ML",
+    "area": "AI / ML / Data Mining",
     "ccf": "B",
     "core": "A",
     "coreVerified": true,
@@ -989,12 +2010,246 @@ export const ranked = [
     "cycles": 1,
     "roundLabels": [],
     "proceedings": "full",
-    "rates": []
+    "rates": [],
+    "tier": 2
+  },
+  {
+    "title": "RAID",
+    "desc": "International Symposium on Recent Advances in Intrusion Detection",
+    "area": "Security & Privacy",
+    "ccf": "B",
+    "core": "A",
+    "coreVerified": true,
+    "nextDeadline": "",
+    "nextYear": null,
+    "nextAbstract": "",
+    "link": "https://raid2026.org",
+    "date": "October 12-14, 2026",
+    "place": "Lancaster, UK",
+    "cycles": 1,
+    "roundLabels": [],
+    "proceedings": "full",
+    "rates": [],
+    "tier": 2
+  },
+  {
+    "title": "RecSys",
+    "desc": "ACM Conference on Recommender Systems",
+    "area": "AI / ML / Data Mining",
+    "ccf": "B",
+    "core": "A",
+    "coreVerified": true,
+    "nextDeadline": "",
+    "nextYear": null,
+    "nextAbstract": "",
+    "link": "https://recsys.acm.org/recsys27/",
+    "date": "August 23-27, 2027",
+    "place": "Honolulu, O‘ahu, Hawaii, USA",
+    "cycles": 1,
+    "roundLabels": [],
+    "proceedings": "full",
+    "rates": [
+      {
+        "y": 2015,
+        "r": 23.0
+      },
+      {
+        "y": 2016,
+        "r": 18.2
+      },
+      {
+        "y": 2017,
+        "r": 20.8
+      },
+      {
+        "y": 2018,
+        "r": 17.7
+      },
+      {
+        "y": 2019,
+        "r": 19.0
+      },
+      {
+        "y": 2020,
+        "r": 17.9
+      }
+    ],
+    "tier": 2
+  },
+  {
+    "title": "RTSS",
+    "desc": "The IEEE Real-Time Systems Symposium",
+    "area": "Science & Interdisciplinary",
+    "ccf": "A",
+    "core": "A*",
+    "coreVerified": true,
+    "nextDeadline": "",
+    "nextYear": null,
+    "nextAbstract": "",
+    "link": "http://2026.rtss.org/",
+    "date": "December 9-11, 2026",
+    "place": "Yokohama, Japan",
+    "cycles": 1,
+    "roundLabels": [],
+    "proceedings": "full",
+    "rates": [],
+    "tier": 1
+  },
+  {
+    "title": "SDM",
+    "desc": "SIAM International Conference on Data Mining",
+    "area": "AI / ML / Data Mining",
+    "ccf": "B",
+    "core": "A",
+    "coreVerified": true,
+    "nextDeadline": "",
+    "nextYear": null,
+    "nextAbstract": "",
+    "link": "https://www.siam.org/conferences-events/siam-conferences/sdm26/",
+    "date": "November 19-20, 2026",
+    "place": "Salt Lake City, Utah, USA",
+    "cycles": 1,
+    "roundLabels": [],
+    "proceedings": "full",
+    "rates": [],
+    "tier": 2
+  },
+  {
+    "title": "SIGCSE",
+    "desc": "Technical Symposium on Computer Science Education Conference",
+    "area": "Science & Interdisciplinary",
+    "ccf": "N",
+    "core": "A",
+    "coreVerified": true,
+    "nextDeadline": "",
+    "nextYear": null,
+    "nextAbstract": "",
+    "link": "https://2027.sigcse-ts.acm.org/",
+    "date": "February 17-20, 2027",
+    "place": "Sacramento, California, USA",
+    "cycles": 1,
+    "roundLabels": [],
+    "proceedings": "full",
+    "rates": [],
+    "tier": 2
+  },
+  {
+    "title": "SIGKDD",
+    "desc": "ACM Knowledge Discovery and Data Mining",
+    "area": "AI / ML / Data Mining",
+    "ccf": "A",
+    "core": "A*",
+    "coreVerified": false,
+    "nextDeadline": "",
+    "nextYear": null,
+    "nextAbstract": "",
+    "link": "https://kdd2027.kdd.org/",
+    "date": "August 1-5, 2027",
+    "place": "San Jose, California, USA",
+    "cycles": 1,
+    "roundLabels": [],
+    "proceedings": "full",
+    "rates": [
+      {
+        "y": 2014,
+        "r": 14.6
+      },
+      {
+        "y": 2015,
+        "r": 19.5
+      },
+      {
+        "y": 2016,
+        "r": 13.7
+      },
+      {
+        "y": 2017,
+        "r": 17.4
+      },
+      {
+        "y": 2018,
+        "r": 18.4
+      },
+      {
+        "y": 2019,
+        "r": 14.2
+      },
+      {
+        "y": 2020,
+        "r": 16.9
+      },
+      {
+        "y": 2022,
+        "r": 15.0
+      },
+      {
+        "y": 2023,
+        "r": 22.1
+      }
+    ],
+    "tier": 1
+  },
+  {
+    "title": "SIGSPATIAL",
+    "desc": "ACM SIGSPATIAL International Conference on Advances in Geographic Information Systems",
+    "area": "Science & Interdisciplinary",
+    "ccf": "C",
+    "core": "A",
+    "coreVerified": true,
+    "nextDeadline": "",
+    "nextYear": null,
+    "nextAbstract": "",
+    "link": "https://sigspatial2026.sigspatial.org/",
+    "date": "November 3-6, 2026",
+    "place": "Riverside, CA, USA",
+    "cycles": 1,
+    "roundLabels": [],
+    "proceedings": "full",
+    "rates": [],
+    "tier": 2
+  },
+  {
+    "title": "SRDS",
+    "desc": "IEEE International Symposium on Reliable Distributed Systems",
+    "area": "Security & Privacy",
+    "ccf": "B",
+    "core": "B",
+    "coreVerified": true,
+    "nextDeadline": "",
+    "nextYear": null,
+    "nextAbstract": "",
+    "link": "https://srds-conference.org/",
+    "date": "September 22-24, 2026",
+    "place": "Rome, Italy",
+    "cycles": 1,
+    "roundLabels": [],
+    "proceedings": "full",
+    "rates": [],
+    "tier": 2
+  },
+  {
+    "title": "TCC",
+    "desc": "Theory of Cryptography Conference",
+    "area": "Security & Privacy",
+    "ccf": "B",
+    "core": "A",
+    "coreVerified": true,
+    "nextDeadline": "",
+    "nextYear": null,
+    "nextAbstract": "",
+    "link": "https://tcc.iacr.org/2026/",
+    "date": "November 10-13, 2026",
+    "place": "New York City, USA",
+    "cycles": 1,
+    "roundLabels": [],
+    "proceedings": "full",
+    "rates": [],
+    "tier": 2
   },
   {
     "title": "UAI",
     "desc": "Conference on Uncertainty in Artificial Intelligence",
-    "area": "AI / ML",
+    "area": "AI / ML / Data Mining",
     "ccf": "B",
     "core": "A",
     "coreVerified": true,
@@ -1056,12 +2311,13 @@ export const ranked = [
         "y": 2025,
         "r": 30.7
       }
-    ]
+    ],
+    "tier": 2
   },
   {
     "title": "WACV",
     "desc": "IEEE/CVF Winter Conference on Applications of Computer Vision",
-    "area": "AI / ML",
+    "area": "AI / ML / Data Mining",
     "ccf": "N",
     "core": "A",
     "coreVerified": true,
@@ -1077,531 +2333,32 @@ export const ranked = [
       "Second round"
     ],
     "proceedings": "full",
-    "rates": []
+    "rates": [],
+    "tier": 2
   },
   {
-    "title": "RECOMB",
-    "desc": "International Conference on Research inComputational Molecular Biology",
-    "area": "Biomedical & Health",
-    "ccf": "B",
-    "core": "B",
-    "coreVerified": true,
-    "nextDeadline": "2026-11-04",
-    "nextYear": 2027,
-    "nextAbstract": "2026-10-28",
-    "link": "https://recomb.org/recomb2027/",
-    "date": "May 17-20, 2027",
-    "place": "Toronto, Canada",
-    "cycles": 1,
-    "roundLabels": [],
-    "proceedings": "full",
-    "rates": []
-  },
-  {
-    "title": "ISMB",
-    "desc": "International Conference on Intelligent Systems for Molecular Biology",
-    "area": "Biomedical & Health",
-    "ccf": "B",
-    "core": "JP",
-    "coreVerified": true,
-    "nextDeadline": "2027-01-14",
-    "nextYear": 2027,
-    "nextAbstract": "",
-    "link": "https://www.iscb.org/ismbeccb2027/",
-    "date": "July 18-22, 2027",
-    "place": "Copenhagen, Denmark",
-    "cycles": 1,
-    "roundLabels": [],
-    "proceedings": "full",
-    "rates": []
-  },
-  {
-    "title": "BIBM",
-    "desc": "IEEE International Conference on Bioinformatics and Biomedicine",
-    "area": "Biomedical & Health",
+    "title": "WINE",
+    "desc": "Conference on Web and Internet Economics",
+    "area": "Science & Interdisciplinary",
     "ccf": "B",
     "core": "N",
     "coreVerified": false,
     "nextDeadline": "",
     "nextYear": null,
     "nextAbstract": "",
-    "link": "https://ieeebibm.org/BIBM2026/",
-    "date": "Dec 1-4, 2026",
-    "place": "Dallas, USA",
+    "link": "https://wine2026conf.github.io/",
+    "date": "December 1-4, 2026",
+    "place": "Hong Kong, China",
     "cycles": 1,
     "roundLabels": [],
     "proceedings": "full",
-    "rates": []
-  },
-  {
-    "title": "MICCAI",
-    "desc": "International Conference on Medical Image Computing and Computer Assisted Intervention",
-    "area": "Biomedical & Health",
-    "ccf": "B",
-    "core": "A",
-    "coreVerified": true,
-    "nextDeadline": "",
-    "nextYear": null,
-    "nextAbstract": "",
-    "link": "https://conferences.miccai.org/2028/en/",
-    "date": "Oct 16-20, 2028",
-    "place": "São Paulo, Brazil",
-    "cycles": 1,
-    "roundLabels": [],
-    "proceedings": "full",
-    "rates": []
-  },
-  {
-    "title": "SIGMOD",
-    "desc": "ACM Conference on Management of Data",
-    "area": "Data & Mining",
-    "ccf": "A",
-    "core": "A*",
-    "coreVerified": true,
-    "nextDeadline": "2026-10-17",
-    "nextYear": 2027,
-    "nextAbstract": "2026-10-10",
-    "link": "https://2027.sigmod.org/",
-    "date": "June 13-19, 2027",
-    "place": "Huntington Beach, CA, USA",
-    "cycles": 4,
-    "roundLabels": [
-      "round 1",
-      "round 2",
-      "round 3",
-      "round 4"
-    ],
-    "proceedings": "full",
-    "rates": []
-  },
-  {
-    "title": "VLDB",
-    "desc": "International Conference on Very Large Data Bases",
-    "area": "Data & Mining",
-    "ccf": "A",
-    "core": "A*",
-    "coreVerified": true,
-    "nextDeadline": "2026-11-01",
-    "nextYear": 2027,
-    "nextAbstract": "2026-10-25",
-    "link": "https://www.vldb.org/2027/",
-    "date": "August 23 - August 27, 2027",
-    "place": "Athens, Greece",
-    "cycles": 12,
-    "roundLabels": [],
-    "proceedings": "full",
-    "rates": []
-  },
-  {
-    "title": "ICDE",
-    "desc": "IEEE International Conference on Data Engineering",
-    "area": "Data & Mining",
-    "ccf": "A",
-    "core": "A*",
-    "coreVerified": true,
-    "nextDeadline": "2026-11-11",
-    "nextYear": 2027,
-    "nextAbstract": "",
-    "link": "https://icde2027.github.io/",
-    "date": "May 17-21, 2027",
-    "place": "Copenhagen, Denmark",
-    "cycles": 2,
-    "roundLabels": [
-      "first round",
-      "second round"
-    ],
-    "proceedings": "full",
-    "rates": []
-  },
-  {
-    "title": "DASFAA",
-    "desc": "Database Systems for Advanced Applications",
-    "area": "Data & Mining",
-    "ccf": "B",
-    "core": "B",
-    "coreVerified": true,
-    "nextDeadline": "2026-11-25",
-    "nextYear": 2027,
-    "nextAbstract": "",
-    "link": "https://dasfaa2027.github.io/",
-    "date": "May 27-30, 2027",
-    "place": "Shenyang, China",
-    "cycles": 1,
-    "roundLabels": [],
-    "proceedings": "full",
-    "rates": []
-  },
-  {
-    "title": "PODS",
-    "desc": "ACM Symposium on Principles of Database Systems",
-    "area": "Data & Mining",
-    "ccf": "B",
-    "core": "A*",
-    "coreVerified": true,
-    "nextDeadline": "2026-12-10",
-    "nextYear": 2027,
-    "nextAbstract": "2026-12-03",
-    "link": "https://2027.sigmod.org/",
-    "date": "June 13-19, 2027",
-    "place": "Huntington Beach, California, USA",
-    "cycles": 2,
-    "roundLabels": [
-      "First Submission Cycle",
-      "Second Submission Cycle"
-    ],
-    "proceedings": "full",
-    "rates": []
-  },
-  {
-    "title": "SIGIR",
-    "desc": "International Conference on Research on Development in Information Retrieval",
-    "area": "Data & Mining",
-    "ccf": "A",
-    "core": "A*",
-    "coreVerified": true,
-    "nextDeadline": "2027-01-21",
-    "nextYear": 2027,
-    "nextAbstract": "2027-01-14",
-    "link": "https://sigir2027.org/",
-    "date": "July 18-24, 2027",
-    "place": "San Jose, California, USA",
-    "cycles": 1,
-    "roundLabels": [],
-    "proceedings": "full",
-    "rates": [
-      {
-        "y": 2014,
-        "r": 21.0
-      },
-      {
-        "y": 2015,
-        "r": 20.0
-      },
-      {
-        "y": 2016,
-        "r": 18.0
-      },
-      {
-        "y": 2017,
-        "r": 22.0
-      },
-      {
-        "y": 2018,
-        "r": 21.0
-      },
-      {
-        "y": 2019,
-        "r": 19.7
-      },
-      {
-        "y": 2020,
-        "r": 26.5
-      },
-      {
-        "y": 2021,
-        "r": 21.0
-      },
-      {
-        "y": 2022,
-        "r": 20.3
-      }
-    ]
-  },
-  {
-    "title": "ICDM",
-    "desc": "IEEE International Conference on Data Mining",
-    "area": "Data & Mining",
-    "ccf": "B",
-    "core": "A*",
-    "coreVerified": true,
-    "nextDeadline": "2027-06-06",
-    "nextYear": 2027,
-    "nextAbstract": "",
-    "link": "https://icdm2027-website.onrender.com/",
-    "date": "November 15-18, 2027",
-    "place": "Brisbane, Australia",
-    "cycles": 1,
-    "roundLabels": [],
-    "proceedings": "full",
-    "rates": [
-      {
-        "y": 2014,
-        "r": 9.8
-      },
-      {
-        "y": 2015,
-        "r": 8.4
-      },
-      {
-        "y": 2016,
-        "r": 8.6
-      },
-      {
-        "y": 2017,
-        "r": 9.3
-      },
-      {
-        "y": 2018,
-        "r": 8.9
-      },
-      {
-        "y": 2019,
-        "r": 9.1
-      },
-      {
-        "y": 2020,
-        "r": 9.8
-      },
-      {
-        "y": 2021,
-        "r": 9.9
-      }
-    ]
-  },
-  {
-    "title": "CIDR",
-    "desc": "International Conference on Innovative Data Systems Research",
-    "area": "Data & Mining",
-    "ccf": "B",
-    "core": "A",
-    "coreVerified": true,
-    "nextDeadline": "",
-    "nextYear": null,
-    "nextAbstract": "",
-    "link": "https://www.cidrdb.org/cidr2027/",
-    "date": "January 24-27, 2027",
-    "place": "Amsterdam, The Netherlands",
-    "cycles": 1,
-    "roundLabels": [],
-    "proceedings": "full",
-    "rates": []
-  },
-  {
-    "title": "CIKM",
-    "desc": "ACM International Conference on Information and Knowledge Management",
-    "area": "Data & Mining",
-    "ccf": "B",
-    "core": "A",
-    "coreVerified": true,
-    "nextDeadline": "",
-    "nextYear": null,
-    "nextAbstract": "",
-    "link": "https://cikm2026.diag.uniroma1.it/",
-    "date": "November 9-11, 2026",
-    "place": "Rome, Italy",
-    "cycles": 1,
-    "roundLabels": [],
-    "proceedings": "full",
-    "rates": [
-      {
-        "y": 2014,
-        "r": 21.0
-      },
-      {
-        "y": 2015,
-        "r": 26.0
-      },
-      {
-        "y": 2016,
-        "r": 23.0
-      },
-      {
-        "y": 2017,
-        "r": 20.0
-      },
-      {
-        "y": 2018,
-        "r": 17.0
-      },
-      {
-        "y": 2019,
-        "r": 19.4
-      },
-      {
-        "y": 2020,
-        "r": 21.0
-      },
-      {
-        "y": 2021,
-        "r": 21.7
-      }
-    ]
-  },
-  {
-    "title": "ECIR",
-    "desc": "European Conference on Information Retrieval",
-    "area": "Data & Mining",
-    "ccf": "C",
-    "core": "A",
-    "coreVerified": true,
-    "nextDeadline": "",
-    "nextYear": null,
-    "nextAbstract": "",
-    "link": "https://ecir2027.co.uk/",
-    "date": "March 21-25, 2027",
-    "place": "Southampton, UK",
-    "cycles": 1,
-    "roundLabels": [],
-    "proceedings": "full",
-    "rates": []
-  },
-  {
-    "title": "ECML-PKDD",
-    "desc": "European Conference on Machine Learning and 25th Principles and Practice of Knowledge Discovery in Databases",
-    "area": "Data & Mining",
-    "ccf": "B",
-    "core": "A",
-    "coreVerified": true,
-    "nextDeadline": "",
-    "nextYear": null,
-    "nextAbstract": "",
-    "link": "https://ecmlpkdd.org/2027/",
-    "date": "September 20-24, 2027",
-    "place": "Eindhoven, The Netherlands",
-    "cycles": 1,
-    "roundLabels": [],
-    "proceedings": "full",
-    "rates": []
-  },
-  {
-    "title": "EDBT",
-    "desc": "International Conference on Extending Database Technology",
-    "area": "Data & Mining",
-    "ccf": "B",
-    "core": "A",
-    "coreVerified": true,
-    "nextDeadline": "",
-    "nextYear": null,
-    "nextAbstract": "",
-    "link": "https://edbticdt2027.github.io/",
-    "date": "April 6-9, 2027",
-    "place": "Lille, France",
-    "cycles": 3,
-    "roundLabels": [
-      "Official February cutoff is 17:00 PST (UTC-8), represented as the equivalent 13:00 AoE."
-    ],
-    "proceedings": "full",
-    "rates": []
-  },
-  {
-    "title": "ICDT",
-    "desc": "International Conference on Database Theory",
-    "area": "Data & Mining",
-    "ccf": "B",
-    "core": "A",
-    "coreVerified": true,
-    "nextDeadline": "",
-    "nextYear": null,
-    "nextAbstract": "",
-    "link": "https://edbticdt2027.github.io/",
-    "date": "April 6-9, 2027",
-    "place": "Lille, France",
-    "cycles": 2,
-    "roundLabels": [],
-    "proceedings": "full",
-    "rates": []
-  },
-  {
-    "title": "ISWC",
-    "desc": "International Semantic Web Conference",
-    "area": "Data & Mining",
-    "ccf": "B",
-    "core": "A",
-    "coreVerified": true,
-    "nextDeadline": "",
-    "nextYear": null,
-    "nextAbstract": "",
-    "link": "https://iswc2026.semanticweb.org/",
-    "date": "October 27-29, 2026",
-    "place": "Bari, Italy",
-    "cycles": 1,
-    "roundLabels": [],
-    "proceedings": "full",
-    "rates": []
-  },
-  {
-    "title": "RecSys",
-    "desc": "ACM Conference on Recommender Systems",
-    "area": "Data & Mining",
-    "ccf": "B",
-    "core": "A",
-    "coreVerified": true,
-    "nextDeadline": "",
-    "nextYear": null,
-    "nextAbstract": "",
-    "link": "https://recsys.acm.org/recsys27/",
-    "date": "August 23-27, 2027",
-    "place": "Honolulu, O‘ahu, Hawaii, USA",
-    "cycles": 1,
-    "roundLabels": [],
-    "proceedings": "full",
-    "rates": [
-      {
-        "y": 2015,
-        "r": 23.0
-      },
-      {
-        "y": 2016,
-        "r": 18.2
-      },
-      {
-        "y": 2017,
-        "r": 20.8
-      },
-      {
-        "y": 2018,
-        "r": 17.7
-      },
-      {
-        "y": 2019,
-        "r": 19.0
-      },
-      {
-        "y": 2020,
-        "r": 17.9
-      }
-    ]
-  },
-  {
-    "title": "SDM",
-    "desc": "SIAM International Conference on Data Mining",
-    "area": "Data & Mining",
-    "ccf": "B",
-    "core": "A",
-    "coreVerified": true,
-    "nextDeadline": "",
-    "nextYear": null,
-    "nextAbstract": "",
-    "link": "https://www.siam.org/conferences-events/siam-conferences/sdm26/",
-    "date": "November 19-20, 2026",
-    "place": "Salt Lake City, Utah, USA",
-    "cycles": 1,
-    "roundLabels": [],
-    "proceedings": "full",
-    "rates": []
-  },
-  {
-    "title": "SIGKDD",
-    "desc": "ACM Knowledge Discovery and Data Mining",
-    "area": "Data & Mining",
-    "ccf": "A",
-    "core": "A*",
-    "coreVerified": false,
-    "nextDeadline": "",
-    "nextYear": null,
-    "nextAbstract": "",
-    "link": "https://kdd2027.kdd.org/",
-    "date": "August 1-5, 2027",
-    "place": "San Jose, California, USA",
-    "cycles": 1,
-    "roundLabels": [],
-    "proceedings": "full",
-    "rates": []
+    "rates": [],
+    "tier": 2
   },
   {
     "title": "WISE",
     "desc": "International Conference on Web Information Systems Engineering",
-    "area": "Data & Mining",
+    "area": "AI / ML / Data Mining",
     "ccf": "B",
     "core": "B",
     "coreVerified": true,
@@ -1614,12 +2371,13 @@ export const ranked = [
     "cycles": 1,
     "roundLabels": [],
     "proceedings": "full",
-    "rates": []
+    "rates": [],
+    "tier": 2
   },
   {
     "title": "WSDM",
     "desc": "International Conference on Web Search and Data Mining",
-    "area": "Data & Mining",
+    "area": "AI / ML / Data Mining",
     "ccf": "B",
     "core": "A",
     "coreVerified": true,
@@ -1673,584 +2431,8 @@ export const ranked = [
         "y": 2023,
         "r": 17.8
       }
-    ]
-  },
-  {
-    "title": "WWW",
-    "desc": "International World Wide Web Conferences",
-    "area": "Science & Interdisciplinary",
-    "ccf": "A",
-    "core": "A*",
-    "coreVerified": true,
-    "nextDeadline": "2026-10-25",
-    "nextYear": 2027,
-    "nextAbstract": "2026-10-18",
-    "link": "https://www2027.thewebconf.org/",
-    "date": "May 10 - 14, 2027",
-    "place": "Dublin, Ireland",
-    "cycles": 1,
-    "roundLabels": [],
-    "proceedings": "full",
-    "rates": [
-      {
-        "y": 2014,
-        "r": 13.0
-      },
-      {
-        "y": 2015,
-        "r": 14.0
-      },
-      {
-        "y": 2016,
-        "r": 16.0
-      },
-      {
-        "y": 2017,
-        "r": 17.0
-      },
-      {
-        "y": 2018,
-        "r": 15.0
-      },
-      {
-        "y": 2019,
-        "r": 18.0
-      },
-      {
-        "y": 2020,
-        "r": 19.2
-      },
-      {
-        "y": 2021,
-        "r": 20.6
-      },
-      {
-        "y": 2022,
-        "r": 17.7
-      },
-      {
-        "y": 2023,
-        "r": 19.2
-      }
-    ]
-  },
-  {
-    "title": "CogSci",
-    "desc": "Annual Meeting of the Cognitive Science Society",
-    "area": "Science & Interdisciplinary",
-    "ccf": "B",
-    "core": "B",
-    "coreVerified": true,
-    "nextDeadline": "",
-    "nextYear": null,
-    "nextAbstract": "",
-    "link": "https://cognitivesciencesociety.org/cogsci-2026/",
-    "date": "July 23-25, 2026",
-    "place": "Rio de Janeiro, Brazil (Hybrid)",
-    "cycles": 1,
-    "roundLabels": [],
-    "proceedings": "full",
-    "rates": []
-  },
-  {
-    "title": "EMSOFT",
-    "desc": "International Conference on Embedded Software",
-    "area": "Science & Interdisciplinary",
-    "ccf": "B",
-    "core": "JP",
-    "coreVerified": true,
-    "nextDeadline": "",
-    "nextYear": null,
-    "nextAbstract": "",
-    "link": "https://esweek.org/emsoft/",
-    "date": "October 5-7, 2026",
-    "place": "Barcelona, Spain",
-    "cycles": 1,
-    "roundLabels": [],
-    "proceedings": "full",
-    "rates": []
-  },
-  {
-    "title": "RTSS",
-    "desc": "The IEEE Real-Time Systems Symposium",
-    "area": "Science & Interdisciplinary",
-    "ccf": "A",
-    "core": "A*",
-    "coreVerified": true,
-    "nextDeadline": "",
-    "nextYear": null,
-    "nextAbstract": "",
-    "link": "http://2026.rtss.org/",
-    "date": "December 9-11, 2026",
-    "place": "Yokohama, Japan",
-    "cycles": 1,
-    "roundLabels": [],
-    "proceedings": "full",
-    "rates": []
-  },
-  {
-    "title": "SIGCSE",
-    "desc": "Technical Symposium on Computer Science Education Conference",
-    "area": "Science & Interdisciplinary",
-    "ccf": "N",
-    "core": "A",
-    "coreVerified": true,
-    "nextDeadline": "",
-    "nextYear": null,
-    "nextAbstract": "",
-    "link": "https://2027.sigcse-ts.acm.org/",
-    "date": "February 17-20, 2027",
-    "place": "Sacramento, California, USA",
-    "cycles": 1,
-    "roundLabels": [],
-    "proceedings": "full",
-    "rates": []
-  },
-  {
-    "title": "SIGSPATIAL",
-    "desc": "ACM SIGSPATIAL International Conference on Advances in Geographic Information Systems",
-    "area": "Science & Interdisciplinary",
-    "ccf": "C",
-    "core": "A",
-    "coreVerified": true,
-    "nextDeadline": "",
-    "nextYear": null,
-    "nextAbstract": "",
-    "link": "https://sigspatial2026.sigspatial.org/",
-    "date": "November 3-6, 2026",
-    "place": "Riverside, CA, USA",
-    "cycles": 1,
-    "roundLabels": [],
-    "proceedings": "full",
-    "rates": []
-  },
-  {
-    "title": "WINE",
-    "desc": "Conference on Web and Internet Economics",
-    "area": "Science & Interdisciplinary",
-    "ccf": "B",
-    "core": "N",
-    "coreVerified": false,
-    "nextDeadline": "",
-    "nextYear": null,
-    "nextAbstract": "",
-    "link": "https://wine2026conf.github.io/",
-    "date": "December 1-4, 2026",
-    "place": "Hong Kong, China",
-    "cycles": 1,
-    "roundLabels": [],
-    "proceedings": "full",
-    "rates": []
-  },
-  {
-    "title": "CHES",
-    "desc": "International Conference on Cryptographic Hardware and Embedded Systems",
-    "area": "Security & Privacy",
-    "ccf": "B",
-    "core": "A",
-    "coreVerified": true,
-    "nextDeadline": "2026-10-15",
-    "nextYear": 2027,
-    "nextAbstract": "",
-    "link": "https://ches.iacr.org/2027/",
-    "date": "September 6 - 9, 2027",
-    "place": "Cancún, Mexico",
-    "cycles": 4,
-    "roundLabels": [
-      "Schedule for TCHES Volume 2027/1",
-      "Schedule for TCHES Volume 2027/2",
-      "Schedule for TCHES Volume 2027/3",
-      "Schedule for TCHES Volume 2027/4"
     ],
-    "proceedings": "full",
-    "rates": []
-  },
-  {
-    "title": "CSFW",
-    "desc": "IEEE Computer Security Foundations Symposium",
-    "area": "Security & Privacy",
-    "ccf": "B",
-    "core": "A",
-    "coreVerified": false,
-    "nextDeadline": "2026-10-15",
-    "nextYear": 2027,
-    "nextAbstract": "",
-    "link": "https://www.ieee-security.org/TC/CSF2027/",
-    "date": "September 13-17, 2027",
-    "place": "Tokyo, Japan",
-    "cycles": 3,
-    "roundLabels": [
-      "Summer",
-      "Fall",
-      "Winter"
-    ],
-    "proceedings": "full",
-    "rates": []
-  },
-  {
-    "title": "S&P",
-    "desc": "IEEE Symposium on Security and Privacy",
-    "area": "Security & Privacy",
-    "ccf": "A",
-    "core": "A*",
-    "coreVerified": true,
-    "nextDeadline": "2026-11-17",
-    "nextYear": 2027,
-    "nextAbstract": "2026-11-10",
-    "link": "https://sp2027.ieee-security.org/index.html",
-    "date": "May 17-19, 2027",
-    "place": "MONTREAL, CANADA",
-    "cycles": 2,
-    "roundLabels": [
-      "First Paper submission deadline",
-      "Second Paper submission deadline"
-    ],
-    "proceedings": "full",
-    "rates": []
-  },
-  {
-    "title": "PETS",
-    "desc": "Privacy Enhancing Technologies Symposium",
-    "area": "Security & Privacy",
-    "ccf": "C",
-    "core": "A",
-    "coreVerified": true,
-    "nextDeadline": "2026-11-30",
-    "nextYear": 2027,
-    "nextAbstract": "",
-    "link": "https://petsymposium.org/cfp27.php",
-    "date": "July 19-24, 2027",
-    "place": "Delft, The Netherlands",
-    "cycles": 4,
-    "roundLabels": [
-      "Issue 1 Paper Submission Deadline",
-      "Issue 2 Paper Submission Deadline",
-      "Issue 3 Paper Submission Deadline",
-      "Issue 4 Paper Submission Deadline"
-    ],
-    "proceedings": "full",
-    "rates": []
-  },
-  {
-    "title": "FSE",
-    "desc": "Fast Software Encryption",
-    "area": "Security & Privacy",
-    "ccf": "B",
-    "core": "JP",
-    "coreVerified": true,
-    "nextDeadline": "2026-12-01",
-    "nextYear": 2027,
-    "nextAbstract": "",
-    "link": "https://fse.iacr.org/2027/",
-    "date": "May 24-28, 2027",
-    "place": "Maastricht, Netherlands",
-    "cycles": 2,
-    "roundLabels": [
-      "ToSC, Volume 2026, Issue 4 Submission deadline",
-      "ToSC, Volume 2027, Issue 1 Submission deadline"
-    ],
-    "proceedings": "full",
-    "rates": []
-  },
-  {
-    "title": "DSN",
-    "desc": "International Conference on Dependable Systems and Networks",
-    "area": "Security & Privacy",
-    "ccf": "B",
-    "core": "A",
-    "coreVerified": true,
-    "nextDeadline": "2026-12-02",
-    "nextYear": 2027,
-    "nextAbstract": "2026-11-25",
-    "link": "https://dsn2027-berlin.github.io/",
-    "date": "June 22-25, 2027",
-    "place": "Berlin, Germany",
-    "cycles": 1,
-    "roundLabels": [],
-    "proceedings": "full",
-    "rates": []
-  },
-  {
-    "title": "EuroS&P",
-    "desc": "IEEE European Symposium on Security and Privacy",
-    "area": "Security & Privacy",
-    "ccf": "C",
-    "core": "A",
-    "coreVerified": true,
-    "nextDeadline": "2026-12-02",
-    "nextYear": 2027,
-    "nextAbstract": "2026-11-25",
-    "link": "https://eurosp2027.ieee-security.org/",
-    "date": "July 5 - 9, 2027",
-    "place": "Madrid, Spain",
-    "cycles": 1,
-    "roundLabels": [],
-    "proceedings": "full",
-    "rates": []
-  },
-  {
-    "title": "AsiaCCS",
-    "desc": "Asia Conference on Computer and Communications Security",
-    "area": "Security & Privacy",
-    "ccf": "C",
-    "core": "A",
-    "coreVerified": true,
-    "nextDeadline": "2026-12-11",
-    "nextYear": 2027,
-    "nextAbstract": "",
-    "link": "https://asiaccs2027.cityu.edu.mo/index.html",
-    "date": "July 12-16, 2027",
-    "place": "Macau, China",
-    "cycles": 2,
-    "roundLabels": [
-      "1st round Deadline",
-      "2nd round Deadline"
-    ],
-    "proceedings": "full",
-    "rates": []
-  },
-  {
-    "title": "USENIX Security",
-    "desc": "USENIX Security Symposium",
-    "area": "Security & Privacy",
-    "ccf": "A",
-    "core": "A*",
-    "coreVerified": true,
-    "nextDeadline": "2027-01-26",
-    "nextYear": 2027,
-    "nextAbstract": "2027-01-19",
-    "link": "https://www.usenix.org/conference/usenixsecurity27",
-    "date": "August 11-13, 2027",
-    "place": "Denver, CO, USA",
-    "cycles": 2,
-    "roundLabels": [
-      "Cycle 1 Deadline",
-      "Cycle 2 Deadline"
-    ],
-    "proceedings": "full",
-    "rates": []
-  },
-  {
-    "title": "ACSAC",
-    "desc": "Annual Computer Security Applications Conference",
-    "area": "Security & Privacy",
-    "ccf": "B",
-    "core": "A",
-    "coreVerified": true,
-    "nextDeadline": "",
-    "nextYear": null,
-    "nextAbstract": "",
-    "link": "https://www.acsac.org/2026/",
-    "date": "December 7-11, 2026",
-    "place": "Los Angeles, California, USA",
-    "cycles": 1,
-    "roundLabels": [],
-    "proceedings": "full",
-    "rates": []
-  },
-  {
-    "title": "ASIACRYPT",
-    "desc": "International Conference on the Theory and Application of Cryptology and Information Security",
-    "area": "Security & Privacy",
-    "ccf": "B",
-    "core": "A",
-    "coreVerified": true,
-    "nextDeadline": "",
-    "nextYear": null,
-    "nextAbstract": "",
-    "link": "https://asiacrypt.iacr.org/2026/",
-    "date": "December 7-11, 2026",
-    "place": "Hong Kong, China",
-    "cycles": 1,
-    "roundLabels": [],
-    "proceedings": "full",
-    "rates": []
-  },
-  {
-    "title": "CCS",
-    "desc": "ACM Conference on Computer and Communications Security",
-    "area": "Security & Privacy",
-    "ccf": "A",
-    "core": "A*",
-    "coreVerified": true,
-    "nextDeadline": "",
-    "nextYear": null,
-    "nextAbstract": "",
-    "link": "https://www.sigsac.org/ccs/CCS2027/",
-    "date": "October 11-15, 2027",
-    "place": "Atlanta, USA",
-    "cycles": 1,
-    "roundLabels": [],
-    "proceedings": "full",
-    "rates": []
-  },
-  {
-    "title": "CRYPTO",
-    "desc": "International Cryptology Conference",
-    "area": "Security & Privacy",
-    "ccf": "A",
-    "core": "A*",
-    "coreVerified": false,
-    "nextDeadline": "",
-    "nextYear": null,
-    "nextAbstract": "",
-    "link": "https://crypto.iacr.org/2026/",
-    "date": "August 17-20, 2026",
-    "place": "Santa Barbara, USA",
-    "cycles": 1,
-    "roundLabels": [],
-    "proceedings": "full",
-    "rates": []
-  },
-  {
-    "title": "ESORICS",
-    "desc": "European Symposium on Research in Computer Security",
-    "area": "Security & Privacy",
-    "ccf": "B",
-    "core": "A",
-    "coreVerified": true,
-    "nextDeadline": "",
-    "nextYear": null,
-    "nextAbstract": "",
-    "link": "https://sites.google.com/di.uniroma1.it/esorics2026/home",
-    "date": "September 14-16, 2026",
-    "place": "Rome, Italy",
-    "cycles": 2,
-    "roundLabels": [
-      "Winter",
-      "Spring"
-    ],
-    "proceedings": "full",
-    "rates": []
-  },
-  {
-    "title": "EUROCRYPT",
-    "desc": "European Cryptology Conference",
-    "area": "Security & Privacy",
-    "ccf": "A",
-    "core": "A*",
-    "coreVerified": false,
-    "nextDeadline": "",
-    "nextYear": null,
-    "nextAbstract": "",
-    "link": "https://eurocrypt.iacr.org/2027/",
-    "date": "April 11-15, 2027",
-    "place": "Eindhoven, Netherlands",
-    "cycles": 1,
-    "roundLabels": [],
-    "proceedings": "full",
-    "rates": []
-  },
-  {
-    "title": "FC",
-    "desc": "Financial Cryptography and Data Security",
-    "area": "Security & Privacy",
-    "ccf": "C",
-    "core": "A",
-    "coreVerified": true,
-    "nextDeadline": "",
-    "nextYear": null,
-    "nextAbstract": "",
-    "link": "https://fc27.ifca.ai/",
-    "date": "February 8-12, 2027",
-    "place": "Barbados",
-    "cycles": 1,
-    "roundLabels": [],
-    "proceedings": "full",
-    "rates": []
-  },
-  {
-    "title": "NDSS",
-    "desc": "Network and Distributed System Security (NDSS) Symposium",
-    "area": "Security & Privacy",
-    "ccf": "A",
-    "core": "A*",
-    "coreVerified": true,
-    "nextDeadline": "",
-    "nextYear": null,
-    "nextAbstract": "",
-    "link": "https://www.ndss-symposium.org/ndss2027/",
-    "date": "March 22 - March 26, 2027",
-    "place": "Seoul, Republic of Korea",
-    "cycles": 2,
-    "roundLabels": [
-      "Summer",
-      "Fall"
-    ],
-    "proceedings": "full",
-    "rates": []
-  },
-  {
-    "title": "PKC",
-    "desc": "International Conference on Practice and Theory of Public-Key Cryptography",
-    "area": "Security & Privacy",
-    "ccf": "B",
-    "core": "B",
-    "coreVerified": true,
-    "nextDeadline": "",
-    "nextYear": null,
-    "nextAbstract": "",
-    "link": "https://pkc.iacr.org/2027/",
-    "date": "March 1-4, 2027",
-    "place": "Taipei, Taiwan",
-    "cycles": 1,
-    "roundLabels": [],
-    "proceedings": "full",
-    "rates": []
-  },
-  {
-    "title": "RAID",
-    "desc": "International Symposium on Recent Advances in Intrusion Detection",
-    "area": "Security & Privacy",
-    "ccf": "B",
-    "core": "A",
-    "coreVerified": true,
-    "nextDeadline": "",
-    "nextYear": null,
-    "nextAbstract": "",
-    "link": "https://raid2026.org",
-    "date": "October 12-14, 2026",
-    "place": "Lancaster, UK",
-    "cycles": 1,
-    "roundLabels": [],
-    "proceedings": "full",
-    "rates": []
-  },
-  {
-    "title": "SRDS",
-    "desc": "IEEE International Symposium on Reliable Distributed Systems",
-    "area": "Security & Privacy",
-    "ccf": "B",
-    "core": "B",
-    "coreVerified": true,
-    "nextDeadline": "",
-    "nextYear": null,
-    "nextAbstract": "",
-    "link": "https://srds-conference.org/",
-    "date": "September 22-24, 2026",
-    "place": "Rome, Italy",
-    "cycles": 1,
-    "roundLabels": [],
-    "proceedings": "full",
-    "rates": []
-  },
-  {
-    "title": "TCC",
-    "desc": "Theory of Cryptography Conference",
-    "area": "Security & Privacy",
-    "ccf": "B",
-    "core": "A",
-    "coreVerified": true,
-    "nextDeadline": "",
-    "nextYear": null,
-    "nextAbstract": "",
-    "link": "https://tcc.iacr.org/2026/",
-    "date": "November 10-13, 2026",
-    "place": "New York City, USA",
-    "cycles": 1,
-    "roundLabels": [],
-    "proceedings": "full",
-    "rates": []
+    "tier": 2
   }
 ];
 
@@ -2258,7 +2440,7 @@ export const others = [
   {
     "title": "ACCV",
     "desc": "Asian Conference on Computer Vision",
-    "area": "AI / ML",
+    "area": "AI / ML / Data Mining",
     "ccf": "C",
     "core": "B",
     "coreVerified": true,
@@ -2271,7 +2453,8 @@ export const others = [
     "cycles": 1,
     "roundLabels": [],
     "proceedings": "full",
-    "rates": []
+    "rates": [],
+    "tier": 3
   },
   {
     "title": "ACNS",
@@ -2292,7 +2475,8 @@ export const others = [
       "Cycle 2 Submission deadline"
     ],
     "proceedings": "full",
-    "rates": []
+    "rates": [],
+    "tier": 3
   },
   {
     "title": "AFT",
@@ -2310,12 +2494,13 @@ export const others = [
     "cycles": 1,
     "roundLabels": [],
     "proceedings": "full",
-    "rates": []
+    "rates": [],
+    "tier": 3
   },
   {
     "title": "ALT",
     "desc": "International Conference on Algorithmic Learning Theory",
-    "area": "AI / ML",
+    "area": "AI / ML / Data Mining",
     "ccf": "C",
     "core": "B",
     "coreVerified": true,
@@ -2328,7 +2513,8 @@ export const others = [
     "cycles": 1,
     "roundLabels": [],
     "proceedings": "full",
-    "rates": []
+    "rates": [],
+    "tier": 3
   },
   {
     "title": "APBC",
@@ -2346,7 +2532,8 @@ export const others = [
     "cycles": 1,
     "roundLabels": [],
     "proceedings": "full",
-    "rates": []
+    "rates": [],
+    "tier": 3
   },
   {
     "title": "BigData",
@@ -2364,7 +2551,8 @@ export const others = [
     "cycles": 1,
     "roundLabels": [],
     "proceedings": "full",
-    "rates": []
+    "rates": [],
+    "tier": 3
   },
   {
     "title": "Cloud",
@@ -2382,12 +2570,13 @@ export const others = [
     "cycles": 1,
     "roundLabels": [],
     "proceedings": "full",
-    "rates": []
+    "rates": [],
+    "tier": 3
   },
   {
     "title": "CoNLL",
     "desc": "Conference on Computational Natural Language Learning",
-    "area": "AI / ML",
+    "area": "AI / ML / Data Mining",
     "ccf": "C",
     "core": "B",
     "coreVerified": true,
@@ -2400,7 +2589,8 @@ export const others = [
     "cycles": 1,
     "roundLabels": [],
     "proceedings": "full",
-    "rates": []
+    "rates": [],
+    "tier": 3
   },
   {
     "title": "CT-RSA",
@@ -2418,12 +2608,13 @@ export const others = [
     "cycles": 1,
     "roundLabels": [],
     "proceedings": "full",
-    "rates": []
+    "rates": [],
+    "tier": 3
   },
   {
     "title": "ESWC",
     "desc": "European Semantic Web Conference",
-    "area": "Data & Mining",
+    "area": "AI / ML / Data Mining",
     "ccf": "C",
     "core": "B",
     "coreVerified": true,
@@ -2436,12 +2627,13 @@ export const others = [
     "cycles": 1,
     "roundLabels": [],
     "proceedings": "full",
-    "rates": []
+    "rates": [],
+    "tier": 3
   },
   {
     "title": "FG",
     "desc": "International Conference on Automatic Face and Gesture Recognition",
-    "area": "AI / ML",
+    "area": "AI / ML / Data Mining",
     "ccf": "C",
     "core": "B",
     "coreVerified": true,
@@ -2454,12 +2646,13 @@ export const others = [
     "cycles": 1,
     "roundLabels": [],
     "proceedings": "full",
-    "rates": []
+    "rates": [],
+    "tier": 3
   },
   {
     "title": "ICONIP",
     "desc": "International Conference on Neural Information Processing",
-    "area": "AI / ML",
+    "area": "AI / ML / Data Mining",
     "ccf": "C",
     "core": "B",
     "coreVerified": true,
@@ -2472,12 +2665,13 @@ export const others = [
     "cycles": 1,
     "roundLabels": [],
     "proceedings": "full",
-    "rates": []
+    "rates": [],
+    "tier": 3
   },
   {
     "title": "ICPR",
     "desc": "International Conference on Pattern Recognition",
-    "area": "AI / ML",
+    "area": "AI / ML / Data Mining",
     "ccf": "C",
     "core": "B",
     "coreVerified": true,
@@ -2490,12 +2684,13 @@ export const others = [
     "cycles": 1,
     "roundLabels": [],
     "proceedings": "full",
-    "rates": []
+    "rates": [],
+    "tier": 3
   },
   {
     "title": "ICTAI",
     "desc": "International Conference on Tools with Artificial Intellignce",
-    "area": "AI / ML",
+    "area": "AI / ML / Data Mining",
     "ccf": "C",
     "core": "B",
     "coreVerified": true,
@@ -2508,12 +2703,13 @@ export const others = [
     "cycles": 1,
     "roundLabels": [],
     "proceedings": "full",
-    "rates": []
+    "rates": [],
+    "tier": 3
   },
   {
     "title": "IEEE CEC",
     "desc": "IEEE Congress on Evolutionary Computation",
-    "area": "AI / ML",
+    "area": "AI / ML / Data Mining",
     "ccf": "C",
     "core": "B",
     "coreVerified": true,
@@ -2526,12 +2722,13 @@ export const others = [
     "cycles": 1,
     "roundLabels": [],
     "proceedings": "full",
-    "rates": []
+    "rates": [],
+    "tier": 3
   },
   {
     "title": "IJCB",
     "desc": "International Joint Conference on Biometrics",
-    "area": "AI / ML",
+    "area": "AI / ML / Data Mining",
     "ccf": "C",
     "core": "B",
     "coreVerified": true,
@@ -2544,12 +2741,13 @@ export const others = [
     "cycles": 1,
     "roundLabels": [],
     "proceedings": "full",
-    "rates": []
+    "rates": [],
+    "tier": 3
   },
   {
     "title": "IJCNN",
     "desc": "International Joint Conference on Neural Networks",
-    "area": "AI / ML",
+    "area": "AI / ML / Data Mining",
     "ccf": "C",
     "core": "B",
     "coreVerified": true,
@@ -2562,12 +2760,13 @@ export const others = [
     "cycles": 1,
     "roundLabels": [],
     "proceedings": "full",
-    "rates": []
+    "rates": [],
+    "tier": 3
   },
   {
     "title": "PAKDD",
     "desc": "Pacific-Asia Conference on Knowledge Discovery and Data Mining",
-    "area": "Data & Mining",
+    "area": "AI / ML / Data Mining",
     "ccf": "C",
     "core": "B",
     "coreVerified": true,
@@ -2580,7 +2779,8 @@ export const others = [
     "cycles": 1,
     "roundLabels": [],
     "proceedings": "full",
-    "rates": []
+    "rates": [],
+    "tier": 3
   },
   {
     "title": "PAM",
@@ -2598,12 +2798,13 @@ export const others = [
     "cycles": 1,
     "roundLabels": [],
     "proceedings": "full",
-    "rates": []
+    "rates": [],
+    "tier": 3
   },
   {
     "title": "PRICAI",
     "desc": "Pacific Rim International Conference on Artificial Intelligence",
-    "area": "AI / ML",
+    "area": "AI / ML / Data Mining",
     "ccf": "C",
     "core": "B",
     "coreVerified": true,
@@ -2616,7 +2817,8 @@ export const others = [
     "cycles": 1,
     "roundLabels": [],
     "proceedings": "full",
-    "rates": []
+    "rates": [],
+    "tier": 3
   },
   {
     "title": "SAC",
@@ -2637,7 +2839,8 @@ export const others = [
       "Cycle 2"
     ],
     "proceedings": "full",
-    "rates": []
+    "rates": [],
+    "tier": 3
   },
   {
     "title": "SMC",
@@ -2655,7 +2858,8 @@ export const others = [
     "cycles": 1,
     "roundLabels": [],
     "proceedings": "full",
-    "rates": []
+    "rates": [],
+    "tier": 3
   },
   {
     "title": "SOUPS",
@@ -2673,7 +2877,8 @@ export const others = [
     "cycles": 1,
     "roundLabels": [],
     "proceedings": "full",
-    "rates": []
+    "rates": [],
+    "tier": 3
   },
   {
     "title": "TrustCom",
@@ -2691,7 +2896,8 @@ export const others = [
     "cycles": 1,
     "roundLabels": [],
     "proceedings": "full",
-    "rates": []
+    "rates": [],
+    "tier": 3
   },
   {
     "title": "WiSec",
@@ -2712,12 +2918,13 @@ export const others = [
       "Round 2"
     ],
     "proceedings": "full",
-    "rates": []
+    "rates": [],
+    "tier": 3
   },
   {
     "title": "ESANN",
     "desc": "European Symposium on Artificial Neural Networks, Computational Intelligence and Machine Learning",
-    "area": "AI / ML",
+    "area": "AI / ML / Data Mining",
     "ccf": "N",
     "core": "B",
     "coreVerified": true,
@@ -2730,12 +2937,13 @@ export const others = [
     "cycles": 1,
     "roundLabels": [],
     "proceedings": "full",
-    "rates": []
+    "rates": [],
+    "tier": 3
   },
   {
     "title": "EuroGP",
     "desc": "European Conference on Genetic Programming",
-    "area": "AI / ML",
+    "area": "AI / ML / Data Mining",
     "ccf": "N",
     "core": "B",
     "coreVerified": true,
@@ -2748,12 +2956,13 @@ export const others = [
     "cycles": 1,
     "roundLabels": [],
     "proceedings": "full",
-    "rates": []
+    "rates": [],
+    "tier": 3
   },
   {
     "title": "EvoApplications",
     "desc": "International Conference on the Applications of Evolutionary Computation",
-    "area": "AI / ML",
+    "area": "AI / ML / Data Mining",
     "ccf": "N",
     "core": "B",
     "coreVerified": true,
@@ -2766,12 +2975,13 @@ export const others = [
     "cycles": 1,
     "roundLabels": [],
     "proceedings": "full",
-    "rates": []
+    "rates": [],
+    "tier": 3
   },
   {
     "title": "EvoCOP",
     "desc": "European Conference on Evolutionary Computation in Combinatorial Optimisation",
-    "area": "AI / ML",
+    "area": "AI / ML / Data Mining",
     "ccf": "N",
     "core": "B",
     "coreVerified": true,
@@ -2784,12 +2994,13 @@ export const others = [
     "cycles": 1,
     "roundLabels": [],
     "proceedings": "full",
-    "rates": []
+    "rates": [],
+    "tier": 3
   },
   {
     "title": "IJCNLP",
     "desc": "International Joint Conference on Natural Language Processing",
-    "area": "AI / ML",
+    "area": "AI / ML / Data Mining",
     "ccf": "N",
     "core": "B",
     "coreVerified": true,
@@ -2806,7 +3017,8 @@ export const others = [
       "Reviewed-paper commitment, round 2"
     ],
     "proceedings": "full",
-    "rates": []
+    "rates": [],
+    "tier": 3
   },
   {
     "title": "NOMS",
@@ -2824,12 +3036,13 @@ export const others = [
     "cycles": 1,
     "roundLabels": [],
     "proceedings": "full",
-    "rates": []
+    "rates": [],
+    "tier": 3
   },
   {
     "title": "RuleML+RR",
     "desc": "International Joint Conference on Rules and Reasoning",
-    "area": "AI / ML",
+    "area": "AI / ML / Data Mining",
     "ccf": "N",
     "core": "B",
     "coreVerified": true,
@@ -2842,12 +3055,13 @@ export const others = [
     "cycles": 1,
     "roundLabels": [],
     "proceedings": "full",
-    "rates": []
+    "rates": [],
+    "tier": 3
   },
   {
     "title": "ADMA",
     "desc": "The International Conference on Advanced Data Mining and Applications",
-    "area": "Data & Mining",
+    "area": "AI / ML / Data Mining",
     "ccf": "C",
     "core": "C",
     "coreVerified": true,
@@ -2860,12 +3074,13 @@ export const others = [
     "cycles": 1,
     "roundLabels": [],
     "proceedings": "full",
-    "rates": []
+    "rates": [],
+    "tier": 3
   },
   {
     "title": "APWeb-WAIM",
     "desc": "APWeb-WAIM joint international conference on Web and Big Data",
-    "area": "Data & Mining",
+    "area": "AI / ML / Data Mining",
     "ccf": "C",
     "core": "C",
     "coreVerified": false,
@@ -2881,7 +3096,8 @@ export const others = [
       "second round"
     ],
     "proceedings": "full",
-    "rates": []
+    "rates": [],
+    "tier": 3
   },
   {
     "title": "DIMVA",
@@ -2902,12 +3118,13 @@ export const others = [
       "Cycle 2"
     ],
     "proceedings": "full",
-    "rates": []
+    "rates": [],
+    "tier": 3
   },
   {
     "title": "ICANN",
     "desc": "International Conference on Artificial Neural Networks",
-    "area": "AI / ML",
+    "area": "AI / ML / Data Mining",
     "ccf": "C",
     "core": "C",
     "coreVerified": true,
@@ -2920,7 +3137,8 @@ export const others = [
     "cycles": 1,
     "roundLabels": [],
     "proceedings": "full",
-    "rates": []
+    "rates": [],
+    "tier": 3
   },
   {
     "title": "ICICS",
@@ -2941,7 +3159,8 @@ export const others = [
       "Second round"
     ],
     "proceedings": "full",
-    "rates": []
+    "rates": [],
+    "tier": 3
   },
   {
     "title": "IH&MMSec",
@@ -2959,7 +3178,8 @@ export const others = [
     "cycles": 1,
     "roundLabels": [],
     "proceedings": "full",
-    "rates": []
+    "rates": [],
+    "tier": 3
   },
   {
     "title": "ISC",
@@ -2977,12 +3197,13 @@ export const others = [
     "cycles": 1,
     "roundLabels": [],
     "proceedings": "full",
-    "rates": []
+    "rates": [],
+    "tier": 3
   },
   {
     "title": "KSEM",
     "desc": "International Conference on Knowledge Science, Engineering and Management",
-    "area": "AI / ML",
+    "area": "AI / ML / Data Mining",
     "ccf": "C",
     "core": "C",
     "coreVerified": true,
@@ -2995,7 +3216,8 @@ export const others = [
     "cycles": 1,
     "roundLabels": [],
     "proceedings": "full",
-    "rates": []
+    "rates": [],
+    "tier": 3
   },
   {
     "title": "NSPW",
@@ -3013,7 +3235,8 @@ export const others = [
     "cycles": 1,
     "roundLabels": [],
     "proceedings": "full",
-    "rates": []
+    "rates": [],
+    "tier": 3
   },
   {
     "title": "SACMAT",
@@ -3034,7 +3257,8 @@ export const others = [
       "Second Cycle"
     ],
     "proceedings": "full",
-    "rates": []
+    "rates": [],
+    "tier": 3
   },
   {
     "title": "SecureComm",
@@ -3055,12 +3279,13 @@ export const others = [
       "Full Paper Submission deadline (Cycle 2)"
     ],
     "proceedings": "full",
-    "rates": []
+    "rates": [],
+    "tier": 3
   },
   {
     "title": "EvoMUSART",
     "desc": "International Conference on Artificial Intelligence in Music, Sound, Art and Design",
-    "area": "AI / ML",
+    "area": "AI / ML / Data Mining",
     "ccf": "N",
     "core": "C",
     "coreVerified": true,
@@ -3073,12 +3298,13 @@ export const others = [
     "cycles": 1,
     "roundLabels": [],
     "proceedings": "full",
-    "rates": []
+    "rates": [],
+    "tier": 3
   },
   {
     "title": "ICMLA",
     "desc": "International Conference on Machine Learning and Applications",
-    "area": "AI / ML",
+    "area": "AI / ML / Data Mining",
     "ccf": "N",
     "core": "C",
     "coreVerified": true,
@@ -3091,12 +3317,13 @@ export const others = [
     "cycles": 1,
     "roundLabels": [],
     "proceedings": "full",
-    "rates": []
+    "rates": [],
+    "tier": 3
   },
   {
     "title": "RSS",
     "desc": "Robotics Science and Systems",
-    "area": "AI / ML",
+    "area": "AI / ML / Data Mining",
     "ccf": "N",
     "core": "TBR",
     "coreVerified": true,
@@ -3109,7 +3336,8 @@ export const others = [
     "cycles": 1,
     "roundLabels": [],
     "proceedings": "full",
-    "rates": []
+    "rates": [],
+    "tier": 3
   },
   {
     "title": "ACISP",
@@ -3130,12 +3358,13 @@ export const others = [
       "2nd round Deadline"
     ],
     "proceedings": "full",
-    "rates": []
+    "rates": [],
+    "tier": 3
   },
   {
     "title": "ACML",
     "desc": "Asian Conference on Machine Learning",
-    "area": "AI / ML",
+    "area": "AI / ML / Data Mining",
     "ccf": "C",
     "core": "N",
     "coreVerified": true,
@@ -3151,7 +3380,8 @@ export const others = [
       "Conference Track"
     ],
     "proceedings": "full",
-    "rates": []
+    "rates": [],
+    "tier": 3
   },
   {
     "title": "BlockSys",
@@ -3169,7 +3399,8 @@ export const others = [
     "cycles": 1,
     "roundLabels": [],
     "proceedings": "full",
-    "rates": []
+    "rates": [],
+    "tier": 3
   },
   {
     "title": "CODASPY",
@@ -3187,7 +3418,8 @@ export const others = [
     "cycles": 1,
     "roundLabels": [],
     "proceedings": "full",
-    "rates": []
+    "rates": [],
+    "tier": 3
   },
   {
     "title": "CSCloud",
@@ -3205,12 +3437,13 @@ export const others = [
     "cycles": 1,
     "roundLabels": [],
     "proceedings": "full",
-    "rates": []
+    "rates": [],
+    "tier": 3
   },
   {
     "title": "DAI",
     "desc": "International Conference on Distributed Artificial Intelligence",
-    "area": "AI / ML",
+    "area": "AI / ML / Data Mining",
     "ccf": "C",
     "core": "N",
     "coreVerified": false,
@@ -3223,7 +3456,8 @@ export const others = [
     "cycles": 1,
     "roundLabels": [],
     "proceedings": "full",
-    "rates": []
+    "rates": [],
+    "tier": 3
   },
   {
     "title": "DFRWS",
@@ -3241,7 +3475,8 @@ export const others = [
     "cycles": 1,
     "roundLabels": [],
     "proceedings": "full",
-    "rates": []
+    "rates": [],
+    "tier": 3
   },
   {
     "title": "DFRWS APAC",
@@ -3259,7 +3494,8 @@ export const others = [
     "cycles": 1,
     "roundLabels": [],
     "proceedings": "full",
-    "rates": []
+    "rates": [],
+    "tier": 3
   },
   {
     "title": "HotSec",
@@ -3277,7 +3513,8 @@ export const others = [
     "cycles": 1,
     "roundLabels": [],
     "proceedings": "full",
-    "rates": []
+    "rates": [],
+    "tier": 3
   },
   {
     "title": "ICDF2C",
@@ -3295,7 +3532,8 @@ export const others = [
     "cycles": 1,
     "roundLabels": [],
     "proceedings": "full",
-    "rates": []
+    "rates": [],
+    "tier": 3
   },
   {
     "title": "ICIC",
@@ -3313,7 +3551,8 @@ export const others = [
     "cycles": 1,
     "roundLabels": [],
     "proceedings": "full",
-    "rates": []
+    "rates": [],
+    "tier": 3
   },
   {
     "title": "IFIP WG 11.9",
@@ -3331,7 +3570,8 @@ export const others = [
     "cycles": 1,
     "roundLabels": [],
     "proceedings": "full",
-    "rates": []
+    "rates": [],
+    "tier": 3
   },
   {
     "title": "INSCRYPT",
@@ -3349,7 +3589,8 @@ export const others = [
     "cycles": 1,
     "roundLabels": [],
     "proceedings": "full",
-    "rates": []
+    "rates": [],
+    "tier": 3
   },
   {
     "title": "ISBRA",
@@ -3367,12 +3608,13 @@ export const others = [
     "cycles": 1,
     "roundLabels": [],
     "proceedings": "full",
-    "rates": []
+    "rates": [],
+    "tier": 3
   },
   {
     "title": "NLPCC",
     "desc": "CCF International Conference on Natural Language Processing and Chinese Computing",
-    "area": "AI / ML",
+    "area": "AI / ML / Data Mining",
     "ccf": "C",
     "core": "N",
     "coreVerified": false,
@@ -3385,7 +3627,8 @@ export const others = [
     "cycles": 1,
     "roundLabels": [],
     "proceedings": "full",
-    "rates": []
+    "rates": [],
+    "tier": 3
   },
   {
     "title": "SEC",
@@ -3403,12 +3646,13 @@ export const others = [
     "cycles": 1,
     "roundLabels": [],
     "proceedings": "full",
-    "rates": []
+    "rates": [],
+    "tier": 3
   },
   {
     "title": "WISA",
     "desc": "Web Information Systems and Applications",
-    "area": "Data & Mining",
+    "area": "AI / ML / Data Mining",
     "ccf": "C",
     "core": "N",
     "coreVerified": true,
@@ -3421,7 +3665,8 @@ export const others = [
     "cycles": 1,
     "roundLabels": [],
     "proceedings": "full",
-    "rates": []
+    "rates": [],
+    "tier": 3
   },
   {
     "title": "ACM TURC",
@@ -3439,7 +3684,8 @@ export const others = [
     "cycles": 1,
     "roundLabels": [],
     "proceedings": "full",
-    "rates": []
+    "rates": [],
+    "tier": 3
   },
   {
     "title": "BIS",
@@ -3457,12 +3703,13 @@ export const others = [
     "cycles": 1,
     "roundLabels": [],
     "proceedings": "full",
-    "rates": []
+    "rates": [],
+    "tier": 3
   },
   {
     "title": "CICAI",
     "desc": "CAAI International Conference on Artificial Intelligence",
-    "area": "AI / ML",
+    "area": "AI / ML / Data Mining",
     "ccf": "N",
     "core": "N",
     "coreVerified": false,
@@ -3475,7 +3722,8 @@ export const others = [
     "cycles": 1,
     "roundLabels": [],
     "proceedings": "full",
-    "rates": []
+    "rates": [],
+    "tier": 3
   },
   {
     "title": "CNS",
@@ -3493,12 +3741,13 @@ export const others = [
     "cycles": 1,
     "roundLabels": [],
     "proceedings": "full",
-    "rates": []
+    "rates": [],
+    "tier": 3
   },
   {
     "title": "COLM",
     "desc": "Conference on Language Modeling",
-    "area": "AI / ML",
+    "area": "AI / ML / Data Mining",
     "ccf": "N",
     "core": "N",
     "coreVerified": false,
@@ -3511,12 +3760,13 @@ export const others = [
     "cycles": 1,
     "roundLabels": [],
     "proceedings": "full",
-    "rates": []
+    "rates": [],
+    "tier": 3
   },
   {
     "title": "CoRL",
     "desc": "The Conference on Robot Learning",
-    "area": "AI / ML",
+    "area": "AI / ML / Data Mining",
     "ccf": "N",
     "core": "N",
     "coreVerified": true,
@@ -3529,12 +3779,13 @@ export const others = [
     "cycles": 1,
     "roundLabels": [],
     "proceedings": "full",
-    "rates": []
+    "rates": [],
+    "tier": 3
   },
   {
     "title": "CPAL",
     "desc": "The Conference on Parsimony and Learning",
-    "area": "AI / ML",
+    "area": "AI / ML / Data Mining",
     "ccf": "N",
     "core": "N",
     "coreVerified": false,
@@ -3547,12 +3798,13 @@ export const others = [
     "cycles": 1,
     "roundLabels": [],
     "proceedings": "full",
-    "rates": []
+    "rates": [],
+    "tier": 3
   },
   {
     "title": "CVC",
     "desc": "Computer Vision Conference",
-    "area": "AI / ML",
+    "area": "AI / ML / Data Mining",
     "ccf": "N",
     "core": "N",
     "coreVerified": false,
@@ -3568,12 +3820,13 @@ export const others = [
       "Round 2"
     ],
     "proceedings": "full",
-    "rates": []
+    "rates": [],
+    "tier": 3
   },
   {
     "title": "EUVIP",
     "desc": "European Conference on Visual Information Processing",
-    "area": "AI / ML",
+    "area": "AI / ML / Data Mining",
     "ccf": "N",
     "core": "N",
     "coreVerified": false,
@@ -3586,7 +3839,8 @@ export const others = [
     "cycles": 1,
     "roundLabels": [],
     "proceedings": "full",
-    "rates": []
+    "rates": [],
+    "tier": 3
   },
   {
     "title": "ICAIF",
@@ -3604,7 +3858,8 @@ export const others = [
     "cycles": 1,
     "roundLabels": [],
     "proceedings": "full",
-    "rates": []
+    "rates": [],
+    "tier": 3
   },
   {
     "title": "INDOCRYPT",
@@ -3622,12 +3877,13 @@ export const others = [
     "cycles": 1,
     "roundLabels": [],
     "proceedings": "full",
-    "rates": []
+    "rates": [],
+    "tier": 3
   },
   {
     "title": "LOG",
     "desc": "Learning on Graphs Conference",
-    "area": "AI / ML",
+    "area": "AI / ML / Data Mining",
     "ccf": "N",
     "core": "N",
     "coreVerified": false,
@@ -3640,7 +3896,8 @@ export const others = [
     "cycles": 1,
     "roundLabels": [],
     "proceedings": "full",
-    "rates": []
+    "rates": [],
+    "tier": 3
   },
   {
     "title": "MLSys",
@@ -3658,12 +3915,13 @@ export const others = [
     "cycles": 1,
     "roundLabels": [],
     "proceedings": "full",
-    "rates": []
+    "rates": [],
+    "tier": 3
   },
   {
     "title": "ProbML",
     "desc": "Symposium on Probabilistic Machine Learning",
-    "area": "AI / ML",
+    "area": "AI / ML / Data Mining",
     "ccf": "N",
     "core": "N",
     "coreVerified": false,
@@ -3676,7 +3934,8 @@ export const others = [
     "cycles": 1,
     "roundLabels": [],
     "proceedings": "full",
-    "rates": []
+    "rates": [],
+    "tier": 3
   },
   {
     "title": "SAI",
@@ -3697,7 +3956,8 @@ export const others = [
       "Round 2"
     ],
     "proceedings": "full",
-    "rates": []
+    "rates": [],
+    "tier": 3
   },
   {
     "title": "SATML",
@@ -3715,91 +3975,34 @@ export const others = [
     "cycles": 1,
     "roundLabels": [],
     "proceedings": "full",
-    "rates": []
+    "rates": [],
+    "tier": 3
   }
 ];
 
 // Hand-maintained; the ranking tables do not reach these.
 export const notable = [
   {
-    "title": "COLM",
-    "desc": "Conference on Language Modeling",
-    "area": "AI / ML",
-    "proceedings": "full",
-    "note": "Full proceedings; founded 2024, too new for either ranking table.",
-    "link": "https://colmweb.org/",
-    "ccf": "N",
-    "core": "N",
-    "coreVerified": false,
-    "nextDeadline": "",
-    "nextYear": null,
-    "nextAbstract": "",
-    "date": "",
-    "place": "",
-    "cycles": 1,
-    "roundLabels": [],
-    "rates": [],
-    "notable": true
-  },
-  {
-    "title": "MLSys",
-    "desc": "Conference on Machine Learning and Systems",
-    "area": "AI / ML",
-    "proceedings": "full",
-    "note": "Full proceedings; unranked by both CCF and CORE despite being the main ML-systems venue.",
-    "link": "https://mlsys.org/",
-    "ccf": "N",
-    "core": "N",
-    "coreVerified": false,
-    "nextDeadline": "",
-    "nextYear": null,
-    "nextAbstract": "",
-    "date": "",
-    "place": "",
-    "cycles": 1,
-    "roundLabels": [],
-    "rates": [],
-    "notable": true
-  },
-  {
-    "title": "AMIA",
-    "desc": "AMIA Annual Symposium",
-    "area": "Biomedical & Health",
-    "proceedings": "full",
-    "note": "Full proceedings, indexed in PubMed; the central US biomedical-informatics meeting.",
-    "link": "https://amia.org/education-events/amia-annual-symposium",
-    "ccf": "N",
-    "core": "N",
-    "coreVerified": false,
-    "nextDeadline": "",
-    "nextYear": null,
-    "nextAbstract": "",
-    "date": "",
-    "place": "",
-    "cycles": 1,
-    "roundLabels": [],
-    "rates": [],
-    "notable": true
-  },
-  {
     "title": "INFORMS Annual Meeting",
-    "desc": "INFORMS Annual Meeting",
+    "desc": "Institute for Operations Research and the Management Sciences",
     "area": "Science & Interdisciplinary",
     "proceedings": "none",
     "note": "Abstract-driven society meeting; no archival proceedings. The main annual gathering for operations research and analytics.",
     "link": "https://meetings.informs.org/",
+    "equivalent": null,
     "ccf": "N",
     "core": "N",
     "coreVerified": false,
-    "nextDeadline": "",
-    "nextYear": null,
     "nextAbstract": "",
     "date": "",
     "place": "",
     "cycles": 1,
     "roundLabels": [],
     "rates": [],
-    "notable": true
+    "notable": true,
+    "nextDeadline": "",
+    "nextYear": null,
+    "tier": 3
   },
   {
     "title": "SIAM MDS",
@@ -3808,17 +4011,19 @@ export const notable = [
     "proceedings": "none",
     "note": "Minisymposium and talk format, no archival proceedings. Where the mathematical side of data science meets.",
     "link": "https://www.siam.org/conferences-events/siam-conferences/mds26/",
+    "equivalent": null,
     "ccf": "N",
     "core": "N",
     "coreVerified": false,
-    "nextDeadline": "",
-    "nextYear": null,
     "nextAbstract": "",
     "date": "",
     "place": "",
     "cycles": 1,
     "roundLabels": [],
     "rates": [],
-    "notable": true
+    "notable": true,
+    "nextDeadline": "",
+    "nextYear": null,
+    "tier": 3
   }
 ];

@@ -2,34 +2,34 @@
 import Layout from '../layouts/Layout.astro';
 import { ranked, others, notable } from '../data/conferences.js';
 
-const AREAS = ['AI / ML', 'Security & Privacy', 'Data & Mining', 'Biomedical & Health', 'Science & Interdisciplinary'];
+const AREAS = ['AI / ML / Data Mining', 'Security & Privacy', 'Biomedical & Health', 'Science & Interdisciplinary'];
+const AREA_SHORT = {
+  'AI / ML / Data Mining': 'AI · ML · Data Mining',
+  'Security & Privacy': 'Security & Privacy',
+  'Biomedical & Health': 'Biomedical & Health',
+  'Science & Interdisciplinary': 'Science & Interdisciplinary',
+};
+const slug = (a) => a.toLowerCase().replace(/[^a-z]+/g, '-').replace(/^-|-$/g, '');
+
 const coreLabel = { 'A*': 'A*', A: 'A', B: 'B', C: 'C', TBR: 'TBR', JP: 'jrnl', N: '—' };
 const coreClass = (c) => `core-${c === 'A*' ? 'as' : c.toLowerCase()}`;
 
-const byArea = (list) => AREAS.map((a) => ({ area: a, items: list.filter((c) => c.area === a) })).filter((g) => g.items.length);
+// Acceptance rates are only as fresh as the upstream table; anything before
+// this is shown with the year called out rather than quietly passed off as current.
+const FRESH_FROM = 2024;
 
-// A sparkline of the acceptance-rate history, scaled to its own range so the
-// shape of one venue's trend is readable rather than flattened by the others.
-const spark = (rates) => {
-  if (!rates || rates.length < 3) return null;
-  const vals = rates.map((p) => p.r);
-  const lo = Math.min(...vals);
-  const hi = Math.max(...vals);
-  const span = hi - lo || 1;
-  const w = 64;
-  const h = 16;
-  const pts = rates.map((p, i) => {
-    const x = (i / (rates.length - 1)) * w;
-    const y = h - ((p.r - lo) / span) * h;
-    return `${x.toFixed(1)},${y.toFixed(1)}`;
-  });
-  return { points: pts.join(' '), last: pts[pts.length - 1].split(','), w, h, lo, hi };
-};
+// One list, date order. Venues with no announced date sit at the end rather
+// than pretending to a position in the calendar.
+const society = notable.map((c) => ({ ...c, society: true, tier: 3 }));
+const all = [...ranked, ...society];
+const dated = all.filter((c) => c.nextDeadline).sort((a, b) => a.nextDeadline.localeCompare(b.nextDeadline));
+const undated = all.filter((c) => !c.nextDeadline).sort((a, b) => a.title.localeCompare(b.title));
+const rows = [...dated, ...undated];
 
-const withSpark = (c) => ({ ...c, spark: spark(c.rates) });
-const rankedGroups = byArea(ranked.map(withSpark));
-const notableGroups = byArea(notable);
-const totalRated = ranked.filter((c) => c.rates.length).length;
+const counts = AREAS.map((a) => ({ area: a, n: rows.filter((c) => c.area === a).length })).filter((x) => x.n);
+const totalRated = rows.filter((c) => c.rates.length).length;
+const freshRated = rows.filter((c) => c.rates.length && c.rates[c.rates.length - 1].y >= FRESH_FROM).length;
+
 ---
 <Layout title="Conferences | Zhiqian Chen">
   <main class="container">
@@ -44,102 +44,113 @@ const totalRated = ranked.filter((c) => c.rates.length).length;
     </nav>
 
     <section class="head">
-      <h1>Conferences</h1>
-      <p class="sub">
-        Grouped by field, soonest deadline first. A venue is listed when it clears CORE A*–A or CCF A–B,
-        either one. Acceptance history is shown where it exists ({totalRated} of {ranked.length}).
-      </p>
+      <div class="head-row">
+        <div class="head-text">
+          <h1>Conferences</h1>
+          <p class="sub">
+            One list, soonest deadline first. A venue is listed when it clears CORE A*&ndash;A or CCF A&ndash;B,
+            either one &mdash; plus unranked venues that matter anyway. Row tint is importance; the
+            ranks that justify it are in the last column.
+          </p>
+        </div>
+        <div class="filter" role="group" aria-label="Filter by field">
+          <span class="filter-label">Field</span>
+          <button class="fbtn is-on" data-area="all" type="button">All<span class="fcount">{rows.length}</span></button>
+          {counts.map((c) => (
+            <button class="fbtn" data-area={slug(c.area)} type="button">{AREA_SHORT[c.area]}<span class="fcount">{c.n}</span></button>
+          ))}
+        </div>
+      </div>
+
       <ul class="legend">
-        <li><span class="chip band-urgent"></span>Under 30 days</li>
-        <li><span class="chip band-soon"></span>30-60</li>
-        <li><span class="chip band-later"></span>60-90</li>
+        <li><span class="tier-swatch t1"></span><strong>Top</strong> &mdash; CCF A or CORE A*</li>
+        <li><span class="tier-swatch t2"></span><strong>Strong</strong> &mdash; CCF B or CORE A</li>
+        <li><span class="tier-swatch t3"></span><strong>Listed</strong> &mdash; unranked, importance stated</li>
+        <li class="legend-gap"><span class="chip band-urgent"></span>&lt;30d</li>
+        <li><span class="chip band-soon"></span>30&ndash;60</li>
+        <li><span class="chip band-later"></span>60&ndash;90</li>
         <li><span class="chip band-far"></span>90+</li>
-        <li><span class="rounds-tag">2&times;</span>cycles per year</li>
+        <li><span class="rounds-tag">2&times;</span>cycles / year</li>
       </ul>
     </section>
 
-    {rankedGroups.map((g) => (
-      <section class="section">
-        <h2 class="area-head">{g.area}<span class="area-count">{g.items.length}</span></h2>
-        <div class="table-wrap">
-          <table class="confs">
-            <thead>
-              <tr>
-                <th class="c-core">CORE</th>
-                <th class="c-ccf">CCF</th>
-                <th class="c-name">Conference</th>
-                <th class="c-date">Next deadline</th>
-                <th class="c-rate">Acceptance</th>
-                <th class="c-when">Latest edition</th>
-              </tr>
-            </thead>
-            <tbody>
-              {g.items.map((c) => (
-                <tr>
-                  <td class="c-core"><span class={`pill ${coreClass(c.core)}`} title={c.coreVerified ? 'Confirmed against the official CORE2023 list' : 'Not found in the official CORE2023 export'}>{coreLabel[c.core]}</span></td>
-                  <td class="c-ccf"><span class={`pill ccf-${c.ccf.toLowerCase()}`}>{c.ccf === 'N' ? '—' : c.ccf}</span></td>
-                  <td class="c-name">
+    <section class="section">
+      <div class="table-wrap">
+        <table class="confs">
+          <thead>
+            <tr>
+              <th class="c-name">Conference</th>
+              <th class="c-date">Next deadline</th>
+              <th class="c-when">Edition</th>
+              <th class="c-rate">Acceptance</th>
+              <th class="c-rank">Ranking</th>
+            </tr>
+          </thead>
+          <tbody>
+            {rows.map((c) => {
+              const last = c.rates.length ? c.rates[c.rates.length - 1] : null;
+              const stale = last && last.y < FRESH_FROM;
+              return (
+              <tr class={`tier-${c.tier}`} data-area={slug(c.area)}>
+                <td class="c-name">
+                  <span class="name-line">
                     {c.link
                       ? <a class="conf-name" href={c.link} target="_blank" rel="noopener">{c.title}</a>
                       : <span class="conf-name">{c.title}</span>}
                     {c.cycles > 1 && <span class="rounds-tag" title={c.roundLabels.join(' · ')}>{c.cycles}&times;</span>}
-                    <span class="conf-desc">{c.desc}</span>
-                  </td>
-                  <td class="c-date">
-                    {c.nextDeadline
-                      ? <>
-                          <span class="dl">{c.nextDeadline}</span>
-                          <span class="dl-days" data-deadline={c.nextDeadline}></span>
-                          <span class="dl-sub">{c.nextYear} edition</span>
-                        </>
-                      : <span class="none">not announced</span>}
-                  </td>
-                  <td class="c-rate">
-                    {c.rates.length
-                      ? <>
-                          <span class="rate-now">{c.rates[c.rates.length - 1].r}%</span>
-                          <span class="rate-year">{c.rates[c.rates.length - 1].y}</span>
-                          {c.spark && (
-                            <svg class="spark" viewBox={`0 -2 ${c.spark.w} ${c.spark.h + 4}`} width={c.spark.w} height={c.spark.h + 4} aria-hidden="true">
-                              <polyline points={c.spark.points} fill="none" stroke="currentColor" stroke-width="1.2" stroke-linejoin="round" />
-                              <circle cx={c.spark.last[0]} cy={c.spark.last[1]} r="1.8" fill="currentColor" />
-                            </svg>
-                          )}
-                          {c.spark && <span class="spark-range" title={`${c.rates.length} years on record`}>{c.spark.hi}–{c.spark.lo}%</span>}
-                        </>
-                      : <span class="none">&mdash;</span>}
-                  </td>
-                  <td class="c-when">
-                    {c.date ? <span class="when">{c.date}</span> : <span class="none">&mdash;</span>}
-                    {c.place && <span class="where">{c.place}</span>}
-                  </td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
-      </section>
-    ))}
-
-    <section class="section">
-      <h2 class="area-head">Not ranked, still matters<span class="area-count">{notable.length}</span></h2>
-      <p class="area-note">
-        CCF and CORE only index conferences with archival proceedings, so society meetings and very new venues
-        fall straight through both tables. These are tracked by hand.
-      </p>
-      <div class="notable-grid">
-        {notableGroups.map((g) => g.items.map((c) => (
-          <article class="notable-card">
-            <div class="notable-head">
-              <a class="conf-name" href={c.link} target="_blank" rel="noopener">{c.title}</a>
-              <span class={`proc proc-${c.proceedings}`}>{c.proceedings === 'none' ? 'no proceedings' : 'full proceedings'}</span>
-            </div>
-            <span class="conf-desc">{c.desc}</span>
-            <span class="area-tag">{c.area}</span>
-            <p class="notable-note">{c.note}</p>
-          </article>
-        )))}
+                    {c.notable && !c.society && <span class="new-tag">emerging</span>}
+                    {c.society && <span class="proc proc-none">no proceedings</span>}
+                  </span>
+                  <span class="conf-desc">{c.desc}</span>
+                  <span class="area-tag">{AREA_SHORT[c.area]}</span>
+                  {c.note && <p class="why">{c.note}</p>}
+                </td>
+                <td class="c-date">
+                  {c.nextDeadline
+                    ? <>
+                        <span class="dl">{c.nextDeadline}</span>
+                        <span class="dl-days" data-deadline={c.nextDeadline}></span>
+                      </>
+                    : <span class="none">not announced</span>}
+                </td>
+                <td class="c-when">
+                  {c.nextYear ? <span class="ed">{c.nextYear}</span> : null}
+                  {c.date ? <span class="when">{c.date}</span> : <span class="none">&mdash;</span>}
+                  {c.place && <span class="where">{c.place}</span>}
+                </td>
+                <td class="c-rate">
+                  {last
+                    ? <div class={`rate ${stale ? 'is-stale' : ''}`} title={c.rates.map((p) => `${p.y}: ${p.r}%`).join('\n')}>
+                        <div class="rate-top">
+                          <span class="rate-now">{last.r}%</span>
+                          <span class="rate-year">{stale ? `as of ${last.y}` : last.y}</span>
+                        </div>
+                        <div class="rate-track"><span class="rate-fill" style={`width:${Math.min(last.r / 45, 1) * 100}%`}></span></div>
+                        <span class="rate-n">{c.rates.length} yr{c.rates.length > 1 ? 's' : ''} on record</span>
+                      </div>
+                    : <span class="none">no published rate</span>}
+                </td>
+                <td class="c-rank">
+                  {c.society
+                    ? <span class="eqv eqv-none">not rankable &mdash; no archival proceedings</span>
+                    : c.notable
+                    ? <span class="eqv">unranked &mdash; treated as {c.equivalent}</span>
+                    : <span class="ranks">
+                        <span class={`pill ccf-${c.ccf.toLowerCase()}`} title="CCF catalogue">CCF {c.ccf === 'N' ? '—' : c.ccf}</span>
+                        <span class={`pill ${coreClass(c.core)}`} title={c.coreVerified ? 'Confirmed against the official CORE2023 export' : 'Not found in the official CORE2023 export'}>CORE {coreLabel[c.core]}</span>
+                      </span>}
+                </td>
+              </tr>
+            );})}
+          </tbody>
+        </table>
       </div>
+      <p class="empty-note" hidden>No conference in this field.</p>
+      <p class="area-note">
+        Acceptance rates: {totalRated} of {rows.length} venues publish one, and {freshRated} of those are {FRESH_FROM} or later.
+        The rest are labelled with the year they stop &mdash; the upstream compilation simply stopped updating them.
+        Main track only; Findings and workshops are excluded.
+      </p>
     </section>
 
     <section class="section">
@@ -149,154 +160,194 @@ const totalRated = ranked.filter((c) => c.rates.length).length;
           <span class="rest-count">{others.length}</span>
           <span class="rest-note">CORE B or lower and CCF C or lower</span>
         </summary>
-        <div class="table-wrap">
-          <table class="confs">
-            <tbody>
-              {others.map((c) => (
-                <tr>
-                  <td class="c-core"><span class={`pill ${coreClass(c.core)}`}>{coreLabel[c.core]}</span></td>
-                  <td class="c-ccf"><span class={`pill ccf-${c.ccf.toLowerCase()}`}>{c.ccf === 'N' ? '—' : c.ccf}</span></td>
-                  <td class="c-name">
-                    {c.link
-                      ? <a class="conf-name" href={c.link} target="_blank" rel="noopener">{c.title}</a>
-                      : <span class="conf-name">{c.title}</span>}
-                    <span class="conf-desc">{c.desc}</span>
-                  </td>
-                  <td class="c-area"><span class="area-tag">{c.area}</span></td>
-                  <td class="c-date">{c.nextDeadline
-                    ? <><span class="dl">{c.nextDeadline}</span><span class="dl-days" data-deadline={c.nextDeadline}></span></>
-                    : <span class="none">&mdash;</span>}</td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
+        <ul class="rest-list">
+          {others.map((c) => (
+            <li>
+              <a href={c.link} target="_blank" rel="noopener">{c.title}</a>
+              <span class={`pill ccf-${c.ccf.toLowerCase()}`}>CCF {c.ccf === 'N' ? '—' : c.ccf}</span>
+              <span class={`pill ${coreClass(c.core)}`}>CORE {coreLabel[c.core]}</span>
+              <span class="rest-desc">{c.desc}</span>
+            </li>
+          ))}
+        </ul>
       </details>
-      <p class="fineprint">
-        CORE from the official <a href="https://portal.core.edu.au/conf-ranks/" target="_blank" rel="noopener">CORE2023 list</a>, matched by full name.
-        TBR means under review; <em>jrnl</em> means CORE records the venue as having become a journal.
-        CCF ranks and deadlines from <a href="https://github.com/ccfddl/ccf-deadlines" target="_blank" rel="noopener">ccfddl/ccf-deadlines</a>,
-        a community mirror of the CCF catalogue, so those are not machine-verified.
-        Acceptance rates from <a href="https://github.com/lixin4ever/Conference-Acceptance-Rate" target="_blank" rel="noopener">lixin4ever/Conference-Acceptance-Rate</a>, main track only — Findings and similar second tracks are excluded.
-        Regenerated weekly; check each call before relying on a date.
-      </p>
     </section>
+
+    <p class="src-note">
+      CCF ranks mirror the CCF catalogue through <a href="https://github.com/ccfddl/ccf-deadlines" target="_blank" rel="noopener">ccfddl/ccf-deadlines</a>;
+      CORE ranks are cross-checked against the official CORE2023 export from
+      <a href="https://portal.core.edu.au/conf-ranks/" target="_blank" rel="noopener">portal.core.edu.au</a>;
+      acceptance rates from <a href="https://github.com/lixin4ever/Conference-Acceptance-Rate" target="_blank" rel="noopener">lixin4ever/Conference-Acceptance-Rate</a>.
+      Rebuilt weekly. Dates marked “not announced” are genuinely unpublished &mdash; nothing here is estimated.
+    </p>
   </main>
-
-  <script>
-    // Fill the countdown slots from the reader's own today. The slots are
-    // rendered server-side and only filled here: an element created in script
-    // carries no scope attribute, so the component's CSS would not reach it.
-    const now = new Date();
-    const today = Date.UTC(now.getFullYear(), now.getMonth(), now.getDate());
-    document.querySelectorAll('[data-deadline]').forEach((el) => {
-      const [y, m, d] = el.getAttribute('data-deadline').split('-').map(Number);
-      const days = Math.round((Date.UTC(y, m - 1, d) - today) / 86400000);
-      let band = 'far';
-      if (days < 0) band = 'past';
-      else if (days < 30) band = 'urgent';
-      else if (days < 60) band = 'soon';
-      else if (days < 90) band = 'later';
-      el.classList.add(`band-${band}`);
-      el.textContent = days < 0 ? 'passed' : days === 0 ? 'today' : `${days}d`;
-    });
-  </script>
 </Layout>
+
 <style>
-  :root { --accent:#2563eb; --ink:#0f172a; --muted:#475569; }
-  .container { max-width: min(95vw, 1600px); margin: 0 auto; padding: 20px; box-sizing: border-box; }
-  .top-nav { margin-bottom: 14px; padding: 10px 0 14px; display:flex; flex-wrap:wrap; gap:8px; align-items:center; background:transparent; border:none; border-radius:0; box-shadow:none; }
-  .top-nav a { text-decoration:none; color:var(--ink); font-family:'Montserrat',sans-serif; font-size:.9rem; padding:7px 10px; border-radius:999px; background:transparent; }
-  .top-nav a:hover { background:#f1f5f9; color:#0f172a; }
-  .top-nav a[aria-current="page"] { background:#e2e8f0; color:#0f172a; box-shadow:inset 0 1px 2px rgba(15,23,42,0.10); }
-  .nav-ghost { font-size:.78rem; margin-left:4px; opacity:.85; }
-  .nav-substack { vertical-align:-1px; opacity:.85; }
+  .container { max-width: 1120px; margin: 0 auto; padding: 32px 24px 64px; }
+  .head { margin-bottom: 18px; }
+  .head-row { display:flex; align-items:flex-start; justify-content:space-between; gap:28px; flex-wrap:wrap; }
+  .head-text { flex:1 1 440px; min-width:0; }
+  h1 { font-size: 1.9rem; margin: 0 0 6px; letter-spacing: -.02em; }
+  .sub { margin: 0; color: #475569; font-size: .92rem; line-height: 1.6; max-width: 62ch; }
 
-  .head { margin:6px 0 14px; }
-  .head h1 { font-family:'Montserrat',sans-serif; font-size:2rem; margin:0 0 8px; }
-  .sub { margin:0 0 12px; color:var(--muted); font-size:.92rem; line-height:1.55; }
-  .legend { list-style:none; margin:0; padding:0; display:flex; flex-wrap:wrap; gap:14px; font-size:.78rem; color:#475569; }
+  /* Field filter, top-right. */
+  .filter { flex:0 0 auto; display:flex; flex-wrap:wrap; gap:6px; align-items:center; justify-content:flex-end; max-width:420px; }
+  .filter-label { width:100%; text-align:right; font-size:.7rem; letter-spacing:.09em; text-transform:uppercase; color:#94a3b8; margin-bottom:2px; }
+  .fbtn { display:inline-flex; align-items:center; gap:6px; padding:5px 11px; border-radius:999px; cursor:pointer;
+    border:1px solid rgba(148,163,184,.4); background:#fff; color:#475569; font:inherit; font-size:.76rem; font-weight:600;
+    transition:background .15s ease, border-color .15s ease, color .15s ease; }
+  .fbtn:hover { border-color:rgba(37,99,235,.45); color:var(--accent); }
+  .fbtn.is-on { background:#1e293b; border-color:#1e293b; color:#fff; }
+  .fcount { font-size:.68rem; font-weight:700; opacity:.6; }
+  .fbtn.is-on .fcount { opacity:.75; }
+
+  .legend { list-style:none; margin:14px 0 0; padding:0; display:flex; flex-wrap:wrap; gap:14px; font-size:.76rem; color:#475569; }
   .legend li { display:inline-flex; align-items:center; gap:6px; }
-  .chip { width:20px; height:11px; border-radius:999px; display:inline-block; }
+  .legend strong { font-weight:700; color:#1e293b; }
+  .legend-gap { margin-left:10px; }
+  .tier-swatch { width:22px; height:12px; border-radius:3px; border:1px solid rgba(148,163,184,.4); }
+  .tier-swatch.t1 { background:#fee2e2; border-color:#fca5a5; }
+  .tier-swatch.t2 { background:#ffedd5; border-color:#fdba74; }
+  .tier-swatch.t3 { background:#fef9c3; border-color:#fde047; }
+  .chip { width:11px; height:11px; border-radius:3px; display:inline-block; }
+  .chip.band-urgent { background:#dc2626; } .chip.band-soon { background:#fde68a; }
+  .chip.band-later { background:#2563eb; } .chip.band-far { background:#64748b; }
 
-  .section { margin-top:22px; }
-  .area-head { display:flex; align-items:center; gap:9px; font-family:'Montserrat',sans-serif; font-size:1.02rem; margin:0 0 9px; padding-bottom:6px; border-bottom:1px solid rgba(148,163,184,.3); }
-  .area-count { font-size:.72rem; font-weight:700; color:#64748b; background:#f1f5f9; border-radius:999px; padding:1px 8px; }
-  .area-note { margin:0 0 12px; font-size:.84rem; color:var(--muted); line-height:1.5; }
+  .section { margin-top: 26px; }
+  .area-head { font-size:1.02rem; margin:0 0 6px; display:flex; align-items:center; gap:9px; }
+  .area-count { font-size:.72rem; font-weight:700; color:#64748b; background:#f1f5f9; border-radius:999px; padding:2px 8px; }
+  .area-note { margin:8px 0 0; font-size:.8rem; color:#64748b; line-height:1.6; max-width:78ch; }
 
-  .table-wrap { overflow-x:auto; }
-  .confs { width:100%; border-collapse:collapse; font-size:.84rem; }
-  .confs thead th { text-align:left; font-family:'Montserrat',sans-serif; font-size:.66rem; font-weight:700; letter-spacing:.1em; text-transform:uppercase; color:#94a3b8; padding:0 10px 5px; white-space:nowrap; }
-  .confs td { padding:7px 10px; border-bottom:1px solid rgba(148,163,184,.14); vertical-align:baseline; }
-  .confs tbody tr:hover { background:#f8fafc; }
-  .c-core, .c-ccf, .c-date, .c-rate, .c-area { width:1%; white-space:nowrap; }
-  .c-when { width:22%; }
+  .table-wrap { overflow-x:auto; border:1px solid rgba(148,163,184,.26); border-radius:12px; }
+  table.confs { width:100%; border-collapse:collapse; font-size:.84rem; }
+  .confs thead th { position:sticky; top:0; z-index:2; background:#f8fafc; text-align:left; font-size:.68rem;
+    letter-spacing:.08em; text-transform:uppercase; color:#64748b; font-weight:700;
+    padding:9px 12px; border-bottom:1px solid rgba(148,163,184,.3); white-space:nowrap; }
+  .confs td { padding:10px 12px; border-bottom:1px solid rgba(148,163,184,.17); vertical-align:top; }
+  .confs tbody tr:last-child td { border-bottom:0; }
 
-  /* Rank is one scale, darkest at the top; nothing else on the page uses it. */
-  .pill { display:inline-block; min-width:30px; text-align:center; padding:2px 7px; border-radius:999px; font-size:.7rem; font-weight:700; color:#fff; }
-  .core-as { background:#1e3a8a; }
-  .core-a { background:#2563eb; }
-  .core-b { background:#60a5fa; color:#0f172a; }
-  .core-c { background:#dbeafe; color:#1e3a8a; }
-  .core-tbr, .core-jp, .core-n { background:#f1f5f9; color:#94a3b8; }
-  .ccf-a { background:#7f1d1d; }
-  .ccf-b { background:#b91c1c; }
-  .ccf-c { background:#fecaca; color:#7f1d1d; }
-  .ccf-n { background:#f1f5f9; color:#94a3b8; }
+  /* Row tint is the importance tier and nothing else. */
+  tr.tier-1 { background:#fef1f1; } tr.tier-1:hover { background:#fde4e4; }
+  tr.tier-2 { background:#fff7ed; } tr.tier-2:hover { background:#ffecd6; }
+  tr.tier-3 { background:#fefce4; } tr.tier-3:hover { background:#fdf7cc; }
 
-  .conf-name { font-weight:700; color:#0f172a; text-decoration:none; border-bottom:1px solid rgba(37,99,235,.35); }
-  a.conf-name:hover { color:var(--accent); border-bottom-color:var(--accent); }
-  .conf-desc { display:block; font-size:.76rem; color:#64748b; line-height:1.35; margin-top:1px; }
-  .rounds-tag { display:inline-block; margin-left:6px; font-size:.66rem; font-weight:700; color:#475569; background:#e2e8f0; border-radius:4px; padding:1px 5px; }
-  .area-tag { display:inline-block; font-size:.72rem; color:#475569; background:#f1f5f9; border-radius:999px; padding:2px 8px; }
+  .c-name { min-width:230px; }
+  .name-line { display:flex; align-items:center; gap:7px; flex-wrap:wrap; }
+  .conf-name { font-weight:700; color:#0f172a; text-decoration:none; font-size:.9rem; }
+  a.conf-name:hover { color:var(--accent); text-decoration:underline; }
+  .conf-desc { display:block; text-align:left; color:#64748b; font-size:.74rem; line-height:1.45; margin-top:2px; max-width:42ch; }
+  .area-tag { display:inline-block; margin-top:5px; font-size:.65rem; letter-spacing:.05em; text-transform:uppercase;
+    color:#64748b; background:rgba(148,163,184,.17); border-radius:4px; padding:1px 6px; }
+  .rounds-tag { font-size:.64rem; font-weight:800; color:#0369a1; background:#e0f2fe; border-radius:4px; padding:1px 5px; }
+  .new-tag { font-size:.62rem; font-weight:800; letter-spacing:.05em; text-transform:uppercase;
+    color:#5b21b6; background:#ede9fe; border:1px solid #ddd6fe; border-radius:4px; padding:1px 6px; }
 
-  .dl { font-weight:600; color:#0f172a; font-variant-numeric:tabular-nums; }
-  .dl-days { display:inline-block; margin-left:7px; padding:1px 7px; border-radius:999px; font-size:.68rem; font-weight:700; color:#fff; font-variant-numeric:tabular-nums; background:#64748b; }
-  .dl-days:empty { display:none; }
-  .dl-days.band-urgent { background:#b91c1c; }
-  .dl-days.band-soon { background:#fde68a; color:#92400e; }
-  .dl-days.band-later { background:#1d4ed8; }
-  .dl-days.band-far { background:#64748b; }
-  .dl-days.band-past { background:#e2e8f0; color:#94a3b8; }
-  /* Scoped to the legend swatch: a bare .band-* also painted the date cell. */
-  .chip.band-urgent { background:#b91c1c; }
-  .chip.band-soon { background:#fde68a; }
-  .chip.band-later { background:#1d4ed8; }
-  .chip.band-far { background:#64748b; }
-  .dl-sub { display:block; font-size:.68rem; color:#94a3b8; }
+  .c-date { white-space:nowrap; }
+  .dl { display:block; font-variant-numeric:tabular-nums; font-weight:600; color:#1e293b; }
+  .dl-days { display:inline-block; margin-top:4px; font-size:.68rem; font-weight:800; color:#fff;
+    border-radius:999px; padding:2px 8px; background:#64748b; }
+  .dl-days.band-urgent { background:#dc2626; }
+  .dl-days.band-soon   { background:#fde68a; color:#92400e; }
+  .dl-days.band-later  { background:#2563eb; }
+  .dl-days.band-far    { background:#64748b; }
+  .dl-days.band-past   { background:#e2e8f0; color:#64748b; }
 
-  .rate-now { font-weight:700; color:#0f172a; font-variant-numeric:tabular-nums; }
-  .rate-year { font-size:.68rem; color:#94a3b8; margin-left:4px; }
-  .spark { display:block; margin-top:2px; color:#2563eb; overflow:visible; }
-  .spark-range { display:block; font-size:.64rem; color:#cbd5e1; font-variant-numeric:tabular-nums; }
+  .c-when { font-size:.75rem; color:#475569; min-width:140px; }
+  .ed { display:block; font-weight:700; color:#1e293b; font-size:.8rem; }
+  .when { display:block; }
+  .where { display:block; color:#94a3b8; }
 
-  .when { color:#334155; }
-  .where { display:block; font-size:.74rem; color:#94a3b8; }
-  .none { color:#cbd5e1; }
+  .c-rate { min-width:148px; }
+  .rate-top { display:flex; align-items:baseline; gap:7px; }
+  .rate-now { font-weight:800; color:#0f172a; font-variant-numeric:tabular-nums; }
+  .rate-year { font-size:.68rem; color:#64748b; font-variant-numeric:tabular-nums; }
+  .rate.is-stale .rate-year { color:#b45309; background:#fef3c7; border-radius:4px; padding:0 5px; font-weight:700; }
+  .rate-track { margin-top:5px; height:6px; border-radius:999px; background:rgba(148,163,184,.26); overflow:hidden; }
+  .rate-fill { display:block; height:100%; border-radius:999px; background:linear-gradient(90deg,#2563eb,#60a5fa); }
+  .rate.is-stale .rate-fill { background:linear-gradient(90deg,#94a3b8,#cbd5e1); }
+  .rate-n { display:block; margin-top:4px; font-size:.65rem; color:#94a3b8; }
 
-  .notable-grid { display:grid; grid-template-columns:repeat(auto-fit, minmax(280px, 1fr)); gap:12px; }
-  .notable-card { border:1px dashed rgba(148,163,184,.42); border-radius:12px; padding:12px 14px; background:#fff; }
-  .notable-head { display:flex; flex-wrap:wrap; align-items:baseline; gap:8px; }
-  .proc { font-size:.66rem; font-weight:700; border-radius:999px; padding:2px 8px; }
-  .proc-none { color:#92400e; background:#fde68a; }
-  .proc-full { color:#166534; background:#dcfce7; }
-  .notable-card .conf-desc { margin:3px 0 6px; }
-  .notable-note { margin:7px 0 0; font-size:.8rem; color:#475569; line-height:1.45; }
+  .c-rank { white-space:nowrap; }
+  .ranks { display:flex; flex-direction:column; gap:4px; align-items:flex-start; }
+  .pill { display:inline-block; min-width:60px; text-align:center; padding:2px 8px; border-radius:5px;
+    font-size:.68rem; font-weight:800; color:#fff; letter-spacing:.02em; }
+  /* CCF: red / orange / yellow. CORE: red / orange / yellow / green. Same hues,
+     so a reader compares the two tables without relearning a palette. */
+  .ccf-a { background:#dc2626; } .ccf-b { background:#c2410c; } .ccf-c { background:#a16207; }
+  .ccf-n { background:#e2e8f0; color:#64748b; }
+  .core-as { background:#dc2626; } .core-a { background:#c2410c; } .core-b { background:#a16207; }
+  .core-c { background:#4d7c0f; }
+  .core-tbr, .core-jp, .core-n { background:#e2e8f0; color:#64748b; }
+  .eqv-none { color:#92400e; background:#fffbeb; border-color:#fde68a; }
+  .why { margin:6px 0 0; text-align:left; font-size:.72rem; line-height:1.5; color:#64748b; max-width:44ch;
+    border-left:2px solid rgba(148,163,184,.4); padding-left:8px; }
+  .eqv { display:inline-block; max-width:180px; white-space:normal; font-size:.7rem; line-height:1.4;
+    color:#5b21b6; background:#f5f3ff; border:1px solid #ddd6fe; border-radius:6px; padding:4px 8px; font-weight:600; }
 
-  .rest > summary { display:flex; align-items:center; gap:10px; cursor:pointer; list-style:none; padding:10px 0; border-top:1px solid rgba(148,163,184,.3); }
+  .none { color:#b6c0cc; font-size:.75rem; }
+  .empty-note { margin:16px 0 0; font-size:.84rem; color:#64748b; }
+
+  .notable-grid { display:grid; grid-template-columns:repeat(auto-fill, minmax(260px,1fr)); gap:12px; margin-top:12px; }
+  .notable-card { border:1px dashed rgba(148,163,184,.5); border-radius:11px; padding:12px 14px; background:#fcfdff; }
+  .notable-head { display:flex; align-items:center; justify-content:space-between; gap:8px; }
+  .proc { font-size:.62rem; font-weight:800; letter-spacing:.04em; text-transform:uppercase; border-radius:4px; padding:2px 6px; }
+  .proc-none { color:#92400e; background:#fef3c7; }
+  .notable-note { margin:7px 0 0; font-size:.76rem; color:#475569; line-height:1.55; }
+
+  .rest { border:1px solid rgba(148,163,184,.26); border-radius:12px; background:#fbfcfe; }
+  .rest > summary { cursor:pointer; list-style:none; display:flex; align-items:center; gap:10px; padding:12px 16px; }
   .rest > summary::-webkit-details-marker { display:none; }
-  .rest > summary h2 { font-family:'Montserrat',sans-serif; font-size:1rem; margin:0; }
-  .rest > summary::after { content:'\f078'; font-family:'Font Awesome 6 Free'; font-weight:900; font-size:.72rem; color:#94a3b8; transition:transform .15s ease; }
-  .rest[open] > summary::after { transform:rotate(180deg); }
-  .rest-count { font-size:.72rem; font-weight:700; color:#64748b; background:#f1f5f9; border-radius:999px; padding:1px 8px; }
-  .rest-note { font-size:.78rem; color:#94a3b8; margin-right:auto; }
+  .rest > summary h2 { font-size:.98rem; margin:0; }
+  .rest-count { font-size:.72rem; font-weight:700; color:#64748b; background:#f1f5f9; border-radius:999px; padding:2px 8px; }
+  .rest-note { font-size:.74rem; color:#94a3b8; margin-left:auto; }
+  .rest-list { list-style:none; margin:0; padding:0 16px 14px; display:grid;
+    grid-template-columns:repeat(auto-fill, minmax(300px,1fr)); gap:7px 18px; }
+  .rest-list li { display:grid; grid-template-columns:auto auto auto 1fr; gap:7px; align-items:center; font-size:.78rem; }
+  .rest-list a { font-weight:700; color:#334155; text-decoration:none; }
+  .rest-list a:hover { color:var(--accent); }
+  .rest-desc { color:#94a3b8; font-size:.71rem; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
 
-  .fineprint { margin:16px 0 0; font-size:.74rem; color:#94a3b8; line-height:1.55; }
-  .fineprint a { color:#64748b; }
+  .src-note { margin-top:22px; font-size:.73rem; color:#94a3b8; line-height:1.7; }
+  .src-note a { color:#64748b; }
 
-  @media (max-width: 900px) {
-    .confs { font-size:.8rem; }
-    .c-when { width:auto; }
-    .conf-desc { display:none; }
+  @media (max-width: 760px) {
+    .head-row { flex-direction:column; }
+    .filter { justify-content:flex-start; max-width:none; }
+    .filter-label { text-align:left; }
+    .c-when, .c-rate { display:none; }
   }
 </style>
+
+<script>
+  const DAY = 86400000;
+  const today = new Date(); today.setHours(0, 0, 0, 0);
+
+  document.querySelectorAll('.dl-days').forEach((el) => {
+    const raw = el.getAttribute('data-deadline');
+    if (!raw) return;
+    const [y, m, d] = raw.split('-').map(Number);
+    const days = Math.round((new Date(y, m - 1, d).getTime() - today.getTime()) / DAY);
+    const band = days < 0 ? 'past' : days < 30 ? 'urgent' : days < 60 ? 'soon' : days < 90 ? 'later' : 'far';
+    el.classList.add('band-' + band);
+    el.textContent = days < 0 ? `closed ${-days}d ago` : days === 0 ? 'today' : `${days}d`;
+  });
+
+  // Field filter. Rows carry their own area, so this is pure show/hide — the
+  // date order never changes underneath the reader.
+  const rows = Array.from(document.querySelectorAll('table.confs tbody tr'));
+  const empty = document.querySelector('.empty-note');
+  document.querySelectorAll('.fbtn').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const want = btn.dataset.area;
+      document.querySelectorAll('.fbtn').forEach((b) => b.classList.toggle('is-on', b === btn));
+      let shown = 0;
+      rows.forEach((r) => {
+        const on = want === 'all' || r.dataset.area === want;
+        r.style.display = on ? '' : 'none';
+        if (on) shown++;
+      });
+      if (empty) empty.hidden = shown > 0;
+    });
+  });
+</script>
