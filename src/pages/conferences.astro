@@ -3,11 +3,11 @@ import Layout from '../layouts/Layout.astro';
 import { ranked, others, notable } from '../data/conferences.js';
 
 const SOCIETY = 'Society meetings';
-const AREAS = ['AI / ML / Data Mining', 'Security & Privacy', 'Biomedical & Health', 'Science & Interdisciplinary', SOCIETY];
+const AREAS = ['AI / ML / Data Mining', 'Security & Privacy', 'Medicine, Biology & Genetics', 'Science & Interdisciplinary', SOCIETY];
 const AREA_SHORT = {
   'AI / ML / Data Mining': 'AI · ML · Data Mining',
   'Security & Privacy': 'Security & Privacy',
-  'Biomedical & Health': 'Biomedical & Health',
+  'Medicine, Biology & Genetics': 'Medicine · Biology · Genetics',
   'Science & Interdisciplinary': 'Science & Interdisciplinary',
   [SOCIETY]: 'Society meetings',
 };
@@ -17,7 +17,7 @@ const slug = (a) => a.toLowerCase().replace(/[^a-z]+/g, '-').replace(/^-|-$/g, '
 const AREA_ICON = {
   'AI / ML / Data Mining': 'fa-brain',
   'Security & Privacy': 'fa-shield-halved',
-  'Biomedical & Health': 'fa-dna',
+  'Medicine, Biology & Genetics': 'fa-dna',
   'Science & Interdisciplinary': 'fa-flask',
   [SOCIETY]: 'fa-people-group',
 };
@@ -37,7 +37,7 @@ const FRESH_FROM = 2024;
 
 // One list, date order. Venues with no announced date sit at the end rather
 // than pretending to a position in the calendar.
-const society = notable.map((c) => ({ ...c, society: true, tier: 3, homeArea: c.area, area: SOCIETY }));
+const society = notable.map((c) => ({ ...c, society: true }));
 const all = [...ranked, ...society];
 const dated = all.filter((c) => c.nextDeadline).sort((a, b) => a.nextDeadline.localeCompare(b.nextDeadline));
 const undated = all.filter((c) => !c.nextDeadline).sort((a, b) => a.title.localeCompare(b.title));
@@ -72,7 +72,6 @@ const freshRated = rows.filter((c) => c.rates.length && c.rates[c.rates.length -
         </div>
         <div class="filter" role="group" aria-label="Filter by field">
           <span class="filter-label">Field</span>
-          <button class="fbtn" data-area="all" type="button"><i class="fas fa-layer-group" aria-hidden="true"></i>All<span class="fcount">{rows.length}</span></button>
           {counts.map((c) => (
             <button class={`fbtn area-${slug(c.area)}${c.area === DEFAULT_AREA ? ' is-on' : ''}`} data-area={slug(c.area)} type="button">
               <i class={`fas ${AREA_ICON[c.area]}`} aria-hidden="true"></i>{AREA_SHORT[c.area]}<span class="fcount">{c.n}</span>
@@ -90,7 +89,7 @@ const freshRated = rows.filter((c) => c.rates.length && c.rates[c.rates.length -
         <li><span class="chip band-later"></span>60&ndash;90</li>
         <li><span class="chip band-far"></span>90+</li>
         <li><span class="rounds-tag">2&times;</span>cycles / year</li>
-        <li><span class="est-tag">est.</span>rolled forward from last year</li>
+        <li><span class="est-tag">est.<i class="fas fa-circle-question" aria-hidden="true"></i></span>estimated from last year's deadline</li>
       </ul>
     </section>
 
@@ -124,7 +123,6 @@ const freshRated = rows.filter((c) => c.rates.length && c.rates[c.rates.length -
                   </span>
                   <span class="conf-desc">{c.desc}</span>
                   <span class={`area-tag area-${slug(c.area)}`}><i class={`fas ${AREA_ICON[c.area]}`} aria-hidden="true"></i>{AREA_SHORT[c.area]}</span>
-                  {c.homeArea && <span class={`area-tag area-${slug(c.homeArea)}`}><i class={`fas ${AREA_ICON[c.homeArea]}`} aria-hidden="true"></i>{AREA_SHORT[c.homeArea]}</span>}
                   {c.note && <p class="why">{c.note}</p>}
                 </td>
                 <td class="c-date">
@@ -132,7 +130,7 @@ const freshRated = rows.filter((c) => c.rates.length && c.rates[c.rates.length -
                     ? <>
                         <span class={`dl ${c.estimated ? 'is-est' : ''}`}>{c.nextDeadline}</span>
                         <span class="dl-days" data-deadline={c.nextDeadline}></span>
-                        {c.estimated && <span class="est-tag" title={`Not announced. Rolled forward from the ${c.estFrom} deadline.`}>est.</span>}
+                        {c.estimated && <span class="est-tag" title={`Not announced yet. Estimated by rolling last year's deadline (${c.estFrom}) forward.`}>est.<i class="fas fa-circle-question" aria-hidden="true"></i></span>}
                       </>
                     : <span class="none">not announced</span>}
                 </td>
@@ -282,13 +280,13 @@ const freshRated = rows.filter((c) => c.rates.length && c.rates[c.rates.length -
   /* One hue per field, shared by the tag and the filter button. */
   .area-ai-ml-data-mining        { color:#6d28d9; background:#f3f0ff; }
   .area-security-privacy         { color:#0f766e; background:#effcfa; }
-  .area-biomedical-health        { color:#be185d; background:#fdf2f8; }
+  .area-medicine-biology-genetics { color:#be185d; background:#fdf2f8; }
   .area-science-interdisciplinary{ color:#1d4ed8; background:#eff6ff; }
   .area-society-meetings         { color:#a16207; background:#fefce8; }
   .fbtn i { font-size:.8rem; }
   .fbtn.area-ai-ml-data-mining:not(.is-on)         { color:#6d28d9; border-color:#ddd6fe; }
   .fbtn.area-security-privacy:not(.is-on)          { color:#0f766e; border-color:#99f6e4; }
-  .fbtn.area-biomedical-health:not(.is-on)         { color:#be185d; border-color:#fbcfe8; }
+  .fbtn.area-medicine-biology-genetics:not(.is-on) { color:#be185d; border-color:#fbcfe8; }
   .fbtn.area-science-interdisciplinary:not(.is-on) { color:#1d4ed8; border-color:#bfdbfe; }
   .fbtn.area-society-meetings:not(.is-on)          { color:#a16207; border-color:#fde68a; }
   .rounds-tag { font-size:.64rem; font-weight:800; color:#0369a1; background:#e0f2fe; border-radius:4px; padding:1px 5px; }
@@ -299,7 +297,8 @@ const freshRated = rows.filter((c) => c.rates.length && c.rates[c.rates.length -
   .dl { display:block; font-variant-numeric:tabular-nums; font-weight:600; color:#1e293b; }
   /* An estimate is drawn differently from a published date, every time. */
   .dl.is-est { color:#64748b; font-weight:500; border-bottom:1px dashed rgba(100,116,139,.6); display:inline-block; }
-  .est-tag { display:inline-block; margin-left:5px; font-size:.62rem; font-weight:700; color:#64748b;
+  .est-tag i { margin-left:3px; opacity:.75; }
+  .est-tag { display:inline-flex; align-items:center; margin-left:5px; font-size:.62rem; font-weight:700; color:#64748b;
     background:#f1f5f9; border:1px dashed rgba(148,163,184,.6); border-radius:4px; padding:0 5px; cursor:help; }
   .dl-days { display:inline-block; margin-top:4px; font-size:.68rem; font-weight:800; color:#fff;
     border-radius:999px; padding:2px 8px; background:#64748b; }

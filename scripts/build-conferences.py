@@ -81,19 +81,29 @@ AREA_BY_SUB={'AI':'AI / ML / Data Mining','SC':'Security & Privacy','DB':'AI / M
 # submitting to it treats it as a web-mining venue.
 AREA_OVERRIDE={'WWW':'AI / ML / Data Mining'}
 def area(sub, title):
+    if title in EXTRA: return EXTRA[title]
     if title in AREA_OVERRIDE: return AREA_OVERRIDE[title]
     if sub in AREA_BY_SUB: return AREA_BY_SUB[sub]
-    if title in BIO: return 'Biomedical & Health'
+    if title in BIO: return 'Medicine, Biology & Genetics'
     return 'Science & Interdisciplinary'
+
+def tier_of(ccf, core):
+    """1 = top by either table, 2 = strong by either, 3 = the rest."""
+    if ccf=='A' or core=='A*': return 1
+    if ccf=='B' or core=='A':  return 2
+    return 3
 
 def dstr(s):
     m=re.match(r'(\d{4}-\d{2}-\d{2})', str(s or '')); return m.group(1) if m else ''
 
+EXTRA={'ICASSP':'AI / ML / Data Mining','InterSpeech':'AI / ML / Data Mining',
+       'ICWSM':'AI / ML / Data Mining'}
 out=[]
-for sub in ['AI','SC','DB','MX']:
+for sub in ['AI','SC','DB','MX','CG','HI']:
     for f in sorted(glob.glob(f'ccf-deadlines/conference/{sub}/*.yml')):
         for c in yaml.safe_load(open(f)):
             r=c.get('rank') or {}; t=c['title']; d=(c.get('description') or '').strip()
+            if sub in ('CG','HI') and t not in EXTRA: continue
             confs=c.get('confs') or []
             # next deadline still ahead of today, across every published edition
             upcoming=[]
@@ -170,37 +180,71 @@ print('multi-cycle venues:', [(c['title'],c['cycles']) for c in out if c['cycles
 # CCF and CORE only index conferences with archival proceedings, so society
 # meetings and brand-new venues fall through. Edit this list by hand.
 NOTABLE=[
- {'title':'INFORMS Annual Meeting','desc':'Institute for Operations Research and the Management Sciences','area':'Science & Interdisciplinary',
-  'proceedings':'none','note':'Abstract-driven society meeting; no archival proceedings. The main annual gathering for operations research and analytics.',
+ # Society meetings: abstract- or minisymposium-driven, no archival
+ # proceedings, so neither CCF nor CORE can index them at all.
+ {'title':'INFORMS Annual Meeting','desc':'Institute for Operations Research and the Management Sciences','area':'Society meetings',
+  'proceedings':'none','note':'The main annual gathering for operations research and analytics; abstract-driven, ~6,000 attendees.',
   'link':'https://meetings.informs.org/'},
- {'title':'SIAM MDS','desc':'SIAM Conference on Mathematics of Data Science','area':'Science & Interdisciplinary',
-  'proceedings':'none','note':'Minisymposium and talk format, no archival proceedings. Where the mathematical side of data science meets.',
+ {'title':'SIAM MDS','desc':'SIAM Conference on Mathematics of Data Science','area':'Society meetings',
+  'proceedings':'none','note':'Biennial. Where the mathematical side of data science meets; minisymposium format.',
   'link':'https://www.siam.org/conferences-events/siam-conferences/mds26/'},
+ {'title':'SIAM CSE','desc':'SIAM Conference on Computational Science and Engineering','area':'Society meetings',
+  'proceedings':'none','note':'Biennial, odd years. The largest SIAM meeting and the main venue for scientific machine learning.',
+  'date':'February 22-26, 2027','place':'Pittsburgh, Pennsylvania, USA',
+  'link':'https://www.siam.org/conferences-events/siam-conferences/cse27/'},
+ {'title':'SIAM UQ','desc':'SIAM Conference on Uncertainty Quantification','area':'Society meetings',
+  'proceedings':'none','note':'Biennial, even years. The central applied-maths meeting for UQ; next edition 2028.',
+  'link':'https://www.siam.org/conferences-events/siam-conferences/uq26/'},
+ {'title':'SIAM Annual Meeting','desc':'SIAM Annual Meeting (AN)','area':'Society meetings',
+  'proceedings':'none','note':'Yearly, all of applied mathematics in one room. AN26 was July 6-10, 2026 in Cleveland; AN27 not yet announced.',
+  'link':'https://www.siam.org/conferences-events/siam-conferences/an26/'},
+ {'title':'SIAM OP','desc':'SIAM Conference on Optimization','area':'Society meetings',
+  'proceedings':'none','note':'Triennial. OP26 was June 2-5, 2026 in Edinburgh; the next edition is expected around 2029.',
+  'link':'https://www.siam.org/conferences-events/siam-conferences/op26/'},
+ {'title':'ICIAM','desc':'International Congress for Industrial and Applied Mathematics','area':'Society meetings',
+  'proceedings':'none','note':'Every four years, the field-wide congress of applied mathematics.',
+  'date':'July 12-16, 2027','place':'The Hague, Netherlands',
+  'link':'https://www.siam.org/conferences-events/siam-conferences/iciam27/'},
+
+ # Full proceedings, but too new or too far outside the catalogues to carry
+ # a CCF or CORE rank. lastDeadline is the most recent published deadline;
+ # the page rolls it forward and marks the result as an estimate.
  {'title':'COLM', 'equivalent':'CCF B / CORE A','desc':'Conference on Language Modeling','area':'AI / ML / Data Mining',
   'proceedings':'full','note':'Full proceedings; founded 2024, too new for either ranking table.',
-  'link':'https://colmweb.org/'},
+  'lastDeadline':'2026-03-31','link':'https://colm.cc/'},
  {'title':'MLSys', 'equivalent':'CCF B / CORE A','desc':'Conference on Machine Learning and Systems','area':'AI / ML / Data Mining',
   'proceedings':'full','note':'Full proceedings; unranked by both CCF and CORE despite being the main ML-systems venue.',
-  'link':'https://mlsys.org/'},
- {'title':'AMIA', 'equivalent':'CCF B / CORE A','desc':'AMIA Annual Symposium','area':'Biomedical & Health',
+  'lastDeadline':'2025-10-30','link':'https://mlsys.org/'},
+ {'title':'AMIA', 'equivalent':'CCF B / CORE A','desc':'AMIA Annual Symposium','area':'Medicine, Biology & Genetics',
   'proceedings':'full','note':'Full proceedings, indexed in PubMed; the central US biomedical-informatics meeting.',
-  'link':'https://amia.org/education-events/amia-annual-symposium'},
+  'lastDeadline':'2026-03-10','link':'https://amia.org/education-events/amia-annual-symposium'},
+ {'title':'ASONAM', 'ccfManual':'C','coreManual':'B','desc':'IEEE/ACM International Conference on Advances in Social Networks Analysis and Mining','area':'AI / ML / Data Mining',
+  'proceedings':'full','note':'Ranked CCF C / CORE B, so below this page\'s usual bar, but it is the dedicated social-network analysis venue.',
+  'lastDeadline':'2026-05-10','link':'https://asonam.cpsc.ucalgary.ca/2026/CFP.php'},
 ]
+
+def roll(ds):
+    """Last published deadline -> next plausible one, same month and day."""
+    if not ds: return '', None, False
+    d0=datetime.date.fromisoformat(ds)
+    for bump in (1,2):
+        try: cand=d0.replace(year=d0.year+bump)
+        except ValueError: cand=d0.replace(year=d0.year+bump, day=28)
+        if cand >= TODAY: return cand.isoformat(), cand.year, True
+    return ('', None, False) if d0 < TODAY else (ds, d0.year, False)
+
 for n in NOTABLE:
     n.setdefault('equivalent', None)   # editorial, not an official rank
-    n.update({'ccf':'N','core':'N','coreVerified':False,'nextAbstract':'',
-              'date':'','place':'','cycles':1,'roundLabels':[],'rates':[],'rateSection':'','estimated':False,'estFrom':'',
-              'notable':True})
-    n.setdefault('nextDeadline',''); n.setdefault('nextYear',None)
+    nd, ny, est = roll(n.get('lastDeadline',''))
+    n.update({'ccf':n.get('ccfManual','N'),'core':n.get('coreManual','N'),'coreVerified':False,'nextAbstract':'',
+              'cycles':1,'roundLabels':[],'rates':[],'rateSection':'',
+              'estimated':est,'estFrom':n.get('lastDeadline','') if est else '',
+              'nextDeadline':nd,'nextYear':ny,'notable':True})
+    n.setdefault('date',''); n.setdefault('place','')
     # An emerging venue carries a stated equivalence so it sorts with its peers;
     # a society meeting has no proceedings, so no tier is claimed for it.
-    n['tier'] = 2 if n['equivalent'] else 3
+    n['tier'] = 2 if n['equivalent'] else tier_of(n['ccf'], n['core'])
 
-def tier_of(ccf, core):
-    """1 = top by either table, 2 = strong by either, 3 = the rest."""
-    if ccf=='A' or core=='A*': return 1
-    if ccf=='B' or core=='A':  return 2
-    return 3
 for c in out: c['tier']=tier_of(c['ccf'], c['core'])
 
 CORE_ORDER={'A*':0,'A':1,'B':2,'C':3,'TBR':4,'JP':5,'N':6}
@@ -208,8 +252,8 @@ CCF_ORDER={'A':0,'B':1,'C':2,'N':3}
 def listed(c): return c['core'] in ('A*','A') or c['ccf'] in ('A','B')
 # inside an area, soonest deadline first; anything without one trails behind
 def dkey(c): return (0, c['nextDeadline']) if c['nextDeadline'] else (1, c['title'].lower())
-emerging=[n for n in NOTABLE if n['equivalent']]
-society=[n for n in NOTABLE if not n['equivalent']]
+emerging=[n for n in NOTABLE if n['proceedings']=='full']
+society=[n for n in NOTABLE if n['proceedings']=='none']
 # One list, ordered by date alone — the reader filters by field in the page.
 ranked=sorted([c for c in out if listed(c)] + emerging, key=dkey)
 others=sorted([c for c in out if not listed(c)], key=lambda c:(CORE_ORDER[c['core']], CCF_ORDER[c['ccf']], c['title'].lower()))
