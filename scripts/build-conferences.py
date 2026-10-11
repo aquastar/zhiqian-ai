@@ -169,7 +169,16 @@ for sub in ['AI','SC','DB','MX','CG','HI']:
             # edition is whichever recent one publishes the most rounds; a
             # round whose date has passed is rolled forward like any other
             # estimate, so a two-round venue always shows two.
-            recent=sorted(confs, key=lambda e: e.get('year',0))[-2:]
+            yrs=sorted({e.get('year') for e in confs if e.get('year')})
+            gaps=[b-a for a,b in zip(yrs, yrs[1:])] if len(yrs)>1 else []
+            period=collections.Counter(gaps).most_common(1)[0][0] if gaps else 1
+            period=max(1, min(period, 4))
+            # Only editions that actually carry a date. MICCAI publishes two
+            # future editions with TBD timelines, which would otherwise be
+            # picked as the reference and leave the venue with no rounds.
+            dated_eds=[e for e in confs
+                       if any(dstr(t.get('deadline')) for t in (e.get('timeline') or []))]
+            recent=sorted(dated_eds, key=lambda e: e.get('year',0))[-2:]
             ref_rounds=[]
             for ed in recent:
                 rs=[(dstr(t.get('deadline')), (t.get('comment') or '').strip())
@@ -182,7 +191,10 @@ for sub in ['AI','SC','DB','MX','CG','HI']:
                 if d0 >= TODAY:
                     rounds.append({'d':ds,'label':label,'est':False})
                     continue
-                for bump in (1,2):
+                # Keep stepping by the venue's own period until the date is
+                # ahead of today. Every venue gets a date, however far out.
+                for k in range(1, 13):
+                    bump=period*k
                     try: cand=d0.replace(year=d0.year+bump)
                     except ValueError: cand=d0.replace(year=d0.year+bump, day=28)
                     if cand >= TODAY:
@@ -257,53 +269,65 @@ print('multi-cycle venues:', [(c['title'],c['cycles']) for c in out if c['cycles
 # meetings and brand-new venues fall through. Edit this list by hand.
 NOTABLE=[
  # Society meetings: abstract- or minisymposium-driven, no archival
- # proceedings, so neither CCF nor CORE can index them at all.
- {'title':'INFORMS Annual Meeting','desc':'Institute for Operations Research and the Management Sciences','area':'Society meetings',
-  'proceedings':'none','note':'The main annual gathering for operations research and analytics; abstract-driven, ~6,000 attendees.',
+ # proceedings, so neither CCF nor CORE can index them at all. lastDeadline
+ # is the abstract deadline, read off each society's own page, and period is
+ # how many years apart the editions run.
+ {'title':'INFORMS Annual Meeting','desc':'Institute for Operations Research and the Management Sciences',
+  'area':'Society meetings','proceedings':'none','lastDeadline':'2026-05-20','period':1,
+  'date':'November 1-4, 2026','place':'San Francisco, California, USA',
+  'note':'The main annual gathering for operations research and analytics, around 6,000 attendees. The date shown is the abstract deadline.',
   'link':'https://meetings.informs.org/'},
- {'title':'SIAM MDS','desc':'SIAM Conference on Mathematics of Data Science','area':'Society meetings',
-  'proceedings':'none','note':'Biennial. Where the mathematical side of data science meets; minisymposium format.',
+ {'title':'SIAM MDS','desc':'SIAM Conference on Mathematics of Data Science',
+  'area':'Society meetings','proceedings':'none','lastDeadline':'2026-05-18','period':2,
+  'date':'November 16-20, 2026','place':'Salt Lake City, Utah, USA',
+  'note':'Biennial, even years. Where the mathematical side of data science meets. The date shown is the abstract deadline.',
   'link':'https://www.siam.org/conferences-events/siam-conferences/mds26/'},
- {'title':'SIAM CSE','desc':'SIAM Conference on Computational Science and Engineering','area':'Society meetings',
-  'proceedings':'none','note':'Biennial, odd years. The largest SIAM meeting and the main venue for scientific machine learning.',
+ {'title':'SIAM CSE','desc':'SIAM Conference on Computational Science and Engineering',
+  'area':'Society meetings','proceedings':'none','lastDeadline':'2026-08-25','period':2,
   'date':'February 22-26, 2027','place':'Pittsburgh, Pennsylvania, USA',
+  'note':'Biennial, odd years. The largest SIAM meeting and the main venue for scientific machine learning. The date shown is the abstract deadline.',
   'link':'https://www.siam.org/conferences-events/siam-conferences/cse27/'},
- {'title':'SIAM UQ','desc':'SIAM Conference on Uncertainty Quantification','area':'Society meetings',
-  'proceedings':'none','note':'Biennial, even years. The central applied-maths meeting for UQ; next edition 2028.',
+ {'title':'SIAM UQ','desc':'SIAM Conference on Uncertainty Quantification',
+  'area':'Society meetings','proceedings':'none','lastDeadline':'2025-09-22','period':2,
+  'note':'Biennial, even years. The central applied-maths meeting for UQ. UQ26 ran March 2026 in Minneapolis and UQ28 is not yet announced. The date shown is the abstract deadline.',
   'link':'https://www.siam.org/conferences-events/siam-conferences/uq26/'},
- {'title':'SIAM Annual Meeting','desc':'SIAM Annual Meeting (AN)','area':'Society meetings',
-  'proceedings':'none','note':'Yearly, all of applied mathematics in one room. AN26 was July 6-10, 2026 in Cleveland; AN27 not yet announced.',
+ {'title':'SIAM Annual Meeting','desc':'SIAM Annual Meeting (AN)',
+  'area':'Society meetings','proceedings':'none','lastDeadline':'2026-02-16','period':1,
+  'note':'Yearly, all of applied mathematics in one room. AN26 ran July 2026 in Cleveland and AN27 is not yet announced. The date shown is the abstract deadline.',
   'link':'https://www.siam.org/conferences-events/siam-conferences/an26/'},
- {'title':'SIAM OP','desc':'SIAM Conference on Optimization','area':'Society meetings',
-  'proceedings':'none','note':'Triennial. OP26 was June 2-5, 2026 in Edinburgh; the next edition is expected around 2029.',
+ {'title':'SIAM OP','desc':'SIAM Conference on Optimization',
+  'area':'Society meetings','proceedings':'none','lastDeadline':'2025-11-13','period':3,
+  'note':'Triennial. OP26 ran June 2026 in Edinburgh, so the next edition falls around 2029. The date shown is the abstract deadline.',
   'link':'https://www.siam.org/conferences-events/siam-conferences/op26/'},
- {'title':'ICIAM','desc':'International Congress for Industrial and Applied Mathematics','area':'Society meetings',
-  'proceedings':'none','note':'Every four years, the field-wide congress of applied mathematics.',
+ {'title':'ICIAM','desc':'International Congress for Industrial and Applied Mathematics',
+  'area':'Society meetings','proceedings':'none','lastDeadline':'2026-12-07','period':4,
   'date':'July 12-16, 2027','place':'The Hague, Netherlands',
-  'link':'https://www.siam.org/conferences-events/siam-conferences/iciam27/'},
+  'note':'Every four years, the field-wide congress of applied mathematics, around 4,000 participants. The date shown is the abstract deadline, which is published.',
+  'link':'https://iciam2027.org/'},
 
  # Full proceedings, but too new or too far outside the catalogues to carry
  # a CCF or CORE rank. lastDeadline is the most recent published deadline;
  # the page rolls it forward and marks the result as an estimate.
  {'title':'COLM', 'equivalent':'CCF B / CORE A','desc':'Conference on Language Modeling','area':'AI / ML / Data Mining',
-  'proceedings':'full','note':'Full proceedings; founded 2024, too new for either ranking table.',
+  'proceedings':'full','note':'Full proceedings. Founded 2024, too new for either ranking table.',
   'lastDeadline':'2026-03-31','link':'https://colm.cc/'},
  {'title':'MLSys', 'equivalent':'CCF B / CORE A','desc':'Conference on Machine Learning and Systems','area':'AI / ML / Data Mining',
-  'proceedings':'full','note':'Full proceedings; unranked by both CCF and CORE despite being the main ML-systems venue.',
+  'proceedings':'full','note':'Full proceedings. Unranked by both CCF and CORE despite being the main ML-systems venue.',
   'lastDeadline':'2025-10-30','link':'https://mlsys.org/'},
  {'title':'AMIA', 'equivalent':'CCF B / CORE A','desc':'AMIA Annual Symposium','area':'Medicine, Biology & Genetics',
-  'proceedings':'full','note':'Full proceedings, indexed in PubMed; the central US biomedical-informatics meeting.',
+  'proceedings':'full','note':'Full proceedings, indexed in PubMed. The central US biomedical-informatics meeting.',
   'lastDeadline':'2026-03-10','link':'https://amia.org/education-events/amia-annual-symposium'},
  {'title':'ASONAM', 'ccfManual':'C','coreManual':'B','desc':'IEEE/ACM International Conference on Advances in Social Networks Analysis and Mining','area':'AI / ML / Data Mining',
   'proceedings':'full','note':'Ranked CCF C / CORE B, so below this page\'s usual bar, but it is the dedicated social-network analysis venue.',
   'lastDeadline':'2026-05-10','link':'https://asonam.cpsc.ucalgary.ca/2026/CFP.php'},
 ]
 
-def roll(ds):
+def roll(ds, period=1):
     """Last published deadline -> next plausible one, same month and day."""
     if not ds: return '', None, False
     d0=datetime.date.fromisoformat(ds)
-    for bump in (1,2):
+    if d0 >= TODAY: return ds, d0.year, False   # already published and ahead
+    for bump in (period*k for k in range(1, 13)):
         try: cand=d0.replace(year=d0.year+bump)
         except ValueError: cand=d0.replace(year=d0.year+bump, day=28)
         if cand >= TODAY: return cand.isoformat(), cand.year, True
@@ -311,11 +335,14 @@ def roll(ds):
 
 for n in NOTABLE:
     n.setdefault('equivalent', None)   # editorial, not an official rank
-    nd, ny, est = roll(n.get('lastDeadline',''))
+    nd, ny, est = roll(n.get('lastDeadline',''), n.get('period',1))
     n.update({'ccf':n.get('ccfManual','N'),'core':n.get('coreManual','N'),'coreVerified':False,'nextAbstract':'',
               'cycles':1,'roundLabels':[],'rates':[],'rateSection':'','rateSrc':'','rateSlug':'','rounds':[],'dblp':'','best':'',
               'estimated':est,'estFrom':n.get('lastDeadline','') if est else '',
-              'nextDeadline':nd,'nextYear':ny,'notable':True})
+              # For a society meeting the deadline year is not the edition
+              # year, so do not print one. The date string names the edition.
+              'nextDeadline':nd,'nextYear':(None if n['proceedings']=='none' else ny),
+              'notable':True})
     n.setdefault('date',''); n.setdefault('place','')
     n['cc']=flag(n['place'])
     # An emerging venue carries a stated equivalence so it sorts with its peers;

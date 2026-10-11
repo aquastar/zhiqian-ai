@@ -162,7 +162,7 @@ const freshRated = rows.filter((c) => c.rates.length && c.rates[c.rates.length -
                         <span class="dl-days" data-deadline={c.nextDeadline}></span>
                         {c.estimated && <span class="est-tag" title={`Not announced yet. Estimated by rolling last year's deadline (${c.estFrom}) forward.`}>est.<i class="fas fa-circle-question" aria-hidden="true"></i></span>}
                       </>
-                    : <span class="none">not announced</span>}
+                    : <span class="none">date unavailable</span>}
                 </td>
                 <td class="c-when">
                   {c.nextYear && !(c.date || '').includes(String(c.nextYear)) ? <span class="ed">{c.nextYear}</span> : null}
@@ -279,9 +279,11 @@ const freshRated = rows.filter((c) => c.rates.length && c.rates[c.rates.length -
         </li>
       </ul>
       <p class="src-note">
-        Rebuilt weekly from the sources above. Where a deadline is not yet published, the last one is rolled forward by whole
-        years and marked <span class="est-tag">est.<i class="fas fa-circle-question" aria-hidden="true"></i></span>, never more
-        than two years. Acceptance rates are main track only, with Findings and workshops excluded.
+        Rebuilt weekly from the sources above. Every venue carries a next deadline. Where one is not yet published, the last
+        one is stepped forward by the venue's own period, one year for an annual conference, two for a biennial one, and marked
+        <span class="est-tag">est.<i class="fas fa-circle-question" aria-hidden="true"></i></span>, so hover it to see the date
+        it came from. For the society meetings, which have no paper track, the date shown is the abstract deadline.
+        Acceptance rates are main track only, with Findings and workshops excluded.
       </p>
     </section>
   </main>
