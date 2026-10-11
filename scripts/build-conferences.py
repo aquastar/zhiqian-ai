@@ -77,7 +77,11 @@ for line in open('ar.md'):
 # ---------- areas ----------
 BIO={'APBC','BIBM','ISMB','ISBRA','RECOMB','MICCAI','EMBC'}
 AREA_BY_SUB={'AI':'AI / ML / Data Mining','SC':'Security & Privacy','DB':'AI / ML / Data Mining'}
+# CCF files WWW under 交叉/综合/新兴 because of its history, but everyone
+# submitting to it treats it as a web-mining venue.
+AREA_OVERRIDE={'WWW':'AI / ML / Data Mining'}
 def area(sub, title):
+    if title in AREA_OVERRIDE: return AREA_OVERRIDE[title]
     if sub in AREA_BY_SUB: return AREA_BY_SUB[sub]
     if title in BIO: return 'Biomedical & Health'
     return 'Science & Interdisciplinary'
@@ -100,6 +104,33 @@ for sub in ['AI','SC','DB','MX']:
                         upcoming.append((ds, ed.get('year'), ed.get('link',''), dstr(tl.get('abstract_deadline'))))
             upcoming.sort()
             nxt=upcoming[0] if upcoming else None
+            # Nothing announced: roll the most recent past deadline forward by
+            # whole years until it lands ahead of today. Same month and day as
+            # last time, which is how these actually repeat — flagged est so no
+            # one mistakes it for a published date.
+            est=False
+            if not nxt:
+                past=[]
+                for ed in confs:
+                    for tl in (ed.get('timeline') or []):
+                        ds=dstr(tl.get('deadline'))
+                        if ds: past.append((ds, ed.get('year'), ed.get('link','')))
+                ds=''
+                if past:
+                    ds, yr, lk = max(past)
+                    d0=datetime.date.fromisoformat(ds)
+                    bump=0
+                    while True:
+                        bump+=1
+                        try: cand=d0.replace(year=d0.year+bump)
+                        except ValueError: cand=d0.replace(year=d0.year+bump, day=28)
+                        if cand >= TODAY: break
+                        # More than two years of rolling is not an estimate,
+                        # it is a guess about a venue that stopped publishing.
+                        if bump > 2: cand=None; break
+                    if cand:
+                        nxt=(cand.isoformat(), (yr or d0.year)+bump, lk, '')
+                        est=True
             latest=max(confs, key=lambda e: e.get('year',0)) if confs else {}
             # Count rounds only within the edition being shown. Taking the max
             # across every edition flagged AAAI, whose old NeurIPS fast track
@@ -119,6 +150,8 @@ for sub in ['AI','SC','DB','MX']:
                 'nextDeadline': nxt[0] if nxt else '',
                 'nextYear': nxt[1] if nxt else None,
                 'nextAbstract': nxt[3] if nxt else '',
+                'estimated': est,
+                'estFrom': ds if est else '',
                 'link': (nxt[2] if nxt else latest.get('link','')) or '',
                 'date': latest.get('date',''), 'place': latest.get('place',''),
                 'cycles': cycles, 'roundLabels': roundLabels,
@@ -156,7 +189,7 @@ NOTABLE=[
 for n in NOTABLE:
     n.setdefault('equivalent', None)   # editorial, not an official rank
     n.update({'ccf':'N','core':'N','coreVerified':False,'nextAbstract':'',
-              'date':'','place':'','cycles':1,'roundLabels':[],'rates':[],'rateSection':'',
+              'date':'','place':'','cycles':1,'roundLabels':[],'rates':[],'rateSection':'','estimated':False,'estFrom':'',
               'notable':True})
     n.setdefault('nextDeadline',''); n.setdefault('nextYear',None)
     # An emerging venue carries a stated equivalence so it sorts with its peers;
