@@ -2,7 +2,7 @@
 import Layout from '../layouts/Layout.astro';
 import { kindLabels, openCalls, monthWindow } from '../data/deadlines.js';
 
-// Colour carries one meaning on this page: how far out a date is.
+// Color carries one meaning on this page: how far out a date is.
 const bands = [
   { key: 'urgent', label: 'Under 30 days' },
   { key: 'soon', label: '30-60 days' },
@@ -176,7 +176,7 @@ const dayName = (mo, d) => ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'][new
 
     // Days remaining, counted from the viewer's own today. Both endpoints go
     // through Date.UTC so a DST boundary in between cannot cost or add a day.
-    // The band drives the pill colour: under 30 days, 30-60, 60-90, and beyond.
+    // The band drives the pill color: under 30 days, 30-60, 60-90, and beyond.
     const now = new Date();
     const today = Date.UTC(now.getFullYear(), now.getMonth(), now.getDate());
 
@@ -322,7 +322,7 @@ const dayName = (mo, d) => ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'][new
   .month { break-inside:auto; margin-bottom:11px; }
   .month h3 { font-family:'Montserrat',sans-serif; font-size:.78rem; font-weight:700; letter-spacing:.1em; text-transform:uppercase; color:#64748b; margin:0 0 7px; padding-bottom:4px; border-bottom:1px solid rgba(148,163,184,.2); break-after:avoid; }
   /* The UA's [hidden] rule is display:none at the lowest possible specificity,
-     so any class that sets display beats it — .deadline sets grid, and the
+     so any class that sets display beats it. .deadline sets grid, and the
      rows the script retires stayed on screen. Re-assert it for this page. */
   [hidden] { display:none !important; }
   /* Block, not grid: WebKit ignores break-inside:avoid on grid items, so rows
@@ -330,10 +330,10 @@ const dayName = (mo, d) => ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'][new
      the rest at the head of the next). Block children fragment cleanly. */
   .deadline-list { list-style:none; margin:0; padding:0; display:block; }
   .deadline + .deadline { margin-top:3px; }
-  /* No colour bar down the left edge — the category rides on a dot beside the
+  /* No color bar down the left edge. The category rides on a dot beside the
      name, and the right-hand pill carries the urgency. */
-  /* Targeted venues: a wash plus a star, no new pill colour, so the countdown
-     bands keep their monopoly on meaning-by-colour. */
+  /* Targeted venues: a wash plus a star, no new pill color, so the countdown
+     bands keep their monopoly on meaning-by-color. */
   .deadline.is-star { background:#eff6ff; box-shadow:inset 0 0 0 1px rgba(37,99,235,.18); }
   .deadline.is-star .deadline-name, .deadline.is-star .deadline-link { color:#1e3a8a; font-weight:700; }
   .star-mark { color:#2563eb; font-size:.62rem; margin-right:5px; }
