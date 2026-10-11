@@ -509,6 +509,64 @@ NOTABLE=[
   'note':'Every four years, the field-wide congress of applied mathematics, around 4,000 participants. The date shown is the abstract deadline, which is published.',
   'link':'https://iciam2027.org/'},
 
+ # --- added 2026-10-11, each checked against the society's own site ---
+ {'title':'APS Global Physics Summit','desc':'American Physical Society Global Physics Summit',
+  'area':'Society meetings','proceedings':'none','lastDeadline':'2026-10-22','period':1,
+  'date':'April 11-16, 2027','place':'Atlanta, Georgia, USA',
+  'note':'The largest physics meeting in the world, around 14,000 attendees and over 10,000 abstracts a year. Formed by merging the March and April meetings, so the name March Meeting is retired. The date shown is the contributed abstract deadline.',
+  'link':'https://summit.aps.org/attend/abstracts'},
+ {'title':'SfN','desc':'Society for Neuroscience Annual Meeting','area':'Society meetings',
+  'proceedings':'none','lastDeadline':'2026-06-11','period':1,
+  'date':'November 14-18, 2026','place':'Washington, District of Columbia, USA',
+  'note':'The largest neuroscience meeting worldwide, 21,093 attendees in 2025, poster driven. Abstracts appear only in the online meeting planner, and preprints are explicitly allowed. The date shown is the regular abstract deadline, with late breaking abstracts closing in September.',
+  'link':'https://www.sfn.org/meetings/neuroscience-2026/general-information/dates-and-deadlines'},
+ {'title':'COSYNE','desc':'Computational and Systems Neuroscience','area':'Society meetings',
+  'proceedings':'none','lastDeadline':'2026-10-18','period':1,
+  'date':'March 11-14, 2027','place':'Montreal, Quebec, Canada',
+  'note':'The main venue for computational and theoretical neuroscience, with double blind review of two page abstracts and heavy dynamical systems content. Its own call states the accepted summaries are not full length proceedings and do not prevent later publication.',
+  'link':'https://www.cosyne.org/abstracts'},
+ {'title':'NetSci','desc':'International School and Conference on Network Science',
+  'area':'Society meetings','proceedings':'none','lastDeadline':'2025-12-19','period':1,
+  'note':'The flagship conference of the Network Science Society and the closest society meeting to graph machine learning. One page abstracts. The date shown is the abstract deadline.',
+  'link':'https://netscisociety.net/'},
+ {'title':'Complex Systems (CCS)','desc':'Conference on Complex Systems','area':'Society meetings',
+  'proceedings':'none','lastDeadline':'2026-05-15','period':1,
+  'date':'October 12-16, 2026','place':'Binghamton, New York, USA',
+  'note':'The annual meeting of the Complex Systems Society, covering networks, dynamical systems and complexity applied to epidemics, traffic and infrastructure. One page extended abstracts. Not to be confused with ACM CCS in security.',
+  'link':'https://cssociety.org/'},
+ {'title':'IC2S2','desc':'International Conference on Computational Social Science',
+  'area':'Society meetings','proceedings':'none','lastDeadline':'2026-03-03','period':1,
+  'note':'The main venue for computational social science, heavy on network analysis and large scale data methodology. Its call states submissions are non archival, so work published or in preparation elsewhere may be submitted.',
+  'link':'https://easychair.org/cfp/IC2S2_2026'},
+ {'title':'Sunbelt','desc':'INSNA Social Networks Conference','area':'Society meetings',
+  'proceedings':'none','lastDeadline':'2026-02-27','period':1,
+  'note':'The annual conference of the International Network for Social Network Analysis and the oldest continuing venue for social network analysis, where much of the methodology now used in network science originated.',
+  'link':'https://www.insna.org/'},
+ {'title':'JSM','desc':'Joint Statistical Meetings','area':'Society meetings',
+  'proceedings':'optin','lastDeadline':'2026-02-02','period':1,
+  'note':'The largest annual gathering of North American statisticians, over 5,000 attendees from 52 countries, run jointly by the ASA, IMS and allied societies. Presentation is abstract only, but the ASA also publishes an opt-in, non peer reviewed JSM Proceedings volume, which is why this one is not a clean no-proceedings case.',
+  'link':'https://ww2.amstat.org/meetings/jsm/2026/'},
+ {'title':'JMM','desc':'Joint Mathematics Meetings','area':'Society meetings',
+  'proceedings':'none','lastDeadline':'2026-09-15','period':1,
+  'date':'January 12-15, 2027','place':'Chicago, Illinois, USA',
+  'note':'The largest mathematics meeting in the world and the main annual US gathering across pure and applied mathematics, hosted by the AMS with partner societies. The date shown is the general abstract deadline.',
+  'link':'https://meetings.ams.org/math/jmm2027/cfp.cgi'},
+ {'title':'EURO','desc':'European Conference on Operational Research','area':'Society meetings',
+  'proceedings':'none','lastDeadline':'2027-02-28','period':1,
+  'date':'July 11-14, 2027','place':'Athens, Greece',
+  'note':'The flagship annual conference of the Association of European Operational Research Societies, the European counterpart to the INFORMS Annual Meeting. Abstract only, organized into streams.',
+  'link':'https://euro2027athens.com/'},
+ {'title':'AGU','desc':'American Geophysical Union Annual Meeting','area':'Society meetings',
+  'proceedings':'none','lastDeadline':'2026-08-05','period':1,
+  'date':'December 7-11, 2026','place':'San Francisco, California, USA',
+  'note':'The largest Earth and space science meeting, 25,000 or more attendees from over 100 countries. Relevant for climate and geoscience applications of spectral methods, uncertainty quantification and network analysis. The date shown is the regular abstract deadline.',
+  'link':'https://www.agu.org/annual-meeting'},
+ {'title':'Epidemics','desc':'International Conference on Infectious Disease Dynamics',
+  'area':'Society meetings','proceedings':'none','lastDeadline':'2027-06-18','period':2,
+  'date':'December 5-8, 2027','place':'Singapore',
+  'note':'The main international meeting for infectious disease modelling and epidemic dynamics, directly relevant to network based epidemic models. Run by a publisher rather than a learned society, which makes it the odd one out in this list.',
+  'link':'https://www.elsevier.com/events/conferences/international-conference-on-infectious-disease-dynamics'},
+
  # Full proceedings, but too new or too far outside the catalogues to carry
  # a CCF or CORE rank. lastDeadline is the most recent published deadline;
  # the page rolls it forward and marks the result as an estimate.
@@ -570,7 +628,7 @@ def listed(c): return c['core'] in ('A*','A') or c['ccf'] in ('A','B')
 # inside an area, soonest deadline first; anything without one trails behind
 def dkey(c): return (0, c['nextDeadline']) if c['nextDeadline'] else (1, c['title'].lower())
 emerging=[n for n in NOTABLE if n['proceedings']=='full']
-society=[n for n in NOTABLE if n['proceedings']=='none']
+society=[n for n in NOTABLE if n['proceedings'] in ('none','optin')]
 # One list, ordered by date alone — the reader filters by field in the page.
 ranked=sorted([c for c in out if listed(c)] + emerging, key=dkey)
 others=sorted([c for c in out if not listed(c)], key=lambda c:(CORE_ORDER[c['core']], CCF_ORDER[c['ccf']], c['title'].lower()))
