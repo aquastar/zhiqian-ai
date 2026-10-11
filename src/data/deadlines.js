@@ -37,11 +37,10 @@ export const deadlines = [
     { d: 16, name: 'Web4Good full paper', kind: 'paper' },
     { d: 16, name: 'WebConf demo paper', kind: 'paper', star: true },
     { d: 17, name: 'WSDM 2027 short paper', kind: 'paper', star: true },
-    { d: 17, name: 'NSF TTP', kind: 'nsf', star: true },
   ]},
   { month: 'Dec 2026', y: 2026, m: 11, items: [
     { d: 1, name: 'Simons Empire AI (noon ET)', kind: 'other', star: true },
-    { d: 1, name: 'NSF TTP-E', kind: 'nsf', anytime: true },
+    { d: 1, name: 'NSF TTP-E', kind: 'nsf', anytime: true, star: true },
     { d: 1, name: 'NSF CMMI / IIDS (NSF 26-515)', kind: 'nsf', anytime: true },
     { d: 3, name: 'ACM CCS 2027', kind: 'paper', est: true, href: 'https://www.sigsac.org/ccs/CCS2027/' },
     { d: 2, name: 'NSF Expeditions preliminary proposal', kind: 'nsf' },
