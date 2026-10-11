@@ -27,7 +27,7 @@ const AR_REPO = 'https://github.com/lixin4ever/Conference-Acceptance-Rate';
 // Fixed 0-45% scale: the point of the bars is to compare venues to each other,
 // which a per-row scale would destroy.
 const RATE_MAX = 45;
-const CHART = { w: 140, h: 38 };
+const CHART = { w: 180, h: 40 };
 // A line over the whole published history, on a fixed axis so two venues can
 // be compared by eye. The three most recent numbers are printed underneath,
 // because that is what anyone actually wants off this cell.
@@ -495,11 +495,11 @@ const freshRated = rows.filter((c) => c.rates.length && c.rates[c.rates.length -
   .new-tag { font-size:.62rem; font-weight:800; letter-spacing:.05em; text-transform:uppercase;
     color:#5b21b6; background:#ede9fe; border:1px solid #ddd6fe; border-radius:4px; padding:1px 6px; }
 
-  .c-date { white-space:nowrap; width:210px; }
+  .c-date { white-space:nowrap; width:204px; }
   .round { display:flex; align-items:center; flex-wrap:wrap; gap:5px; margin-bottom:3px; }
   .round:last-of-type { margin-bottom:0; }
   .round-label { flex:0 0 100%; font-size:.62rem; color:#94a3b8; line-height:1.25; margin-top:-1px;
-    white-space:normal; max-width:200px; }
+    white-space:normal; max-width:184px; }
   .round-more { display:inline-block; margin-top:3px; white-space:normal; font-size:.64rem; color:#94a3b8; cursor:help;
     border-bottom:1px dotted rgba(148,163,184,.7); }
   .links { display:flex; gap:10px; margin-top:3px; }
@@ -530,7 +530,7 @@ const freshRated = rows.filter((c) => c.rates.length && c.rates[c.rates.length -
   .where { display:flex; align-items:center; gap:5px; color:#94a3b8; }
   .where .fi { flex:0 0 auto; border-radius:2px; box-shadow:0 0 0 1px rgba(15,23,42,.08); }
 
-  .c-rate { width:240px; }
+  .c-rate { width:300px; }
   .spark { display:block; overflow:visible; color:#1d4ed8; }
   .spark .grid { stroke:rgba(148,163,184,.35); stroke-width:.6; stroke-dasharray:2 2; }
   .spark .glab { font-size:6px; fill:#94a3b8; }
