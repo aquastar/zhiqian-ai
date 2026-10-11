@@ -188,11 +188,11 @@ const freshRated = rows.filter((c) => c.rates.length && c.rates[c.rates.length -
               <li class={t.papers ? 'has-papers' : ''}>
                 <span class="t-rate">{t.rate}%</span>
                 <span class={`t-drate ${(t.delta || 0) > 0 ? 't-up' : (t.delta || 0) < 0 ? 't-down' : 't-flat'}`}
-                      title={`${t.delta} percentage points against ${b.prevYear}`}>{t.delta === null ? '' : <>{(t.delta > 0 ? '+' : '') + t.delta}<i>pp</i></>}</span>
+                      title={t.delta === null ? '' : `${b.prevYear}: ${Math.round((t.rate - t.delta) * 10) / 10}%`}>{t.delta === null ? '' : <>{(t.delta > 0 ? '+' : '') + t.delta}<i>%</i></>}</span>
                 <span class="t-bar"><span class="t-fill" style={`width:${t.pct.toFixed(1)}%`}></span></span>
                 <span class="t-name">{t.area}{t.papers && <span class="t-open">{t.papers.length} papers <i class="fas fa-angle-down" aria-hidden="true"></i></span>}</span>
                 <span class="t-share" title={`${t.n} decided submissions`}>{t.share}%</span>
-                <span class="t-dshare" title={`${t.shareDelta} percentage points of the submission pool against ${b.prevYear}`}>{t.shareDelta === null ? '' : <>{(t.shareDelta > 0 ? '+' : '') + t.shareDelta}<i>pp</i></>}</span>
+                <span class="t-dshare" title={t.shareDelta === null ? '' : `${b.prevYear}: ${Math.round((t.share - t.shareDelta) * 10) / 10}%`}>{t.shareDelta === null ? '' : <>{(t.shareDelta > 0 ? '+' : '') + t.shareDelta}<i>%</i></>}</span>
                 {t.spark
                   ? <svg class="t-spark" viewBox={`-1 -2 ${SPARK.w + 2} ${SPARK.h + 4}`} width={SPARK.w + 2} height={SPARK.h + 4}
                          role="img" aria-label={t.series.map((pt) => `${pt.y} ${pt.rate}%`).join(', ')}>
@@ -225,7 +225,9 @@ const freshRated = rows.filter((c) => c.rates.length && c.rates[c.rates.length -
                   <li>
                     <span class="t-rate">{x.rate}%</span>
                     <span class={`t-drate ${(x.delta || 0) > 0 ? 't-up' : (x.delta || 0) < 0 ? 't-down' : 't-flat'}`}
-                          title={`${x.delta} percentage points against ${b.prevYear}`}>{x.delta === null ? '' : <>{(x.delta > 0 ? '+' : '') + x.delta}<i>pp</i></>}</span>
+                          title={x.delta === null
+                            ? `No change shown: only ${x.prevN} matching papers in ${b.prevYear}, too few for the rate to mean anything`
+                            : `${b.prevYear}: ${Math.round((x.rate - x.delta) * 10) / 10}%`}>{x.delta === null ? <span class="t-flat">&middot;</span> : <>{(x.delta > 0 ? '+' : '') + x.delta}<i>%</i></>}</span>
                     <span class="t-bar"><span class="t-fill" style={`width:${x.pct.toFixed(1)}%`}></span></span>
                     <span class="t-name">{x.label}<span class="sel-home">most of them in {x.area} ({x.concentration}%)</span></span>
                     <span class="t-share" title="decided submissions matching this term">{x.n}</span>

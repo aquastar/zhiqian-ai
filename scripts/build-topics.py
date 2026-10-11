@@ -26,6 +26,10 @@ NOT_DECIDED = {'withdraw', 'desk reject', 'desk rejected', 'withdrawn'}
 MIN_REJECT_SHARE = 0.15
 MIN_PER_TOPIC = 40
 MIN_PER_SUB = 10
+# A rate off a dozen papers swings wildly. EDA was 69.2% in 2025 on 13
+# papers and 25.9% in 2026 on 27, and reporting that as a 43 point fall
+# would be reporting sampling noise. Below this, no change is shown.
+MIN_FOR_DELTA = 25
 
 # Hand-picked sub-topics, matched on the author keywords and the title. These
 # are narrower than primary_area and they cut across it, so each one is hung
@@ -36,6 +40,12 @@ SELECTED = [
     ('quantum computing', r'\bquantum\b'),
     ('knowledge editing',  r'knowledge[ -]?edit|model[ -]?edit'),
     ('music generation',   r'\bmusic\b'),
+    # EDA, chip and circuit design. A bare \bEDA\b catches only two papers
+    # here and would also pull in exploratory data analysis and easy data
+    # augmentation, so the term list is explicit instead.
+    ('EDA, chip design', r'electronic design automation|chip design|circuit design|logic synthesis'
+                         r'|\bnetlist\b|\bVLSI\b|analog circuit|place(ment)? and rout|standard cell'
+                         r'|lithograph|\bRTL\b|hardware description|\bverilog\b|chip floorplan'),
 ]
 
 # ICLR renamed four of its primary areas for 2025. These are renames, not new
@@ -165,7 +175,9 @@ for venue, eds in out.items():
     picked = []
     for label, cur in subs.get((key, now_y), {}).items():
         was = subs.get((key, prev_y), {}).get(label)
-        cur['delta'] = None if not was else round(cur['rate'] - was['rate'], 1)
+        enough = was and was['n'] >= MIN_FOR_DELTA and cur['n'] >= MIN_FOR_DELTA
+        cur['delta'] = round(cur['rate'] - was['rate'], 1) if enough else None
+        cur['prevN'] = was['n'] if was else 0
         picked.append(cur)
     # They are listed separately rather than nested under an area. Most of
     # them cut across several: only 18% of the quantum papers sit in the area

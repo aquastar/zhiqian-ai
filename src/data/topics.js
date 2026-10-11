@@ -1684,7 +1684,8 @@ export const topicRates = {
           "rate": 60.9,
           "area": "transfer learning, meta learning, and lifelong learning",
           "concentration": 22,
-          "delta": 13.3
+          "delta": 13.3,
+          "prevN": 42
         },
         {
           "label": "music generation",
@@ -1693,7 +1694,18 @@ export const topicRates = {
           "rate": 53.6,
           "area": "applications to computer vision, audio, language, and other modalities",
           "concentration": 61,
-          "delta": 3.6
+          "delta": null,
+          "prevN": 12
+        },
+        {
+          "label": "EDA, chip design",
+          "n": 27,
+          "acc": 7,
+          "rate": 25.9,
+          "area": "datasets and benchmarks",
+          "concentration": 26,
+          "delta": null,
+          "prevN": 13
         },
         {
           "label": "quantum computing",
@@ -1702,7 +1714,8 @@ export const topicRates = {
           "rate": 19.7,
           "area": "applications to physical sciences (physics, chemistry, biology, etc.)",
           "concentration": 18,
-          "delta": -20.8
+          "delta": -20.8,
+          "prevN": 37
         }
       ]
     },
