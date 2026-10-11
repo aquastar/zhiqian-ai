@@ -52,15 +52,18 @@ const MAX_ROUNDS = 3;
 // before it. Scaled to the spread rather than to zero, because every topic
 // sits between about 25 and 50 percent and a zero baseline flattens them.
 const SPARK = { w: 34, h: 13 };
+const RATE_CEIL = 100;   // a rate is read against 100, not against the table's max
+const hiOf = () => RATE_CEIL;
 const topicBlocks = Object.entries(topicRates).map(([venue, eds]) => {
   const now = eds[0];
   const prev = eds[1];
   const years = eds.map((e) => e.year).reverse();
   const rates = now.topics.map((t) => t.rate);
   const lo = 0;
-  const hi = Math.ceil(Math.max(...rates) / 10) * 10;
+  const hi = RATE_CEIL;
   return {
     venue, year: now.year, overall: now.overall, decided: now.decided,
+    selected: (now.selected || []).map((x) => ({ ...x, pct: Math.min(x.rate / hiOf(now), 1) * 100 })),
     headline: now.headline, submitted: now.submitted,
     accepted: now.accepted, withdrawn: now.withdrawn,
     prevYear: prev ? prev.year : null, lo, hi,
@@ -214,6 +217,25 @@ const freshRated = rows.filter((c) => c.rates.length && c.rates[c.rates.length -
               </li>
             ))}
           </ul>
+          {b.selected.length > 0 && (
+            <>
+              <div class="sel-head">Selected topics <em>matched on author keywords, so they cut across the areas above</em></div>
+              <ul class="topic-list sel-list">
+                {b.selected.map((x) => (
+                  <li>
+                    <span class="t-rate">{x.rate}%</span>
+                    <span class={`t-drate ${(x.delta || 0) > 0 ? 't-up' : (x.delta || 0) < 0 ? 't-down' : 't-flat'}`}
+                          title={`${x.delta} percentage points against ${b.prevYear}`}>{x.delta === null ? '' : <>{(x.delta > 0 ? '+' : '') + x.delta}<i>pp</i></>}</span>
+                    <span class="t-bar"><span class="t-fill" style={`width:${x.pct.toFixed(1)}%`}></span></span>
+                    <span class="t-name">{x.label}<span class="sel-home">most of them in {x.area} ({x.concentration}%)</span></span>
+                    <span class="t-share" title="decided submissions matching this term">{x.n}</span>
+                    <span class="t-dshare"></span>
+                    <span class="t-dshare"></span>
+                  </li>
+                ))}
+              </ul>
+            </>
+          )}
         </details>
       </section>
     ))}
@@ -366,58 +388,28 @@ const freshRated = rows.filter((c) => c.rates.length && c.rates[c.rates.length -
     <section class="section sources">
       <h2 class="area-head">Where all of this comes from</h2>
       <ul class="src-list">
-        <li>
-          <a href="https://github.com/ccfddl/ccf-deadlines" target="_blank" rel="noopener">ccfddl/ccf-deadlines</a>
-          <span>CCF ranks, every edition's deadlines and round structure, and the DBLP key each venue links out with. Mirrors the CCF catalogue.</span>
-        </li>
-        <li>
-          <a href="https://portal.core.edu.au/conf-ranks/" target="_blank" rel="noopener">CORE Conference Portal</a>
-          <span>CORE ranks, taken from the official CORE2023 CSV export rather than a copy of it. Every CORE rank here is matched against that file.</span>
-        </li>
-        <li>
-          <a href="https://csconfstats.xoveexu.com/conferences/" target="_blank" rel="noopener">CS Conf Stats</a>
-          <span>Acceptance rates, primary source. Publishes accepted and submitted counts per year from proceedings, current to 2026. Code at <a href="https://github.com/Xovee/cs-conf-stats" target="_blank" rel="noopener">Xovee/cs-conf-stats</a>.</span>
-        </li>
-        <li>
-          <a href="https://github.com/lixin4ever/Conference-Acceptance-Rate" target="_blank" rel="noopener">Conference-Acceptance-Rate</a>
-          <span>Acceptance rates, fallback only, for venues the source above does not cover. Several of its rows stopped being updated after 2023.</span>
-        </li>
-        <li>
-          <a href="https://jeffhuang.com/best_paper_awards/" target="_blank" rel="noopener">Best Paper Awards in Computer Science</a>
-          <span>Best-paper awards since 1996 for 32 conferences, compiled by Jeff Huang. Sixteen of them appear on this page.</span>
-        </li>
-        <li>
-          <a href="https://csrankings.org/" target="_blank" rel="noopener">CSRankings</a>
-          <span>Whether a venue is on the fixed list CSRankings counts, matched on DBLP key. It ranks institutions, not conferences, but that list is the closest thing the field has to a statement of which venues count. Thirty-two of the venues here are on it.</span>
-        </li>
-        <li>
-          <a href="https://scholar.google.com/citations?view_op=top_venues&hl=en" target="_blank" rel="noopener">Google Scholar Metrics</a>
-          <span>Not pulled in, because there is no API. It ranks journals and conferences together by h5-index per field, which is the only ranking biology and medicine actually use, so each field's category is linked from the filter above.</span>
-        </li>
-        <li>
-          <a href="https://github.com/papercopilot/paperlists" target="_blank" rel="noopener">papercopilot/paperlists</a>
-          <span>Per-topic acceptance, the block at the top of this page. Mirrors OpenReview into one JSON per venue-year, carrying each submission's author-declared topic and final status. The first two columns there are the acceptance rate and its change against the previous edition; the grey pair is the topic's share of the submission pool and its change, which says whether a topic is getting crowded rather than harder. Rates divide by submissions that reached a decision, since a withdrawal is not a rejection, which is why they read higher than the conference's own headline figure over all submissions. Both are printed. The topics do not overlap: primary_area is a single value each author picks from a fixed list at submission, so every paper counts once, and the 21 topic counts add up to the 13,811 decided submissions exactly, with none left over. Bars run from zero to a 50% ceiling, so bar length is proportional to the number beside it. Both change columns are in percentage points. ICLR renamed four areas in 2025, which are joined back across the series. All thirty venues it covers were checked: ICLR is the only one whose file is a full submission pool, at 61% rejections. Every other list, NeurIPS and ICML included, is accepted papers only, because those conferences keep rejected submissions private unless the authors opt in. The build script refuses to compute a rate from a list with under 15% rejections.</span>
-        </li>
-        <li>
-          <a href="https://dblp.org/" target="_blank" rel="noopener">DBLP</a>
-          <span>The full proceedings history every venue's "past proceedings" link points at.</span>
-        </li>
-        <li>
-          <a href="https://www.siam.org/conferences-events/" target="_blank" rel="noopener">SIAM</a>,
-          <a href="https://meetings.informs.org/" target="_blank" rel="noopener">INFORMS</a>,
-          <a href="https://mlsys.org/" target="_blank" rel="noopener">MLSys</a>,
-          <a href="https://colm.cc/" target="_blank" rel="noopener">COLM</a>,
-          <a href="https://amia.org/education-events/amia-annual-symposium" target="_blank" rel="noopener">AMIA</a>,
-          <a href="https://asonam.cpsc.ucalgary.ca/2026/CFP.php" target="_blank" rel="noopener">ASONAM</a>
-          <span>Official sites, for the venues neither ranking table covers. Their entries are maintained by hand.</span>
-        </li>
+        <li><a href="https://github.com/ccfddl/ccf-deadlines" target="_blank" rel="noopener">ccfddl/ccf-deadlines</a></li>
+        <li><a href="https://portal.core.edu.au/conf-ranks/" target="_blank" rel="noopener">CORE Conference Portal</a></li>
+        <li><a href="https://csconfstats.xoveexu.com/conferences/" target="_blank" rel="noopener">CS Conf Stats</a></li>
+        <li><a href="https://github.com/Xovee/cs-conf-stats" target="_blank" rel="noopener">Xovee/cs-conf-stats</a></li>
+        <li><a href="https://github.com/lixin4ever/Conference-Acceptance-Rate" target="_blank" rel="noopener">Conference-Acceptance-Rate</a></li>
+        <li><a href="https://jeffhuang.com/best_paper_awards/" target="_blank" rel="noopener">Best Paper Awards in Computer Science</a></li>
+        <li><a href="https://csrankings.org/" target="_blank" rel="noopener">CSRankings</a></li>
+        <li><a href="https://scholar.google.com/citations?view_op=top_venues&hl=en" target="_blank" rel="noopener">Google Scholar Metrics</a></li>
+        <li><a href="https://github.com/papercopilot/paperlists" target="_blank" rel="noopener">papercopilot/paperlists</a></li>
+        <li><a href="https://dblp.org/" target="_blank" rel="noopener">DBLP</a></li>
+        <li><a href="https://www.siam.org/conferences-events/" target="_blank" rel="noopener">SIAM</a></li>
+        <li><a href="https://meetings.informs.org/" target="_blank" rel="noopener">INFORMS</a></li>
+        <li><a href="https://mlsys.org/" target="_blank" rel="noopener">MLSys</a></li>
+        <li><a href="https://colm.cc/" target="_blank" rel="noopener">COLM</a></li>
+        <li><a href="https://amia.org/education-events/amia-annual-symposium" target="_blank" rel="noopener">AMIA</a></li>
+        <li><a href="https://asonam.cpsc.ucalgary.ca/2026/CFP.php" target="_blank" rel="noopener">ASONAM</a></li>
       </ul>
       <p class="src-note">
-        Rebuilt weekly from the sources above. Every venue carries a next deadline. Where one is not yet published, the last
-        one is stepped forward by the venue's own period, one year for an annual conference, two for a biennial one, and marked
-        <span class="est-tag">est.<i class="fas fa-circle-question" aria-hidden="true"></i></span>, so hover it to see the date
-        it came from. For the society meetings, which have no paper track, the date shown is the abstract deadline.
-        Acceptance rates are main track only, with Findings and workshops excluded.
+        <b>Updated automatically every Monday at 06:17 UTC.</b> A GitHub Action re-fetches all of the above,
+        rebuilds the ranks, deadlines, rounds, acceptance rates and per-topic numbers from scratch, and commits
+        only when something actually changed, which redeploys the site. Nothing on this page is typed in by hand
+        except the society meetings and the venues neither ranking table covers.
       </p>
     </section>
   </main>
@@ -629,7 +621,7 @@ const freshRated = rows.filter((c) => c.rates.length && c.rates[c.rates.length -
     border:1px solid rgba(148,163,184,.55); border-radius:999px; background:#fff;
     font-size:.62rem; font-weight:700; color:#64748b; white-space:nowrap; vertical-align:1px; }
   .topic-list li.has-papers:hover .t-open { border-color:rgba(37,99,235,.55); color:var(--accent); }
-  .topic-list li.is-open .t-open { background:#1e293b; border-color:#1e293b; color:#fff; }
+  .topic-list li.is-open .t-open { border-color:rgba(37,99,235,.55); color:var(--accent); }
   .topic-list li.is-open .t-open i { transform:rotate(180deg); }
   /* The exemplars sit inside the row and break out of its grid. */
   .t-papers { display:none; grid-column:1 / -1; list-style:none; margin:4px 0 7px; padding:7px 0 2px 108px;
@@ -650,6 +642,11 @@ const freshRated = rows.filter((c) => c.rates.length && c.rates[c.rates.length -
   .t-papers a { color:#334155; text-decoration:none; border-bottom:1px solid rgba(148,163,184,.45); }
   .t-papers a:hover { color:var(--accent); border-color:currentColor; }
   .topic-list li:hover { background:#eef2f7; border-radius:5px; }
+  .sel-head { margin:10px 10px 4px; padding-top:9px; border-top:1px solid rgba(148,163,184,.3);
+    font-size:.6rem; letter-spacing:.06em; text-transform:uppercase; color:#64748b; font-weight:700; }
+  .sel-head em { font-style:normal; font-weight:600; color:#cbd5e1; letter-spacing:.03em; margin-left:6px; }
+  .sel-list .t-fill { background:linear-gradient(90deg,#c4b5fd,#6d28d9); }
+  .sel-home { display:block; font-size:.66rem; color:#94a3b8; line-height:1.3; }
   .topic-list li:nth-child(even) { background:rgba(148,163,184,.055); border-radius:5px; }
   /* The pair that matters: how hard the topic is, and which way it moved. */
   .t-rate { font-weight:800; font-size:.86rem; color:#0f172a; font-variant-numeric:tabular-nums; text-align:right; }
@@ -678,14 +675,16 @@ const freshRated = rows.filter((c) => c.rates.length && c.rates[c.rates.length -
 
   .sources { border-top:1px solid rgba(148,163,184,.26); padding-top:14px; }
   .src-list { list-style:none; margin:10px 0 0; padding:0; display:grid;
-    grid-template-columns:repeat(auto-fit, minmax(330px,1fr)); gap:10px 24px; }
-  .src-list li { font-size:.78rem; line-height:1.5; }
+    grid-template-columns:repeat(auto-fit, minmax(190px,1fr)); gap:4px 24px; }
+  .src-list li { font-size:.82rem; line-height:1.6; }
   .src-list > li > a:first-child { font-weight:700; }
   .src-list a { color:#334155; text-decoration:none; border-bottom:1px solid rgba(148,163,184,.5); }
   .src-list a:hover { color:var(--accent); border-color:currentColor; }
   .src-list span { display:block; color:#94a3b8; font-size:.73rem; margin-top:2px; }
   .src-list span a { color:#94a3b8; }
-  .src-note { margin-top:14px; font-size:.73rem; color:#94a3b8; line-height:1.7; }
+  .src-note { margin-top:16px; padding:11px 14px; border:1px solid rgba(148,163,184,.3); border-radius:10px;
+    background:#f8fafc; font-size:.78rem; color:#475569; line-height:1.65; }
+  .src-note b { color:#0f172a; }
   .src-note .est-tag { margin:0 2px; }
   .src-note a { color:#64748b; }
 

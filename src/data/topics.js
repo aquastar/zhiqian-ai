@@ -1675,7 +1675,36 @@ export const topicRates = {
       "submitted": 19814,
       "accepted": 5358,
       "withdrawn": 6003,
-      "headline": 27.0
+      "headline": 27.0,
+      "selected": [
+        {
+          "label": "knowledge editing",
+          "n": 46,
+          "acc": 28,
+          "rate": 60.9,
+          "area": "transfer learning, meta learning, and lifelong learning",
+          "concentration": 22,
+          "delta": 13.3
+        },
+        {
+          "label": "music generation",
+          "n": 28,
+          "acc": 15,
+          "rate": 53.6,
+          "area": "applications to computer vision, audio, language, and other modalities",
+          "concentration": 61,
+          "delta": 3.6
+        },
+        {
+          "label": "quantum computing",
+          "n": 61,
+          "acc": 12,
+          "rate": 19.7,
+          "area": "applications to physical sciences (physics, chemistry, biology, etc.)",
+          "concentration": 18,
+          "delta": -20.8
+        }
+      ]
     },
     {
       "year": 2025,
