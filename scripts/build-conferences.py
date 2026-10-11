@@ -326,7 +326,9 @@ for sub in ['AI','SC','DB','MX','CG','HI']:
                 for tl in (ed.get('timeline') or []):
                     ds=dstr(tl.get('deadline'))
                     if ds and datetime.date.fromisoformat(ds) >= TODAY:
-                        upcoming.append((ds, ed.get('year'), ed.get('link',''), dstr(tl.get('abstract_deadline'))))
+                        upcoming.append((ds, ed.get('year'), ed.get('link',''),
+                                         dstr(tl.get('abstract_deadline')),
+                                         (tl.get('comment') or '').strip()))
             upcoming.sort()
             # Every round the venue runs, not just the soonest. The reference
             # edition is whichever recent one publishes the most rounds; a
@@ -363,14 +365,37 @@ for sub in ['AI','SC','DB','MX','CG','HI']:
                     if cand >= TODAY:
                         rounds.append({'d':cand.isoformat(),'label':label,'est':True,'from':ds})
                         break
-            # A real future date beats a rolled one within a fortnight of it.
-            for u_ds, u_yr, u_lk, u_ab in upcoming:
-                u_d0=datetime.date.fromisoformat(u_ds)
-                for rd in [x for x in rounds
-                           if abs((datetime.date.fromisoformat(x['d'])-u_d0).days) <= 14]:
-                    rounds.remove(rd)
-                if not any(x['d']==u_ds for x in rounds):
-                    rounds.append({'d':u_ds,'label':'','est':False,'year':u_yr,'link':u_lk,'abstract':u_ab})
+            # Announced beats estimated. The moment a conference publishes a
+            # round, that date replaces the rolled one. Matching is by round
+            # label first, then by proximity, because an announced date often
+            # moves a few weeks from where last year's fell.
+            norm_lab=lambda x: re.sub(r'[^a-z0-9]', '', (x or '').lower())
+            real=[]
+            for u_ds, u_yr, u_lk, u_ab, u_lab in upcoming:
+                if any(r['d']==u_ds for r in real): continue
+                real.append({'d':u_ds,'label':u_lab,'est':False,
+                             'year':u_yr,'link':u_lk,'abstract':u_ab})
+            real_labels={norm_lab(r['label']) for r in real if r['label']}
+            real_days=sorted(datetime.date.fromisoformat(r['d']) for r in real)
+            # Proximity window scales with how close together the rounds sit.
+            # VLDB runs monthly, so a flat 45 days would swallow its neighbours.
+            ref_days=sorted(datetime.date.fromisoformat(d) for d, _ in ref_rounds)
+            min_gap=min((b-a).days for a, b in zip(ref_days, ref_days[1:])) if len(ref_days)>1 else 365
+            window=max(10, min(45, min_gap // 2))
+            keep=[]
+            for e in rounds:
+                if norm_lab(e['label']) and norm_lab(e['label']) in real_labels: continue
+                ed_=datetime.date.fromisoformat(e['d'])
+                if any(abs((ed_-rd).days) <= window for rd in real_days): continue
+                # An estimate exists to fill out the edition that is already
+                # under way. Once it lands more than a year past the first
+                # announced round it belongs to a later edition, and the
+                # announced rounds are the authority on how many there are.
+                if real_days and (ed_ - real_days[0]).days > 365: continue
+                keep.append(e)
+            keep.sort(key=lambda x: x['d'])
+            cap=max(len(ref_rounds), len(real))
+            rounds = real + keep[:max(0, cap - len(real))]
             rounds.sort(key=lambda x: x['d'])
             # The soonest round is the headline date, whether it is published
             # or rolled forward.
