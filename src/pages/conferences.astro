@@ -167,14 +167,12 @@ const freshRated = rows.filter((c) => c.rates.length && c.rates[c.rates.length -
             <h2>Which topics get in</h2>
             <span class="rest-count">{b.venue} {b.year}</span>
             <span class="rest-note">
-            <b>{b.submitted.toLocaleString()} submitted, {b.accepted.toLocaleString()} accepted, {b.headline}% overall.</b>
-            <em>{b.withdrawn.toLocaleString()} were withdrawn before a decision, so the rates below divide by the
-            {' '}{b.decided.toLocaleString()} that were actually judged and read higher than {b.headline}%.</em>
+            {b.submitted.toLocaleString()} submitted, {b.accepted.toLocaleString()} accepted, {b.headline}% overall
           </span>
           </summary>
           <div class="topic-head">
-            <span>accept rate</span><span>vs {b.prevYear}</span><span></span>
-            <span>topic <i class="fas fa-angle-down hint" aria-hidden="true"></i> click for its most cited papers</span><span class="th-mute">% of all<br/>submissions</span><span class="th-mute">vs {b.prevYear}</span><span>rate<br/>trend</span>
+            <span title={`Of the ${b.decided.toLocaleString()} submissions that reached a decision. The ${b.withdrawn.toLocaleString()} withdrawn before one are excluded, which is why these read higher than the ${b.headline}% headline.`}>accept rate</span><span>vs {b.prevYear}</span><span></span>
+            <span>topic <i class="fas fa-angle-down hint" aria-hidden="true"></i> click for its most cited papers</span><span class="th-mute">% of all<br/>subs</span><span class="th-mute">vs {b.prevYear}</span><span>rate<br/>trend</span>
           </div>
           <ul class="topic-list">
             {b.rows.map((t) => (
@@ -602,13 +600,12 @@ const freshRated = rows.filter((c) => c.rates.length && c.rates[c.rates.length -
   .rest > summary::-webkit-details-marker { display:none; }
   .rest > summary h2 { font-size:.98rem; margin:0; }
   .rest-count { font-size:.72rem; font-weight:700; color:#64748b; background:#f1f5f9; border-radius:999px; padding:2px 8px; }
-  .rest-note { font-size:.74rem; color:#94a3b8; margin-left:auto; text-align:right; max-width:52ch; line-height:1.45; }
-  .rest-note b { display:block; color:#334155; font-weight:700; }
-  .rest-note em { font-style:normal; }
+  .rest-note { font-size:.74rem; color:#94a3b8; margin-left:auto; text-align:right; }
   .topic-list { list-style:none; margin:0; padding:0 16px 14px; display:grid;
     grid-template-columns:1fr; gap:1px; }
   .topic-head, .topic-list li {
-    display:grid; grid-template-columns:52px 44px 110px minmax(0,1fr) 46px 40px 44px; gap:11px; align-items:center; }
+    display:grid; grid-template-columns:52px 44px 110px minmax(0,1fr) 52px 40px 44px; gap:11px; align-items:center; }
+  .topic-head span:first-child { cursor:help; }
   .topic-head { padding:0 16px 7px; font-size:.6rem; align-items:end; letter-spacing:.07em; text-transform:uppercase; color:#64748b;
     font-weight:700; }
   .topic-head span:nth-child(1), .topic-head span:nth-child(2),
