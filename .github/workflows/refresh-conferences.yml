@@ -1,8 +1,8 @@
 name: Refresh conference data
 
-# The upstream sources move on their own — ccf-deadlines gains editions, CORE
-# revises ranks, acceptance rates get filled in — so a page built once quietly
-# goes stale. Rebuild weekly and only commit when something actually changed.
+# The upstream sources move on their own. ccf-deadlines gains editions, CORE
+# revises ranks, and acceptance rates get filled in, so a page built once
+# quietly goes stale. Rebuild weekly and only commit when something changed.
 on:
   schedule:
     - cron: '17 6 * * 1'   # Mondays, 06:17 UTC
@@ -37,8 +37,8 @@ jobs:
           git add src/data/conferences.js
           git commit -m "Conferences: weekly data refresh
 
-          Rebuilt from ccf-deadlines, the official CORE2023 export and the
-          acceptance-rate table.
+          Rebuilt from ccf-deadlines, the official CORE2023 export,
+          cs-conf-stats and the older acceptance-rate table.
 
           Co-Authored-By: Claude Opus 5 <noreply@anthropic.com>"
           git push
