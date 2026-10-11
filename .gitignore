@@ -29,3 +29,4 @@ pnpm-debug.log*
 # vercel cli local state + prebuilt output (must NOT be committed:
 # its presence makes Vercel skip the build and deploy stale artifacts)
 .vercel/
+.conf-cache/

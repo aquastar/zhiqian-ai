@@ -1,15 +1,35 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import { ranked, others } from '../data/conferences.js';
+import { ranked, others, notable } from '../data/conferences.js';
 
-const areas = ['AI / ML', 'Security', 'Data & DB', 'Bio / Health', 'Interdisciplinary'];
-const coreTiers = ['A*', 'A', 'B', 'C', 'TBR', 'JP', 'N'];
-// CORE publishes statuses that are not ranks; keep them rather than
-// flattening a venue under review into 'unranked'.
-const coreLabel = { 'A*': 'A*', A: 'A', B: 'B', C: 'C', TBR: 'TBR', JP: 'jrnl', N: '\u2014' };
+const AREAS = ['AI / ML', 'Security & Privacy', 'Data & Mining', 'Biomedical & Health', 'Science & Interdisciplinary'];
+const coreLabel = { 'A*': 'A*', A: 'A', B: 'B', C: 'C', TBR: 'TBR', JP: 'jrnl', N: '—' };
 const coreClass = (c) => `core-${c === 'A*' ? 'as' : c.toLowerCase()}`;
 
-const countBy = (list, key, value) => list.filter((c) => c[key] === value).length;
+const byArea = (list) => AREAS.map((a) => ({ area: a, items: list.filter((c) => c.area === a) })).filter((g) => g.items.length);
+
+// A sparkline of the acceptance-rate history, scaled to its own range so the
+// shape of one venue's trend is readable rather than flattened by the others.
+const spark = (rates) => {
+  if (!rates || rates.length < 3) return null;
+  const vals = rates.map((p) => p.r);
+  const lo = Math.min(...vals);
+  const hi = Math.max(...vals);
+  const span = hi - lo || 1;
+  const w = 64;
+  const h = 16;
+  const pts = rates.map((p, i) => {
+    const x = (i / (rates.length - 1)) * w;
+    const y = h - ((p.r - lo) / span) * h;
+    return `${x.toFixed(1)},${y.toFixed(1)}`;
+  });
+  return { points: pts.join(' '), last: pts[pts.length - 1].split(','), w, h, lo, hi };
+};
+
+const withSpark = (c) => ({ ...c, spark: spark(c.rates) });
+const rankedGroups = byArea(ranked.map(withSpark));
+const notableGroups = byArea(notable);
+const totalRated = ranked.filter((c) => c.rates.length).length;
 ---
 <Layout title="Conferences | Zhiqian Chen">
   <main class="container">
@@ -26,61 +46,99 @@ const countBy = (list, key, value) => list.filter((c) => c[key] === value).lengt
     <section class="head">
       <h1>Conferences</h1>
       <p class="sub">
-        AI/ML, security, data and interdisciplinary venues, ordered by CORE first, then CCF.
-        Dates are the 2026 editions. Folded at the foot: everything that is CORE B or lower
-        <em>and</em> CCF C or lower.
+        Grouped by field, soonest deadline first. A venue is listed when it clears CORE A*–A or CCF A–B,
+        either one. Acceptance history is shown where it exists ({totalRated} of {ranked.length}).
       </p>
-      <ul class="summary">
-        {coreTiers.filter((t) => countBy(ranked, 'core', t)).map((t) => (
-          <li><span class={`pill ${coreClass(t)}`}>CORE {coreLabel[t]}</span>{countBy(ranked, 'core', t)}</li>
-        ))}
-        <li class="summary-sep">·</li>
-        {areas.map((a) => <li><span class="pill pill-area">{a}</span>{countBy(ranked, 'area', a)}</li>)}
+      <ul class="legend">
+        <li><span class="chip band-urgent"></span>Under 30 days</li>
+        <li><span class="chip band-soon"></span>30-60</li>
+        <li><span class="chip band-later"></span>60-90</li>
+        <li><span class="chip band-far"></span>90+</li>
+        <li><span class="rounds-tag">2&times;</span>cycles per year</li>
       </ul>
     </section>
 
-    <section class="section">
-      <div class="table-wrap">
-        <table class="confs">
-          <thead>
-            <tr>
-              <th class="c-core">CORE</th>
-              <th class="c-ccf">CCF</th>
-              <th class="c-name">Conference</th>
-              <th class="c-area">Area</th>
-              <th class="c-date">2026 deadline</th>
-              <th class="c-when">2026 meeting</th>
-            </tr>
-          </thead>
-          <tbody>
-            {ranked.map((c) => (
+    {rankedGroups.map((g) => (
+      <section class="section">
+        <h2 class="area-head">{g.area}<span class="area-count">{g.items.length}</span></h2>
+        <div class="table-wrap">
+          <table class="confs">
+            <thead>
               <tr>
-                <td class="c-core"><span class={`pill ${coreClass(c.core)}`} title={c.verified ? 'Confirmed against the official CORE2023 list' : 'Not found in the official CORE2023 export'}>{coreLabel[c.core]}</span></td>
-                <td class="c-ccf"><span class={`pill ccf-${c.ccf.toLowerCase()}`}>{c.ccf === 'N' ? '—' : c.ccf}</span></td>
-                <td class="c-name">
-                  {c.link
-                    ? <a class="conf-name" href={c.link} target="_blank" rel="noopener">{c.title}</a>
-                    : <span class="conf-name">{c.title}</span>}
-                  <span class="conf-desc">{c.desc}</span>
-                </td>
-                <td class="c-area"><span class="area-tag">{c.area}</span></td>
-                <td class="c-date">
-                  {c.deadline
-                    ? <>
-                        <span class="dl">{c.deadline}</span>
-                        {c.abstract && c.abstract !== c.deadline && <span class="dl-abs">abs {c.abstract}</span>}
-                        {c.rounds > 1 && <span class="dl-abs">{c.rounds} rounds</span>}
-                      </>
-                    : <span class="none">—</span>}
-                </td>
-                <td class="c-when">
-                  {c.date ? <span class="when">{c.date}</span> : <span class="none">no 2026 edition</span>}
-                  {c.place && <span class="where">{c.place}</span>}
-                </td>
+                <th class="c-core">CORE</th>
+                <th class="c-ccf">CCF</th>
+                <th class="c-name">Conference</th>
+                <th class="c-date">Next deadline</th>
+                <th class="c-rate">Acceptance</th>
+                <th class="c-when">Latest edition</th>
               </tr>
-            ))}
-          </tbody>
-        </table>
+            </thead>
+            <tbody>
+              {g.items.map((c) => (
+                <tr>
+                  <td class="c-core"><span class={`pill ${coreClass(c.core)}`} title={c.coreVerified ? 'Confirmed against the official CORE2023 list' : 'Not found in the official CORE2023 export'}>{coreLabel[c.core]}</span></td>
+                  <td class="c-ccf"><span class={`pill ccf-${c.ccf.toLowerCase()}`}>{c.ccf === 'N' ? '—' : c.ccf}</span></td>
+                  <td class="c-name">
+                    {c.link
+                      ? <a class="conf-name" href={c.link} target="_blank" rel="noopener">{c.title}</a>
+                      : <span class="conf-name">{c.title}</span>}
+                    {c.cycles > 1 && <span class="rounds-tag" title={c.roundLabels.join(' · ')}>{c.cycles}&times;</span>}
+                    <span class="conf-desc">{c.desc}</span>
+                  </td>
+                  <td class="c-date">
+                    {c.nextDeadline
+                      ? <>
+                          <span class="dl">{c.nextDeadline}</span>
+                          <span class="dl-days" data-deadline={c.nextDeadline}></span>
+                          <span class="dl-sub">{c.nextYear} edition</span>
+                        </>
+                      : <span class="none">not announced</span>}
+                  </td>
+                  <td class="c-rate">
+                    {c.rates.length
+                      ? <>
+                          <span class="rate-now">{c.rates[c.rates.length - 1].r}%</span>
+                          <span class="rate-year">{c.rates[c.rates.length - 1].y}</span>
+                          {c.spark && (
+                            <svg class="spark" viewBox={`0 -2 ${c.spark.w} ${c.spark.h + 4}`} width={c.spark.w} height={c.spark.h + 4} aria-hidden="true">
+                              <polyline points={c.spark.points} fill="none" stroke="currentColor" stroke-width="1.2" stroke-linejoin="round" />
+                              <circle cx={c.spark.last[0]} cy={c.spark.last[1]} r="1.8" fill="currentColor" />
+                            </svg>
+                          )}
+                          {c.spark && <span class="spark-range" title={`${c.rates.length} years on record`}>{c.spark.hi}–{c.spark.lo}%</span>}
+                        </>
+                      : <span class="none">&mdash;</span>}
+                  </td>
+                  <td class="c-when">
+                    {c.date ? <span class="when">{c.date}</span> : <span class="none">&mdash;</span>}
+                    {c.place && <span class="where">{c.place}</span>}
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </section>
+    ))}
+
+    <section class="section">
+      <h2 class="area-head">Not ranked, still matters<span class="area-count">{notable.length}</span></h2>
+      <p class="area-note">
+        CCF and CORE only index conferences with archival proceedings, so society meetings and very new venues
+        fall straight through both tables. These are tracked by hand.
+      </p>
+      <div class="notable-grid">
+        {notableGroups.map((g) => g.items.map((c) => (
+          <article class="notable-card">
+            <div class="notable-head">
+              <a class="conf-name" href={c.link} target="_blank" rel="noopener">{c.title}</a>
+              <span class={`proc proc-${c.proceedings}`}>{c.proceedings === 'none' ? 'no proceedings' : 'full proceedings'}</span>
+            </div>
+            <span class="conf-desc">{c.desc}</span>
+            <span class="area-tag">{c.area}</span>
+            <p class="notable-note">{c.note}</p>
+          </article>
+        )))}
       </div>
     </section>
 
@@ -96,7 +154,7 @@ const countBy = (list, key, value) => list.filter((c) => c[key] === value).lengt
             <tbody>
               {others.map((c) => (
                 <tr>
-                  <td class="c-core"><span class={`pill ${coreClass(c.core)}`} title={c.verified ? 'Confirmed against the official CORE2023 list' : 'Not found in the official CORE2023 export'}>{coreLabel[c.core]}</span></td>
+                  <td class="c-core"><span class={`pill ${coreClass(c.core)}`}>{coreLabel[c.core]}</span></td>
                   <td class="c-ccf"><span class={`pill ccf-${c.ccf.toLowerCase()}`}>{c.ccf === 'N' ? '—' : c.ccf}</span></td>
                   <td class="c-name">
                     {c.link
@@ -105,11 +163,9 @@ const countBy = (list, key, value) => list.filter((c) => c[key] === value).lengt
                     <span class="conf-desc">{c.desc}</span>
                   </td>
                   <td class="c-area"><span class="area-tag">{c.area}</span></td>
-                  <td class="c-date">{c.deadline ? <span class="dl">{c.deadline}</span> : <span class="none">—</span>}</td>
-                  <td class="c-when">
-                    {c.date ? <span class="when">{c.date}</span> : <span class="none">no 2026 edition</span>}
-                    {c.place && <span class="where">{c.place}</span>}
-                  </td>
+                  <td class="c-date">{c.nextDeadline
+                    ? <><span class="dl">{c.nextDeadline}</span><span class="dl-days" data-deadline={c.nextDeadline}></span></>
+                    : <span class="none">&mdash;</span>}</td>
                 </tr>
               ))}
             </tbody>
@@ -117,16 +173,34 @@ const countBy = (list, key, value) => list.filter((c) => c[key] === value).lengt
         </div>
       </details>
       <p class="fineprint">
-CORE ranks are taken from the official <a href="https://portal.core.edu.au/conf-ranks/" target="_blank" rel="noopener">CORE2023 list</a>;
-        122 of the 157 venues here were matched in it by full name, and the rest keep the community value.
-        TBR means CORE has it under review, <em>jrnl</em> means CORE records it as having become a journal.
-        CCF ranks and the 2026 editions come from <a href="https://github.com/ccfddl/ccf-deadlines" target="_blank" rel="noopener">ccfddl/ccf-deadlines</a>,
-        a community mirror of the CCF catalogue — CCF itself publishes only a PDF, so those ranks are not machine-verified here.
-        Layout follows <a href="https://www.myhuiban.com/conferences/tracked" target="_blank" rel="noopener">myhuiban</a>.
-        Deadlines are the first round published for 2026; check each call before relying on one.
+        CORE from the official <a href="https://portal.core.edu.au/conf-ranks/" target="_blank" rel="noopener">CORE2023 list</a>, matched by full name.
+        TBR means under review; <em>jrnl</em> means CORE records the venue as having become a journal.
+        CCF ranks and deadlines from <a href="https://github.com/ccfddl/ccf-deadlines" target="_blank" rel="noopener">ccfddl/ccf-deadlines</a>,
+        a community mirror of the CCF catalogue, so those are not machine-verified.
+        Acceptance rates from <a href="https://github.com/lixin4ever/Conference-Acceptance-Rate" target="_blank" rel="noopener">lixin4ever/Conference-Acceptance-Rate</a>, main track only — Findings and similar second tracks are excluded.
+        Regenerated weekly; check each call before relying on a date.
       </p>
     </section>
   </main>
+
+  <script>
+    // Fill the countdown slots from the reader's own today. The slots are
+    // rendered server-side and only filled here: an element created in script
+    // carries no scope attribute, so the component's CSS would not reach it.
+    const now = new Date();
+    const today = Date.UTC(now.getFullYear(), now.getMonth(), now.getDate());
+    document.querySelectorAll('[data-deadline]').forEach((el) => {
+      const [y, m, d] = el.getAttribute('data-deadline').split('-').map(Number);
+      const days = Math.round((Date.UTC(y, m - 1, d) - today) / 86400000);
+      let band = 'far';
+      if (days < 0) band = 'past';
+      else if (days < 30) band = 'urgent';
+      else if (days < 60) band = 'soon';
+      else if (days < 90) band = 'later';
+      el.classList.add(`band-${band}`);
+      el.textContent = days < 0 ? 'passed' : days === 0 ? 'today' : `${days}d`;
+    });
+  </script>
 </Layout>
 <style>
   :root { --accent:#2563eb; --ink:#0f172a; --muted:#475569; }
@@ -138,26 +212,27 @@ CORE ranks are taken from the official <a href="https://portal.core.edu.au/conf-
   .nav-ghost { font-size:.78rem; margin-left:4px; opacity:.85; }
   .nav-substack { vertical-align:-1px; opacity:.85; }
 
-  .head { margin:6px 0 16px; }
+  .head { margin:6px 0 14px; }
   .head h1 { font-family:'Montserrat',sans-serif; font-size:2rem; margin:0 0 8px; }
   .sub { margin:0 0 12px; color:var(--muted); font-size:.92rem; line-height:1.55; }
-  .summary { list-style:none; margin:0; padding:0; display:flex; flex-wrap:wrap; gap:12px; align-items:center; font-size:.8rem; color:#475569; font-variant-numeric:tabular-nums; }
-  .summary li { display:inline-flex; align-items:center; gap:5px; }
-  .summary-sep { opacity:.4; }
+  .legend { list-style:none; margin:0; padding:0; display:flex; flex-wrap:wrap; gap:14px; font-size:.78rem; color:#475569; }
+  .legend li { display:inline-flex; align-items:center; gap:6px; }
+  .chip { width:20px; height:11px; border-radius:999px; display:inline-block; }
 
-  .section { margin-top:14px; }
+  .section { margin-top:22px; }
+  .area-head { display:flex; align-items:center; gap:9px; font-family:'Montserrat',sans-serif; font-size:1.02rem; margin:0 0 9px; padding-bottom:6px; border-bottom:1px solid rgba(148,163,184,.3); }
+  .area-count { font-size:.72rem; font-weight:700; color:#64748b; background:#f1f5f9; border-radius:999px; padding:1px 8px; }
+  .area-note { margin:0 0 12px; font-size:.84rem; color:var(--muted); line-height:1.5; }
+
   .table-wrap { overflow-x:auto; }
   .confs { width:100%; border-collapse:collapse; font-size:.84rem; }
-  .confs thead th { text-align:left; font-family:'Montserrat',sans-serif; font-size:.68rem; font-weight:700; letter-spacing:.1em; text-transform:uppercase; color:#64748b; padding:0 10px 6px; border-bottom:1px solid rgba(148,163,184,.3); white-space:nowrap; }
+  .confs thead th { text-align:left; font-family:'Montserrat',sans-serif; font-size:.66rem; font-weight:700; letter-spacing:.1em; text-transform:uppercase; color:#94a3b8; padding:0 10px 5px; white-space:nowrap; }
   .confs td { padding:7px 10px; border-bottom:1px solid rgba(148,163,184,.14); vertical-align:baseline; }
   .confs tbody tr:hover { background:#f8fafc; }
+  .c-core, .c-ccf, .c-date, .c-rate, .c-area { width:1%; white-space:nowrap; }
+  .c-when { width:22%; }
 
-  .c-core, .c-ccf { width:1%; white-space:nowrap; }
-  .c-area { width:1%; white-space:nowrap; }
-  .c-date { width:1%; white-space:nowrap; }
-  .c-when { width:26%; }
-
-  /* Rank is the only place colour is spent, and it runs one scale: darker is higher. */
+  /* Rank is one scale, darkest at the top; nothing else on the page uses it. */
   .pill { display:inline-block; min-width:30px; text-align:center; padding:2px 7px; border-radius:999px; font-size:.7rem; font-weight:700; color:#fff; }
   .core-as { background:#1e3a8a; }
   .core-a { background:#2563eb; }
@@ -168,17 +243,45 @@ CORE ranks are taken from the official <a href="https://portal.core.edu.au/conf-
   .ccf-b { background:#b91c1c; }
   .ccf-c { background:#fecaca; color:#7f1d1d; }
   .ccf-n { background:#f1f5f9; color:#94a3b8; }
-  .pill-area { background:#e2e8f0; color:#334155; }
 
-  .conf-name { display:inline; font-weight:700; color:#0f172a; text-decoration:none; border-bottom:1px solid rgba(37,99,235,.35); }
+  .conf-name { font-weight:700; color:#0f172a; text-decoration:none; border-bottom:1px solid rgba(37,99,235,.35); }
   a.conf-name:hover { color:var(--accent); border-bottom-color:var(--accent); }
   .conf-desc { display:block; font-size:.76rem; color:#64748b; line-height:1.35; margin-top:1px; }
-  .area-tag { font-size:.72rem; color:#475569; background:#f1f5f9; border-radius:999px; padding:2px 8px; }
+  .rounds-tag { display:inline-block; margin-left:6px; font-size:.66rem; font-weight:700; color:#475569; background:#e2e8f0; border-radius:4px; padding:1px 5px; }
+  .area-tag { display:inline-block; font-size:.72rem; color:#475569; background:#f1f5f9; border-radius:999px; padding:2px 8px; }
+
   .dl { font-weight:600; color:#0f172a; font-variant-numeric:tabular-nums; }
-  .dl-abs { display:block; font-size:.7rem; color:#94a3b8; font-variant-numeric:tabular-nums; }
+  .dl-days { display:inline-block; margin-left:7px; padding:1px 7px; border-radius:999px; font-size:.68rem; font-weight:700; color:#fff; font-variant-numeric:tabular-nums; background:#64748b; }
+  .dl-days:empty { display:none; }
+  .dl-days.band-urgent { background:#b91c1c; }
+  .dl-days.band-soon { background:#fde68a; color:#92400e; }
+  .dl-days.band-later { background:#1d4ed8; }
+  .dl-days.band-far { background:#64748b; }
+  .dl-days.band-past { background:#e2e8f0; color:#94a3b8; }
+  /* Scoped to the legend swatch: a bare .band-* also painted the date cell. */
+  .chip.band-urgent { background:#b91c1c; }
+  .chip.band-soon { background:#fde68a; }
+  .chip.band-later { background:#1d4ed8; }
+  .chip.band-far { background:#64748b; }
+  .dl-sub { display:block; font-size:.68rem; color:#94a3b8; }
+
+  .rate-now { font-weight:700; color:#0f172a; font-variant-numeric:tabular-nums; }
+  .rate-year { font-size:.68rem; color:#94a3b8; margin-left:4px; }
+  .spark { display:block; margin-top:2px; color:#2563eb; overflow:visible; }
+  .spark-range { display:block; font-size:.64rem; color:#cbd5e1; font-variant-numeric:tabular-nums; }
+
   .when { color:#334155; }
   .where { display:block; font-size:.74rem; color:#94a3b8; }
   .none { color:#cbd5e1; }
+
+  .notable-grid { display:grid; grid-template-columns:repeat(auto-fit, minmax(280px, 1fr)); gap:12px; }
+  .notable-card { border:1px dashed rgba(148,163,184,.42); border-radius:12px; padding:12px 14px; background:#fff; }
+  .notable-head { display:flex; flex-wrap:wrap; align-items:baseline; gap:8px; }
+  .proc { font-size:.66rem; font-weight:700; border-radius:999px; padding:2px 8px; }
+  .proc-none { color:#92400e; background:#fde68a; }
+  .proc-full { color:#166534; background:#dcfce7; }
+  .notable-card .conf-desc { margin:3px 0 6px; }
+  .notable-note { margin:7px 0 0; font-size:.8rem; color:#475569; line-height:1.45; }
 
   .rest > summary { display:flex; align-items:center; gap:10px; cursor:pointer; list-style:none; padding:10px 0; border-top:1px solid rgba(148,163,184,.3); }
   .rest > summary::-webkit-details-marker { display:none; }
@@ -188,7 +291,7 @@ CORE ranks are taken from the official <a href="https://portal.core.edu.au/conf-
   .rest-count { font-size:.72rem; font-weight:700; color:#64748b; background:#f1f5f9; border-radius:999px; padding:1px 8px; }
   .rest-note { font-size:.78rem; color:#94a3b8; margin-right:auto; }
 
-  .fineprint { margin:16px 0 0; font-size:.76rem; color:#94a3b8; line-height:1.55; }
+  .fineprint { margin:16px 0 0; font-size:.74rem; color:#94a3b8; line-height:1.55; }
   .fineprint a { color:#64748b; }
 
   @media (max-width: 900px) {
