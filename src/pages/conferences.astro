@@ -168,7 +168,7 @@ const freshRated = rows.filter((c) => c.rates.length && c.rates[c.rates.length -
     </section>
 
     {topicBlocks.map((b) => (
-      <section class="section">
+      <section class="section topic-section" data-topic-area={slug(DEFAULT_AREA)}>
         <details class="rest topics lead" open>
           <summary>
             <h2>Which topics get in</h2>
@@ -694,6 +694,7 @@ const freshRated = rows.filter((c) => c.rates.length && c.rates[c.rates.length -
   .t-spark circle { fill:#1d4ed8; }
   .topics > summary { border-bottom:1px solid rgba(148,163,184,.2); }
   /* Sitting above the table, this is context for it, not a footnote. */
+  .topic-section[hidden] { display:none; }
   .topics.lead { background:#fbfcfe; }
   .topics.lead > summary h2 { font-size:1.02rem; }
   .rest-list { list-style:none; margin:0; padding:0 16px 14px; display:grid;
@@ -750,9 +751,17 @@ const freshRated = rows.filter((c) => c.rates.length && c.rates[c.rates.length -
     });
   });
 
+  // The topic breakdown is ICLR, so it belongs to one field. There is no
+  // equivalent for the others yet, and showing AI's numbers while the reader
+  // has Security selected would read as if they were Security's.
+  const topicSections = Array.from(document.querySelectorAll('.topic-section'));
+
   const scholar = document.getElementById('scholar-link');
   const apply = (btn) => {
     const want = btn.dataset.area;
+    topicSections.forEach((sec) => {
+      sec.hidden = want !== 'all' && sec.dataset.topicArea !== want;
+    });
     if (scholar) {
       const url = btn.dataset.scholar || '';
       scholar.hidden = !url;
