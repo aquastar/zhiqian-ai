@@ -25,7 +25,27 @@ const DEFAULT_AREA = 'AI / ML / Data Mining';
 const AR_REPO = 'https://github.com/lixin4ever/Conference-Acceptance-Rate';
 // Fixed 0-45% scale: the point of the bars is to compare venues to each other,
 // which a per-row scale would destroy.
-const RATE_MAX = 40;
+const RATE_MAX = 45;
+const CHART = { w: 150, h: 46 };
+// A line over the whole published history, on a fixed axis so two venues can
+// be compared by eye. The three most recent numbers are printed underneath,
+// because that is what anyone actually wants off this cell.
+const chart = (rates) => {
+  if (!rates || rates.length < 2) return null;
+  const xs = rates.map((p, i) => (i / (rates.length - 1)) * CHART.w);
+  const y = (r) => CHART.h - (Math.min(r, RATE_MAX) / RATE_MAX) * CHART.h;
+  return {
+    pts: rates.map((p, i) => `${xs[i].toFixed(1)},${y(p.r).toFixed(1)}`).join(' '),
+    last: { x: xs[xs.length - 1], y: y(rates[rates.length - 1].r) },
+    grid: [10, 20, 30, 40].map((v) => ({ v, y: y(v) })),
+    span: `${rates[0].y}–${rates[rates.length - 1].y}`,
+  };
+};
+const AR_REPO_OLD = 'https://github.com/lixin4ever/Conference-Acceptance-Rate';
+const CSC = 'https://csconfstats.xoveexu.com/conferences';
+const DBLP = 'https://dblp.org/db/conf';
+const BEST = 'https://jeffhuang.com/best_paper_awards/conferences.html';
+const MAX_ROUNDS = 3;
 const TIER = { 1: 'Top', 2: 'Strong', 3: 'Listed' };
 
 const coreLabel = { 'A*': 'A*', A: 'A', B: 'B', C: 'C', TBR: 'TBR', JP: 'jrnl', N: '—' };
@@ -41,7 +61,7 @@ const society = notable.map((c) => ({ ...c, society: true }));
 const all = [...ranked, ...society];
 const dated = all.filter((c) => c.nextDeadline).sort((a, b) => a.nextDeadline.localeCompare(b.nextDeadline));
 const undated = all.filter((c) => !c.nextDeadline).sort((a, b) => a.title.localeCompare(b.title));
-const rows = [...dated, ...undated];
+const rows = [...dated, ...undated].map((c) => ({ ...c, chart: chart(c.rates) }));
 
 const counts = AREAS.map((a) => ({ area: a, n: rows.filter((c) => c.area === a).length })).filter((x) => x.n);
 const totalRated = rows.filter((c) => c.rates.length).length;
@@ -85,8 +105,7 @@ const freshRated = rows.filter((c) => c.rates.length && c.rates[c.rates.length -
         <li><span class="tier-tag tt-2">Strong</span> CCF B or CORE A</li>
         <li><span class="tier-tag tt-3">Listed</span> unranked, importance stated</li>
         <li class="legend-gap"><span class="chip band-urgent"></span>&lt;30d</li>
-        <li><span class="chip band-soon"></span>30&ndash;60</li>
-        <li><span class="chip band-later"></span>60&ndash;90</li>
+        <li><span class="chip band-soon"></span>30&ndash;90</li>
         <li><span class="chip band-far"></span>90+</li>
         <li><span class="rounds-tag">2&times;</span>cycles / year</li>
         <li><span class="est-tag">est.<i class="fas fa-circle-question" aria-hidden="true"></i></span>estimated from last year's deadline</li>
@@ -123,10 +142,32 @@ const freshRated = rows.filter((c) => c.rates.length && c.rates[c.rates.length -
                   </span>
                   <span class="conf-desc">{c.desc}</span>
                   <span class={`area-tag area-${slug(c.area)}`}><i class={`fas ${AREA_ICON[c.area]}`} aria-hidden="true"></i>{AREA_SHORT[c.area]}</span>
+                  {(c.dblp || c.best) && (
+                    <span class="links">
+                      {c.dblp && <a href={`${DBLP}/${c.dblp}/index.html`} target="_blank" rel="noopener" title="Every past edition's proceedings, on DBLP">past proceedings</a>}
+                      {c.best && <a href={`${BEST}#${c.best}`} target="_blank" rel="noopener" title="Best-paper awards since 1996, Jeff Huang's compilation">best papers</a>}
+                    </span>
+                  )}
                   {c.note && <p class="why">{c.note}</p>}
                 </td>
                 <td class="c-date">
-                  {c.nextDeadline
+                  {c.rounds && c.rounds.length
+                    ? <>
+                        {c.rounds.slice(0, MAX_ROUNDS).map((r) => (
+                          <div class="round">
+                            <span class={`dl ${r.est ? 'is-est' : ''}`}>{r.d}</span>
+                            <span class="dl-days" data-deadline={r.d}></span>
+                            {r.est && <span class="est-tag" title={`Not announced yet. Estimated by rolling last year's deadline (${r.from}) forward.`}>est.<i class="fas fa-circle-question" aria-hidden="true"></i></span>}
+                            {r.label && <span class="round-label">{r.label}</span>}
+                          </div>
+                        ))}
+                        {c.rounds.length > MAX_ROUNDS && (
+                          <span class="round-more" title={c.rounds.slice(MAX_ROUNDS).map((r) => r.d).join(', ')}>
+                            +{c.rounds.length - MAX_ROUNDS} more rounds
+                          </span>
+                        )}
+                      </>
+                    : c.nextDeadline
                     ? <>
                         <span class={`dl ${c.estimated ? 'is-est' : ''}`}>{c.nextDeadline}</span>
                         <span class="dl-days" data-deadline={c.nextDeadline}></span>
@@ -142,21 +183,29 @@ const freshRated = rows.filter((c) => c.rates.length && c.rates[c.rates.length -
                 <td class="c-rate">
                   {last
                     ? <div class={`rate ${stale ? 'is-stale' : ''}`}>
-                        <div class="bars">
+                        {c.chart && (
+                          <svg class="spark" viewBox={`-2 -6 ${CHART.w + 34} ${CHART.h + 12}`} width={CHART.w + 34} height={CHART.h + 12} role="img" aria-label={`Acceptance rate ${c.chart.span}`}>
+                            {c.chart.grid.map((g) => (
+                              <>
+                                <line x1="0" x2={CHART.w} y1={g.y} y2={g.y} class="grid" />
+                                <text x={CHART.w + 3} y={g.y + 3} class="glab">{g.v}</text>
+                              </>
+                            ))}
+                            <polyline points={c.chart.pts} class="line" />
+                            <circle cx={c.chart.last.x} cy={c.chart.last.y} r="2.6" class="dot" />
+                          </svg>
+                        )}
+                        <div class="rate-nums">
                           {c.rates.slice(-3).map((p) => (
-                            <div class="bar-col" title={`${p.y}: ${p.r}%`}>
-                              <span class="bar-pct">{p.r}%</span>
-                              <span class="bar-track"><span class="bar-fill" style={`height:${Math.min(p.r / RATE_MAX, 1) * 100}%`}></span></span>
-                              <span class="bar-year">'{String(p.y).slice(2)}</span>
-                            </div>
+                            <span class="rn"><b>{p.r}%</b><i>'{String(p.y).slice(2)}</i></span>
                           ))}
                         </div>
-                        {c.rates.length > 3 && (
-                          <a class="rate-more" href={`${AR_REPO}#${c.rateSection}`} target="_blank" rel="noopener">
+                        <div class="rate-foot">
+                          {stale && <span class="rate-stale-note">ends {last.y}</span>}
+                          <a class="rate-more" href={c.rateSrc === 'csc' ? `${CSC}/${c.rateSlug}/` : `${AR_REPO_OLD}#${c.rateSection}`} target="_blank" rel="noopener">
                             {c.rates.length} yrs <i class="fas fa-arrow-up-right-from-square" aria-hidden="true"></i>
                           </a>
-                        )}
-                        {stale && <span class="rate-stale-note">ends {last.y}</span>}
+                        </div>
                       </div>
                     : <span class="none">no published rate</span>}
                 </td>
@@ -186,7 +235,7 @@ const freshRated = rows.filter((c) => c.rates.length && c.rates[c.rates.length -
     <section class="section">
       <details class="rest">
         <summary>
-          <h2>Below the bar</h2>
+          <h2>Others</h2>
           <span class="rest-count">{others.length}</span>
           <span class="rest-note">CORE B or lower and CCF C or lower</span>
         </summary>
@@ -244,8 +293,8 @@ const freshRated = rows.filter((c) => c.rates.length && c.rates[c.rates.length -
   .legend strong { font-weight:700; color:#1e293b; }
   .legend-gap { margin-left:10px; }
     .chip { width:11px; height:11px; border-radius:3px; display:inline-block; }
-  .chip.band-urgent { background:#dc2626; } .chip.band-soon { background:#fde68a; }
-  .chip.band-later { background:#2563eb; } .chip.band-far { background:#64748b; }
+  .chip.band-urgent { background:#dc2626; } .chip.band-soon { background:#1d4ed8; }
+  .chip.band-far { background:#64748b; }
 
   .section { margin-top: 26px; }
   .area-head { font-size:1.02rem; margin:0 0 6px; display:flex; align-items:center; gap:9px; }
@@ -266,8 +315,8 @@ const freshRated = rows.filter((c) => c.rates.length && c.rates[c.rates.length -
   .tier-tag { display:inline-block; margin-bottom:5px; padding:2px 9px; border-radius:4px;
     font-size:.62rem; font-weight:800; letter-spacing:.07em; text-transform:uppercase; color:#fff; }
   .tt-1 { background:#dc2626; }
-  .tt-2 { background:#ea7317; }
-  .tt-3 { background:#8a6d0b; }
+  .tt-2 { background:#1d4ed8; }
+  .tt-3 { background:#15803d; }
 
   .c-name { min-width:230px; }
   .name-line { display:flex; align-items:center; gap:7px; flex-wrap:wrap; }
@@ -282,29 +331,37 @@ const freshRated = rows.filter((c) => c.rates.length && c.rates[c.rates.length -
   .area-security-privacy         { color:#0f766e; background:#effcfa; }
   .area-medicine-biology-genetics { color:#be185d; background:#fdf2f8; }
   .area-science-interdisciplinary{ color:#1d4ed8; background:#eff6ff; }
-  .area-society-meetings         { color:#a16207; background:#fefce8; }
+  .area-society-meetings         { color:#475569; background:#f1f5f9; }
   .fbtn i { font-size:.8rem; }
   .fbtn.area-ai-ml-data-mining:not(.is-on)         { color:#6d28d9; border-color:#ddd6fe; }
   .fbtn.area-security-privacy:not(.is-on)          { color:#0f766e; border-color:#99f6e4; }
   .fbtn.area-medicine-biology-genetics:not(.is-on) { color:#be185d; border-color:#fbcfe8; }
   .fbtn.area-science-interdisciplinary:not(.is-on) { color:#1d4ed8; border-color:#bfdbfe; }
-  .fbtn.area-society-meetings:not(.is-on)          { color:#a16207; border-color:#fde68a; }
+  .fbtn.area-society-meetings:not(.is-on)          { color:#475569; border-color:#cbd5e1; }
   .rounds-tag { font-size:.64rem; font-weight:800; color:#0369a1; background:#e0f2fe; border-radius:4px; padding:1px 5px; }
   .new-tag { font-size:.62rem; font-weight:800; letter-spacing:.05em; text-transform:uppercase;
     color:#5b21b6; background:#ede9fe; border:1px solid #ddd6fe; border-radius:4px; padding:1px 6px; }
 
-  .c-date { white-space:nowrap; }
-  .dl { display:block; font-variant-numeric:tabular-nums; font-weight:600; color:#1e293b; }
+  .c-date { white-space:nowrap; min-width:180px; }
+  .round { display:flex; align-items:center; flex-wrap:wrap; gap:5px; margin-bottom:5px; }
+  .round:last-of-type { margin-bottom:0; }
+  .round-label { flex:0 0 100%; font-size:.64rem; color:#94a3b8; line-height:1.3; }
+  .round-more { display:inline-block; margin-top:3px; font-size:.64rem; color:#94a3b8; cursor:help;
+    border-bottom:1px dotted rgba(148,163,184,.7); }
+  .links { display:flex; gap:10px; margin-top:5px; }
+  .links a { font-size:.66rem; font-weight:600; color:#64748b; text-decoration:none;
+    border-bottom:1px solid rgba(148,163,184,.5); }
+  .links a:hover { color:var(--accent); border-color:currentColor; }
+  .dl { font-variant-numeric:tabular-nums; font-weight:600; color:#1e293b; }
   /* An estimate is drawn differently from a published date, every time. */
   .dl.is-est { color:#64748b; font-weight:500; border-bottom:1px dashed rgba(100,116,139,.6); display:inline-block; }
   .est-tag i { margin-left:3px; opacity:.75; }
   .est-tag { display:inline-flex; align-items:center; margin-left:5px; font-size:.62rem; font-weight:700; color:#64748b;
     background:#f1f5f9; border:1px dashed rgba(148,163,184,.6); border-radius:4px; padding:0 5px; cursor:help; }
-  .dl-days { display:inline-block; margin-top:4px; font-size:.68rem; font-weight:800; color:#fff;
+  .dl-days { display:inline-block; font-size:.68rem; font-weight:800; color:#fff;
     border-radius:999px; padding:2px 8px; background:#64748b; }
   .dl-days.band-urgent { background:#dc2626; }
-  .dl-days.band-soon   { background:#fde68a; color:#92400e; }
-  .dl-days.band-later  { background:#2563eb; }
+  .dl-days.band-soon   { background:#1d4ed8; }
   .dl-days.band-far    { background:#64748b; }
   .dl-days.band-past   { background:#e2e8f0; color:#64748b; }
 
@@ -313,26 +370,24 @@ const freshRated = rows.filter((c) => c.rates.length && c.rates[c.rates.length -
   .when { display:block; }
   .where { display:block; color:#94a3b8; }
 
-  .c-rate { min-width:150px; }
-  .rate { display:flex; align-items:flex-end; gap:10px; }
-  .bars { display:flex; align-items:flex-end; gap:6px; }
-  .bar-col { display:flex; flex-direction:column; align-items:center; gap:2px; width:34px; }
-  .bar-pct { font-size:.64rem; font-weight:800; color:#0f172a; font-variant-numeric:tabular-nums; }
-  .bar-track { position:relative; width:100%; height:44px; display:flex; align-items:flex-end;
-    background:rgba(148,163,184,.2); border-radius:3px; overflow:hidden; }
-  /* Reference line at 25% — most CS rates sit near it, so it turns a cluster
-     of similar bars into an above/below read. */
-  .bar-track::before { content:''; position:absolute; left:0; right:0; bottom:62.5%; height:1px;
-    background:rgba(71,85,105,.33); z-index:1; }
-  .bar-fill { position:relative; z-index:0; width:100%; background:linear-gradient(180deg,#60a5fa,#2563eb); border-radius:3px 3px 0 0; }
-  .bar-year { font-size:.62rem; color:#64748b; font-variant-numeric:tabular-nums; }
-  .rate.is-stale .bar-fill { background:linear-gradient(180deg,#cbd5e1,#94a3b8); }
-  .rate.is-stale .bar-pct { color:#64748b; }
+  .c-rate { min-width:196px; }
+  .spark { display:block; overflow:visible; color:#1d4ed8; }
+  .spark .grid { stroke:rgba(148,163,184,.35); stroke-width:.6; stroke-dasharray:2 2; }
+  .spark .glab { font-size:6px; fill:#94a3b8; }
+  .spark .line { fill:none; stroke:currentColor; stroke-width:1.6; stroke-linejoin:round; stroke-linecap:round; }
+  .spark .dot  { fill:currentColor; }
+  .rate.is-stale .spark { color:#94a3b8; }
+  .rate-nums { display:flex; gap:9px; margin-top:3px; }
+  .rn { display:flex; align-items:baseline; gap:3px; font-variant-numeric:tabular-nums; }
+  .rn b { font-size:.76rem; font-weight:800; color:#0f172a; }
+  .rn i { font-style:normal; font-size:.62rem; color:#94a3b8; }
+  .rate.is-stale .rn b { color:#64748b; }
+  .rate-foot { display:flex; align-items:center; gap:6px; margin-top:4px; }
   .rate-more { font-size:.63rem; font-weight:700; color:#475569; text-decoration:none; white-space:nowrap;
-    border:1px solid rgba(148,163,184,.45); border-radius:999px; padding:2px 7px; background:#fff; margin-bottom:18px; }
+    border:1px solid rgba(148,163,184,.45); border-radius:999px; padding:1px 7px; background:#fff; }
   .rate-more:hover { color:var(--accent); border-color:rgba(37,99,235,.5); }
-  .rate-stale-note { font-size:.62rem; font-weight:700; color:#b45309; background:#fef3c7;
-    border-radius:4px; padding:1px 5px; margin-bottom:19px; white-space:nowrap; }
+  .rate-stale-note { font-size:.62rem; font-weight:700; color:#64748b; background:#f1f5f9;
+    border-radius:4px; padding:1px 5px; white-space:nowrap; }
 
   .c-rank { white-space:nowrap; }
   .ranks { display:flex; flex-direction:column; gap:4px; align-items:flex-start; }
@@ -340,12 +395,12 @@ const freshRated = rows.filter((c) => c.rates.length && c.rates[c.rates.length -
     font-size:.68rem; font-weight:800; color:#fff; letter-spacing:.02em; }
   /* CCF: red / orange / yellow. CORE: red / orange / yellow / green. Same hues,
      so a reader compares the two tables without relearning a palette. */
-  .ccf-a { background:#dc2626; } .ccf-b { background:#c2410c; } .ccf-c { background:#a16207; }
+  .ccf-a { background:#dc2626; } .ccf-b { background:#1d4ed8; } .ccf-c { background:#15803d; }
   .ccf-n { background:#e2e8f0; color:#64748b; }
-  .core-as { background:#dc2626; } .core-a { background:#c2410c; } .core-b { background:#a16207; }
-  .core-c { background:#4d7c0f; }
+  .core-as { background:#dc2626; } .core-a { background:#1d4ed8; } .core-b { background:#15803d; }
+  .core-c { background:#64748b; }
   .core-tbr, .core-jp, .core-n { background:#e2e8f0; color:#64748b; }
-  .eqv-none { color:#92400e; background:#fffbeb; border-color:#fde68a; }
+  .eqv-none { color:#475569; background:#f8fafc; border-color:#cbd5e1; }
   .why { margin:6px 0 0; text-align:left; font-size:.72rem; line-height:1.5; color:#64748b; max-width:44ch;
     border-left:2px solid rgba(148,163,184,.4); padding-left:8px; }
   .eqv { display:inline-block; max-width:180px; white-space:normal; font-size:.7rem; line-height:1.4;
@@ -355,7 +410,7 @@ const freshRated = rows.filter((c) => c.rates.length && c.rates[c.rates.length -
   .empty-note { margin:16px 0 0; font-size:.84rem; color:#64748b; }
 
   .proc { font-size:.62rem; font-weight:800; letter-spacing:.04em; text-transform:uppercase; border-radius:4px; padding:2px 6px; }
-  .proc-none { color:#92400e; background:#fef3c7; }
+  .proc-none { color:#475569; background:#e2e8f0; }
 
   .rest { border:1px solid rgba(148,163,184,.26); border-radius:12px; background:#fbfcfe; }
   .rest > summary { cursor:pointer; list-style:none; display:flex; align-items:center; gap:10px; padding:12px 16px; }
@@ -390,7 +445,7 @@ const freshRated = rows.filter((c) => c.rates.length && c.rates[c.rates.length -
     if (!raw) return;
     const [y, m, d] = raw.split('-').map(Number);
     const days = Math.round((new Date(y, m - 1, d).getTime() - today.getTime()) / DAY);
-    const band = days < 0 ? 'past' : days < 30 ? 'urgent' : days < 60 ? 'soon' : days < 90 ? 'later' : 'far';
+    const band = days < 0 ? 'past' : days < 30 ? 'urgent' : days < 90 ? 'soon' : 'far';
     el.classList.add('band-' + band);
     el.textContent = days < 0 ? `closed ${-days}d ago` : days === 0 ? 'today' : `${days}d`;
   });

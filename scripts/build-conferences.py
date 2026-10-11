@@ -11,6 +11,12 @@ CACHE = '.conf-cache'
 os.makedirs(CACHE, exist_ok=True)
 os.chdir(CACHE)
 
+if not os.path.isdir('cs-conf-stats'):
+    subprocess.run(['git','clone','--depth','1','-q',
+                    'https://github.com/Xovee/cs-conf-stats.git'], check=True)
+else:
+    subprocess.run(['git','-C','cs-conf-stats','pull','-q'], check=True)
+
 if not os.path.isdir('ccf-deadlines'):
     subprocess.run(['git','clone','--depth','1','-q',
                     'https://github.com/ccfddl/ccf-deadlines.git'], check=True)
@@ -74,6 +80,29 @@ for line in open('ar.md'):
     rates[key][year]=float(pct.group(1))
     rate_section.setdefault(key, _sec)
 
+# cs-conf-stats carries accepted/submitted counts per year and is current to
+# 2026 for most venues, so it is the primary source; the older compilation is
+# kept only to fill venues it does not cover.
+CSC_ALIAS={'KDD':'SIGKDD','IEEE S&P':'S&P','Interspeech':'InterSpeech'}
+csc_rates={}; csc_slug={}
+for c in json.load(open('cs-conf-stats/data/conf.json'))['conferences']:
+    t=CSC_ALIAS.get(c['series'], c['series'])
+    hist={}
+    for y in c.get('yearly_data') or []:
+        mt=y.get('main_track') or {}
+        a,sb=mt.get('num_acc'), mt.get('num_sub')
+        if a and sb: hist[y['year']]=round(100*a/sb, 1)
+    if hist:
+        csc_rates[t]=hist
+        csc_slug[t]=c['series'].lower().replace(' ','-').replace('&','')
+print('cs-conf-stats venues with rates:', len(csc_rates))
+
+# Best-paper awards: Jeff Huang's compilation, the only maintained
+# cross-conference list. Anchors verified against the live page.
+BEST={'AAAI':'aaai','ACL':'acl','CIKM':'cikm','CVPR':'cvpr','ICCV':'iccv','ICML':'icml',
+      'IJCAI':'ijcai','SIGKDD':'kdd','NeurIPS':'neurips','PODS':'pods','S&P':'s&p',
+      'SIGIR':'sigir','SIGMOD':'sigmod','VLDB':'vldb','WWW':'www','FSE':'fse'}
+
 # ---------- areas ----------
 BIO={'APBC','BIBM','ISMB','ISBRA','RECOMB','MICCAI','EMBC'}
 AREA_BY_SUB={'AI':'AI / ML / Data Mining','SC':'Security & Privacy','DB':'AI / ML / Data Mining'}
@@ -92,6 +121,10 @@ def tier_of(ccf, core):
     if ccf=='A' or core=='A*': return 1
     if ccf=='B' or core=='A':  return 2
     return 3
+
+def latest_link(confs):
+    e=max(confs, key=lambda e: e.get('year',0)) if confs else {}
+    return e.get('link','') or ''
 
 def dstr(s):
     m=re.match(r'(\d{4}-\d{2}-\d{2})', str(s or '')); return m.group(1) if m else ''
@@ -113,34 +146,52 @@ for sub in ['AI','SC','DB','MX','CG','HI']:
                     if ds and datetime.date.fromisoformat(ds) >= TODAY:
                         upcoming.append((ds, ed.get('year'), ed.get('link',''), dstr(tl.get('abstract_deadline'))))
             upcoming.sort()
-            nxt=upcoming[0] if upcoming else None
-            # Nothing announced: roll the most recent past deadline forward by
-            # whole years until it lands ahead of today. Same month and day as
-            # last time, which is how these actually repeat — flagged est so no
-            # one mistakes it for a published date.
-            est=False
-            if not nxt:
-                past=[]
-                for ed in confs:
-                    for tl in (ed.get('timeline') or []):
-                        ds=dstr(tl.get('deadline'))
-                        if ds: past.append((ds, ed.get('year'), ed.get('link','')))
-                ds=''
-                if past:
-                    ds, yr, lk = max(past)
-                    d0=datetime.date.fromisoformat(ds)
-                    bump=0
-                    while True:
-                        bump+=1
-                        try: cand=d0.replace(year=d0.year+bump)
-                        except ValueError: cand=d0.replace(year=d0.year+bump, day=28)
-                        if cand >= TODAY: break
-                        # More than two years of rolling is not an estimate,
-                        # it is a guess about a venue that stopped publishing.
-                        if bump > 2: cand=None; break
-                    if cand:
-                        nxt=(cand.isoformat(), (yr or d0.year)+bump, lk, '')
-                        est=True
+            # Every round the venue runs, not just the soonest. The reference
+            # edition is whichever recent one publishes the most rounds; a
+            # round whose date has passed is rolled forward like any other
+            # estimate, so a two-round venue always shows two.
+            recent=sorted(confs, key=lambda e: e.get('year',0))[-2:]
+            ref_rounds=[]
+            for ed in recent:
+                rs=[(dstr(t.get('deadline')), (t.get('comment') or '').strip())
+                    for t in (ed.get('timeline') or []) if dstr(t.get('deadline'))]
+                seen=set(); rs=[r for r in rs if not (r[0] in seen or seen.add(r[0]))]
+                if len(rs) > len(ref_rounds): ref_rounds=rs
+            rounds=[]
+            for ds, label in ref_rounds:
+                d0=datetime.date.fromisoformat(ds)
+                if d0 >= TODAY:
+                    rounds.append({'d':ds,'label':label,'est':False})
+                    continue
+                for bump in (1,2):
+                    try: cand=d0.replace(year=d0.year+bump)
+                    except ValueError: cand=d0.replace(year=d0.year+bump, day=28)
+                    if cand >= TODAY:
+                        rounds.append({'d':cand.isoformat(),'label':label,'est':True,'from':ds})
+                        break
+            # A real future date beats a rolled one within a fortnight of it.
+            for u_ds, u_yr, u_lk, u_ab in upcoming:
+                u_d0=datetime.date.fromisoformat(u_ds)
+                for rd in [x for x in rounds
+                           if abs((datetime.date.fromisoformat(x['d'])-u_d0).days) <= 14]:
+                    rounds.remove(rd)
+                if not any(x['d']==u_ds for x in rounds):
+                    rounds.append({'d':u_ds,'label':'','est':False,'year':u_yr,'link':u_lk,'abstract':u_ab})
+            rounds.sort(key=lambda x: x['d'])
+            # The soonest round is the headline date, whether it is published
+            # or rolled forward.
+            nxt=None; est=False
+            if rounds:
+                r0=rounds[0]
+                if r0['est']:
+                    src=r0.get('from','')
+                    base=next((e.get('year') for e in confs
+                               if any(dstr(t.get('deadline'))==src for t in (e.get('timeline') or []))), None)
+                    bumped=datetime.date.fromisoformat(r0['d']).year - datetime.date.fromisoformat(src).year if src else 1
+                    nxt=(r0['d'], (base+bumped) if base else None, latest_link(confs), '')
+                    est=True
+                else:
+                    nxt=(r0['d'], r0.get('year'), r0.get('link',''), r0.get('abstract',''))
             latest=max(confs, key=lambda e: e.get('year',0)) if confs else {}
             # Count rounds only within the edition being shown. Taking the max
             # across every edition flagged AAAI, whose old NeurIPS fast track
@@ -151,7 +202,8 @@ for sub in ['AI','SC','DB','MX','CG','HI']:
             deadlines_in_ref={dstr(t.get('deadline')) for t in tl_ref if dstr(t.get('deadline'))}
             cycles=len(deadlines_in_ref) if len(deadlines_in_ref)>1 else 1
             roundLabels=[l for l in labels if l] if cycles>1 else []
-            hist=sorted(rates.get(t, {}).items())
+            hist=sorted((csc_rates.get(t) or rates.get(t, {})).items())
+            rsrc='csc' if t in csc_rates else ('ar' if t in rates else '')
             off=official(t,d); mirror=canon(r.get('core','N'))
             out.append({
                 'title':t, 'desc':d, 'area':area(sub,t),
@@ -161,13 +213,17 @@ for sub in ['AI','SC','DB','MX','CG','HI']:
                 'nextYear': nxt[1] if nxt else None,
                 'nextAbstract': nxt[3] if nxt else '',
                 'estimated': est,
-                'estFrom': ds if est else '',
+                'estFrom': (rounds[0].get('from','') if rounds else '') if est else '',
+                'rounds': rounds,
+                'dblp': c.get('dblp',''),
+                'best': BEST.get(t,''),
                 'link': (nxt[2] if nxt else latest.get('link','')) or '',
                 'date': latest.get('date',''), 'place': latest.get('place',''),
                 'cycles': cycles, 'roundLabels': roundLabels,
                 'proceedings': 'full',
                 'rates': [{'y':y,'r':v} for y,v in hist],
                 'rateSection': rate_section.get(t,''),
+                'rateSrc': rsrc, 'rateSlug': csc_slug.get(t,''),
             })
 json.dump(out, open('built.json','w'))
 print('conferences:', len(out))
@@ -237,7 +293,7 @@ for n in NOTABLE:
     n.setdefault('equivalent', None)   # editorial, not an official rank
     nd, ny, est = roll(n.get('lastDeadline',''))
     n.update({'ccf':n.get('ccfManual','N'),'core':n.get('coreManual','N'),'coreVerified':False,'nextAbstract':'',
-              'cycles':1,'roundLabels':[],'rates':[],'rateSection':'',
+              'cycles':1,'roundLabels':[],'rates':[],'rateSection':'','rateSrc':'','rateSlug':'','rounds':[],'dblp':'','best':'',
               'estimated':est,'estFrom':n.get('lastDeadline','') if est else '',
               'nextDeadline':nd,'nextYear':ny,'notable':True})
     n.setdefault('date',''); n.setdefault('place','')
