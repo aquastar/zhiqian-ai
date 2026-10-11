@@ -23,6 +23,7 @@ const AR_REPO = 'https://github.com/lixin4ever/Conference-Acceptance-Rate';
 // Fixed 0-45% scale: the point of the bars is to compare venues to each other,
 // which a per-row scale would destroy.
 const RATE_MAX = 40;
+const TIER = { 1: 'Top', 2: 'Strong', 3: 'Listed' };
 
 const coreLabel = { 'A*': 'A*', A: 'A', B: 'B', C: 'C', TBR: 'TBR', JP: 'jrnl', N: '—' };
 const coreClass = (c) => `core-${c === 'A*' ? 'as' : c.toLowerCase()}`;
@@ -62,7 +63,7 @@ const freshRated = rows.filter((c) => c.rates.length && c.rates[c.rates.length -
           <h1>Conferences</h1>
           <p class="sub">
             One list, soonest deadline first. A venue is listed when it clears CORE A*&ndash;A or CCF A&ndash;B,
-            either one &mdash; plus unranked venues that matter anyway. Row tint is importance; the
+            either one &mdash; plus unranked venues that matter anyway. The tag on each row is importance; the
             ranks that justify it are in the last column.
           </p>
         </div>
@@ -78,9 +79,9 @@ const freshRated = rows.filter((c) => c.rates.length && c.rates[c.rates.length -
       </div>
 
       <ul class="legend">
-        <li><span class="tier-swatch t1"></span><strong>Top</strong> &mdash; CCF A or CORE A*</li>
-        <li><span class="tier-swatch t2"></span><strong>Strong</strong> &mdash; CCF B or CORE A</li>
-        <li><span class="tier-swatch t3"></span><strong>Listed</strong> &mdash; unranked, importance stated</li>
+        <li><span class="tier-tag tt-1">Top</span> CCF A or CORE A*</li>
+        <li><span class="tier-tag tt-2">Strong</span> CCF B or CORE A</li>
+        <li><span class="tier-tag tt-3">Listed</span> unranked, importance stated</li>
         <li class="legend-gap"><span class="chip band-urgent"></span>&lt;30d</li>
         <li><span class="chip band-soon"></span>30&ndash;60</li>
         <li><span class="chip band-later"></span>60&ndash;90</li>
@@ -108,6 +109,7 @@ const freshRated = rows.filter((c) => c.rates.length && c.rates[c.rates.length -
               return (
               <tr class={`tier-${c.tier}`} data-area={slug(c.area)}>
                 <td class="c-name">
+                  <span class={`tier-tag tt-${c.tier}`}>{TIER[c.tier]}</span>
                   <span class="name-line">
                     {c.link
                       ? <a class="conf-name" href={c.link} target="_blank" rel="noopener">{c.title}</a>
@@ -232,13 +234,10 @@ const freshRated = rows.filter((c) => c.rates.length && c.rates[c.rates.length -
 
   .legend { list-style:none; margin:14px 0 0; padding:0; display:flex; flex-wrap:wrap; gap:14px; font-size:.76rem; color:#475569; }
   .legend li { display:inline-flex; align-items:center; gap:6px; }
+  .legend .tier-tag { margin-bottom:0; }
   .legend strong { font-weight:700; color:#1e293b; }
   .legend-gap { margin-left:10px; }
-  .tier-swatch { width:22px; height:12px; border-radius:3px; border:1px solid rgba(148,163,184,.4); }
-  .tier-swatch.t1 { background:#fde9e9; border-color:#dc2626; border-left-width:4px; }
-  .tier-swatch.t2 { background:#fdedd6; border-color:#ea7317; border-left-width:4px; }
-  .tier-swatch.t3 { background:#f8f4cd; border-color:#d4b106; border-left-width:4px; }
-  .chip { width:11px; height:11px; border-radius:3px; display:inline-block; }
+    .chip { width:11px; height:11px; border-radius:3px; display:inline-block; }
   .chip.band-urgent { background:#dc2626; } .chip.band-soon { background:#fde68a; }
   .chip.band-later { background:#2563eb; } .chip.band-far { background:#64748b; }
 
@@ -255,14 +254,14 @@ const freshRated = rows.filter((c) => c.rates.length && c.rates[c.rates.length -
   .confs td { padding:10px 12px; border-bottom:1px solid rgba(148,163,184,.17); vertical-align:top; }
   .confs tbody tr:last-child td { border-bottom:0; }
 
-  /* Row tint is the importance tier and nothing else. */
-  tr.tier-1 { background:#fde9e9; } tr.tier-1:hover { background:#fbdada; }
-  tr.tier-2 { background:#fdedd6; } tr.tier-2:hover { background:#fbe1bd; }
-  tr.tier-3 { background:#f8f4cd; } tr.tier-3:hover { background:#f3edb4; }
-  .confs tbody td:first-child { border-left:4px solid transparent; }
-  tr.tier-1 td:first-child { border-left-color:#dc2626; }
-  tr.tier-2 td:first-child { border-left-color:#ea7317; }
-  tr.tier-3 td:first-child { border-left-color:#d4b106; }
+  .confs tbody tr:hover { background:#f8fafc; }
+  /* Importance reads as a label at the head of the row. A wash behind the
+     whole row said the same thing but fought with everything written on it. */
+  .tier-tag { display:inline-block; margin-bottom:5px; padding:2px 9px; border-radius:4px;
+    font-size:.62rem; font-weight:800; letter-spacing:.07em; text-transform:uppercase; color:#fff; }
+  .tt-1 { background:#dc2626; }
+  .tt-2 { background:#ea7317; }
+  .tt-3 { background:#8a6d0b; }
 
   .c-name { min-width:230px; }
   .name-line { display:flex; align-items:center; gap:7px; flex-wrap:wrap; }
