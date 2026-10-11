@@ -103,6 +103,25 @@ BEST={'AAAI':'aaai','ACL':'acl','CIKM':'cikm','CVPR':'cvpr','ICCV':'iccv','ICML'
       'IJCAI':'ijcai','SIGKDD':'kdd','NeurIPS':'neurips','PODS':'pods','S&P':'s&p',
       'SIGIR':'sigir','SIGMOD':'sigmod','VLDB':'vldb','WWW':'www','FSE':'fse'}
 
+# ---------- country flags ----------
+# place strings are free text from the upstream catalogue, so normalize the
+# trailing country token to an ISO 3166-1 alpha-2 code the flag sprite knows.
+CC={'argentina':'ar','australia':'au','barbados':'bb','belgium':'be','brazil':'br',
+    'canada':'ca','china':'cn','cyprus':'cy','denmark':'dk','france':'fr','germany':'de',
+    'greece':'gr','hungary':'hu','iceland':'is','india':'in','ireland':'ie','italy':'it',
+    'japan':'jp','korea':'kr','republic of korea':'kr','south korea':'kr','lithuania':'lt',
+    'luxembourg':'lu','malaysia':'my','mexico':'mx','morocco':'ma','netherlands':'nl',
+    'the netherlands':'nl','new zealand':'nz','poland':'pl','scotland':'gb','singapore':'sg',
+    'south africa':'za','spain':'es','sweden':'se','taiwan':'tw','uk':'gb',
+    'united kingdom':'gb','united state':'us','united states':'us','usa':'us','vietnam':'vn'}
+def flag(place):
+    if not place: return ''
+    tail=place.split(',')[-1]
+    tail=re.sub(r'\(.*?\)|/.*$|and online', ' ', tail, flags=re.I)
+    tail=re.sub(r'[^a-z ]', ' ', tail.lower()).strip()
+    tail=re.sub(r'\s+', ' ', tail)
+    return CC.get(tail, '')
+
 # ---------- areas ----------
 BIO={'APBC','BIBM','ISMB','ISBRA','RECOMB','MICCAI','EMBC'}
 AREA_BY_SUB={'AI':'AI / ML / Data Mining','SC':'Security & Privacy','DB':'AI / ML / Data Mining'}
@@ -219,6 +238,7 @@ for sub in ['AI','SC','DB','MX','CG','HI']:
                 'best': BEST.get(t,''),
                 'link': (nxt[2] if nxt else latest.get('link','')) or '',
                 'date': latest.get('date',''), 'place': latest.get('place',''),
+                'cc': flag(latest.get('place','')),
                 'cycles': cycles, 'roundLabels': roundLabels,
                 'proceedings': 'full',
                 'rates': [{'y':y,'r':v} for y,v in hist],
@@ -297,6 +317,7 @@ for n in NOTABLE:
               'estimated':est,'estFrom':n.get('lastDeadline','') if est else '',
               'nextDeadline':nd,'nextYear':ny,'notable':True})
     n.setdefault('date',''); n.setdefault('place','')
+    n['cc']=flag(n['place'])
     # An emerging venue carries a stated equivalence so it sorts with its peers;
     # a society meeting has no proceedings, so no tier is claimed for it.
     n['tier'] = 2 if n['equivalent'] else tier_of(n['ccf'], n['core'])

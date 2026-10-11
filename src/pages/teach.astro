@@ -68,19 +68,19 @@ const talks = [
 
 const courses = [
   { tag: 'Undergraduate', title: 'CSCI 431.02 Intro to Computer Vision', desc: 'Introductory computer vision for undergraduates.', school: 'Rochester Institute of Technology', current: true },
-  { tag: 'Split-level', title: 'CSE 4633/6633 Artificial Intelligence', desc: 'Introductory AI course spanning core concepts and methods.', school: 'Mississippi State University' },
   {
     tag: 'Split-level', title: 'CSE 4693/6693 Intro to Machine Learning',
     desc: 'Foundations of machine learning for undergraduate and graduate students.',
     school: 'Mississippi State University',
     project: {
-      title: 'LEGO Colour Sorter',
+      title: 'LEGO Color Sorter',
       award: 'Ottilie Schillig Special Teaching Award, 2025',
-      desc: 'A hands-on build that puts a classifier on a conveyor belt. A camera reads each brick as it travels, the predicted colour and its confidence appear live over the video, and the LEGO hub turns the sorting table to the matching bin — so a wrong call shows up immediately, as a brick in the wrong box, rather than as a number in a confusion matrix.',
+      desc: 'A hands-on build that puts a classifier on a conveyor belt. A camera reads each brick as it travels, the predicted color and its confidence appear live over the video, and the LEGO hub turns the sorting table to the matching bin. A wrong call shows up immediately, as a brick in the wrong box, rather than as a number in a confusion matrix.',
       video: '/lego-sorter.mp4',
       poster: '/lego-sorter-poster.jpg',
     },
   },
+  { tag: 'Split-level', title: 'CSE 4633/6633 Artificial Intelligence', desc: 'Introductory AI course spanning core concepts and methods.', school: 'Mississippi State University' },
   { tag: 'Graduate', title: 'CSE 8673 Machine Learning', desc: 'Graduate-level machine learning with emphasis on principles and applications.', school: 'Mississippi State University' },
   { tag: 'Graduate', title: 'CSE 8990 Graph Machine Learning', desc: 'Advanced topics in graph machine learning and networked intelligence.', school: 'Mississippi State University' },
 ];
@@ -93,7 +93,7 @@ const courses = [
       <a href="/agenda">Agenda</a>
       <a href="/people">People</a>
       <a href="/teach" aria-current="page">Talk &amp; Teach</a>
-      <a href="https://scholar.google.com/citations?user=NC3-O6UAAAAJ&hl=en&oi=ao" target="_blank" rel="noopener">Paper <i class="ai ai-google-scholar-square ai-sm nav-ghost"></i> <i class="fas fa-arrow-up-right-from-square nav-ghost"></i></a>
+      <a class="nav-right-start" href="https://scholar.google.com/citations?user=NC3-O6UAAAAJ&hl=en&oi=ao" target="_blank" rel="noopener">Paper <i class="ai ai-google-scholar-square ai-sm nav-ghost"></i> <i class="fas fa-arrow-up-right-from-square nav-ghost"></i></a>
       <a href="https://substack.com/@zhiqianchen1" target="_blank" rel="noopener">Zhiqian's Note <svg class="nav-ghost nav-substack" viewBox="0 0 24 24" fill="currentColor" width="11" height="11" aria-hidden="true"><path d="M22.539 8.242H1.46V5.406h21.08v2.836zM1.46 10.812V24L12 18.11 22.54 24V10.812H1.46zM22.54 0H1.46v2.836h21.08V0z"/></svg> <i class="fas fa-arrow-up-right-from-square nav-ghost"></i></a>
     </nav>
     <section class="hero">
@@ -138,6 +138,7 @@ const courses = [
                 <div class="course-project">
                   <div class="project-copy">
                     <div class="project-head">
+                      <span class="project-kicker">Selected project</span>
                       <span class="project-title">{c.project.title}</span>
                       <span class="project-award"><i class="fas fa-award" aria-hidden="true"></i>{c.project.award}</span>
                     </div>
@@ -166,7 +167,7 @@ const courses = [
   </main>
   <script>
     // Hold the fetch back until the clip is actually on screen, then loop it
-    // muted — preload="none" means nothing moves for a visitor who never
+    // muted. preload="none" means nothing moves for a visitor who never
     // scrolls this far. Controls stay on throughout: the clip carries readable
     // terminal text, so being able to pause it matters. Reduced-motion and
     // Save-Data visitors are left with the poster and the play button.
@@ -196,6 +197,9 @@ const courses = [
   .top-nav a { text-decoration:none; color:var(--ink); font-family:'Montserrat',sans-serif; font-size:.9rem; padding:7px 10px; border-radius:999px; background:transparent; }
   .top-nav a:hover { background: #f1f5f9; color: #0f172a; }
   .top-nav a[aria-current="page"] { background: #e2e8f0; color: #0f172a; box-shadow: inset 0 1px 2px rgba(15,23,42,0.10); }
+  /* The right-hand group of the nav starts here. Conferences only joins it on
+     the agenda side of the site, where it is the thing a reader wants next. */
+  .nav-right-start { margin-left:auto; }
   .nav-ghost { font-size:.78rem; margin-left:4px; opacity:.85; }
   .nav-substack { vertical-align: -1px; opacity: .85; }
   .hero { margin: 10px 0 28px; }
@@ -232,6 +236,8 @@ const courses = [
   .course-project { display:block; margin-top:10px; padding:12px; border:1px solid rgba(148,163,184,.22); border-radius:12px; background:#f8fafc; }
   .project-head { display:flex; flex-wrap:wrap; align-items:baseline; gap:8px; margin-bottom:5px; }
   .project-title { font-family:'Montserrat',sans-serif; font-weight:700; font-size:.9rem; color:#0f172a; }
+  .project-kicker { flex:0 0 100%; font-size:.64rem; font-weight:700; letter-spacing:.09em;
+    text-transform:uppercase; color:#94a3b8; }
   .project-award { display:inline-flex; align-items:center; gap:5px; font-size:.72rem; font-weight:700; color:#92400e; background:#fde68a; border-radius:999px; padding:2px 9px; }
   .project-award i { font-size:.68rem; }
   .project-desc { margin:0; font-size:.86rem; color:#475569; line-height:1.5; text-align:left; }
