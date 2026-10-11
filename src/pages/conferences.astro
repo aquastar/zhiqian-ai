@@ -2,6 +2,7 @@
 import Layout from '../layouts/Layout.astro';
 import { ranked, others, notable } from '../data/conferences.js';
 import { topicRates } from '../data/topics.js';
+import { destinations } from '../data/destinations.js';
 
 const SOCIETY = 'Society meetings';
 const AREAS = ['AI / ML / Data Mining', 'Security & Privacy', 'Medicine, Biology & Genetics', 'Science & Interdisciplinary', SOCIETY];
@@ -144,6 +145,9 @@ const freshRated = rows.filter((c) => c.rates.length && c.rates[c.rates.length -
 
     <section class="head">
       <div class="filter" role="group" aria-label="Filter by field">
+        <button class="fbtn fbtn-dest" data-area="destinations" type="button">
+          <i class="fas fa-plane-departure" aria-hidden="true"></i>By destination<span class="fcount">{destinations.reduce((a, d) => a + d.n, 0)}</span>
+        </button>
         {counts.map((c) => (
           <button class={`fbtn area-${slug(c.area)}${c.area === DEFAULT_AREA ? ' is-on' : ''}`} data-area={slug(c.area)} type="button" data-scholar={SCHOLAR[c.area] || ''}>
             <i class={`fas ${AREA_ICON[c.area]}`} aria-hidden="true"></i>{AREA_SHORT[c.area]}<span class="fcount">{c.n}</span>
@@ -258,6 +262,70 @@ const freshRated = rows.filter((c) => c.rates.length && c.rates[c.rates.length -
         </details>
       </section>
     ))}
+
+    <section class="section dest-section" id="destinations" hidden>
+      <div class="dest-pick" role="group" aria-label="Pick a destination">
+        {destinations.map((d, i) => (
+          <button class={`dbtn${i === 0 ? ' is-on' : ''}`} data-dest={slug(d.dest)} type="button">
+            <i class={`fas fa-${d.icon}`} aria-hidden="true"></i>{d.dest}<span class="fcount">{d.n}</span>
+          </button>
+        ))}
+      </div>
+      <div class="table-wrap">
+        <table class="confs dest-table">
+          <thead>
+            <tr>
+              <th class="c-name">Conference</th>
+              <th class="c-date">Deadline</th>
+              <th class="c-when">When and where</th>
+              <th class="c-rank">Ranking</th>
+            </tr>
+          </thead>
+          <tbody>
+            {destinations.map((d) => d.items.map((it) => (
+              <tr data-dest={slug(d.dest)} hidden={d !== destinations[0]}>
+                <td class="c-name">
+                  <span class="name-line">
+                    {it.link
+                      ? <a class="conf-name" href={it.link} target="_blank" rel="noopener">{it.title}</a>
+                      : <span class="conf-name">{it.title}</span>}
+                    <span class="ed-ord">{it.year}</span>
+                    {it.open && <span class="open-tag">call open</span>}
+                  </span>
+                  <span class="conf-desc">{it.desc}</span>
+                </td>
+                <td class="c-date">
+                  {it.deadline
+                    ? <>
+                        <span class="dl">{it.deadline}</span>
+                        {it.open
+                          ? <span class="dl-days" data-deadline={it.deadline}></span>
+                          : <span class="dl-days band-past">closed</span>}
+                      </>
+                    : <span class="none">not published</span>}
+                </td>
+                <td class="c-when">
+                  <span class="when">{it.date || 'dates to be set'}</span>
+                  <span class="where">{it.place}</span>
+                </td>
+                <td class="c-rank">
+                  <span class="ranks">
+                    <span class={`pill ccf-${(it.ccf || 'n').toLowerCase()}`}>CCF {it.ccf === 'N' ? 'n/a' : it.ccf}</span>
+                    <span class={`pill ${coreClass(it.core || 'N')}`}>CORE {coreLabel[it.core] || '—'}</span>
+                  </span>
+                </td>
+              </tr>
+            )))}
+          </tbody>
+        </table>
+      </div>
+      <p class="area-note">
+        Every announced future edition in the catalogue, placed by its city rather than its deadline.
+        A call marked open still has a deadline ahead of today; the rest are shown so you can see where a
+        conference goes, and plan for the edition after. {destinations.reduce((a, d) => a + d.n, 0)} editions
+        across {destinations.length} destinations.
+      </p>
+    </section>
 
     <section class="section">
       <div class="table-wrap">
@@ -521,6 +589,20 @@ const freshRated = rows.filter((c) => c.rates.length && c.rates[c.rates.length -
   .fbtn.area-medicine-biology-genetics:not(.is-on) { color:#be185d; border-color:#fbcfe8; }
   .fbtn.area-science-interdisciplinary:not(.is-on) { color:#1d4ed8; border-color:#bfdbfe; }
   .fbtn.area-society-meetings:not(.is-on)          { color:#475569; border-color:#cbd5e1; }
+  .fbtn-dest:not(.is-on) { color:#0e7490; border-color:#a5f3fc; }
+  .fbtn-dest.is-on { background:#0e7490; border-color:#0e7490; }
+  .dest-section[hidden], .section[hidden] { display:none; }
+  .dest-pick { display:flex; flex-wrap:wrap; gap:6px; margin-bottom:10px; }
+  .dbtn { display:inline-flex; align-items:center; gap:6px; padding:5px 11px; border-radius:999px; cursor:pointer;
+    border:1px solid rgba(148,163,184,.4); background:#fff; color:#475569; font:inherit; font-size:.76rem;
+    font-weight:600; white-space:nowrap; }
+  .dbtn:hover { border-color:rgba(14,116,144,.5); color:#0e7490; }
+  .dbtn.is-on { background:#0e7490; border-color:#0e7490; color:#fff; }
+  .dbtn i { font-size:.8rem; }
+  .dest-table .c-name { width:420px; }
+  .dest-table .c-when { width:320px; }
+  .open-tag { font-size:.62rem; font-weight:800; letter-spacing:.04em; text-transform:uppercase;
+    color:#15803d; background:#dcfce7; border:1px solid #bbf7d0; border-radius:4px; padding:1px 6px; }
   .rounds-tag { font-size:.64rem; font-weight:800; color:#0369a1; background:#e0f2fe; border-radius:4px; padding:1px 5px; }
   .new-tag { font-size:.62rem; font-weight:800; letter-spacing:.05em; text-transform:uppercase;
     color:#5b21b6; background:#ede9fe; border:1px solid #ddd6fe; border-radius:4px; padding:1px 6px; }
@@ -741,7 +823,7 @@ const freshRated = rows.filter((c) => c.rates.length && c.rates[c.rates.length -
 
   // Field filter. Rows carry their own area, so this is pure show/hide. The
   // date order never changes underneath the reader.
-  const rows = Array.from(document.querySelectorAll('table.confs tbody tr'));
+  const rows = Array.from(document.querySelectorAll('table.confs:not(.dest-table) tbody tr'));
   const empty = document.querySelector('.empty-note');
   // Each topic row opens to its most-cited accepted papers.
   document.querySelectorAll('.topic-list li.has-papers').forEach((row) => {
@@ -756,9 +838,29 @@ const freshRated = rows.filter((c) => c.rates.length && c.rates[c.rates.length -
   // has Security selected would read as if they were Security's.
   const topicSections = Array.from(document.querySelectorAll('.topic-section'));
 
-  const scholar = document.getElementById('scholar-link');
+  const scholarLink = document.getElementById('scholar-link');
+  const scholar = scholarLink;
+  const destSection = document.getElementById('destinations');
+  const mainTable = document.querySelector('.table-wrap:not(.dest-section .table-wrap)');
+
   const apply = (btn) => {
     const want = btn.dataset.area;
+    // The destination view is a different question, so it replaces the table
+    // rather than filtering it: a row there is one edition in one city, not
+    // one venue and its next deadline.
+    const onDest = want === 'destinations';
+    if (destSection) destSection.hidden = !onDest;
+    document.querySelectorAll('.section').forEach((sec) => {
+      if (sec.id === 'destinations') return;
+      if (sec.querySelector('table.confs') || sec.querySelector('.rest') || sec.classList.contains('sources')) {
+        sec.hidden = onDest && !sec.classList.contains('sources');
+      }
+    });
+    if (onDest) {
+      document.querySelectorAll('.fbtn').forEach((b) => b.classList.toggle('is-on', b === btn));
+      if (scholarLink) scholarLink.hidden = true;
+      return;
+    }
     topicSections.forEach((sec) => {
       sec.hidden = want !== 'all' && sec.dataset.topicArea !== want;
     });
@@ -777,6 +879,16 @@ const freshRated = rows.filter((c) => c.rates.length && c.rates[c.rates.length -
     if (empty) empty.hidden = shown > 0;
   };
   document.querySelectorAll('.fbtn').forEach((btn) => btn.addEventListener('click', () => apply(btn)));
+
+  // Destination sub-picker. Rows carry their own destination, so this is
+  // show and hide, same as the field filter above.
+  const destRows = Array.from(document.querySelectorAll('.dest-table tbody tr'));
+  document.querySelectorAll('.dbtn').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.dbtn').forEach((b) => b.classList.toggle('is-on', b === btn));
+      destRows.forEach((r) => { r.hidden = r.dataset.dest !== btn.dataset.dest; });
+    });
+  });
   // The markup marks AI as selected; run the filter so the rows agree with it.
   const start = document.querySelector('.fbtn.is-on');
   if (start) apply(start);
