@@ -69,7 +69,18 @@ const talks = [
 const courses = [
   { tag: 'Undergraduate', title: 'CSCI 431.02 Intro to Computer Vision', desc: 'Introductory computer vision for undergraduates.', school: 'Rochester Institute of Technology', current: true },
   { tag: 'Split-level', title: 'CSE 4633/6633 Artificial Intelligence', desc: 'Introductory AI course spanning core concepts and methods.', school: 'Mississippi State University' },
-  { tag: 'Split-level', title: 'CSE 4693/6693 Intro to Machine Learning', desc: 'Foundations of machine learning for undergraduate and graduate students.', school: 'Mississippi State University' },
+  {
+    tag: 'Split-level', title: 'CSE 4693/6693 Intro to Machine Learning',
+    desc: 'Foundations of machine learning for undergraduate and graduate students.',
+    school: 'Mississippi State University',
+    project: {
+      title: 'LEGO Colour Sorter',
+      award: 'Ottilie Schillig Special Teaching Award, 2025',
+      desc: 'A hands-on build that puts a classifier on a conveyor belt. A camera reads each brick as it travels, the predicted colour and its confidence appear live over the video, and the LEGO hub turns the sorting table to the matching bin — so a wrong call shows up immediately, as a brick in the wrong box, rather than as a number in a confusion matrix.',
+      video: '/lego-sorter.mp4',
+      poster: '/lego-sorter-poster.jpg',
+    },
+  },
   { tag: 'Graduate', title: 'CSE 8673 Machine Learning', desc: 'Graduate-level machine learning with emphasis on principles and applications.', school: 'Mississippi State University' },
   { tag: 'Graduate', title: 'CSE 8990 Graph Machine Learning', desc: 'Advanced topics in graph machine learning and networked intelligence.', school: 'Mississippi State University' },
 ];
@@ -123,6 +134,28 @@ const courses = [
               <div class="talk-title">{c.title} <span class="talk-kind">{c.tag}</span></div>
               <div class="talk-event">{c.school}</div>
               <div class="talk-desc">{c.desc}</div>
+              {c.project && (
+                <div class="course-project">
+                  <div class="project-copy">
+                    <div class="project-head">
+                      <span class="project-title">{c.project.title}</span>
+                      <span class="project-award"><i class="fas fa-award" aria-hidden="true"></i>{c.project.award}</span>
+                    </div>
+                    <p class="project-desc">{c.project.desc}</p>
+                  </div>
+                  <figure class="project-media">
+                    <video
+                      class="project-video"
+                      src={c.project.video}
+                      poster={c.project.poster}
+                      preload="none"
+                      controls
+                      playsinline
+                      aria-label={`${c.project.title} demonstration`}
+                    ></video>
+                  </figure>
+                </div>
+              )}
             </div>
           </li>
         ))}
@@ -169,6 +202,18 @@ const courses = [
   .talk-links { margin-top:6px; font-size:.85rem; display:flex; flex-wrap:wrap; gap:10px; }
   .talk-links a { color:#1d4ed8; text-decoration:none; }
   .talk-links a:hover { text-decoration:underline; }
+  /* The award project sits inside its course row, media beside the copy. */
+  .course-project { display:grid; grid-template-columns:1fr 1fr; gap:16px; align-items:start; margin-top:10px; padding:12px; border:1px solid rgba(148,163,184,.22); border-radius:12px; background:#f8fafc; }
+  .project-head { display:flex; flex-wrap:wrap; align-items:baseline; gap:8px; margin-bottom:5px; }
+  .project-title { font-family:'Montserrat',sans-serif; font-weight:700; font-size:.9rem; color:#0f172a; }
+  .project-award { display:inline-flex; align-items:center; gap:5px; font-size:.72rem; font-weight:700; color:#92400e; background:#fde68a; border-radius:999px; padding:2px 9px; }
+  .project-award i { font-size:.68rem; }
+  .project-desc { margin:0; font-size:.86rem; color:#475569; line-height:1.5; text-align:left; }
+  .project-media { margin:0; }
+  /* preload="none": the 4.8MB file is only fetched if someone presses play. */
+  .project-video { display:block; width:100%; height:auto; border-radius:10px; background:#0f172a; }
+
+  @media (max-width: 900px) { .course-project { grid-template-columns:1fr; } }
   @media (max-width: 700px) { .talk { grid-template-columns:1fr; gap:4px; } }
   @media (max-width: 900px) { .cards.two { grid-template-columns:1fr; } }
 </style>
