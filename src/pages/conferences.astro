@@ -264,12 +264,6 @@ const freshRated = rows.filter((c) => c.rates.length && c.rates[c.rates.length -
     ))}
 
     <section class="section dest-section" id="destinations" hidden>
-      <div class="dest-bar">
-        <label class="dest-search">
-          <i class="fas fa-magnifying-glass" aria-hidden="true"></i>
-          <input id="dest-q" type="search" placeholder="or type a place: kyoto, boston, iceland" autocomplete="off" />
-        </label>
-      </div>
       <div class="dest-pick">
         {destinations.places.map((d, i) => (
           <button class={`dbtn${i === 0 ? ' is-on' : ''}`} data-dest={d.name} type="button">
@@ -316,11 +310,10 @@ const freshRated = rows.filter((c) => c.rates.length && c.rates[c.rates.length -
       </div>
       <p class="dest-none" hidden>Nothing announced there yet.</p>
       <p class="area-note">
-{destinations.places.reduce((a, d) => a + d.n, 0)} upcoming editions across {destinations.places.length} destinations,
-        each one a place rather than a category, so cities, countries and regions sit side by side. Only venues at
-        CCF A or B, or CORE A* or A, plus a handful added by hand because they belong here whatever the tables say.
-        A further {destinations.items.length - destinations.places.reduce((a, d) => a + d.n, 0)} qualifying editions
-        are somewhere without a chip: type the city to find them. A call marked open still has a deadline ahead of today.
+        {destinations.items.length} upcoming editions across {destinations.places.length} destinations, each one a
+        place rather than a category, so cities, countries and regions sit side by side. Only venues at CCF A or B,
+        or CORE A* or A, plus a handful added by hand because they belong here whatever the tables say. A call
+        marked open still has a deadline ahead of today.
       </p>
     </section>
 
@@ -879,18 +872,17 @@ const freshRated = rows.filter((c) => c.rates.length && c.rates[c.rates.length -
   };
   document.querySelectorAll('.fbtn').forEach((btn) => btn.addEventListener('click', () => apply(btn)));
 
-  // One destination list, plus a free-text place search for anywhere that
-  // did not earn a chip. Typing clears the chips: the search is not a chip.
+  // One destination list. There is no search, so the data holds only what a
+  // chip can reach; anything else is dropped at build time rather than
+  // shipped with no way in.
   const destRows = Array.from(document.querySelectorAll('.dest-table tbody tr'));
   const destNone = document.querySelector('.dest-none');
-  const destQ = document.getElementById('dest-q');
   let pick = '';
 
   const paintDest = () => {
-    const q = ((destQ && destQ.value) || '').trim().toLowerCase();
     let shown = 0;
     destRows.forEach((r) => {
-      const on = q ? r.dataset.place.includes(q) : r.dataset.dest === pick;
+      const on = r.dataset.dest === pick;
       r.hidden = !on;
       if (on) shown++;
     });
@@ -901,13 +893,8 @@ const freshRated = rows.filter((c) => c.rates.length && c.rates[c.rates.length -
     btn.addEventListener('click', () => {
       document.querySelectorAll('.dbtn').forEach((b) => b.classList.toggle('is-on', b === btn));
       pick = btn.dataset.dest;
-      if (destQ) destQ.value = '';
       paintDest();
     });
-  });
-  if (destQ) destQ.addEventListener('input', () => {
-    if (destQ.value.trim()) document.querySelectorAll('.dbtn').forEach((b) => b.classList.remove('is-on'));
-    paintDest();
   });
   const firstDest = document.querySelector('.dbtn');
   if (firstDest) { pick = firstDest.dataset.dest; paintDest(); }
