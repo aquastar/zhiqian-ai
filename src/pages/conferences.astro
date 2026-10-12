@@ -8,7 +8,7 @@ const SOCIETY = 'Society meetings';
 const AREAS = ['AI / ML / Data Mining', 'Security & Medicine', SOCIETY];
 const AREA_SHORT = {
   'AI / ML / Data Mining': 'AI · ML · Data Mining',
-  'Security & Medicine': 'Security · Medicine · Biology',
+  'Security & Medicine': 'Other',
   [SOCIETY]: 'Society meetings',
 };
 const slug = (a) => a.toLowerCase().replace(/[^a-z]+/g, '-').replace(/^-|-$/g, '');
@@ -16,7 +16,7 @@ const slug = (a) => a.toLowerCase().replace(/[^a-z]+/g, '-').replace(/^-|-$/g, '
 // every row, so the two can be matched at a glance instead of by reading.
 const AREA_ICON = {
   'AI / ML / Data Mining': 'fa-brain',
-  'Security & Medicine': 'fa-shield-halved',
+  'Security & Medicine': 'fa-layer-group',
   [SOCIETY]: 'fa-people-group',
 };
 const DEFAULT_AREA = 'AI / ML / Data Mining';
@@ -576,7 +576,7 @@ const freshRated = rows.filter((c) => c.rates.length && c.rates[c.rates.length -
   .area-note { margin:6px 0 0; font-size:.8rem; color:#64748b; line-height:1.6; max-width:78ch; }
 
   .table-wrap { overflow-x:auto; border:1px solid rgba(148,163,184,.26); border-radius:12px; }
-  table.confs { width:100%; min-width:1240px; table-layout:fixed; border-collapse:collapse; font-size:.84rem; }
+  table.confs { width:100%; min-width:1000px; table-layout:fixed; border-collapse:collapse; font-size:.84rem; }
   .confs thead th { position:sticky; top:0; z-index:2; background:#f8fafc; text-align:left; font-size:.64rem;
     letter-spacing:.08em; text-transform:uppercase; color:#64748b; font-weight:700;
     padding:6px 6px; border-bottom:1px solid rgba(148,163,184,.3); white-space:nowrap; }
@@ -592,7 +592,10 @@ const freshRated = rows.filter((c) => c.rates.length && c.rates[c.rates.length -
   .tt-2 { background:#1d4ed8; }
   .tt-3 { background:#15803d; }
 
-  .c-name { width:430px; }
+  /* Percentages, not pixels: a long conference name used to push this column
+     wide at every viewport. Capped under half the table it can no longer do
+     that, and the other three keep their share whatever the window does. */
+  .c-name { width:44%; }
   .name-line { display:flex; align-items:center; gap:7px; flex-wrap:wrap; }
   .conf-name { overflow-wrap:anywhere; font-weight:700; color:#0f172a; text-decoration:none; font-size:.9rem; }
   a.conf-name:hover { color:var(--accent); text-decoration:underline; }
@@ -620,15 +623,15 @@ const freshRated = rows.filter((c) => c.rates.length && c.rates[c.rates.length -
   .dbtn:hover { border-color:rgba(14,116,144,.5); color:#0e7490; }
   .dbtn.is-on { background:#0e7490; border-color:#0e7490; color:#fff; }
   .dbtn i { font-size:.8rem; }
-  .dest-table .c-name { width:420px; }
-  .dest-table .c-when { width:320px; }
+  .dest-table .c-name { width:44%; }
+  .dest-table .c-when { width:27%; }
   .open-tag { font-size:.62rem; font-weight:800; letter-spacing:.04em; text-transform:uppercase;
     color:#15803d; background:#dcfce7; border:1px solid #bbf7d0; border-radius:4px; padding:1px 6px; }
   .rounds-tag { font-size:.64rem; font-weight:800; color:#0369a1; background:#e0f2fe; border-radius:4px; padding:1px 5px; }
   .new-tag { font-size:.62rem; font-weight:800; letter-spacing:.05em; text-transform:uppercase;
     color:#5b21b6; background:#ede9fe; border:1px solid #ddd6fe; border-radius:4px; padding:1px 6px; }
 
-  .c-date { white-space:nowrap; width:196px; }
+  .c-date { white-space:nowrap; width:17%; }
   .round { display:flex; align-items:center; flex-wrap:wrap; gap:5px; margin-bottom:3px; }
   .round:last-of-type { margin-bottom:0; }
   /* The abstract deadline comes first and is the one that actually shuts the
@@ -661,7 +664,7 @@ const freshRated = rows.filter((c) => c.rates.length && c.rates[c.rates.length -
   .dl-days.band-far    { background:#64748b; }
   .dl-days.band-past   { background:#e2e8f0; color:#64748b; }
 
-  .c-when { font-size:.73rem; color:#475569; width:298px; line-height:1.35; }
+  .c-when { font-size:.73rem; color:#475569; width:27%; line-height:1.35; }
   /* The edition now lives inside the conference cell, set apart by a rule
      rather than a column. */
   .ed-line { display:block; margin-top:5px; padding-top:5px; font-size:.73rem; color:#475569;
@@ -677,7 +680,7 @@ const freshRated = rows.filter((c) => c.rates.length && c.rates[c.rates.length -
   .ed-line .when { display:inline; }
   .where .fi { flex:0 0 auto; border-radius:2px; box-shadow:0 0 0 1px rgba(15,23,42,.08); }
 
-  .c-rate { width:300px; }
+  .c-rate { width:27%; }
   .spark { display:block; overflow:visible; color:#1d4ed8; }
   .spark .grid { stroke:rgba(148,163,184,.35); stroke-width:.6; stroke-dasharray:2 2; }
   .spark .glab { font-size:6px; fill:#94a3b8; }
@@ -738,7 +741,7 @@ const freshRated = rows.filter((c) => c.rates.length && c.rates[c.rates.length -
   .rate-stale-note { font-size:.62rem; font-weight:700; color:#64748b; background:#f1f5f9;
     border-radius:4px; padding:1px 5px; white-space:nowrap; }
 
-  .c-rank { white-space:nowrap; width:150px; }
+  .c-rank { white-space:nowrap; width:12%; }
   .ranks { display:flex; flex-direction:column; gap:4px; align-items:flex-start; }
   .pill { display:inline-block; min-width:86px; text-align:center; padding:2px 8px; border-radius:5px;
     font-size:.68rem; font-weight:800; color:#fff; letter-spacing:.02em; }
@@ -878,7 +881,7 @@ const freshRated = rows.filter((c) => c.rates.length && c.rates[c.rates.length -
   /* Narrow screens: the table stops being a table. Each row becomes a card
      with its cells labelled, so everything stays readable instead of being
      pushed off the side behind a horizontal scrollbar. */
-  @media (max-width: 1000px) {
+  @media (max-width: 1150px) {
     .table-wrap { overflow-x:visible; border:0; }
     /* The filter row wraps instead of hiding its tail behind a sideways scroll. */
     .filter { flex-wrap:wrap; overflow-x:visible; row-gap:6px; }
