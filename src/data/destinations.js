@@ -93,14 +93,14 @@ export const destinations = {
    "place": "Hong Kong, China",
    "date": "November 13 - 15, 2026",
    "city": "Hong Kong",
-   "country": "China",
+   "country": "Hong Kong",
    "continent": "Asia",
    "ccf": "C",
    "core": "C",
    "deadline": "2026-07-17",
    "open": false,
    "link": "https://adma2026.github.io/",
-   "q": "hong kong, china hong kong china "
+   "q": "hong kong, china hong kong hong kong "
   },
   {
    "title": "AFT",
@@ -141,14 +141,14 @@ export const destinations = {
    "place": "Hsinchu, Taiwan， China",
    "date": "October 22-24, 2026",
    "city": "Hsinchu",
-   "country": "China",
+   "country": "Taiwan",
    "continent": "Asia",
    "ccf": "C",
    "core": "B",
    "deadline": "2026-07-17",
    "open": false,
    "link": "https://www.apbc2026.com/home",
-   "q": "hsinchu, taiwan， china hsinchu china "
+   "q": "hsinchu, taiwan， china hsinchu taiwan "
   },
   {
    "title": "APLAS",
@@ -157,14 +157,14 @@ export const destinations = {
    "place": "Hong Kong SAR, China",
    "date": "December 1-4, 2026",
    "city": "Hong Kong",
-   "country": "China",
+   "country": "Hong Kong",
    "continent": "Asia",
    "ccf": "C",
    "core": "B",
    "deadline": "2026-06-22",
    "open": false,
    "link": "https://conf.researchr.org/track/aplas-atva-2026/aplas-2026",
-   "q": "hong kong sar, china hong kong china "
+   "q": "hong kong sar, china hong kong hong kong "
   },
   {
    "title": "APSEC",
@@ -205,14 +205,14 @@ export const destinations = {
    "place": "Hong Kong, China",
    "date": "December 7-11, 2026",
    "city": "Hong Kong",
-   "country": "China",
+   "country": "Hong Kong",
    "continent": "Asia",
    "ccf": "B",
    "core": "A",
    "deadline": "2026-05-22",
    "open": false,
    "link": "https://asiacrypt.iacr.org/2026/",
-   "q": "hong kong, china hong kong china "
+   "q": "hong kong, china hong kong hong kong "
   },
   {
    "title": "ASSETS",
@@ -253,14 +253,14 @@ export const destinations = {
    "place": "Hong Kong SAR, China",
    "date": "December 1-4, 2026",
    "city": "Hong Kong",
-   "country": "China",
+   "country": "Hong Kong",
    "continent": "Asia",
    "ccf": "C",
    "core": "B",
    "deadline": "2026-05-21",
    "open": false,
    "link": "https://conf.researchr.org/track/aplas-atva-2026/atva-2026",
-   "q": "hong kong sar, china hong kong china "
+   "q": "hong kong sar, china hong kong hong kong "
   },
   {
    "title": "AusDM",
@@ -445,14 +445,14 @@ export const destinations = {
    "place": "Hong Kong SAR, China",
    "date": "November 14-15, 2026",
    "city": "Hong Kong",
-   "country": "China",
+   "country": "Hong Kong",
    "continent": "Asia",
    "ccf": "C",
    "core": "C",
    "deadline": "2026-05-01",
    "open": false,
    "link": "https://collaboratecom.eai-conferences.org/2026/",
-   "q": "hong kong sar, china hong kong china "
+   "q": "hong kong sar, china hong kong hong kong "
   },
   {
    "title": "COLM",
@@ -541,14 +541,14 @@ export const destinations = {
    "place": "Hong Kong, China",
    "date": "November 30-December 1, 2026",
    "city": "Hong Kong",
-   "country": "China",
+   "country": "Hong Kong",
    "continent": "Asia",
    "ccf": "C",
    "core": "N",
    "deadline": "2026-08-03",
    "open": false,
    "link": "https://www.adai.ai/dai/2026/index.html",
-   "q": "hong kong, china hong kong china "
+   "q": "hong kong, china hong kong hong kong "
   },
   {
    "title": "DFRWS APAC",
@@ -669,14 +669,14 @@ export const destinations = {
    "place": "Macao, China",
    "date": "December 7-11, 2026",
    "city": "Macau",
-   "country": "China",
+   "country": "Macau",
    "continent": "Asia",
    "ccf": "C",
    "core": "B",
    "deadline": "2026-05-03",
    "open": false,
    "link": "https://globecom2026.ieee-globecom.org/",
-   "q": "macao, china macau china "
+   "q": "macao, china macau macau "
   },
   {
    "title": "HotNets",
@@ -765,14 +765,14 @@ export const destinations = {
    "place": "Hong Kong SAR, China",
    "date": "November 16-18, 2026",
    "city": "Hong Kong",
-   "country": "China",
+   "country": "Hong Kong",
    "continent": "Asia",
    "ccf": "B",
    "core": "C",
    "deadline": "2026-06-10",
    "open": false,
    "link": "https://www.iccd-conf.com/2026/home.html",
-   "q": "hong kong sar, china hong kong china "
+   "q": "hong kong sar, china hong kong hong kong "
   },
   {
    "title": "ICDM",
@@ -1085,14 +1085,14 @@ export const destinations = {
    "place": "Hong Kong SAR, China",
    "date": "Nov 07-09, 2026",
    "city": "Hong Kong",
-   "country": "China",
+   "country": "Hong Kong",
    "continent": "Asia",
    "ccf": "C",
    "core": "N",
    "deadline": "2026-05-08",
    "open": false,
    "link": "https://inscrypt2026.comp.polyu.edu.hk",
-   "q": "hong kong sar, china hong kong china "
+   "q": "hong kong sar, china hong kong hong kong "
   },
   {
    "title": "InterSpeech",
@@ -1469,14 +1469,14 @@ export const destinations = {
    "place": "Macau, China",
    "date": "November 4-5, 2026",
    "city": "Macau",
-   "country": "China",
+   "country": "Macau",
    "continent": "Asia",
    "ccf": "C",
    "core": "N",
    "deadline": "2026-06-20",
    "open": false,
    "link": "http://tcci.ccf.org.cn/conference/2026/",
-   "q": "macau, china macau china "
+   "q": "macau, china macau macau "
   },
   {
    "title": "OOPSLA",
@@ -1741,14 +1741,14 @@ export const destinations = {
    "place": "Hyatt Hotel, Shatin, Hong Kong, China",
    "date": "November 16-18, 2026",
    "city": "Shatin",
-   "country": "China",
+   "country": "Hong Kong",
    "continent": "Asia",
    "ccf": "A",
    "core": "A",
    "deadline": "2026-06-11",
    "open": false,
    "link": "https://sigops.org/s/conferences/atc/2026/index.html",
-   "q": "hyatt hotel, shatin, hong kong, china shatin china "
+   "q": "hyatt hotel, shatin, hong kong, china shatin hong kong "
   },
   {
    "title": "SIGSPATIAL",
@@ -1917,14 +1917,14 @@ export const destinations = {
    "place": "Hong Kong, China",
    "date": "December 1-4, 2026",
    "city": "Hong Kong",
-   "country": "China",
+   "country": "Hong Kong",
    "continent": "Asia",
    "ccf": "B",
    "core": "N",
    "deadline": "2026-07-02",
    "open": false,
    "link": "https://wine2026conf.github.io/",
-   "q": "hong kong, china hong kong china "
+   "q": "hong kong, china hong kong hong kong "
   },
   {
    "title": "WISE",
@@ -2173,14 +2173,14 @@ export const destinations = {
    "place": "Macau, China",
    "date": "July 12-16, 2027",
    "city": "Macau",
-   "country": "China",
+   "country": "Macau",
    "continent": "Asia",
    "ccf": "C",
    "core": "A",
    "deadline": "2026-12-11",
    "open": true,
    "link": "https://asiaccs2027.cityu.edu.mo/index.html",
-   "q": "macau, china macau china "
+   "q": "macau, china macau macau "
   },
   {
    "title": "ASP-DAC",
@@ -2413,14 +2413,14 @@ export const destinations = {
    "place": "Macau SAR, China",
    "date": "May 9-14, 2027",
    "city": "Macau",
-   "country": "China",
+   "country": "Macau",
    "continent": "Asia",
    "ccf": "B",
    "core": "B",
    "deadline": "2026-10-12",
    "open": true,
    "link": "https://2027.coling-iccl.org/",
-   "q": "macau sar, china macau china "
+   "q": "macau sar, china macau macau "
   },
   {
    "title": "COLT",
@@ -3389,14 +3389,14 @@ export const destinations = {
    "place": "Hong Kong, China",
    "date": "October 2-8, 2027",
    "city": "Hong Kong",
-   "country": "China",
+   "country": "Hong Kong",
    "continent": "Asia",
    "ccf": "A",
    "core": "A*",
    "deadline": "",
    "open": false,
    "link": "https://iccv.thecvf.com/Conferences/2027",
-   "q": "hong kong, china hong kong china "
+   "q": "hong kong, china hong kong hong kong "
   },
   {
    "title": "ICDAR",
@@ -4045,14 +4045,14 @@ export const destinations = {
    "place": "Taipa, Macao SAR, China",
    "date": "October 19-22, 2027",
    "city": "Taipa",
-   "country": "China",
+   "country": "Macau",
    "continent": "Asia",
    "ccf": "B",
    "core": "A",
    "deadline": "",
    "open": false,
    "link": "https://conf.researchr.org/home/issre-2027",
-   "q": "taipa, macao sar, china taipa china "
+   "q": "taipa, macao sar, china taipa macau "
   },
   {
    "title": "ISSTA",
@@ -5149,14 +5149,14 @@ export const destinations = {
    "place": "Cordis, Hong Kong SAR, China",
    "date": "February 15 - 19, 2027",
    "city": "Hong Kong",
-   "country": "China",
+   "country": "Hong Kong",
    "continent": "Asia",
    "ccf": "B",
    "core": "A",
    "deadline": "2026-08-24",
    "open": false,
    "link": "https://wsdm-conference.org/2027/",
-   "q": "cordis, hong kong sar, china hong kong china "
+   "q": "cordis, hong kong sar, china hong kong hong kong "
   },
   {
    "title": "WWW",
@@ -5280,7 +5280,7 @@ export const destinations = {
   },
   {
    "name": "China",
-   "n": 35
+   "n": 17
   },
   {
    "name": "Japan",
@@ -5307,6 +5307,10 @@ export const destinations = {
    "n": 13
   },
   {
+   "name": "Hong Kong",
+   "n": 12
+  },
+  {
    "name": "Germany",
    "n": 12
   },
@@ -5323,6 +5327,10 @@ export const destinations = {
    "n": 7
   },
   {
+   "name": "Macau",
+   "n": 5
+  },
+  {
    "name": "France",
    "n": 5
   },
@@ -5332,6 +5340,10 @@ export const destinations = {
   },
   {
    "name": "New Zealand",
+   "n": 4
+  },
+  {
+   "name": "Taiwan",
    "n": 4
   },
   {

@@ -91,7 +91,25 @@ def city_of(place):
         return CITY_ALIAS.get(k, seg.strip())
     return ''
 
+# ISO 3166-1 is a list of countries AND territories, and it carries separate
+# entries for CN, HK, MO and TW. Following it keeps this axis consistent no
+# matter how an upstream contributor wrote the suffix, and means the page is
+# citing a standard rather than making a call of its own. ccfddl itself has
+# no convention here: its README asks only for "city, country" and the
+# catalogue contains Hong Kong written five different ways.
+ISO_TERRITORY = {
+    'taiwan': 'Taiwan', 'hong kong': 'Hong Kong', 'macau': 'Macau', 'macao': 'Macau',
+}
+
 def country_of(place):
+    # A territory named anywhere in the string wins over a trailing country,
+    # so "Hsinchu, Taiwan, China" and "Taipei, Taiwan" land in the same place.
+    for seg in segments(place):
+        k = re.sub(r'\s*sar\s*$', '', key(seg))
+        if k in ISO_TERRITORY: return ISO_TERRITORY[k]
+    return _country_tail(place)
+
+def _country_tail(place):
     for seg in reversed(segments(place)):
         k = re.sub(r' sar$', '', key(seg))
         if not k or NOWHERE.match(k): continue

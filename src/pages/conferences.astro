@@ -267,7 +267,7 @@ const freshRated = rows.filter((c) => c.rates.length && c.rates[c.rates.length -
       <div class="dest-bar">
         <div class="dest-axis" role="group" aria-label="Group by">
           <button class="axbtn is-on" data-axis="city" type="button">Cities</button>
-          <button class="axbtn" data-axis="country" type="button">Countries</button>
+          <button class="axbtn" data-axis="country" type="button">Country / region</button>
           <button class="axbtn" data-axis="continent" type="button">Continents</button>
         </div>
         <label class="dest-search">
@@ -331,8 +331,11 @@ const freshRated = rows.filter((c) => c.rates.length && c.rates[c.rates.length -
       </p>
       <p class="area-note">
         {destinations.items.length} announced future editions, placed by where they are rather than when they close.
-        City, country and continent are three separate lists and never mixed. Anywhere that is none of the three,
-        Hawaii being the obvious one, is in the search box. A call marked open still has a deadline ahead of today.
+        City, country or region, and continent are three separate lists and never mixed. Anywhere that is none of
+        the three, Hawaii being the obvious one, is in the search box. A call marked open still has a deadline ahead
+        of today. The middle list follows <a href="https://www.iso.org/iso-3166-country-codes.html" target="_blank"
+        rel="noopener">ISO 3166-1</a>, which enumerates countries and territories and is used here because the
+        upstream catalogue has no convention of its own: it writes Hong Kong five different ways.
       </p>
     </section>
 
