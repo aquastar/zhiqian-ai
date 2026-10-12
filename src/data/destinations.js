@@ -188,7 +188,7 @@ export const destinations = {
    "city": "Toronto",
    "country": "Canada",
    "dest": "Toronto",
-   "icon": "maple-leaf",
+   "icon": "tower-observation",
    "q": "toronto, ontario, canada toronto canada ",
    "ccf": "N",
    "core": "N"
@@ -328,40 +328,6 @@ export const destinations = {
    "open": false,
    "link": "https://www.iccd-conf.com/2026/home.html",
    "q": "hong kong sar, china hong kong hong kong "
-  },
-  {
-   "title": "ICPP",
-   "desc": "International Conference on Parallel Processing",
-   "year": 2026,
-   "place": "Singapore",
-   "date": "September 29-October 1, 2026",
-   "city": "Singapore",
-   "country": "Singapore",
-   "dest": "Singapore",
-   "icon": "city",
-   "ccf": "B",
-   "core": "B",
-   "deadline": "2026-05-01",
-   "open": false,
-   "link": "https://icpp2026.github.io/",
-   "q": "singapore singapore singapore "
-  },
-  {
-   "title": "IEEM",
-   "desc": "IEEE International Conference on Industrial Engineering and Engineering Management",
-   "year": 2026,
-   "place": "Singapore",
-   "date": "December 2-5, 2026",
-   "deadline": "2026-09-30",
-   "open": false,
-   "link": "https://www.ieem.org/",
-   "city": "Singapore",
-   "country": "Singapore",
-   "dest": "Singapore",
-   "icon": "city",
-   "q": "singapore singapore singapore ",
-   "ccf": "N",
-   "core": "N"
   },
   {
    "title": "IMC",
@@ -602,23 +568,6 @@ export const destinations = {
    "q": "oakland, california, united states oakland united states "
   },
   {
-   "title": "PG",
-   "desc": "Pacific Graphics, The Pacific Conference on Computer Graphics and Applications",
-   "year": 2026,
-   "place": "Singapore Management University, Singapore",
-   "date": "October 6-9, 2026",
-   "city": "Singapore",
-   "country": "Singapore",
-   "dest": "Singapore",
-   "icon": "city",
-   "ccf": "B",
-   "core": "N",
-   "deadline": "2026-06-08",
-   "open": false,
-   "link": "https://pacificgraphics2026.github.io/",
-   "q": "singapore management university, singapore singapore singapore "
-  },
-  {
    "title": "RAID",
    "desc": "International Symposium on Recent Advances in Intrusion Detection",
    "year": 2026,
@@ -704,23 +653,6 @@ export const destinations = {
    "q": "riverside, ca, usa riverside united states california"
   },
   {
-   "title": "SoCC",
-   "desc": "ACM Symposium on Cloud Computing",
-   "year": 2026,
-   "place": "Singapore",
-   "date": "November 18-20, 2026",
-   "city": "Singapore",
-   "country": "Singapore",
-   "dest": "Singapore",
-   "icon": "city",
-   "ccf": "B",
-   "core": "N",
-   "deadline": "2026-07-14",
-   "open": false,
-   "link": "https://acmsocc.org/2026/",
-   "q": "singapore singapore singapore "
-  },
-  {
    "title": "WINE",
    "desc": "Conference on Web and Internet Economics",
    "year": 2026,
@@ -763,7 +695,7 @@ export const destinations = {
    "city": "Montreal",
    "country": "Canada",
    "dest": "Montreal",
-   "icon": "maple-leaf",
+   "icon": "snowflake",
    "ccf": "A",
    "core": "A*",
    "deadline": "2026-07-28",
@@ -882,7 +814,7 @@ export const destinations = {
    "city": "Montreal",
    "country": "Canada",
    "dest": "Montreal",
-   "icon": "maple-leaf",
+   "icon": "snowflake",
    "ccf": "C",
    "core": "A",
    "deadline": "2026-10-06",
@@ -1078,23 +1010,6 @@ export const destinations = {
    "q": "dresden, germany dresden germany "
   },
   {
-   "title": "DIS",
-   "desc": "ACM Conference on Designing Interactive Systems",
-   "year": 2027,
-   "place": "Stockholm, Sweden",
-   "date": "June 28 - July 2, 2027",
-   "city": "Stockholm",
-   "country": "Sweden",
-   "dest": "Nordics",
-   "icon": "snowflake",
-   "ccf": "C",
-   "core": "A",
-   "deadline": "2027-01-18",
-   "open": true,
-   "link": "https://dis.acm.org/2027/",
-   "q": "stockholm, sweden stockholm sweden "
-  },
-  {
    "title": "DSN",
    "desc": "International Conference on Dependable Systems and Networks",
    "year": 2027,
@@ -1229,23 +1144,6 @@ export const destinations = {
    "open": false,
    "link": "https://edbticdt2027.github.io/",
    "q": "lille, france lille france "
-  },
-  {
-   "title": "ETAPS",
-   "desc": "European Joint Conferences on Theory and Practice of Software",
-   "year": 2027,
-   "place": "Copenhagen, Denmark",
-   "date": "April 10-15, 2027",
-   "city": "Copenhagen",
-   "country": "Denmark",
-   "dest": "Nordics",
-   "icon": "snowflake",
-   "ccf": "B",
-   "core": "N",
-   "deadline": "2026-10-15",
-   "open": true,
-   "link": "https://etaps.org/2027",
-   "q": "copenhagen, denmark copenhagen denmark "
   },
   {
    "title": "EUROCRYPT",
@@ -1443,7 +1341,7 @@ export const destinations = {
    "city": "Toronto",
    "country": "Canada",
    "dest": "Toronto",
-   "icon": "maple-leaf",
+   "icon": "tower-observation",
    "ccf": "B",
    "core": "B",
    "deadline": "2026-09-23",
@@ -1501,23 +1399,6 @@ export const destinations = {
    "open": false,
    "link": "https://icdcs2027.icdcs.org/",
    "q": "melbourne, australia melbourne australia "
-  },
-  {
-   "title": "ICDE",
-   "desc": "IEEE International Conference on Data Engineering",
-   "year": 2027,
-   "place": "Copenhagen, Denmark",
-   "date": "May 17-21, 2027",
-   "city": "Copenhagen",
-   "country": "Denmark",
-   "dest": "Nordics",
-   "icon": "snowflake",
-   "ccf": "A",
-   "core": "A*",
-   "deadline": "2026-11-11",
-   "open": true,
-   "link": "https://icde2027.github.io/",
-   "q": "copenhagen, denmark copenhagen denmark "
   },
   {
    "title": "ICDM",
@@ -1605,23 +1486,6 @@ export const destinations = {
    "q": "san francisco, ca, usa san francisco united states california"
   },
   {
-   "title": "ICMR",
-   "desc": "ACM SIGMM International Conference on Multimedia Retrieval",
-   "year": 2027,
-   "place": "Singapore",
-   "date": "June 7-10, 2027",
-   "city": "Singapore",
-   "country": "Singapore",
-   "dest": "Singapore",
-   "icon": "city",
-   "ccf": "B",
-   "core": "B",
-   "deadline": "2027-01-31",
-   "open": true,
-   "link": "https://www.icmr2027.org/",
-   "q": "singapore singapore singapore "
-  },
-  {
    "title": "ICPC",
    "desc": "IEEE International Conference on Program Comprehension",
    "year": 2027,
@@ -1664,7 +1528,7 @@ export const destinations = {
    "city": "Toronto",
    "country": "Canada",
    "dest": "Toronto",
-   "icon": "maple-leaf",
+   "icon": "tower-observation",
    "ccf": "B",
    "core": "A",
    "deadline": "2027-03-05",
@@ -1826,57 +1690,6 @@ export const destinations = {
    "q": "bordeaux, france bordeaux france "
   },
   {
-   "title": "ISMB",
-   "desc": "International Conference on Intelligent Systems for Molecular Biology",
-   "year": 2027,
-   "place": "Copenhagen, Denmark",
-   "date": "July 18-22, 2027",
-   "city": "Copenhagen",
-   "country": "Denmark",
-   "dest": "Nordics",
-   "icon": "snowflake",
-   "ccf": "B",
-   "core": "N",
-   "deadline": "2027-01-14",
-   "open": true,
-   "link": "https://www.iscb.org/ismbeccb2027/",
-   "q": "copenhagen, denmark copenhagen denmark "
-  },
-  {
-   "title": "ISSTA",
-   "desc": "ACM SIGSOFT International Symposium on Software Testing and Analysis",
-   "year": 2027,
-   "place": "Singapore",
-   "date": "September 7-10, 2027",
-   "city": "Singapore",
-   "country": "Singapore",
-   "dest": "Singapore",
-   "icon": "city",
-   "ccf": "A",
-   "core": "A",
-   "deadline": "2027-01-11",
-   "open": true,
-   "link": "https://conf.researchr.org/home/issta-2027",
-   "q": "singapore singapore singapore "
-  },
-  {
-   "title": "IUI",
-   "desc": "ACM Conference on Intelligent User Interfaces",
-   "year": 2027,
-   "place": "Helsinki, Finland",
-   "date": "February 8-11, 2027",
-   "city": "Helsinki",
-   "country": "Finland",
-   "dest": "Nordics",
-   "icon": "snowflake",
-   "ccf": "B",
-   "core": "A",
-   "deadline": "2026-08-20",
-   "open": false,
-   "link": "https://iui.hosting.acm.org/2027/",
-   "q": "helsinki, finland helsinki finland "
-  },
-  {
    "title": "KR",
    "desc": "International Conference on Principles of Knowledge Representation and Reasoning",
    "year": 2027,
@@ -1902,7 +1715,7 @@ export const destinations = {
    "city": "Montreal",
    "country": "Canada",
    "dest": "Montreal",
-   "icon": "maple-leaf",
+   "icon": "snowflake",
    "ccf": "A",
    "core": "A*",
    "deadline": "",
@@ -2089,7 +1902,7 @@ export const destinations = {
    "city": "Toronto",
    "country": "Canada",
    "dest": "Toronto",
-   "icon": "maple-leaf",
+   "icon": "tower-observation",
    "ccf": "B",
    "core": "B",
    "deadline": "2026-11-04",
@@ -2140,7 +1953,7 @@ export const destinations = {
    "city": "Montreal",
    "country": "Canada",
    "dest": "Montreal",
-   "icon": "maple-leaf",
+   "icon": "snowflake",
    "ccf": "A",
    "core": "A*",
    "deadline": "2026-11-17",
@@ -2164,23 +1977,6 @@ export const destinations = {
    "open": true,
    "link": "https://secon2027.ieee-secon.org/",
    "q": "lisbon, portugal lisbon portugal "
-  },
-  {
-   "title": "SGP",
-   "desc": "Eurographics Symposium on Geometry Processing",
-   "year": 2027,
-   "place": "Singapore",
-   "date": "June 21-25, 2027",
-   "city": "Singapore",
-   "country": "Singapore",
-   "dest": "Singapore",
-   "icon": "city",
-   "ccf": "B",
-   "core": "B",
-   "deadline": "",
-   "open": false,
-   "link": "https://igs2027singapore.github.io/",
-   "q": "singapore singapore singapore "
   },
   {
    "title": "SICE ISCS",
@@ -2285,23 +2081,6 @@ export const destinations = {
    "q": "huntington beach, ca, usa huntington beach united states california"
   },
   {
-   "title": "SPM",
-   "desc": "Symposium on Solid and Physical Modeling",
-   "year": 2027,
-   "place": "Singapore",
-   "date": "June 21-25, 2027",
-   "city": "Singapore",
-   "country": "Singapore",
-   "dest": "Singapore",
-   "icon": "city",
-   "ccf": "B",
-   "core": "C",
-   "deadline": "",
-   "open": false,
-   "link": "https://igs2027singapore.github.io/",
-   "q": "singapore singapore singapore "
-  },
-  {
    "title": "VLDB",
    "desc": "International Conference on Very Large Data Bases",
    "year": 2027,
@@ -2389,8 +2168,8 @@ export const destinations = {
  ],
  "places": [
   {
-   "name": "Singapore",
-   "icon": "city",
+   "name": "Hawaii",
+   "icon": "umbrella-beach",
    "n": 8
   },
   {
@@ -2400,23 +2179,18 @@ export const destinations = {
   },
   {
    "name": "Montreal",
-   "icon": "maple-leaf",
+   "icon": "snowflake",
    "n": 4
   },
   {
    "name": "Toronto",
-   "icon": "maple-leaf",
+   "icon": "tower-observation",
    "n": 4
   },
   {
    "name": "Orlando",
    "icon": "rocket",
    "n": 1
-  },
-  {
-   "name": "Hawaii",
-   "icon": "umbrella-beach",
-   "n": 8
   },
   {
    "name": "Japan",
@@ -2477,11 +2251,6 @@ export const destinations = {
    "name": "Southeast Asia",
    "icon": "leaf",
    "n": 7
-  },
-  {
-   "name": "Nordics",
-   "icon": "snowflake",
-   "n": 5
   }
  ]
 };

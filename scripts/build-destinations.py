@@ -23,14 +23,15 @@ def worth_listing(ccf, core):
 DESTINATIONS = [
  # Cities first, then regions and countries. First match wins, so a city is
  # always taken out before the wider rule that would otherwise swallow it.
- ('Singapore',       'city',           r'singapore'),
+ ('Hawaii',          'umbrella-beach', r'hawaii|honolulu|maui|waikiki|waikoloa|kona|kauai|o ahu|oahu|hilo|big island|kohala'),
  ('Hong Kong',       'city',           r'hong kong'),
- ('Montreal',        'maple-leaf',     r'montreal|montr al'),
- ('Toronto',         'maple-leaf',     r'toronto'),
+ # fa-maple-leaf does not exist in Font Awesome 6 Free, so these two rendered
+ # with no icon at all until now.
+ ('Montreal',        'snowflake',      r'montreal|montr al'),
+ ('Toronto',         'tower-observation', r'toronto'),
  ('Orlando',         'rocket',         r'orlando'),
  ('Miami',           'umbrella-beach', r'miami'),
  # Regions and countries
- ('Hawaii',          'umbrella-beach', r'hawaii|honolulu|maui|waikiki|waikoloa|kona|kauai|o ahu|oahu|hilo|big island|kohala'),
  ('Japan',           'torii-gate',     r'japan|tokyo|kyoto|osaka|yokohama|fukui|nara|sapporo'),
  ('California',      'sun',            r'california|san francisco|los angeles|san diego|san jose|san jos|long beach|anaheim|palo alto|santa barbara|sacramento|riverside|huntington beach|berkeley|pasadena|oakland'),
  ('Italy',           'wine-glass',     r'italy|rome|milan|florence|venice|bari|trento|turin|bologna|naples'),
@@ -43,7 +44,6 @@ DESTINATIONS = [
  ('Australia & NZ',  'kiwi-bird',      r'australia|new zealand|sydney|melbourne|brisbane|auckland|wellington|perth|canberra|adelaide|hobart'),
  ('South America',   'mountain-sun',   r'brazil|argentina|chile|colombia|peru|uruguay|ecuador|sao paulo|rio de janeiro|buenos aires|santiago|bogota|lima|cuiaba|florianopolis'),
  ('Southeast Asia',  'leaf',           r'malaysia|thailand|vietnam|indonesia|philippines|cambodia|bali|hanoi|bangkok|jakarta|kuala lumpur|da nang|danang|depok'),
- ('Nordics',         'snowflake',      r'sweden|denmark|norway|finland|iceland|stockholm|copenhagen|oslo|helsinki|reykjavik|malmo|gothenburg|aarhus'),
 ]
 
 def destination_of(place):
