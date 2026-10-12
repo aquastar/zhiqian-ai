@@ -11,8 +11,42 @@ import yaml, glob, re, json, datetime, collections, unicodedata, calendar
 
 TODAY = datetime.date.today()
 CACHE = '.conf-cache/ccf-deadlines/conference'
-MIN_CITY = 4        # editions needed before a city gets its own chip
-MIN_COUNTRY = 4
+# Only venues one of the two tables rates highly, plus anything added by hand
+# below. The destination view is for deciding where to go, and a list padded
+# with everything would bury the ones worth the flight.
+def worth_listing(ccf, core):
+    return ccf in ('A', 'B') or core in ('A*', 'A')
+
+# Popular destinations, deliberately a mix of cities, countries and one
+# region: these are places people pick, not a taxonomy. First match wins, so
+# Hawaii is taken out of the United States before the country rule is reached.
+DESTINATIONS = [
+ ('Hawaii',          'umbrella-beach', r'hawaii|honolulu|maui|waikiki|waikoloa|kona|kauai|o ahu|oahu|hilo|big island|kohala'),
+ ('Japan',           'torii-gate',     r'japan|tokyo|kyoto|osaka|yokohama|fukui|nara|sapporo'),
+ ('Singapore',       'city',           r'singapore'),
+ ('Hong Kong',       'city',           r'hong kong'),
+ ('Italy',           'wine-glass',     r'italy|rome|milan|florence|venice|bari|trento|turin|bologna|naples'),
+ ('Greece',          'landmark',       r'greece|athens|thessaloniki|chania|crete|rhodes'),
+ ('Spain & Portugal','sun',            r'spain|portugal|barcelona|madrid|seville|valencia|lisbon|porto|malaga'),
+ ('Netherlands',     'bicycle',        r'netherlands|amsterdam|delft|leiden|eindhoven|maastricht|rotterdam|nijmegen|utrecht|the hague|hague'),
+ ('France',          'wine-bottle',    r'france|paris|lyon|lille|rennes|marseille|nice|toulouse|grenoble|bordeaux'),
+ ('Germany',         'beer-mug-empty', r'germany|berlin|munich|hamburg|cologne|frankfurt|dresden|mainz|bremen|saarbrucken|leipzig|stuttgart'),
+ ('UK & Ireland',    'crown',          r'united kingdom|\buk\b|england|scotland|wales|ireland|london|edinburgh|glasgow|manchester|oxford|cambridge|bristol|dublin|galway|cork|southampton|lancaster'),
+ ('Canada',          'maple-leaf',     r'canada|toronto|montreal|vancouver|ottawa|quebec|calgary|edmonton|halifax'),
+ ('California',      'sun',            r'california|san francisco|los angeles|san diego|san jose|san jos|long beach|anaheim|palo alto|santa barbara|sacramento|riverside|huntington beach|berkeley|pasadena|oakland'),
+ ('Florida',         'rocket',         r'orlando|miami|tampa|florida|buena vista|boca raton|daytona|key west|st pete'),
+ ('Australia & NZ',  'kiwi-bird',      r'australia|new zealand|sydney|melbourne|brisbane|auckland|wellington|perth|canberra|adelaide|hobart'),
+ ('South America',   'mountain-sun',   r'brazil|argentina|chile|colombia|peru|uruguay|ecuador|sao paulo|rio de janeiro|buenos aires|santiago|bogota|lima|cuiaba|florianopolis'),
+ ('Southeast Asia',  'leaf',           r'malaysia|thailand|vietnam|indonesia|philippines|cambodia|bali|hanoi|bangkok|jakarta|kuala lumpur|da nang|danang|depok'),
+ ('Nordics',         'snowflake',      r'sweden|denmark|norway|finland|iceland|stockholm|copenhagen|oslo|helsinki|reykjavik|malmo|gothenburg|aarhus'),
+]
+
+def destination_of(place):
+    n = key(place)
+    for name, icon, pat in DESTINATIONS:
+        if re.search(pat, n): return name, icon
+    return '', ''
+
 
 def strip_accents(s):
     return ''.join(ch for ch in unicodedata.normalize('NFD', s)
@@ -173,15 +207,16 @@ for f in sorted(glob.glob(f'{CACHE}/*/*.yml')):
             if not year or year < TODAY.year or not place: continue
             if not ends_after_today(ed.get('date') or '', year): continue
             if NOWHERE.match(key(place)): continue
+            if not worth_listing(rank.get('ccf', 'N'), rank.get('core', 'N')): continue
+            dest, icon = destination_of(place)
             city, country = city_of(place), country_of(place)
-            if not city and not country: continue
             deadlines = sorted({dstr(t.get('deadline')) for t in (ed.get('timeline') or [])
                                 if dstr(t.get('deadline'))})
             ahead = [d for d in deadlines if d >= TODAY.isoformat()]
             items.append({
                 'title': c['title'], 'desc': (c.get('description') or '').strip(),
                 'year': year, 'place': place, 'date': ed.get('date') or '',
-                'city': city, 'country': country, 'continent': continent_of(country),
+                'city': city, 'country': country, 'dest': dest, 'icon': icon,
                 'ccf': rank.get('ccf', 'N'), 'core': rank.get('core', 'N'),
                 'deadline': ahead[0] if ahead else (deadlines[-1] if deadlines else ''),
                 'open': bool(ahead), 'link': ed.get('link', '') or '',
@@ -257,7 +292,9 @@ MANUAL = [
 for m in MANUAL:
     if not ends_after_today(m.get('date', ''), m['year']): continue
     m['city'], m['country'] = city_of(m['place']), country_of(m['place'])
-    m['continent'] = continent_of(m['country'])
+    m['dest'], m['icon'] = destination_of(m['place'])
+    if not m['dest']:
+        print('  note: hand-added venue is searchable only:', m['title'], m['place'])
     m['q'] = f"{m['place']} {m['city']} {m['country']} {expand(m['place'])}".lower()
     m.setdefault('ccf', 'N'); m.setdefault('core', 'N')
     items.append(m)
@@ -269,35 +306,27 @@ for m in MANUAL:
 items.sort(key=lambda x: (x['year'], x['date'], x['title'].lower()))
 seen = set()
 items = [i for i in items
-         if not ((i['title'], i['city']) in seen or seen.add((i['title'], i['city'])))]
+         if not ((i['title'], i['dest']) in seen or seen.add((i['title'], i['dest'])))]
 items.sort(key=lambda x: (x['year'], x['title'].lower()))
-cities = collections.Counter(i['city'] for i in items if i['city'])
-countries = collections.Counter(i['country'] for i in items if i['country'])
-continents = collections.Counter(i['continent'] for i in items if i['continent'])
 
-def chips(counter, floor):
-    return [{'name': n, 'n': v} for n, v in counter.most_common() if v >= floor]
-
+counts = collections.Counter(i['dest'] for i in items)
+order = [n for n, _, _ in DESTINATIONS if counts[n]]
+icons = {n: ic for n, ic, _ in DESTINATIONS}
 out = {
     'items': items,
-    'cities': chips(cities, MIN_CITY),
-    'countries': chips(countries, MIN_COUNTRY),
-    'continents': chips(continents, 1),
+    'places': [{'name': n, 'icon': icons[n], 'n': counts[n]} for n in order],
 }
 hdr = ('// Generated by scripts/build-destinations.py, do not edit by hand.\n'
-       '// Every announced future edition from the CCF catalogue, indexed by\n'
-       '// where it is rather than when its deadline is. City and country are\n'
-       '// kept as separate axes; anything that is neither, Hawaii for one, is\n'
-       '// reached through the search over the raw place string.\n'
+       '// Upcoming editions worth travelling for, grouped by destination.\n'
+       '// Only CCF A or B, or CORE A* or A, plus the venues added by hand in\n'
+       '// the script. Destinations deliberately mix cities, countries and\n'
+       '// regions, because that is how people choose where to go.\n'
        f'// Built {TODAY.isoformat()}.\n')
 with open('src/data/destinations.js', 'w') as f:
     f.write(hdr + 'export const destinations = ' + json.dumps(out, indent=1, ensure_ascii=False) + ';\n')
 
-print(f"editions {len(items)} | cities {len(cities)} ({len(out['cities'])} with {MIN_CITY}+)"
-      f" | countries {len(countries)} ({len(out['countries'])} with {MIN_COUNTRY}+)")
-print('top cities   :', ', '.join(f"{c['name']} {c['n']}" for c in out['cities'][:10]))
-print('top countries:', ', '.join(f"{c['name']} {c['n']}" for c in out['countries'][:10]))
-print('continents   :', ', '.join(f"{c['name']} {c['n']}" for c in out['continents']))
-unplaced = sorted({i['country'] for i in items if i['country'] and not i['continent']})
-print('country with no continent:', unplaced or 'none')
+named = sum(1 for i in items if i['dest'])
+print('editions', len(items), f'({named} on a chip, {len(items)-named} searchable only)',
+      '| destinations', len(out['places']))
+for pl in out['places']: print(f"  {pl['name']:18s} {pl['n']}")
 print('hawaii rows  :', sum(1 for i in items if re.search(r'hawaii|honolulu|maui|waikoloa|big island', i['place'], re.I)))

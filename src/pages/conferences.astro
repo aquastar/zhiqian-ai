@@ -265,29 +265,16 @@ const freshRated = rows.filter((c) => c.rates.length && c.rates[c.rates.length -
 
     <section class="section dest-section" id="destinations" hidden>
       <div class="dest-bar">
-        <div class="dest-axis" role="group" aria-label="Group by">
-          <button class="axbtn is-on" data-axis="city" type="button">Cities</button>
-          <button class="axbtn" data-axis="country" type="button">Country / region</button>
-          <button class="axbtn" data-axis="continent" type="button">Continents</button>
-        </div>
         <label class="dest-search">
           <i class="fas fa-magnifying-glass" aria-hidden="true"></i>
-          <input id="dest-q" type="search" placeholder="or type a place: hawaii, kyoto, florida" autocomplete="off" />
+          <input id="dest-q" type="search" placeholder="or type a place: kyoto, boston, iceland" autocomplete="off" />
         </label>
       </div>
-      <div class="dest-pick" data-for="city">
-        {destinations.cities.map((c, i) => (
-          <button class={`dbtn${i === 0 ? ' is-on' : ''}`} data-city={c.name} type="button">{c.name}<span class="fcount">{c.n}</span></button>
-        ))}
-      </div>
-      <div class="dest-pick" data-for="country" hidden>
-        {destinations.countries.map((c) => (
-          <button class="dbtn" data-country={c.name} type="button">{c.name}<span class="fcount">{c.n}</span></button>
-        ))}
-      </div>
-      <div class="dest-pick" data-for="continent" hidden>
-        {destinations.continents.map((c) => (
-          <button class="dbtn" data-continent={c.name} type="button">{c.name}<span class="fcount">{c.n}</span></button>
+      <div class="dest-pick">
+        {destinations.places.map((d, i) => (
+          <button class={`dbtn${i === 0 ? ' is-on' : ''}`} data-dest={d.name} type="button">
+            <i class={`fas fa-${d.icon}`} aria-hidden="true"></i>{d.name}<span class="fcount">{d.n}</span>
+          </button>
         ))}
       </div>
       <div class="table-wrap">
@@ -302,7 +289,7 @@ const freshRated = rows.filter((c) => c.rates.length && c.rates[c.rates.length -
           </thead>
           <tbody>
             {destinations.items.map((it) => (
-              <tr data-city={it.city} data-country={it.country} data-continent={it.continent} data-place={it.q} hidden>
+              <tr data-dest={it.dest} data-place={it.q} hidden>
                 <td class="c-name">
                   <span class="name-line">
                     <a class="conf-name" href={it.link} target="_blank" rel="noopener">{it.title}</a>
@@ -327,15 +314,13 @@ const freshRated = rows.filter((c) => c.rates.length && c.rates[c.rates.length -
           </tbody>
         </table>
       </div>
-      <p class="dest-none" hidden>Nothing announced there yet.
-      </p>
+      <p class="dest-none" hidden>Nothing announced there yet.</p>
       <p class="area-note">
-        {destinations.items.length} announced future editions, placed by where they are rather than when they close.
-        City, country or region, and continent are three separate lists and never mixed. Anywhere that is none of
-        the three, Hawaii being the obvious one, is in the search box. A call marked open still has a deadline ahead
-        of today. The middle list follows <a href="https://www.iso.org/iso-3166-country-codes.html" target="_blank"
-        rel="noopener">ISO 3166-1</a>, which enumerates countries and territories and is used here because the
-        upstream catalogue has no convention of its own: it writes Hong Kong five different ways.
+{destinations.places.reduce((a, d) => a + d.n, 0)} upcoming editions across {destinations.places.length} destinations,
+        each one a place rather than a category, so cities, countries and regions sit side by side. Only venues at
+        CCF A or B, or CORE A* or A, plus a handful added by hand because they belong here whatever the tables say.
+        A further {destinations.items.length - destinations.places.reduce((a, d) => a + d.n, 0)} qualifying editions
+        are somewhere without a chip: type the city to find them. A call marked open still has a deadline ahead of today.
       </p>
     </section>
 
@@ -894,50 +879,38 @@ const freshRated = rows.filter((c) => c.rates.length && c.rates[c.rates.length -
   };
   document.querySelectorAll('.fbtn').forEach((btn) => btn.addEventListener('click', () => apply(btn)));
 
-  // Destination view: three independent axes, city, country and continent,
-  // plus a free-text place search. A place that is none of the three, Hawaii
-  // being the one that prompted all this, is reachable only by typing it, so
-  // the search clears the chips rather than pretending to be an axis.
+  // One destination list, plus a free-text place search for anywhere that
+  // did not earn a chip. Typing clears the chips: the search is not a chip.
   const destRows = Array.from(document.querySelectorAll('.dest-table tbody tr'));
   const destNone = document.querySelector('.dest-none');
   const destQ = document.getElementById('dest-q');
-  let axis = 'city';
   let pick = '';
 
   const paintDest = () => {
     const q = ((destQ && destQ.value) || '').trim().toLowerCase();
     let shown = 0;
     destRows.forEach((r) => {
-      const on = q ? r.dataset.place.includes(q) : r.dataset[axis] === pick;
+      const on = q ? r.dataset.place.includes(q) : r.dataset.dest === pick;
       r.hidden = !on;
       if (on) shown++;
     });
     if (destNone) destNone.hidden = shown > 0;
   };
 
-  const selectChip = (btn) => {
-    btn.closest('.dest-pick').querySelectorAll('.dbtn')
-      .forEach((b) => b.classList.toggle('is-on', b === btn));
-    pick = btn.dataset[axis];
-    if (destQ) destQ.value = '';
-    paintDest();
-  };
-
-  document.querySelectorAll('.axbtn').forEach((btn) => {
+  document.querySelectorAll('.dbtn').forEach((btn) => {
     btn.addEventListener('click', () => {
-      axis = btn.dataset.axis;
-      document.querySelectorAll('.axbtn').forEach((b) => b.classList.toggle('is-on', b === btn));
-      document.querySelectorAll('.dest-pick').forEach((g) => { g.hidden = g.dataset.for !== axis; });
-      selectChip(document.querySelector('.dest-pick[data-for="' + axis + '"] .dbtn'));
+      document.querySelectorAll('.dbtn').forEach((b) => b.classList.toggle('is-on', b === btn));
+      pick = btn.dataset.dest;
+      if (destQ) destQ.value = '';
+      paintDest();
     });
   });
-  document.querySelectorAll('.dbtn').forEach((btn) => btn.addEventListener('click', () => selectChip(btn)));
   if (destQ) destQ.addEventListener('input', () => {
     if (destQ.value.trim()) document.querySelectorAll('.dbtn').forEach((b) => b.classList.remove('is-on'));
     paintDest();
   });
-  const firstChip = document.querySelector('.dest-pick[data-for="city"] .dbtn');
-  if (firstChip) selectChip(firstChip);
+  const firstDest = document.querySelector('.dbtn');
+  if (firstDest) { pick = firstDest.dataset.dest; paintDest(); }
   // The markup marks AI as selected; run the filter so the rows agree with it.
   const start = document.querySelector('.fbtn.is-on');
   if (start) apply(start);
