@@ -21,10 +21,18 @@ def worth_listing(ccf, core):
 # region: these are places people pick, not a taxonomy. First match wins, so
 # Hawaii is taken out of the United States before the country rule is reached.
 DESTINATIONS = [
- ('Hawaii',          'umbrella-beach', r'hawaii|honolulu|maui|waikiki|waikoloa|kona|kauai|o ahu|oahu|hilo|big island|kohala'),
- ('Japan',           'torii-gate',     r'japan|tokyo|kyoto|osaka|yokohama|fukui|nara|sapporo'),
+ # Cities first, then regions and countries. First match wins, so a city is
+ # always taken out before the wider rule that would otherwise swallow it.
  ('Singapore',       'city',           r'singapore'),
  ('Hong Kong',       'city',           r'hong kong'),
+ ('Montreal',        'maple-leaf',     r'montreal|montr al'),
+ ('Toronto',         'maple-leaf',     r'toronto'),
+ ('Orlando',         'rocket',         r'orlando'),
+ ('Miami',           'umbrella-beach', r'miami'),
+ # Regions and countries
+ ('Hawaii',          'umbrella-beach', r'hawaii|honolulu|maui|waikiki|waikoloa|kona|kauai|o ahu|oahu|hilo|big island|kohala'),
+ ('Japan',           'torii-gate',     r'japan|tokyo|kyoto|osaka|yokohama|fukui|nara|sapporo'),
+ ('California',      'sun',            r'california|san francisco|los angeles|san diego|san jose|san jos|long beach|anaheim|palo alto|santa barbara|sacramento|riverside|huntington beach|berkeley|pasadena|oakland'),
  ('Italy',           'wine-glass',     r'italy|rome|milan|florence|venice|bari|trento|turin|bologna|naples'),
  ('Greece',          'landmark',       r'greece|athens|thessaloniki|chania|crete|rhodes'),
  ('Spain & Portugal','sun',            r'spain|portugal|barcelona|madrid|seville|valencia|lisbon|porto|malaga'),
@@ -32,9 +40,6 @@ DESTINATIONS = [
  ('France',          'wine-bottle',    r'france|paris|lyon|lille|rennes|marseille|nice|toulouse|grenoble|bordeaux'),
  ('Germany',         'beer-mug-empty', r'germany|berlin|munich|hamburg|cologne|frankfurt|dresden|mainz|bremen|saarbrucken|leipzig|stuttgart'),
  ('UK & Ireland',    'crown',          r'united kingdom|\buk\b|england|scotland|wales|ireland|london|edinburgh|glasgow|manchester|oxford|cambridge|bristol|dublin|galway|cork|southampton|lancaster'),
- ('Canada',          'maple-leaf',     r'canada|toronto|montreal|vancouver|ottawa|quebec|calgary|edmonton|halifax'),
- ('California',      'sun',            r'california|san francisco|los angeles|san diego|san jose|san jos|long beach|anaheim|palo alto|santa barbara|sacramento|riverside|huntington beach|berkeley|pasadena|oakland'),
- ('Florida',         'rocket',         r'orlando|miami|tampa|florida|buena vista|boca raton|daytona|key west|st pete'),
  ('Australia & NZ',  'kiwi-bird',      r'australia|new zealand|sydney|melbourne|brisbane|auckland|wellington|perth|canberra|adelaide|hobart'),
  ('South America',   'mountain-sun',   r'brazil|argentina|chile|colombia|peru|uruguay|ecuador|sao paulo|rio de janeiro|buenos aires|santiago|bogota|lima|cuiaba|florianopolis'),
  ('Southeast Asia',  'leaf',           r'malaysia|thailand|vietnam|indonesia|philippines|cambodia|bali|hanoi|bangkok|jakarta|kuala lumpur|da nang|danang|depok'),

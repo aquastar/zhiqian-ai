@@ -204,7 +204,7 @@ export const destinations = {
    "link": "https://conf.researchr.org/home/cascon-2026",
    "city": "Toronto",
    "country": "Canada",
-   "dest": "Canada",
+   "dest": "Toronto",
    "icon": "maple-leaf",
    "q": "toronto, ontario, canada toronto canada ",
    "ccf": "N",
@@ -1119,7 +1119,7 @@ export const destinations = {
    "date": "February 16-23, 2027",
    "city": "Montreal",
    "country": "Canada",
-   "dest": "Canada",
+   "dest": "Montreal",
    "icon": "maple-leaf",
    "ccf": "A",
    "core": "A*",
@@ -1224,7 +1224,7 @@ export const destinations = {
    "link": "https://scitech.aiaa.org/",
    "city": "Orlando",
    "country": "United States",
-   "dest": "Florida",
+   "dest": "Orlando",
    "icon": "rocket",
    "q": "orlando, florida, usa orlando united states ",
    "ccf": "N",
@@ -1238,7 +1238,7 @@ export const destinations = {
    "date": "May 3-6, 2027",
    "city": "Montreal",
    "country": "Canada",
-   "dest": "Canada",
+   "dest": "Montreal",
    "icon": "maple-leaf",
    "ccf": "C",
    "core": "A",
@@ -1870,8 +1870,8 @@ export const destinations = {
    "link": "https://www.flairs-40.info/",
    "city": "St. Pete Beach",
    "country": "United States",
-   "dest": "Florida",
-   "icon": "rocket",
+   "dest": "",
+   "icon": "",
    "q": "st. pete beach, florida, usa st. pete beach united states ",
    "ccf": "N",
    "core": "N"
@@ -2122,7 +2122,7 @@ export const destinations = {
    "date": "May 16-21, 2027",
    "city": "Toronto",
    "country": "Canada",
-   "dest": "Canada",
+   "dest": "Toronto",
    "icon": "maple-leaf",
    "ccf": "B",
    "core": "B",
@@ -2394,7 +2394,7 @@ export const destinations = {
    "date": "September 7-11, 2027",
    "city": "Toronto",
    "country": "Canada",
-   "dest": "Canada",
+   "dest": "Toronto",
    "icon": "maple-leaf",
    "ccf": "B",
    "core": "A",
@@ -2717,7 +2717,7 @@ export const destinations = {
    "date": "June 21-24, 2027",
    "city": "Montreal",
    "country": "Canada",
-   "dest": "Canada",
+   "dest": "Montreal",
    "icon": "maple-leaf",
    "ccf": "A",
    "core": "A*",
@@ -3091,7 +3091,7 @@ export const destinations = {
    "date": "May 17-20, 2027",
    "city": "Toronto",
    "country": "Canada",
-   "dest": "Canada",
+   "dest": "Toronto",
    "icon": "maple-leaf",
    "ccf": "B",
    "core": "B",
@@ -3159,7 +3159,7 @@ export const destinations = {
    "date": "May 17-19, 2027",
    "city": "Montreal",
    "country": "Canada",
-   "dest": "Canada",
+   "dest": "Montreal",
    "icon": "maple-leaf",
    "ccf": "A",
    "core": "A*",
@@ -3400,8 +3400,8 @@ export const destinations = {
    "link": "https://ieeesoutheastcon.org/",
    "city": "Daytona Beach",
    "country": "United States",
-   "dest": "Florida",
-   "icon": "rocket",
+   "dest": "",
+   "icon": "",
    "q": "daytona beach, florida, usa daytona beach united states ",
    "ccf": "N",
    "core": "N"
@@ -3516,8 +3516,8 @@ export const destinations = {
    "date": "Jan 4 - 8, 2027",
    "city": "Buena Vista",
    "country": "United States",
-   "dest": "Florida",
-   "icon": "rocket",
+   "dest": "",
+   "icon": "",
    "ccf": "N",
    "core": "A",
    "deadline": "2026-08-28",
@@ -3596,6 +3596,31 @@ export const destinations = {
  ],
  "places": [
   {
+   "name": "Singapore",
+   "icon": "city",
+   "n": 8
+  },
+  {
+   "name": "Hong Kong",
+   "icon": "city",
+   "n": 6
+  },
+  {
+   "name": "Montreal",
+   "icon": "maple-leaf",
+   "n": 4
+  },
+  {
+   "name": "Toronto",
+   "icon": "maple-leaf",
+   "n": 4
+  },
+  {
+   "name": "Orlando",
+   "icon": "rocket",
+   "n": 1
+  },
+  {
    "name": "Hawaii",
    "icon": "umbrella-beach",
    "n": 8
@@ -3606,14 +3631,9 @@ export const destinations = {
    "n": 9
   },
   {
-   "name": "Singapore",
-   "icon": "city",
-   "n": 8
-  },
-  {
-   "name": "Hong Kong",
-   "icon": "city",
-   "n": 6
+   "name": "California",
+   "icon": "sun",
+   "n": 16
   },
   {
    "name": "Italy",
@@ -3649,21 +3669,6 @@ export const destinations = {
    "name": "UK & Ireland",
    "icon": "crown",
    "n": 10
-  },
-  {
-   "name": "Canada",
-   "icon": "maple-leaf",
-   "n": 8
-  },
-  {
-   "name": "California",
-   "icon": "sun",
-   "n": 16
-  },
-  {
-   "name": "Florida",
-   "icon": "rocket",
-   "n": 4
   },
   {
    "name": "Australia & NZ",
