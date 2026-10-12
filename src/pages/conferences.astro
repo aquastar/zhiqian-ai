@@ -595,7 +595,7 @@ const freshRated = rows.filter((c) => c.rates.length && c.rates[c.rates.length -
   /* Percentages, not pixels: a long conference name used to push this column
      wide at every viewport. Capped under half the table it can no longer do
      that, and the other three keep their share whatever the window does. */
-  .c-name { width:44%; }
+  .c-name { width:34%; }
   .name-line { display:flex; align-items:center; gap:7px; flex-wrap:wrap; }
   .conf-name { overflow-wrap:anywhere; font-weight:700; color:#0f172a; text-decoration:none; font-size:.9rem; }
   a.conf-name:hover { color:var(--accent); text-decoration:underline; }
@@ -623,15 +623,15 @@ const freshRated = rows.filter((c) => c.rates.length && c.rates[c.rates.length -
   .dbtn:hover { border-color:rgba(14,116,144,.5); color:#0e7490; }
   .dbtn.is-on { background:#0e7490; border-color:#0e7490; color:#fff; }
   .dbtn i { font-size:.8rem; }
-  .dest-table .c-name { width:44%; }
-  .dest-table .c-when { width:27%; }
+  .dest-table .c-name { width:34%; }
+  .dest-table .c-when { width:30%; }
   .open-tag { font-size:.62rem; font-weight:800; letter-spacing:.04em; text-transform:uppercase;
     color:#15803d; background:#dcfce7; border:1px solid #bbf7d0; border-radius:4px; padding:1px 6px; }
   .rounds-tag { font-size:.64rem; font-weight:800; color:#0369a1; background:#e0f2fe; border-radius:4px; padding:1px 5px; }
   .new-tag { font-size:.62rem; font-weight:800; letter-spacing:.05em; text-transform:uppercase;
     color:#5b21b6; background:#ede9fe; border:1px solid #ddd6fe; border-radius:4px; padding:1px 6px; }
 
-  .c-date { white-space:nowrap; width:17%; }
+  .c-date { white-space:nowrap; width:24%; }
   .round { display:flex; align-items:center; flex-wrap:wrap; gap:5px; margin-bottom:3px; }
   .round:last-of-type { margin-bottom:0; }
   /* The abstract deadline comes first and is the one that actually shuts the
@@ -664,7 +664,7 @@ const freshRated = rows.filter((c) => c.rates.length && c.rates[c.rates.length -
   .dl-days.band-far    { background:#64748b; }
   .dl-days.band-past   { background:#e2e8f0; color:#64748b; }
 
-  .c-when { font-size:.73rem; color:#475569; width:27%; line-height:1.35; }
+  .c-when { font-size:.73rem; color:#475569; width:30%; line-height:1.35; }
   /* The edition now lives inside the conference cell, set apart by a rule
      rather than a column. */
   .ed-line { display:block; margin-top:5px; padding-top:5px; font-size:.73rem; color:#475569;
@@ -680,7 +680,7 @@ const freshRated = rows.filter((c) => c.rates.length && c.rates[c.rates.length -
   .ed-line .when { display:inline; }
   .where .fi { flex:0 0 auto; border-radius:2px; box-shadow:0 0 0 1px rgba(15,23,42,.08); }
 
-  .c-rate { width:27%; }
+  .c-rate { width:30%; }
   .spark { display:block; overflow:visible; color:#1d4ed8; }
   .spark .grid { stroke:rgba(148,163,184,.35); stroke-width:.6; stroke-dasharray:2 2; }
   .spark .glab { font-size:6px; fill:#94a3b8; }
