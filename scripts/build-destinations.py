@@ -117,6 +117,14 @@ def expand(place):
 US_CITIES = {'san francisco','san jose','long beach','palo alto','los angeles','new york','seattle',
              'atlanta','denver','boston','chicago','austin','pittsburgh','cleveland','honolulu'}
 
+# Same rule as the conference table: a Taiwanese venue is listed by its city
+# alone. Nothing here depends on it today, since no Taiwanese city has a chip,
+# but the rule should hold wherever a place string is printed.
+TW_CITY = re.compile(r'\b(taipei|hsinchu|kaohsiung|tainan|taichung|taoyuan|keelung)\b', re.I)
+def simplify_place(place):
+    m = TW_CITY.search(place or '')
+    return m.group(1).title() if m else place
+
 def segments(place):
     place = re.sub(r'\(.*?\)', '', re.split(r'[;]', place)[0])
     place = place.replace('\uff0c', ',')
@@ -221,7 +229,7 @@ for f in sorted(glob.glob(f'{CACHE}/*/*.yml')):
             ahead = [d for d in deadlines if d >= TODAY.isoformat()]
             items.append({
                 'title': c['title'], 'desc': (c.get('description') or '').strip(),
-                'year': year, 'place': place, 'date': ed.get('date') or '',
+                'year': year, 'place': simplify_place(place), 'date': ed.get('date') or '',
                 'city': city, 'country': country, 'dest': dest, 'icon': icon,
                 'ccf': rank.get('ccf', 'N'), 'core': rank.get('core', 'N'),
                 'deadline': ahead[0] if ahead else (deadlines[-1] if deadlines else ''),

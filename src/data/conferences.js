@@ -9,6 +9,7 @@ export const ranked = [
     "title": "EACL",
     "desc": "The Annual Conference of the European Chapter of the Association for Computational Linguistics",
     "area": "AI / ML / Data Mining",
+    "sub": "AI",
     "ccf": "N",
     "core": "A",
     "coreVerified": true,
@@ -59,6 +60,7 @@ export const ranked = [
     "title": "COLING",
     "desc": "International Conference on Computational Linguistics",
     "area": "AI / ML / Data Mining",
+    "sub": "AI",
     "ccf": "B",
     "core": "B",
     "coreVerified": true,
@@ -135,6 +137,7 @@ export const ranked = [
     "title": "NAACL",
     "desc": "The Annual Conference of the North American Chapter of the Association for Computational Linguistics",
     "area": "AI / ML / Data Mining",
+    "sub": "AI",
     "ccf": "B",
     "core": "A",
     "coreVerified": true,
@@ -252,136 +255,10 @@ export const ranked = [
     "tier": 2
   },
   {
-    "title": "CHES",
-    "desc": "International Conference on Cryptographic Hardware and Embedded Systems",
-    "area": "Security & Privacy",
-    "ccf": "B",
-    "core": "A",
-    "coreVerified": true,
-    "nextDeadline": "2026-10-15",
-    "nextYear": 2027,
-    "nextAbstract": "",
-    "estimated": false,
-    "estFrom": "",
-    "rounds": [
-      {
-        "d": "2026-10-15",
-        "label": "Schedule for TCHES Volume 2027/2",
-        "est": false,
-        "year": 2027,
-        "link": "https://ches.iacr.org/2027/",
-        "abs": ""
-      },
-      {
-        "d": "2027-01-15",
-        "label": "Schedule for TCHES Volume 2027/3",
-        "est": false,
-        "year": 2027,
-        "link": "https://ches.iacr.org/2027/",
-        "abs": ""
-      },
-      {
-        "d": "2027-04-15",
-        "label": "Schedule for TCHES Volume 2027/4",
-        "est": false,
-        "year": 2027,
-        "link": "https://ches.iacr.org/2027/",
-        "abs": ""
-      },
-      {
-        "d": "2027-07-15",
-        "label": "TCHES 2026/1",
-        "est": true,
-        "from": "2025-07-15",
-        "abs": ""
-      }
-    ],
-    "dblp": "ches",
-    "csr": "",
-    "edition": "",
-    "best": "",
-    "link": "https://ches.iacr.org/2027/",
-    "date": "September 6 - 9, 2027",
-    "place": "Cancún, Mexico",
-    "cc": "mx",
-    "city": "swimming in a cenote, Chichen Itza at opening time, cochinita pibil tacos",
-    "cycles": 4,
-    "roundLabels": [
-      "Schedule for TCHES Volume 2027/1",
-      "Schedule for TCHES Volume 2027/2",
-      "Schedule for TCHES Volume 2027/3",
-      "Schedule for TCHES Volume 2027/4"
-    ],
-    "proceedings": "full",
-    "rates": [],
-    "rateSection": "",
-    "rateSrc": "",
-    "rateSlug": "",
-    "tier": 2
-  },
-  {
-    "title": "CSFW",
-    "desc": "IEEE Computer Security Foundations Symposium",
-    "area": "Security & Privacy",
-    "ccf": "B",
-    "core": "A",
-    "coreVerified": false,
-    "nextDeadline": "2026-10-15",
-    "nextYear": 2027,
-    "nextAbstract": "",
-    "estimated": false,
-    "estFrom": "",
-    "rounds": [
-      {
-        "d": "2026-10-15",
-        "label": "Fall",
-        "est": false,
-        "year": 2027,
-        "link": "https://www.ieee-security.org/TC/CSF2027/",
-        "abs": ""
-      },
-      {
-        "d": "2027-01-28",
-        "label": "Winter",
-        "est": false,
-        "year": 2027,
-        "link": "https://www.ieee-security.org/TC/CSF2027/",
-        "abs": ""
-      },
-      {
-        "d": "2027-07-24",
-        "label": "Summer",
-        "est": true,
-        "from": "2025-07-24",
-        "abs": ""
-      }
-    ],
-    "dblp": "csfw",
-    "csr": "",
-    "edition": "",
-    "best": "",
-    "link": "https://www.ieee-security.org/TC/CSF2027/",
-    "date": "September 13-17, 2027",
-    "place": "Tokyo, Japan",
-    "cc": "jp",
-    "city": "breakfast at the Tsukiji outer market, teamLab, standing sushi bars",
-    "cycles": 3,
-    "roundLabels": [
-      "Summer",
-      "Fall",
-      "Winter"
-    ],
-    "proceedings": "full",
-    "rates": [],
-    "rateSection": "",
-    "rateSrc": "",
-    "rateSlug": "",
-    "tier": 2
-  },
-  {
     "title": "SIGMOD",
     "desc": "ACM Conference on Management of Data",
     "area": "AI / ML / Data Mining",
+    "sub": "DB",
     "ccf": "A",
     "core": "A*",
     "coreVerified": true,
@@ -602,48 +479,10 @@ export const ranked = [
     "tier": 1
   },
   {
-    "title": "PKC",
-    "desc": "International Conference on Practice and Theory of Public-Key Cryptography",
-    "area": "Security & Privacy",
-    "ccf": "B",
-    "core": "B",
-    "coreVerified": true,
-    "nextDeadline": "2026-10-24",
-    "nextYear": 2027,
-    "nextAbstract": "",
-    "estimated": true,
-    "estFrom": "2025-10-24",
-    "rounds": [
-      {
-        "d": "2026-10-24",
-        "label": "",
-        "est": true,
-        "from": "2025-10-24",
-        "abs": ""
-      }
-    ],
-    "dblp": "pkc",
-    "csr": "",
-    "edition": "",
-    "best": "",
-    "link": "https://pkc.iacr.org/2027/",
-    "date": "March 1-4, 2027",
-    "place": "Taipei, Taiwan",
-    "cc": "tw",
-    "city": "beef noodle soup, Shilin night market, tea houses at Jiufen",
-    "cycles": 1,
-    "roundLabels": [],
-    "proceedings": "full",
-    "rates": [],
-    "rateSection": "",
-    "rateSrc": "",
-    "rateSlug": "",
-    "tier": 2
-  },
-  {
     "title": "WWW",
     "desc": "International World Wide Web Conferences",
     "area": "AI / ML / Data Mining",
+    "sub": "MX",
     "ccf": "A",
     "core": "A*",
     "coreVerified": true,
@@ -829,6 +668,7 @@ export const ranked = [
     "best": "",
     "csr": "",
     "edition": "",
+    "sub": "",
     "estimated": true,
     "estFrom": "2025-10-30",
     "nextDeadline": "2026-10-30",
@@ -844,6 +684,7 @@ export const ranked = [
     "title": "VLDB",
     "desc": "International Conference on Very Large Data Bases",
     "area": "AI / ML / Data Mining",
+    "sub": "DB",
     "ccf": "A",
     "core": "A*",
     "coreVerified": true,
@@ -1069,7 +910,8 @@ export const ranked = [
   {
     "title": "RECOMB",
     "desc": "International Conference on Research inComputational Molecular Biology",
-    "area": "Medicine, Biology & Genetics",
+    "area": "Security & Medicine",
+    "sub": "MX",
     "ccf": "B",
     "core": "B",
     "coreVerified": true,
@@ -1215,6 +1057,7 @@ export const ranked = [
     "title": "ICDE",
     "desc": "IEEE International Conference on Data Engineering",
     "area": "AI / ML / Data Mining",
+    "sub": "DB",
     "ccf": "A",
     "core": "A*",
     "coreVerified": true,
@@ -1418,6 +1261,7 @@ export const ranked = [
     "title": "ICDAR",
     "desc": "International Conference on Document Analysis and Recognition",
     "area": "AI / ML / Data Mining",
+    "sub": "AI",
     "ccf": "C",
     "core": "A",
     "coreVerified": true,
@@ -1465,6 +1309,7 @@ export const ranked = [
     "title": "CVPR",
     "desc": "IEEE/CVF Conference on Computer Vision and Pattern Recognition",
     "area": "AI / ML / Data Mining",
+    "sub": "AI",
     "ccf": "A",
     "core": "A*",
     "coreVerified": true,
@@ -1662,6 +1507,7 @@ export const ranked = [
     "title": "AAMAS",
     "desc": "International Conference on Autonomous Agents and Multiagent Systems",
     "area": "AI / ML / Data Mining",
+    "sub": "AI",
     "ccf": "B",
     "core": "A*",
     "coreVerified": true,
@@ -1707,7 +1553,8 @@ export const ranked = [
   {
     "title": "S&P",
     "desc": "IEEE Symposium on Security and Privacy",
-    "area": "Security & Privacy",
+    "area": "Security & Medicine",
+    "sub": "SC",
     "ccf": "A",
     "core": "A*",
     "coreVerified": true,
@@ -1931,6 +1778,7 @@ export const ranked = [
     "title": "DASFAA",
     "desc": "Database Systems for Advanced Applications",
     "area": "AI / ML / Data Mining",
+    "sub": "DB",
     "ccf": "B",
     "core": "B",
     "coreVerified": true,
@@ -1968,333 +1816,10 @@ export const ranked = [
     "tier": 2
   },
   {
-    "title": "PETS",
-    "desc": "Privacy Enhancing Technologies Symposium",
-    "area": "Security & Privacy",
-    "ccf": "C",
-    "core": "A",
-    "coreVerified": true,
-    "nextDeadline": "2026-11-30",
-    "nextYear": 2027,
-    "nextAbstract": "",
-    "estimated": false,
-    "estFrom": "",
-    "rounds": [
-      {
-        "d": "2026-11-30",
-        "label": "Issue 3 Paper Submission Deadline",
-        "est": false,
-        "year": 2027,
-        "link": "https://petsymposium.org/cfp27.php",
-        "abs": ""
-      },
-      {
-        "d": "2027-02-28",
-        "label": "Issue 4 Paper Submission Deadline",
-        "est": false,
-        "year": 2027,
-        "link": "https://petsymposium.org/cfp27.php",
-        "abs": ""
-      },
-      {
-        "d": "2027-05-31",
-        "label": "Issue 1",
-        "est": true,
-        "from": "2025-05-31",
-        "abs": ""
-      },
-      {
-        "d": "2027-08-31",
-        "label": "Issue 2",
-        "est": true,
-        "from": "2025-08-31",
-        "abs": ""
-      }
-    ],
-    "dblp": "pet",
-    "csr": "",
-    "edition": "",
-    "best": "",
-    "link": "https://petsymposium.org/cfp27.php",
-    "date": "July 19-24, 2027",
-    "place": "Delft, The Netherlands",
-    "cc": "nl",
-    "city": "Vermeer's exact view, painting your own Delft Blue, apple pie on the Markt",
-    "cycles": 4,
-    "roundLabels": [
-      "Issue 1 Paper Submission Deadline",
-      "Issue 2 Paper Submission Deadline",
-      "Issue 3 Paper Submission Deadline",
-      "Issue 4 Paper Submission Deadline"
-    ],
-    "proceedings": "full",
-    "rates": [],
-    "rateSection": "",
-    "rateSrc": "",
-    "rateSlug": "",
-    "tier": 2
-  },
-  {
-    "title": "FSE",
-    "desc": "Fast Software Encryption",
-    "area": "Security & Privacy",
-    "ccf": "B",
-    "core": "JP",
-    "coreVerified": true,
-    "nextDeadline": "2026-12-01",
-    "nextYear": 2027,
-    "nextAbstract": "",
-    "estimated": false,
-    "estFrom": "",
-    "rounds": [
-      {
-        "d": "2026-12-01",
-        "label": "ToSC, Volume 2027, Issue 1 Submission deadline",
-        "est": false,
-        "year": 2027,
-        "link": "https://fse.iacr.org/2027/",
-        "abs": ""
-      },
-      {
-        "d": "2027-03-01",
-        "label": "ToSC 2025/2",
-        "est": true,
-        "from": "2025-03-01",
-        "abs": ""
-      },
-      {
-        "d": "2027-06-01",
-        "label": "ToSC 2025/3",
-        "est": true,
-        "from": "2025-06-01",
-        "abs": ""
-      },
-      {
-        "d": "2027-09-01",
-        "label": "ToSC 2025/4",
-        "est": true,
-        "from": "2025-09-01",
-        "abs": ""
-      }
-    ],
-    "dblp": "fse",
-    "csr": "SE",
-    "edition": "35th",
-    "best": "fse",
-    "link": "https://fse.iacr.org/2027/",
-    "date": "May 24-28, 2027",
-    "place": "Maastricht, Netherlands",
-    "cc": "nl",
-    "city": "vlaai pie, the Sint-Pietersberg caves, a bookshop in a 13th-century church",
-    "cycles": 2,
-    "roundLabels": [
-      "ToSC, Volume 2026, Issue 4 Submission deadline",
-      "ToSC, Volume 2027, Issue 1 Submission deadline"
-    ],
-    "proceedings": "full",
-    "rates": [
-      {
-        "y": 1997,
-        "r": 13.9
-      },
-      {
-        "y": 1999,
-        "r": 20.6
-      },
-      {
-        "y": 2001,
-        "r": 21.2
-      },
-      {
-        "y": 2002,
-        "r": 13.3
-      },
-      {
-        "y": 2003,
-        "r": 19.6
-      },
-      {
-        "y": 2004,
-        "r": 14.7
-      },
-      {
-        "y": 2005,
-        "r": 15.9
-      },
-      {
-        "y": 2006,
-        "r": 24.0
-      },
-      {
-        "y": 2007,
-        "r": 16.7
-      },
-      {
-        "y": 2008,
-        "r": 20.4
-      },
-      {
-        "y": 2009,
-        "r": 14.7
-      },
-      {
-        "y": 2010,
-        "r": 19.5
-      },
-      {
-        "y": 2011,
-        "r": 16.7
-      },
-      {
-        "y": 2012,
-        "r": 17.7
-      },
-      {
-        "y": 2013,
-        "r": 20.3
-      },
-      {
-        "y": 2014,
-        "r": 21.8
-      },
-      {
-        "y": 2015,
-        "r": 25.4
-      },
-      {
-        "y": 2016,
-        "r": 27.8
-      },
-      {
-        "y": 2017,
-        "r": 24.4
-      },
-      {
-        "y": 2018,
-        "r": 21.1
-      },
-      {
-        "y": 2019,
-        "r": 24.4
-      },
-      {
-        "y": 2020,
-        "r": 28.1
-      },
-      {
-        "y": 2021,
-        "r": 24.5
-      },
-      {
-        "y": 2022,
-        "r": 22.0
-      },
-      {
-        "y": 2023,
-        "r": 27.3
-      },
-      {
-        "y": 2024,
-        "r": 25.5
-      },
-      {
-        "y": 2025,
-        "r": 22.1
-      },
-      {
-        "y": 2026,
-        "r": 22.9
-      }
-    ],
-    "rateSection": "",
-    "rateSrc": "csc",
-    "rateSlug": "fse",
-    "tier": 2
-  },
-  {
-    "title": "DSN",
-    "desc": "International Conference on Dependable Systems and Networks",
-    "area": "Security & Privacy",
-    "ccf": "B",
-    "core": "A",
-    "coreVerified": true,
-    "nextDeadline": "2026-12-02",
-    "nextYear": 2027,
-    "nextAbstract": "",
-    "estimated": false,
-    "estFrom": "",
-    "rounds": [
-      {
-        "d": "2026-12-02",
-        "label": "",
-        "est": false,
-        "year": 2027,
-        "link": "https://dsn2027-berlin.github.io/",
-        "abs": "2026-11-25"
-      }
-    ],
-    "dblp": "dsn",
-    "csr": "",
-    "edition": "",
-    "best": "",
-    "link": "https://dsn2027-berlin.github.io/",
-    "date": "June 22-25, 2027",
-    "place": "Berlin, Germany",
-    "cc": "de",
-    "city": "doner at Mustafa's, Sunday karaoke in Mauerpark, currywurst at 4am",
-    "cycles": 1,
-    "roundLabels": [],
-    "proceedings": "full",
-    "rates": [],
-    "rateSection": "",
-    "rateSrc": "",
-    "rateSlug": "",
-    "tier": 2
-  },
-  {
-    "title": "EuroS&P",
-    "desc": "IEEE European Symposium on Security and Privacy",
-    "area": "Security & Privacy",
-    "ccf": "C",
-    "core": "A",
-    "coreVerified": true,
-    "nextDeadline": "2026-12-02",
-    "nextYear": 2027,
-    "nextAbstract": "",
-    "estimated": false,
-    "estFrom": "",
-    "rounds": [
-      {
-        "d": "2026-12-02",
-        "label": "",
-        "est": false,
-        "year": 2027,
-        "link": "https://eurosp2027.ieee-security.org/",
-        "abs": "2026-11-25"
-      }
-    ],
-    "dblp": "eurosp",
-    "csr": "",
-    "edition": "",
-    "best": "",
-    "link": "https://eurosp2027.ieee-security.org/",
-    "date": "July 5 - 9, 2027",
-    "place": "Madrid, Spain",
-    "cc": "es",
-    "city": "jamon iberico at Mercado San Miguel, churros at 2am, the Prado",
-    "cycles": 1,
-    "roundLabels": [],
-    "proceedings": "full",
-    "rates": [],
-    "rateSection": "",
-    "rateSrc": "",
-    "rateSlug": "",
-    "tier": 2
-  },
-  {
     "title": "PODS",
     "desc": "ACM Symposium on Principles of Database Systems",
     "area": "AI / ML / Data Mining",
+    "sub": "DB",
     "ccf": "B",
     "core": "A*",
     "coreVerified": true,
@@ -2487,59 +2012,10 @@ export const ranked = [
     "tier": 1
   },
   {
-    "title": "AsiaCCS",
-    "desc": "Asia Conference on Computer and Communications Security",
-    "area": "Security & Privacy",
-    "ccf": "C",
-    "core": "A",
-    "coreVerified": true,
-    "nextDeadline": "2026-12-11",
-    "nextYear": 2027,
-    "nextAbstract": "",
-    "estimated": false,
-    "estFrom": "",
-    "rounds": [
-      {
-        "d": "2026-12-11",
-        "label": "2nd round Deadline",
-        "est": false,
-        "year": 2027,
-        "link": "https://asiaccs2027.cityu.edu.mo/index.html",
-        "abs": ""
-      },
-      {
-        "d": "2027-08-25",
-        "label": "Round 1",
-        "est": true,
-        "from": "2025-08-25",
-        "abs": ""
-      }
-    ],
-    "dblp": "asiaccs",
-    "csr": "",
-    "edition": "",
-    "best": "",
-    "link": "https://asiaccs2027.cityu.edu.mo/index.html",
-    "date": "July 12-16, 2027",
-    "place": "Macau, China",
-    "cc": "cn",
-    "city": "egg tarts at Lord Stow's, African chicken, the Ruins of St Paul lit at night",
-    "cycles": 2,
-    "roundLabels": [
-      "1st round Deadline",
-      "2nd round Deadline"
-    ],
-    "proceedings": "full",
-    "rates": [],
-    "rateSection": "",
-    "rateSrc": "",
-    "rateSlug": "",
-    "tier": 2
-  },
-  {
     "title": "ECML-PKDD",
     "desc": "European Conference on Machine Learning and 25th Principles and Practice of Knowledge Discovery in Databases",
     "area": "AI / ML / Data Mining",
+    "sub": "DB",
     "ccf": "B",
     "core": "A",
     "coreVerified": true,
@@ -2593,6 +2069,7 @@ export const ranked = [
     "title": "ICAPS",
     "desc": "International Conference on Automated Planning and Scheduling",
     "area": "AI / ML / Data Mining",
+    "sub": "AI",
     "ccf": "B",
     "core": "A*",
     "coreVerified": true,
@@ -2633,6 +2110,7 @@ export const ranked = [
     "title": "ACL",
     "desc": "Annual Meeting of the Association for Computational Linguistics",
     "area": "AI / ML / Data Mining",
+    "sub": "AI",
     "ccf": "A",
     "core": "A*",
     "coreVerified": true,
@@ -2815,7 +2293,8 @@ export const ranked = [
   {
     "title": "CCS",
     "desc": "ACM Conference on Computer and Communications Security",
-    "area": "Security & Privacy",
+    "area": "Security & Medicine",
+    "sub": "SC",
     "ccf": "A",
     "core": "A*",
     "coreVerified": true,
@@ -2988,58 +2467,10 @@ export const ranked = [
     "tier": 1
   },
   {
-    "title": "ESORICS",
-    "desc": "European Symposium on Research in Computer Security",
-    "area": "Security & Privacy",
-    "ccf": "B",
-    "core": "A",
-    "coreVerified": true,
-    "nextDeadline": "2027-01-10",
-    "nextYear": 2027,
-    "nextAbstract": "",
-    "estimated": true,
-    "estFrom": "2025-01-10",
-    "rounds": [
-      {
-        "d": "2027-01-10",
-        "label": "Winter",
-        "est": true,
-        "from": "2025-01-10",
-        "abs": ""
-      },
-      {
-        "d": "2027-04-29",
-        "label": "Spring",
-        "est": true,
-        "from": "2025-04-29",
-        "abs": ""
-      }
-    ],
-    "dblp": "esorics",
-    "csr": "",
-    "edition": "",
-    "best": "",
-    "link": "https://sites.google.com/di.uniroma1.it/esorics2026/home",
-    "date": "",
-    "place": "",
-    "cc": "",
-    "city": "",
-    "cycles": 2,
-    "roundLabels": [
-      "Winter",
-      "Spring"
-    ],
-    "proceedings": "full",
-    "rates": [],
-    "rateSection": "",
-    "rateSrc": "",
-    "rateSlug": "",
-    "tier": 2
-  },
-  {
     "title": "IJCAI",
     "desc": "International Joint Conference on Artificial Intelligence",
     "area": "AI / ML / Data Mining",
+    "sub": "AI",
     "ccf": "B",
     "core": "A*",
     "coreVerified": true,
@@ -3148,7 +2579,8 @@ export const ranked = [
   {
     "title": "ISMB",
     "desc": "International Conference on Intelligent Systems for Molecular Biology",
-    "area": "Medicine, Biology & Genetics",
+    "area": "Security & Medicine",
+    "sub": "MX",
     "ccf": "B",
     "core": "JP",
     "coreVerified": true,
@@ -3326,6 +2758,7 @@ export const ranked = [
     "title": "ICWSM",
     "desc": "The International AAAI Conference on Web and Social Media",
     "area": "AI / ML / Data Mining",
+    "sub": "HI",
     "ccf": "B",
     "core": "A",
     "coreVerified": true,
@@ -3425,6 +2858,7 @@ export const ranked = [
     "title": "SIGIR",
     "desc": "International Conference on Research on Development in Information Retrieval",
     "area": "AI / ML / Data Mining",
+    "sub": "DB",
     "ccf": "A",
     "core": "A*",
     "coreVerified": true,
@@ -3573,7 +3007,8 @@ export const ranked = [
   {
     "title": "USENIX Security",
     "desc": "USENIX Security Symposium",
-    "area": "Security & Privacy",
+    "area": "Security & Medicine",
+    "sub": "SC",
     "ccf": "A",
     "core": "A*",
     "coreVerified": true,
@@ -3737,6 +3172,7 @@ export const ranked = [
     "title": "GECCO",
     "desc": "Genetic and Evolutionary Computation Conference",
     "area": "AI / ML / Data Mining",
+    "sub": "AI",
     "ccf": "C",
     "core": "A",
     "coreVerified": true,
@@ -3776,6 +3212,7 @@ export const ranked = [
     "title": "ICML",
     "desc": "International Conference on Machine Learning",
     "area": "AI / ML / Data Mining",
+    "sub": "AI",
     "ccf": "A",
     "core": "A*",
     "coreVerified": true,
@@ -3929,48 +3366,10 @@ export const ranked = [
     "tier": 1
   },
   {
-    "title": "CogSci",
-    "desc": "Annual Meeting of the Cognitive Science Society",
-    "area": "Science & Interdisciplinary",
-    "ccf": "B",
-    "core": "B",
-    "coreVerified": true,
-    "nextDeadline": "2027-02-01",
-    "nextYear": 2027,
-    "nextAbstract": "",
-    "estimated": true,
-    "estFrom": "2025-02-01",
-    "rounds": [
-      {
-        "d": "2027-02-01",
-        "label": "",
-        "est": true,
-        "from": "2025-02-01",
-        "abs": ""
-      }
-    ],
-    "dblp": "cogsci",
-    "csr": "",
-    "edition": "",
-    "best": "",
-    "link": "https://cognitivesciencesociety.org/cogsci-2026/",
-    "date": "",
-    "place": "",
-    "cc": "",
-    "city": "",
-    "cycles": 1,
-    "roundLabels": [],
-    "proceedings": "full",
-    "rates": [],
-    "rateSection": "",
-    "rateSrc": "",
-    "rateSlug": "",
-    "tier": 2
-  },
-  {
     "title": "EDBT",
     "desc": "International Conference on Extending Database Technology",
     "area": "AI / ML / Data Mining",
+    "sub": "DB",
     "ccf": "B",
     "core": "A",
     "coreVerified": true,
@@ -4026,6 +3425,7 @@ export const ranked = [
     "title": "COLT",
     "desc": "Annual Conference on Learning Theory",
     "area": "AI / ML / Data Mining",
+    "sub": "AI",
     "ccf": "B",
     "core": "A*",
     "coreVerified": true,
@@ -4182,6 +3582,7 @@ export const ranked = [
     "title": "SIGKDD",
     "desc": "ACM Knowledge Discovery and Data Mining",
     "area": "AI / ML / Data Mining",
+    "sub": "DB",
     "ccf": "A",
     "core": "A*",
     "coreVerified": false,
@@ -4353,6 +3754,7 @@ export const ranked = [
     "title": "InterSpeech",
     "desc": "Conference of the International Speech Communication Association",
     "area": "AI / ML / Data Mining",
+    "sub": "CG",
     "ccf": "B",
     "core": "A",
     "coreVerified": false,
@@ -4393,6 +3795,7 @@ export const ranked = [
     "title": "UAI",
     "desc": "Conference on Uncertainty in Artificial Intelligence",
     "area": "AI / ML / Data Mining",
+    "sub": "AI",
     "ccf": "B",
     "core": "A",
     "coreVerified": true,
@@ -4566,48 +3969,10 @@ export const ranked = [
     "tier": 2
   },
   {
-    "title": "CRYPTO",
-    "desc": "International Cryptology Conference",
-    "area": "Security & Privacy",
-    "ccf": "A",
-    "core": "A*",
-    "coreVerified": false,
-    "nextDeadline": "2027-02-13",
-    "nextYear": 2027,
-    "nextAbstract": "",
-    "estimated": true,
-    "estFrom": "2025-02-13",
-    "rounds": [
-      {
-        "d": "2027-02-13",
-        "label": "",
-        "est": true,
-        "from": "2025-02-13",
-        "abs": ""
-      }
-    ],
-    "dblp": "crypto",
-    "csr": "",
-    "edition": "",
-    "best": "",
-    "link": "https://crypto.iacr.org/2026/",
-    "date": "",
-    "place": "",
-    "cc": "",
-    "city": "",
-    "cycles": 1,
-    "roundLabels": [],
-    "proceedings": "full",
-    "rates": [],
-    "rateSection": "",
-    "rateSrc": "",
-    "rateSlug": "",
-    "tier": 1
-  },
-  {
     "title": "ICCBR",
     "desc": "International Conference on Case-Based Reasoning",
     "area": "AI / ML / Data Mining",
+    "sub": "AI",
     "ccf": "B",
     "core": "C",
     "coreVerified": true,
@@ -4653,7 +4018,8 @@ export const ranked = [
   {
     "title": "MICCAI",
     "desc": "International Conference on Medical Image Computing and Computer Assisted Intervention",
-    "area": "Medicine, Biology & Genetics",
+    "area": "Security & Medicine",
+    "sub": "MX",
     "ccf": "B",
     "core": "A",
     "coreVerified": true,
@@ -4693,6 +4059,7 @@ export const ranked = [
     "title": "IROS",
     "desc": "IEEE/RSJ International Conference on Intelligent Robots and Systems",
     "area": "AI / ML / Data Mining",
+    "sub": "AI",
     "ccf": "C",
     "core": "A",
     "coreVerified": true,
@@ -4870,6 +4237,7 @@ export const ranked = [
     "title": "ICCV",
     "desc": "IEEE International Conference on Computer Vision",
     "area": "AI / ML / Data Mining",
+    "sub": "AI",
     "ccf": "A",
     "core": "A*",
     "coreVerified": true,
@@ -4990,7 +4358,7 @@ export const ranked = [
     "title": "AMIA",
     "equivalent": "CCF B / CORE A",
     "desc": "AMIA Annual Symposium",
-    "area": "Medicine, Biology & Genetics",
+    "area": "Security & Medicine",
     "proceedings": "full",
     "note": "Full proceedings, indexed in PubMed. The central US biomedical-informatics meeting.",
     "lastDeadline": "2026-03-10",
@@ -5010,6 +4378,7 @@ export const ranked = [
     "best": "",
     "csr": "",
     "edition": "",
+    "sub": "",
     "estimated": true,
     "estFrom": "2026-03-10",
     "nextDeadline": "2027-03-10",
@@ -5025,6 +4394,7 @@ export const ranked = [
     "title": "ICDT",
     "desc": "International Conference on Database Theory",
     "area": "AI / ML / Data Mining",
+    "sub": "DB",
     "ccf": "B",
     "core": "A",
     "coreVerified": true,
@@ -5068,130 +4438,6 @@ export const ranked = [
     "tier": 2
   },
   {
-    "title": "EMSOFT",
-    "desc": "International Conference on Embedded Software",
-    "area": "Science & Interdisciplinary",
-    "ccf": "B",
-    "core": "JP",
-    "coreVerified": true,
-    "nextDeadline": "2027-03-30",
-    "nextYear": 2027,
-    "nextAbstract": "",
-    "estimated": true,
-    "estFrom": "2025-03-30",
-    "rounds": [
-      {
-        "d": "2027-03-30",
-        "label": "",
-        "est": true,
-        "from": "2025-03-30",
-        "abs": "2027-03-23"
-      }
-    ],
-    "dblp": "emsoft",
-    "csr": "Embedded",
-    "edition": "27th",
-    "best": "",
-    "link": "https://esweek.org/emsoft/",
-    "date": "",
-    "place": "",
-    "cc": "",
-    "city": "",
-    "cycles": 1,
-    "roundLabels": [],
-    "proceedings": "full",
-    "rates": [
-      {
-        "y": 2003,
-        "r": 33.3
-      },
-      {
-        "y": 2004,
-        "r": 35.6
-      },
-      {
-        "y": 2005,
-        "r": 28.4
-      },
-      {
-        "y": 2006,
-        "r": 33.0
-      },
-      {
-        "y": 2007,
-        "r": 22.1
-      },
-      {
-        "y": 2008,
-        "r": 25.5
-      },
-      {
-        "y": 2009,
-        "r": 31.1
-      },
-      {
-        "y": 2010,
-        "r": 32.6
-      },
-      {
-        "y": 2011,
-        "r": 24.3
-      },
-      {
-        "y": 2012,
-        "r": 24.2
-      },
-      {
-        "y": 2013,
-        "r": 27.8
-      },
-      {
-        "y": 2014,
-        "r": 24.8
-      },
-      {
-        "y": 2015,
-        "r": 25.9
-      },
-      {
-        "y": 2016,
-        "r": 25.8
-      },
-      {
-        "y": 2018,
-        "r": 24.3
-      },
-      {
-        "y": 2020,
-        "r": 25.4
-      },
-      {
-        "y": 2021,
-        "r": 25.2
-      },
-      {
-        "y": 2022,
-        "r": 25.4
-      },
-      {
-        "y": 2023,
-        "r": 23.3
-      },
-      {
-        "y": 2024,
-        "r": 21.7
-      },
-      {
-        "y": 2025,
-        "r": 27.0
-      }
-    ],
-    "rateSection": "",
-    "rateSrc": "csc",
-    "rateSlug": "emsoft",
-    "tier": 2
-  },
-  {
     "title": "COLM",
     "equivalent": "CCF B / CORE A",
     "desc": "Conference on Language Modeling",
@@ -5215,6 +4461,7 @@ export const ranked = [
     "best": "",
     "csr": "",
     "edition": "",
+    "sub": "",
     "estimated": true,
     "estFrom": "2026-03-31",
     "nextDeadline": "2027-03-31",
@@ -5230,6 +4477,7 @@ export const ranked = [
     "title": "RecSys",
     "desc": "ACM Conference on Recommender Systems",
     "area": "AI / ML / Data Mining",
+    "sub": "DB",
     "ccf": "B",
     "core": "A",
     "coreVerified": true,
@@ -5294,6 +4542,7 @@ export const ranked = [
     "title": "ECAI",
     "desc": "European Conference on Artificial Intelligence",
     "area": "AI / ML / Data Mining",
+    "sub": "AI",
     "ccf": "B",
     "core": "A",
     "coreVerified": true,
@@ -5333,7 +4582,8 @@ export const ranked = [
   {
     "title": "NDSS",
     "desc": "Network and Distributed System Security (NDSS) Symposium",
-    "area": "Security & Privacy",
+    "area": "Security & Medicine",
+    "sub": "SC",
     "ccf": "A",
     "core": "A*",
     "coreVerified": true,
@@ -5457,48 +4707,10 @@ export const ranked = [
     "tier": 1
   },
   {
-    "title": "RAID",
-    "desc": "International Symposium on Recent Advances in Intrusion Detection",
-    "area": "Security & Privacy",
-    "ccf": "B",
-    "core": "A",
-    "coreVerified": true,
-    "nextDeadline": "2027-04-24",
-    "nextYear": 2027,
-    "nextAbstract": "",
-    "estimated": true,
-    "estFrom": "2025-04-24",
-    "rounds": [
-      {
-        "d": "2027-04-24",
-        "label": "",
-        "est": true,
-        "from": "2025-04-24",
-        "abs": ""
-      }
-    ],
-    "dblp": "raid",
-    "csr": "",
-    "edition": "",
-    "best": "",
-    "link": "https://raid2026.org",
-    "date": "",
-    "place": "",
-    "cc": "",
-    "city": "",
-    "cycles": 1,
-    "roundLabels": [],
-    "proceedings": "full",
-    "rates": [],
-    "rateSection": "",
-    "rateSrc": "",
-    "rateSlug": "",
-    "tier": 2
-  },
-  {
     "title": "KR",
     "desc": "International Conference on Principles of Knowledge Representation and Reasoning",
     "area": "AI / ML / Data Mining",
+    "sub": "AI",
     "ccf": "B",
     "core": "A*",
     "coreVerified": true,
@@ -5536,45 +4748,6 @@ export const ranked = [
     "tier": 1
   },
   {
-    "title": "SRDS",
-    "desc": "IEEE International Symposium on Reliable Distributed Systems",
-    "area": "Security & Privacy",
-    "ccf": "B",
-    "core": "B",
-    "coreVerified": true,
-    "nextDeadline": "2027-05-10",
-    "nextYear": 2027,
-    "nextAbstract": "",
-    "estimated": true,
-    "estFrom": "2024-05-10",
-    "rounds": [
-      {
-        "d": "2027-05-10",
-        "label": "",
-        "est": true,
-        "from": "2024-05-10",
-        "abs": "2027-05-03"
-      }
-    ],
-    "dblp": "srds",
-    "csr": "",
-    "edition": "",
-    "best": "",
-    "link": "https://srds-conference.org/",
-    "date": "",
-    "place": "",
-    "cc": "",
-    "city": "",
-    "cycles": 1,
-    "roundLabels": [],
-    "proceedings": "full",
-    "rates": [],
-    "rateSection": "",
-    "rateSrc": "",
-    "rateSlug": "",
-    "tier": 2
-  },
-  {
     "title": "ASONAM",
     "ccfManual": "C",
     "coreManual": "B",
@@ -5600,6 +4773,7 @@ export const ranked = [
     "best": "",
     "csr": "",
     "edition": "",
+    "sub": "",
     "estimated": true,
     "estFrom": "2026-05-10",
     "nextDeadline": "2027-05-10",
@@ -5615,6 +4789,7 @@ export const ranked = [
     "title": "ISWC",
     "desc": "International Semantic Web Conference",
     "area": "AI / ML / Data Mining",
+    "sub": "DB",
     "ccf": "B",
     "core": "A",
     "coreVerified": true,
@@ -5654,6 +4829,7 @@ export const ranked = [
     "title": "NeurIPS",
     "desc": "Conference on Neural Information Processing Systems",
     "area": "AI / ML / Data Mining",
+    "sub": "AI",
     "ccf": "A",
     "core": "A*",
     "coreVerified": true,
@@ -5826,6 +5002,7 @@ export const ranked = [
     "title": "BMVC",
     "desc": "British Machine Vision Conference",
     "area": "AI / ML / Data Mining",
+    "sub": "AI",
     "ccf": "C",
     "core": "A",
     "coreVerified": true,
@@ -5862,48 +5039,10 @@ export const ranked = [
     "tier": 2
   },
   {
-    "title": "ASIACRYPT",
-    "desc": "International Conference on the Theory and Application of Cryptology and Information Security",
-    "area": "Security & Privacy",
-    "ccf": "B",
-    "core": "A",
-    "coreVerified": true,
-    "nextDeadline": "2027-05-16",
-    "nextYear": 2027,
-    "nextAbstract": "",
-    "estimated": true,
-    "estFrom": "2025-05-16",
-    "rounds": [
-      {
-        "d": "2027-05-16",
-        "label": "",
-        "est": true,
-        "from": "2025-05-16",
-        "abs": ""
-      }
-    ],
-    "dblp": "asiacrypt",
-    "csr": "",
-    "edition": "",
-    "best": "",
-    "link": "https://asiacrypt.iacr.org/2026/",
-    "date": "",
-    "place": "",
-    "cc": "",
-    "city": "",
-    "cycles": 1,
-    "roundLabels": [],
-    "proceedings": "full",
-    "rates": [],
-    "rateSection": "",
-    "rateSrc": "",
-    "rateSlug": "",
-    "tier": 2
-  },
-  {
     "title": "EMNLP",
     "desc": "The annual Conference on Empirical Methods in Natural Language Processing",
     "area": "AI / ML / Data Mining",
+    "sub": "AI",
     "ccf": "B",
     "core": "A*",
     "coreVerified": true,
@@ -6043,173 +5182,10 @@ export const ranked = [
     "tier": 1
   },
   {
-    "title": "RTSS",
-    "desc": "The IEEE Real-Time Systems Symposium",
-    "area": "Science & Interdisciplinary",
-    "ccf": "A",
-    "core": "A*",
-    "coreVerified": true,
-    "nextDeadline": "2027-05-22",
-    "nextYear": 2027,
-    "nextAbstract": "",
-    "estimated": true,
-    "estFrom": "2025-05-22",
-    "rounds": [
-      {
-        "d": "2027-05-22",
-        "label": "",
-        "est": true,
-        "from": "2025-05-22",
-        "abs": ""
-      }
-    ],
-    "dblp": "rtss",
-    "csr": "Embedded",
-    "edition": "48th",
-    "best": "",
-    "link": "http://2026.rtss.org/",
-    "date": "",
-    "place": "",
-    "cc": "",
-    "city": "",
-    "cycles": 1,
-    "roundLabels": [],
-    "proceedings": "full",
-    "rates": [
-      {
-        "y": 1993,
-        "r": 17.4
-      },
-      {
-        "y": 1995,
-        "r": 32.7
-      },
-      {
-        "y": 1997,
-        "r": 30.3
-      },
-      {
-        "y": 1998,
-        "r": 24.7
-      },
-      {
-        "y": 1999,
-        "r": 19.2
-      },
-      {
-        "y": 2000,
-        "r": 28.2
-      },
-      {
-        "y": 2001,
-        "r": 25.9
-      },
-      {
-        "y": 2003,
-        "r": 20.0
-      },
-      {
-        "y": 2004,
-        "r": 22.5
-      },
-      {
-        "y": 2005,
-        "r": 21.0
-      },
-      {
-        "y": 2006,
-        "r": 24.3
-      },
-      {
-        "y": 2007,
-        "r": 25.7
-      },
-      {
-        "y": 2008,
-        "r": 23.3
-      },
-      {
-        "y": 2009,
-        "r": 22.3
-      },
-      {
-        "y": 2010,
-        "r": 25.4
-      },
-      {
-        "y": 2011,
-        "r": 22.1
-      },
-      {
-        "y": 2012,
-        "r": 22.3
-      },
-      {
-        "y": 2013,
-        "r": 22.5
-      },
-      {
-        "y": 2014,
-        "r": 21.4
-      },
-      {
-        "y": 2015,
-        "r": 22.5
-      },
-      {
-        "y": 2016,
-        "r": 23.4
-      },
-      {
-        "y": 2017,
-        "r": 23.7
-      },
-      {
-        "y": 2018,
-        "r": 22.3
-      },
-      {
-        "y": 2019,
-        "r": 24.4
-      },
-      {
-        "y": 2020,
-        "r": 20.0
-      },
-      {
-        "y": 2021,
-        "r": 29.3
-      },
-      {
-        "y": 2022,
-        "r": 28.9
-      },
-      {
-        "y": 2023,
-        "r": 25.4
-      },
-      {
-        "y": 2024,
-        "r": 22.9
-      },
-      {
-        "y": 2025,
-        "r": 21.5
-      },
-      {
-        "y": 2026,
-        "r": 13.7
-      }
-    ],
-    "rateSection": "",
-    "rateSrc": "csc",
-    "rateSlug": "rtss",
-    "tier": 1
-  },
-  {
     "title": "CIKM",
     "desc": "ACM International Conference on Information and Knowledge Management",
     "area": "AI / ML / Data Mining",
+    "sub": "DB",
     "ccf": "B",
     "core": "A",
     "coreVerified": true,
@@ -6363,87 +5339,10 @@ export const ranked = [
     "tier": 2
   },
   {
-    "title": "TCC",
-    "desc": "Theory of Cryptography Conference",
-    "area": "Security & Privacy",
-    "ccf": "B",
-    "core": "A",
-    "coreVerified": true,
-    "nextDeadline": "2027-05-27",
-    "nextYear": 2027,
-    "nextAbstract": "",
-    "estimated": true,
-    "estFrom": "2025-05-27",
-    "rounds": [
-      {
-        "d": "2027-05-27",
-        "label": "",
-        "est": true,
-        "from": "2025-05-27",
-        "abs": ""
-      }
-    ],
-    "dblp": "tcc",
-    "csr": "",
-    "edition": "",
-    "best": "",
-    "link": "https://tcc.iacr.org/2026/",
-    "date": "",
-    "place": "",
-    "cc": "",
-    "city": "",
-    "cycles": 1,
-    "roundLabels": [],
-    "proceedings": "full",
-    "rates": [],
-    "rateSection": "",
-    "rateSrc": "",
-    "rateSlug": "",
-    "tier": 2
-  },
-  {
-    "title": "ACSAC",
-    "desc": "Annual Computer Security Applications Conference",
-    "area": "Security & Privacy",
-    "ccf": "B",
-    "core": "A",
-    "coreVerified": true,
-    "nextDeadline": "2027-05-30",
-    "nextYear": 2027,
-    "nextAbstract": "",
-    "estimated": true,
-    "estFrom": "2025-05-30",
-    "rounds": [
-      {
-        "d": "2027-05-30",
-        "label": "",
-        "est": true,
-        "from": "2025-05-30",
-        "abs": ""
-      }
-    ],
-    "dblp": "acsac",
-    "csr": "",
-    "edition": "",
-    "best": "",
-    "link": "https://www.acsac.org/2026/",
-    "date": "",
-    "place": "",
-    "cc": "",
-    "city": "",
-    "cycles": 1,
-    "roundLabels": [],
-    "proceedings": "full",
-    "rates": [],
-    "rateSection": "",
-    "rateSrc": "",
-    "rateSlug": "",
-    "tier": 2
-  },
-  {
     "title": "ICDM",
     "desc": "IEEE International Conference on Data Mining",
     "area": "AI / ML / Data Mining",
+    "sub": "DB",
     "ccf": "B",
     "core": "A*",
     "coreVerified": true,
@@ -6584,7 +5483,8 @@ export const ranked = [
   {
     "title": "SIGSPATIAL",
     "desc": "ACM SIGSPATIAL International Conference on Advances in Geographic Information Systems",
-    "area": "Science & Interdisciplinary",
+    "area": "AI / ML / Data Mining",
+    "sub": "MX",
     "ccf": "C",
     "core": "A",
     "coreVerified": true,
@@ -6726,87 +5626,10 @@ export const ranked = [
     "tier": 2
   },
   {
-    "title": "SIGCSE",
-    "desc": "Technical Symposium on Computer Science Education Conference",
-    "area": "Science & Interdisciplinary",
-    "ccf": "N",
-    "core": "A",
-    "coreVerified": true,
-    "nextDeadline": "2027-07-03",
-    "nextYear": 2028,
-    "nextAbstract": "",
-    "estimated": true,
-    "estFrom": "2025-07-03",
-    "rounds": [
-      {
-        "d": "2027-07-03",
-        "label": "",
-        "est": true,
-        "from": "2025-07-03",
-        "abs": "2027-06-26"
-      }
-    ],
-    "dblp": "sigcse",
-    "csr": "CSEd",
-    "edition": "",
-    "best": "",
-    "link": "https://2027.sigcse-ts.acm.org/",
-    "date": "",
-    "place": "",
-    "cc": "",
-    "city": "",
-    "cycles": 1,
-    "roundLabels": [],
-    "proceedings": "full",
-    "rates": [],
-    "rateSection": "",
-    "rateSrc": "",
-    "rateSlug": "",
-    "tier": 2
-  },
-  {
-    "title": "WINE",
-    "desc": "Conference on Web and Internet Economics",
-    "area": "Science & Interdisciplinary",
-    "ccf": "B",
-    "core": "N",
-    "coreVerified": false,
-    "nextDeadline": "2027-07-03",
-    "nextYear": 2027,
-    "nextAbstract": "",
-    "estimated": true,
-    "estFrom": "2025-07-03",
-    "rounds": [
-      {
-        "d": "2027-07-03",
-        "label": "",
-        "est": true,
-        "from": "2025-07-03",
-        "abs": ""
-      }
-    ],
-    "dblp": "wine",
-    "csr": "ECom",
-    "edition": "",
-    "best": "",
-    "link": "https://wine2026conf.github.io/",
-    "date": "",
-    "place": "",
-    "cc": "",
-    "city": "",
-    "cycles": 1,
-    "roundLabels": [],
-    "proceedings": "full",
-    "rates": [],
-    "rateSection": "",
-    "rateSrc": "",
-    "rateSlug": "",
-    "tier": 2
-  },
-  {
     "title": "WISE",
     "desc": "International Conference on Web Information Systems Engineering",
     "area": "AI / ML / Data Mining",
+    "sub": "DB",
     "ccf": "B",
     "core": "B",
     "coreVerified": true,
@@ -6846,6 +5669,7 @@ export const ranked = [
     "title": "WACV",
     "desc": "IEEE/CVF Winter Conference on Applications of Computer Vision",
     "area": "AI / ML / Data Mining",
+    "sub": "AI",
     "ccf": "N",
     "core": "A",
     "coreVerified": true,
@@ -6895,6 +5719,7 @@ export const ranked = [
     "title": "AAAI",
     "desc": "AAAI Conference on Artificial Intelligence",
     "area": "AI / ML / Data Mining",
+    "sub": "AI",
     "ccf": "A",
     "core": "A*",
     "coreVerified": true,
@@ -7078,7 +5903,8 @@ export const ranked = [
   {
     "title": "BIBM",
     "desc": "IEEE International Conference on Bioinformatics and Biomedicine",
-    "area": "Medicine, Biology & Genetics",
+    "area": "Security & Medicine",
+    "sub": "MX",
     "ccf": "B",
     "core": "N",
     "coreVerified": false,
@@ -7118,6 +5944,7 @@ export const ranked = [
     "title": "CIDR",
     "desc": "International Conference on Innovative Data Systems Research",
     "area": "AI / ML / Data Mining",
+    "sub": "DB",
     "ccf": "B",
     "core": "A",
     "coreVerified": true,
@@ -7157,6 +5984,7 @@ export const ranked = [
     "title": "WSDM",
     "desc": "International Conference on Web Search and Data Mining",
     "area": "AI / ML / Data Mining",
+    "sub": "DB",
     "ccf": "B",
     "core": "A",
     "coreVerified": true,
@@ -7273,6 +6101,7 @@ export const ranked = [
     "title": "ICRA",
     "desc": "IEEE International Conference on Robotics and Automation",
     "area": "AI / ML / Data Mining",
+    "sub": "AI",
     "ccf": "B",
     "core": "A*",
     "coreVerified": true,
@@ -7433,6 +6262,7 @@ export const ranked = [
     "title": "ICASSP",
     "desc": "IEEE International Conference on Acoustics, Speech, and Signal Processing",
     "area": "AI / ML / Data Mining",
+    "sub": "CG",
     "ccf": "B",
     "core": "B",
     "coreVerified": true,
@@ -7510,48 +6340,10 @@ export const ranked = [
     "tier": 2
   },
   {
-    "title": "FC",
-    "desc": "Financial Cryptography and Data Security",
-    "area": "Security & Privacy",
-    "ccf": "C",
-    "core": "A",
-    "coreVerified": true,
-    "nextDeadline": "2027-09-20",
-    "nextYear": 2028,
-    "nextAbstract": "",
-    "estimated": true,
-    "estFrom": "2025-09-20",
-    "rounds": [
-      {
-        "d": "2027-09-20",
-        "label": "",
-        "est": true,
-        "from": "2025-09-20",
-        "abs": ""
-      }
-    ],
-    "dblp": "fc",
-    "csr": "",
-    "edition": "",
-    "best": "",
-    "link": "https://fc27.ifca.ai/",
-    "date": "",
-    "place": "",
-    "cc": "",
-    "city": "",
-    "cycles": 1,
-    "roundLabels": [],
-    "proceedings": "full",
-    "rates": [],
-    "rateSection": "",
-    "rateSrc": "",
-    "rateSlug": "",
-    "tier": 2
-  },
-  {
     "title": "ICLR",
     "desc": "International Conference on Learning Representations",
     "area": "AI / ML / Data Mining",
+    "sub": "AI",
     "ccf": "A",
     "core": "A*",
     "coreVerified": true,
@@ -7648,6 +6440,7 @@ export const ranked = [
     "title": "AISTATS",
     "desc": "International Conference on Artificial Intelligence and Statistics",
     "area": "AI / ML / Data Mining",
+    "sub": "AI",
     "ccf": "C",
     "core": "A",
     "coreVerified": true,
@@ -7769,48 +6562,10 @@ export const ranked = [
     "tier": 2
   },
   {
-    "title": "EUROCRYPT",
-    "desc": "European Cryptology Conference",
-    "area": "Security & Privacy",
-    "ccf": "A",
-    "core": "A*",
-    "coreVerified": false,
-    "nextDeadline": "2027-10-02",
-    "nextYear": 2028,
-    "nextAbstract": "",
-    "estimated": true,
-    "estFrom": "2025-10-02",
-    "rounds": [
-      {
-        "d": "2027-10-02",
-        "label": "",
-        "est": true,
-        "from": "2025-10-02",
-        "abs": ""
-      }
-    ],
-    "dblp": "eurocrypt",
-    "csr": "Crypto",
-    "edition": "",
-    "best": "",
-    "link": "https://eurocrypt.iacr.org/2027/",
-    "date": "",
-    "place": "",
-    "cc": "",
-    "city": "",
-    "cycles": 1,
-    "roundLabels": [],
-    "proceedings": "full",
-    "rates": [],
-    "rateSection": "",
-    "rateSrc": "",
-    "rateSlug": "",
-    "tier": 1
-  },
-  {
     "title": "ECIR",
     "desc": "European Conference on Information Retrieval",
     "area": "AI / ML / Data Mining",
+    "sub": "DB",
     "ccf": "C",
     "core": "A",
     "coreVerified": true,
@@ -7947,6 +6702,7 @@ export const ranked = [
     "title": "SDM",
     "desc": "SIAM International Conference on Data Mining",
     "area": "AI / ML / Data Mining",
+    "sub": "DB",
     "ccf": "B",
     "core": "A",
     "coreVerified": true,
@@ -8051,6 +6807,7 @@ export const ranked = [
     "title": "ECCV",
     "desc": "European Conference on Computer Vision",
     "area": "AI / ML / Data Mining",
+    "sub": "AI",
     "ccf": "B",
     "core": "A*",
     "coreVerified": true,
@@ -8167,6 +6924,7 @@ export const ranked = [
     "title": "PPSN",
     "desc": "International Conference on Parallel Problem Solving From Nature",
     "area": "AI / ML / Data Mining",
+    "sub": "AI",
     "ccf": "B",
     "core": "A",
     "coreVerified": true,
@@ -8206,9 +6964,995 @@ export const ranked = [
 
 export const others = [
   {
+    "title": "CRYPTO",
+    "desc": "International Cryptology Conference",
+    "area": "Security & Medicine",
+    "sub": "SC",
+    "ccf": "A",
+    "core": "A*",
+    "coreVerified": false,
+    "nextDeadline": "2027-02-13",
+    "nextYear": 2027,
+    "nextAbstract": "",
+    "estimated": true,
+    "estFrom": "2025-02-13",
+    "rounds": [
+      {
+        "d": "2027-02-13",
+        "label": "",
+        "est": true,
+        "from": "2025-02-13",
+        "abs": ""
+      }
+    ],
+    "dblp": "crypto",
+    "csr": "",
+    "edition": "",
+    "best": "",
+    "link": "https://crypto.iacr.org/2026/",
+    "date": "",
+    "place": "",
+    "cc": "",
+    "city": "",
+    "cycles": 1,
+    "roundLabels": [],
+    "proceedings": "full",
+    "rates": [],
+    "rateSection": "",
+    "rateSrc": "",
+    "rateSlug": "",
+    "tier": 1
+  },
+  {
+    "title": "EUROCRYPT",
+    "desc": "European Cryptology Conference",
+    "area": "Security & Medicine",
+    "sub": "SC",
+    "ccf": "A",
+    "core": "A*",
+    "coreVerified": false,
+    "nextDeadline": "2027-10-02",
+    "nextYear": 2028,
+    "nextAbstract": "",
+    "estimated": true,
+    "estFrom": "2025-10-02",
+    "rounds": [
+      {
+        "d": "2027-10-02",
+        "label": "",
+        "est": true,
+        "from": "2025-10-02",
+        "abs": ""
+      }
+    ],
+    "dblp": "eurocrypt",
+    "csr": "Crypto",
+    "edition": "",
+    "best": "",
+    "link": "https://eurocrypt.iacr.org/2027/",
+    "date": "",
+    "place": "",
+    "cc": "",
+    "city": "",
+    "cycles": 1,
+    "roundLabels": [],
+    "proceedings": "full",
+    "rates": [],
+    "rateSection": "",
+    "rateSrc": "",
+    "rateSlug": "",
+    "tier": 1
+  },
+  {
+    "title": "RTSS",
+    "desc": "The IEEE Real-Time Systems Symposium",
+    "area": "Science & Interdisciplinary",
+    "sub": "MX",
+    "ccf": "A",
+    "core": "A*",
+    "coreVerified": true,
+    "nextDeadline": "2027-05-22",
+    "nextYear": 2027,
+    "nextAbstract": "",
+    "estimated": true,
+    "estFrom": "2025-05-22",
+    "rounds": [
+      {
+        "d": "2027-05-22",
+        "label": "",
+        "est": true,
+        "from": "2025-05-22",
+        "abs": ""
+      }
+    ],
+    "dblp": "rtss",
+    "csr": "Embedded",
+    "edition": "48th",
+    "best": "",
+    "link": "http://2026.rtss.org/",
+    "date": "",
+    "place": "",
+    "cc": "",
+    "city": "",
+    "cycles": 1,
+    "roundLabels": [],
+    "proceedings": "full",
+    "rates": [
+      {
+        "y": 1993,
+        "r": 17.4
+      },
+      {
+        "y": 1995,
+        "r": 32.7
+      },
+      {
+        "y": 1997,
+        "r": 30.3
+      },
+      {
+        "y": 1998,
+        "r": 24.7
+      },
+      {
+        "y": 1999,
+        "r": 19.2
+      },
+      {
+        "y": 2000,
+        "r": 28.2
+      },
+      {
+        "y": 2001,
+        "r": 25.9
+      },
+      {
+        "y": 2003,
+        "r": 20.0
+      },
+      {
+        "y": 2004,
+        "r": 22.5
+      },
+      {
+        "y": 2005,
+        "r": 21.0
+      },
+      {
+        "y": 2006,
+        "r": 24.3
+      },
+      {
+        "y": 2007,
+        "r": 25.7
+      },
+      {
+        "y": 2008,
+        "r": 23.3
+      },
+      {
+        "y": 2009,
+        "r": 22.3
+      },
+      {
+        "y": 2010,
+        "r": 25.4
+      },
+      {
+        "y": 2011,
+        "r": 22.1
+      },
+      {
+        "y": 2012,
+        "r": 22.3
+      },
+      {
+        "y": 2013,
+        "r": 22.5
+      },
+      {
+        "y": 2014,
+        "r": 21.4
+      },
+      {
+        "y": 2015,
+        "r": 22.5
+      },
+      {
+        "y": 2016,
+        "r": 23.4
+      },
+      {
+        "y": 2017,
+        "r": 23.7
+      },
+      {
+        "y": 2018,
+        "r": 22.3
+      },
+      {
+        "y": 2019,
+        "r": 24.4
+      },
+      {
+        "y": 2020,
+        "r": 20.0
+      },
+      {
+        "y": 2021,
+        "r": 29.3
+      },
+      {
+        "y": 2022,
+        "r": 28.9
+      },
+      {
+        "y": 2023,
+        "r": 25.4
+      },
+      {
+        "y": 2024,
+        "r": 22.9
+      },
+      {
+        "y": 2025,
+        "r": 21.5
+      },
+      {
+        "y": 2026,
+        "r": 13.7
+      }
+    ],
+    "rateSection": "",
+    "rateSrc": "csc",
+    "rateSlug": "rtss",
+    "tier": 1
+  },
+  {
+    "title": "ACSAC",
+    "desc": "Annual Computer Security Applications Conference",
+    "area": "Security & Medicine",
+    "sub": "SC",
+    "ccf": "B",
+    "core": "A",
+    "coreVerified": true,
+    "nextDeadline": "2027-05-30",
+    "nextYear": 2027,
+    "nextAbstract": "",
+    "estimated": true,
+    "estFrom": "2025-05-30",
+    "rounds": [
+      {
+        "d": "2027-05-30",
+        "label": "",
+        "est": true,
+        "from": "2025-05-30",
+        "abs": ""
+      }
+    ],
+    "dblp": "acsac",
+    "csr": "",
+    "edition": "",
+    "best": "",
+    "link": "https://www.acsac.org/2026/",
+    "date": "",
+    "place": "",
+    "cc": "",
+    "city": "",
+    "cycles": 1,
+    "roundLabels": [],
+    "proceedings": "full",
+    "rates": [],
+    "rateSection": "",
+    "rateSrc": "",
+    "rateSlug": "",
+    "tier": 2
+  },
+  {
+    "title": "ASIACRYPT",
+    "desc": "International Conference on the Theory and Application of Cryptology and Information Security",
+    "area": "Security & Medicine",
+    "sub": "SC",
+    "ccf": "B",
+    "core": "A",
+    "coreVerified": true,
+    "nextDeadline": "2027-05-16",
+    "nextYear": 2027,
+    "nextAbstract": "",
+    "estimated": true,
+    "estFrom": "2025-05-16",
+    "rounds": [
+      {
+        "d": "2027-05-16",
+        "label": "",
+        "est": true,
+        "from": "2025-05-16",
+        "abs": ""
+      }
+    ],
+    "dblp": "asiacrypt",
+    "csr": "",
+    "edition": "",
+    "best": "",
+    "link": "https://asiacrypt.iacr.org/2026/",
+    "date": "",
+    "place": "",
+    "cc": "",
+    "city": "",
+    "cycles": 1,
+    "roundLabels": [],
+    "proceedings": "full",
+    "rates": [],
+    "rateSection": "",
+    "rateSrc": "",
+    "rateSlug": "",
+    "tier": 2
+  },
+  {
+    "title": "CHES",
+    "desc": "International Conference on Cryptographic Hardware and Embedded Systems",
+    "area": "Security & Medicine",
+    "sub": "SC",
+    "ccf": "B",
+    "core": "A",
+    "coreVerified": true,
+    "nextDeadline": "2026-10-15",
+    "nextYear": 2027,
+    "nextAbstract": "",
+    "estimated": false,
+    "estFrom": "",
+    "rounds": [
+      {
+        "d": "2026-10-15",
+        "label": "Schedule for TCHES Volume 2027/2",
+        "est": false,
+        "year": 2027,
+        "link": "https://ches.iacr.org/2027/",
+        "abs": ""
+      },
+      {
+        "d": "2027-01-15",
+        "label": "Schedule for TCHES Volume 2027/3",
+        "est": false,
+        "year": 2027,
+        "link": "https://ches.iacr.org/2027/",
+        "abs": ""
+      },
+      {
+        "d": "2027-04-15",
+        "label": "Schedule for TCHES Volume 2027/4",
+        "est": false,
+        "year": 2027,
+        "link": "https://ches.iacr.org/2027/",
+        "abs": ""
+      },
+      {
+        "d": "2027-07-15",
+        "label": "TCHES 2026/1",
+        "est": true,
+        "from": "2025-07-15",
+        "abs": ""
+      }
+    ],
+    "dblp": "ches",
+    "csr": "",
+    "edition": "",
+    "best": "",
+    "link": "https://ches.iacr.org/2027/",
+    "date": "September 6 - 9, 2027",
+    "place": "Cancún, Mexico",
+    "cc": "mx",
+    "city": "swimming in a cenote, Chichen Itza at opening time, cochinita pibil tacos",
+    "cycles": 4,
+    "roundLabels": [
+      "Schedule for TCHES Volume 2027/1",
+      "Schedule for TCHES Volume 2027/2",
+      "Schedule for TCHES Volume 2027/3",
+      "Schedule for TCHES Volume 2027/4"
+    ],
+    "proceedings": "full",
+    "rates": [],
+    "rateSection": "",
+    "rateSrc": "",
+    "rateSlug": "",
+    "tier": 2
+  },
+  {
+    "title": "CSFW",
+    "desc": "IEEE Computer Security Foundations Symposium",
+    "area": "Security & Medicine",
+    "sub": "SC",
+    "ccf": "B",
+    "core": "A",
+    "coreVerified": false,
+    "nextDeadline": "2026-10-15",
+    "nextYear": 2027,
+    "nextAbstract": "",
+    "estimated": false,
+    "estFrom": "",
+    "rounds": [
+      {
+        "d": "2026-10-15",
+        "label": "Fall",
+        "est": false,
+        "year": 2027,
+        "link": "https://www.ieee-security.org/TC/CSF2027/",
+        "abs": ""
+      },
+      {
+        "d": "2027-01-28",
+        "label": "Winter",
+        "est": false,
+        "year": 2027,
+        "link": "https://www.ieee-security.org/TC/CSF2027/",
+        "abs": ""
+      },
+      {
+        "d": "2027-07-24",
+        "label": "Summer",
+        "est": true,
+        "from": "2025-07-24",
+        "abs": ""
+      }
+    ],
+    "dblp": "csfw",
+    "csr": "",
+    "edition": "",
+    "best": "",
+    "link": "https://www.ieee-security.org/TC/CSF2027/",
+    "date": "September 13-17, 2027",
+    "place": "Tokyo, Japan",
+    "cc": "jp",
+    "city": "breakfast at the Tsukiji outer market, teamLab, standing sushi bars",
+    "cycles": 3,
+    "roundLabels": [
+      "Summer",
+      "Fall",
+      "Winter"
+    ],
+    "proceedings": "full",
+    "rates": [],
+    "rateSection": "",
+    "rateSrc": "",
+    "rateSlug": "",
+    "tier": 2
+  },
+  {
+    "title": "DSN",
+    "desc": "International Conference on Dependable Systems and Networks",
+    "area": "Security & Medicine",
+    "sub": "SC",
+    "ccf": "B",
+    "core": "A",
+    "coreVerified": true,
+    "nextDeadline": "2026-12-02",
+    "nextYear": 2027,
+    "nextAbstract": "",
+    "estimated": false,
+    "estFrom": "",
+    "rounds": [
+      {
+        "d": "2026-12-02",
+        "label": "",
+        "est": false,
+        "year": 2027,
+        "link": "https://dsn2027-berlin.github.io/",
+        "abs": "2026-11-25"
+      }
+    ],
+    "dblp": "dsn",
+    "csr": "",
+    "edition": "",
+    "best": "",
+    "link": "https://dsn2027-berlin.github.io/",
+    "date": "June 22-25, 2027",
+    "place": "Berlin, Germany",
+    "cc": "de",
+    "city": "doner at Mustafa's, Sunday karaoke in Mauerpark, currywurst at 4am",
+    "cycles": 1,
+    "roundLabels": [],
+    "proceedings": "full",
+    "rates": [],
+    "rateSection": "",
+    "rateSrc": "",
+    "rateSlug": "",
+    "tier": 2
+  },
+  {
+    "title": "ESORICS",
+    "desc": "European Symposium on Research in Computer Security",
+    "area": "Security & Medicine",
+    "sub": "SC",
+    "ccf": "B",
+    "core": "A",
+    "coreVerified": true,
+    "nextDeadline": "2027-01-10",
+    "nextYear": 2027,
+    "nextAbstract": "",
+    "estimated": true,
+    "estFrom": "2025-01-10",
+    "rounds": [
+      {
+        "d": "2027-01-10",
+        "label": "Winter",
+        "est": true,
+        "from": "2025-01-10",
+        "abs": ""
+      },
+      {
+        "d": "2027-04-29",
+        "label": "Spring",
+        "est": true,
+        "from": "2025-04-29",
+        "abs": ""
+      }
+    ],
+    "dblp": "esorics",
+    "csr": "",
+    "edition": "",
+    "best": "",
+    "link": "https://sites.google.com/di.uniroma1.it/esorics2026/home",
+    "date": "",
+    "place": "",
+    "cc": "",
+    "city": "",
+    "cycles": 2,
+    "roundLabels": [
+      "Winter",
+      "Spring"
+    ],
+    "proceedings": "full",
+    "rates": [],
+    "rateSection": "",
+    "rateSrc": "",
+    "rateSlug": "",
+    "tier": 2
+  },
+  {
+    "title": "RAID",
+    "desc": "International Symposium on Recent Advances in Intrusion Detection",
+    "area": "Security & Medicine",
+    "sub": "SC",
+    "ccf": "B",
+    "core": "A",
+    "coreVerified": true,
+    "nextDeadline": "2027-04-24",
+    "nextYear": 2027,
+    "nextAbstract": "",
+    "estimated": true,
+    "estFrom": "2025-04-24",
+    "rounds": [
+      {
+        "d": "2027-04-24",
+        "label": "",
+        "est": true,
+        "from": "2025-04-24",
+        "abs": ""
+      }
+    ],
+    "dblp": "raid",
+    "csr": "",
+    "edition": "",
+    "best": "",
+    "link": "https://raid2026.org",
+    "date": "",
+    "place": "",
+    "cc": "",
+    "city": "",
+    "cycles": 1,
+    "roundLabels": [],
+    "proceedings": "full",
+    "rates": [],
+    "rateSection": "",
+    "rateSrc": "",
+    "rateSlug": "",
+    "tier": 2
+  },
+  {
+    "title": "TCC",
+    "desc": "Theory of Cryptography Conference",
+    "area": "Security & Medicine",
+    "sub": "SC",
+    "ccf": "B",
+    "core": "A",
+    "coreVerified": true,
+    "nextDeadline": "2027-05-27",
+    "nextYear": 2027,
+    "nextAbstract": "",
+    "estimated": true,
+    "estFrom": "2025-05-27",
+    "rounds": [
+      {
+        "d": "2027-05-27",
+        "label": "",
+        "est": true,
+        "from": "2025-05-27",
+        "abs": ""
+      }
+    ],
+    "dblp": "tcc",
+    "csr": "",
+    "edition": "",
+    "best": "",
+    "link": "https://tcc.iacr.org/2026/",
+    "date": "",
+    "place": "",
+    "cc": "",
+    "city": "",
+    "cycles": 1,
+    "roundLabels": [],
+    "proceedings": "full",
+    "rates": [],
+    "rateSection": "",
+    "rateSrc": "",
+    "rateSlug": "",
+    "tier": 2
+  },
+  {
+    "title": "AsiaCCS",
+    "desc": "Asia Conference on Computer and Communications Security",
+    "area": "Security & Medicine",
+    "sub": "SC",
+    "ccf": "C",
+    "core": "A",
+    "coreVerified": true,
+    "nextDeadline": "2026-12-11",
+    "nextYear": 2027,
+    "nextAbstract": "",
+    "estimated": false,
+    "estFrom": "",
+    "rounds": [
+      {
+        "d": "2026-12-11",
+        "label": "2nd round Deadline",
+        "est": false,
+        "year": 2027,
+        "link": "https://asiaccs2027.cityu.edu.mo/index.html",
+        "abs": ""
+      },
+      {
+        "d": "2027-08-25",
+        "label": "Round 1",
+        "est": true,
+        "from": "2025-08-25",
+        "abs": ""
+      }
+    ],
+    "dblp": "asiaccs",
+    "csr": "",
+    "edition": "",
+    "best": "",
+    "link": "https://asiaccs2027.cityu.edu.mo/index.html",
+    "date": "July 12-16, 2027",
+    "place": "Macau, China",
+    "cc": "cn",
+    "city": "egg tarts at Lord Stow's, African chicken, the Ruins of St Paul lit at night",
+    "cycles": 2,
+    "roundLabels": [
+      "1st round Deadline",
+      "2nd round Deadline"
+    ],
+    "proceedings": "full",
+    "rates": [],
+    "rateSection": "",
+    "rateSrc": "",
+    "rateSlug": "",
+    "tier": 2
+  },
+  {
+    "title": "EuroS&P",
+    "desc": "IEEE European Symposium on Security and Privacy",
+    "area": "Security & Medicine",
+    "sub": "SC",
+    "ccf": "C",
+    "core": "A",
+    "coreVerified": true,
+    "nextDeadline": "2026-12-02",
+    "nextYear": 2027,
+    "nextAbstract": "",
+    "estimated": false,
+    "estFrom": "",
+    "rounds": [
+      {
+        "d": "2026-12-02",
+        "label": "",
+        "est": false,
+        "year": 2027,
+        "link": "https://eurosp2027.ieee-security.org/",
+        "abs": "2026-11-25"
+      }
+    ],
+    "dblp": "eurosp",
+    "csr": "",
+    "edition": "",
+    "best": "",
+    "link": "https://eurosp2027.ieee-security.org/",
+    "date": "July 5 - 9, 2027",
+    "place": "Madrid, Spain",
+    "cc": "es",
+    "city": "jamon iberico at Mercado San Miguel, churros at 2am, the Prado",
+    "cycles": 1,
+    "roundLabels": [],
+    "proceedings": "full",
+    "rates": [],
+    "rateSection": "",
+    "rateSrc": "",
+    "rateSlug": "",
+    "tier": 2
+  },
+  {
+    "title": "FC",
+    "desc": "Financial Cryptography and Data Security",
+    "area": "Security & Medicine",
+    "sub": "SC",
+    "ccf": "C",
+    "core": "A",
+    "coreVerified": true,
+    "nextDeadline": "2027-09-20",
+    "nextYear": 2028,
+    "nextAbstract": "",
+    "estimated": true,
+    "estFrom": "2025-09-20",
+    "rounds": [
+      {
+        "d": "2027-09-20",
+        "label": "",
+        "est": true,
+        "from": "2025-09-20",
+        "abs": ""
+      }
+    ],
+    "dblp": "fc",
+    "csr": "",
+    "edition": "",
+    "best": "",
+    "link": "https://fc27.ifca.ai/",
+    "date": "",
+    "place": "",
+    "cc": "",
+    "city": "",
+    "cycles": 1,
+    "roundLabels": [],
+    "proceedings": "full",
+    "rates": [],
+    "rateSection": "",
+    "rateSrc": "",
+    "rateSlug": "",
+    "tier": 2
+  },
+  {
+    "title": "PETS",
+    "desc": "Privacy Enhancing Technologies Symposium",
+    "area": "Security & Medicine",
+    "sub": "SC",
+    "ccf": "C",
+    "core": "A",
+    "coreVerified": true,
+    "nextDeadline": "2026-11-30",
+    "nextYear": 2027,
+    "nextAbstract": "",
+    "estimated": false,
+    "estFrom": "",
+    "rounds": [
+      {
+        "d": "2026-11-30",
+        "label": "Issue 3 Paper Submission Deadline",
+        "est": false,
+        "year": 2027,
+        "link": "https://petsymposium.org/cfp27.php",
+        "abs": ""
+      },
+      {
+        "d": "2027-02-28",
+        "label": "Issue 4 Paper Submission Deadline",
+        "est": false,
+        "year": 2027,
+        "link": "https://petsymposium.org/cfp27.php",
+        "abs": ""
+      },
+      {
+        "d": "2027-05-31",
+        "label": "Issue 1",
+        "est": true,
+        "from": "2025-05-31",
+        "abs": ""
+      },
+      {
+        "d": "2027-08-31",
+        "label": "Issue 2",
+        "est": true,
+        "from": "2025-08-31",
+        "abs": ""
+      }
+    ],
+    "dblp": "pet",
+    "csr": "",
+    "edition": "",
+    "best": "",
+    "link": "https://petsymposium.org/cfp27.php",
+    "date": "July 19-24, 2027",
+    "place": "Delft, The Netherlands",
+    "cc": "nl",
+    "city": "Vermeer's exact view, painting your own Delft Blue, apple pie on the Markt",
+    "cycles": 4,
+    "roundLabels": [
+      "Issue 1 Paper Submission Deadline",
+      "Issue 2 Paper Submission Deadline",
+      "Issue 3 Paper Submission Deadline",
+      "Issue 4 Paper Submission Deadline"
+    ],
+    "proceedings": "full",
+    "rates": [],
+    "rateSection": "",
+    "rateSrc": "",
+    "rateSlug": "",
+    "tier": 2
+  },
+  {
+    "title": "SIGCSE",
+    "desc": "Technical Symposium on Computer Science Education Conference",
+    "area": "Science & Interdisciplinary",
+    "sub": "MX",
+    "ccf": "N",
+    "core": "A",
+    "coreVerified": true,
+    "nextDeadline": "2027-07-03",
+    "nextYear": 2028,
+    "nextAbstract": "",
+    "estimated": true,
+    "estFrom": "2025-07-03",
+    "rounds": [
+      {
+        "d": "2027-07-03",
+        "label": "",
+        "est": true,
+        "from": "2025-07-03",
+        "abs": "2027-06-26"
+      }
+    ],
+    "dblp": "sigcse",
+    "csr": "CSEd",
+    "edition": "",
+    "best": "",
+    "link": "https://2027.sigcse-ts.acm.org/",
+    "date": "",
+    "place": "",
+    "cc": "",
+    "city": "",
+    "cycles": 1,
+    "roundLabels": [],
+    "proceedings": "full",
+    "rates": [],
+    "rateSection": "",
+    "rateSrc": "",
+    "rateSlug": "",
+    "tier": 2
+  },
+  {
+    "title": "CogSci",
+    "desc": "Annual Meeting of the Cognitive Science Society",
+    "area": "Science & Interdisciplinary",
+    "sub": "MX",
+    "ccf": "B",
+    "core": "B",
+    "coreVerified": true,
+    "nextDeadline": "2027-02-01",
+    "nextYear": 2027,
+    "nextAbstract": "",
+    "estimated": true,
+    "estFrom": "2025-02-01",
+    "rounds": [
+      {
+        "d": "2027-02-01",
+        "label": "",
+        "est": true,
+        "from": "2025-02-01",
+        "abs": ""
+      }
+    ],
+    "dblp": "cogsci",
+    "csr": "",
+    "edition": "",
+    "best": "",
+    "link": "https://cognitivesciencesociety.org/cogsci-2026/",
+    "date": "",
+    "place": "",
+    "cc": "",
+    "city": "",
+    "cycles": 1,
+    "roundLabels": [],
+    "proceedings": "full",
+    "rates": [],
+    "rateSection": "",
+    "rateSrc": "",
+    "rateSlug": "",
+    "tier": 2
+  },
+  {
+    "title": "PKC",
+    "desc": "International Conference on Practice and Theory of Public-Key Cryptography",
+    "area": "Security & Medicine",
+    "sub": "SC",
+    "ccf": "B",
+    "core": "B",
+    "coreVerified": true,
+    "nextDeadline": "2026-10-24",
+    "nextYear": 2027,
+    "nextAbstract": "",
+    "estimated": true,
+    "estFrom": "2025-10-24",
+    "rounds": [
+      {
+        "d": "2026-10-24",
+        "label": "",
+        "est": true,
+        "from": "2025-10-24",
+        "abs": ""
+      }
+    ],
+    "dblp": "pkc",
+    "csr": "",
+    "edition": "",
+    "best": "",
+    "link": "https://pkc.iacr.org/2027/",
+    "date": "March 1-4, 2027",
+    "place": "Taipei",
+    "cc": null,
+    "city": "beef noodle soup, Shilin night market, tea houses at Jiufen",
+    "cycles": 1,
+    "roundLabels": [],
+    "proceedings": "full",
+    "rates": [],
+    "rateSection": "",
+    "rateSrc": "",
+    "rateSlug": "",
+    "tier": 2
+  },
+  {
+    "title": "SRDS",
+    "desc": "IEEE International Symposium on Reliable Distributed Systems",
+    "area": "Security & Medicine",
+    "sub": "SC",
+    "ccf": "B",
+    "core": "B",
+    "coreVerified": true,
+    "nextDeadline": "2027-05-10",
+    "nextYear": 2027,
+    "nextAbstract": "",
+    "estimated": true,
+    "estFrom": "2024-05-10",
+    "rounds": [
+      {
+        "d": "2027-05-10",
+        "label": "",
+        "est": true,
+        "from": "2024-05-10",
+        "abs": "2027-05-03"
+      }
+    ],
+    "dblp": "srds",
+    "csr": "",
+    "edition": "",
+    "best": "",
+    "link": "https://srds-conference.org/",
+    "date": "",
+    "place": "",
+    "cc": "",
+    "city": "",
+    "cycles": 1,
+    "roundLabels": [],
+    "proceedings": "full",
+    "rates": [],
+    "rateSection": "",
+    "rateSrc": "",
+    "rateSlug": "",
+    "tier": 2
+  },
+  {
     "title": "ACCV",
     "desc": "Asian Conference on Computer Vision",
     "area": "AI / ML / Data Mining",
+    "sub": "AI",
     "ccf": "C",
     "core": "B",
     "coreVerified": true,
@@ -8247,7 +7991,8 @@ export const others = [
   {
     "title": "ACNS",
     "desc": "Applied Cryptography and Network Security",
-    "area": "Security & Privacy",
+    "area": "Security & Medicine",
+    "sub": "SC",
     "ccf": "C",
     "core": "B",
     "coreVerified": true,
@@ -8298,6 +8043,7 @@ export const others = [
     "title": "AFT",
     "desc": "Advances in Financial Technologies",
     "area": "Science & Interdisciplinary",
+    "sub": "MX",
     "ccf": "C",
     "core": "B",
     "coreVerified": false,
@@ -8337,6 +8083,7 @@ export const others = [
     "title": "ALT",
     "desc": "International Conference on Algorithmic Learning Theory",
     "area": "AI / ML / Data Mining",
+    "sub": "AI",
     "ccf": "C",
     "core": "B",
     "coreVerified": true,
@@ -8376,7 +8123,8 @@ export const others = [
   {
     "title": "APBC",
     "desc": "Asia Pacific Bioinformatics Conference",
-    "area": "Medicine, Biology & Genetics",
+    "area": "Security & Medicine",
+    "sub": "MX",
     "ccf": "C",
     "core": "B",
     "coreVerified": true,
@@ -8416,6 +8164,7 @@ export const others = [
     "title": "BigData",
     "desc": "IEEE International Conference on Big Data",
     "area": "Science & Interdisciplinary",
+    "sub": "MX",
     "ccf": "C",
     "core": "B",
     "coreVerified": true,
@@ -8455,6 +8204,7 @@ export const others = [
     "title": "Cloud",
     "desc": "IEEE International Conference on Cloud Computing",
     "area": "Science & Interdisciplinary",
+    "sub": "MX",
     "ccf": "C",
     "core": "B",
     "coreVerified": true,
@@ -8494,6 +8244,7 @@ export const others = [
     "title": "CoNLL",
     "desc": "Conference on Computational Natural Language Learning",
     "area": "AI / ML / Data Mining",
+    "sub": "AI",
     "ccf": "C",
     "core": "B",
     "coreVerified": true,
@@ -8532,7 +8283,8 @@ export const others = [
   {
     "title": "CT-RSA",
     "desc": "Cryptographer's Track at RSA Conference",
-    "area": "Security & Privacy",
+    "area": "Security & Medicine",
+    "sub": "SC",
     "ccf": "C",
     "core": "B",
     "coreVerified": true,
@@ -8573,6 +8325,7 @@ export const others = [
     "title": "ESWC",
     "desc": "European Semantic Web Conference",
     "area": "AI / ML / Data Mining",
+    "sub": "DB",
     "ccf": "C",
     "core": "B",
     "coreVerified": true,
@@ -8612,6 +8365,7 @@ export const others = [
     "title": "FG",
     "desc": "International Conference on Automatic Face and Gesture Recognition",
     "area": "AI / ML / Data Mining",
+    "sub": "AI",
     "ccf": "C",
     "core": "B",
     "coreVerified": true,
@@ -8659,6 +8413,7 @@ export const others = [
     "title": "ICONIP",
     "desc": "International Conference on Neural Information Processing",
     "area": "AI / ML / Data Mining",
+    "sub": "AI",
     "ccf": "C",
     "core": "B",
     "coreVerified": true,
@@ -8698,6 +8453,7 @@ export const others = [
     "title": "ICPR",
     "desc": "International Conference on Pattern Recognition",
     "area": "AI / ML / Data Mining",
+    "sub": "AI",
     "ccf": "C",
     "core": "B",
     "coreVerified": true,
@@ -8738,6 +8494,7 @@ export const others = [
     "title": "ICTAI",
     "desc": "International Conference on Tools with Artificial Intellignce",
     "area": "AI / ML / Data Mining",
+    "sub": "AI",
     "ccf": "C",
     "core": "B",
     "coreVerified": true,
@@ -8777,6 +8534,7 @@ export const others = [
     "title": "IEEE CEC",
     "desc": "IEEE Congress on Evolutionary Computation",
     "area": "AI / ML / Data Mining",
+    "sub": "AI",
     "ccf": "C",
     "core": "B",
     "coreVerified": true,
@@ -8817,6 +8575,7 @@ export const others = [
     "title": "IJCB",
     "desc": "International Joint Conference on Biometrics",
     "area": "AI / ML / Data Mining",
+    "sub": "AI",
     "ccf": "C",
     "core": "B",
     "coreVerified": true,
@@ -8856,6 +8615,7 @@ export const others = [
     "title": "IJCNN",
     "desc": "International Joint Conference on Neural Networks",
     "area": "AI / ML / Data Mining",
+    "sub": "AI",
     "ccf": "C",
     "core": "B",
     "coreVerified": true,
@@ -8896,6 +8656,7 @@ export const others = [
     "title": "PAKDD",
     "desc": "Pacific-Asia Conference on Knowledge Discovery and Data Mining",
     "area": "AI / ML / Data Mining",
+    "sub": "DB",
     "ccf": "C",
     "core": "B",
     "coreVerified": true,
@@ -8935,7 +8696,8 @@ export const others = [
   {
     "title": "PAM",
     "desc": "Passive and Active Measurement Conference",
-    "area": "Security & Privacy",
+    "area": "Security & Medicine",
+    "sub": "SC",
     "ccf": "C",
     "core": "B",
     "coreVerified": true,
@@ -8975,6 +8737,7 @@ export const others = [
     "title": "PRICAI",
     "desc": "Pacific Rim International Conference on Artificial Intelligence",
     "area": "AI / ML / Data Mining",
+    "sub": "AI",
     "ccf": "C",
     "core": "B",
     "coreVerified": true,
@@ -9013,7 +8776,8 @@ export const others = [
   {
     "title": "SAC",
     "desc": "Selected Areas in Cryptography",
-    "area": "Security & Privacy",
+    "area": "Security & Medicine",
+    "sub": "SC",
     "ccf": "C",
     "core": "B",
     "coreVerified": true,
@@ -9063,6 +8827,7 @@ export const others = [
     "title": "SMC",
     "desc": "IEEE International Conference on Systems, Man, and Cybernetics",
     "area": "Science & Interdisciplinary",
+    "sub": "MX",
     "ccf": "C",
     "core": "B",
     "coreVerified": true,
@@ -9101,7 +8866,8 @@ export const others = [
   {
     "title": "SOUPS",
     "desc": "Symposium On Usable Privacy and Security",
-    "area": "Security & Privacy",
+    "area": "Security & Medicine",
+    "sub": "SC",
     "ccf": "C",
     "core": "B",
     "coreVerified": true,
@@ -9140,7 +8906,8 @@ export const others = [
   {
     "title": "TrustCom",
     "desc": "IEEE International Conference on Trust, Security and Privacy in Computing and Communications",
-    "area": "Security & Privacy",
+    "area": "Security & Medicine",
+    "sub": "SC",
     "ccf": "C",
     "core": "B",
     "coreVerified": true,
@@ -9179,7 +8946,8 @@ export const others = [
   {
     "title": "WiSec",
     "desc": "ACM Conference on Security and Privacy in Wireless and Mobile Networks",
-    "area": "Security & Privacy",
+    "area": "Security & Medicine",
+    "sub": "SC",
     "ccf": "C",
     "core": "B",
     "coreVerified": true,
@@ -9229,6 +8997,7 @@ export const others = [
     "title": "ESANN",
     "desc": "European Symposium on Artificial Neural Networks, Computational Intelligence and Machine Learning",
     "area": "AI / ML / Data Mining",
+    "sub": "AI",
     "ccf": "N",
     "core": "B",
     "coreVerified": true,
@@ -9269,6 +9038,7 @@ export const others = [
     "title": "EuroGP",
     "desc": "European Conference on Genetic Programming",
     "area": "AI / ML / Data Mining",
+    "sub": "AI",
     "ccf": "N",
     "core": "B",
     "coreVerified": true,
@@ -9309,6 +9079,7 @@ export const others = [
     "title": "EvoApplications",
     "desc": "International Conference on the Applications of Evolutionary Computation",
     "area": "AI / ML / Data Mining",
+    "sub": "AI",
     "ccf": "N",
     "core": "B",
     "coreVerified": true,
@@ -9349,6 +9120,7 @@ export const others = [
     "title": "EvoCOP",
     "desc": "European Conference on Evolutionary Computation in Combinatorial Optimisation",
     "area": "AI / ML / Data Mining",
+    "sub": "AI",
     "ccf": "N",
     "core": "B",
     "coreVerified": true,
@@ -9389,6 +9161,7 @@ export const others = [
     "title": "IJCNLP",
     "desc": "International Joint Conference on Natural Language Processing",
     "area": "AI / ML / Data Mining",
+    "sub": "AI",
     "ccf": "N",
     "core": "B",
     "coreVerified": true,
@@ -9445,7 +9218,8 @@ export const others = [
   {
     "title": "NOMS",
     "desc": "IEEE/IFIP Network Operations and Management Symposium",
-    "area": "Security & Privacy",
+    "area": "Security & Medicine",
+    "sub": "SC",
     "ccf": "N",
     "core": "B",
     "coreVerified": true,
@@ -9486,6 +9260,7 @@ export const others = [
     "title": "RuleML+RR",
     "desc": "International Joint Conference on Rules and Reasoning",
     "area": "AI / ML / Data Mining",
+    "sub": "AI",
     "ccf": "N",
     "core": "B",
     "coreVerified": true,
@@ -9525,6 +9300,7 @@ export const others = [
     "title": "ADMA",
     "desc": "The International Conference on Advanced Data Mining and Applications",
     "area": "AI / ML / Data Mining",
+    "sub": "DB",
     "ccf": "C",
     "core": "C",
     "coreVerified": true,
@@ -9564,6 +9340,7 @@ export const others = [
     "title": "APWeb-WAIM",
     "desc": "APWeb-WAIM joint international conference on Web and Big Data",
     "area": "AI / ML / Data Mining",
+    "sub": "DB",
     "ccf": "C",
     "core": "C",
     "coreVerified": false,
@@ -9612,7 +9389,8 @@ export const others = [
   {
     "title": "DIMVA",
     "desc": "Detection of Intrusions and Malware & Vulnerability Assessment",
-    "area": "Security & Privacy",
+    "area": "Security & Medicine",
+    "sub": "SC",
     "ccf": "C",
     "core": "C",
     "coreVerified": true,
@@ -9662,6 +9440,7 @@ export const others = [
     "title": "ICANN",
     "desc": "International Conference on Artificial Neural Networks",
     "area": "AI / ML / Data Mining",
+    "sub": "AI",
     "ccf": "C",
     "core": "C",
     "coreVerified": true,
@@ -9700,7 +9479,8 @@ export const others = [
   {
     "title": "ICICS",
     "desc": "International Conference on Information and Communications Security",
-    "area": "Security & Privacy",
+    "area": "Security & Medicine",
+    "sub": "SC",
     "ccf": "C",
     "core": "C",
     "coreVerified": true,
@@ -9749,7 +9529,8 @@ export const others = [
   {
     "title": "IH&MMSec",
     "desc": "ACM Workshop on Information Hiding and Multimedia Security",
-    "area": "Security & Privacy",
+    "area": "Security & Medicine",
+    "sub": "SC",
     "ccf": "C",
     "core": "C",
     "coreVerified": true,
@@ -9788,7 +9569,8 @@ export const others = [
   {
     "title": "ISC",
     "desc": "Information Security Conference",
-    "area": "Security & Privacy",
+    "area": "Security & Medicine",
+    "sub": "SC",
     "ccf": "C",
     "core": "C",
     "coreVerified": true,
@@ -9828,6 +9610,7 @@ export const others = [
     "title": "KSEM",
     "desc": "International Conference on Knowledge Science, Engineering and Management",
     "area": "AI / ML / Data Mining",
+    "sub": "AI",
     "ccf": "C",
     "core": "C",
     "coreVerified": true,
@@ -9866,7 +9649,8 @@ export const others = [
   {
     "title": "NSPW",
     "desc": "New Security Paradigms Workshop",
-    "area": "Security & Privacy",
+    "area": "Security & Medicine",
+    "sub": "SC",
     "ccf": "C",
     "core": "C",
     "coreVerified": true,
@@ -9905,7 +9689,8 @@ export const others = [
   {
     "title": "SACMAT",
     "desc": "ACM Symposium on Access Control Models and Technologies",
-    "area": "Security & Privacy",
+    "area": "Security & Medicine",
+    "sub": "SC",
     "ccf": "C",
     "core": "C",
     "coreVerified": true,
@@ -9956,7 +9741,8 @@ export const others = [
   {
     "title": "SecureComm",
     "desc": "International Conference on Security and Privacy in Communication Networks",
-    "area": "Security & Privacy",
+    "area": "Security & Medicine",
+    "sub": "SC",
     "ccf": "C",
     "core": "C",
     "coreVerified": true,
@@ -10008,6 +9794,7 @@ export const others = [
     "title": "EvoMUSART",
     "desc": "International Conference on Artificial Intelligence in Music, Sound, Art and Design",
     "area": "AI / ML / Data Mining",
+    "sub": "AI",
     "ccf": "N",
     "core": "C",
     "coreVerified": true,
@@ -10048,6 +9835,7 @@ export const others = [
     "title": "ICMLA",
     "desc": "International Conference on Machine Learning and Applications",
     "area": "AI / ML / Data Mining",
+    "sub": "AI",
     "ccf": "N",
     "core": "C",
     "coreVerified": true,
@@ -10087,6 +9875,7 @@ export const others = [
     "title": "RSS",
     "desc": "Robotics Science and Systems",
     "area": "AI / ML / Data Mining",
+    "sub": "AI",
     "ccf": "N",
     "core": "TBR",
     "coreVerified": true,
@@ -10209,9 +9998,353 @@ export const others = [
     "tier": 3
   },
   {
+    "title": "EMSOFT",
+    "desc": "International Conference on Embedded Software",
+    "area": "Science & Interdisciplinary",
+    "sub": "MX",
+    "ccf": "B",
+    "core": "JP",
+    "coreVerified": true,
+    "nextDeadline": "2027-03-30",
+    "nextYear": 2027,
+    "nextAbstract": "",
+    "estimated": true,
+    "estFrom": "2025-03-30",
+    "rounds": [
+      {
+        "d": "2027-03-30",
+        "label": "",
+        "est": true,
+        "from": "2025-03-30",
+        "abs": "2027-03-23"
+      }
+    ],
+    "dblp": "emsoft",
+    "csr": "Embedded",
+    "edition": "27th",
+    "best": "",
+    "link": "https://esweek.org/emsoft/",
+    "date": "",
+    "place": "",
+    "cc": "",
+    "city": "",
+    "cycles": 1,
+    "roundLabels": [],
+    "proceedings": "full",
+    "rates": [
+      {
+        "y": 2003,
+        "r": 33.3
+      },
+      {
+        "y": 2004,
+        "r": 35.6
+      },
+      {
+        "y": 2005,
+        "r": 28.4
+      },
+      {
+        "y": 2006,
+        "r": 33.0
+      },
+      {
+        "y": 2007,
+        "r": 22.1
+      },
+      {
+        "y": 2008,
+        "r": 25.5
+      },
+      {
+        "y": 2009,
+        "r": 31.1
+      },
+      {
+        "y": 2010,
+        "r": 32.6
+      },
+      {
+        "y": 2011,
+        "r": 24.3
+      },
+      {
+        "y": 2012,
+        "r": 24.2
+      },
+      {
+        "y": 2013,
+        "r": 27.8
+      },
+      {
+        "y": 2014,
+        "r": 24.8
+      },
+      {
+        "y": 2015,
+        "r": 25.9
+      },
+      {
+        "y": 2016,
+        "r": 25.8
+      },
+      {
+        "y": 2018,
+        "r": 24.3
+      },
+      {
+        "y": 2020,
+        "r": 25.4
+      },
+      {
+        "y": 2021,
+        "r": 25.2
+      },
+      {
+        "y": 2022,
+        "r": 25.4
+      },
+      {
+        "y": 2023,
+        "r": 23.3
+      },
+      {
+        "y": 2024,
+        "r": 21.7
+      },
+      {
+        "y": 2025,
+        "r": 27.0
+      }
+    ],
+    "rateSection": "",
+    "rateSrc": "csc",
+    "rateSlug": "emsoft",
+    "tier": 2
+  },
+  {
+    "title": "FSE",
+    "desc": "Fast Software Encryption",
+    "area": "Security & Medicine",
+    "sub": "SC",
+    "ccf": "B",
+    "core": "JP",
+    "coreVerified": true,
+    "nextDeadline": "2026-12-01",
+    "nextYear": 2027,
+    "nextAbstract": "",
+    "estimated": false,
+    "estFrom": "",
+    "rounds": [
+      {
+        "d": "2026-12-01",
+        "label": "ToSC, Volume 2027, Issue 1 Submission deadline",
+        "est": false,
+        "year": 2027,
+        "link": "https://fse.iacr.org/2027/",
+        "abs": ""
+      },
+      {
+        "d": "2027-03-01",
+        "label": "ToSC 2025/2",
+        "est": true,
+        "from": "2025-03-01",
+        "abs": ""
+      },
+      {
+        "d": "2027-06-01",
+        "label": "ToSC 2025/3",
+        "est": true,
+        "from": "2025-06-01",
+        "abs": ""
+      },
+      {
+        "d": "2027-09-01",
+        "label": "ToSC 2025/4",
+        "est": true,
+        "from": "2025-09-01",
+        "abs": ""
+      }
+    ],
+    "dblp": "fse",
+    "csr": "SE",
+    "edition": "35th",
+    "best": "fse",
+    "link": "https://fse.iacr.org/2027/",
+    "date": "May 24-28, 2027",
+    "place": "Maastricht, Netherlands",
+    "cc": "nl",
+    "city": "vlaai pie, the Sint-Pietersberg caves, a bookshop in a 13th-century church",
+    "cycles": 2,
+    "roundLabels": [
+      "ToSC, Volume 2026, Issue 4 Submission deadline",
+      "ToSC, Volume 2027, Issue 1 Submission deadline"
+    ],
+    "proceedings": "full",
+    "rates": [
+      {
+        "y": 1997,
+        "r": 13.9
+      },
+      {
+        "y": 1999,
+        "r": 20.6
+      },
+      {
+        "y": 2001,
+        "r": 21.2
+      },
+      {
+        "y": 2002,
+        "r": 13.3
+      },
+      {
+        "y": 2003,
+        "r": 19.6
+      },
+      {
+        "y": 2004,
+        "r": 14.7
+      },
+      {
+        "y": 2005,
+        "r": 15.9
+      },
+      {
+        "y": 2006,
+        "r": 24.0
+      },
+      {
+        "y": 2007,
+        "r": 16.7
+      },
+      {
+        "y": 2008,
+        "r": 20.4
+      },
+      {
+        "y": 2009,
+        "r": 14.7
+      },
+      {
+        "y": 2010,
+        "r": 19.5
+      },
+      {
+        "y": 2011,
+        "r": 16.7
+      },
+      {
+        "y": 2012,
+        "r": 17.7
+      },
+      {
+        "y": 2013,
+        "r": 20.3
+      },
+      {
+        "y": 2014,
+        "r": 21.8
+      },
+      {
+        "y": 2015,
+        "r": 25.4
+      },
+      {
+        "y": 2016,
+        "r": 27.8
+      },
+      {
+        "y": 2017,
+        "r": 24.4
+      },
+      {
+        "y": 2018,
+        "r": 21.1
+      },
+      {
+        "y": 2019,
+        "r": 24.4
+      },
+      {
+        "y": 2020,
+        "r": 28.1
+      },
+      {
+        "y": 2021,
+        "r": 24.5
+      },
+      {
+        "y": 2022,
+        "r": 22.0
+      },
+      {
+        "y": 2023,
+        "r": 27.3
+      },
+      {
+        "y": 2024,
+        "r": 25.5
+      },
+      {
+        "y": 2025,
+        "r": 22.1
+      },
+      {
+        "y": 2026,
+        "r": 22.9
+      }
+    ],
+    "rateSection": "",
+    "rateSrc": "csc",
+    "rateSlug": "fse",
+    "tier": 2
+  },
+  {
+    "title": "WINE",
+    "desc": "Conference on Web and Internet Economics",
+    "area": "Science & Interdisciplinary",
+    "sub": "MX",
+    "ccf": "B",
+    "core": "N",
+    "coreVerified": false,
+    "nextDeadline": "2027-07-03",
+    "nextYear": 2027,
+    "nextAbstract": "",
+    "estimated": true,
+    "estFrom": "2025-07-03",
+    "rounds": [
+      {
+        "d": "2027-07-03",
+        "label": "",
+        "est": true,
+        "from": "2025-07-03",
+        "abs": ""
+      }
+    ],
+    "dblp": "wine",
+    "csr": "ECom",
+    "edition": "",
+    "best": "",
+    "link": "https://wine2026conf.github.io/",
+    "date": "",
+    "place": "",
+    "cc": "",
+    "city": "",
+    "cycles": 1,
+    "roundLabels": [],
+    "proceedings": "full",
+    "rates": [],
+    "rateSection": "",
+    "rateSrc": "",
+    "rateSlug": "",
+    "tier": 2
+  },
+  {
     "title": "ACISP",
     "desc": "Australasia Conference on Information Security and Privacy",
-    "area": "Security & Privacy",
+    "area": "Security & Medicine",
+    "sub": "SC",
     "ccf": "C",
     "core": "N",
     "coreVerified": true,
@@ -10263,6 +10396,7 @@ export const others = [
     "title": "ACML",
     "desc": "Asian Conference on Machine Learning",
     "area": "AI / ML / Data Mining",
+    "sub": "AI",
     "ccf": "C",
     "core": "N",
     "coreVerified": true,
@@ -10311,7 +10445,8 @@ export const others = [
   {
     "title": "BlockSys",
     "desc": "International Conference on Blockchain, Artificial Intelligence, and Trustworthy Systems",
-    "area": "Security & Privacy",
+    "area": "Security & Medicine",
+    "sub": "SC",
     "ccf": "C",
     "core": "N",
     "coreVerified": false,
@@ -10357,7 +10492,8 @@ export const others = [
   {
     "title": "CODASPY",
     "desc": "ACM Conference on Data and Application Security and Privacy",
-    "area": "Security & Privacy",
+    "area": "Security & Medicine",
+    "sub": "SC",
     "ccf": "C",
     "core": "N",
     "coreVerified": false,
@@ -10397,7 +10533,8 @@ export const others = [
   {
     "title": "CSCloud",
     "desc": "IEEE International Conference on Cyber Security and Cloud Computing",
-    "area": "Security & Privacy",
+    "area": "Security & Medicine",
+    "sub": "SC",
     "ccf": "C",
     "core": "N",
     "coreVerified": false,
@@ -10437,6 +10574,7 @@ export const others = [
     "title": "DAI",
     "desc": "International Conference on Distributed Artificial Intelligence",
     "area": "AI / ML / Data Mining",
+    "sub": "AI",
     "ccf": "C",
     "core": "N",
     "coreVerified": false,
@@ -10475,7 +10613,8 @@ export const others = [
   {
     "title": "DFRWS",
     "desc": "Digital Forensic Research Workshop",
-    "area": "Security & Privacy",
+    "area": "Security & Medicine",
+    "sub": "SC",
     "ccf": "C",
     "core": "N",
     "coreVerified": false,
@@ -10514,7 +10653,8 @@ export const others = [
   {
     "title": "DFRWS APAC",
     "desc": "Digital Forensic Research Workshop Asia Pacific",
-    "area": "Security & Privacy",
+    "area": "Security & Medicine",
+    "sub": "SC",
     "ccf": "C",
     "core": "N",
     "coreVerified": false,
@@ -10553,7 +10693,8 @@ export const others = [
   {
     "title": "HotSec",
     "desc": "USENIX Workshop on Hot Topics in Security",
-    "area": "Security & Privacy",
+    "area": "Security & Medicine",
+    "sub": "SC",
     "ccf": "C",
     "core": "N",
     "coreVerified": false,
@@ -10592,7 +10733,8 @@ export const others = [
   {
     "title": "ICDF2C",
     "desc": "International Conference on Digital Forensics & Cyber Crime",
-    "area": "Security & Privacy",
+    "area": "Security & Medicine",
+    "sub": "SC",
     "ccf": "C",
     "core": "N",
     "coreVerified": false,
@@ -10633,6 +10775,7 @@ export const others = [
     "title": "ICIC",
     "desc": "International Conference on Intelligent Computing",
     "area": "Science & Interdisciplinary",
+    "sub": "MX",
     "ccf": "C",
     "core": "N",
     "coreVerified": false,
@@ -10671,7 +10814,8 @@ export const others = [
   {
     "title": "IFIP WG 11.9",
     "desc": "IFIP WG 11.9 International Conference on Digital Forensics",
-    "area": "Security & Privacy",
+    "area": "Security & Medicine",
+    "sub": "SC",
     "ccf": "C",
     "core": "N",
     "coreVerified": false,
@@ -10710,7 +10854,8 @@ export const others = [
   {
     "title": "INSCRYPT",
     "desc": "International Conference on Information Security and Cryptology",
-    "area": "Security & Privacy",
+    "area": "Security & Medicine",
+    "sub": "SC",
     "ccf": "C",
     "core": "N",
     "coreVerified": true,
@@ -10756,7 +10901,8 @@ export const others = [
   {
     "title": "ISBRA",
     "desc": "International Symposium on Bioinformatics Research and Applications",
-    "area": "Medicine, Biology & Genetics",
+    "area": "Security & Medicine",
+    "sub": "MX",
     "ccf": "C",
     "core": "N",
     "coreVerified": false,
@@ -10796,6 +10942,7 @@ export const others = [
     "title": "NLPCC",
     "desc": "CCF International Conference on Natural Language Processing and Chinese Computing",
     "area": "AI / ML / Data Mining",
+    "sub": "AI",
     "ccf": "C",
     "core": "N",
     "coreVerified": false,
@@ -10834,7 +10981,8 @@ export const others = [
   {
     "title": "SEC",
     "desc": "IFIP International Information Security Conference",
-    "area": "Security & Privacy",
+    "area": "Security & Medicine",
+    "sub": "SC",
     "ccf": "C",
     "core": "N",
     "coreVerified": false,
@@ -10874,6 +11022,7 @@ export const others = [
     "title": "WISA",
     "desc": "Web Information Systems and Applications",
     "area": "AI / ML / Data Mining",
+    "sub": "DB",
     "ccf": "C",
     "core": "N",
     "coreVerified": true,
@@ -10913,6 +11062,7 @@ export const others = [
     "title": "ACM TURC",
     "desc": "ACM Turing Award Celebration Conference - China",
     "area": "Science & Interdisciplinary",
+    "sub": "MX",
     "ccf": "N",
     "core": "N",
     "coreVerified": false,
@@ -10952,6 +11102,7 @@ export const others = [
     "title": "BIS",
     "desc": "International Conference on Business Information Systems",
     "area": "Science & Interdisciplinary",
+    "sub": "MX",
     "ccf": "N",
     "core": "N",
     "coreVerified": false,
@@ -10992,6 +11143,7 @@ export const others = [
     "title": "CICAI",
     "desc": "CAAI International Conference on Artificial Intelligence",
     "area": "AI / ML / Data Mining",
+    "sub": "AI",
     "ccf": "N",
     "core": "N",
     "coreVerified": false,
@@ -11030,7 +11182,8 @@ export const others = [
   {
     "title": "CNS",
     "desc": "IEEE Conference on Communications and Network Security",
-    "area": "Security & Privacy",
+    "area": "Security & Medicine",
+    "sub": "SC",
     "ccf": "N",
     "core": "N",
     "coreVerified": false,
@@ -11070,6 +11223,7 @@ export const others = [
     "title": "COLM",
     "desc": "Conference on Language Modeling",
     "area": "AI / ML / Data Mining",
+    "sub": "AI",
     "ccf": "N",
     "core": "N",
     "coreVerified": false,
@@ -11109,6 +11263,7 @@ export const others = [
     "title": "CoRL",
     "desc": "The Conference on Robot Learning",
     "area": "AI / ML / Data Mining",
+    "sub": "AI",
     "ccf": "N",
     "core": "N",
     "coreVerified": true,
@@ -11148,6 +11303,7 @@ export const others = [
     "title": "CPAL",
     "desc": "The Conference on Parsimony and Learning",
     "area": "AI / ML / Data Mining",
+    "sub": "AI",
     "ccf": "N",
     "core": "N",
     "coreVerified": false,
@@ -11188,6 +11344,7 @@ export const others = [
     "title": "CVC",
     "desc": "Computer Vision Conference",
     "area": "AI / ML / Data Mining",
+    "sub": "AI",
     "ccf": "N",
     "core": "N",
     "coreVerified": false,
@@ -11244,6 +11401,7 @@ export const others = [
     "title": "EUVIP",
     "desc": "European Conference on Visual Information Processing",
     "area": "AI / ML / Data Mining",
+    "sub": "AI",
     "ccf": "N",
     "core": "N",
     "coreVerified": false,
@@ -11283,6 +11441,7 @@ export const others = [
     "title": "ICAIF",
     "desc": "International Conference on AI in Finance",
     "area": "Science & Interdisciplinary",
+    "sub": "MX",
     "ccf": "N",
     "core": "N",
     "coreVerified": false,
@@ -11321,7 +11480,8 @@ export const others = [
   {
     "title": "INDOCRYPT",
     "desc": "International Conference on Cryptology in India",
-    "area": "Security & Privacy",
+    "area": "Security & Medicine",
+    "sub": "SC",
     "ccf": "N",
     "core": "N",
     "coreVerified": true,
@@ -11361,6 +11521,7 @@ export const others = [
     "title": "LOG",
     "desc": "Learning on Graphs Conference",
     "area": "AI / ML / Data Mining",
+    "sub": "AI",
     "ccf": "N",
     "core": "N",
     "coreVerified": false,
@@ -11400,6 +11561,7 @@ export const others = [
     "title": "MLSys",
     "desc": "Conference on Machine Learning and Systems",
     "area": "Science & Interdisciplinary",
+    "sub": "MX",
     "ccf": "N",
     "core": "N",
     "coreVerified": false,
@@ -11440,6 +11602,7 @@ export const others = [
     "title": "ProbML",
     "desc": "Symposium on Probabilistic Machine Learning",
     "area": "AI / ML / Data Mining",
+    "sub": "AI",
     "ccf": "N",
     "core": "N",
     "coreVerified": false,
@@ -11479,6 +11642,7 @@ export const others = [
     "title": "SAI",
     "desc": "Computing Conference (SAI)",
     "area": "Science & Interdisciplinary",
+    "sub": "MX",
     "ccf": "N",
     "core": "N",
     "coreVerified": false,
@@ -11528,7 +11692,8 @@ export const others = [
   {
     "title": "SATML",
     "desc": "IEEE Conference on Secure and Trustworthy Machine Learning",
-    "area": "Security & Privacy",
+    "area": "Security & Medicine",
+    "sub": "SC",
     "ccf": "N",
     "core": "N",
     "coreVerified": false,
@@ -11595,6 +11760,7 @@ export const notable = [
     "best": "",
     "csr": "",
     "edition": "",
+    "sub": "",
     "estimated": true,
     "estFrom": "2026-08-05",
     "nextDeadline": "2027-08-05",
@@ -11631,6 +11797,7 @@ export const notable = [
     "best": "",
     "csr": "",
     "edition": "",
+    "sub": "",
     "estimated": false,
     "estFrom": "",
     "nextDeadline": "2026-10-22",
@@ -11667,6 +11834,7 @@ export const notable = [
     "best": "",
     "csr": "",
     "edition": "",
+    "sub": "",
     "estimated": false,
     "estFrom": "",
     "nextDeadline": "2026-10-18",
@@ -11703,6 +11871,7 @@ export const notable = [
     "best": "",
     "csr": "",
     "edition": "",
+    "sub": "",
     "estimated": true,
     "estFrom": "2026-05-15",
     "nextDeadline": "2027-05-15",
@@ -11739,6 +11908,7 @@ export const notable = [
     "best": "",
     "csr": "",
     "edition": "",
+    "sub": "",
     "estimated": false,
     "estFrom": "",
     "nextDeadline": "2027-02-28",
@@ -11775,6 +11945,7 @@ export const notable = [
     "best": "",
     "csr": "",
     "edition": "",
+    "sub": "",
     "estimated": false,
     "estFrom": "",
     "nextDeadline": "2027-06-18",
@@ -11809,6 +11980,7 @@ export const notable = [
     "best": "",
     "csr": "",
     "edition": "",
+    "sub": "",
     "estimated": true,
     "estFrom": "2026-03-03",
     "nextDeadline": "2027-03-03",
@@ -11847,6 +12019,7 @@ export const notable = [
     "best": "",
     "csr": "",
     "edition": "",
+    "sub": "",
     "estimated": false,
     "estFrom": "",
     "nextDeadline": "2026-12-07",
@@ -11883,6 +12056,7 @@ export const notable = [
     "best": "",
     "csr": "",
     "edition": "",
+    "sub": "",
     "estimated": true,
     "estFrom": "2026-05-20",
     "nextDeadline": "2027-05-20",
@@ -11919,6 +12093,7 @@ export const notable = [
     "best": "",
     "csr": "",
     "edition": "",
+    "sub": "",
     "estimated": true,
     "estFrom": "2026-09-15",
     "nextDeadline": "2027-09-15",
@@ -11953,6 +12128,7 @@ export const notable = [
     "best": "",
     "csr": "",
     "edition": "",
+    "sub": "",
     "estimated": true,
     "estFrom": "2026-02-02",
     "nextDeadline": "2027-02-02",
@@ -11989,6 +12165,7 @@ export const notable = [
     "best": "",
     "csr": "",
     "edition": "",
+    "sub": "",
     "estimated": true,
     "estFrom": "2025-12-19",
     "nextDeadline": "2026-12-19",
@@ -12025,6 +12202,7 @@ export const notable = [
     "best": "",
     "csr": "",
     "edition": "",
+    "sub": "",
     "estimated": true,
     "estFrom": "2026-02-16",
     "nextDeadline": "2027-02-16",
@@ -12063,6 +12241,7 @@ export const notable = [
     "best": "",
     "csr": "",
     "edition": "",
+    "sub": "",
     "estimated": true,
     "estFrom": "2026-08-25",
     "nextDeadline": "2028-08-25",
@@ -12099,6 +12278,7 @@ export const notable = [
     "best": "",
     "csr": "",
     "edition": "",
+    "sub": "",
     "estimated": true,
     "estFrom": "2026-05-18",
     "nextDeadline": "2028-05-18",
@@ -12133,6 +12313,7 @@ export const notable = [
     "best": "",
     "csr": "",
     "edition": "",
+    "sub": "",
     "estimated": true,
     "estFrom": "2025-11-13",
     "nextDeadline": "2028-11-13",
@@ -12169,6 +12350,7 @@ export const notable = [
     "best": "",
     "csr": "",
     "edition": "",
+    "sub": "",
     "estimated": true,
     "estFrom": "2025-09-22",
     "nextDeadline": "2027-09-22",
@@ -12207,6 +12389,7 @@ export const notable = [
     "best": "",
     "csr": "",
     "edition": "",
+    "sub": "",
     "estimated": true,
     "estFrom": "2026-06-11",
     "nextDeadline": "2027-06-11",
@@ -12241,6 +12424,7 @@ export const notable = [
     "best": "",
     "csr": "",
     "edition": "",
+    "sub": "",
     "estimated": true,
     "estFrom": "2026-02-27",
     "nextDeadline": "2027-02-27",

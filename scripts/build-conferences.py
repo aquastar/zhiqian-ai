@@ -286,7 +286,20 @@ CC={'argentina':'ar','australia':'au','barbados':'bb','belgium':'be','brazil':'b
     'the netherlands':'nl','new zealand':'nz','poland':'pl','scotland':'gb','singapore':'sg',
     'south africa':'za','spain':'es','sweden':'se','taiwan':'tw','uk':'gb',
     'united kingdom':'gb','united state':'us','united states':'us','usa':'us','vietnam':'vn'}
+TW_CITY = re.compile(r'\b(taipei|hsinchu|kaohsiung|tainan|taichung|taoyuan|keelung)\b', re.I)
+def simplify_place(place):
+    """A Taiwanese venue is listed by its city alone, with no flag.
+
+    The upstream catalogue writes these several ways and the suffix is not
+    something this page needs to take a position on. The city is the useful
+    part and is not in dispute.
+    """
+    m = TW_CITY.search(place or '')
+    return m.group(1).title() if m else place
+
 def flag(place):
+    if TW_CITY.search(place or ''): return 
+
     if not place: return ''
     tail=place.split(',')[-1]
     tail=re.sub(r'\(.*?\)|/.*$|and online', ' ', tail, flags=re.I)
@@ -296,15 +309,15 @@ def flag(place):
 
 # ---------- areas ----------
 BIO={'APBC','BIBM','ISMB','ISBRA','RECOMB','MICCAI','EMBC'}
-AREA_BY_SUB={'AI':'AI / ML / Data Mining','SC':'Security & Privacy','DB':'AI / ML / Data Mining'}
+AREA_BY_SUB={'AI':'AI / ML / Data Mining','SC':'Security & Medicine','DB':'AI / ML / Data Mining'}
 # CCF files WWW under 交叉/综合/新兴 because of its history, but everyone
 # submitting to it treats it as a web-mining venue.
-AREA_OVERRIDE={'WWW':'AI / ML / Data Mining'}
+AREA_OVERRIDE={'WWW':'AI / ML / Data Mining', 'SIGSPATIAL':'AI / ML / Data Mining'}
 def area(sub, title):
     if title in EXTRA: return EXTRA[title]
     if title in AREA_OVERRIDE: return AREA_OVERRIDE[title]
     if sub in AREA_BY_SUB: return AREA_BY_SUB[sub]
-    if title in BIO: return 'Medicine, Biology & Genetics'
+    if title in BIO: return 'Security & Medicine'
     return 'Science & Interdisciplinary'
 
 def tier_of(ccf, core):
@@ -446,7 +459,7 @@ for sub in ['AI','SC','DB','MX','CG','HI']:
             rsrc='csc' if t in csc_rates else ('ar' if t in rates else '')
             off=official(t,d); mirror=canon(r.get('core','N'))
             out.append({
-                'title':t, 'desc':d, 'area':area(sub,t),
+                'title':t, 'desc':d, 'area':area(sub,t), 'sub':sub,
                 'ccf':r.get('ccf','N'), 'core': off if off is not None else mirror,
                 'coreVerified': off is not None,
                 'nextDeadline': nxt[0] if nxt else '',
@@ -460,7 +473,7 @@ for sub in ['AI','SC','DB','MX','CG','HI']:
                 'edition': ordinal_for(t, nxt[1] if nxt else None, period),
                 'best': BEST.get(t,''),
                 'link': (nxt[2] if nxt else latest.get('link','')) or '',
-                'date': this_ed.get('date','') or '', 'place': this_ed.get('place','') or '',
+                'date': this_ed.get('date','') or '', 'place': simplify_place(this_ed.get('place','') or ''),
                 'cc': flag(this_ed.get('place','')),
                 'city': city_note(this_ed.get('place','')),
                 'cycles': cycles, 'roundLabels': roundLabels,
@@ -584,7 +597,7 @@ NOTABLE=[
  {'title':'MLSys', 'equivalent':'CCF B / CORE A','desc':'Conference on Machine Learning and Systems','area':'AI / ML / Data Mining',
   'proceedings':'full','note':'Full proceedings. Unranked by both CCF and CORE despite being the main ML-systems venue.',
   'lastDeadline':'2025-10-30','link':'https://mlsys.org/'},
- {'title':'AMIA', 'equivalent':'CCF B / CORE A','desc':'AMIA Annual Symposium','area':'Medicine, Biology & Genetics',
+ {'title':'AMIA', 'equivalent':'CCF B / CORE A','desc':'AMIA Annual Symposium','area':'Security & Medicine',
   'proceedings':'full','note':'Full proceedings, indexed in PubMed. The central US biomedical-informatics meeting.',
   'lastDeadline':'2026-03-10','link':'https://amia.org/education-events/amia-annual-symposium'},
  {'title':'ASONAM', 'ccfManual':'C','coreManual':'B','desc':'IEEE/ACM International Conference on Advances in Social Networks Analysis and Mining','area':'AI / ML / Data Mining',
@@ -607,7 +620,7 @@ for n in NOTABLE:
     n.setdefault('equivalent', None)   # editorial, not an official rank
     nd, ny, est = roll(n.get('lastDeadline',''), n.get('period',1))
     n.update({'ccf':n.get('ccfManual','N'),'core':n.get('coreManual','N'),'coreVerified':False,'nextAbstract':'',
-              'cycles':1,'roundLabels':[],'rates':[],'rateSection':'','rateSrc':'','rateSlug':'','rounds':[],'dblp':'','best':'','csr':'','edition':'',
+              'cycles':1,'roundLabels':[],'rates':[],'rateSection':'','rateSrc':'','rateSlug':'','rounds':[],'dblp':'','best':'','csr':'','edition':'','sub':'',
               'estimated':est,'estFrom':n.get('lastDeadline','') if est else '',
               # The deadline year is not the edition year for any of these:
               # MLSys closes in October for the following year's conference.
@@ -632,7 +645,15 @@ for c in out: c['tier']=tier_of(c['ccf'], c['core'])
 
 CORE_ORDER={'A*':0,'A':1,'B':2,'C':3,'TBR':4,'JP':5,'N':6}
 CCF_ORDER={'A':0,'B':1,'C':2,'N':3}
-def listed(c): return c['core'] in ('A*','A') or c['ccf'] in ('A','B')
+# Security keeps only the four everyone means by "the top tier". The
+# interdisciplinary bucket keeps nothing: SIGSPATIAL, the one worth having,
+# moved to AI. Everything dropped here lands in the folded Others section.
+BIG_FOUR = {'CCS', 'S&P', 'USENIX Security', 'NDSS'}
+def listed(c):
+    if not (c['core'] in ('A*','A') or c['ccf'] in ('A','B')): return False
+    if c['area'] == 'Science & Interdisciplinary': return False
+    if c['sub'] == 'SC' and c['title'] not in BIG_FOUR: return False
+    return True
 # inside an area, soonest deadline first; anything without one trails behind
 def dkey(c): return (0, c['nextDeadline']) if c['nextDeadline'] else (1, c['title'].lower())
 emerging=[n for n in NOTABLE if n['proceedings']=='full']

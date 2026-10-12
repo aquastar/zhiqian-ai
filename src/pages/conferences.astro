@@ -5,12 +5,10 @@ import { topicRates } from '../data/topics.js';
 import { destinations } from '../data/destinations.js';
 
 const SOCIETY = 'Society meetings';
-const AREAS = ['AI / ML / Data Mining', 'Security & Privacy', 'Medicine, Biology & Genetics', 'Science & Interdisciplinary', SOCIETY];
+const AREAS = ['AI / ML / Data Mining', 'Security & Medicine', SOCIETY];
 const AREA_SHORT = {
   'AI / ML / Data Mining': 'AI · ML · Data Mining',
-  'Security & Privacy': 'Security & Privacy',
-  'Medicine, Biology & Genetics': 'Medicine · Biology · Genetics',
-  'Science & Interdisciplinary': 'Science & Interdisciplinary',
+  'Security & Medicine': 'Security · Medicine · Biology',
   [SOCIETY]: 'Society meetings',
 };
 const slug = (a) => a.toLowerCase().replace(/[^a-z]+/g, '-').replace(/^-|-$/g, '');
@@ -18,9 +16,7 @@ const slug = (a) => a.toLowerCase().replace(/[^a-z]+/g, '-').replace(/^-|-$/g, '
 // every row, so the two can be matched at a glance instead of by reading.
 const AREA_ICON = {
   'AI / ML / Data Mining': 'fa-brain',
-  'Security & Privacy': 'fa-shield-halved',
-  'Medicine, Biology & Genetics': 'fa-dna',
-  'Science & Interdisciplinary': 'fa-flask',
+  'Security & Medicine': 'fa-shield-halved',
   [SOCIETY]: 'fa-people-group',
 };
 const DEFAULT_AREA = 'AI / ML / Data Mining';
@@ -103,9 +99,7 @@ const CSR = 'https://csrankings.org/';
 const GSM = 'https://scholar.google.com/citations?view_op=top_venues&hl=en&vq=';
 const SCHOLAR = {
   'AI / ML / Data Mining': GSM + 'eng_artificialintelligence',
-  'Security & Privacy': GSM + 'eng_computersecuritycryptography',
-  'Medicine, Biology & Genetics': GSM + 'bio_bioinformatics',
-  'Science & Interdisciplinary': GSM + 'eng',
+  'Security & Medicine': GSM + 'eng_computersecuritycryptography',
   'Society meetings': '',
 };
 const TIER = { 1: 'Top', 2: 'Strong', 3: 'Listed' };
@@ -600,15 +594,11 @@ const freshRated = rows.filter((c) => c.rates.length && c.rates[c.rates.length -
   .area-tag i { font-size:.72rem; }
   /* One hue per field, shared by the tag and the filter button. */
   .area-ai-ml-data-mining        { color:#6d28d9; background:#f3f0ff; }
-  .area-security-privacy         { color:#0f766e; background:#effcfa; }
-  .area-medicine-biology-genetics { color:#be185d; background:#fdf2f8; }
-  .area-science-interdisciplinary{ color:#1d4ed8; background:#eff6ff; }
+  .area-security-medicine        { color:#0f766e; background:#effcfa; }
   .area-society-meetings         { color:#475569; background:#f1f5f9; }
   .fbtn i { font-size:.8rem; }
   .fbtn.area-ai-ml-data-mining:not(.is-on)         { color:#6d28d9; border-color:#ddd6fe; }
-  .fbtn.area-security-privacy:not(.is-on)          { color:#0f766e; border-color:#99f6e4; }
-  .fbtn.area-medicine-biology-genetics:not(.is-on) { color:#be185d; border-color:#fbcfe8; }
-  .fbtn.area-science-interdisciplinary:not(.is-on) { color:#1d4ed8; border-color:#bfdbfe; }
+  .fbtn.area-security-medicine:not(.is-on)         { color:#0f766e; border-color:#99f6e4; }
   .fbtn.area-society-meetings:not(.is-on)          { color:#475569; border-color:#cbd5e1; }
   .fbtn-dest { margin-left:auto; }
   .fbtn-dest:not(.is-on) { color:#0e7490; border-color:#a5f3fc; }
