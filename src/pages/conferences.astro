@@ -145,14 +145,14 @@ const freshRated = rows.filter((c) => c.rates.length && c.rates[c.rates.length -
 
     <section class="head">
       <div class="filter" role="group" aria-label="Filter by field">
-        <button class="fbtn fbtn-dest" data-area="destinations" type="button">
-          <i class="fas fa-plane-departure" aria-hidden="true"></i>By destination<span class="fcount">{destinations.items.length}</span>
-        </button>
         {counts.map((c) => (
           <button class={`fbtn area-${slug(c.area)}${c.area === DEFAULT_AREA ? ' is-on' : ''}`} data-area={slug(c.area)} type="button" data-scholar={SCHOLAR[c.area] || ''}>
             <i class={`fas ${AREA_ICON[c.area]}`} aria-hidden="true"></i>{AREA_SHORT[c.area]}<span class="fcount">{c.n}</span>
           </button>
         ))}
+        <button class="fbtn fbtn-dest" data-area="destinations" type="button">
+          <i class="fas fa-plane-departure" aria-hidden="true"></i>By destination<span class="fcount">{destinations.items.length}</span>
+        </button>
         <a class="scholar-link" id="scholar-link" href={SCHOLAR[DEFAULT_AREA]} target="_blank" rel="noopener"
            title="This field's h5-index ranking on Google Scholar Metrics, journals and conferences together">
           h5-index <i class="fas fa-arrow-up-right-from-square" aria-hidden="true"></i>
@@ -535,7 +535,7 @@ const freshRated = rows.filter((c) => c.rates.length && c.rates[c.rates.length -
     justify-content:flex-start; overflow-x:auto; scrollbar-width:none; }
   .filter::-webkit-scrollbar { display:none; }
   .scholar-link[hidden] { display:none; }
-  .scholar-link { flex:0 0 auto; margin-left:auto; display:inline-flex; align-items:center; gap:5px;
+  .scholar-link { flex:0 0 auto; display:inline-flex; align-items:center; gap:5px;
     font-size:.72rem; font-weight:700; color:#475569; text-decoration:none; white-space:nowrap;
     border:1px solid rgba(148,163,184,.45); border-radius:999px; padding:5px 11px; background:#fff; }
   .scholar-link:hover { color:var(--accent); border-color:rgba(37,99,235,.5); }
@@ -598,6 +598,7 @@ const freshRated = rows.filter((c) => c.rates.length && c.rates[c.rates.length -
   .fbtn.area-medicine-biology-genetics:not(.is-on) { color:#be185d; border-color:#fbcfe8; }
   .fbtn.area-science-interdisciplinary:not(.is-on) { color:#1d4ed8; border-color:#bfdbfe; }
   .fbtn.area-society-meetings:not(.is-on)          { color:#475569; border-color:#cbd5e1; }
+  .fbtn-dest { margin-left:auto; }
   .fbtn-dest:not(.is-on) { color:#0e7490; border-color:#a5f3fc; }
   .fbtn-dest.is-on { background:#0e7490; border-color:#0e7490; }
   .dest-section[hidden], .section[hidden] { display:none; }

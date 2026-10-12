@@ -7,7 +7,7 @@ Two clean axes, never mixed: city and country. A place like Hawaii is
 neither, so it is reachable through the free-text search over the raw place
 string instead of being wedged into one of the two lists.
 """
-import yaml, glob, re, json, datetime, collections, unicodedata
+import yaml, glob, re, json, datetime, collections, unicodedata, calendar
 
 TODAY = datetime.date.today()
 CACHE = '.conf-cache/ccf-deadlines/conference'
@@ -121,6 +121,26 @@ TO_CONTINENT = {c: k for k, v in CONTINENT.items() for c in v}
 def continent_of(country):
     return TO_CONTINENT.get(key(country), '')
 
+MONTHS = {m: i for i, m in enumerate(
+    ['jan','feb','mar','apr','may','jun','jul','aug','sep','oct','nov','dec'], 1)}
+
+def ends_after_today(date_text, year):
+    """Has this edition finished? Dates are free text, so be generous.
+
+    Takes the last month named, because a run like "September 26 - October 1"
+    ends in the later one, and treats the end of that month as the finish.
+    Unparseable dates fall back to the year, which keeps the current year in.
+    """
+    if not date_text:
+        return year >= TODAY.year
+    months = [MONTHS[m] for m in re.findall(r'[a-z]{3}', date_text.lower()) if m in MONTHS]
+    yrs = [int(y) for y in re.findall(r'\b(20\d{2})\b', date_text)]
+    y = max(yrs) if yrs else year
+    if not months:
+        return y >= TODAY.year
+    m = max(months) if len(set(months)) > 1 else months[0]
+    return datetime.date(y, m, calendar.monthrange(y, m)[1]) >= TODAY
+
 def dstr(s):
     m = re.match(r'(\d{4}-\d{2}-\d{2})', str(s or ''))
     return m.group(1) if m else ''
@@ -133,6 +153,7 @@ for f in sorted(glob.glob(f'{CACHE}/*/*.yml')):
         for ed in c.get('confs') or []:
             year, place = ed.get('year'), str(ed.get('place') or '').strip()
             if not year or year < TODAY.year or not place: continue
+            if not ends_after_today(ed.get('date') or '', year): continue
             if NOWHERE.match(key(place)): continue
             city, country = city_of(place), country_of(place)
             if not city and not country: continue
@@ -216,12 +237,21 @@ MANUAL = [
   'deadline':'2026-07-26','open':False,'link':'https://ausdm26.ausdm.org/'},
 ]
 for m in MANUAL:
+    if not ends_after_today(m.get('date', ''), m['year']): continue
     m['city'], m['country'] = city_of(m['place']), country_of(m['place'])
     m['continent'] = continent_of(m['country'])
     m['q'] = f"{m['place']} {m['city']} {m['country']} {expand(m['place'])}".lower()
     m.setdefault('ccf', 'N'); m.setdefault('core', 'N')
     items.append(m)
 
+# Editions that have already happened are gone, so a conference appears once
+# per city: its next visit there. Deduping by title alone would be wrong here,
+# because RecSys 2026 somewhere else would hide RecSys 2027 in Honolulu, and
+# the whole point of this view is to find the latter.
+items.sort(key=lambda x: (x['year'], x['date'], x['title'].lower()))
+seen = set()
+items = [i for i in items
+         if not ((i['title'], i['city']) in seen or seen.add((i['title'], i['city'])))]
 items.sort(key=lambda x: (x['year'], x['title'].lower()))
 cities = collections.Counter(i['city'] for i in items if i['city'])
 countries = collections.Counter(i['country'] for i in items if i['country'])
