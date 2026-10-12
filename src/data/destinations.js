@@ -3,7 +3,7 @@
 // Only CCF A or B, or CORE A* or A, plus the venues added by hand in
 // the script. Destinations deliberately mix cities, countries and
 // regions, because that is how people choose where to go.
-// Built 2026-10-11.
+// Built 2026-10-12.
 export const destinations = {
  "items": [
   {
@@ -959,6 +959,23 @@ export const destinations = {
    "q": "tokyo, japan tokyo japan "
   },
   {
+   "title": "CoNEXT",
+   "desc": "International Conference on Emerging Networking Experiments and Technologies",
+   "year": 2027,
+   "place": "Rio de Janeiro, Brazil",
+   "date": "December 6-9, 2027 (To be confirmed)",
+   "city": "Rio de Janeiro",
+   "country": "Brazil",
+   "dest": "South America",
+   "icon": "mountain-sun",
+   "ccf": "B",
+   "core": "A",
+   "deadline": "2026-12-04",
+   "open": true,
+   "link": "https://conferences.sigcomm.org/co-next/2027/#!/home",
+   "q": "rio de janeiro, brazil rio de janeiro brazil "
+  },
+  {
    "title": "CSFW",
    "desc": "IEEE Computer Security Foundations Symposium",
    "year": 2027,
@@ -1039,7 +1056,7 @@ export const destinations = {
    "ccf": "N",
    "core": "A",
    "deadline": "2026-10-11",
-   "open": true,
+   "open": false,
    "link": "https://2027.eacl.org/",
    "q": "athens, greece athens greece "
   },
@@ -2245,7 +2262,7 @@ export const destinations = {
   {
    "name": "South America",
    "icon": "mountain-sun",
-   "n": 7
+   "n": 8
   },
   {
    "name": "Southeast Asia",

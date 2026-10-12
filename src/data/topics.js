@@ -4,7 +4,7 @@
 // Only venues publishing a full submission pool appear here: the
 // NeurIPS and ICML lists are accepted-papers lists, so no rate can be
 // computed from them. Denominator excludes withdrawn and desk-rejected.
-// Built 2026-10-11.
+// Built 2026-10-12.
 export const topicRates = {
   "ICLR": [
     {

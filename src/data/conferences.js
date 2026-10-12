@@ -3,59 +3,8 @@
 // CORE ranks are cross-checked against the official CORE2023 export from
 // portal.core.edu.au. Acceptance rates come from
 // github.com/lixin4ever/Conference-Acceptance-Rate (main track only).
-// Built 2026-10-11.
+// Built 2026-10-12.
 export const ranked = [
-  {
-    "title": "EACL",
-    "desc": "The Annual Conference of the European Chapter of the Association for Computational Linguistics",
-    "area": "AI / ML / Data Mining",
-    "sub": "AI",
-    "ccf": "N",
-    "core": "A",
-    "coreVerified": true,
-    "nextDeadline": "2026-10-11",
-    "nextYear": 2027,
-    "nextAbstract": "",
-    "estimated": false,
-    "estFrom": "",
-    "rounds": [
-      {
-        "d": "2026-10-11",
-        "label": "EACL commitment after ARR meta-reviews; reviewed papers only",
-        "est": false,
-        "year": 2027,
-        "link": "https://2027.eacl.org/",
-        "abs": ""
-      },
-      {
-        "d": "2027-10-06",
-        "label": "ARR Submission",
-        "est": true,
-        "from": "2025-10-06",
-        "abs": ""
-      }
-    ],
-    "dblp": "eacl",
-    "csr": "",
-    "edition": "",
-    "best": "",
-    "link": "https://2027.eacl.org/",
-    "date": "March 9-14, 2027",
-    "place": "Athens, Greece",
-    "cc": "gr",
-    "city": "rooftop dinner under the lit Acropolis, souvlaki on Mitropoleos, Sunday flea at Monastiraki",
-    "cycles": 2,
-    "roundLabels": [
-      "ARR Submission",
-      "EACL commitment after ARR meta-reviews; reviewed papers only"
-    ],
-    "proceedings": "full",
-    "rates": [],
-    "rateSection": "",
-    "rateSrc": "",
-    "rateSlug": "",
-    "tier": 2
-  },
   {
     "title": "COLING",
     "desc": "International Conference on Computational Linguistics",
@@ -6801,6 +6750,56 @@ export const ranked = [
     "rateSection": "",
     "rateSrc": "csc",
     "rateSlug": "sdm",
+    "tier": 2
+  },
+  {
+    "title": "EACL",
+    "desc": "The Annual Conference of the European Chapter of the Association for Computational Linguistics",
+    "area": "AI / ML / Data Mining",
+    "sub": "AI",
+    "ccf": "N",
+    "core": "A",
+    "coreVerified": true,
+    "nextDeadline": "2027-10-06",
+    "nextYear": 2028,
+    "nextAbstract": "",
+    "estimated": true,
+    "estFrom": "2025-10-06",
+    "rounds": [
+      {
+        "d": "2027-10-06",
+        "label": "ARR Submission",
+        "est": true,
+        "from": "2025-10-06",
+        "abs": ""
+      },
+      {
+        "d": "2027-12-14",
+        "label": "Commitment deadline for papers reviewed by ARR",
+        "est": true,
+        "from": "2025-12-14",
+        "abs": ""
+      }
+    ],
+    "dblp": "eacl",
+    "csr": "",
+    "edition": "",
+    "best": "",
+    "link": "https://2027.eacl.org/",
+    "date": "",
+    "place": "",
+    "cc": "",
+    "city": "",
+    "cycles": 2,
+    "roundLabels": [
+      "ARR Submission",
+      "EACL commitment after ARR meta-reviews; reviewed papers only"
+    ],
+    "proceedings": "full",
+    "rates": [],
+    "rateSection": "",
+    "rateSrc": "",
+    "rateSlug": "",
     "tier": 2
   },
   {
