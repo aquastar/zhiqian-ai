@@ -292,15 +292,15 @@ const freshRated = rows.filter((c) => c.rates.length && c.rates[c.rates.length -
                   </span>
                   <span class="conf-desc">{it.desc}</span>
                 </td>
-                <td class="c-date">
+                <td class="c-date" data-label="Deadline">
                   <span class="dl">{it.deadline || 'not published'}</span>
                   {it.deadline && <span class={it.open ? 'dl-days' : 'dl-days band-past'} data-deadline={it.open ? it.deadline : ''}>{it.open ? '' : 'closed'}</span>}
                 </td>
-                <td class="c-when">
+                <td class="c-when" data-label="When and where">
                   <span class="when">{it.date}</span>
                   <span class="where">{it.place}</span>
                 </td>
-                <td class="c-rank">
+                <td class="c-rank" data-label="Ranking">
                   <span class={`pill ccf-${it.ccf.toLowerCase()}`}>CCF {it.ccf === 'N' ? 'n/a' : it.ccf}</span>
                   <span class={`pill ${coreClass(it.core)}`}>CORE {coreLabel[it.core] || 'n/a'}</span>
                 </td>
@@ -323,9 +323,8 @@ const freshRated = rows.filter((c) => c.rates.length && c.rates[c.rates.length -
         <table class="confs">
           <thead>
             <tr>
-              <th class="c-name">Conference</th>
+              <th class="c-name">Conference and edition</th>
               <th class="c-date">Next deadline</th>
-              <th class="c-when">Edition</th>
               <th class="c-rate">Acceptance</th>
               <th class="c-rank">Ranking</th>
             </tr>
@@ -354,8 +353,15 @@ const freshRated = rows.filter((c) => c.rates.length && c.rates[c.rates.length -
                     </span>
                   )}
                   {c.note && <p class="why">{c.note}</p>}
+                  <span class="ed-line">
+                    {c.edition && <span class="ed-ord" title="Edition number, projected from the last one on record">{c.edition}</span>}
+                    {c.nextYear && !(c.date || '').includes(String(c.nextYear)) ? <span class="ed">{c.nextYear}</span> : null}
+                    {c.date ? <span class="when">{c.date}</span> : <span class="none">not yet scheduled</span>}
+                    {c.place && <span class="where">{c.cc && <span class={`fi fi-${c.cc}`} aria-hidden="true"></span>}{c.place}</span>}
+                  </span>
+                  {c.city && <span class="city"><i class="fas fa-camera" aria-hidden="true"></i>{c.city}</span>}
                 </td>
-                <td class="c-date">
+                <td class="c-date" data-label="Next deadline">
                   {c.rounds && c.rounds.length
                     ? <>
                         {c.rounds.slice(0, MAX_ROUNDS).map((r) => (
@@ -386,14 +392,7 @@ const freshRated = rows.filter((c) => c.rates.length && c.rates[c.rates.length -
                       </>
                     : <span class="none">date unavailable</span>}
                 </td>
-                <td class="c-when">
-                  {c.edition && <span class="ed-ord" title="Edition number, projected from the last one on record">{c.edition}</span>}
-                  {c.nextYear && !(c.date || '').includes(String(c.nextYear)) ? <span class="ed">{c.nextYear}</span> : null}
-                  {c.date ? <span class="when">{c.date}</span> : <span class="none">not yet scheduled</span>}
-                  {c.place && <span class="where">{c.cc && <span class={`fi fi-${c.cc}`} aria-hidden="true"></span>}{c.place}</span>}
-                  {c.city && <span class="city"><i class="fas fa-camera" aria-hidden="true"></i>{c.city}</span>}
-                </td>
-                <td class="c-rate">
+                <td class="c-rate" data-label="Acceptance">
                   {last
                     ? <div class={`rate ${stale ? 'is-stale' : ''}`}>
                         <div class="rate-side">
@@ -426,7 +425,7 @@ const freshRated = rows.filter((c) => c.rates.length && c.rates[c.rates.length -
                       </div>
                     : <span class="none">no published rate</span>}
                 </td>
-                <td class="c-rank">
+                <td class="c-rank" data-label="Ranking">
                   {c.society
                     ? <span class="eqv eqv-none">{c.proceedings === 'optin' ? 'not rankable, proceedings are opt-in and not peer reviewed' : 'not rankable, no archival proceedings'}</span>
                     : c.notable
@@ -577,7 +576,7 @@ const freshRated = rows.filter((c) => c.rates.length && c.rates[c.rates.length -
   .area-note { margin:6px 0 0; font-size:.8rem; color:#64748b; line-height:1.6; max-width:78ch; }
 
   .table-wrap { overflow-x:auto; border:1px solid rgba(148,163,184,.26); border-radius:12px; }
-  table.confs { width:100%; min-width:1340px; table-layout:fixed; border-collapse:collapse; font-size:.84rem; }
+  table.confs { width:100%; min-width:1240px; table-layout:fixed; border-collapse:collapse; font-size:.84rem; }
   .confs thead th { position:sticky; top:0; z-index:2; background:#f8fafc; text-align:left; font-size:.64rem;
     letter-spacing:.08em; text-transform:uppercase; color:#64748b; font-weight:700;
     padding:6px 6px; border-bottom:1px solid rgba(148,163,184,.3); white-space:nowrap; }
@@ -593,7 +592,7 @@ const freshRated = rows.filter((c) => c.rates.length && c.rates[c.rates.length -
   .tt-2 { background:#1d4ed8; }
   .tt-3 { background:#15803d; }
 
-  .c-name { width:378px; }
+  .c-name { width:430px; }
   .name-line { display:flex; align-items:center; gap:7px; flex-wrap:wrap; }
   .conf-name { overflow-wrap:anywhere; font-weight:700; color:#0f172a; text-decoration:none; font-size:.9rem; }
   a.conf-name:hover { color:var(--accent); text-decoration:underline; }
@@ -663,6 +662,10 @@ const freshRated = rows.filter((c) => c.rates.length && c.rates[c.rates.length -
   .dl-days.band-past   { background:#e2e8f0; color:#64748b; }
 
   .c-when { font-size:.73rem; color:#475569; width:298px; line-height:1.35; }
+  /* The edition now lives inside the conference cell, set apart by a rule
+     rather than a column. */
+  .ed-line { display:block; margin-top:5px; padding-top:5px; font-size:.73rem; color:#475569;
+    line-height:1.35; border-top:1px dotted rgba(148,163,184,.4); }
   .ed { display:inline-block; font-weight:700; color:#1e293b; font-size:.76rem; margin-right:5px; }
   .ed-ord { display:inline-block; margin-right:5px; padding:1px 6px; border-radius:4px;
     background:#1e293b; color:#fff; font-size:.63rem; font-weight:800; letter-spacing:.02em; }
@@ -671,6 +674,7 @@ const freshRated = rows.filter((c) => c.rates.length && c.rates[c.rates.length -
   .city i { margin-top:2px; font-size:.6rem; flex:0 0 auto; }
   .when { display:inline; }
   .where { display:flex; align-items:center; gap:5px; color:#94a3b8; }
+  .ed-line .when { display:inline; }
   .where .fi { flex:0 0 auto; border-radius:2px; box-shadow:0 0 0 1px rgba(15,23,42,.08); }
 
   .c-rate { width:300px; }
@@ -870,6 +874,41 @@ const freshRated = rows.filter((c) => c.rates.length && c.rates[c.rates.length -
   .src-note b { color:#0f172a; }
   .src-note .est-tag { margin:0 2px; }
   .src-note a { color:#64748b; }
+
+  /* Narrow screens: the table stops being a table. Each row becomes a card
+     with its cells labelled, so everything stays readable instead of being
+     pushed off the side behind a horizontal scrollbar. */
+  @media (max-width: 1000px) {
+    .table-wrap { overflow-x:visible; border:0; }
+    /* The filter row wraps instead of hiding its tail behind a sideways scroll. */
+    .filter { flex-wrap:wrap; overflow-x:visible; row-gap:6px; }
+    .fbtn-dest { margin-left:0; }
+    table.confs { min-width:0; table-layout:auto; display:block; }
+    .confs thead { display:none; }
+    .confs tbody { display:block; }
+    .confs tbody tr { display:block; margin-bottom:10px; padding:10px 12px;
+      border:1px solid rgba(148,163,184,.3); border-radius:12px; background:#fff; }
+    .confs tbody td { display:block; width:auto !important; padding:0; border:0; }
+    .confs tbody td + td { margin-top:9px; padding-top:9px; border-top:1px dashed rgba(148,163,184,.3); }
+    .confs tbody td[data-label]::before { content:attr(data-label); display:block; margin-bottom:3px;
+      font-size:.6rem; font-weight:700; letter-spacing:.07em; text-transform:uppercase; color:#94a3b8; }
+    .c-name, .c-date, .c-when, .c-rate, .c-rank { width:auto !important; white-space:normal; }
+    .conf-desc, .why, .city { max-width:none; }
+    .round-label, .round-more { max-width:none; }
+    .ranks { flex-direction:row; flex-wrap:wrap; gap:6px; }
+    .rate { grid-template-columns:auto 1fr; column-gap:14px; }
+    .rate-side { grid-column:2; grid-row:1 / span 2; }
+    .spark { width:100%; max-width:220px; }
+    /* The topic block is a grid, not a table, and needs its own squeeze. */
+    .rest > summary { flex-wrap:wrap; gap:6px 10px; }
+    .rest > summary h2 { flex:1 0 100%; }
+    .topic-head { display:none; }
+    .topic-list li { grid-template-columns:50px 42px minmax(0,1fr); row-gap:2px; }
+    .topic-list li > .t-bar { display:none; }
+    .t-share, .t-dshare, .t-spark { display:none; }
+    .t-papers { padding-left:0; }
+    .t-papers li { grid-template-columns:18px 38px 64px minmax(0,1fr); }
+  }
 
   @media (max-width: 760px) {
     .head-row { flex-direction:column; }
