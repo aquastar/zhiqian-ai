@@ -32,11 +32,17 @@ const chart = (rates) => {
   if (!rates || rates.length < 2) return null;
   const xs = rates.map((p, i) => (i / (rates.length - 1)) * CHART.w);
   const y = (r) => CHART.h - (Math.min(r, RATE_MAX) / RATE_MAX) * CHART.h;
+  const pts = rates.map((p, i) => [xs[i], y(p.r)]);
+  // Path and its length, both needed by the draw-on animation: the dash
+  // trick needs the length, and the dot rides the same path.
+  const d = pts.map(([px, py], i) => `${i ? 'L' : 'M'}${px.toFixed(1)},${py.toFixed(1)}`).join(' ');
+  const len = pts.slice(1).reduce(
+    (a, [px, py], i) => a + Math.hypot(px - pts[i][0], py - pts[i][1]), 0);
   return {
-    pts: rates.map((p, i) => `${xs[i].toFixed(1)},${y(p.r).toFixed(1)}`).join(' '),
+    d, len: Math.ceil(len),
     last: { x: xs[xs.length - 1], y: y(rates[rates.length - 1].r) },
     grid: [10, 20, 30, 40].map((v) => ({ v, y: y(v) })),
-    span: `${rates[0].y}–${rates[rates.length - 1].y}`,
+    span: `${rates[0].y}\u2013${rates[rates.length - 1].y}`,
   };
 };
 const AR_REPO_OLD = 'https://github.com/lixin4ever/Conference-Acceptance-Rate';
@@ -325,7 +331,7 @@ const freshRated = rows.filter((c) => c.rates.length && c.rates[c.rates.length -
             </tr>
           </thead>
           <tbody>
-            {rows.map((c) => {
+            {rows.map((c, i) => {
               const last = c.rates.length ? c.rates[c.rates.length - 1] : null;
               const stale = last && last.y < FRESH_FROM;
               return (
@@ -404,8 +410,11 @@ const freshRated = rows.filter((c) => c.rates.length && c.rates[c.rates.length -
                                 <text x={CHART.w + 3} y={g.y + 3} class="glab">{g.v}</text>
                               </>
                             ))}
-                            <polyline points={c.chart.pts} class="line" />
-                            <circle cx={c.chart.last.x} cy={c.chart.last.y} r="2.6" class="dot" />
+                            <path class="line" d={c.chart.d}
+                                  style={`--len:${c.chart.len}; --delay:${(i % 7) * 0.45}s`} />
+                            <circle class="dot" r="2.6"
+                                    style={`offset-path:path('${c.chart.d}'); --delay:${(i % 7) * 0.45}s`} />
+                            <circle class="dot-end" cx={c.chart.last.x} cy={c.chart.last.y} r="2.6" />
                           </svg>
                         )}
                         <div class="rate-nums">
@@ -669,7 +678,44 @@ const freshRated = rows.filter((c) => c.rates.length && c.rates[c.rates.length -
   .spark .grid { stroke:rgba(148,163,184,.35); stroke-width:.6; stroke-dasharray:2 2; }
   .spark .glab { font-size:6px; fill:#94a3b8; }
   .spark .line { fill:none; stroke:currentColor; stroke-width:1.6; stroke-linejoin:round; stroke-linecap:round; }
-  .spark .dot  { fill:currentColor; }
+  .spark .dot, .spark .dot-end { fill:currentColor; }
+  /* The line draws itself left to right with a dot at the leading edge, then
+     rests on the finished chart before starting over. Staggered so a screen
+     full of them does not pulse in unison. */
+  .spark .line {
+    stroke-dasharray: var(--len); stroke-dashoffset: var(--len);
+    animation: spark-draw 7s ease-in-out var(--delay, 0s) infinite;
+  }
+  .anim-off .spark .line,
+  .anim-off .spark .dot,
+  .anim-off .spark .dot-end { animation-play-state: paused; }
+  .spark .dot {
+    offset-rotate: 0deg; opacity: 0;
+    animation: spark-ride 7s ease-in-out var(--delay, 0s) infinite;
+  }
+  .spark .dot-end { opacity: 0; animation: spark-rest 7s ease-in-out var(--delay, 0s) infinite; }
+  @keyframes spark-draw {
+    0%   { stroke-dashoffset: var(--len); }
+    45%  { stroke-dashoffset: 0; }
+    100% { stroke-dashoffset: 0; }
+  }
+  @keyframes spark-ride {
+    0%   { offset-distance: 0%;   opacity: 0; }
+    4%   { opacity: 1; }
+    45%  { offset-distance: 100%; opacity: 1; }
+    52%  { offset-distance: 100%; opacity: 0; }
+    100% { offset-distance: 100%; opacity: 0; }
+  }
+  @keyframes spark-rest {
+    0%, 45% { opacity: 0; }
+    52%, 100% { opacity: 1; }
+  }
+  /* Anyone who has asked for less motion gets the finished chart, still. */
+  @media (prefers-reduced-motion: reduce) {
+    .spark .line { animation: none; stroke-dashoffset: 0; }
+    .spark .dot { display: none; }
+    .spark .dot-end { animation: none; opacity: 1; }
+  }
   .rate.is-stale .spark { color:#94a3b8; }
   /* chart and numbers on the left, the link to the full history on the right */
   .rate { display:grid; grid-template-columns:minmax(0,1fr) auto; column-gap:10px; align-items:center; }
@@ -834,6 +880,18 @@ const freshRated = rows.filter((c) => c.rates.length && c.rates[c.rates.length -
 <script>
   const DAY = 86400000;
   const today = new Date(); today.setHours(0, 0, 0, 0);
+
+  // Run the chart animation only while the table is on screen. One observer
+  // over the wrapper, not thirty-nine over the charts.
+  // The destination table comes first in the DOM, so find the wrapper that
+  // actually holds the charts rather than the first one on the page.
+  const firstSpark = document.querySelector('.spark');
+  const chartHost = firstSpark && firstSpark.closest('.table-wrap');
+  if (chartHost && 'IntersectionObserver' in window) {
+    new IntersectionObserver((entries) => {
+      entries.forEach((e) => chartHost.classList.toggle('anim-off', !e.isIntersecting));
+    }, { rootMargin: '150px' }).observe(chartHost);
+  }
 
   // Abstract deadlines: the one that closes the round, so a passed abstract
   // is called out in red even while the paper date is still ahead.
