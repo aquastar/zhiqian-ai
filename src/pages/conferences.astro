@@ -437,8 +437,8 @@ const freshRated = rows.filter((c) => c.rates.length && c.rates[c.rates.length -
       <p class="empty-note" hidden>No conference in this field.</p>
       <p class="area-note">
         Acceptance rates: {totalRated} of {rows.length} venues publish one, and {freshRated} of those are {FRESH_FROM} or later.
-        The rest are labeled with the year they stop &mdash; the upstream compilation simply stopped updating them.
-        Main track only; Findings and workshops are excluded.
+        The rest are labeled with the year they stop. The upstream compilation simply stopped updating them.
+        Main track only, with Findings and workshops excluded.
       </p>
     </section>
 
@@ -465,22 +465,46 @@ const freshRated = rows.filter((c) => c.rates.length && c.rates[c.rates.length -
     <section class="section sources">
       <h2 class="area-head">Where all of this comes from</h2>
       <ul class="src-list">
-        <li><a href="https://github.com/ccfddl/ccf-deadlines" target="_blank" rel="noopener">ccfddl/ccf-deadlines</a></li>
-        <li><a href="https://portal.core.edu.au/conf-ranks/" target="_blank" rel="noopener">CORE Conference Portal</a></li>
-        <li><a href="https://csconfstats.xoveexu.com/conferences/" target="_blank" rel="noopener">CS Conf Stats</a></li>
-        <li><a href="https://github.com/Xovee/cs-conf-stats" target="_blank" rel="noopener">Xovee/cs-conf-stats</a></li>
-        <li><a href="https://github.com/lixin4ever/Conference-Acceptance-Rate" target="_blank" rel="noopener">Conference-Acceptance-Rate</a></li>
-        <li><a href="https://jeffhuang.com/best_paper_awards/" target="_blank" rel="noopener">Best Paper Awards in Computer Science</a></li>
-        <li><a href="https://csrankings.org/" target="_blank" rel="noopener">CSRankings</a></li>
-        <li><a href="https://scholar.google.com/citations?view_op=top_venues&hl=en" target="_blank" rel="noopener">Google Scholar Metrics</a></li>
-        <li><a href="https://github.com/papercopilot/paperlists" target="_blank" rel="noopener">papercopilot/paperlists</a></li>
-        <li><a href="https://dblp.org/" target="_blank" rel="noopener">DBLP</a></li>
-        <li><a href="https://www.siam.org/conferences-events/" target="_blank" rel="noopener">SIAM</a></li>
-        <li><a href="https://meetings.informs.org/" target="_blank" rel="noopener">INFORMS</a></li>
-        <li><a href="https://mlsys.org/" target="_blank" rel="noopener">MLSys</a></li>
-        <li><a href="https://colm.cc/" target="_blank" rel="noopener">COLM</a></li>
-        <li><a href="https://amia.org/education-events/amia-annual-symposium" target="_blank" rel="noopener">AMIA</a></li>
-        <li><a href="https://asonam.cpsc.ucalgary.ca/2026/CFP.php" target="_blank" rel="noopener">ASONAM</a></li>
+        <li>
+          <a href="https://github.com/ccfddl/ccf-deadlines" target="_blank" rel="noopener">ccf-deadlines</a>
+          <span>CCF ranks, deadlines, rounds, dates, cities</span>
+        </li>
+        <li>
+          <a href="https://portal.core.edu.au/conf-ranks/" target="_blank" rel="noopener">CORE Portal</a>
+          <span>CORE ranks, from the official CORE2023 export</span>
+        </li>
+        <li>
+          <a href="https://csconfstats.xoveexu.com/conferences/" target="_blank" rel="noopener">CS Conf Stats</a>
+          <span>Acceptance rates, accepted and submitted counts</span>
+        </li>
+        <li>
+          <a href="https://github.com/papercopilot/paperlists" target="_blank" rel="noopener">paperlists</a>
+          <span>Per-topic acceptance, from every ICLR submission</span>
+        </li>
+        <li>
+          <a href="https://csrankings.org/" target="_blank" rel="noopener">CSRankings</a>
+          <span>Which venues it counts, and under which area</span>
+        </li>
+        <li>
+          <a href="https://jeffhuang.com/best_paper_awards/" target="_blank" rel="noopener">Best Paper Awards</a>
+          <span>Award winners since 1996, for 16 of these venues</span>
+        </li>
+        <li>
+          <a href="https://dblp.org/" target="_blank" rel="noopener">DBLP</a>
+          <span>Every past edition's proceedings</span>
+        </li>
+        <li>
+          <a href="https://scholar.google.com/citations?view_op=top_venues&hl=en" target="_blank" rel="noopener">Scholar Metrics</a>
+          <span>h5-index per field, linked not imported</span>
+        </li>
+        <li>
+          <a href="https://github.com/lixin4ever/Conference-Acceptance-Rate" target="_blank" rel="noopener">Conference-Acceptance-Rate</a>
+          <span>Older rates, fallback only</span>
+        </li>
+        <li>
+          <span class="src-plain">Official conference sites</span>
+          <span>The venues neither ranking table covers, kept by hand</span>
+        </li>
       </ul>
       <p class="src-note">
         <b>Updated automatically every Monday at 06:17 UTC.</b> A GitHub Action re-fetches all of the above,
@@ -779,14 +803,16 @@ const freshRated = rows.filter((c) => c.rates.length && c.rates[c.rates.length -
   .rest-desc { color:#94a3b8; font-size:.71rem; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
 
   .sources { border-top:1px solid rgba(148,163,184,.26); padding-top:14px; }
-  .src-list { list-style:none; margin:10px 0 0; padding:0; display:grid;
-    grid-template-columns:repeat(auto-fit, minmax(190px,1fr)); gap:4px 24px; }
-  .src-list li { font-size:.82rem; line-height:1.6; }
-  .src-list > li > a:first-child { font-weight:700; }
-  .src-list a { color:#334155; text-decoration:none; border-bottom:1px solid rgba(148,163,184,.5); }
-  .src-list a:hover { color:var(--accent); border-color:currentColor; }
-  .src-list span { display:block; color:#94a3b8; font-size:.73rem; margin-top:2px; }
-  .src-list span a { color:#94a3b8; }
+  .src-list { list-style:none; margin:12px 0 0; padding:0; display:grid;
+    grid-template-columns:repeat(auto-fit, minmax(260px,1fr)); gap:0; }
+  .src-list li { padding:9px 14px 9px 0; border-top:1px solid rgba(148,163,184,.22); }
+  .src-list a, .src-plain { display:block; font-size:.82rem; font-weight:700; color:#1e293b;
+    text-decoration:none; }
+  .src-list a:hover { color:var(--accent); }
+  .src-list a::after { content:'\f08e'; font-family:'Font Awesome 6 Free'; font-weight:900;
+    font-size:.56rem; margin-left:6px; color:#cbd5e1; vertical-align:2px; }
+  .src-list span:last-child { display:block; font-size:.74rem; color:#94a3b8; line-height:1.45; margin-top:2px; }
+  .src-plain { color:#64748b; }
   .src-note { margin-top:16px; padding:11px 14px; border:1px solid rgba(148,163,184,.3); border-radius:10px;
     background:#f8fafc; font-size:.78rem; color:#475569; line-height:1.65; }
   .src-note b { color:#0f172a; }
