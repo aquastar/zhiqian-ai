@@ -146,7 +146,7 @@ const freshRated = rows.filter((c) => c.rates.length && c.rates[c.rates.length -
     <section class="head">
       <div class="filter" role="group" aria-label="Filter by field">
         <button class="fbtn fbtn-dest" data-area="destinations" type="button">
-          <i class="fas fa-plane-departure" aria-hidden="true"></i>By destination<span class="fcount">{destinations.reduce((a, d) => a + d.n, 0)}</span>
+          <i class="fas fa-plane-departure" aria-hidden="true"></i>By destination<span class="fcount">{destinations.items.length}</span>
         </button>
         {counts.map((c) => (
           <button class={`fbtn area-${slug(c.area)}${c.area === DEFAULT_AREA ? ' is-on' : ''}`} data-area={slug(c.area)} type="button" data-scholar={SCHOLAR[c.area] || ''}>
@@ -264,11 +264,30 @@ const freshRated = rows.filter((c) => c.rates.length && c.rates[c.rates.length -
     ))}
 
     <section class="section dest-section" id="destinations" hidden>
-      <div class="dest-pick" role="group" aria-label="Pick a destination">
-        {destinations.map((d, i) => (
-          <button class={`dbtn${i === 0 ? ' is-on' : ''}`} data-dest={slug(d.dest)} type="button">
-            <i class={`fas fa-${d.icon}`} aria-hidden="true"></i>{d.dest}<span class="fcount">{d.n}</span>
-          </button>
+      <div class="dest-bar">
+        <div class="dest-axis" role="group" aria-label="Group by">
+          <button class="axbtn is-on" data-axis="city" type="button">Cities</button>
+          <button class="axbtn" data-axis="country" type="button">Countries</button>
+          <button class="axbtn" data-axis="continent" type="button">Continents</button>
+        </div>
+        <label class="dest-search">
+          <i class="fas fa-magnifying-glass" aria-hidden="true"></i>
+          <input id="dest-q" type="search" placeholder="or type a place: hawaii, kyoto, florida" autocomplete="off" />
+        </label>
+      </div>
+      <div class="dest-pick" data-for="city">
+        {destinations.cities.map((c, i) => (
+          <button class={`dbtn${i === 0 ? ' is-on' : ''}`} data-city={c.name} type="button">{c.name}<span class="fcount">{c.n}</span></button>
+        ))}
+      </div>
+      <div class="dest-pick" data-for="country" hidden>
+        {destinations.countries.map((c) => (
+          <button class="dbtn" data-country={c.name} type="button">{c.name}<span class="fcount">{c.n}</span></button>
+        ))}
+      </div>
+      <div class="dest-pick" data-for="continent" hidden>
+        {destinations.continents.map((c) => (
+          <button class="dbtn" data-continent={c.name} type="button">{c.name}<span class="fcount">{c.n}</span></button>
         ))}
       </div>
       <div class="table-wrap">
@@ -282,48 +301,38 @@ const freshRated = rows.filter((c) => c.rates.length && c.rates[c.rates.length -
             </tr>
           </thead>
           <tbody>
-            {destinations.map((d) => d.items.map((it) => (
-              <tr data-dest={slug(d.dest)} hidden={d !== destinations[0]}>
+            {destinations.items.map((it) => (
+              <tr data-city={it.city} data-country={it.country} data-continent={it.continent} data-place={it.q} hidden>
                 <td class="c-name">
                   <span class="name-line">
-                    {it.link
-                      ? <a class="conf-name" href={it.link} target="_blank" rel="noopener">{it.title}</a>
-                      : <span class="conf-name">{it.title}</span>}
+                    <a class="conf-name" href={it.link} target="_blank" rel="noopener">{it.title}</a>
                     <span class="ed-ord">{it.year}</span>
-                    {it.open && <span class="open-tag">call open</span>}
                   </span>
                   <span class="conf-desc">{it.desc}</span>
                 </td>
                 <td class="c-date">
-                  {it.deadline
-                    ? <>
-                        <span class="dl">{it.deadline}</span>
-                        {it.open
-                          ? <span class="dl-days" data-deadline={it.deadline}></span>
-                          : <span class="dl-days band-past">closed</span>}
-                      </>
-                    : <span class="none">not published</span>}
+                  <span class="dl">{it.deadline || 'not published'}</span>
+                  {it.deadline && <span class={it.open ? 'dl-days' : 'dl-days band-past'} data-deadline={it.open ? it.deadline : ''}>{it.open ? '' : 'closed'}</span>}
                 </td>
                 <td class="c-when">
-                  <span class="when">{it.date || 'dates to be set'}</span>
+                  <span class="when">{it.date}</span>
                   <span class="where">{it.place}</span>
                 </td>
                 <td class="c-rank">
-                  <span class="ranks">
-                    <span class={`pill ccf-${(it.ccf || 'n').toLowerCase()}`}>CCF {it.ccf === 'N' ? 'n/a' : it.ccf}</span>
-                    <span class={`pill ${coreClass(it.core || 'N')}`}>CORE {coreLabel[it.core] || '—'}</span>
-                  </span>
+                  <span class={`pill ccf-${it.ccf.toLowerCase()}`}>CCF {it.ccf === 'N' ? 'n/a' : it.ccf}</span>
+                  <span class={`pill ${coreClass(it.core)}`}>CORE {coreLabel[it.core] || 'n/a'}</span>
                 </td>
               </tr>
-            )))}
+            ))}
           </tbody>
         </table>
       </div>
+      <p class="dest-none" hidden>Nothing announced there yet.
+      </p>
       <p class="area-note">
-        Every announced future edition in the catalogue, placed by its city rather than its deadline.
-        A call marked open still has a deadline ahead of today; the rest are shown so you can see where a
-        conference goes, and plan for the edition after. {destinations.reduce((a, d) => a + d.n, 0)} editions
-        across {destinations.length} destinations.
+        {destinations.items.length} announced future editions, placed by where they are rather than when they close.
+        City, country and continent are three separate lists and never mixed. Anywhere that is none of the three,
+        Hawaii being the obvious one, is in the search box. A call marked open still has a deadline ahead of today.
       </p>
     </section>
 
@@ -592,6 +601,7 @@ const freshRated = rows.filter((c) => c.rates.length && c.rates[c.rates.length -
   .fbtn-dest:not(.is-on) { color:#0e7490; border-color:#a5f3fc; }
   .fbtn-dest.is-on { background:#0e7490; border-color:#0e7490; }
   .dest-section[hidden], .section[hidden] { display:none; }
+  .dest-pick[hidden] { display:none; }
   .dest-pick { display:flex; flex-wrap:wrap; gap:6px; margin-bottom:10px; }
   .dbtn { display:inline-flex; align-items:center; gap:6px; padding:5px 11px; border-radius:999px; cursor:pointer;
     border:1px solid rgba(148,163,184,.4); background:#fff; color:#475569; font:inherit; font-size:.76rem;
@@ -880,15 +890,50 @@ const freshRated = rows.filter((c) => c.rates.length && c.rates[c.rates.length -
   };
   document.querySelectorAll('.fbtn').forEach((btn) => btn.addEventListener('click', () => apply(btn)));
 
-  // Destination sub-picker. Rows carry their own destination, so this is
-  // show and hide, same as the field filter above.
+  // Destination view: three independent axes, city, country and continent,
+  // plus a free-text place search. A place that is none of the three, Hawaii
+  // being the one that prompted all this, is reachable only by typing it, so
+  // the search clears the chips rather than pretending to be an axis.
   const destRows = Array.from(document.querySelectorAll('.dest-table tbody tr'));
-  document.querySelectorAll('.dbtn').forEach((btn) => {
+  const destNone = document.querySelector('.dest-none');
+  const destQ = document.getElementById('dest-q');
+  let axis = 'city';
+  let pick = '';
+
+  const paintDest = () => {
+    const q = ((destQ && destQ.value) || '').trim().toLowerCase();
+    let shown = 0;
+    destRows.forEach((r) => {
+      const on = q ? r.dataset.place.includes(q) : r.dataset[axis] === pick;
+      r.hidden = !on;
+      if (on) shown++;
+    });
+    if (destNone) destNone.hidden = shown > 0;
+  };
+
+  const selectChip = (btn) => {
+    btn.closest('.dest-pick').querySelectorAll('.dbtn')
+      .forEach((b) => b.classList.toggle('is-on', b === btn));
+    pick = btn.dataset[axis];
+    if (destQ) destQ.value = '';
+    paintDest();
+  };
+
+  document.querySelectorAll('.axbtn').forEach((btn) => {
     btn.addEventListener('click', () => {
-      document.querySelectorAll('.dbtn').forEach((b) => b.classList.toggle('is-on', b === btn));
-      destRows.forEach((r) => { r.hidden = r.dataset.dest !== btn.dataset.dest; });
+      axis = btn.dataset.axis;
+      document.querySelectorAll('.axbtn').forEach((b) => b.classList.toggle('is-on', b === btn));
+      document.querySelectorAll('.dest-pick').forEach((g) => { g.hidden = g.dataset.for !== axis; });
+      selectChip(document.querySelector('.dest-pick[data-for="' + axis + '"] .dbtn'));
     });
   });
+  document.querySelectorAll('.dbtn').forEach((btn) => btn.addEventListener('click', () => selectChip(btn)));
+  if (destQ) destQ.addEventListener('input', () => {
+    if (destQ.value.trim()) document.querySelectorAll('.dbtn').forEach((b) => b.classList.remove('is-on'));
+    paintDest();
+  });
+  const firstChip = document.querySelector('.dest-pick[data-for="city"] .dbtn');
+  if (firstChip) selectChip(firstChip);
   // The markup marks AI as selected; run the filter so the rows agree with it.
   const start = document.querySelector('.fbtn.is-on');
   if (start) apply(start);
