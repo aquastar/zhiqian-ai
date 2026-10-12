@@ -24,13 +24,14 @@ export const ranked = [
         "est": false,
         "year": 2027,
         "link": "https://2027.eacl.org/",
-        "abstract": ""
+        "abs": ""
       },
       {
         "d": "2027-10-06",
         "label": "ARR Submission",
         "est": true,
-        "from": "2025-10-06"
+        "from": "2025-10-06",
+        "abs": ""
       }
     ],
     "dblp": "eacl",
@@ -73,7 +74,7 @@ export const ranked = [
         "est": false,
         "year": 2027,
         "link": "https://2027.coling-iccl.org/",
-        "abstract": ""
+        "abs": ""
       },
       {
         "d": "2026-12-23",
@@ -81,7 +82,7 @@ export const ranked = [
         "est": false,
         "year": 2027,
         "link": "https://2027.coling-iccl.org/",
-        "abstract": ""
+        "abs": ""
       }
     ],
     "dblp": "coling",
@@ -149,7 +150,7 @@ export const ranked = [
         "est": false,
         "year": 2027,
         "link": "https://2027.naacl.org/",
-        "abstract": ""
+        "abs": ""
       },
       {
         "d": "2026-12-23",
@@ -157,7 +158,7 @@ export const ranked = [
         "est": false,
         "year": 2027,
         "link": "https://2027.naacl.org/",
-        "abstract": ""
+        "abs": ""
       }
     ],
     "dblp": "naacl",
@@ -269,7 +270,7 @@ export const ranked = [
         "est": false,
         "year": 2027,
         "link": "https://ches.iacr.org/2027/",
-        "abstract": ""
+        "abs": ""
       },
       {
         "d": "2027-01-15",
@@ -277,7 +278,7 @@ export const ranked = [
         "est": false,
         "year": 2027,
         "link": "https://ches.iacr.org/2027/",
-        "abstract": ""
+        "abs": ""
       },
       {
         "d": "2027-04-15",
@@ -285,13 +286,14 @@ export const ranked = [
         "est": false,
         "year": 2027,
         "link": "https://ches.iacr.org/2027/",
-        "abstract": ""
+        "abs": ""
       },
       {
         "d": "2027-07-15",
         "label": "TCHES 2026/1",
         "est": true,
-        "from": "2025-07-15"
+        "from": "2025-07-15",
+        "abs": ""
       }
     ],
     "dblp": "ches",
@@ -336,7 +338,7 @@ export const ranked = [
         "est": false,
         "year": 2027,
         "link": "https://www.ieee-security.org/TC/CSF2027/",
-        "abstract": ""
+        "abs": ""
       },
       {
         "d": "2027-01-28",
@@ -344,13 +346,14 @@ export const ranked = [
         "est": false,
         "year": 2027,
         "link": "https://www.ieee-security.org/TC/CSF2027/",
-        "abstract": ""
+        "abs": ""
       },
       {
         "d": "2027-07-24",
         "label": "Summer",
         "est": true,
-        "from": "2025-07-24"
+        "from": "2025-07-24",
+        "abs": ""
       }
     ],
     "dblp": "csfw",
@@ -384,7 +387,7 @@ export const ranked = [
     "coreVerified": true,
     "nextDeadline": "2026-10-17",
     "nextYear": 2027,
-    "nextAbstract": "2026-10-10",
+    "nextAbstract": "",
     "estimated": false,
     "estFrom": "",
     "rounds": [
@@ -394,25 +397,28 @@ export const ranked = [
         "est": false,
         "year": 2027,
         "link": "https://2027.sigmod.org/",
-        "abstract": "2026-10-10"
+        "abs": "2026-10-10"
       },
       {
         "d": "2027-01-17",
         "label": "round 1",
         "est": true,
-        "from": "2025-01-17"
+        "from": "2025-01-17",
+        "abs": "2027-01-10"
       },
       {
         "d": "2027-04-17",
         "label": "round 2",
         "est": true,
-        "from": "2025-04-17"
+        "from": "2025-04-17",
+        "abs": "2027-04-10"
       },
       {
         "d": "2027-07-17",
         "label": "round 3",
         "est": true,
-        "from": "2025-07-17"
+        "from": "2025-07-17",
+        "abs": "2027-07-10"
       }
     ],
     "dblp": "sigmod",
@@ -612,7 +618,8 @@ export const ranked = [
         "d": "2026-10-24",
         "label": "",
         "est": true,
-        "from": "2025-10-24"
+        "from": "2025-10-24",
+        "abs": ""
       }
     ],
     "dblp": "pkc",
@@ -642,7 +649,7 @@ export const ranked = [
     "coreVerified": true,
     "nextDeadline": "2026-10-25",
     "nextYear": 2027,
-    "nextAbstract": "2026-10-18",
+    "nextAbstract": "",
     "estimated": false,
     "estFrom": "",
     "rounds": [
@@ -652,7 +659,7 @@ export const ranked = [
         "est": false,
         "year": 2027,
         "link": "https://www2027.thewebconf.org/",
-        "abstract": "2026-10-18"
+        "abs": "2026-10-18"
       }
     ],
     "dblp": "www",
@@ -842,7 +849,7 @@ export const ranked = [
     "coreVerified": true,
     "nextDeadline": "2026-11-01",
     "nextYear": 2027,
-    "nextAbstract": "2026-10-25",
+    "nextAbstract": "",
     "estimated": false,
     "estFrom": "",
     "rounds": [
@@ -852,7 +859,7 @@ export const ranked = [
         "est": false,
         "year": 2027,
         "link": "https://www.vldb.org/2027/",
-        "abstract": "2026-10-25"
+        "abs": "2026-10-25"
       },
       {
         "d": "2026-12-01",
@@ -860,7 +867,7 @@ export const ranked = [
         "est": false,
         "year": 2027,
         "link": "https://www.vldb.org/2027/",
-        "abstract": "2026-11-25"
+        "abs": "2026-11-25"
       },
       {
         "d": "2027-01-01",
@@ -868,7 +875,7 @@ export const ranked = [
         "est": false,
         "year": 2027,
         "link": "https://www.vldb.org/2027/",
-        "abstract": "2026-12-25"
+        "abs": "2026-12-25"
       },
       {
         "d": "2027-02-01",
@@ -876,7 +883,7 @@ export const ranked = [
         "est": false,
         "year": 2027,
         "link": "https://www.vldb.org/2027/",
-        "abstract": "2027-01-25"
+        "abs": "2027-01-25"
       },
       {
         "d": "2027-03-01",
@@ -884,49 +891,56 @@ export const ranked = [
         "est": false,
         "year": 2027,
         "link": "https://www.vldb.org/2027/",
-        "abstract": "2027-02-25"
+        "abs": "2027-02-25"
       },
       {
         "d": "2027-04-01",
         "label": "",
         "est": true,
-        "from": "2025-04-01"
+        "from": "2025-04-01",
+        "abs": ""
       },
       {
         "d": "2027-05-01",
         "label": "",
         "est": true,
-        "from": "2025-05-01"
+        "from": "2025-05-01",
+        "abs": ""
       },
       {
         "d": "2027-06-01",
         "label": "",
         "est": true,
-        "from": "2025-06-01"
+        "from": "2025-06-01",
+        "abs": ""
       },
       {
         "d": "2027-07-01",
         "label": "",
         "est": true,
-        "from": "2025-07-01"
+        "from": "2025-07-01",
+        "abs": ""
       },
       {
         "d": "2027-08-01",
         "label": "",
         "est": true,
-        "from": "2025-08-01"
+        "from": "2025-08-01",
+        "abs": ""
       },
       {
         "d": "2027-09-01",
         "label": "",
         "est": true,
-        "from": "2025-09-01"
+        "from": "2025-09-01",
+        "abs": ""
       },
       {
         "d": "2027-10-01",
         "label": "",
         "est": true,
-        "from": "2025-10-01"
+        "from": "2025-10-01",
+        "abs": ""
       }
     ],
     "dblp": "vldb",
@@ -1061,7 +1075,7 @@ export const ranked = [
     "coreVerified": true,
     "nextDeadline": "2026-11-04",
     "nextYear": 2027,
-    "nextAbstract": "2026-10-28",
+    "nextAbstract": "",
     "estimated": false,
     "estFrom": "",
     "rounds": [
@@ -1071,7 +1085,7 @@ export const ranked = [
         "est": false,
         "year": 2027,
         "link": "https://recomb.org/recomb2027/",
-        "abstract": "2026-10-28"
+        "abs": "2026-10-28"
       }
     ],
     "dblp": "recomb",
@@ -1216,13 +1230,14 @@ export const ranked = [
         "est": false,
         "year": 2027,
         "link": "https://icde2027.github.io/",
-        "abstract": ""
+        "abs": ""
       },
       {
         "d": "2027-06-18",
         "label": "first round",
         "est": true,
-        "from": "2025-06-18"
+        "from": "2025-06-18",
+        "abs": ""
       }
     ],
     "dblp": "icde",
@@ -1416,7 +1431,8 @@ export const ranked = [
         "d": "2026-11-14",
         "label": "Journal track",
         "est": true,
-        "from": "2025-11-14"
+        "from": "2025-11-14",
+        "abs": ""
       },
       {
         "d": "2027-02-20",
@@ -1424,7 +1440,7 @@ export const ranked = [
         "est": false,
         "year": 2027,
         "link": "https://icdar2027.org/",
-        "abstract": "2027-01-31"
+        "abs": "2027-01-31"
       }
     ],
     "dblp": "icdar",
@@ -1454,7 +1470,7 @@ export const ranked = [
     "coreVerified": true,
     "nextDeadline": "2026-11-16",
     "nextYear": 2027,
-    "nextAbstract": "2026-11-10",
+    "nextAbstract": "",
     "estimated": false,
     "estFrom": "",
     "rounds": [
@@ -1464,7 +1480,7 @@ export const ranked = [
         "est": false,
         "year": 2027,
         "link": "https://cvpr.thecvf.com/Conferences/2027",
-        "abstract": "2026-11-10"
+        "abs": "2026-11-10"
       }
     ],
     "dblp": "cvpr",
@@ -1659,13 +1675,15 @@ export const ranked = [
         "d": "2026-11-17",
         "label": "AAAI track",
         "est": true,
-        "from": "2025-11-17"
+        "from": "2025-11-17",
+        "abs": ""
       },
       {
         "d": "2027-10-08",
         "label": "Main track",
         "est": true,
-        "from": "2025-10-08"
+        "from": "2025-10-08",
+        "abs": "2027-10-01"
       }
     ],
     "dblp": "ifaamas",
@@ -1695,7 +1713,7 @@ export const ranked = [
     "coreVerified": true,
     "nextDeadline": "2026-11-17",
     "nextYear": 2027,
-    "nextAbstract": "2026-11-10",
+    "nextAbstract": "",
     "estimated": false,
     "estFrom": "",
     "rounds": [
@@ -1705,13 +1723,14 @@ export const ranked = [
         "est": false,
         "year": 2027,
         "link": "https://sp2027.ieee-security.org/index.html",
-        "abstract": "2026-11-10"
+        "abs": "2026-11-10"
       },
       {
         "d": "2027-06-05",
         "label": "Cycle 1",
         "est": true,
-        "from": "2025-06-05"
+        "from": "2025-06-05",
+        "abs": "2027-05-29"
       }
     ],
     "dblp": "sp",
@@ -1927,7 +1946,7 @@ export const ranked = [
         "est": false,
         "year": 2027,
         "link": "https://dasfaa2027.github.io/",
-        "abstract": ""
+        "abs": ""
       }
     ],
     "dblp": "dasfaa",
@@ -1967,7 +1986,7 @@ export const ranked = [
         "est": false,
         "year": 2027,
         "link": "https://petsymposium.org/cfp27.php",
-        "abstract": ""
+        "abs": ""
       },
       {
         "d": "2027-02-28",
@@ -1975,19 +1994,21 @@ export const ranked = [
         "est": false,
         "year": 2027,
         "link": "https://petsymposium.org/cfp27.php",
-        "abstract": ""
+        "abs": ""
       },
       {
         "d": "2027-05-31",
         "label": "Issue 1",
         "est": true,
-        "from": "2025-05-31"
+        "from": "2025-05-31",
+        "abs": ""
       },
       {
         "d": "2027-08-31",
         "label": "Issue 2",
         "est": true,
-        "from": "2025-08-31"
+        "from": "2025-08-31",
+        "abs": ""
       }
     ],
     "dblp": "pet",
@@ -2032,25 +2053,28 @@ export const ranked = [
         "est": false,
         "year": 2027,
         "link": "https://fse.iacr.org/2027/",
-        "abstract": ""
+        "abs": ""
       },
       {
         "d": "2027-03-01",
         "label": "ToSC 2025/2",
         "est": true,
-        "from": "2025-03-01"
+        "from": "2025-03-01",
+        "abs": ""
       },
       {
         "d": "2027-06-01",
         "label": "ToSC 2025/3",
         "est": true,
-        "from": "2025-06-01"
+        "from": "2025-06-01",
+        "abs": ""
       },
       {
         "d": "2027-09-01",
         "label": "ToSC 2025/4",
         "est": true,
-        "from": "2025-09-01"
+        "from": "2025-09-01",
+        "abs": ""
       }
     ],
     "dblp": "fse",
@@ -2196,7 +2220,7 @@ export const ranked = [
     "coreVerified": true,
     "nextDeadline": "2026-12-02",
     "nextYear": 2027,
-    "nextAbstract": "2026-11-25",
+    "nextAbstract": "",
     "estimated": false,
     "estFrom": "",
     "rounds": [
@@ -2206,7 +2230,7 @@ export const ranked = [
         "est": false,
         "year": 2027,
         "link": "https://dsn2027-berlin.github.io/",
-        "abstract": "2026-11-25"
+        "abs": "2026-11-25"
       }
     ],
     "dblp": "dsn",
@@ -2236,7 +2260,7 @@ export const ranked = [
     "coreVerified": true,
     "nextDeadline": "2026-12-02",
     "nextYear": 2027,
-    "nextAbstract": "2026-11-25",
+    "nextAbstract": "",
     "estimated": false,
     "estFrom": "",
     "rounds": [
@@ -2246,7 +2270,7 @@ export const ranked = [
         "est": false,
         "year": 2027,
         "link": "https://eurosp2027.ieee-security.org/",
-        "abstract": "2026-11-25"
+        "abs": "2026-11-25"
       }
     ],
     "dblp": "eurosp",
@@ -2276,7 +2300,7 @@ export const ranked = [
     "coreVerified": true,
     "nextDeadline": "2026-12-10",
     "nextYear": 2027,
-    "nextAbstract": "2026-12-03",
+    "nextAbstract": "",
     "estimated": false,
     "estFrom": "",
     "rounds": [
@@ -2286,13 +2310,14 @@ export const ranked = [
         "est": false,
         "year": 2027,
         "link": "https://2027.sigmod.org/",
-        "abstract": "2026-12-03"
+        "abs": "2026-12-03"
       },
       {
         "d": "2027-06-10",
         "label": "First submission cycle",
         "est": true,
-        "from": "2025-06-10"
+        "from": "2025-06-10",
+        "abs": "2027-06-03"
       }
     ],
     "dblp": "pods",
@@ -2480,13 +2505,14 @@ export const ranked = [
         "est": false,
         "year": 2027,
         "link": "https://asiaccs2027.cityu.edu.mo/index.html",
-        "abstract": ""
+        "abs": ""
       },
       {
         "d": "2027-08-25",
         "label": "Round 1",
         "est": true,
-        "from": "2025-08-25"
+        "from": "2025-08-25",
+        "abs": ""
       }
     ],
     "dblp": "asiaccs",
@@ -2527,19 +2553,22 @@ export const ranked = [
         "d": "2026-12-13",
         "label": "Journal track, cycle 2",
         "est": true,
-        "from": "2024-12-13"
+        "from": "2024-12-13",
+        "abs": ""
       },
       {
         "d": "2027-02-14",
         "label": "Journal track, cycle 3",
         "est": true,
-        "from": "2025-02-14"
+        "from": "2025-02-14",
+        "abs": ""
       },
       {
         "d": "2027-03-14",
         "label": "Research track",
         "est": true,
-        "from": "2025-03-14"
+        "from": "2025-03-14",
+        "abs": "2027-03-07"
       }
     ],
     "dblp": "pkdd",
@@ -2569,7 +2598,7 @@ export const ranked = [
     "coreVerified": true,
     "nextDeadline": "2026-12-14",
     "nextYear": 2027,
-    "nextAbstract": "2026-12-07",
+    "nextAbstract": "",
     "estimated": false,
     "estFrom": "",
     "rounds": [
@@ -2579,7 +2608,7 @@ export const ranked = [
         "est": false,
         "year": 2027,
         "link": "https://icaps27.icaps-conference.org/",
-        "abstract": "2026-12-07"
+        "abs": "2026-12-07"
       }
     ],
     "dblp": "icaps",
@@ -2619,19 +2648,21 @@ export const ranked = [
         "est": false,
         "year": 2027,
         "link": "https://2027.aclweb.org/",
-        "abstract": ""
+        "abs": ""
       },
       {
         "d": "2027-03-14",
         "label": "ARR commitment; reviewed papers only",
         "est": true,
-        "from": "2026-03-14"
+        "from": "2026-03-14",
+        "abs": ""
       },
       {
         "d": "2027-10-06",
         "label": "ARR October cycle",
         "est": true,
-        "from": "2025-10-06"
+        "from": "2025-10-06",
+        "abs": ""
       }
     ],
     "dblp": "acl",
@@ -2798,13 +2829,15 @@ export const ranked = [
         "d": "2027-01-09",
         "label": "Cycle 1",
         "est": true,
-        "from": "2025-01-09"
+        "from": "2025-01-09",
+        "abs": "2027-01-02"
       },
       {
         "d": "2027-04-14",
         "label": "Cycle 2",
         "est": true,
-        "from": "2025-04-14"
+        "from": "2025-04-14",
+        "abs": "2027-04-07"
       }
     ],
     "dblp": "ccs",
@@ -2971,13 +3004,15 @@ export const ranked = [
         "d": "2027-01-10",
         "label": "Winter",
         "est": true,
-        "from": "2025-01-10"
+        "from": "2025-01-10",
+        "abs": ""
       },
       {
         "d": "2027-04-29",
         "label": "Spring",
         "est": true,
-        "from": "2025-04-29"
+        "from": "2025-04-29",
+        "abs": ""
       }
     ],
     "dblp": "esorics",
@@ -3010,7 +3045,7 @@ export const ranked = [
     "coreVerified": true,
     "nextDeadline": "2027-01-11",
     "nextYear": 2027,
-    "nextAbstract": "2027-01-04",
+    "nextAbstract": "",
     "estimated": false,
     "estFrom": "",
     "rounds": [
@@ -3020,7 +3055,7 @@ export const ranked = [
         "est": false,
         "year": 2027,
         "link": "https://2027.ijcai.org/",
-        "abstract": "2027-01-04"
+        "abs": "2027-01-04"
       }
     ],
     "dblp": "ijcai",
@@ -3129,7 +3164,7 @@ export const ranked = [
         "est": false,
         "year": 2027,
         "link": "https://www.iscb.org/ismbeccb2027/",
-        "abstract": ""
+        "abs": ""
       }
     ],
     "dblp": "ismb",
@@ -3306,19 +3341,21 @@ export const ranked = [
         "est": false,
         "year": 2027,
         "link": "https://www.icwsm.org/2027/",
-        "abstract": ""
+        "abs": ""
       },
       {
         "d": "2027-05-15",
         "label": "1st Full-paper Deadline",
         "est": true,
-        "from": "2025-05-15"
+        "from": "2025-05-15",
+        "abs": ""
       },
       {
         "d": "2027-09-15",
         "label": "2nd Full-paper Deadline",
         "est": true,
-        "from": "2025-09-15"
+        "from": "2025-09-15",
+        "abs": ""
       }
     ],
     "dblp": "icwsm",
@@ -3393,7 +3430,7 @@ export const ranked = [
     "coreVerified": true,
     "nextDeadline": "2027-01-21",
     "nextYear": 2027,
-    "nextAbstract": "2027-01-14",
+    "nextAbstract": "",
     "estimated": false,
     "estFrom": "",
     "rounds": [
@@ -3403,7 +3440,7 @@ export const ranked = [
         "est": false,
         "year": 2027,
         "link": "https://sigir2027.org/",
-        "abstract": "2027-01-14"
+        "abs": "2027-01-14"
       }
     ],
     "dblp": "sigir",
@@ -3542,7 +3579,7 @@ export const ranked = [
     "coreVerified": true,
     "nextDeadline": "2027-01-26",
     "nextYear": 2027,
-    "nextAbstract": "2027-01-19",
+    "nextAbstract": "",
     "estimated": false,
     "estFrom": "",
     "rounds": [
@@ -3552,13 +3589,14 @@ export const ranked = [
         "est": false,
         "year": 2027,
         "link": "https://www.usenix.org/conference/usenixsecurity27",
-        "abstract": "2027-01-19"
+        "abs": "2027-01-19"
       },
       {
         "d": "2027-08-26",
         "label": "Cycle 1 Deadline",
         "est": true,
-        "from": "2025-08-26"
+        "from": "2025-08-26",
+        "abs": "2027-08-19"
       }
     ],
     "dblp": "uss",
@@ -3712,7 +3750,8 @@ export const ranked = [
         "d": "2027-01-29",
         "label": "",
         "est": true,
-        "from": "2025-01-29"
+        "from": "2025-01-29",
+        "abs": "2027-01-22"
       }
     ],
     "dblp": "gecco",
@@ -3750,7 +3789,8 @@ export const ranked = [
         "d": "2027-01-30",
         "label": "Paper Submissions Open on OpenReview Jan 08 2025 11:59 PM UTC",
         "est": true,
-        "from": "2025-01-30"
+        "from": "2025-01-30",
+        "abs": "2027-01-23"
       }
     ],
     "dblp": "icml",
@@ -3905,7 +3945,8 @@ export const ranked = [
         "d": "2027-02-01",
         "label": "",
         "est": true,
-        "from": "2025-02-01"
+        "from": "2025-02-01",
+        "abs": ""
       }
     ],
     "dblp": "cogsci",
@@ -3943,19 +3984,22 @@ export const ranked = [
         "d": "2027-02-05",
         "label": "",
         "est": true,
-        "from": "2025-02-05"
+        "from": "2025-02-05",
+        "abs": ""
       },
       {
         "d": "2027-06-04",
         "label": "",
         "est": true,
-        "from": "2025-06-04"
+        "from": "2025-06-04",
+        "abs": ""
       },
       {
         "d": "2027-10-08",
         "label": "",
         "est": true,
-        "from": "2025-10-08"
+        "from": "2025-10-08",
+        "abs": ""
       }
     ],
     "dblp": "edbt",
@@ -3995,7 +4039,8 @@ export const ranked = [
         "d": "2027-02-06",
         "label": "",
         "est": true,
-        "from": "2025-02-06"
+        "from": "2025-02-06",
+        "abs": ""
       }
     ],
     "dblp": "colt",
@@ -4150,13 +4195,15 @@ export const ranked = [
         "d": "2027-02-08",
         "label": "second round",
         "est": true,
-        "from": "2026-02-08"
+        "from": "2026-02-08",
+        "abs": "2027-02-01"
       },
       {
         "d": "2027-07-31",
         "label": "first round",
         "est": true,
-        "from": "2025-07-31"
+        "from": "2025-07-31",
+        "abs": "2027-07-24"
       }
     ],
     "dblp": "kdd",
@@ -4321,7 +4368,7 @@ export const ranked = [
         "est": false,
         "year": 2027,
         "link": "https://interspeech2027.org/",
-        "abstract": ""
+        "abs": ""
       }
     ],
     "dblp": "interspeech",
@@ -4359,7 +4406,8 @@ export const ranked = [
         "d": "2027-02-10",
         "label": "",
         "est": true,
-        "from": "2025-02-10"
+        "from": "2025-02-10",
+        "abs": ""
       }
     ],
     "dblp": "uai",
@@ -4534,7 +4582,8 @@ export const ranked = [
         "d": "2027-02-13",
         "label": "",
         "est": true,
-        "from": "2025-02-13"
+        "from": "2025-02-13",
+        "abs": ""
       }
     ],
     "dblp": "crypto",
@@ -4572,13 +4621,15 @@ export const ranked = [
         "d": "2027-02-26",
         "label": "Early submission",
         "est": true,
-        "from": "2025-02-26"
+        "from": "2025-02-26",
+        "abs": ""
       },
       {
         "d": "2027-03-16",
         "label": "Late submission",
         "est": true,
-        "from": "2025-03-16"
+        "from": "2025-03-16",
+        "abs": "2027-03-16"
       }
     ],
     "dblp": "iccbr",
@@ -4616,7 +4667,8 @@ export const ranked = [
         "d": "2027-02-27",
         "label": "",
         "est": true,
-        "from": "2025-02-27"
+        "from": "2025-02-27",
+        "abs": "2027-02-13"
       }
     ],
     "dblp": "miccai",
@@ -4656,7 +4708,7 @@ export const ranked = [
         "est": false,
         "year": 2027,
         "link": "https://2027.ieee-iros.org/",
-        "abstract": ""
+        "abs": ""
       }
     ],
     "dblp": "iros",
@@ -4831,7 +4883,8 @@ export const ranked = [
         "d": "2027-03-08",
         "label": "",
         "est": true,
-        "from": "2023-03-08"
+        "from": "2023-03-08",
+        "abs": ""
       }
     ],
     "dblp": "iccv",
@@ -4985,13 +5038,15 @@ export const ranked = [
         "d": "2027-03-20",
         "label": "",
         "est": true,
-        "from": "2025-03-20"
+        "from": "2025-03-20",
+        "abs": "2027-03-13"
       },
       {
         "d": "2027-09-10",
         "label": "",
         "est": true,
-        "from": "2025-09-10"
+        "from": "2025-09-10",
+        "abs": "2027-09-03"
       }
     ],
     "dblp": "icdt",
@@ -5029,7 +5084,8 @@ export const ranked = [
         "d": "2027-03-30",
         "label": "",
         "est": true,
-        "from": "2025-03-30"
+        "from": "2025-03-30",
+        "abs": "2027-03-23"
       }
     ],
     "dblp": "emsoft",
@@ -5187,7 +5243,8 @@ export const ranked = [
         "d": "2027-04-08",
         "label": "",
         "est": true,
-        "from": "2025-04-08"
+        "from": "2025-04-08",
+        "abs": "2027-04-01"
       }
     ],
     "dblp": "recsys",
@@ -5252,7 +5309,7 @@ export const ranked = [
         "est": false,
         "year": 2027,
         "link": "https://ecai2027.org/",
-        "abstract": ""
+        "abs": ""
       }
     ],
     "dblp": "ecai",
@@ -5290,13 +5347,15 @@ export const ranked = [
         "d": "2027-04-23",
         "label": "Summer",
         "est": true,
-        "from": "2025-04-23"
+        "from": "2025-04-23",
+        "abs": "2027-04-16"
       },
       {
         "d": "2027-08-06",
         "label": "Fall",
         "est": true,
-        "from": "2025-08-06"
+        "from": "2025-08-06",
+        "abs": "2027-07-30"
       }
     ],
     "dblp": "ndss",
@@ -5414,7 +5473,8 @@ export const ranked = [
         "d": "2027-04-24",
         "label": "",
         "est": true,
-        "from": "2025-04-24"
+        "from": "2025-04-24",
+        "abs": ""
       }
     ],
     "dblp": "raid",
@@ -5444,7 +5504,7 @@ export const ranked = [
     "coreVerified": true,
     "nextDeadline": "2027-04-28",
     "nextYear": 2027,
-    "nextAbstract": "2027-04-23",
+    "nextAbstract": "",
     "estimated": false,
     "estFrom": "",
     "rounds": [
@@ -5454,7 +5514,7 @@ export const ranked = [
         "est": false,
         "year": 2027,
         "link": "https://kr.org/KR2027/",
-        "abstract": "2027-04-23"
+        "abs": "2027-04-23"
       }
     ],
     "dblp": "kr",
@@ -5492,7 +5552,8 @@ export const ranked = [
         "d": "2027-05-10",
         "label": "",
         "est": true,
-        "from": "2024-05-10"
+        "from": "2024-05-10",
+        "abs": "2027-05-03"
       }
     ],
     "dblp": "srds",
@@ -5567,7 +5628,8 @@ export const ranked = [
         "d": "2027-05-14",
         "label": "",
         "est": true,
-        "from": "2025-05-14"
+        "from": "2025-05-14",
+        "abs": "2027-05-06"
       }
     ],
     "dblp": "semweb",
@@ -5605,7 +5667,8 @@ export const ranked = [
         "d": "2027-05-15",
         "label": "",
         "est": true,
-        "from": "2025-05-15"
+        "from": "2025-05-15",
+        "abs": "2027-05-11"
       }
     ],
     "dblp": "nips",
@@ -5776,7 +5839,8 @@ export const ranked = [
         "d": "2027-05-16",
         "label": "",
         "est": true,
-        "from": "2025-05-16"
+        "from": "2025-05-16",
+        "abs": "2027-05-13"
       }
     ],
     "dblp": "bmvc",
@@ -5814,7 +5878,8 @@ export const ranked = [
         "d": "2027-05-16",
         "label": "",
         "est": true,
-        "from": "2025-05-16"
+        "from": "2025-05-16",
+        "abs": ""
       }
     ],
     "dblp": "asiacrypt",
@@ -5852,13 +5917,15 @@ export const ranked = [
         "d": "2027-05-19",
         "label": "ARR Submission",
         "est": true,
-        "from": "2025-05-19"
+        "from": "2025-05-19",
+        "abs": ""
       },
       {
         "d": "2027-08-01",
         "label": "Commitment deadline for papers reviewed by ARR",
         "est": true,
-        "from": "2025-08-01"
+        "from": "2025-08-01",
+        "abs": ""
       }
     ],
     "dblp": "emnlp",
@@ -5992,7 +6059,8 @@ export const ranked = [
         "d": "2027-05-22",
         "label": "",
         "est": true,
-        "from": "2025-05-22"
+        "from": "2025-05-22",
+        "abs": ""
       }
     ],
     "dblp": "rtss",
@@ -6155,7 +6223,8 @@ export const ranked = [
         "d": "2027-05-23",
         "label": "",
         "est": true,
-        "from": "2025-05-23"
+        "from": "2025-05-23",
+        "abs": "2027-05-16"
       }
     ],
     "dblp": "cikm",
@@ -6310,7 +6379,8 @@ export const ranked = [
         "d": "2027-05-27",
         "label": "",
         "est": true,
-        "from": "2025-05-27"
+        "from": "2025-05-27",
+        "abs": ""
       }
     ],
     "dblp": "tcc",
@@ -6348,7 +6418,8 @@ export const ranked = [
         "d": "2027-05-30",
         "label": "",
         "est": true,
-        "from": "2025-05-30"
+        "from": "2025-05-30",
+        "abs": ""
       }
     ],
     "dblp": "acsac",
@@ -6388,7 +6459,7 @@ export const ranked = [
         "est": false,
         "year": 2027,
         "link": "https://icdm2027-website.onrender.com/",
-        "abstract": ""
+        "abs": ""
       }
     ],
     "dblp": "icdm",
@@ -6527,7 +6598,8 @@ export const ranked = [
         "d": "2027-06-06",
         "label": "",
         "est": true,
-        "from": "2025-06-06"
+        "from": "2025-06-06",
+        "abs": "2027-05-30"
       }
     ],
     "dblp": "sigspatial",
@@ -6670,7 +6742,8 @@ export const ranked = [
         "d": "2027-07-03",
         "label": "",
         "est": true,
-        "from": "2025-07-03"
+        "from": "2025-07-03",
+        "abs": "2027-06-26"
       }
     ],
     "dblp": "sigcse",
@@ -6708,7 +6781,8 @@ export const ranked = [
         "d": "2027-07-03",
         "label": "",
         "est": true,
-        "from": "2025-07-03"
+        "from": "2025-07-03",
+        "abs": ""
       }
     ],
     "dblp": "wine",
@@ -6746,7 +6820,8 @@ export const ranked = [
         "d": "2027-07-17",
         "label": "",
         "est": true,
-        "from": "2025-07-17"
+        "from": "2025-07-17",
+        "abs": ""
       }
     ],
     "dblp": "wise",
@@ -6784,13 +6859,15 @@ export const ranked = [
         "d": "2027-07-18",
         "label": "First round",
         "est": true,
-        "from": "2025-07-18"
+        "from": "2025-07-18",
+        "abs": "2027-07-11"
       },
       {
         "d": "2027-09-19",
         "label": "Second round",
         "est": true,
-        "from": "2025-09-19"
+        "from": "2025-09-19",
+        "abs": "2027-09-12"
       }
     ],
     "dblp": "wacv",
@@ -6831,7 +6908,8 @@ export const ranked = [
         "d": "2027-08-01",
         "label": "",
         "est": true,
-        "from": "2025-08-01"
+        "from": "2025-08-01",
+        "abs": "2027-07-25"
       }
     ],
     "dblp": "aaai",
@@ -7014,7 +7092,8 @@ export const ranked = [
         "d": "2027-08-03",
         "label": "",
         "est": true,
-        "from": "2025-08-03"
+        "from": "2025-08-03",
+        "abs": ""
       }
     ],
     "dblp": "bibm",
@@ -7052,7 +7131,8 @@ export const ranked = [
         "d": "2027-08-05",
         "label": "",
         "est": true,
-        "from": "2025-08-05"
+        "from": "2025-08-05",
+        "abs": ""
       }
     ],
     "dblp": "cidr",
@@ -7090,7 +7170,8 @@ export const ranked = [
         "d": "2027-08-14",
         "label": "",
         "est": true,
-        "from": "2025-08-14"
+        "from": "2025-08-14",
+        "abs": "2027-08-07"
       }
     ],
     "dblp": "wsdm",
@@ -7205,7 +7286,8 @@ export const ranked = [
         "d": "2027-09-15",
         "label": "",
         "est": true,
-        "from": "2025-09-15"
+        "from": "2025-09-15",
+        "abs": ""
       }
     ],
     "dblp": "icra",
@@ -7364,7 +7446,8 @@ export const ranked = [
         "d": "2027-09-17",
         "label": "",
         "est": true,
-        "from": "2025-09-17"
+        "from": "2025-09-17",
+        "abs": ""
       }
     ],
     "dblp": "icassp",
@@ -7443,7 +7526,8 @@ export const ranked = [
         "d": "2027-09-20",
         "label": "",
         "est": true,
-        "from": "2025-09-20"
+        "from": "2025-09-20",
+        "abs": ""
       }
     ],
     "dblp": "fc",
@@ -7481,7 +7565,8 @@ export const ranked = [
         "d": "2027-09-24",
         "label": "",
         "est": true,
-        "from": "2025-09-24"
+        "from": "2025-09-24",
+        "abs": "2027-09-19"
       }
     ],
     "dblp": "iclr",
@@ -7576,7 +7661,8 @@ export const ranked = [
         "d": "2027-10-02",
         "label": "",
         "est": true,
-        "from": "2025-10-02"
+        "from": "2025-10-02",
+        "abs": "2027-09-25"
       }
     ],
     "dblp": "aistats",
@@ -7699,7 +7785,8 @@ export const ranked = [
         "d": "2027-10-02",
         "label": "",
         "est": true,
-        "from": "2025-10-02"
+        "from": "2025-10-02",
+        "abs": ""
       }
     ],
     "dblp": "eurocrypt",
@@ -7737,7 +7824,8 @@ export const ranked = [
         "d": "2027-10-02",
         "label": "",
         "est": true,
-        "from": "2025-10-02"
+        "from": "2025-10-02",
+        "abs": "2027-09-25"
       }
     ],
     "dblp": "ecir",
@@ -7872,7 +7960,8 @@ export const ranked = [
         "d": "2027-10-04",
         "label": "",
         "est": true,
-        "from": "2024-10-04"
+        "from": "2024-10-04",
+        "abs": "2027-09-27"
       }
     ],
     "dblp": "sdm",
@@ -7975,7 +8064,8 @@ export const ranked = [
         "d": "2028-03-07",
         "label": "",
         "est": true,
-        "from": "2024-03-07"
+        "from": "2024-03-07",
+        "abs": "2028-02-29"
       }
     ],
     "dblp": "eccv",
@@ -8090,7 +8180,8 @@ export const ranked = [
         "d": "2028-04-18",
         "label": "",
         "est": true,
-        "from": "2024-04-18"
+        "from": "2024-04-18",
+        "abs": ""
       }
     ],
     "dblp": "ppsn",
@@ -8131,7 +8222,8 @@ export const others = [
         "d": "2028-07-05",
         "label": "",
         "est": true,
-        "from": "2024-07-05"
+        "from": "2024-07-05",
+        "abs": "2028-07-03"
       }
     ],
     "dblp": "accv",
@@ -8171,13 +8263,14 @@ export const others = [
         "est": false,
         "year": 2027,
         "link": "https://acns2027.isg.rhul.ac.uk/",
-        "abstract": ""
+        "abs": ""
       },
       {
         "d": "2027-09-26",
         "label": "Cycle 1 Submission deadline",
         "est": true,
-        "from": "2025-09-26"
+        "from": "2025-09-26",
+        "abs": ""
       }
     ],
     "dblp": "acns",
@@ -8218,7 +8311,8 @@ export const others = [
         "d": "2027-05-28",
         "label": "",
         "est": true,
-        "from": "2025-05-28"
+        "from": "2025-05-28",
+        "abs": ""
       }
     ],
     "dblp": "aft",
@@ -8258,7 +8352,7 @@ export const others = [
         "est": false,
         "year": 2027,
         "link": "https://algorithmiclearningtheory.org/alt2027/",
-        "abstract": ""
+        "abs": ""
       }
     ],
     "dblp": "alt",
@@ -8296,7 +8390,8 @@ export const others = [
         "d": "2027-07-15",
         "label": "",
         "est": true,
-        "from": "2025-07-15"
+        "from": "2025-07-15",
+        "abs": ""
       }
     ],
     "dblp": "apbc",
@@ -8334,7 +8429,8 @@ export const others = [
         "d": "2027-08-29",
         "label": "",
         "est": true,
-        "from": "2025-08-29"
+        "from": "2025-08-29",
+        "abs": ""
       }
     ],
     "dblp": "bigdataconf",
@@ -8372,7 +8468,8 @@ export const others = [
         "d": "2027-03-10",
         "label": "",
         "est": true,
-        "from": "2025-03-10"
+        "from": "2025-03-10",
+        "abs": ""
       }
     ],
     "dblp": "IEEEcloud",
@@ -8410,7 +8507,8 @@ export const others = [
         "d": "2027-03-14",
         "label": "",
         "est": true,
-        "from": "2025-03-14"
+        "from": "2025-03-14",
+        "abs": ""
       }
     ],
     "dblp": "conll",
@@ -8450,7 +8548,7 @@ export const others = [
         "est": false,
         "year": 2027,
         "link": "https://www.esat.kuleuven.be/cosic/events/ct-rsa-2027/",
-        "abstract": ""
+        "abs": ""
       }
     ],
     "dblp": "ctrsa",
@@ -8488,7 +8586,8 @@ export const others = [
         "d": "2026-12-04",
         "label": "",
         "est": true,
-        "from": "2025-12-04"
+        "from": "2025-12-04",
+        "abs": "2026-11-27"
       }
     ],
     "dblp": "esws",
@@ -8518,7 +8617,7 @@ export const others = [
     "coreVerified": true,
     "nextDeadline": "2026-10-16",
     "nextYear": 2027,
-    "nextAbstract": "2026-10-09",
+    "nextAbstract": "",
     "estimated": false,
     "estFrom": "",
     "rounds": [
@@ -8528,13 +8627,14 @@ export const others = [
         "est": false,
         "year": 2027,
         "link": "https://fg2027.ieee-biometrics.org/",
-        "abstract": "2026-10-09"
+        "abs": "2026-10-09"
       },
       {
         "d": "2027-01-25",
         "label": "Round 2",
         "est": true,
-        "from": "2026-01-25"
+        "from": "2026-01-25",
+        "abs": "2027-01-25"
       }
     ],
     "dblp": "fg",
@@ -8572,7 +8672,8 @@ export const others = [
         "d": "2027-07-22",
         "label": "",
         "est": true,
-        "from": "2024-07-22"
+        "from": "2024-07-22",
+        "abs": ""
       }
     ],
     "dblp": "iconip",
@@ -8602,7 +8703,7 @@ export const others = [
     "coreVerified": true,
     "nextDeadline": "2027-03-08",
     "nextYear": 2027,
-    "nextAbstract": "2027-03-01",
+    "nextAbstract": "",
     "estimated": false,
     "estFrom": "",
     "rounds": [
@@ -8612,7 +8713,7 @@ export const others = [
         "est": false,
         "year": 2027,
         "link": "https://www.icpr2027.com/",
-        "abstract": "2027-03-01"
+        "abs": "2027-03-01"
       }
     ],
     "dblp": "icpr",
@@ -8650,7 +8751,8 @@ export const others = [
         "d": "2027-07-15",
         "label": "",
         "est": true,
-        "from": "2025-07-15"
+        "from": "2025-07-15",
+        "abs": ""
       }
     ],
     "dblp": "ictai",
@@ -8690,7 +8792,7 @@ export const others = [
         "est": false,
         "year": 2027,
         "link": "https://ieeecec.org/2027",
-        "abstract": ""
+        "abs": ""
       }
     ],
     "dblp": "cec",
@@ -8728,7 +8830,8 @@ export const others = [
         "d": "2027-05-05",
         "label": "",
         "est": true,
-        "from": "2025-05-05"
+        "from": "2025-05-05",
+        "abs": "2027-05-05"
       }
     ],
     "dblp": "icb",
@@ -8768,7 +8871,7 @@ export const others = [
         "est": false,
         "year": 2027,
         "link": "https://ijcnn.org/2027",
-        "abstract": ""
+        "abs": ""
       }
     ],
     "dblp": "ijcnn",
@@ -8808,7 +8911,7 @@ export const others = [
         "est": false,
         "year": 2027,
         "link": "https://www.pakdd2027.org/",
-        "abstract": ""
+        "abs": ""
       }
     ],
     "dblp": "pakdd",
@@ -8846,7 +8949,8 @@ export const others = [
         "d": "2027-10-08",
         "label": "",
         "est": true,
-        "from": "2024-10-08"
+        "from": "2024-10-08",
+        "abs": "2027-10-01"
       }
     ],
     "dblp": "pam",
@@ -8884,7 +8988,8 @@ export const others = [
         "d": "2027-06-27",
         "label": "",
         "est": true,
-        "from": "2025-06-27"
+        "from": "2025-06-27",
+        "abs": ""
       }
     ],
     "dblp": "pricai",
@@ -8922,13 +9027,15 @@ export const others = [
         "d": "2027-01-27",
         "label": "Cycle 1",
         "est": true,
-        "from": "2025-01-27"
+        "from": "2025-01-27",
+        "abs": ""
       },
       {
         "d": "2027-05-07",
         "label": "Cycle 2",
         "est": true,
-        "from": "2025-05-07"
+        "from": "2025-05-07",
+        "abs": ""
       }
     ],
     "dblp": "sacrypt",
@@ -8969,7 +9076,8 @@ export const others = [
         "d": "2027-05-04",
         "label": "",
         "est": true,
-        "from": "2025-05-04"
+        "from": "2025-05-04",
+        "abs": ""
       }
     ],
     "dblp": "smc",
@@ -9007,7 +9115,8 @@ export const others = [
         "d": "2027-02-13",
         "label": "",
         "est": true,
-        "from": "2025-02-13"
+        "from": "2025-02-13",
+        "abs": "2027-02-06"
       }
     ],
     "dblp": "soups",
@@ -9045,7 +9154,8 @@ export const others = [
         "d": "2027-10-01",
         "label": "Paper Submission Deadline",
         "est": true,
-        "from": "2024-10-01"
+        "from": "2024-10-01",
+        "abs": ""
       }
     ],
     "dblp": "trustcom",
@@ -9083,13 +9193,15 @@ export const others = [
         "d": "2026-11-21",
         "label": "Round 1",
         "est": true,
-        "from": "2024-11-21"
+        "from": "2024-11-21",
+        "abs": ""
       },
       {
         "d": "2027-03-16",
         "label": "Round 2",
         "est": true,
-        "from": "2025-03-16"
+        "from": "2025-03-16",
+        "abs": ""
       }
     ],
     "dblp": "wisec",
@@ -9132,7 +9244,7 @@ export const others = [
         "est": false,
         "year": 2027,
         "link": "https://www.esann.org/",
-        "abstract": ""
+        "abs": ""
       }
     ],
     "dblp": "esann",
@@ -9172,7 +9284,7 @@ export const others = [
         "est": false,
         "year": 2027,
         "link": "https://www.evostar.org/2027/eurogp/",
-        "abstract": ""
+        "abs": ""
       }
     ],
     "dblp": "eurogp",
@@ -9212,7 +9324,7 @@ export const others = [
         "est": false,
         "year": 2027,
         "link": "https://www.evostar.org/2027/evoapps/",
-        "abstract": ""
+        "abs": ""
       }
     ],
     "dblp": "evoapps",
@@ -9252,7 +9364,7 @@ export const others = [
         "est": false,
         "year": 2027,
         "link": "https://www.evostar.org/2027/evocop/",
-        "abstract": ""
+        "abs": ""
       }
     ],
     "dblp": "evocop",
@@ -9290,19 +9402,22 @@ export const others = [
         "d": "2027-05-25",
         "label": "ARR initial submission",
         "est": true,
-        "from": "2026-05-25"
+        "from": "2026-05-25",
+        "abs": ""
       },
       {
         "d": "2027-08-07",
         "label": "Reviewed-paper commitment, round 1",
         "est": true,
-        "from": "2026-08-07"
+        "from": "2026-08-07",
+        "abs": ""
       },
       {
         "d": "2027-08-25",
         "label": "Reviewed-paper commitment, round 2",
         "est": true,
-        "from": "2026-08-25"
+        "from": "2026-08-25",
+        "abs": ""
       }
     ],
     "dblp": "ijcnlp",
@@ -9346,7 +9461,7 @@ export const others = [
         "est": false,
         "year": 2027,
         "link": "https://noms2027.ieee-noms.org/",
-        "abstract": ""
+        "abs": ""
       }
     ],
     "dblp": "noms",
@@ -9384,7 +9499,8 @@ export const others = [
         "d": "2027-06-20",
         "label": "Regular papers",
         "est": true,
-        "from": "2025-06-20"
+        "from": "2025-06-20",
+        "abs": "2027-06-20"
       }
     ],
     "dblp": "rulemlrr",
@@ -9422,7 +9538,8 @@ export const others = [
         "d": "2027-06-05",
         "label": "",
         "est": true,
-        "from": "2025-06-05"
+        "from": "2025-06-05",
+        "abs": ""
       }
     ],
     "dblp": "adma",
@@ -9460,13 +9577,15 @@ export const others = [
         "d": "2027-03-09",
         "label": "first round",
         "est": true,
-        "from": "2025-03-09"
+        "from": "2025-03-09",
+        "abs": ""
       },
       {
         "d": "2027-05-18",
         "label": "second round",
         "est": true,
-        "from": "2025-05-18"
+        "from": "2025-05-18",
+        "abs": ""
       }
     ],
     "dblp": "APWeb",
@@ -9507,13 +9626,15 @@ export const others = [
         "d": "2026-12-10",
         "label": "Cycle 1",
         "est": true,
-        "from": "2024-12-10"
+        "from": "2024-12-10",
+        "abs": ""
       },
       {
         "d": "2027-02-19",
         "label": "Cycle 2",
         "est": true,
-        "from": "2025-02-19"
+        "from": "2025-02-19",
+        "abs": ""
       }
     ],
     "dblp": "dimva",
@@ -9554,7 +9675,8 @@ export const others = [
         "d": "2027-03-29",
         "label": "",
         "est": true,
-        "from": "2025-03-29"
+        "from": "2025-03-29",
+        "abs": ""
       }
     ],
     "dblp": "icann",
@@ -9592,13 +9714,15 @@ export const others = [
         "d": "2027-03-09",
         "label": "First round",
         "est": true,
-        "from": "2025-03-09"
+        "from": "2025-03-09",
+        "abs": ""
       },
       {
         "d": "2027-05-23",
         "label": "Second round",
         "est": true,
-        "from": "2025-05-23"
+        "from": "2025-05-23",
+        "abs": ""
       }
     ],
     "dblp": "icics",
@@ -9639,7 +9763,8 @@ export const others = [
         "d": "2027-02-28",
         "label": "Submission Deadline",
         "est": true,
-        "from": "2025-02-28"
+        "from": "2025-02-28",
+        "abs": ""
       }
     ],
     "dblp": "ih",
@@ -9677,7 +9802,8 @@ export const others = [
         "d": "2027-06-11",
         "label": "",
         "est": true,
-        "from": "2025-06-11"
+        "from": "2025-06-11",
+        "abs": ""
       }
     ],
     "dblp": "isw",
@@ -9715,7 +9841,8 @@ export const others = [
         "d": "2027-03-20",
         "label": "",
         "est": true,
-        "from": "2025-03-20"
+        "from": "2025-03-20",
+        "abs": ""
       }
     ],
     "dblp": "ksem",
@@ -9753,7 +9880,8 @@ export const others = [
         "d": "2027-04-25",
         "label": "",
         "est": true,
-        "from": "2025-04-25"
+        "from": "2025-04-25",
+        "abs": ""
       }
     ],
     "dblp": "nspw",
@@ -9793,7 +9921,7 @@ export const others = [
         "est": false,
         "year": 2027,
         "link": "https://www.sacmat.org/2027/",
-        "abstract": ""
+        "abs": ""
       },
       {
         "d": "2027-02-12",
@@ -9801,7 +9929,7 @@ export const others = [
         "est": false,
         "year": 2027,
         "link": "https://www.sacmat.org/2027/",
-        "abstract": ""
+        "abs": ""
       }
     ],
     "dblp": "sacmat",
@@ -9844,7 +9972,7 @@ export const others = [
         "est": false,
         "year": 2027,
         "link": "https://securecomm.eai-conferences.org/2027/",
-        "abstract": ""
+        "abs": ""
       },
       {
         "d": "2027-04-15",
@@ -9852,7 +9980,7 @@ export const others = [
         "est": false,
         "year": 2027,
         "link": "https://securecomm.eai-conferences.org/2027/",
-        "abstract": ""
+        "abs": ""
       }
     ],
     "dblp": "securecomm",
@@ -9895,7 +10023,7 @@ export const others = [
         "est": false,
         "year": 2027,
         "link": "https://www.evostar.org/2027/evomusart/",
-        "abstract": ""
+        "abs": ""
       }
     ],
     "dblp": "evomusart",
@@ -9933,7 +10061,8 @@ export const others = [
         "d": "2027-07-28",
         "label": "Main Conference Papers DDL.",
         "est": true,
-        "from": "2025-07-28"
+        "from": "2025-07-28",
+        "abs": ""
       }
     ],
     "dblp": "icmla",
@@ -9973,7 +10102,7 @@ export const others = [
         "est": false,
         "year": 2027,
         "link": "https://roboticsconference.org/",
-        "abstract": ""
+        "abs": ""
       }
     ],
     "dblp": "rss",
@@ -10098,7 +10227,7 @@ export const others = [
         "est": false,
         "year": 2027,
         "link": "https://acisp.org/",
-        "abstract": ""
+        "abs": ""
       },
       {
         "d": "2027-03-01",
@@ -10106,7 +10235,7 @@ export const others = [
         "est": false,
         "year": 2027,
         "link": "https://acisp.org/",
-        "abstract": ""
+        "abs": ""
       }
     ],
     "dblp": "acisp",
@@ -10147,13 +10276,15 @@ export const others = [
         "d": "2027-05-30",
         "label": "Journal Track",
         "est": true,
-        "from": "2025-05-30"
+        "from": "2025-05-30",
+        "abs": ""
       },
       {
         "d": "2027-06-26",
         "label": "Conference Track",
         "est": true,
-        "from": "2025-06-26"
+        "from": "2025-06-26",
+        "abs": ""
       }
     ],
     "dblp": "acml",
@@ -10194,13 +10325,15 @@ export const others = [
         "d": "2026-12-01",
         "label": "1st Round",
         "est": true,
-        "from": "2024-12-01"
+        "from": "2024-12-01",
+        "abs": ""
       },
       {
         "d": "2027-03-01",
         "label": "2nd Round",
         "est": true,
-        "from": "2025-03-01"
+        "from": "2025-03-01",
+        "abs": ""
       }
     ],
     "dblp": "blocksys",
@@ -10230,7 +10363,7 @@ export const others = [
     "coreVerified": false,
     "nextDeadline": "2026-11-23",
     "nextYear": 2027,
-    "nextAbstract": "2026-11-16",
+    "nextAbstract": "",
     "estimated": false,
     "estFrom": "",
     "rounds": [
@@ -10240,7 +10373,7 @@ export const others = [
         "est": false,
         "year": 2027,
         "link": "https://www.codaspy.org/2027/",
-        "abstract": "2026-11-16"
+        "abs": "2026-11-16"
       }
     ],
     "dblp": "codaspy",
@@ -10278,7 +10411,8 @@ export const others = [
         "d": "2027-09-08",
         "label": "",
         "est": true,
-        "from": "2025-09-08"
+        "from": "2025-09-08",
+        "abs": ""
       }
     ],
     "dblp": "cscloud",
@@ -10316,7 +10450,8 @@ export const others = [
         "d": "2027-08-21",
         "label": "",
         "est": true,
-        "from": "2025-08-21"
+        "from": "2025-08-21",
+        "abs": ""
       }
     ],
     "dblp": "dai2",
@@ -10354,7 +10489,8 @@ export const others = [
         "d": "2027-10-10",
         "label": "",
         "est": true,
-        "from": "2025-10-10"
+        "from": "2025-10-10",
+        "abs": "2027-10-03"
       }
     ],
     "dblp": "dfrws",
@@ -10392,7 +10528,8 @@ export const others = [
         "d": "2027-05-23",
         "label": "",
         "est": true,
-        "from": "2025-05-23"
+        "from": "2025-05-23",
+        "abs": ""
       }
     ],
     "dblp": "di",
@@ -10430,7 +10567,8 @@ export const others = [
         "d": "2026-10-12",
         "label": "Extended",
         "est": true,
-        "from": "2021-10-12"
+        "from": "2021-10-12",
+        "abs": ""
       }
     ],
     "dblp": "events",
@@ -10470,7 +10608,7 @@ export const others = [
         "est": false,
         "year": 2027,
         "link": "https://icdf2c.eai-conferences.org/2027/",
-        "abstract": ""
+        "abs": ""
       }
     ],
     "dblp": "icdf2c",
@@ -10508,7 +10646,8 @@ export const others = [
         "d": "2027-04-10",
         "label": "",
         "est": true,
-        "from": "2025-04-10"
+        "from": "2025-04-10",
+        "abs": ""
       }
     ],
     "dblp": "icic",
@@ -10546,7 +10685,8 @@ export const others = [
         "d": "2026-10-31",
         "label": "",
         "est": true,
-        "from": "2025-10-31"
+        "from": "2025-10-31",
+        "abs": ""
       }
     ],
     "dblp": "NO DBLP",
@@ -10584,13 +10724,15 @@ export const others = [
         "d": "2027-04-15",
         "label": "1st Round",
         "est": true,
-        "from": "2025-04-15"
+        "from": "2025-04-15",
+        "abs": ""
       },
       {
         "d": "2027-06-30",
         "label": "2nd Round",
         "est": true,
-        "from": "2025-06-30"
+        "from": "2025-06-30",
+        "abs": ""
       }
     ],
     "dblp": "cisc",
@@ -10628,7 +10770,8 @@ export const others = [
         "d": "2027-04-01",
         "label": "",
         "est": true,
-        "from": "2025-04-01"
+        "from": "2025-04-01",
+        "abs": ""
       }
     ],
     "dblp": "isbra",
@@ -10666,7 +10809,8 @@ export const others = [
         "d": "2027-04-20",
         "label": "",
         "est": true,
-        "from": "2025-04-20"
+        "from": "2025-04-20",
+        "abs": ""
       }
     ],
     "dblp": "nlpcc",
@@ -10704,7 +10848,8 @@ export const others = [
         "d": "2027-01-20",
         "label": "Submission deadline",
         "est": true,
-        "from": "2025-01-20"
+        "from": "2025-01-20",
+        "abs": ""
       }
     ],
     "dblp": "sec",
@@ -10742,7 +10887,8 @@ export const others = [
         "d": "2027-06-15",
         "label": "Abstract dates conflict",
         "est": true,
-        "from": "2025-06-15"
+        "from": "2025-06-15",
+        "abs": ""
       }
     ],
     "dblp": "wisa",
@@ -10780,7 +10926,8 @@ export const others = [
         "d": "2027-05-20",
         "label": "",
         "est": true,
-        "from": "2024-05-20"
+        "from": "2024-05-20",
+        "abs": ""
       }
     ],
     "dblp": "acmturc",
@@ -10820,7 +10967,7 @@ export const others = [
         "est": false,
         "year": 2027,
         "link": "https://bisconf.org/2027/",
-        "abstract": ""
+        "abs": ""
       }
     ],
     "dblp": "bis",
@@ -10858,7 +11005,8 @@ export const others = [
         "d": "2027-06-30",
         "label": "",
         "est": true,
-        "from": "2023-06-30"
+        "from": "2023-06-30",
+        "abs": ""
       }
     ],
     "dblp": "cicai",
@@ -10896,7 +11044,8 @@ export const others = [
         "d": "2027-05-30",
         "label": "",
         "est": true,
-        "from": "2025-05-30"
+        "from": "2025-05-30",
+        "abs": ""
       }
     ],
     "dblp": "cns",
@@ -10934,7 +11083,8 @@ export const others = [
         "d": "2027-03-28",
         "label": "",
         "est": true,
-        "from": "2025-03-28"
+        "from": "2025-03-28",
+        "abs": "2027-03-22"
       }
     ],
     "dblp": "colm",
@@ -10972,7 +11122,8 @@ export const others = [
         "d": "2027-04-30",
         "label": "",
         "est": true,
-        "from": "2025-04-30"
+        "from": "2025-04-30",
+        "abs": "2027-04-23"
       }
     ],
     "dblp": "corl",
@@ -11002,7 +11153,7 @@ export const others = [
     "coreVerified": false,
     "nextDeadline": "2026-12-05",
     "nextYear": 2027,
-    "nextAbstract": "2026-11-23",
+    "nextAbstract": "",
     "estimated": false,
     "estFrom": "",
     "rounds": [
@@ -11012,7 +11163,7 @@ export const others = [
         "est": false,
         "year": 2027,
         "link": "https://cpal.cc/",
-        "abstract": "2026-11-23"
+        "abs": "2026-11-23"
       }
     ],
     "dblp": "cpal",
@@ -11050,19 +11201,22 @@ export const others = [
         "d": "2027-02-01",
         "label": "Round 2",
         "est": true,
-        "from": "2026-02-01"
+        "from": "2026-02-01",
+        "abs": ""
       },
       {
         "d": "2027-03-01",
         "label": "Late-breaking round",
         "est": true,
-        "from": "2026-03-01"
+        "from": "2026-03-01",
+        "abs": ""
       },
       {
         "d": "2027-10-01",
         "label": "Round 1",
         "est": true,
-        "from": "2025-10-01"
+        "from": "2025-10-01",
+        "abs": ""
       }
     ],
     "dblp": "cvc",
@@ -11103,7 +11257,8 @@ export const others = [
         "d": "2027-06-15",
         "label": "",
         "est": true,
-        "from": "2025-06-15"
+        "from": "2025-06-15",
+        "abs": ""
       }
     ],
     "dblp": "euvip",
@@ -11141,7 +11296,8 @@ export const others = [
         "d": "2027-08-03",
         "label": "",
         "est": true,
-        "from": "2025-08-03"
+        "from": "2025-08-03",
+        "abs": ""
       }
     ],
     "dblp": "icaif",
@@ -11179,7 +11335,8 @@ export const others = [
         "d": "2027-09-10",
         "label": "",
         "est": true,
-        "from": "2025-09-10"
+        "from": "2025-09-10",
+        "abs": ""
       }
     ],
     "dblp": "indocrypt",
@@ -11217,7 +11374,8 @@ export const others = [
         "d": "2027-08-29",
         "label": "Abstract cutoff unresolved; full precision unverified",
         "est": true,
-        "from": "2025-08-29"
+        "from": "2025-08-29",
+        "abs": ""
       }
     ],
     "dblp": "log",
@@ -11257,7 +11415,7 @@ export const others = [
         "est": false,
         "year": 2027,
         "link": "https://mlsys.org/",
-        "abstract": ""
+        "abs": ""
       }
     ],
     "dblp": "mlsys",
@@ -11295,7 +11453,8 @@ export const others = [
         "d": "2027-02-14",
         "label": "",
         "est": true,
-        "from": "2025-02-14"
+        "from": "2025-02-14",
+        "abs": ""
       }
     ],
     "dblp": "probml",
@@ -11335,13 +11494,14 @@ export const others = [
         "est": false,
         "year": 2027,
         "link": "https://saiconference.com/Computing",
-        "abstract": ""
+        "abs": ""
       },
       {
         "d": "2027-08-01",
         "label": "Round 1",
         "est": true,
-        "from": "2025-08-01"
+        "from": "2025-08-01",
+        "abs": ""
       }
     ],
     "dblp": "sai",
@@ -11382,7 +11542,8 @@ export const others = [
         "d": "2027-09-24",
         "label": "",
         "est": true,
-        "from": "2025-09-24"
+        "from": "2025-09-24",
+        "abs": ""
       }
     ],
     "dblp": "satml",

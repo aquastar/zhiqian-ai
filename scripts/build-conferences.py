@@ -355,15 +355,16 @@ for sub in ['AI','SC','DB','MX','CG','HI']:
             recent=sorted(dated_eds, key=lambda e: e.get('year',0))[-2:]
             ref_rounds=[]
             for ed in recent:
-                rs=[(dstr(t.get('deadline')), (t.get('comment') or '').strip())
+                rs=[(dstr(t.get('deadline')), (t.get('comment') or '').strip(),
+                     dstr(t.get('abstract_deadline')))
                     for t in (ed.get('timeline') or []) if dstr(t.get('deadline'))]
                 seen=set(); rs=[r for r in rs if not (r[0] in seen or seen.add(r[0]))]
                 if len(rs) > len(ref_rounds): ref_rounds=rs
             rounds=[]
-            for ds, label in ref_rounds:
+            for ds, label, abs_ds in ref_rounds:
                 d0=datetime.date.fromisoformat(ds)
                 if d0 >= TODAY:
-                    rounds.append({'d':ds,'label':label,'est':False})
+                    rounds.append({'d':ds,'label':label,'est':False,'abs':abs_ds})
                     continue
                 # Keep stepping by the venue's own period until the date is
                 # ahead of today. Every venue gets a date, however far out.
@@ -372,7 +373,14 @@ for sub in ['AI','SC','DB','MX','CG','HI']:
                     try: cand=d0.replace(year=d0.year+bump)
                     except ValueError: cand=d0.replace(year=d0.year+bump, day=28)
                     if cand >= TODAY:
-                        rounds.append({'d':cand.isoformat(),'label':label,'est':True,'from':ds})
+                        # The abstract deadline rolls with its paper deadline,
+                        # keeping the gap that the venue actually runs.
+                        a = ''
+                        if abs_ds:
+                            a0 = datetime.date.fromisoformat(abs_ds)
+                            a = (cand - (d0 - a0)).isoformat()
+                        rounds.append({'d':cand.isoformat(),'label':label,'est':True,
+                                       'from':ds,'abs':a})
                         break
             # Announced beats estimated. The moment a conference publishes a
             # round, that date replaces the rolled one. Matching is by round
@@ -383,12 +391,12 @@ for sub in ['AI','SC','DB','MX','CG','HI']:
             for u_ds, u_yr, u_lk, u_ab, u_lab in upcoming:
                 if any(r['d']==u_ds for r in real): continue
                 real.append({'d':u_ds,'label':u_lab,'est':False,
-                             'year':u_yr,'link':u_lk,'abstract':u_ab})
+                             'year':u_yr,'link':u_lk,'abs':u_ab})
             real_labels={norm_lab(r['label']) for r in real if r['label']}
             real_days=sorted(datetime.date.fromisoformat(r['d']) for r in real)
             # Proximity window scales with how close together the rounds sit.
             # VLDB runs monthly, so a flat 45 days would swallow its neighbours.
-            ref_days=sorted(datetime.date.fromisoformat(d) for d, _ in ref_rounds)
+            ref_days=sorted(datetime.date.fromisoformat(r[0]) for r in ref_rounds)
             min_gap=min((b-a).days for a, b in zip(ref_days, ref_days[1:])) if len(ref_days)>1 else 365
             window=max(10, min(45, min_gap // 2))
             keep=[]
