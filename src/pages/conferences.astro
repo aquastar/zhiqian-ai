@@ -24,7 +24,11 @@ const AR_REPO = 'https://github.com/lixin4ever/Conference-Acceptance-Rate';
 // Fixed 0-45% scale: the point of the bars is to compare venues to each other,
 // which a per-row scale would destroy.
 const RATE_MAX = 45;
-const CHART = { w: 180, h: 40 };
+// Wide on purpose. At 180 the chart used a little over half its column and
+// the rest of the cell was empty, which is most of what made this table look
+// padded. The geometry itself grows rather than the drawing being stretched,
+// so the line keeps its weight and the dot stays round.
+const CHART = { w: 300, h: 38 };
 // A line over the whole published history, on a fixed axis so two venues can
 // be compared by eye. The three most recent numbers are printed underneath,
 // because that is what anyone actually wants off this cell.
@@ -117,13 +121,48 @@ const coreClass = (c) => `core-${c === 'A*' ? 'as' : c.toLowerCase()}`;
 // this is shown with the year called out rather than quietly passed off as current.
 const FRESH_FROM = 2024;
 
-// One list, date order. Venues with no announced date sit at the end rather
-// than pretending to a position in the calendar.
+// One list, ordered by the date a reader can still act on.
+//
+// Not the first date in the file: by the time anyone reads this page some of
+// those have passed. Within a venue the rule is the one a submitter actually
+// follows. While a round's abstract deadline is open, that is the date that
+// counts, because missing it shuts the round. Once it closes, the full paper
+// date takes over. A venue with nothing ahead of it has finished its cycle,
+// so it rolls a year forward and sorts to the end, out of the way of
+// everything still live. The page is static and rebuilt weekly, so the same
+// rule runs again in the browser against the reader's own today.
+const ymd = (d) => d.toISOString().slice(0, 10);
+const TODAY = ymd(new Date());
+const rollYear = (iso) => {
+  if (!iso) return '';
+  const [y, m, d] = iso.split('-').map(Number);
+  const nd = new Date(Date.UTC(y + 1, m - 1, d));
+  if (nd.getUTCMonth() !== m - 1) nd.setUTCDate(0);   // Feb 29 lands on Feb 28
+  return ymd(nd);
+};
+const roundsOf = (c) => (c.rounds && c.rounds.length
+  ? c.rounds
+  : c.nextDeadline ? [{ d: c.nextDeadline, abs: c.nextAbstract || '' }] : []);
+const liveDate = (c) => {
+  const rs = roundsOf(c);
+  // Nothing on record is not the same as everything having passed. A society
+  // meeting that publishes no call has no cycle to roll forward, so it sorts
+  // last without an estimate it cannot support.
+  if (!rs.length) return { key: '', expired: false };
+  for (const r of rs) {
+    if (r.abs && r.abs >= TODAY) return { key: r.abs, expired: false };
+    if (r.d && r.d >= TODAY) return { key: r.d, expired: false };
+  }
+  return { key: rollYear(rs[0].d), expired: true };
+};
+
 const society = notable.map((c) => ({ ...c, society: true }));
-const all = [...ranked, ...society];
-const dated = all.filter((c) => c.nextDeadline).sort((a, b) => a.nextDeadline.localeCompare(b.nextDeadline));
-const undated = all.filter((c) => !c.nextDeadline).sort((a, b) => a.title.localeCompare(b.title));
-const rows = [...dated, ...undated].map((c) => ({ ...c, chart: chart(c.rates) }));
+const all = [...ranked, ...society].map((c) => ({ ...c, live: liveDate(c) }));
+const byKey = (a, b) => a.live.key.localeCompare(b.live.key);
+const dated = all.filter((c) => c.live.key && !c.live.expired).sort(byKey);
+const spent = all.filter((c) => c.live.key && c.live.expired).sort(byKey);
+const undated = all.filter((c) => !c.live.key).sort((a, b) => a.title.localeCompare(b.title));
+const rows = [...dated, ...spent, ...undated].map((c) => ({ ...c, chart: chart(c.rates) }));
 
 const counts = AREAS.map((a) => ({ area: a, n: rows.filter((c) => c.area === a).length })).filter((x) => x.n);
 const totalRated = rows.filter((c) => c.rates.length).length;
@@ -334,7 +373,7 @@ const freshRated = rows.filter((c) => c.rates.length && c.rates[c.rates.length -
               const last = c.rates.length ? c.rates[c.rates.length - 1] : null;
               const stale = last && last.y < FRESH_FROM;
               return (
-              <tr class={`tier-${c.tier}`} data-area={slug(c.area)}>
+              <tr class={`tier-${c.tier}${c.live.expired ? ' is-spent' : ''}`} data-area={slug(c.area)}>
                 <td class="c-name">
                   <span class={`tier-tag tt-${c.tier}`}>{TIER[c.tier]}</span>
                   <span class="name-line">
@@ -359,9 +398,26 @@ const freshRated = rows.filter((c) => c.rates.length && c.rates[c.rates.length -
                     {c.date ? <span class="when">{c.date}</span> : <span class="none">not yet scheduled</span>}
                     {c.place && <span class="where">{c.cc && <span class={`fi fi-${c.cc}`} aria-hidden="true"></span>}{c.place}</span>}
                   </span>
-                  {c.city && <span class="city"><i class="fas fa-camera" aria-hidden="true"></i>{c.city}</span>}
+                  {c.city && (
+                    <ul class="city">
+                      {c.city.split(', ').map((bit) => <li>{bit}</li>)}
+                    </ul>
+                  )}
                 </td>
                 <td class="c-date" data-label="Next deadline">
+                  {/* Every cycle here has closed. The next one is a year on
+                      from the last call, which is an estimate and is drawn as
+                      one. Rendered on the server even when the row is still
+                      live, so the browser can reveal it later in the week
+                      without losing the scoped styles. */}
+                  {c.live.key && (
+                  <div class="round rolled" hidden={!c.live.expired}>
+                    <span class="dl is-est">{c.live.key}</span>
+                    <span class="dl-days" data-deadline={c.live.key}></span>
+                    <span class="est-tag" title="This cycle has closed. Estimated by rolling the last call a year forward.">est.<i class="fas fa-circle-question" aria-hidden="true"></i></span>
+                    <span class="round-label">next cycle, a year on from the last call</span>
+                  </div>
+                  )}
                   {c.rounds && c.rounds.length
                     ? <>
                         {c.rounds.slice(0, MAX_ROUNDS).map((r) => (
@@ -402,7 +458,7 @@ const freshRated = rows.filter((c) => c.rates.length && c.rates[c.rates.length -
                           {stale && <span class="rate-stale-note">ends {last.y}</span>}
                         </div>
                         {c.chart && (
-                          <svg class="spark" viewBox={`-2 -6 ${CHART.w + 34} ${CHART.h + 12}`} width={CHART.w + 34} height={CHART.h + 12} role="img" aria-label={`Acceptance rate ${c.chart.span}`}>
+                          <svg class="spark" viewBox={`-2 -6 ${CHART.w + 34} ${CHART.h + 12}`} role="img" aria-label={`Acceptance rate ${c.chart.span}`}>
                             {c.chart.grid.map((g) => (
                               <>
                                 <line x1="0" x2={CHART.w} y1={g.y} y2={g.y} class="grid" />
@@ -634,6 +690,13 @@ const freshRated = rows.filter((c) => c.rates.length && c.rates[c.rates.length -
   .c-date { white-space:nowrap; width:24%; }
   .round { display:flex; align-items:center; flex-wrap:wrap; gap:5px; margin-bottom:3px; }
   .round:last-of-type { margin-bottom:0; }
+  /* [hidden] is the weakest rule the browser has and loses to the display
+     above it, so the rolled line needs saying twice. */
+  .round[hidden] { display:none; }
+  /* A venue whose cycle has closed keeps its dates on show, because knowing
+     when the call was is how anyone judges the estimate above it. They are
+     just no longer the thing the row is about. */
+  .is-spent .round:not(.rolled) { opacity:.55; }
   /* The abstract deadline comes first and is the one that actually shuts the
      door, so it leads the round and is coloured, not greyed. */
   .abs-line { flex:0 0 100%; display:flex; align-items:center; gap:5px; margin-bottom:2px;
@@ -644,7 +707,7 @@ const freshRated = rows.filter((c) => c.rates.length && c.rates[c.rates.length -
   .abs-line.is-past { color:#b91c1c; }
   .abs-line.is-past b { background:#fee2e2; border-color:#fecaca; color:#b91c1c; }
   .round-label { flex:0 0 100%; font-size:.62rem; color:#94a3b8; line-height:1.25; margin-top:-1px;
-    white-space:normal; max-width:184px; }
+    white-space:normal; }
   .round-more { display:inline-block; margin-top:3px; white-space:normal; font-size:.64rem; color:#94a3b8; cursor:help;
     border-bottom:1px dotted rgba(148,163,184,.7); }
   .links { display:flex; gap:10px; margin-top:3px; }
@@ -667,24 +730,37 @@ const freshRated = rows.filter((c) => c.rates.length && c.rates[c.rates.length -
   .c-when { font-size:.73rem; color:#475569; width:30%; line-height:1.35; }
   /* The edition now lives inside the conference cell, set apart by a rule
      rather than a column. */
-  .ed-line { display:block; margin-top:5px; padding-top:5px; font-size:.73rem; color:#475569;
-    line-height:1.35; border-top:1px dotted rgba(148,163,184,.4); }
+  /* The edition sits under the name as its own line. It used to be fenced off
+     by a dotted rule, which drew a border around two lines of text that were
+     never in any danger of being confused. */
+  .ed-line { display:flex; flex-wrap:wrap; align-items:center; gap:4px 8px;
+    margin-top:5px; font-size:.73rem; color:#475569; line-height:1.35; }
   .ed { display:inline-block; font-weight:700; color:#1e293b; font-size:.76rem; margin-right:5px; }
   .ed-ord { display:inline-block; margin-right:5px; padding:1px 6px; border-radius:4px;
     background:#1e293b; color:#fff; font-size:.63rem; font-weight:800; letter-spacing:.02em; }
-  .city { display:flex; align-items:flex-start; gap:5px; margin-top:3px; font-size:.69rem;
-    color:#94a3b8; line-height:1.35; max-width:30ch; }
-  .city i { margin-top:2px; font-size:.6rem; flex:0 0 auto; }
+  /* Three things worth going out for, as three things, not one comma-spliced
+     sentence wrapped over four ragged lines. */
+  .city { display:flex; flex-wrap:wrap; gap:2px 12px; margin:4px 0 0; padding:0; list-style:none;
+    font-size:.68rem; color:#94a3b8; line-height:1.4; }
+  .city li { display:flex; align-items:baseline; gap:5px; }
+  .city li::before { content:''; flex:0 0 auto; width:3px; height:3px; border-radius:50%;
+    background:#cbd5e1; transform:translateY(-2px); }
   .when { display:inline; }
   .where { display:flex; align-items:center; gap:5px; color:#94a3b8; }
   .ed-line .when { display:inline; }
   .where .fi { flex:0 0 auto; border-radius:2px; box-shadow:0 0 0 1px rgba(15,23,42,.08); }
 
   .c-rate { width:30%; }
-  .spark { display:block; overflow:visible; color:#1d4ed8; }
+  /* The chart fills the column it was given. At a fixed 214px it left a third
+     of the cell empty, which is the gap that made this table look padded.
+     preserveAspectRatio:none lets it stretch horizontally only, so the line
+     keeps its height while the years spread out and become readable. Strokes
+     and text are vector-effect'd back to a constant width, otherwise the
+     stretch would smear them. */
+  .spark { display:block; width:100%; max-width:420px; height:auto; overflow:visible; color:#1d4ed8; }
   .spark .grid { stroke:rgba(148,163,184,.35); stroke-width:.6; stroke-dasharray:2 2; }
   .spark .glab { font-size:6px; fill:#94a3b8; }
-  .spark .line { fill:none; stroke:currentColor; stroke-width:1.6; stroke-linejoin:round; stroke-linecap:round; }
+  .spark .line { fill:none; stroke:currentColor; stroke-width:1.4; stroke-linejoin:round; stroke-linecap:round; }
   .spark .dot, .spark .dot-end { fill:currentColor; }
   /* The line draws itself left to right with a dot at the leading edge, then
      rests on the finished chart before starting over. Staggered so a screen
@@ -959,6 +1035,80 @@ const freshRated = rows.filter((c) => c.rates.length && c.rates[c.rates.length -
     const band = days < 0 ? 'past' : days < 30 ? 'urgent' : days < 90 ? 'soon' : 'far';
     el.classList.add('band-' + band);
     el.textContent = days < 0 ? `closed ${-days}d ago` : days === 0 ? 'today' : `${days}d`;
+  });
+
+  // Re-run the ordering in the reader's today.
+  //
+  // The page is static and rebuilt weekly, so the order baked into it is
+  // right on the Monday and drifts every day after. The rule is the same one
+  // the build uses: while a round's abstract deadline is open that is the
+  // date that counts, once it closes the full paper date takes over, and a
+  // venue with nothing ahead of it rolls a year forward and sinks below
+  // everything still live.
+  const pad = (n) => String(n).padStart(2, '0');
+  const ymd = (d) => d.getFullYear() + '-' + pad(d.getMonth() + 1) + '-' + pad(d.getDate());
+  const TODAY = ymd(today);
+  const rollYear = (iso) => {
+    const [y, m, d] = iso.split('-').map(Number);
+    const nd = new Date(y + 1, m - 1, d);
+    if (nd.getMonth() !== m - 1) nd.setDate(0);       // Feb 29 lands on Feb 28
+    return ymd(nd);
+  };
+
+  const liveKey = (tr) => {
+    const cell = tr.querySelector('.c-date');
+    if (!cell) return { key: '', expired: false };
+    const rounds = Array.from(cell.querySelectorAll('.round:not(.rolled)')).map((el) => {
+      const dl = el.querySelector('.dl');
+      const abs = el.querySelector('.abs-line');
+      return { d: dl ? dl.textContent.trim() : '', abs: abs ? abs.getAttribute('data-abs') || '' : '' };
+    });
+    // A row past MAX_ROUNDS keeps its tail in the "+N more" tooltip. Those
+    // dates still count: without them a venue whose shown rounds have all
+    // closed would look finished while a later one is still open.
+    const more = cell.querySelector('.round-more');
+    if (more) {
+      (more.getAttribute('title') || '').split(', ').forEach((d) => {
+        if (/^\d{4}-\d{2}-\d{2}$/.test(d)) rounds.push({ d, abs: '' });
+      });
+    }
+    if (!rounds.length) return { key: '', expired: false };
+    rounds.sort((a, b) => a.d.localeCompare(b.d));
+    for (const r of rounds) {
+      if (r.abs && r.abs >= TODAY) return { key: r.abs, expired: false };
+      if (r.d && r.d >= TODAY) return { key: r.d, expired: false };
+    }
+    return { key: rollYear(rounds[0].d), expired: true };
+  };
+
+  document.querySelectorAll('table.confs:not(.dest-table) tbody').forEach((tbody) => {
+    const trs = Array.from(tbody.querySelectorAll('tr'));
+    trs.forEach((tr) => {
+      const live = liveKey(tr);
+      tr.dataset.live = live.key || '9999-12-31';
+      tr.classList.toggle('is-spent', live.expired);
+      const rolled = tr.querySelector('.round.rolled');
+      if (!rolled) return;
+      rolled.hidden = !live.expired;
+      if (!live.expired) return;
+      // The build may have rolled from a different round than today would.
+      const dl = rolled.querySelector('.dl');
+      const tag = rolled.querySelector('.dl-days');
+      if (dl && live.key && dl.textContent.trim() !== live.key) {
+        dl.textContent = live.key;
+        if (tag) {
+          const [y, m, d] = live.key.split('-').map(Number);
+          const days = Math.round((new Date(y, m - 1, d).getTime() - today.getTime()) / DAY);
+          tag.className = 'dl-days band-' + (days < 30 ? 'urgent' : days < 90 ? 'soon' : 'far');
+          tag.textContent = days + 'd';
+        }
+      }
+    });
+    trs
+      .sort((a, b) =>
+        (a.classList.contains('is-spent') ? 1 : 0) - (b.classList.contains('is-spent') ? 1 : 0) ||
+        a.dataset.live.localeCompare(b.dataset.live))
+      .forEach((tr) => tbody.appendChild(tr));
   });
 
   // Field filter. Rows carry their own area, so this is pure show/hide. The
