@@ -143,26 +143,37 @@ const rollYear = (iso) => {
 const roundsOf = (c) => (c.rounds && c.rounds.length
   ? c.rounds
   : c.nextDeadline ? [{ d: c.nextDeadline, abs: c.nextAbstract || '' }] : []);
+// A commitment round is not a date you can submit new work to. The ARR
+// venues run one submission deadline and then a commitment deadline months
+// later, open only to papers that already have ARR reviews. Counting that as
+// the venue's next deadline kept NAACL near the top of the table on a date
+// nobody can act on. Only submission rounds decide whether a venue is still
+// open; the commitment date stays on the page, it just does not sort.
+const isSubmission = (r) => !/commitment/i.test(r.label || '');
 const liveDate = (c) => {
   const rs = roundsOf(c);
   // Nothing on record is not the same as everything having passed. A society
   // meeting that publishes no call has no cycle to roll forward, so it sorts
   // last without an estimate it cannot support.
   if (!rs.length) return { key: '', expired: false };
-  for (const r of rs) {
+  const subs = rs.filter(isSubmission);
+  const pool = subs.length ? subs : rs;
+  for (const r of pool) {
     if (r.abs && r.abs >= TODAY) return { key: r.abs, expired: false };
     if (r.d && r.d >= TODAY) return { key: r.d, expired: false };
   }
-  return { key: rollYear(rs[0].d), expired: true };
+  return { key: rollYear(pool[0].d), expired: true };
 };
 
 const society = notable.map((c) => ({ ...c, society: true }));
 const all = [...ranked, ...society].map((c) => ({ ...c, live: liveDate(c) }));
-const byKey = (a, b) => a.live.key.localeCompare(b.live.key);
-const dated = all.filter((c) => c.live.key && !c.live.expired).sort(byKey);
-const spent = all.filter((c) => c.live.key && c.live.expired).sort(byKey);
+// One date order, no buckets. A venue that has finished its cycle sinks on
+// its own merits, because a date rolled a year forward is a year away. It
+// does not need a separate block to put it there, and a block would split it
+// from the venues whose next call is genuinely that far out anyway.
+const dated = all.filter((c) => c.live.key).sort((a, b) => a.live.key.localeCompare(b.live.key));
 const undated = all.filter((c) => !c.live.key).sort((a, b) => a.title.localeCompare(b.title));
-const rows = [...dated, ...spent, ...undated].map((c) => ({ ...c, chart: chart(c.rates) }));
+const rows = [...dated, ...undated].map((c) => ({ ...c, chart: chart(c.rates) }));
 
 const counts = AREAS.map((a) => ({ area: a, n: rows.filter((c) => c.area === a).length })).filter((x) => x.n);
 const totalRated = rows.filter((c) => c.rates.length).length;
@@ -441,11 +452,11 @@ const freshRated = rows.filter((c) => c.rates.length && c.rates[c.rates.length -
                         )}
                       </>
                     : c.nextDeadline
-                    ? <>
+                    ? <div class="round">
                         <span class={`dl ${c.estimated ? 'is-est' : ''}`}>{c.nextDeadline}</span>
                         <span class="dl-days" data-deadline={c.nextDeadline}></span>
                         {c.estimated && <span class="est-tag" title={`Not announced yet. Estimated by rolling last year's deadline (${c.estFrom}) forward.`}>est.<i class="fas fa-circle-question" aria-hidden="true"></i></span>}
-                      </>
+                      </div>
                     : <span class="none">date unavailable</span>}
                 </td>
                 <td class="c-rate" data-label="Acceptance">
@@ -693,10 +704,12 @@ const freshRated = rows.filter((c) => c.rates.length && c.rates[c.rates.length -
   /* [hidden] is the weakest rule the browser has and loses to the display
      above it, so the rolled line needs saying twice. */
   .round[hidden] { display:none; }
-  /* A venue whose cycle has closed keeps its dates on show, because knowing
-     when the call was is how anyone judges the estimate above it. They are
-     just no longer the thing the row is about. */
-  .is-spent .round:not(.rolled) { opacity:.55; }
+  /* A closed round stays on the page, because knowing when the call was is
+     how anyone judges the estimate above it. It is just no longer the thing
+     the row is about. Dimming goes by the round's own date, so a commitment
+     deadline still months out keeps its weight even in a row that has
+     otherwise finished its cycle. */
+  .round.is-past { opacity:.5; }
   /* The abstract deadline comes first and is the one that actually shuts the
      door, so it leads the round and is coloured, not greyed. */
   .abs-line { flex:0 0 100%; display:flex; align-items:center; gap:5px; margin-bottom:2px;
@@ -1035,6 +1048,10 @@ const freshRated = rows.filter((c) => c.rates.length && c.rates[c.rates.length -
     const band = days < 0 ? 'past' : days < 30 ? 'urgent' : days < 90 ? 'soon' : 'far';
     el.classList.add('band-' + band);
     el.textContent = days < 0 ? `closed ${-days}d ago` : days === 0 ? 'today' : `${days}d`;
+    if (days < 0) {
+      const round = el.closest('.round');
+      if (round) round.classList.add('is-past');
+    }
   });
 
   // Re-run the ordering in the reader's today.
@@ -1061,7 +1078,15 @@ const freshRated = rows.filter((c) => c.rates.length && c.rates[c.rates.length -
     const rounds = Array.from(cell.querySelectorAll('.round:not(.rolled)')).map((el) => {
       const dl = el.querySelector('.dl');
       const abs = el.querySelector('.abs-line');
-      return { d: dl ? dl.textContent.trim() : '', abs: abs ? abs.getAttribute('data-abs') || '' : '' };
+      const lab = el.querySelector('.round-label');
+      return {
+        d: dl ? dl.textContent.trim() : '',
+        abs: abs ? abs.getAttribute('data-abs') || '' : '',
+        // A commitment round takes papers that already have ARR reviews. It
+        // is not a date new work can be sent to, so it never counts as the
+        // venue still being open.
+        sub: !/commitment/i.test(lab ? lab.textContent : ''),
+      };
     });
     // A row past MAX_ROUNDS keeps its tail in the "+N more" tooltip. Those
     // dates still count: without them a venue whose shown rounds have all
@@ -1069,16 +1094,18 @@ const freshRated = rows.filter((c) => c.rates.length && c.rates[c.rates.length -
     const more = cell.querySelector('.round-more');
     if (more) {
       (more.getAttribute('title') || '').split(', ').forEach((d) => {
-        if (/^\d{4}-\d{2}-\d{2}$/.test(d)) rounds.push({ d, abs: '' });
+        if (/^\d{4}-\d{2}-\d{2}$/.test(d)) rounds.push({ d, abs: '', sub: true });
       });
     }
     if (!rounds.length) return { key: '', expired: false };
     rounds.sort((a, b) => a.d.localeCompare(b.d));
-    for (const r of rounds) {
+    const subs = rounds.filter((r) => r.sub);
+    const pool = subs.length ? subs : rounds;
+    for (const r of pool) {
       if (r.abs && r.abs >= TODAY) return { key: r.abs, expired: false };
       if (r.d && r.d >= TODAY) return { key: r.d, expired: false };
     }
-    return { key: rollYear(rounds[0].d), expired: true };
+    return { key: rollYear(pool[0].d), expired: true };
   };
 
   document.querySelectorAll('table.confs:not(.dest-table) tbody').forEach((tbody) => {
@@ -1105,9 +1132,7 @@ const freshRated = rows.filter((c) => c.rates.length && c.rates[c.rates.length -
       }
     });
     trs
-      .sort((a, b) =>
-        (a.classList.contains('is-spent') ? 1 : 0) - (b.classList.contains('is-spent') ? 1 : 0) ||
-        a.dataset.live.localeCompare(b.dataset.live))
+      .sort((a, b) => a.dataset.live.localeCompare(b.dataset.live))
       .forEach((tr) => tbody.appendChild(tr));
   });
 
