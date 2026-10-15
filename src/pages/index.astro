@@ -736,23 +736,6 @@ const selectedGroups = selectedFilters
       </aside>
 
       <section class="right-col-main">
-        <article class="card module trackers" aria-label="Trackers">
-          {trackers.map((t) => (
-            <a class="tracker" href={t.href}>
-              <span class="tracker-icon"><i class={`fas ${t.icon}`} aria-hidden="true"></i></span>
-              <span class="tracker-body">
-                <span class="tracker-head">
-                  <b>{t.title}</b>
-                  <span class="tracker-stat">{t.stat}</span>
-                  {t.note && <span class="tracker-note">{t.note}</span>}
-                </span>
-                <span class="tracker-blurb">{t.blurb}</span>
-              </span>
-              <i class="fas fa-arrow-right tracker-go" aria-hidden="true"></i>
-            </a>
-          ))}
-        </article>
-
         <article class="card module" id="announcement">
           <ul class="narr-highlights" aria-label="Highlights">
             <li class="narr-highlight">
@@ -762,6 +745,10 @@ const selectedGroups = selectedFilters
               <span class="narr-highlight-text">Students interested in working with me can check the <a href="/work-with-me"><strong>Work With Me</strong></a> for application forms and next steps.</span>
             </li>
           </ul>
+          <p class="narr-trackers">
+            I also keep two lists current: <a href="/conferences">{confCount} conference deadlines</a>
+            {confSoon && <> (next one {confSoon})</>} and <a href="/funding">{fundingData.counts.registry} funding calls</a>, {fundOpen} of them still open.
+          </p>
         </article>
 
         <article class="card module rich hero-module narrative" id="research">
@@ -1086,7 +1073,11 @@ const selectedGroups = selectedFilters
   .container { max-width: min(95vw, 1600px); margin: 0 auto; padding: 20px; box-sizing: border-box; }
   .card { background: rgba(255,255,255,0.92); border: 1px solid rgba(148,163,184,0.12); border-radius: 18px; box-shadow: 0 10px 30px rgba(15,23,42,0.06); backdrop-filter: blur(10px); }
   .top-nav { margin-bottom: 7px; padding: 10px 0 14px; display: flex; align-items: center; justify-content: flex-start; gap: 12px; background: transparent; border: none; border-bottom: none; border-radius: 0; box-shadow: none; position: relative; }
-  .nav-links { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; justify-content: flex-start; }
+  .nav-links { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; justify-content: flex-start; flex: 1 1 auto; }
+  /* The two tracker pages sit apart from the site sections, on the right.
+     The links row has to be allowed to grow first, or margin-left:auto has
+     no slack to push into and the pair just trails the last link. */
+  .nav-right-start { margin-left: auto; }
   .top-nav a { text-decoration: none; color: var(--ink); font-family: 'Montserrat', sans-serif; font-size: 0.9rem; padding: 7px 10px; border-radius: 999px; background: transparent; }
   .nav-toggle { display: none; width: 40px; height: 40px; border: 1px solid rgba(148,163,184,0.18); border-radius: 12px; background: #fff; align-items: center; justify-content: center; flex-direction: column; gap: 4px; cursor: pointer; box-shadow: 0 8px 20px rgba(15,23,42,0.05); }
   .nav-toggle span { display: block; width: 16px; height: 1.5px; background: #0f172a; border-radius: 999px; }
@@ -1095,27 +1086,11 @@ const selectedGroups = selectedFilters
   .nav-ghost { font-size: 0.78rem; margin-left: 4px; opacity: .85; }
   .nav-substack { vertical-align: -1px; opacity: .85; }
 
-  /* The two tracker pages, at the head of the right column. Each tile carries
-     its own live count, so the card says what is actually in there today. */
-  .trackers { display:grid; grid-template-columns:repeat(2, minmax(0,1fr)); gap:10px; padding:12px; }
-  .tracker { display:flex; align-items:flex-start; gap:10px; padding:11px 12px; border-radius:11px;
-    border:1px solid rgba(148,163,184,.32); background:#fff; text-decoration:none; color:inherit;
-    transition:border-color .15s ease, background .15s ease, transform .15s ease; }
-  .tracker:hover { border-color:rgba(37,99,235,.45); background:#f8fbff; transform:translateY(-1px); }
-  .tracker-icon { flex:0 0 auto; display:grid; place-items:center; width:30px; height:30px;
-    border-radius:9px; background:#eff6ff; color:var(--accent); font-size:.88rem; }
-  .tracker-body { min-width:0; display:flex; flex-direction:column; gap:2px; }
-  .tracker-head { display:flex; flex-wrap:wrap; align-items:baseline; gap:7px; }
-  .tracker-head b { font-size:.95rem; color:#0f172a; }
-  .tracker-stat { font-size:.66rem; font-weight:800; letter-spacing:.03em; text-transform:uppercase;
-    color:#1d4ed8; background:#e0ebff; border-radius:999px; padding:1px 7px; }
-  .tracker-note { font-size:.68rem; color:#94a3b8; font-variant-numeric:tabular-nums; }
-  .tracker-blurb { font-size:.76rem; color:#64748b; line-height:1.4; text-align:left; }
-  .tracker-go { flex:0 0 auto; margin-left:auto; align-self:center; font-size:.72rem; color:#cbd5e1; }
-  .tracker:hover .tracker-go { color:var(--accent); }
-  @media (max-width: 720px) {
-    .trackers { grid-template-columns:1fr; }
-  }
+  /* One line, not a card. The trackers are worth mentioning under the
+     recruiting note, not announcing above it. */
+  .narr-trackers { margin:9px 0 0; font-size:.82rem; color:#64748b; line-height:1.55; }
+  .narr-trackers a { color:#1d4ed8; font-weight:600; text-decoration:none; border-bottom:1px solid rgba(29,78,216,.28); }
+  .narr-trackers a:hover { border-color:currentColor; }
   .grid-2 { display: grid; grid-template-columns: 1fr 3fr; gap: 28px; align-items: start; }
   .subgrid-2 { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; align-items: start; }
   .module { padding: 16px; margin-bottom: 14px; }
@@ -1305,6 +1280,7 @@ const selectedGroups = selectedFilters
     /* Open: the panel is a frosted overlay on the photo, so the layout never shifts. */
     .top-nav.nav-open .nav-links { display: flex; position: absolute; top: 72px; left: 24px; width: fit-content; min-width: 196px; max-width: 78vw; margin: 0; flex-direction: column; align-items: stretch; padding: 10px; border: 1px solid rgba(255,255,255,0.5); border-radius: 18px; background: rgba(255,255,255,0.58); backdrop-filter: blur(22px) saturate(1.6); -webkit-backdrop-filter: blur(22px) saturate(1.6); box-shadow: 0 20px 44px rgba(15,23,42,0.28); }
     .top-nav.nav-open .nav-links a { color: #0f172a; }
+    .top-nav.nav-open .nav-right-start { margin-left: 0; }
     .top-nav.nav-open .nav-links a[aria-current="page"] { background: rgba(255,255,255,0.72); box-shadow: none; }
     .nav-links a { width: auto; min-width: 0; text-align: left; justify-content: flex-start; padding: 10px 12px; font-size: .98rem; white-space: nowrap; }
     .grid-2 { grid-template-columns: 1fr; }

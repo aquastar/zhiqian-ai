@@ -28,6 +28,9 @@ import json
 import pathlib
 import re
 import sys
+import urllib.parse
+import urllib.request
+from concurrent.futures import ThreadPoolExecutor
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 DATA = ROOT / 'src' / 'data'
@@ -206,6 +209,124 @@ def funding_rate(row):
     return None
 
 
+# ---------------------------------------------------------------- logos ----
+#
+# Each row gets its funder's mark, fetched here at build time and served from
+# this site. Hotlinking an icon service would put a request to a third party
+# on every row of the page and hand them the reader's browsing, which is not a
+# trade worth making for a favicon.
+#
+# The domain is taken from the call's own url, except where that url points at
+# a portal. Twenty-two of the rows link through simpler.grants.gov, and the
+# grants.gov logo on an NIH, DARPA and DoD row alike would be worse than no
+# logo at all, so those resolve through the sponsor instead.
+LOGO_DIR = ROOT / 'public' / 'funding' / 'logos'
+
+PORTALS = {'simpler.grants.gov', 'grants.gov', 'sam.gov', 'federalregister.gov',
+           'govcontractfinder.com', 'job-boards.greenhouse.io', 'greenhouse.io'}
+
+SPONSOR_DOMAIN = [
+    (re.compile(r'^NIGMS', re.I), 'nigms.nih.gov'),
+    (re.compile(r'^NIH|^FNIH', re.I), 'nih.gov'),
+    (re.compile(r'^DARPA', re.I), 'darpa.mil'),
+    (re.compile(r'^ARPA-H', re.I), 'arpa-h.gov'),
+    (re.compile(r'^AFOSR|^AFRL', re.I), 'afrl.af.mil'),
+    (re.compile(r'^ARL|^ARO\b', re.I), 'arl.army.mil'),
+    (re.compile(r'^ONR\b', re.I), 'onr.navy.mil'),
+    (re.compile(r'^DoD\b|^DOD\b', re.I), 'defense.gov'),
+    (re.compile(r'^DOE\b', re.I), 'energy.gov'),
+    (re.compile(r'^NOAA', re.I), 'noaa.gov'),
+    (re.compile(r'^NASA', re.I), 'nasa.gov'),
+    (re.compile(r'^NIST', re.I), 'nist.gov'),
+    (re.compile(r'^NSF\b', re.I), 'nsf.gov'),
+    (re.compile(r'^ACL\b', re.I), 'acl.gov'),
+    (re.compile(r'^Anthropic', re.I), 'anthropic.com'),
+    (re.compile(r'^Amazon', re.I), 'amazon.science'),
+    (re.compile(r'^Google', re.I), 'google.com'),
+    (re.compile(r'^Microsoft', re.I), 'microsoft.com'),
+    (re.compile(r'^NVIDIA', re.I), 'nvidia.com'),
+    (re.compile(r'^AMD\b', re.I), 'amd.com'),
+]
+
+# Both services answer a miss with a generic globe rather than a 404 body, so
+# the placeholder is recognised by content and discarded.
+PLACEHOLDER_SIZES = {726, 1478}
+
+
+def logo_domain(row):
+    host = urllib.parse.urlparse(row.get('url', '')).netloc.lower()
+    host = host[4:] if host.startswith('www.') else host
+    if host and host not in PORTALS:
+        return host
+    for pat, dom in SPONSOR_DOMAIN:
+        if pat.search(row.get('sponsor', '')):
+            return dom
+    return ''
+
+
+# Domains that answered with nothing usable. Kept in the repo so a weekly run
+# does not spend a minute re-asking the same dead hosts, and so a funder that
+# later grows an icon can be picked up by deleting its line.
+MISSES = LOGO_DIR / 'no-logo.txt'
+
+
+def fetch_logo(domain, known_misses):
+    """Save the funder's icon, returning its published path or ''."""
+    for existing in LOGO_DIR.glob(f'{domain}.*'):
+        if existing.name != 'no-logo.txt':
+            return f'/funding/logos/{existing.name}'    # already have it
+    if domain in known_misses:
+        return ''
+    sources = [
+        f'https://icons.duckduckgo.com/ip3/{domain}.ico',
+        f'https://www.google.com/s2/favicons?domain={domain}&sz=64',
+    ]
+    for url in sources:
+        try:
+            req = urllib.request.Request(url, headers={'User-Agent': 'zhiqian.ai logo fetch'})
+            with urllib.request.urlopen(req, timeout=6) as r:
+                if r.status != 200:
+                    continue
+                body = r.read(200_000)
+                ctype = (r.headers.get('Content-Type') or '').split(';')[0].strip()
+        except Exception:
+            continue
+        if len(body) in PLACEHOLDER_SIZES or len(body) < 100:
+            continue
+        ext = {'image/png': 'png', 'image/x-icon': 'ico', 'image/vnd.microsoft.icon': 'ico',
+               'image/svg+xml': 'svg', 'image/jpeg': 'jpg', 'image/gif': 'gif',
+               'image/webp': 'webp'}.get(ctype)
+        if not ext:
+            continue
+        LOGO_DIR.mkdir(parents=True, exist_ok=True)
+        (LOGO_DIR / f'{domain}.{ext}').write_bytes(body)
+        return f'/funding/logos/{domain}.{ext}'
+    return ''
+
+
+def attach_logos(rows):
+    LOGO_DIR.mkdir(parents=True, exist_ok=True)
+    known = set()
+    if MISSES.exists():
+        known = {ln.strip() for ln in MISSES.read_text(encoding='utf-8').splitlines() if ln.strip()}
+
+    domains = sorted({d for d in (logo_domain(r) for r in rows) if d})
+    # Seventy-odd hosts, most of them government sites that are slow or simply
+    # do not answer. One at a time this took longer than the rest of the build
+    # put together, so they go out together with a short timeout.
+    with ThreadPoolExecutor(max_workers=12) as pool:
+        found = dict(zip(domains, pool.map(lambda d: fetch_logo(d, known), domains)))
+
+    missed = sorted(known | {d for d, path in found.items() if not path})
+    MISSES.write_text('\n'.join(missed) + '\n', encoding='utf-8')
+
+    for r in rows:
+        r['logo'] = found.get(r.get('logo_domain') or logo_domain(r), '')
+        r.setdefault('logo_domain', logo_domain(r))
+    got = sum(1 for r in rows if r.get('logo'))
+    return got, len(domains)
+
+
 def load(path):
     text = pathlib.Path(path).read_text(encoding='utf-8-sig').replace('\r\n', '\n')
     if text.lstrip().lower().startswith(('<!doctype', '<html')):
@@ -342,6 +463,8 @@ def main():
             if o.get(k):
                 target[k] = o[k]
 
+    logos_found, logo_domains = attach_logos(registry)
+
     # Attach the published funding rate before anything is serialized.
     for r in registry:
         info = funding_rate(r)
@@ -411,7 +534,8 @@ def main():
     rated = sum(1 for r in registry if r.get('rate'))
     print(f'brief {date}: {len(opps)} opportunities ({picks} matched into the '
           f'registry), {len(signals)} signals, {len(registry)} registry rows '
-          f'({rated} with a published funding rate), {len(watchlist)} '
+          f'({rated} with a published funding rate, {logos_found} with a '
+          f'logo across {logo_domains} domains), {len(watchlist)} '
           f'watchlist rows')
 
 
