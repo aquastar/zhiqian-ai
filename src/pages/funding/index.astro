@@ -307,11 +307,16 @@ const compClass = (c) => {
      difference you can see while scanning. They are now plainly different
      kinds of thing: the funder is a small grey label beside its mark, the
      programme is the dark serif-weight line you actually read. */
-  .who { display:flex; align-items:flex-start; gap:9px; }
-  .mark { flex:0 0 auto; display:grid; place-items:center; width:26px; height:26px; margin-top:1px;
-    border-radius:7px; background:#f8fafc; border:1px solid rgba(148,163,184,.3); overflow:hidden; }
-  .mark img { width:16px; height:16px; object-fit:contain; }
-  .mark-text { font-size:.58rem; font-weight:800; letter-spacing:.02em; color:#94a3b8; }
+  /* The mark is sized against the text beside it, not fixed. It stretches to
+     the full height of the funder, programme and eligibility lines and then
+     a touch past them, so the pair reads as one block rather than a small
+     square floating next to a taller column. */
+  .who { display:flex; align-items:stretch; gap:10px; }
+  .mark { flex:0 0 auto; display:grid; place-items:center; width:44px; align-self:stretch;
+    min-height:44px; margin:-2px 0; border-radius:9px; background:#f8fafc;
+    border:1px solid rgba(148,163,184,.3); overflow:hidden; }
+  .mark img { width:26px; height:26px; object-fit:contain; }
+  .mark-text { font-size:.72rem; font-weight:800; letter-spacing:.02em; color:#94a3b8; }
   .who-body { min-width:0; }
   .who-line { display:flex; flex-wrap:wrap; align-items:center; gap:6px; margin-bottom:1px; }
   .sponsor { font-size:.64rem; font-weight:600; letter-spacing:.07em; text-transform:uppercase; color:#94a3b8; }
