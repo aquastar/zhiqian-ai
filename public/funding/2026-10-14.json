@@ -1,0 +1,2815 @@
+{
+  "date": "2026-10-14",
+  "window": {
+    "new_since": "2026-10-07",
+    "deadline_before": "2026-12-13"
+  },
+  "caveat": "未核实 = 未在一手页面确认. 以资助方官网为准, 本页仅为汇总.",
+  "counts": {
+    "opportunities": 27,
+    "early_signals": 7,
+    "registry": 134,
+    "watchlist": 173
+  },
+  "opportunities": [
+    {
+      "sponsor": "NSF CISE",
+      "program": "Future CoRe NSF 25-543",
+      "deadline": "随时, 目标日 2027-02-04",
+      "budget": "最多 $1M, 最长 4 年",
+      "eligibility": "每人 12 个月内最多 2 份, 非限额",
+      "competition": "高",
+      "source_tier": "L1 L2",
+      "url": "https://www.nsf.gov/funding/opportunities/future-core-computer-information-science-engineering-future-computing/nsf25-543/solicitation"
+    },
+    {
+      "sponsor": "NIH (含 NIA NIDCD NLM)",
+      "program": "Katz ESI R01 PAR-25-322",
+      "deadline": "2027-01-26, 2027-05-28, 2027-09-28",
+      "budget": "无上限, 最长 5 年",
+      "eligibility": "仅 ESI, 新方向, 禁止预实验数据",
+      "competition": "中",
+      "source_tier": "L1",
+      "url": "https://grants.nih.gov/grants/guide/pa-files/PAR-25-322.html"
+    },
+    {
+      "sponsor": "ACL NIDILRR",
+      "program": "FIP Development HHS-2027-ACL-NIDILRR-IFDV-0304 (预告)",
+      "deadline": "预计 2026-12-14",
+      "budget": "约 $245K 到 $250K 每年, 36 个月",
+      "eligibility": "高校可投, 非限额",
+      "competition": "中",
+      "source_tier": "L1 L2",
+      "url": "https://simpler.grants.gov/opportunity/9179a04a-da76-447f-8d23-3a5e899ddd47"
+    },
+    {
+      "sponsor": "ACL NIDILRR",
+      "program": "FIP Research HHS-2027-ACL-NIDILRR-IFRE-0303 (预告)",
+      "deadline": "预计 2026-12-14",
+      "budget": "同上",
+      "eligibility": "同上",
+      "competition": "中",
+      "source_tier": "L1 L2",
+      "url": "https://simpler.grants.gov/opportunity/23540a91-8dc4-454a-89d1-9ecc031b819c"
+    },
+    {
+      "sponsor": "NSF ENG ECCS",
+      "program": "NSF 26-514 (EPCL)",
+      "deadline": "随时",
+      "budget": "总额 $110M, 最长 5 年",
+      "eligibility": "无人数或机构限制",
+      "competition": "中",
+      "source_tier": "L1 L2",
+      "url": "https://www.nsf.gov/funding/opportunities/eccs-engineering-electrical-communications-computing-systems/nsf26-514/solicitation"
+    },
+    {
+      "sponsor": "NSF 跨学部",
+      "program": "Genesis Mission DCL NSF 26-023",
+      "deadline": "随宿主项目",
+      "budget": "随宿主项目",
+      "eligibility": "标题以 \"Genesis Mission:\" 开头",
+      "competition": "中",
+      "source_tier": "L1",
+      "url": "https://www.nsf.gov/funding/opportunities/dcl-unleashing-new-age-ai-enabled-scientific-discovery-through"
+    },
+    {
+      "sponsor": "NSF NAIRR Pilot",
+      "program": "Resource Requests",
+      "deadline": "滚动, 每月 15 日",
+      "budget": "12 个月算力",
+      "eligibility": "美国机构研究者",
+      "competition": "中",
+      "source_tier": "L2",
+      "url": "https://nairrpilot.org/opportunities/allocations"
+    },
+    {
+      "sponsor": "Thinking Machines",
+      "program": "Tinker Research Grants",
+      "deadline": "滚动",
+      "budget": "起步 $5,000 额度",
+      "eligibility": "训练开源权重 LLM",
+      "competition": "低到中",
+      "source_tier": "L2",
+      "url": "https://thinkingmachines.ai/news/tinker-research-and-teaching-grants/"
+    },
+    {
+      "sponsor": "Anthropic",
+      "program": "Fellows Program",
+      "deadline": "滚动",
+      "budget": "$3,850 每周 4 个月加算力",
+      "eligibility": "适合博士生或博后",
+      "competition": "高",
+      "source_tier": "L1",
+      "url": "https://job-boards.greenhouse.io/anthropic/jobs/5023394008"
+    },
+    {
+      "sponsor": "NSF ENG CMMI",
+      "program": "NSF 26-515",
+      "deadline": "随时",
+      "budget": "总额 $100M, 最长 5 年",
+      "eligibility": "无人数限制",
+      "competition": "中",
+      "source_tier": "L1 L2",
+      "url": "https://www.nsf.gov/funding/opportunities/engineering-eng-civil-mechanical-manufacturing-innovation/nsf26-515/solicitation"
+    },
+    {
+      "sponsor": "Alzheimer's Association",
+      "program": "BFDN Bridge Funding",
+      "deadline": "LOI 2026-10-30",
+      "budget": "未列",
+      "eligibility": "早期研究者, ESI 7 年内",
+      "competition": "中",
+      "source_tier": "L2",
+      "url": "https://www.alz.org/research/for_researchers/grants/types-of-grants"
+    },
+    {
+      "sponsor": "AFRL RI (Rome NY)",
+      "program": "Knowledge Discovery BAA FA8750-24-S-7006",
+      "deadline": "白皮书 2026-11-30",
+      "budget": "单项 $3M 到 $35M",
+      "eligibility": "全开放",
+      "competition": "中",
+      "source_tier": "L1",
+      "url": "https://govcontractfinder.com/contracts/automated-processes-for-knowledge-discovery-and-information--FA875024S7006"
+    },
+    {
+      "sponsor": "ONR",
+      "program": "Long Range BAA N0001425SB001",
+      "deadline": "2026-12-31",
+      "budget": "未列",
+      "eligibility": "开放",
+      "competition": "中",
+      "source_tier": "L1 L2",
+      "url": "https://www.onr.navy.mil/work-with-us/funding-opportunities/fy25-long-range-broad-agency-announcement-baa-navy-and-marine"
+    },
+    {
+      "sponsor": "AFOSR",
+      "program": "Open BAA FA955026S0001",
+      "deadline": "滚动",
+      "budget": "最高 $10M",
+      "eligibility": "开放",
+      "competition": "中",
+      "source_tier": "L1",
+      "url": "https://simpler.grants.gov/opportunity/de479d2e-aad1-466a-acc3-d5d11cf7918d"
+    },
+    {
+      "sponsor": "ARL / ARO",
+      "program": "Foundational Research BAA W911NF-23-S-0001",
+      "deadline": "至 2027-11-20",
+      "budget": "未列",
+      "eligibility": "开放",
+      "competition": "中",
+      "source_tier": "L1",
+      "url": "https://simpler.grants.gov/opportunity/5e185327-5f25-4c09-889a-43615e1f54da"
+    },
+    {
+      "sponsor": "AMD",
+      "program": "AI and HPC Cluster",
+      "deadline": "2026-11-15",
+      "budget": "节点时",
+      "eligibility": "需注册 AUP",
+      "competition": "中",
+      "source_tier": "L2",
+      "url": "https://www.amd.com/en/corporate/university-program/ai-hpc-cluster.html"
+    },
+    {
+      "sponsor": "Anthropic",
+      "program": "AI for Science credits",
+      "deadline": "每月评审",
+      "budget": "最多 $20,000 额度",
+      "eligibility": "学术研究者",
+      "competition": "中",
+      "source_tier": "L1",
+      "url": "https://support.claude.com/en/articles/11199177-anthropics-ai-for-science-program"
+    },
+    {
+      "sponsor": "EA Funds",
+      "program": "Transformative AI Fund",
+      "deadline": "滚动",
+      "budget": "$10K 到 $150K",
+      "eligibility": "以 AI 风险为框架",
+      "competition": "中",
+      "source_tier": "L2",
+      "url": "https://funds.effectivealtruism.org/funds/transformative-ai"
+    },
+    {
+      "sponsor": "UR CTSI",
+      "program": "Pilot Studies TS01",
+      "deadline": "LOI 2026-10-26",
+      "budget": "最多 $50,000",
+      "eligibility": "PI 需 UR 主聘",
+      "competition": "中",
+      "source_tier": "L2",
+      "url": "https://www.urmc.rochester.edu/clinical-translational-science-institute/funding/request-for-applications-pilot-studies"
+    },
+    {
+      "sponsor": "NIH NIDCD",
+      "program": "RFA-DC-25-002",
+      "deadline": "2027-02-12",
+      "budget": "年直接费用低于 $500K",
+      "eligibility": "需基础到临床团队",
+      "competition": "中",
+      "source_tier": "L1",
+      "url": "https://grants.nih.gov/grants/guide/rfa-files/RFA-DC-25-002.html"
+    },
+    {
+      "sponsor": "NIH BRAIN",
+      "program": "RFA-DA-27-004",
+      "deadline": "2027-10-06",
+      "budget": "$150K 到 $350K 每年",
+      "eligibility": "列出 AI 与图模型",
+      "competition": "中",
+      "source_tier": "L1",
+      "url": "https://grants.nih.gov/grants/guide/rfa-files/RFA-DA-27-004.html"
+    },
+    {
+      "sponsor": "DoD",
+      "program": "FY2027 DURIP N0001426SF003",
+      "deadline": "2026-11-06",
+      "budget": "$50K 到 $3M",
+      "eligibility": "仅设备",
+      "competition": "中到高",
+      "source_tier": "L1 L2",
+      "url": "https://simpler.grants.gov/opportunity/812b55e0-deb1-43cc-a2e2-f9f82ad735ad"
+    },
+    {
+      "sponsor": "W. M. Keck Foundation",
+      "program": "Research Program",
+      "deadline": "2026-12-07",
+      "budget": "$1M 到 $1.3M",
+      "eligibility": "限额, 每机构 3 份",
+      "competition": "高",
+      "source_tier": "L2",
+      "url": "https://www.wmkeck.org/research-overview/"
+    },
+    {
+      "sponsor": "ARPA-H",
+      "program": "Mission Office ISOs",
+      "deadline": "滚动",
+      "budget": "未列",
+      "eligibility": "高校可投",
+      "competition": "高",
+      "source_tier": "L1 L2",
+      "url": "https://arpa-h.gov/explore-funding/open-funding-opportunities"
+    },
+    {
+      "sponsor": "AIMO",
+      "program": "Interpretability Challenge",
+      "deadline": "2026-11-01",
+      "budget": "奖金 $12,500",
+      "eligibility": "须开源",
+      "competition": "中",
+      "source_tier": "L3",
+      "url": "https://aimo-interp.github.io/"
+    },
+    {
+      "sponsor": "Corrigibility Research Fund",
+      "program": "Round 2",
+      "deadline": "2026-10-31",
+      "budget": "$5K 到 $35K",
+      "eligibility": "未列",
+      "competition": "低到中",
+      "source_tier": "L3",
+      "url": "https://corrigibilityresearch.org/"
+    },
+    {
+      "sponsor": "NYS ESD / NYSTAR",
+      "program": "CAT RFP 2026",
+      "deadline": "2026-10-30",
+      "budget": "每年最多 $903,954",
+      "eligibility": "限额, 每校 2 份",
+      "competition": "高",
+      "source_tier": "L2",
+      "url": "https://esd.ny.gov/sites/default/files/media/document/CAT2026-RFPFINAL-CORRECTED-DUEDATE.pdf"
+    }
+  ],
+  "early_signals": [
+    {
+      "note": "NIDCD Strategic Plan 2028 到 2032 RFI, 评论截止 2026-10-26",
+      "url": "https://www.federalregister.gov/documents/2026/08/25/2026-17311/request-for-information-rfi-request-for-information-on-new-and-emerging-areas-of-science-relevant-to"
+    },
+    {
+      "note": "NSF X-Labs 未来主题 RFI, 截止 2026-10-30",
+      "url": "https://www.nsf.gov/news/nsf-announces-3-additional-topics-part-nsf-x-labs-initiative"
+    },
+    {
+      "note": "NSF SINI (PCLNet 下, 最多 $75M 5 年) 即将发布",
+      "url": "https://www.nsf.gov/news/nsf-lays-foundation-next-generation-technologies-support"
+    },
+    {
+      "note": "AI Forge (DARPA, NSF, NIST CAISI) 尚无征集",
+      "url": "https://www.darpa.mil/research/programs/ai-forge"
+    },
+    {
+      "note": "NIH DP2 New Innovator RFA-RM-28-002 预计 2027-08-19 截止",
+      "url": "https://simpler.grants.gov/opportunity/469a39ab-1b4c-471e-b612-5e979f656f27"
+    },
+    {
+      "note": "NIH Bridge2AI Stage 2 RFA-RM-28-010 预计 2027-03-01 截止",
+      "url": "https://simpler.grants.gov/opportunity/602cbc1a-d601-44f1-90d7-e6914ba594a6"
+    },
+    {
+      "note": "DARPA YFA 2027 尚未发布",
+      "url": "https://www.darpa.mil/work-with-us/for-universities/young-faculty-award"
+    }
+  ],
+  "registry": [
+    {
+      "first_seen_date": "2026-10-09",
+      "sponsor": "Amazon",
+      "program": "Amazon Research Awards Fall 2026 (9 calls)",
+      "deadline": "2026-11-04",
+      "url": "https://www.amazon.science/research-awards/call-for-proposals"
+    },
+    {
+      "first_seen_date": "2026-10-09",
+      "sponsor": "ARPA-H",
+      "program": "Emerging Health Innovators ARPA-H-SOL-26-150",
+      "deadline": "Solution Summary 2026-10-30",
+      "url": "https://arpa-h.gov/explore-funding/programs/ehi"
+    },
+    {
+      "first_seen_date": "2026-10-09",
+      "sponsor": "ARPA-H",
+      "program": "SPECTRA ARPA-H-SOL-26-163",
+      "deadline": "TA4 2026-10-18, TA1 TA2 2026-12-02",
+      "url": "https://arpa-h.gov/explore-funding/programs/spectra"
+    },
+    {
+      "first_seen_date": "2026-10-09",
+      "sponsor": "ARPA-H",
+      "program": "SURPASS ARPA-H-SOL-26-164",
+      "deadline": "Solution Summary 2026-11-30",
+      "url": "https://arpa-h.gov/explore-funding/programs/surpass"
+    },
+    {
+      "first_seen_date": "2026-10-09",
+      "sponsor": "ARPA-H",
+      "program": "UNIQUE ARPA-H-SOL-26-162",
+      "deadline": "Solution Summary 2026-10-29",
+      "url": "https://arpa-h.gov/explore-funding/programs/unique"
+    },
+    {
+      "first_seen_date": "2026-10-09",
+      "sponsor": "ONR",
+      "program": "FY2027 Young Investigator Program N0001426SF004",
+      "deadline": "2026-10-30",
+      "url": "https://www.onr.navy.mil/work-with-us/funding-opportunities/fiscal-year-fy-2027-young-investigator-program-yip"
+    },
+    {
+      "first_seen_date": "2026-10-09",
+      "sponsor": "AFOSR",
+      "program": "FY2027 YIP FA955026S0003",
+      "deadline": "white paper 2026-10-09, full 2026-12-04",
+      "url": "https://simpler.grants.gov/opportunity/c342c01d-4f34-440f-8bb2-4bdd4d763df0"
+    },
+    {
+      "first_seen_date": "2026-10-09",
+      "sponsor": "DOE SC",
+      "program": "FY2027 Open Call DE-FOA-0003665",
+      "deadline": "rolling to 2027-09-30",
+      "url": "https://science.osti.gov/grants/FOAs/FOAs/2027/DE-FOA-0003665"
+    },
+    {
+      "first_seen_date": "2026-10-09",
+      "sponsor": "DOE SC",
+      "program": "Genesis Mission Graduate Fellowship DE-FOA-0003673",
+      "deadline": "LOI 2026-11-09",
+      "url": "https://science.osti.gov/grants/FOAs/FOAs/2027/DE-FOA-0003673"
+    },
+    {
+      "first_seen_date": "2026-10-09",
+      "sponsor": "DARPA IPTO",
+      "program": "Office-Wide BAA HR001126S0011",
+      "deadline": "rolling to 2027-06-22",
+      "url": "https://simpler.grants.gov/opportunity/4ec76651-17d7-47fd-ac5e-377e8673b3a4"
+    },
+    {
+      "first_seen_date": "2026-10-09",
+      "sponsor": "DARPA IPTO",
+      "program": "Intrinsic Market Resilience DARPA-PS-26-138",
+      "deadline": "abstract 2026-10-22",
+      "url": "https://www.darpa.mil/research/programs/intrinsic-market-resilience-imr"
+    },
+    {
+      "first_seen_date": "2026-10-09",
+      "sponsor": "DARPA DSO",
+      "program": "Office-Wide BAA HR001126S0015",
+      "deadline": "rolling to 2027-08-27",
+      "url": "https://simpler.grants.gov/opportunity/1903b420-64ef-4f26-a4c1-c857d4de4f00"
+    },
+    {
+      "first_seen_date": "2026-10-09",
+      "sponsor": "DoD",
+      "program": "FY2027 MURI N0001426SF002",
+      "deadline": "white paper 2026-11-20",
+      "url": "https://www.onr.navy.mil/work-with-us/funding-opportunities/fiscal-year-fy-2027-department-war-multidisciplinary-research"
+    },
+    {
+      "first_seen_date": "2026-10-09",
+      "sponsor": "ONR",
+      "program": "FY27 Communications and Networking N0001426SBC11",
+      "deadline": "2026-11-16",
+      "url": "https://www.onr.navy.mil/work-with-us/funding-opportunities/special-program-announcement-onr-research-opportunity-fy27"
+    },
+    {
+      "first_seen_date": "2026-10-09",
+      "sponsor": "NSF",
+      "program": "AI Datasets NSF 26-512",
+      "deadline": "2026-11-04",
+      "url": "https://www.nsf.gov/funding/opportunities/ai-datasets-unlocking-dataset-value-ai-enabled-scientific-discovery/nsf26-512/solicitation"
+    },
+    {
+      "first_seen_date": "2026-10-09",
+      "sponsor": "NSF",
+      "program": "AI Infrastructure Hubs NSF 26-513 (limited)",
+      "deadline": "2026-11-04",
+      "url": "https://www.nsf.gov/funding/opportunities/us-national-science-foundation-state-regional-artificial/nsf26-513/solicitation"
+    },
+    {
+      "first_seen_date": "2026-10-09",
+      "sponsor": "NSF",
+      "program": "Translation to Practice NSF 25-540",
+      "deadline": "2026-11-17",
+      "url": "https://www.nsf.gov/funding/opportunities/nsf-ttp-national-science-foundation-translation-practice/nsf25-540/solicitation"
+    },
+    {
+      "first_seen_date": "2026-10-09",
+      "sponsor": "NSF",
+      "program": "Expeditions NSF 26-525",
+      "deadline": "prelim 2026-12-02",
+      "url": "https://www.nsf.gov/funding/opportunities/expeditions-expeditions-computing/nsf26-525/solicitation"
+    },
+    {
+      "first_seen_date": "2026-10-09",
+      "sponsor": "NSF",
+      "program": "RET Sites NSF 24-503",
+      "deadline": "2026-10-14",
+      "url": "https://www.nsf.gov/funding/opportunities/research-experiences-teachers-engineering-computer-science/nsf24-503/solicitation"
+    },
+    {
+      "first_seen_date": "2026-10-09",
+      "sponsor": "NSF",
+      "program": "EFRI Wave-Based Computing NSF 26-524",
+      "deadline": "concept outline 2026-11-19",
+      "url": "https://www.nsf.gov/funding/opportunities/efri-wbc-emerging-frontiers-research-innovation-efri-wave-based/nsf26-524/solicitation"
+    },
+    {
+      "first_seen_date": "2026-10-09",
+      "sponsor": "NSF",
+      "program": "FINDERS FOUNDRY NSF 26-507",
+      "deadline": "2026-11-18",
+      "url": "https://www.nsf.gov/funding/opportunities/nsf-finders-foundry-national-science-foundation-fostering-interdisciplinary"
+    },
+    {
+      "first_seen_date": "2026-10-09",
+      "sponsor": "NSF",
+      "program": "TechAccess NSF 26-508 (limited)",
+      "deadline": "LOI 2026-12-15",
+      "url": "https://www.nsf.gov/funding/opportunities/techaccess-ai-ready-america/nsf26-508/solicitation"
+    },
+    {
+      "first_seen_date": "2026-10-09",
+      "sponsor": "NSF",
+      "program": "ELEGANT OTA",
+      "deadline": "2026-12-18",
+      "url": "https://www.nsf.gov/tip/elegant"
+    },
+    {
+      "first_seen_date": "2026-10-09",
+      "sponsor": "NSF",
+      "program": "X-Labs AI for Physical Systems",
+      "deadline": "2027-01-07",
+      "url": "https://www.nsf.gov/funding/initiatives/nsf-x-labs"
+    },
+    {
+      "first_seen_date": "2026-10-09",
+      "sponsor": "NSF",
+      "program": "MFAI NSF 24-569 (inactive)",
+      "deadline": "none",
+      "url": "https://www.nsf.gov/funding/opportunities/mfai-mathematical-foundations-artificial-intelligence/nsf24-569/solicitation"
+    },
+    {
+      "first_seen_date": "2026-10-09",
+      "sponsor": "NIH",
+      "program": "AREA R15 PAR-25-134",
+      "deadline": "2026-10-26",
+      "url": "https://grants.nih.gov/grants/guide/pa-files/PAR-25-134.html"
+    },
+    {
+      "first_seen_date": "2026-10-09",
+      "sponsor": "NIH",
+      "program": "Parent R21 PA-25-304 and R03 PA-25-302",
+      "deadline": "2026-10-16",
+      "url": "https://grants.nih.gov/grants/guide/pa-files/PA-25-304.html"
+    },
+    {
+      "first_seen_date": "2026-10-09",
+      "sponsor": "NIH NIDCD",
+      "program": "ECR R21 PAR-25-120 (ineligible, prior federal PI)",
+      "deadline": "2026-10-19",
+      "url": "https://grants.nih.gov/grants/guide/pa-files/PAR-25-120.html"
+    },
+    {
+      "first_seen_date": "2026-10-09",
+      "sponsor": "NIH",
+      "program": "Parent K25 PA-24-191",
+      "deadline": "2026-10-13",
+      "url": "https://grants.nih.gov/grants/guide/pa-files/PA-24-191.html"
+    },
+    {
+      "first_seen_date": "2026-10-09",
+      "sponsor": "NIH NLM",
+      "program": "PAR-26-042, PAR-26-040, PAR-25-235, PAR-25-131",
+      "deadline": "resubmissions Oct to Nov 2026",
+      "url": "https://simpler.grants.gov/opportunity/131fabad-5506-431b-b87a-e564f1d8dcc4"
+    },
+    {
+      "first_seen_date": "2026-10-09",
+      "sponsor": "NIH Common Fund",
+      "program": "Human Virome R03 RFA-RM-27-024",
+      "deadline": "2026-11-10",
+      "url": "https://simpler.grants.gov/opportunity/50dc6b92-b042-4204-ba74-2753a244be5a"
+    },
+    {
+      "first_seen_date": "2026-10-09",
+      "sponsor": "NIGMS",
+      "program": "MIRA ESI PAR-27-032",
+      "deadline": "2027-02-03",
+      "url": "https://simpler.grants.gov/opportunity/9a4aeb2f-d0ac-403b-ac67-9d1fd24d9556"
+    },
+    {
+      "first_seen_date": "2026-10-09",
+      "sponsor": "Simons Foundation",
+      "program": "Utilizing the Full Power of Empire AI RFA",
+      "deadline": "2026-12-01",
+      "url": "https://www.simonsfoundation.org/grant/utilizing-the-full-power-of-empire-ai-request-for-applications/"
+    },
+    {
+      "first_seen_date": "2026-10-09",
+      "sponsor": "Simons Foundation",
+      "program": "Collaborations in MPS",
+      "deadline": "LOI 2026-10-29",
+      "url": "https://www.simonsfoundation.org/grant/simons-collaborations-in-mathematics-and-the-physical-sciences/"
+    },
+    {
+      "first_seen_date": "2026-10-09",
+      "sponsor": "Hearing Health Foundation",
+      "program": "Emerging Research Grants 2027 cycle",
+      "deadline": "RFP expected Oct 2026",
+      "url": "https://hearinghealthfoundation.org/emerging-research-grants"
+    },
+    {
+      "first_seen_date": "2026-10-09",
+      "sponsor": "Mercor",
+      "program": "AI Safety Fund",
+      "deadline": "rolling",
+      "url": "https://builtin.com/job/mercor-ai-safety-fund-grants/11187489"
+    },
+    {
+      "first_seen_date": "2026-10-09",
+      "sponsor": "Humanity AI",
+      "program": "Communities Leading on AI open call",
+      "deadline": "2026-10-21",
+      "url": "https://humanityai.ai/open-call/"
+    },
+    {
+      "first_seen_date": "2026-10-09",
+      "sponsor": "Foresight Institute",
+      "program": "AI for Science and Safety Nodes RFP",
+      "deadline": "2026-10-31",
+      "url": "https://foresight.org/grants/ai-science-safety-nodes-rfp/"
+    },
+    {
+      "first_seen_date": "2026-10-09",
+      "sponsor": "NY Health Foundation",
+      "program": "2027 Special Projects Fund",
+      "deadline": "LOI 2026-10-15",
+      "url": "https://nyhealthfoundation.org/rfp/2027-special-projects-fund/"
+    },
+    {
+      "first_seen_date": "2026-10-09",
+      "sponsor": "NYSERDA",
+      "program": "PON 6149 Grid Enhancing Technologies",
+      "deadline": "rolling",
+      "url": "https://portal.nyserda.ny.gov/CORE_Solicitation_Detail_Page?SolicitationId=a0rcr0000181NQbAAM"
+    },
+    {
+      "first_seen_date": "2026-10-09",
+      "sponsor": "NVIDIA",
+      "program": "Graduate Fellowship 2027 to 2028",
+      "deadline": "2026-10-30",
+      "url": "https://blogs.nvidia.com/?p=98499"
+    },
+    {
+      "first_seen_date": "2026-10-09",
+      "sponsor": "Microsoft Research",
+      "program": "Research Fellowship 2027 (not yet posted)",
+      "deadline": "expected 2026-12-16",
+      "url": "https://www.microsoft.com/en-us/research/academic-program/microsoft-research-fellowship/how-to-apply/"
+    },
+    {
+      "first_seen_date": "2026-10-09",
+      "sponsor": "RIT",
+      "program": "Grant Writer's Boot Camp Seed Funding",
+      "deadline": "NOI 2026-11-16",
+      "url": "https://www.rit.edu/srs/internal-funding-opportunities"
+    },
+    {
+      "first_seen_date": "2026-10-14",
+      "sponsor": "Retirement Research Foundation",
+      "program": "Research grants LOI",
+      "deadline": "2026-11-02",
+      "url": "https://www.rrf.org/apply-for-a-grant/research-grants/"
+    },
+    {
+      "first_seen_date": "2026-10-14",
+      "sponsor": "Dana Foundation",
+      "program": "More than Medicine preproposals",
+      "deadline": "2026-11-18",
+      "url": "https://dana.org/grants/"
+    },
+    {
+      "first_seen_date": "2026-10-14",
+      "sponsor": "Alzheimer's Drug Discovery Foundation",
+      "program": "Diagnostics Accelerator and digital biomarker RFPs",
+      "deadline": "full proposals 2026-12-07",
+      "url": "https://www.alzdiscovery.org/research-and-grants/funding-opportunities"
+    },
+    {
+      "first_seen_date": "2026-10-14",
+      "sponsor": "ARIA",
+      "program": "Safeguarded AI and Scaling Trust rolling batch",
+      "deadline": "2026-10-31",
+      "url": "https://www.aria.org.uk/"
+    },
+    {
+      "first_seen_date": "2026-10-14",
+      "sponsor": "Arnold Ventures",
+      "program": "K-12 RFP (low fit)",
+      "deadline": "2026-11-13",
+      "url": "https://www.arnoldventures.org/grants"
+    },
+    {
+      "first_seen_date": "2026-10-14",
+      "sponsor": "NSF CISE",
+      "program": "Future CoRe NSF 25-543",
+      "deadline": "anytime, target 2027-02-04",
+      "url": "https://www.nsf.gov/funding/opportunities/future-core-computer-information-science-engineering-future-computing/nsf25-543/solicitation"
+    },
+    {
+      "first_seen_date": "2026-10-14",
+      "sponsor": "NIH",
+      "program": "Katz ESI R01 PAR-25-322",
+      "deadline": "new 2027-01-26",
+      "url": "https://grants.nih.gov/grants/guide/pa-files/PAR-25-322.html"
+    },
+    {
+      "first_seen_date": "2026-10-14",
+      "sponsor": "ACL NIDILRR",
+      "program": "FIP Development HHS-2027-ACL-NIDILRR-IFDV-0304 (forecast)",
+      "deadline": "est 2026-12-14",
+      "url": "https://simpler.grants.gov/opportunity/9179a04a-da76-447f-8d23-3a5e899ddd47"
+    },
+    {
+      "first_seen_date": "2026-10-14",
+      "sponsor": "ACL NIDILRR",
+      "program": "FIP Research HHS-2027-ACL-NIDILRR-IFRE-0303 (forecast)",
+      "deadline": "est 2026-12-14",
+      "url": "https://simpler.grants.gov/opportunity/23540a91-8dc4-454a-89d1-9ecc031b819c"
+    },
+    {
+      "first_seen_date": "2026-10-14",
+      "sponsor": "NSF ENG",
+      "program": "ECCS NSF 26-514 (EPCL)",
+      "deadline": "anytime",
+      "url": "https://www.nsf.gov/funding/opportunities/eccs-engineering-electrical-communications-computing-systems/nsf26-514/solicitation"
+    },
+    {
+      "first_seen_date": "2026-10-14",
+      "sponsor": "NSF ENG",
+      "program": "CMMI NSF 26-515",
+      "deadline": "anytime",
+      "url": "https://www.nsf.gov/funding/opportunities/engineering-eng-civil-mechanical-manufacturing-innovation/nsf26-515/solicitation"
+    },
+    {
+      "first_seen_date": "2026-10-14",
+      "sponsor": "NSF",
+      "program": "Genesis Mission DCL NSF 26-023",
+      "deadline": "per host program",
+      "url": "https://www.nsf.gov/funding/opportunities/dcl-unleashing-new-age-ai-enabled-scientific-discovery-through"
+    },
+    {
+      "first_seen_date": "2026-10-14",
+      "sponsor": "NSF",
+      "program": "NAIRR Pilot resource requests",
+      "deadline": "rolling, monthly 15th",
+      "url": "https://nairrpilot.org/opportunities/allocations"
+    },
+    {
+      "first_seen_date": "2026-10-14",
+      "sponsor": "Thinking Machines",
+      "program": "Tinker Research Grants",
+      "deadline": "rolling",
+      "url": "https://thinkingmachines.ai/news/tinker-research-and-teaching-grants/"
+    },
+    {
+      "first_seen_date": "2026-10-14",
+      "sponsor": "Anthropic",
+      "program": "Fellows Program",
+      "deadline": "rolling",
+      "url": "https://job-boards.greenhouse.io/anthropic/jobs/5023394008"
+    },
+    {
+      "first_seen_date": "2026-10-14",
+      "sponsor": "Anthropic",
+      "program": "AI for Science API credits",
+      "deadline": "monthly review 2026-11-02",
+      "url": "https://support.claude.com/en/articles/11199177-anthropics-ai-for-science-program"
+    },
+    {
+      "first_seen_date": "2026-10-14",
+      "sponsor": "Alzheimer's Association",
+      "program": "BFDN Bridge Funding",
+      "deadline": "LOI 2026-10-30",
+      "url": "https://www.alz.org/research/for_researchers/grants/types-of-grants"
+    },
+    {
+      "first_seen_date": "2026-10-14",
+      "sponsor": "Alzheimer's Association",
+      "program": "PTC-EM-AI",
+      "deadline": "LOI 2026-10-20, full 2026-12-15",
+      "url": "https://www.alz.org/research/for_researchers/grants/types-of-grants"
+    },
+    {
+      "first_seen_date": "2026-10-14",
+      "sponsor": "AFRL RI",
+      "program": "Knowledge Discovery BAA FA8750-24-S-7006",
+      "deadline": "FY27 white paper 2026-11-30",
+      "url": "https://govcontractfinder.com/contracts/automated-processes-for-knowledge-discovery-and-information--FA875024S7006"
+    },
+    {
+      "first_seen_date": "2026-10-14",
+      "sponsor": "ONR",
+      "program": "Long Range BAA N0001425SB001",
+      "deadline": "2026-12-31",
+      "url": "https://www.onr.navy.mil/work-with-us/funding-opportunities/fy25-long-range-broad-agency-announcement-baa-navy-and-marine"
+    },
+    {
+      "first_seen_date": "2026-10-14",
+      "sponsor": "AFOSR",
+      "program": "Open BAA FA955026S0001",
+      "deadline": "rolling",
+      "url": "https://simpler.grants.gov/opportunity/de479d2e-aad1-466a-acc3-d5d11cf7918d"
+    },
+    {
+      "first_seen_date": "2026-10-14",
+      "sponsor": "ARL ARO",
+      "program": "Foundational Research BAA W911NF-23-S-0001",
+      "deadline": "to 2027-11-20",
+      "url": "https://simpler.grants.gov/opportunity/5e185327-5f25-4c09-889a-43615e1f54da"
+    },
+    {
+      "first_seen_date": "2026-10-14",
+      "sponsor": "AMD",
+      "program": "AI and HPC Cluster allocation",
+      "deadline": "2026-11-15",
+      "url": "https://www.amd.com/en/corporate/university-program/ai-hpc-cluster.html"
+    },
+    {
+      "first_seen_date": "2026-10-14",
+      "sponsor": "EA Funds",
+      "program": "Transformative AI Fund",
+      "deadline": "rolling",
+      "url": "https://funds.effectivealtruism.org/funds/transformative-ai"
+    },
+    {
+      "first_seen_date": "2026-10-14",
+      "sponsor": "UR CTSI",
+      "program": "Pilot Studies TS01",
+      "deadline": "LOI 2026-10-26",
+      "url": "https://www.urmc.rochester.edu/clinical-translational-science-institute/funding/request-for-applications-pilot-studies"
+    },
+    {
+      "first_seen_date": "2026-10-14",
+      "sponsor": "NIH NIDCD",
+      "program": "Translational R01 RFA-DC-25-002",
+      "deadline": "2027-02-12",
+      "url": "https://grants.nih.gov/grants/guide/rfa-files/RFA-DC-25-002.html"
+    },
+    {
+      "first_seen_date": "2026-10-14",
+      "sponsor": "NIH BRAIN",
+      "program": "TMM R01 RFA-DA-27-004",
+      "deadline": "next 2027-10-06",
+      "url": "https://grants.nih.gov/grants/guide/rfa-files/RFA-DA-27-004.html"
+    },
+    {
+      "first_seen_date": "2026-10-14",
+      "sponsor": "DoD",
+      "program": "FY2027 DURIP N0001426SF003",
+      "deadline": "2026-11-06",
+      "url": "https://simpler.grants.gov/opportunity/812b55e0-deb1-43cc-a2e2-f9f82ad735ad"
+    },
+    {
+      "first_seen_date": "2026-10-14",
+      "sponsor": "W. M. Keck Foundation",
+      "program": "Research Program June 2027 cycle (limited)",
+      "deadline": "2026-12-07",
+      "url": "https://www.wmkeck.org/research-overview/"
+    },
+    {
+      "first_seen_date": "2026-10-14",
+      "sponsor": "ARPA-H",
+      "program": "Mission Office ISOs SOL-24-103 104 105 106",
+      "deadline": "rolling",
+      "url": "https://arpa-h.gov/explore-funding/open-funding-opportunities"
+    },
+    {
+      "first_seen_date": "2026-10-14",
+      "sponsor": "ARPA-H",
+      "program": "FASTPASS ARPA-H-SOL-26-160 (closed to new teams)",
+      "deadline": "2026-11-10",
+      "url": "https://arpa-h.gov/explore-funding/programs/fastpass"
+    },
+    {
+      "first_seen_date": "2026-10-14",
+      "sponsor": "ARPA-H",
+      "program": "HEARING ARPA-H-SOL-26-154 (under review)",
+      "deadline": "closed",
+      "url": "https://arpa-h.gov/explore-funding/programs/hearing"
+    },
+    {
+      "first_seen_date": "2026-10-14",
+      "sponsor": "grantmaking.ai",
+      "program": "1M AI existential safety round",
+      "deadline": "none stated",
+      "url": "https://app.grantmaking.ai/list"
+    },
+    {
+      "first_seen_date": "2026-10-14",
+      "sponsor": "Cohere Labs",
+      "program": "Catalyst Grants",
+      "deadline": "rolling",
+      "url": "https://cohere.com/research/grants"
+    },
+    {
+      "first_seen_date": "2026-10-14",
+      "sponsor": "Lambda",
+      "program": "Research Grant",
+      "deadline": "none stated",
+      "url": "https://lambda.ai/research"
+    },
+    {
+      "first_seen_date": "2026-10-14",
+      "sponsor": "Modal",
+      "program": "Modal for Academics",
+      "deadline": "rolling",
+      "url": "https://modal.com/academics"
+    },
+    {
+      "first_seen_date": "2026-10-14",
+      "sponsor": "Nebius",
+      "program": "Research Credits Program (cycle likely closed)",
+      "deadline": "none",
+      "url": "https://nebius.com/nebius-research-credits-program"
+    },
+    {
+      "first_seen_date": "2026-10-14",
+      "sponsor": "AIMO",
+      "program": "Interpretability Challenge NeurIPS 2026",
+      "deadline": "2026-11-01",
+      "url": "https://aimo-interp.github.io/"
+    },
+    {
+      "first_seen_date": "2026-10-14",
+      "sponsor": "OpenAI",
+      "program": "Researcher Access Program",
+      "deadline": "quarterly, Dec 2026",
+      "url": "https://grants.openai.com/prog/openai_researcher_access_program/"
+    },
+    {
+      "first_seen_date": "2026-10-14",
+      "sponsor": "Lightcone",
+      "program": "Corrigibility Research Fund Round 2",
+      "deadline": "2026-10-31",
+      "url": "https://corrigibilityresearch.org/"
+    },
+    {
+      "first_seen_date": "2026-10-14",
+      "sponsor": "NIH NHGRI",
+      "program": "IGVF Computational Modeling RFA-HG-27-010",
+      "deadline": "2026-12-14",
+      "url": "https://simpler.grants.gov/opportunity/c223b7bc-1da4-4533-a09f-d35659e6d29b"
+    },
+    {
+      "first_seen_date": "2026-10-14",
+      "sponsor": "PCORI",
+      "program": "Digital Health Technologies Cycle 1 2027",
+      "deadline": "LOI 2027-01-06",
+      "url": "https://www.pcori.org/funding-opportunities/announcement/harnessing-digital-health-technologies-support-patient-centered-comparative-clinical-effectiveness-research-pcori-funding-announcement-cycle-1-2027"
+    },
+    {
+      "first_seen_date": "2026-10-14",
+      "sponsor": "Griffiss Institute",
+      "program": "STFP fellowship",
+      "deadline": "2026-11-01",
+      "url": "https://www.griffissinstitute.org/information-institute/"
+    },
+    {
+      "first_seen_date": "2026-10-14",
+      "sponsor": "John A. Hartford Foundation",
+      "program": "2026 Call for Proposals",
+      "deadline": "LOI 2026-10-27",
+      "url": "https://www.johnahartford.org/grants-strategy/2026-call-for-proposals"
+    },
+    {
+      "first_seen_date": "2026-10-14",
+      "sponsor": "NYSERDA",
+      "program": "PON 6240 BESS Health Operations",
+      "deadline": "2026-11-10",
+      "url": "https://www.nyserda.ny.gov/All-Programs/Grid-Modernization-Program"
+    },
+    {
+      "first_seen_date": "2026-10-14",
+      "sponsor": "NYS ESD",
+      "program": "CAT RFP 2026 (limited)",
+      "deadline": "2026-10-30",
+      "url": "https://esd.ny.gov/sites/default/files/media/document/CAT2026-RFPFINAL-CORRECTED-DUEDATE.pdf"
+    },
+    {
+      "first_seen_date": "2026-10-14",
+      "sponsor": "NIH NCCIH",
+      "program": "Remote mHealth CT R01 PAR-25-268",
+      "deadline": "2026-11-17",
+      "url": "https://simpler.grants.gov/opportunity/e4e8aa66-546b-4bf7-994e-395c11b8b7cf"
+    },
+    {
+      "first_seen_date": "2026-10-14",
+      "sponsor": "NIH",
+      "program": "Collaborative Program Grant RM1 PAR-27-003",
+      "deadline": "TBD",
+      "url": "https://simpler.grants.gov/opportunity/c467080e-51a0-4a76-b416-035664fa95df"
+    },
+    {
+      "first_seen_date": "2026-10-14",
+      "sponsor": "NIH Common Fund",
+      "program": "SenNet SenTecs RFA-RM-27-007",
+      "deadline": "2026-11-23",
+      "url": "https://simpler.grants.gov/search?agency=HHS-NIH11&status=forecasted,posted&sortby=postedDateDesc"
+    },
+    {
+      "first_seen_date": "2026-10-14",
+      "sponsor": "NIJ",
+      "program": "FY2026 solicitations incl Crime and Justice Research O-NIJ-2026-172801",
+      "deadline": "2026-11-16",
+      "url": "https://nij.ojp.gov/funding/current"
+    },
+    {
+      "first_seen_date": "2026-10-14",
+      "sponsor": "APS",
+      "program": "Franklin Research Grants",
+      "deadline": "2026-12-01",
+      "url": "https://www.amphilsoc.org/grants/franklin-research-grants"
+    },
+    {
+      "first_seen_date": "2026-10-14",
+      "sponsor": "Cisco Research",
+      "program": "Semiconductor Reliability RFP",
+      "deadline": "rolling",
+      "url": "https://research.cisco.com/open-rfps/semiconductor-reliability"
+    },
+    {
+      "first_seen_date": "2026-10-14",
+      "sponsor": "NIST CHIPS",
+      "program": "CRDO BAA 2025-NIST-CHIPS-CRDO-01",
+      "deadline": "reopen Nov 2026",
+      "url": "https://www.nist.gov/chips/chips-rd-funding-opportunities"
+    },
+    {
+      "first_seen_date": "2026-10-14",
+      "sponsor": "ORAU",
+      "program": "Powe Junior Faculty Awards 2027 (limited)",
+      "deadline": "2027-01-06",
+      "url": "https://www.orau.org/partnerships/grant-programs/powe/index.html"
+    },
+    {
+      "first_seen_date": "2026-10-14",
+      "sponsor": "Humboldt",
+      "program": "Research Fellowship experienced",
+      "deadline": "opens 2026-11-15",
+      "url": "https://www.humboldt-foundation.de/en/apply/sponsorship-programmes/humboldt-research-fellowship"
+    },
+    {
+      "first_seen_date": "2026-10-14",
+      "sponsor": "Brain Research Foundation",
+      "program": "2027 Seed Grant (limited)",
+      "deadline": "LOI TBD",
+      "url": "https://www.thebrf.org/seed-grants/"
+    },
+    {
+      "first_seen_date": "2026-10-14",
+      "sponsor": "Iliad",
+      "program": "2026 RFP",
+      "deadline": "none stated",
+      "url": "https://www.iliad.ac/opportunity/2026-request-for-proposals"
+    },
+    {
+      "first_seen_date": "2026-10-14",
+      "sponsor": "GTR Foundation",
+      "program": "AI Safety Fund",
+      "deadline": "rolling",
+      "url": "https://www.gtr-foundation.org/gtr-ai-safety-fund"
+    },
+    {
+      "first_seen_date": "2026-10-14",
+      "sponsor": "AI Alignment Foundation",
+      "program": "open application",
+      "deadline": "rolling",
+      "url": "https://www.aialignmentfoundation.org/approach/apply"
+    },
+    {
+      "first_seen_date": "2026-10-14",
+      "sponsor": "Lightcone",
+      "program": "Lightcone Commons",
+      "deadline": "next round about 2027-01-23",
+      "url": "https://www.lightconecommons.com/apply"
+    },
+    {
+      "first_seen_date": "2026-10-14",
+      "sponsor": "NOAA NESDIS",
+      "program": "BAA FY27 to 28 NOAA-NESDIS-NESDISPO-2027-33921 (unverified)",
+      "deadline": "2028-09-30",
+      "url": "https://simpler.grants.gov/"
+    },
+    {
+      "first_seen_date": "2026-10-14",
+      "sponsor": "NASA SMD",
+      "program": "ROSES-25 A.13 AES",
+      "deadline": "2026-10-15",
+      "url": "https://science.nasa.gov/researchers/solicitations/roses-2025/amendment-62-new-opportunity-a-13-accelerating-earth-solutions/"
+    },
+    {
+      "first_seen_date": "2026-10-14",
+      "sponsor": "Dana Foundation",
+      "program": "Professional Development Awards and MA3 Challenge",
+      "deadline": "2026-11-06, 2027-01-08",
+      "url": "https://dana.org/grants/"
+    },
+    {
+      "first_seen_date": "2026-10-14",
+      "sponsor": "Water Research Foundation",
+      "program": "RFP 5409 and others",
+      "deadline": "2026-10-26",
+      "url": "https://portal.waterrf.org/outbound-grants"
+    },
+    {
+      "first_seen_date": "2026-10-14",
+      "sponsor": "CIFAR",
+      "program": "Global Scholars 2027 to 2029",
+      "deadline": "2026-11-04",
+      "url": "https://www.cifar.ca/global-scholars/"
+    },
+    {
+      "first_seen_date": "2026-10-14",
+      "sponsor": "DARPA BTO",
+      "program": "Hubble DARPA-SN-26-121",
+      "deadline": "2026-11-05",
+      "url": "https://www.darpa.mil/research/programs/hubble"
+    },
+    {
+      "first_seen_date": "2026-10-14",
+      "sponsor": "DARPA",
+      "program": "Firefox DARPA-PS-26-137",
+      "deadline": "2026-11-09",
+      "url": "https://www.darpa.mil/research/programs/firefox"
+    },
+    {
+      "first_seen_date": "2026-10-14",
+      "sponsor": "DARPA MXO",
+      "program": "APM DARPA-PS-26-141",
+      "deadline": "abstract 2026-10-27, full 2026-12-18",
+      "url": "https://www.bwcoconsulting.com/fod/darpa-apm-darpa-ps-26-141"
+    },
+    {
+      "first_seen_date": "2026-10-14",
+      "sponsor": "Google DeepMind",
+      "program": "European researcher model access (unverified)",
+      "deadline": "none",
+      "url": "https://www.analyticsinsight.net/news/google-gives-200-european-researchers-access-to-advanced-ai-models"
+    },
+    {
+      "first_seen_date": "2026-10-14",
+      "sponsor": "Astralis and Macroscopic",
+      "program": "Middle Powers and Transformative AI RFP",
+      "deadline": "2026-10-23",
+      "url": "https://middlepowers.ai/"
+    },
+    {
+      "first_seen_date": "2026-10-14",
+      "sponsor": "Qualcomm",
+      "program": "Innovation Fellowship 2027 (RIT ineligible)",
+      "deadline": "TBD",
+      "url": "https://www.qualcomm.com/content/dam/qcomm-martech/dm-assets/documents/QIF-2027-official-rules-US-CANADA.pdf"
+    },
+    {
+      "first_seen_date": "2026-10-14",
+      "sponsor": "Simons Foundation",
+      "program": "Scientific Software Faculty Award and Fellows-to-Faculty 2027",
+      "deadline": "2027-01-21, 2027-01-13",
+      "url": "https://www.simonsfoundation.org/funding-opportunities/"
+    },
+    {
+      "first_seen_date": "2026-10-14",
+      "sponsor": "ARIA",
+      "program": "Precision Mitochondria RFP",
+      "deadline": "2026-11-09",
+      "url": "https://aria.org.uk/opportunity-spaces/programmable-physiology/precision-mitochondria/funding"
+    },
+    {
+      "first_seen_date": "2026-10-14",
+      "sponsor": "Blavatnik",
+      "program": "National Awards 2027 (limited, unverified)",
+      "deadline": "2026-12-02",
+      "url": "https://blavatnikawards.org/"
+    },
+    {
+      "first_seen_date": "2026-10-14",
+      "sponsor": "Oticon Foundation",
+      "program": "research grants (unverified)",
+      "deadline": "rolling",
+      "url": "https://www.williamdemantfonden.dk/how-to-apply"
+    },
+    {
+      "first_seen_date": "2026-10-14",
+      "sponsor": "NSF",
+      "program": "X-Labs future topics RFI",
+      "deadline": "2026-10-30",
+      "url": "https://www.nsf.gov/news/nsf-announces-3-additional-topics-part-nsf-x-labs-initiative"
+    },
+    {
+      "first_seen_date": "2026-10-14",
+      "sponsor": "NIH NIDCD",
+      "program": "Strategic Plan 2028 to 2032 RFI",
+      "deadline": "2026-10-26",
+      "url": "https://www.federalregister.gov/documents/2026/08/25/2026-17311/request-for-information-rfi-request-for-information-on-new-and-emerging-areas-of-science-relevant-to"
+    },
+    {
+      "first_seen_date": "2026-10-14",
+      "sponsor": "NSF",
+      "program": "SINI under PCLNet (announced)",
+      "deadline": "TBD",
+      "url": "https://www.nsf.gov/news/nsf-lays-foundation-next-generation-technologies-support"
+    },
+    {
+      "first_seen_date": "2026-10-14",
+      "sponsor": "DARPA NSF",
+      "program": "AI Forge (no solicitation yet)",
+      "deadline": "none",
+      "url": "https://www.darpa.mil/research/programs/ai-forge"
+    },
+    {
+      "first_seen_date": "2026-10-14",
+      "sponsor": "NIH Common Fund",
+      "program": "DP2 New Innovator RFA-RM-28-002 (forecast)",
+      "deadline": "est 2027-08-19",
+      "url": "https://simpler.grants.gov/opportunity/469a39ab-1b4c-471e-b612-5e979f656f27"
+    },
+    {
+      "first_seen_date": "2026-10-14",
+      "sponsor": "NIH NIBIB",
+      "program": "Trailblazer R21 reissue FOR-EB-26-001 (forecast)",
+      "deadline": "TBD",
+      "url": "https://simpler.grants.gov/opportunity/9f06c317-b398-4482-89b1-57bcf35363f3"
+    },
+    {
+      "first_seen_date": "2026-10-14",
+      "sponsor": "NIH Common Fund",
+      "program": "Bridge2AI Stage 2 RFA-RM-28-010 (forecast)",
+      "deadline": "est 2027-03-01",
+      "url": "https://simpler.grants.gov/opportunity/602cbc1a-d601-44f1-90d7-e6914ba594a6"
+    },
+    {
+      "first_seen_date": "2026-10-14",
+      "sponsor": "NIH NIA",
+      "program": "Precision Aging RFA-AG-26-022 (forecast)",
+      "deadline": "TBD",
+      "url": "https://simpler.grants.gov/opportunity/b19c89bb-baf4-4121-a24f-28891f9b1111"
+    },
+    {
+      "first_seen_date": "2026-10-14",
+      "sponsor": "NIH NIA",
+      "program": "Digital Health ADRD U54 RFA-AG-27-002 (forecast)",
+      "deadline": "TBD",
+      "url": "https://simpler.grants.gov/opportunity/e4a95157-fd31-4a44-96ef-cfa0f95ec39c"
+    },
+    {
+      "first_seen_date": "2026-10-14",
+      "sponsor": "DOE SC",
+      "program": "Genesis Mission FY27 Phase I and II competition (expected)",
+      "deadline": "TBD",
+      "url": "https://simpler.grants.gov/opportunity/0228b895-9cb3-4160-8acc-58709e75c3c7"
+    },
+    {
+      "first_seen_date": "2026-10-14",
+      "sponsor": "Genesis Mission Consortium",
+      "program": "industry compute pledges (no route yet)",
+      "deadline": "none",
+      "url": "https://www.nextgov.com/artificial-intelligence/2026/10/white-house-unveils-billions-investments-genesis-mission/416517/"
+    },
+    {
+      "first_seen_date": "2026-10-14",
+      "sponsor": "DARPA",
+      "program": "YFA 2027 (not yet posted)",
+      "deadline": "expected fall 2026",
+      "url": "https://www.darpa.mil/work-with-us/for-universities/young-faculty-award"
+    },
+    {
+      "first_seen_date": "2026-10-14",
+      "sponsor": "Empire AI",
+      "program": "next compute allocation RFP (expected)",
+      "deadline": "TBD",
+      "url": "https://docs.ccr.buffalo.edu/en/latest/howto/empireai/"
+    },
+    {
+      "first_seen_date": "2026-10-14",
+      "sponsor": "FNIH",
+      "program": "Music as Medicine (2026 closed)",
+      "deadline": "next cycle TBD",
+      "url": "https://fnih.org/our-programs/powering-science/music-as-medicine/"
+    },
+    {
+      "first_seen_date": "2026-10-14",
+      "sponsor": "Unconventional AI",
+      "program": "Unconventional Grant (2026 closed)",
+      "deadline": "next cycle TBD",
+      "url": "https://unconv.ai/grant/"
+    },
+    {
+      "first_seen_date": "2026-10-14",
+      "sponsor": "NOTE",
+      "program": "ADDF correction: Diagnostics Accelerator closed, 2026-12-07 applies to invited Therapeutics RFPs. NSF X-Labs AI for Physical Systems and DOE Genesis Graduate Fellowship flagged limited at BU",
+      "deadline": "n/a",
+      "url": "https://www.alzdiscovery.org/research-and-grants/funding-opportunities"
+    }
+  ],
+  "watchlist": [
+    {
+      "funder": "Semiconductor Research Corporation (SRC) incl JUMP 2.0 and GRC",
+      "category": "adjacent_domain",
+      "opportunities_url": "https://www.src.org/compete/",
+      "url_verified": "Y",
+      "typical_cycle": "Annual call for research plus program specific calls",
+      "access": "open",
+      "why_niche_or_notes": "Main chip design funder outside NSF. Calls posted via OpenWater portal linked from this page. Graph ML for EDA fits GRC Computer Aided Design and AIHW thrusts"
+    },
+    {
+      "funder": "NIST CHIPS R&D Funding Opportunities (NSTC successor to Natcast)",
+      "category": "adjacent_domain",
+      "opportunities_url": "https://www.nist.gov/chips/chips-rd-funding-opportunities",
+      "url_verified": "Y",
+      "typical_cycle": "Rolling CRDO Broad Agency Announcement",
+      "access": "open",
+      "why_niche_or_notes": "Natcast site now redirects to NIST NSTC page. Rolling BAA on microelectronics R&D tied to AI. Watch for EDA and design automation topics"
+    },
+    {
+      "funder": "Cadence Academic Network",
+      "category": "industry_longtail",
+      "opportunities_url": "https://www.cadence.com/en_US/home/company/cadence-academic-network.html",
+      "url_verified": "Y",
+      "typical_cycle": "Ongoing",
+      "access": "open",
+      "why_niche_or_notes": "Tool access and training rather than cash. Useful for EDA testbeds and as relationship entry point"
+    },
+    {
+      "funder": "Samsung Global Research Outreach (GRO)",
+      "category": "industry_longtail",
+      "opportunities_url": "https://semiconductor.samsung.com/sait/event/global-research-outreach",
+      "url_verified": "Y",
+      "typical_cycle": "Annual. 2026 submissions closed Aug 23 2026 with results Nov 2026",
+      "access": "open",
+      "why_niche_or_notes": "Themes include Scientific AI and AI System Architecture. Open to US universities. Next call likely mid 2027"
+    },
+    {
+      "funder": "Cisco Research open RFPs",
+      "category": "industry_longtail",
+      "opportunities_url": "https://research.cisco.com/open-rfps",
+      "url_verified": "Y",
+      "typical_cycle": "Rolling RFPs",
+      "access": "open",
+      "why_niche_or_notes": "Current RFPs include Semiconductor Reliability and networking. Check for graph and AI infrastructure topics"
+    },
+    {
+      "funder": "EPRI (Electric Power Research Institute)",
+      "category": "adjacent_domain",
+      "opportunities_url": "https://www.epri.com/",
+      "url_verified": "N",
+      "typical_cycle": "Irregular university award calls",
+      "access": "unknown",
+      "why_niche_or_notes": "Site blocks automated fetch. Has run University Global Research Award calls. Fetch may fail so monitor via peer university bulletins"
+    },
+    {
+      "funder": "NYSERDA current funding opportunities",
+      "category": "new_york_regional",
+      "opportunities_url": "https://www.nyserda.ny.gov/funding-opportunities/current-funding-opportunities",
+      "url_verified": "Y",
+      "typical_cycle": "Rolling PONs and RFPs",
+      "access": "open",
+      "why_niche_or_notes": "NY grid modernization and resilience PONs often allow university partners. Page was empty at check time"
+    },
+    {
+      "funder": "NYSERDA Innovation R&D funding",
+      "category": "new_york_regional",
+      "opportunities_url": "https://nyserda.ny.gov/All-Programs/Innovation-at-NYSERDA/Funding-Opportunities",
+      "url_verified": "N",
+      "typical_cycle": "Rolling",
+      "access": "open",
+      "why_niche_or_notes": "R&D specific landing page for grid tech solicitations such as Emerging Innovative T&D Solutions"
+    },
+    {
+      "funder": "Lloyd's Register Foundation calls for funding",
+      "category": "adjacent_domain",
+      "opportunities_url": "https://www.lrfoundation.org.uk/calls-for-funding",
+      "url_verified": "Y",
+      "typical_cycle": "Periodic open calls",
+      "access": "open",
+      "why_niche_or_notes": "Safety of engineered infrastructure. Mostly closed calls now but international eligibility historically"
+    },
+    {
+      "funder": "NIST Disaster Resilience Research Grants",
+      "category": "adjacent_domain",
+      "opportunities_url": "https://www.nist.gov/el/disaster-resilience/disaster-resilience-federal-funding-opportunity-ffo",
+      "url_verified": "Y",
+      "typical_cycle": "Irregular. Last NOFO 2022",
+      "access": "open",
+      "why_niche_or_notes": "Page stale since 2023. Diff will flag a new NOFO if one is posted"
+    },
+    {
+      "funder": "Natural Hazards Center award opportunities",
+      "category": "adjacent_domain",
+      "opportunities_url": "https://hazards.colorado.edu/resources/award-opportunities",
+      "url_verified": "Y",
+      "typical_cycle": "Several small award programs per year",
+      "access": "open",
+      "why_niche_or_notes": "Quick Response, Mitigation Matters, Weather Ready research awards. Small, low competition, good for resilience pilots"
+    },
+    {
+      "funder": "DOE funding opportunities (CESER and Office of Electricity)",
+      "category": "federal_niche",
+      "opportunities_url": "https://www.energy.gov/funding-opportunities",
+      "url_verified": "Y",
+      "typical_cycle": "Rolling",
+      "access": "open",
+      "why_niche_or_notes": "CESER page itself failed to load. This DOE index covers CESER and OE grid resilience FOAs"
+    },
+    {
+      "funder": "DOT University Transportation Centers competition",
+      "category": "federal_niche",
+      "opportunities_url": "https://www.transportation.gov/utc/current-competition",
+      "url_verified": "Y",
+      "typical_cycle": "Multi year recompetitions",
+      "access": "limited_submission",
+      "why_niche_or_notes": "2025 IIJA recompetition due Feb 20 2026. Region 2 UTC grant terminated May 2025"
+    },
+    {
+      "funder": "DOT IIJA UTC list (find consortia with internal seed calls)",
+      "category": "aggregator_early_signal",
+      "opportunities_url": "https://www.transportation.gov/utc/iija-centers-and-grantees",
+      "url_verified": "Y",
+      "typical_cycle": "Static list",
+      "access": "open",
+      "why_niche_or_notes": "Use to find UTCs on resilience and cybersecurity such as Clemson NCTCR that run internal seed calls for members"
+    },
+    {
+      "funder": "Transportation Research Board IDEA programs",
+      "category": "adjacent_domain",
+      "opportunities_url": "https://www.trb.org/IDEAProgram/IDEAProgram.aspx",
+      "url_verified": "Y",
+      "typical_cycle": "Annual per program",
+      "access": "open",
+      "why_niche_or_notes": "NCHRP, Rail Safety, Transit IDEA. Small innovation grants open to anyone. 2026 announcements pending"
+    },
+    {
+      "funder": "Water Research Foundation outbound grants",
+      "category": "adjacent_domain",
+      "opportunities_url": "https://portal.waterrf.org/outbound-grants",
+      "url_verified": "Y",
+      "typical_cycle": "Annual batches of RFPs",
+      "access": "open",
+      "why_niche_or_notes": "Utility network analytics and resilience. waterrf.org/open-rfps redirects here"
+    },
+    {
+      "funder": "Insurance Institute for Business and Home Safety (IBHS)",
+      "category": "adjacent_domain",
+      "opportunities_url": "https://ibhs.org/about-ibhs/ibhs-research-center/",
+      "url_verified": "N",
+      "typical_cycle": "No public call cycle",
+      "access": "invitation",
+      "why_niche_or_notes": "No open grant program found. Research agenda PDF lists projects. Partnership by contact"
+    },
+    {
+      "funder": "Critical Infrastructure Resilience Institute (DHS COE at UIUC)",
+      "category": "federal_niche",
+      "opportunities_url": "https://ciri.illinois.edu/",
+      "url_verified": "Y",
+      "typical_cycle": "Periodic calls announced by newsletter",
+      "access": "open",
+      "why_niche_or_notes": "DHS Center of Excellence. Calls go to newsletter so subscribe. Fits infrastructure co-simulation"
+    },
+    {
+      "funder": "ACL open opportunities (NIDILRR incl RERC, DRRP, FIP)",
+      "category": "federal_niche",
+      "opportunities_url": "https://acl.gov/grants/open-opportunities",
+      "url_verified": "Y",
+      "typical_cycle": "FIP typically Oct to Apr",
+      "access": "open",
+      "why_niche_or_notes": "Disability and rehab research. Strong fit with NTID and DHH accessibility. Pair with grants.gov forecast search below"
+    },
+    {
+      "funder": "Grants.gov search for NIDILRR (CFDA 93.433)",
+      "category": "aggregator_early_signal",
+      "opportunities_url": "https://simpler.grants.gov/search?query=NIDILRR",
+      "url_verified": "Y",
+      "typical_cycle": "Forecasts posted ahead of NOFOs",
+      "access": "open",
+      "why_niche_or_notes": "13 forecasted ACL items at check time incl Field Initiated Projects Research. Best early signal for NIDILRR"
+    },
+    {
+      "funder": "Hearing Health Foundation Emerging Research Grants",
+      "category": "adjacent_domain",
+      "opportunities_url": "https://hearinghealthfoundation.org/erg",
+      "url_verified": "Y",
+      "typical_cycle": "Annual. Next RFP expected Oct 2026",
+      "access": "open",
+      "why_niche_or_notes": "Seed money for hearing and balance researchers. Timely right now"
+    },
+    {
+      "funder": "American Hearing Research Foundation",
+      "category": "adjacent_domain",
+      "opportunities_url": "https://www.american-hearing.org/research-grants/grants-we-offer-2/",
+      "url_verified": "Y",
+      "typical_cycle": "Annual. Deadline Aug 15",
+      "access": "open",
+      "why_niche_or_notes": "Discovery Grants up to 50k. Requires US university affiliation. Low competition"
+    },
+    {
+      "funder": "William Demant Foundation (Oticon Foundation)",
+      "category": "adjacent_domain",
+      "opportunities_url": "https://www.williamdemantfonden.dk/how-to-apply",
+      "url_verified": "Y",
+      "typical_cycle": "Rolling for research grants",
+      "access": "non_US_only",
+      "why_niche_or_notes": "Audiology research focus with Danish relevance. Page in Danish. Best via Danish collaborator"
+    },
+    {
+      "funder": "American Academy of Audiology Foundation",
+      "category": "adjacent_domain",
+      "opportunities_url": "https://www.audiology.org/foundation/our-work/research-and-education/",
+      "url_verified": "N",
+      "typical_cycle": "Annual",
+      "access": "open",
+      "why_niche_or_notes": "Small hearing and balance research grants. Mostly student and early career"
+    },
+    {
+      "funder": "CDMRP Hearing Restoration Research Program",
+      "category": "federal_niche",
+      "opportunities_url": "https://cdmrp.health.mil/funding/hrrp",
+      "url_verified": "Y",
+      "typical_cycle": "Annual. FY26 closed",
+      "access": "open",
+      "why_niche_or_notes": "DoD hearing restoration. Watch for FY27 pre announcement"
+    },
+    {
+      "funder": "CDMRP Peer Reviewed Medical Research Program",
+      "category": "federal_niche",
+      "opportunities_url": "https://cdmrp.health.mil/funding/prmrp",
+      "url_verified": "Y",
+      "typical_cycle": "Annual. FY26 closed",
+      "access": "open",
+      "why_niche_or_notes": "Topic list varies yearly. Check FY27 topics for hearing, dementia, AI"
+    },
+    {
+      "funder": "Retirement Research Foundation",
+      "category": "adjacent_domain",
+      "opportunities_url": "https://www.rrf.org/apply-for-a-grant/research-grants/",
+      "url_verified": "Y",
+      "typical_cycle": "LOI deadlines. Next Nov 2 2026",
+      "access": "open",
+      "why_niche_or_notes": "Applied aging research for adults 60 plus. Low competition. Fits ADRD music interventions"
+    },
+    {
+      "funder": "John A. Hartford Foundation",
+      "category": "adjacent_domain",
+      "opportunities_url": "https://www.johnahartford.org/grants-strategy",
+      "url_verified": "Y",
+      "typical_cycle": "2026 Call for Proposals posted",
+      "access": "invitation",
+      "why_niche_or_notes": "Mostly invited grants but has periodic CFP. Age friendly health systems"
+    },
+    {
+      "funder": "American Federation for Aging Research (AFAR)",
+      "category": "adjacent_domain",
+      "opportunities_url": "https://www.afar.org/funding-opportunities",
+      "url_verified": "Y",
+      "typical_cycle": "Annual",
+      "access": "open",
+      "why_niche_or_notes": "Early stage faculty aging awards. 2026 junior faculty deadlines passed. Biology heavy"
+    },
+    {
+      "funder": "Alzheimer's Drug Discovery Foundation",
+      "category": "adjacent_domain",
+      "opportunities_url": "https://www.alzdiscovery.org/research-and-grants/funding-opportunities",
+      "url_verified": "Y",
+      "typical_cycle": "Several RFPs per year",
+      "access": "open",
+      "why_niche_or_notes": "Diagnostics Accelerator and digital biomarker RFPs fit AI based detection. Full proposals Dec 7 2026"
+    },
+    {
+      "funder": "BrightFocus Foundation Alzheimer's research",
+      "category": "adjacent_domain",
+      "opportunities_url": "https://www.brightfocus.org/grants/",
+      "url_verified": "Y",
+      "typical_cycle": "Annual",
+      "access": "open",
+      "why_niche_or_notes": "Alzheimer's Disease Research program. Open to US academics"
+    },
+    {
+      "funder": "Alzheimer's Association International Research Grant Program",
+      "category": "adjacent_domain",
+      "opportunities_url": "https://www.alz.org/research/for_researchers/grants",
+      "url_verified": "Y",
+      "typical_cycle": "Annual. FY2027 cycle open",
+      "access": "open",
+      "why_niche_or_notes": "Many mechanisms incl AI and digital biomarkers and Part the Cloud"
+    },
+    {
+      "funder": "Cure Alzheimer's Fund",
+      "category": "adjacent_domain",
+      "opportunities_url": "https://curealz.org/the-research/grant-process/",
+      "url_verified": "Y",
+      "typical_cycle": "Rolling LOIs",
+      "access": "invitation",
+      "why_niche_or_notes": "No unsolicited full proposals but accepts letters of inquiry"
+    },
+    {
+      "funder": "Dana Foundation",
+      "category": "adjacent_domain",
+      "opportunities_url": "https://dana.org/grants/",
+      "url_verified": "Y",
+      "typical_cycle": "Multiple calls per year",
+      "access": "open",
+      "why_niche_or_notes": "Neuroscience and society. More than Medicine preproposals Nov 18 2026. Good for music and brain health framing"
+    },
+    {
+      "funder": "Mellon Foundation grant programs",
+      "category": "foundation_general",
+      "opportunities_url": "https://www.mellon.org/grant-programs",
+      "url_verified": "Y",
+      "typical_cycle": "Strategy driven",
+      "access": "invitation",
+      "why_niche_or_notes": "No open calls listed. Arts and humanities incl music"
+    },
+    {
+      "funder": "NEA Research Grants in the Arts and NEA Research Labs",
+      "category": "federal_niche",
+      "opportunities_url": "https://www.arts.gov/grants/research-awards",
+      "url_verified": "Y",
+      "typical_cycle": "Annual. Spring deadlines",
+      "access": "open",
+      "why_niche_or_notes": "Arts and health research. Fits music and ADRD or DHH"
+    },
+    {
+      "funder": "GRAMMY Museum Grants Program",
+      "category": "adjacent_domain",
+      "opportunities_url": "https://grammymuseum.org/education/grants-program/",
+      "url_verified": "Y",
+      "typical_cycle": "Annual. LOI late Sept",
+      "access": "open",
+      "why_niche_or_notes": "Scientific research grants up to 20k on music and the human condition. Very low competition"
+    },
+    {
+      "funder": "NEH Office of Digital Humanities",
+      "category": "federal_niche",
+      "opportunities_url": "https://www.neh.gov/divisions/odh",
+      "url_verified": "Y",
+      "typical_cycle": "Annual",
+      "access": "open",
+      "why_niche_or_notes": "Digital humanities advancement grants. Fit for music model interpretability with humanities partner"
+    },
+    {
+      "funder": "Brain Research Foundation Seed Grants",
+      "category": "foundation_general",
+      "opportunities_url": "https://www.thebrf.org/seed-grants/",
+      "url_verified": "Y",
+      "typical_cycle": "Annual. LOI round opens Aug",
+      "access": "limited_submission",
+      "why_niche_or_notes": "Invited institutions nominate one neuroscience faculty"
+    },
+    {
+      "funder": "McKnight Endowment Fund for Neuroscience",
+      "category": "foundation_general",
+      "opportunities_url": "https://www.mcknight.org/programs/the-mcknight-endowment-fund-for-neuroscience/",
+      "url_verified": "Y",
+      "typical_cycle": "Annual",
+      "access": "limited_submission",
+      "why_niche_or_notes": "Brain Disorders award may fit memory disorders angle. Neuroscience focus"
+    },
+    {
+      "funder": "Simons Foundation funding opportunities",
+      "category": "foundation_general",
+      "opportunities_url": "https://www.simonsfoundation.org/funding-opportunities/",
+      "url_verified": "Y",
+      "typical_cycle": "Several per year",
+      "access": "open",
+      "why_niche_or_notes": "Collaborations in MPS incl theoretical CS. Scientific Software Research Faculty Award due Jan 21 2027"
+    },
+    {
+      "funder": "Arnold Ventures RFPs",
+      "category": "foundation_general",
+      "opportunities_url": "https://www.arnoldventures.org/grants",
+      "url_verified": "Y",
+      "typical_cycle": "Several RFPs per year",
+      "access": "open",
+      "why_niche_or_notes": "No unsolicited proposals but posts RFPs. Infrastructure transportation and evidence RFPs. Colleague precedent"
+    },
+    {
+      "funder": "Schmidt Sciences opportunities",
+      "category": "ai_safety_philanthropy",
+      "opportunities_url": "https://www.schmidtsciences.org/opportunities",
+      "url_verified": "Y",
+      "typical_cycle": "Several RFPs per year",
+      "access": "open",
+      "why_niche_or_notes": "Ran AI Interpretability RFP in 2026 and AI Safety Science program. Top fit for line 2"
+    },
+    {
+      "funder": "Coefficient Giving (formerly Open Philanthropy) Navigating Transformative AI",
+      "category": "ai_safety_philanthropy",
+      "opportunities_url": "https://coefficientgiving.org/funds/navigating-transformative-ai/",
+      "url_verified": "Y",
+      "typical_cycle": "Rolling Technical AI Safety RFP",
+      "access": "open",
+      "why_niche_or_notes": "Funds interpretability and knowledge editing adjacent work"
+    },
+    {
+      "funder": "Survival and Flourishing Fund",
+      "category": "ai_safety_philanthropy",
+      "opportunities_url": "https://survivalandflourishing.fund/",
+      "url_verified": "Y",
+      "typical_cycle": "Annual S process round",
+      "access": "open",
+      "why_niche_or_notes": "2026 round open. Grants via sponsoring nonprofit or university"
+    },
+    {
+      "funder": "EA Funds Transformative AI Fund",
+      "category": "ai_safety_philanthropy",
+      "opportunities_url": "https://funds.effectivealtruism.org/funds/transformative-ai",
+      "url_verified": "Y",
+      "typical_cycle": "Rolling",
+      "access": "open",
+      "why_niche_or_notes": "Replaced Long Term Future Fund. 10k to 150k early stage grants"
+    },
+    {
+      "funder": "Foresight Institute AI safety grants",
+      "category": "ai_safety_philanthropy",
+      "opportunities_url": "https://foresight.org/grants/",
+      "url_verified": "Y",
+      "typical_cycle": "Rolling quarterly reviews",
+      "access": "open",
+      "why_niche_or_notes": "Neurotech and AI safety areas"
+    },
+    {
+      "funder": "Future of Life Institute grant programs",
+      "category": "ai_safety_philanthropy",
+      "opportunities_url": "https://futureoflife.org/grant-programs/",
+      "url_verified": "Y",
+      "typical_cycle": "Irregular",
+      "access": "open",
+      "why_niche_or_notes": "No open programs at check time"
+    },
+    {
+      "funder": "Cooperative AI Foundation",
+      "category": "ai_safety_philanthropy",
+      "opportunities_url": "https://www.cooperativeai.com/",
+      "url_verified": "Y",
+      "typical_cycle": "Calls announced on blog",
+      "access": "open",
+      "why_niche_or_notes": "10m funding call with Schmidt Sciences, Google DeepMind and ARIA launched Jul 2026. Multi agent and graph angle"
+    },
+    {
+      "funder": "AI Safety Fund (Frontier Model Forum)",
+      "category": "ai_safety_philanthropy",
+      "opportunities_url": "https://www.frontiermodelforum.org/ai-safety-fund/",
+      "url_verified": "Y",
+      "typical_cycle": "Rounds announced irregularly",
+      "access": "open",
+      "why_niche_or_notes": "No open call now. Remaining funds for narrow projects"
+    },
+    {
+      "funder": "ARIA (UK Advanced Research and Invention Agency)",
+      "category": "ai_safety_philanthropy",
+      "opportunities_url": "https://www.aria.org.uk/",
+      "url_verified": "Y",
+      "typical_cycle": "Rolling program calls",
+      "access": "open",
+      "why_niche_or_notes": "Safeguarded AI and Scaling Trust rolling batches due Oct 31 2026. International applicants allowed for many calls"
+    },
+    {
+      "funder": "UK AI Security Institute grants",
+      "category": "ai_safety_philanthropy",
+      "opportunities_url": "https://www.aisi.gov.uk/grants",
+      "url_verified": "Y",
+      "typical_cycle": "Irregular",
+      "access": "open",
+      "why_niche_or_notes": "Alignment Project and Challenge Fund closed. Challenge Fund allowed international institutions"
+    },
+    {
+      "funder": "Manifund",
+      "category": "ai_safety_philanthropy",
+      "opportunities_url": "https://manifund.org/",
+      "url_verified": "Y",
+      "typical_cycle": "Rolling regranting",
+      "access": "open",
+      "why_niche_or_notes": "Crowdfunding and regrants for AI safety projects"
+    },
+    {
+      "funder": "grantmaking.ai",
+      "category": "ai_safety_philanthropy",
+      "opportunities_url": "http://grantmaking.ai/",
+      "url_verified": "Y",
+      "typical_cycle": "Rounds",
+      "access": "open",
+      "why_niche_or_notes": "Small nonprofit running 1M existential safety round. Also a database of 563 orgs"
+    },
+    {
+      "funder": "Mercor AI Safety Fund",
+      "category": "ai_safety_philanthropy",
+      "opportunities_url": "https://jobs.ashbyhq.com/mercor/1d59ce50-4207-4d95-b7fd-5a01e90b0897/application?ref=aichoppingblock",
+      "url_verified": "Y",
+      "typical_cycle": "Rolling",
+      "access": "open",
+      "why_niche_or_notes": "5M program funding researcher hours, API credits, expert time. Status not stated"
+    },
+    {
+      "funder": "Astera Institute",
+      "category": "ai_safety_philanthropy",
+      "opportunities_url": "https://astera.org/",
+      "url_verified": "Y",
+      "typical_cycle": "Residency cohorts",
+      "access": "open",
+      "why_niche_or_notes": "Residency and competitions rather than grants"
+    },
+    {
+      "funder": "Renaissance Philanthropy",
+      "category": "foundation_general",
+      "opportunities_url": "https://www.renaissancephilanthropy.org/programs",
+      "url_verified": "N",
+      "typical_cycle": "Program specific",
+      "access": "unknown",
+      "why_niche_or_notes": "Runs science and AI funds that issue calls. Homepage loaded, programs page not"
+    },
+    {
+      "funder": "Convergent Research (FROs)",
+      "category": "foundation_general",
+      "opportunities_url": "https://www.convergentresearch.org/get-involved",
+      "url_verified": "N",
+      "typical_cycle": "Rolling idea submission",
+      "access": "open",
+      "why_niche_or_notes": "Focused Research Organization proposals"
+    },
+    {
+      "funder": "Alfred P. Sloan Foundation open calls",
+      "category": "foundation_general",
+      "opportunities_url": "https://sloan.org/grants/open-calls",
+      "url_verified": "Y",
+      "typical_cycle": "Irregular",
+      "access": "open",
+      "why_niche_or_notes": "No open calls now. Also LOIs to program directors"
+    },
+    {
+      "funder": "John Templeton Foundation grant calendar",
+      "category": "foundation_general",
+      "opportunities_url": "https://www.templeton.org/grants/grant-calendar",
+      "url_verified": "Y",
+      "typical_cycle": "Annual OFI. 2026 deadline Jul 15",
+      "access": "open",
+      "why_niche_or_notes": "2027 dates not yet posted. Science of intelligence and minds themes"
+    },
+    {
+      "funder": "W. M. Keck Foundation Research Program",
+      "category": "foundation_general",
+      "opportunities_url": "https://www.wmkeck.org/research-overview/",
+      "url_verified": "Y",
+      "typical_cycle": "Dec and Jun deadlines",
+      "access": "limited_submission",
+      "why_niche_or_notes": "Max three per institution per cycle. High risk research"
+    },
+    {
+      "funder": "Russell Sage Foundation",
+      "category": "foundation_general",
+      "opportunities_url": "https://www.russellsage.org/how-to-apply",
+      "url_verified": "Y",
+      "typical_cycle": "LOI deadlines several per year",
+      "access": "open",
+      "why_niche_or_notes": "Social science with computational methods. Network science fit"
+    },
+    {
+      "funder": "Social Science Research Council",
+      "category": "foundation_general",
+      "opportunities_url": "https://www.ssrc.org/fellowships/",
+      "url_verified": "Y",
+      "typical_cycle": "Irregular",
+      "access": "open",
+      "why_niche_or_notes": "Occasional AI and society programs"
+    },
+    {
+      "funder": "Spencer Foundation",
+      "category": "foundation_general",
+      "opportunities_url": "https://www.spencer.org/",
+      "url_verified": "Y",
+      "typical_cycle": "Several deadlines per year",
+      "access": "open",
+      "why_niche_or_notes": "Initiative on AI and Education plus research grants"
+    },
+    {
+      "funder": "Robert Wood Johnson Foundation",
+      "category": "foundation_general",
+      "opportunities_url": "https://www.rwjf.org/en/grants/active-funding-opportunities.html",
+      "url_verified": "Y",
+      "typical_cycle": "Irregular CFPs",
+      "access": "open",
+      "why_niche_or_notes": "Health data and equity. No open CFPs at check"
+    },
+    {
+      "funder": "PCORI funding opportunities",
+      "category": "federal_niche",
+      "opportunities_url": "https://www.pcori.org/funding-opportunities",
+      "url_verified": "N",
+      "typical_cycle": "Cycles 3 per year",
+      "access": "open",
+      "why_niche_or_notes": "Bot check blocks fetch. Methods program fits graph and causal methods"
+    },
+    {
+      "funder": "Hewlett Foundation",
+      "category": "foundation_general",
+      "opportunities_url": "https://hewlett.org/grants/",
+      "url_verified": "Y",
+      "typical_cycle": "Strategy driven",
+      "access": "invitation",
+      "why_niche_or_notes": "Cyber and AI policy initiatives"
+    },
+    {
+      "funder": "Knight Foundation",
+      "category": "foundation_general",
+      "opportunities_url": "https://www.knightfoundation.org/apply/",
+      "url_verified": "N",
+      "typical_cycle": "Occasional open calls",
+      "access": "open",
+      "why_niche_or_notes": "Page served stale content. Tech and democracy AI research"
+    },
+    {
+      "funder": "MacArthur Foundation",
+      "category": "foundation_general",
+      "opportunities_url": "https://www.macfound.org/info-grantseekers/",
+      "url_verified": "Y",
+      "typical_cycle": "Occasional open calls",
+      "access": "invitation",
+      "why_niche_or_notes": "Unsolicited proposals rarely funded. Open calls posted from time to time"
+    },
+    {
+      "funder": "Patrick J. McGovern Foundation",
+      "category": "foundation_general",
+      "opportunities_url": "https://www.mcgovern.org/grants/",
+      "url_verified": "N",
+      "typical_cycle": "Irregular",
+      "access": "unknown",
+      "why_niche_or_notes": "AI for public good incl accessibility. Grants page not confirmed"
+    },
+    {
+      "funder": "Chan Zuckerberg Initiative RFAs",
+      "category": "foundation_general",
+      "opportunities_url": "https://chanzuckerberg.com/rfa/",
+      "url_verified": "N",
+      "typical_cycle": "Irregular",
+      "access": "open",
+      "why_niche_or_notes": "Fetch failed. Open source science software and neuro programs"
+    },
+    {
+      "funder": "AHRQ notices of funding opportunity",
+      "category": "federal_niche",
+      "opportunities_url": "https://www.ahrq.gov/funding/fund-opps/index.html",
+      "url_verified": "Y",
+      "typical_cycle": "Rolling",
+      "access": "open",
+      "why_niche_or_notes": "Health services and digital health research. Less crowded than NIH institutes"
+    },
+    {
+      "funder": "FDA regulatory science BAA",
+      "category": "federal_niche",
+      "opportunities_url": "https://www.fda.gov/science-research/advancing-regulatory-science/broad-agency-announcement-baa-advanced-research-and-development-regulatory-science",
+      "url_verified": "N",
+      "typical_cycle": "Annual BAA",
+      "access": "open",
+      "why_niche_or_notes": "Fetch failed. AI model evaluation and hearing device topics possible"
+    },
+    {
+      "funder": "VA Office of Research and Development",
+      "category": "federal_niche",
+      "opportunities_url": "https://www.research.va.gov/funding/",
+      "url_verified": "Y",
+      "typical_cycle": "Rolling",
+      "access": "invitation",
+      "why_niche_or_notes": "Requires VA appointment. Only via Canandaigua or Rochester VA collaborator"
+    },
+    {
+      "funder": "USDA NIFA funding opportunities",
+      "category": "federal_niche",
+      "opportunities_url": "https://www.nifa.usda.gov/grants/funding-opportunities",
+      "url_verified": "Y",
+      "typical_cycle": "Rolling",
+      "access": "open",
+      "why_niche_or_notes": "AFRI AI and rural infrastructure topics. Low competition for CS"
+    },
+    {
+      "funder": "CDC grants",
+      "category": "federal_niche",
+      "opportunities_url": "https://www.cdc.gov/grants/index.html",
+      "url_verified": "Y",
+      "typical_cycle": "Rolling",
+      "access": "open",
+      "why_niche_or_notes": "Mostly program grants. Watch data modernization and hearing loss surveillance"
+    },
+    {
+      "funder": "Office of Naval Research current funding opportunities",
+      "category": "defense_niche",
+      "opportunities_url": "https://www.onr.navy.mil/work-with-us/funding-opportunities/announcements",
+      "url_verified": "Y",
+      "typical_cycle": "Rolling BAAs",
+      "access": "open",
+      "why_niche_or_notes": "Long range BAA plus topical BAAs"
+    },
+    {
+      "funder": "ONR Global",
+      "category": "defense_niche",
+      "opportunities_url": "https://www.nre.navy.mil/organization/onr-global",
+      "url_verified": "N",
+      "typical_cycle": "Rolling",
+      "access": "open",
+      "why_niche_or_notes": "Visiting Scientist and conference grants. Mainly non US but VSP supports US hosts"
+    },
+    {
+      "funder": "NGA BIG-ST BAA",
+      "category": "defense_niche",
+      "opportunities_url": "https://simpler.grants.gov/opportunity/351404",
+      "url_verified": "Y",
+      "typical_cycle": "Multi year BAA. Closes Dec 14 2026",
+      "access": "open",
+      "why_niche_or_notes": "Geospatial graph ML. Low competition from CS academics"
+    },
+    {
+      "funder": "DEVCOM Army Research Laboratory and ARO opportunities",
+      "category": "defense_niche",
+      "opportunities_url": "https://arl.devcom.army.mil/collaborate-with-us/opportunity/",
+      "url_verified": "N",
+      "typical_cycle": "Rolling BAA",
+      "access": "open",
+      "why_niche_or_notes": "Fetch failed. ARO fundamental research BAA plus ARL BAA"
+    },
+    {
+      "funder": "AFRL Information Directorate Rome NY",
+      "category": "defense_niche",
+      "opportunities_url": "https://www.afrl.af.mil/Work-With-Us/",
+      "url_verified": "N",
+      "typical_cycle": "Rolling BAAs FA8750",
+      "access": "open",
+      "why_niche_or_notes": "Fetch failed. Rome NY is close to Rochester. Many open BAAs on knowledge discovery and cyber"
+    },
+    {
+      "funder": "DTRA research funding opportunities",
+      "category": "defense_niche",
+      "opportunities_url": "https://www.dtra.mil/Research/Basic-and-Applied-Science/Research-Funding-Opportunities/",
+      "url_verified": "Y",
+      "typical_cycle": "Multi year BAA",
+      "access": "open",
+      "why_niche_or_notes": "Page lists FRCWMD BAA through 2024. Network science for infrastructure fits"
+    },
+    {
+      "funder": "NSA Science of Security Virtual Organization",
+      "category": "defense_niche",
+      "opportunities_url": "https://sos-vo.org/",
+      "url_verified": "Y",
+      "typical_cycle": "Lablet recompetitions",
+      "access": "invitation",
+      "why_niche_or_notes": "Lablets are selected universities. Monitor for new lablet solicitations"
+    },
+    {
+      "funder": "Empire AI",
+      "category": "new_york_regional",
+      "opportunities_url": "https://www.empireai.edu/research/",
+      "url_verified": "Y",
+      "typical_cycle": "No public calls",
+      "access": "open",
+      "why_niche_or_notes": "RIT listed as partner. Compute allocation via registered user access. Watch for seed calls"
+    },
+    {
+      "funder": "NYSTAR Centers for Advanced Technology",
+      "category": "new_york_regional",
+      "opportunities_url": "https://esd.ny.gov/centers-advanced-technology",
+      "url_verified": "Y",
+      "typical_cycle": "Periodic designation competitions",
+      "access": "limited_submission",
+      "why_niche_or_notes": "RIT AMPrint and Rochester CEIS are CATs. CEIS runs industry matched projects"
+    },
+    {
+      "funder": "Greater Rochester Health Foundation",
+      "category": "new_york_regional",
+      "opportunities_url": "https://thegrhf.org/how-to-apply/",
+      "url_verified": "Y",
+      "typical_cycle": "Rolling",
+      "access": "open",
+      "why_niche_or_notes": "Nonprofit applicants in 9 county region. Partner with community org for ADRD or DHH projects"
+    },
+    {
+      "funder": "Rochester Area Community Foundation",
+      "category": "new_york_regional",
+      "opportunities_url": "https://www.racf.org/grants/grant-opportunities/",
+      "url_verified": "Y",
+      "typical_cycle": "Several cycles",
+      "access": "open",
+      "why_niche_or_notes": "Community grants. Partner route"
+    },
+    {
+      "funder": "Health Foundation for Western and Central New York",
+      "category": "new_york_regional",
+      "opportunities_url": "https://www.healthfoundationwcny.org/",
+      "url_verified": "N",
+      "typical_cycle": "Irregular",
+      "access": "open",
+      "why_niche_or_notes": "Site blocks automated fetch. Aging and older adult focus"
+    },
+    {
+      "funder": "University of Rochester CTSI pilot awards",
+      "category": "new_york_regional",
+      "opportunities_url": "https://www.urmc.rochester.edu/clinical-translational-science-institute/funding/request-for-applications-pilot-studies",
+      "url_verified": "Y",
+      "typical_cycle": "Annual. LOI Oct 26 2026",
+      "access": "open",
+      "why_niche_or_notes": "PI must hold UR appointment. RIT faculty only as co investigator"
+    },
+    {
+      "funder": "Sony Research Award Program",
+      "category": "industry_longtail",
+      "opportunities_url": "https://www.sony.com/research-award-program",
+      "url_verified": "N",
+      "typical_cycle": "Annual. Sept deadline",
+      "access": "open",
+      "why_niche_or_notes": "Up to 150k per year to US and Canada universities. Site blocked fetch. Audio and music AI fit"
+    },
+    {
+      "funder": "Bloomberg Data Science Research Grant Program",
+      "category": "industry_longtail",
+      "opportunities_url": "https://www.techatbloomberg.com/data-science-research-grant-program/",
+      "url_verified": "Y",
+      "typical_cycle": "Annual when open",
+      "access": "open",
+      "why_niche_or_notes": "Unrestricted gifts. NLP and ML. Status not stated"
+    },
+    {
+      "funder": "NVIDIA Academic Grant Program",
+      "category": "industry_longtail",
+      "opportunities_url": "https://www.nvidia.com/en-us/industries/higher-education-research/academic-grant-program/",
+      "url_verified": "Y",
+      "typical_cycle": "Periodic",
+      "access": "open",
+      "why_niche_or_notes": "Closed to new applications at check time. Compute grants"
+    },
+    {
+      "funder": "J.P. Morgan AI Research Faculty Research Awards",
+      "category": "industry_longtail",
+      "opportunities_url": "https://www.jpmorgan.com/technology/artificial-intelligence/research-awards/faculty-research-awards",
+      "url_verified": "N",
+      "typical_cycle": "Annual",
+      "access": "open",
+      "why_niche_or_notes": "Fetch failed. Graph ML for finance and explainability topics"
+    },
+    {
+      "funder": "Adobe Research academic programs",
+      "category": "industry_longtail",
+      "opportunities_url": "https://research.adobe.com/programs/",
+      "url_verified": "N",
+      "typical_cycle": "Gift based",
+      "access": "invitation",
+      "why_niche_or_notes": "Audio and generative models. Usually via intern or collaborator"
+    },
+    {
+      "funder": "ACI Alliance Innovations in Cochlear Implants pilot grants",
+      "category": "adjacent_domain",
+      "opportunities_url": "https://www.acialliance.org/page/CochlearImplantPilotGrant",
+      "url_verified": "Y",
+      "typical_cycle": "Irregular. Last 2022",
+      "access": "open",
+      "why_niche_or_notes": "Industry funded CI pilot grants. Low competition"
+    },
+    {
+      "funder": "Grants.gov search with forecasted filter",
+      "category": "aggregator_early_signal",
+      "opportunities_url": "https://www.grants.gov/search-grants",
+      "url_verified": "Y",
+      "typical_cycle": "Daily",
+      "access": "open",
+      "why_niche_or_notes": "Use forecasted status filter for early signals"
+    },
+    {
+      "funder": "USA.gov federal challenges (Challenge.gov successor)",
+      "category": "aggregator_early_signal",
+      "opportunities_url": "https://www.usa.gov/other-government-challenges",
+      "url_verified": "Y",
+      "typical_cycle": "Rolling",
+      "access": "open",
+      "why_niche_or_notes": "Challenge.gov content moved here"
+    },
+    {
+      "funder": "HeroX challenges",
+      "category": "aggregator_early_signal",
+      "opportunities_url": "https://www.herox.com/crowdsourcing-projects",
+      "url_verified": "Y",
+      "typical_cycle": "Rolling",
+      "access": "open",
+      "why_niche_or_notes": "Prize competitions incl government sponsored"
+    },
+    {
+      "funder": "AISafety.com funding directory",
+      "category": "aggregator_early_signal",
+      "opportunities_url": "https://www.aisafety.com/funding",
+      "url_verified": "Y",
+      "typical_cycle": "Updated continuously",
+      "access": "open",
+      "why_niche_or_notes": "58 AI safety funders listed. Diff for new funders"
+    },
+    {
+      "funder": "Federal Register notices search",
+      "category": "aggregator_early_signal",
+      "opportunities_url": "https://www.federalregister.gov/documents/search",
+      "url_verified": "N",
+      "typical_cycle": "Daily",
+      "access": "open",
+      "why_niche_or_notes": "Blocks automated fetch. Use API instead"
+    },
+    {
+      "funder": "CCC Blog (Computing Community Consortium)",
+      "category": "aggregator_early_signal",
+      "opportunities_url": "https://cccblog.org/",
+      "url_verified": "Y",
+      "typical_cycle": "Several posts per week",
+      "access": "open",
+      "why_niche_or_notes": "Early word on CS funding programs and workshops"
+    },
+    {
+      "funder": "Research Professional News",
+      "category": "aggregator_early_signal",
+      "opportunities_url": "https://www.researchprofessionalnews.com/",
+      "url_verified": "Y",
+      "typical_cycle": "Daily",
+      "access": "unknown",
+      "why_niche_or_notes": "Headlines public, articles paywalled"
+    },
+    {
+      "funder": "UAlbany funding opportunities",
+      "category": "aggregator_early_signal",
+      "opportunities_url": "https://www.albany.edu/research-economic-development/researcher-guidance/award-lifecycle/funding-opportunities",
+      "url_verified": "Y",
+      "typical_cycle": "Updated periodically",
+      "access": "open",
+      "why_niche_or_notes": "SUNY peer. Lists limited solicitation programs"
+    },
+    {
+      "funder": "Harvard ORA current opportunities",
+      "category": "aggregator_early_signal",
+      "opportunities_url": "https://research.fas.harvard.edu/current-opportunities",
+      "url_verified": "Y",
+      "typical_cycle": "Weekly",
+      "access": "open",
+      "why_niche_or_notes": "Public weekly list of external and internal opportunities"
+    },
+    {
+      "funder": "Vanderbilt limited submission opportunities",
+      "category": "aggregator_early_signal",
+      "opportunities_url": "https://www.vanderbilt.edu/research-development-and-support/limited-submission-opportunities/",
+      "url_verified": "Y",
+      "typical_cycle": "Rolling",
+      "access": "open",
+      "why_niche_or_notes": "Open LSOs on linked page"
+    },
+    {
+      "funder": "Pitt limited submissions",
+      "category": "aggregator_early_signal",
+      "opportunities_url": "https://www.research.pitt.edu/research-development/limited-submissions",
+      "url_verified": "Y",
+      "typical_cycle": "Rolling",
+      "access": "open",
+      "why_niche_or_notes": "Public embedded lists of open competitions"
+    },
+    {
+      "funder": "Purdue OOR weekly funding email",
+      "category": "aggregator_early_signal",
+      "opportunities_url": "https://research.purdue.edu/resources-for-researchers/find-funding/oor-weekly-email/",
+      "url_verified": "Y",
+      "typical_cycle": "Weekly",
+      "access": "open",
+      "why_niche_or_notes": "Archive links point to SharePoint, may need login"
+    },
+    {
+      "funder": "Boston University funding announcements",
+      "category": "aggregator_early_signal",
+      "opportunities_url": "https://www.bu.edu/research/funding-grants/finding-funding/external-funding-opportunities/funding-announcements/",
+      "url_verified": "Y",
+      "typical_cycle": "Monthly",
+      "access": "open",
+      "why_niche_or_notes": "Public newsletter. Flagged Samsung GRO early"
+    },
+    {
+      "funder": "NC State RDO funding newsletter archive",
+      "category": "aggregator_early_signal",
+      "opportunities_url": "https://research.ncsu.edu/rdo/funding-newsletter-archive/",
+      "url_verified": "Y",
+      "typical_cycle": "Biweekly",
+      "access": "open",
+      "why_niche_or_notes": "Public archive"
+    },
+    {
+      "funder": "Duke institutionally limited nominations",
+      "category": "aggregator_early_signal",
+      "opportunities_url": "https://myresearchpath.duke.edu/institutionally-limited-nominations",
+      "url_verified": "Y",
+      "typical_cycle": "Rolling",
+      "access": "open",
+      "why_niche_or_notes": "Points to Duke research funding database which blocked fetch"
+    },
+    {
+      "funder": "University of Michigan limited submissions",
+      "category": "aggregator_early_signal",
+      "opportunities_url": "https://research.umich.edu/limited-submissions",
+      "url_verified": "Y",
+      "typical_cycle": "Rolling",
+      "access": "open",
+      "why_niche_or_notes": "Public list via InfoReady"
+    },
+    {
+      "funder": "Cornell limited submissions",
+      "category": "aggregator_early_signal",
+      "opportunities_url": "https://researchservices.cornell.edu/resources/limited-submissions-funding-opportunities",
+      "url_verified": "Y",
+      "typical_cycle": "Rolling",
+      "access": "open",
+      "why_niche_or_notes": "Public list. NY peer"
+    },
+    {
+      "funder": "University at Buffalo limited submissions",
+      "category": "aggregator_early_signal",
+      "opportunities_url": "https://www.buffalo.edu/research/research-services/find-funding/limited-submission-funding-opportunities.html",
+      "url_verified": "Y",
+      "typical_cycle": "Rolling",
+      "access": "open",
+      "why_niche_or_notes": "Public dashboard. NY peer"
+    },
+    {
+      "funder": "Syracuse University limited submissions",
+      "category": "aggregator_early_signal",
+      "opportunities_url": "https://research.syracuse.edu/research-development/limited-submissions",
+      "url_verified": "Y",
+      "typical_cycle": "Rolling",
+      "access": "open",
+      "why_niche_or_notes": "Public list. NY peer"
+    },
+    {
+      "funder": "Johns Hopkins limited submissions",
+      "category": "aggregator_early_signal",
+      "opportunities_url": "https://research.jhu.edu/funding-opportunities/limited-submissions",
+      "url_verified": "Y",
+      "typical_cycle": "Rolling",
+      "access": "open",
+      "why_niche_or_notes": "Links to current LSO list"
+    },
+    {
+      "funder": "UC San Diego limited submissions",
+      "category": "aggregator_early_signal",
+      "opportunities_url": "https://researchdevelopment.ucsd.edu/funding/limited-submissions.html",
+      "url_verified": "Y",
+      "typical_cycle": "Rolling",
+      "access": "open",
+      "why_niche_or_notes": "Links to open calls list"
+    },
+    {
+      "funder": "University of Rochester limited submissions",
+      "category": "aggregator_early_signal",
+      "opportunities_url": "https://www.rochester.edu/university-research/awards/limited-submission-opportunities/",
+      "url_verified": "Y",
+      "typical_cycle": "Rolling",
+      "access": "open",
+      "why_niche_or_notes": "Portal requires UR login. Use as Rochester signal only"
+    },
+    {
+      "funder": "Northwestern ORD find funding",
+      "category": "aggregator_early_signal",
+      "opportunities_url": "https://ord.northwestern.edu/funding/",
+      "url_verified": "Y",
+      "typical_cycle": "Rolling",
+      "access": "open",
+      "why_niche_or_notes": "Links to non federal deadline calendar"
+    },
+    {
+      "funder": "NAIRR Pilot (NSF National AI Research Resource)",
+      "category": "federal_niche",
+      "opportunities_url": "https://nairrpilot.org/opportunities/allocations",
+      "url_verified": "N",
+      "typical_cycle": "Rolling, plus periodic calls and Start-Up requests",
+      "access": "open",
+      "why_niche_or_notes": "Free GPU and cloud and model allocations from federal and industry partners for US based researchers and educators. Start-Up project route at nairrpilot.org/opportunities/startup-project. US academics eligible. Peers funded: 14 (Dinesh Jayaraman (University of Pennsylvania), Huaxiu Yao (University of North Carolina), Jing Ma (Case Western Reserve University)). Added by quarterly peer harvest 2026-10-14, URL from search, fetch rate limited so recheck."
+    },
+    {
+      "funder": "Qualcomm Innovation Fellowship North America and Qualcomm Faculty Award",
+      "category": "industry_longtail",
+      "opportunities_url": "https://www.qualcomm.com/research/university-relations/innovation-fellowship/2027-north-america",
+      "url_verified": "N",
+      "typical_cycle": "Annual, launches Oct, deadline late Nov or early Dec",
+      "access": "invitation",
+      "why_niche_or_notes": "QIF funds teams of 2 PhD students (with a faculty mentor) at a fixed list of invited US and Canada schools. The 2027 program was launched Oct 2026, so it is open now (official rules PDF posted). It is unconfirmed whether RIT is on the eligible school list. The Qualcomm Faculty Award is invitation only with no public call. Peers funded: 10 (Cong Hao (Georgia Institute of Technology), Gagandeep Singh (Univ. of Illinois at Urbana-Champaign), Jelena Diakonikolas (University of Wisconsin, Madison)). Added by quarterly peer harvest 2026-10-14, URL from search, fetch rate limited so recheck."
+    },
+    {
+      "funder": "Okawa Foundation for Information and Telecommunications (US Research Grants)",
+      "category": "foundation_general",
+      "opportunities_url": "https://www.sf.us.emb-japan.go.jp/itpr_en/24_1203.html",
+      "url_verified": "N",
+      "typical_cycle": "Annual, awards announced Sep to Dec",
+      "access": "invitation",
+      "why_niche_or_notes": "About USD 10k unrestricted grants to US info and telecom faculty (recent winners at Berkeley, UCLA). No public US call page found. Only the Japan consulate ceremony pages surfaced. Selection is by invitation to selected US departments, so RIT eligibility is unclear. Peers funded: 9 (Aditi Raghunathan (Carnegie Mellon University), Amir Salman Avestimehr (University of Southern California), Chelsea Finn (Stanford University)). Added by quarterly peer harvest 2026-10-14, URL from search, fetch rate limited so recheck."
+    },
+    {
+      "funder": "Snap Research (academic programs)",
+      "category": "industry_longtail",
+      "opportunities_url": "https://research.snap.com/fellowships",
+      "url_verified": "N",
+      "typical_cycle": "PhD fellowship annual with fall deadline. Faculty gifts ad hoc",
+      "access": "nomination",
+      "why_niche_or_notes": "Public program is the Snap Research PhD Fellowship for students. Faculty funding is relationship based via a Snap researcher sponsor. Graph ML and creative audio generation teams are plausible contacts. Peers funded: 7 (Jiliang Tang (Michigan State University), Jundong Li (University of Virginia), Srijan Kumar (Georgia Institute of Technology)). Added by quarterly peer harvest 2026-10-14, URL from search, fetch rate limited so recheck."
+    },
+    {
+      "funder": "AMD University Program / AI and HPC Fund",
+      "category": "industry_longtail",
+      "opportunities_url": "https://www.amd.com/en/corporate/university-program/ai-hpc-cluster.html",
+      "url_verified": "N",
+      "typical_cycle": "Rolling proposals",
+      "access": "open",
+      "why_niche_or_notes": "Free access to AMD Instinct GPU cluster (AI and HPC Cluster, formerly AI and HPC Fund) for academic research via short proposal. Good fit for GNN and EDA graph workloads. US academics eligible. Peers funded: 6 (Cunxi Yu (Univ. of Maryland, College Park), Gagandeep Singh (Univ. of Illinois at Urbana-Champaign), Jindong Wang (College of William and Mary)). Added by quarterly peer harvest 2026-10-14, URL from search, fetch rate limited so recheck."
+    },
+    {
+      "funder": "NEC Laboratories America",
+      "category": "industry_longtail",
+      "opportunities_url": "https://www.nec.com/en/global/rd/labs/america/index.html",
+      "url_verified": "N",
+      "typical_cycle": "No public call. Gifts and collaborations ad hoc",
+      "access": "invitation",
+      "why_niche_or_notes": "Princeton and San Jose labs work heavily on graph ML, time series and LLMs. Relationship based through a lab researcher who sponsors a gift, typically after a student internship. Good graph ML fit. Peers funded: 6 (Dinesh Jayaraman (University of Pennsylvania), Dongjin Song (University of Connecticut), Jiliang Tang (Michigan State University)). Added by quarterly peer harvest 2026-10-14, URL from search, fetch rate limited so recheck."
+    },
+    {
+      "funder": "Toyota Research Institute (University Research Program)",
+      "category": "industry_longtail",
+      "opportunities_url": "https://www.tri.global/university-research",
+      "url_verified": "N",
+      "typical_cycle": "Multi-year program phases (URP 3.0 announced). No open public call",
+      "access": "invitation",
+      "why_niche_or_notes": "TRI selects university partners and projects with TRI researchers as co-leads. Need a TRI researcher champion in machine learning or human interactive driving. Music and health interpretability is a stretch. Peers funded: 5 (Hua Wei (Arizona State University), Ranjay Krishna (University of Washington), Soheil Kolouri (Vanderbilt University)). Added by quarterly peer harvest 2026-10-14, URL from search, fetch rate limited so recheck."
+    },
+    {
+      "funder": "The Home Depot (academic research)",
+      "category": "industry_longtail",
+      "opportunities_url": "https://uidp.org/?p=20376",
+      "url_verified": "N",
+      "typical_cycle": "No public cycle",
+      "access": "invitation",
+      "why_niche_or_notes": "No public research call found. Home Depot joined UIDP and has a strategic Georgia Tech partnership. Contact would be a data science or supply chain leader in Atlanta, likely through a former student hire. Peers funded: 5 (Chao Zhang (Georgia Institute of Technology), Eunsol Choi (New York University), Hui Liu (Michigan State University)). Added by quarterly peer harvest 2026-10-14, URL from search, fetch rate limited so recheck."
+    },
+    {
+      "funder": "DHS Science and Technology Directorate (COE program and LRBAA)",
+      "category": "defense_niche",
+      "opportunities_url": "https://www.dhs.gov/science-and-technology/centers-excellence-and-academia",
+      "url_verified": "N",
+      "typical_cycle": "COE lead competitions every several years, LRBAA open continuously with white paper first",
+      "access": "open",
+      "why_niche_or_notes": "Centers of Excellence are university consortia (join as partner via existing COE leads such as CINA or CREATE). Long Range BAA at baa2.st.dhs.gov accepts white papers year round on homeland security topics including critical infrastructure resilience. Peers funded: 4 (Dawei Zhou (Virginia Tech), Kai Shu (Emory University), Lu Lin (Pennsylvania State University)). Added by quarterly peer harvest 2026-10-14, URL from search, fetch rate limited so recheck."
+    },
+    {
+      "funder": "eBay research academic awards",
+      "category": "industry_longtail",
+      "opportunities_url": "https://cis.cornell.edu/cis-research-professor-receives-ebay-grant",
+      "url_verified": "N",
+      "typical_cycle": "No public cycle",
+      "access": "invitation",
+      "why_niche_or_notes": "No current public eBay academic award program found. Past grants (e.g. Cornell) were relationship based. Contact would be an eBay applied research scientist, ideally via a former intern. eBay Up and Running grants are for small sellers, not research. Peers funded: 4 (Andrew Perrault (Ohio State University), Rui Zhang (Pennsylvania State University), Xin Wang (Univ. of California, Santa Barbara)). Added by quarterly peer harvest 2026-10-14, URL from search, fetch rate limited so recheck."
+    },
+    {
+      "funder": "Lambda Research Grant program",
+      "category": "industry_longtail",
+      "opportunities_url": "https://lambda.ai/research",
+      "url_verified": "N",
+      "typical_cycle": "Rolling",
+      "access": "open",
+      "why_niche_or_notes": "Up to 5000 USD in Lambda Cloud GPU credits plus mentoring for AI and ML researchers, launched Dec 2024. No dedicated official grant page surfaced in search, only lambda.ai/research and press releases. Current status unconfirmed. Peers funded: 3 (Jindong Wang (College of William and Mary), Kaiqing Zhang (Univ. of Maryland, College Park), Yaoqing Yang (Dartmouth College)). Added by quarterly peer harvest 2026-10-14, URL from search, fetch rate limited so recheck."
+    },
+    {
+      "funder": "Oracle for Research (cloud credits)",
+      "category": "industry_longtail",
+      "opportunities_url": "https://www.oracle.com/ca-fr/research/project-awards/",
+      "url_verified": "N",
+      "typical_cycle": "Rolling",
+      "access": "open",
+      "why_niche_or_notes": "OCI cloud credits via Research Cloud Starter Award (small, quick) and Project Award (larger, with proposal). Apply at go.oracle.com/research-project-award. Open to university researchers worldwide incl US. Peers funded: 3 (Dongyeop Kang (University of Minnesota), Liang Zhao (Emory University), Soheil Kolouri (Vanderbilt University)). Added by quarterly peer harvest 2026-10-14, URL from search, fetch rate limited so recheck."
+    },
+    {
+      "funder": "ARPA-H (Advanced Research Projects Agency for Health)",
+      "category": "federal_niche",
+      "opportunities_url": "https://arpa-h.gov/explore-funding",
+      "url_verified": "N",
+      "typical_cycle": "Rolling open BAA plus program-specific solicitations with set deadlines",
+      "access": "open",
+      "why_niche_or_notes": "Funds high-risk health R&D via mission office open BAAs and programs such as PRECISE-AI (AI tools that monitor and correct clinical AI drift, solicitation was 2024 so likely closed). US universities eligible. Check for current mission office ISOs and abstract windows. Peers funded: 3 (Soheil Kolouri (Vanderbilt University), Yingyan (Celine) Lin (Georgia Institute of Technology), Chenliang Xu (University of Rochester)). Added by quarterly peer harvest 2026-10-14, URL from search, fetch rate limited so recheck."
+    },
+    {
+      "funder": "Alexander von Humboldt Foundation (Humboldt Research Fellowship for experienced researchers)",
+      "category": "foundation_general",
+      "opportunities_url": "https://www.humboldt-foundation.de/en/apply/sponsorship-programmes/humboldt-research-fellowship",
+      "url_verified": "N",
+      "typical_cycle": "Rolling, apply any time, decisions about 3 times a year",
+      "access": "open",
+      "why_niche_or_notes": "6 to 18 month research stays (can be split) with a German host, for researchers within 12 years of PhD. Open to US academics from any institution including RIT. It needs a German host and suits a sabbatical. Peers funded: 2 (Lane A. Hemachandra (University of Rochester), Lenhart K. Schubert (University of Rochester)). Added by quarterly peer harvest 2026-10-14, URL from search, fetch rate limited so recheck."
+    },
+    {
+      "funder": "MathWorks academic research support",
+      "category": "industry_longtail",
+      "opportunities_url": "https://www.mathworks.com/academia/research/research-collaborations.html",
+      "url_verified": "N",
+      "typical_cycle": "Occasional calls and ad hoc proposals via MathWorks academic team",
+      "access": "unknown",
+      "why_niche_or_notes": "MathWorks supports research collaborations with software, staff engagement and occasional funded calls such as the Academic Research Program for MATLAB and Simulink. Relevant to co-simulation and Simulink based resilience work. Peers funded: 2 (Huan Zhang (Univ. of Illinois at Urbana-Champaign), Molei Tao (Georgia Institute of Technology)). Added by quarterly peer harvest 2026-10-14, URL from search, fetch rate limited so recheck."
+    },
+    {
+      "funder": "NDIF National Deep Inference Fabric",
+      "category": "federal_niche",
+      "opportunities_url": "https://ndif.us/",
+      "url_verified": "N",
+      "typical_cycle": "Rolling (account signup for remote access)",
+      "access": "open",
+      "why_niche_or_notes": "NSF funded remote access to internals of large open weight LLMs via the NNsight library, ideal for knowledge editing and mech interp on 70B to 405B models. Free API key signup for researchers. Peers funded: 1 (Najoung Kim (Boston University)). Added by quarterly peer harvest 2026-10-14, URL from search, fetch rate limited so recheck."
+    },
+    {
+      "funder": "Thinking Machines Lab Tinker research grants",
+      "category": "industry_longtail",
+      "opportunities_url": "https://thinkingmachines.ai/news/tinker-research-and-teaching-grants/",
+      "url_verified": "N",
+      "typical_cycle": "Periodic themed calls",
+      "access": "open",
+      "why_niche_or_notes": "Tinker fine tuning API credits for research and teaching on open weight models. Separate themed calls exist (open weight safety grants, and Interactivity Research Grants of 100000 USD plus 25000 USD Tinker credits with proposals due June 19 2026, now closed). Peers funded: 1 (Willie Neiswanger (University of Southern California)). Added by quarterly peer harvest 2026-10-14, URL from search, fetch rate limited so recheck."
+    },
+    {
+      "funder": "Nebius research credits program",
+      "category": "industry_longtail",
+      "opportunities_url": "https://nebius.com/nebius-research-credits-program",
+      "url_verified": "N",
+      "typical_cycle": "Rolling",
+      "access": "open",
+      "why_niche_or_notes": "Free GPU cloud credits and Token Factory access for academic researchers. Terms page indicates an application form. Appears open to US academics. Peers funded: 1 (Willie Neiswanger (University of Southern California)). Added by quarterly peer harvest 2026-10-14, URL from search, fetch rate limited so recheck."
+    },
+    {
+      "funder": "Modal academic compute credits",
+      "category": "industry_longtail",
+      "opportunities_url": "https://modal.com/academics",
+      "url_verified": "N",
+      "typical_cycle": "Rolling",
+      "access": "open",
+      "why_niche_or_notes": "Modal for Academics gives serverless GPU credits to university labs, faculty and students. Lab page at modal.com/lp/academics. US academics eligible. Peers funded: 1 (Jindong Wang (College of William and Mary)). Added by quarterly peer harvest 2026-10-14, URL from search, fetch rate limited so recheck."
+    },
+    {
+      "funder": "Cohere Labs research grants (Cohere For AI)",
+      "category": "industry_longtail",
+      "opportunities_url": "https://cohere.com/research/grants",
+      "url_verified": "N",
+      "typical_cycle": "Rolling",
+      "access": "open",
+      "why_niche_or_notes": "Catalyst Grants give Cohere API credits (Command, Aya, Embed, Rerank) to researchers and public benefit projects. Rolling deadline per third party listings. Global incl US. Peers funded: 1 (Dongyeop Kang (University of Minnesota)). Added by quarterly peer harvest 2026-10-14, URL from search, fetch rate limited so recheck."
+    },
+    {
+      "funder": "Laude Institute (Slingshots / Moonshots)",
+      "category": "foundation_general",
+      "opportunities_url": "https://www.laude.org/",
+      "url_verified": "N",
+      "typical_cycle": "Cohort based (Slingshots ONE, TWO, THREE so far)",
+      "access": "open",
+      "why_niche_or_notes": "Slingshots fund open, ship oriented AI research with compute, money and engineering support (reported up to 250000 USD). Moonshots are large 10M USD university team bets. Three Slingshots cohorts announced by 2026. Next call timing unknown. US academics eligible. Peers funded: 1 (Minjia Zhang (Univ. of Illinois at Urbana-Champaign)). Added by quarterly peer harvest 2026-10-14, URL from search, fetch rate limited so recheck."
+    },
+    {
+      "funder": "FAR.AI research grants",
+      "category": "ai_safety_philanthropy",
+      "opportunities_url": "https://far.ai/programs/grantmaking",
+      "url_verified": "N",
+      "typical_cycle": "Unknown, likely periodic or rolling",
+      "access": "unknown",
+      "why_niche_or_notes": "FAR.AI runs a grantmaking program for AI safety and alignment research, fits interpretability and knowledge editing framed as safety. Raised 30M USD multi funder support. Open status and deadline unconfirmed. Peers funded: 1 (Wenbo Guo (Univ. of California, Santa Barbara)). Added by quarterly peer harvest 2026-10-14, URL from search, fetch rate limited so recheck."
+    },
+    {
+      "funder": "Gates Foundation Grand Challenges",
+      "category": "adjacent_domain",
+      "opportunities_url": "https://gcgh.grandchallenges.org/challenge/2026-grand-challenges-annual-meeting-call-action",
+      "url_verified": "N",
+      "typical_cycle": "Rolling topic RFPs, several per year",
+      "access": "open",
+      "why_niche_or_notes": "Global health and development RFPs, including AI for health calls. US academics are eligible and RIT can apply. The 2026 Annual Meeting call to action was listed. Fit is limited to global health applications of graph ML or AI. Peers funded: 1 (Jiliang Tang (Michigan State University)). Added by quarterly peer harvest 2026-10-14, URL from search, fetch rate limited so recheck."
+    },
+    {
+      "funder": "United States Israel Binational Science Foundation (BSF and NSF-BSF)",
+      "category": "federal_niche",
+      "opportunities_url": "https://trdf.technion.ac.il/en/calls-for-proposals/nsf-bsf-programs/",
+      "url_verified": "N",
+      "typical_cycle": "NSF-BSF follows NSF CISE core deadlines, BSF regular grants annual",
+      "access": "open",
+      "why_niche_or_notes": "Requires an Israeli collaborator. The US PI submits to NSF CISE (CCF, IIS, CNS) and the Israeli PI submits to BSF. BSF also gives Start Up and travel grants. RIT is eligible. The official bsf.org.il page was not reached and the URL is a Technion summary. A BSF NSF seminar was held Sep 8 2026. Peers funded: 1 (Aaron Mueller (Boston University)). Added by quarterly peer harvest 2026-10-14, URL from search, fetch rate limited so recheck."
+    },
+    {
+      "funder": "dkNET (NIDDK Information Network) AI pilot awards",
+      "category": "adjacent_domain",
+      "opportunities_url": "https://dknet.org/about/ai-pilot",
+      "url_verified": "N",
+      "typical_cycle": "Annual pilot call, small awards for about one year",
+      "access": "open",
+      "why_niche_or_notes": "dkNET pilot funding for AI models to accelerate diabetes heterogeneity research using NIDDK data, open to US researchers and ESI friendly. Confirm whether a 2026 or 2027 round is open. Peers funded: 1 (Carl Yang (Emory University)). Added by quarterly peer harvest 2026-10-14, URL from search, fetch rate limited so recheck."
+    },
+    {
+      "funder": "NBME Stemmler Medical Education Research Fund",
+      "category": "adjacent_domain",
+      "opportunities_url": "https://www.nbme.org/contributions/assessment/stemmler-grants/",
+      "url_verified": "N",
+      "typical_cycle": "Annual, letter of intent in spring then invited full proposal",
+      "access": "open",
+      "why_niche_or_notes": "Edward J. Stemmler grants fund medical education assessment research, 2026 recipients focused on AI in medical education and formative assessment. Requires a partner at an LCME or AOA accredited US or Canadian medical school as lead. Peers funded: 1 (Parisa Kordjamshidi (Michigan State University)). Added by quarterly peer harvest 2026-10-14, URL from search, fetch rate limited so recheck."
+    },
+    {
+      "funder": "Teach Access faculty grants and Curriculum Development Awards",
+      "category": "foundation_general",
+      "opportunities_url": "https://www.teachaccess.org/initiatives/grants/faqs/",
+      "url_verified": "N",
+      "typical_cycle": "Annual call around spring for awards in following academic year",
+      "access": "open",
+      "why_niche_or_notes": "Small awards to faculty who embed digital accessibility into courses, RIT faculty have won before. Also runs a Teach Access Fellowship (2027 cohort funded by Lavelle Fund). Confirm whether a 2026 or 2027 grants call is posted. Peers funded: 1 (Elissa M. Weeden (Rochester Inst. of Technology)). Added by quarterly peer harvest 2026-10-14, URL from search, fetch rate limited so recheck."
+    },
+    {
+      "funder": "National Institute of Justice (NIJ)",
+      "category": "federal_niche",
+      "opportunities_url": "https://nij.ojp.gov/funding",
+      "url_verified": "N",
+      "typical_cycle": "Annual NOFOs posted roughly Jan to Apr with spring deadlines",
+      "access": "open",
+      "why_niche_or_notes": "DOJ research grants including Research and Evaluation of Artificial Intelligence for Criminal Justice Purposes (FY25 NOFO) and graduate research fellowships. FY2026 NOFOs seen (victim services, school safety), FY2027 cycle expected early 2027. US universities eligible. Peers funded: 1 (Zhiyao Duan (University of Rochester)). Added by quarterly peer harvest 2026-10-14, URL from search, fetch rate limited so recheck."
+    },
+    {
+      "funder": "NHTSA research (USDOT)",
+      "category": "federal_niche",
+      "opportunities_url": "https://www.transportation.gov/sites/dot.gov/files/2026-09/AMRP%20FY2026-2027%20NHTSA.pdf",
+      "url_verified": "N",
+      "typical_cycle": "Ad hoc cooperative agreements and contracts posted on Grants.gov and SAM.gov",
+      "access": "open",
+      "why_niche_or_notes": "NHTSA funds vehicle safety and behavioral research mostly through contracts and occasional cooperative agreements. FY2026 to 2027 Annual Modal Research Plan (Sept 2026) lists priorities. Universities eligible but few open grant calls. Peers funded: 1 (Lingwei Chen (Rochester Inst. of Technology)). Added by quarterly peer harvest 2026-10-14, URL from search, fetch rate limited so recheck."
+    },
+    {
+      "funder": "CHEST NSF IUCRC (Center for Hardware and Embedded Systems Security and Trust)",
+      "category": "federal_niche",
+      "opportunities_url": "https://iucrc.nsf.gov/centers/center-for-hardware-and-embedded-system-security-and-trust",
+      "url_verified": "N",
+      "typical_cycle": "Member-voted projects at semiannual IAB meetings. New sites via NSF IUCRC site proposals",
+      "access": "invitation",
+      "why_niche_or_notes": "Multi-site center (UC, UConn, UVA, UT Dallas and others). Not open to outside PIs. RIT would need a site director to sponsor a new site or a co-PI role on a member-funded project. Contact the center director or a site director. Graph ML for hardware trojan or netlist analysis fits. Peers funded: 1 (Chongzhou Fang (Rochester Inst. of Technology)). Added by quarterly peer harvest 2026-10-14, URL from search, fetch rate limited so recheck."
+    },
+    {
+      "funder": "Arm University Program and Arm research gifts",
+      "category": "industry_longtail",
+      "opportunities_url": "https://arm.com/resources/research/collaborations",
+      "url_verified": "N",
+      "typical_cycle": "Teaching and IP access open year round. Research gifts ad hoc",
+      "access": "invitation",
+      "why_niche_or_notes": "University Program gives free IP, teaching kits and Academic Access. Research funding is relationship based via an Arm Research ecosystem manager or Arm researcher. Large gifts go to strategic partners such as Cambridge and CMU. Peers funded: 1 (Yuhao Zhu (University of Rochester)). Added by quarterly peer harvest 2026-10-14, URL from search, fetch rate limited so recheck."
+    },
+    {
+      "funder": "American Philosophical Society Franklin Research Grants",
+      "category": "foundation_general",
+      "opportunities_url": "https://www.amphilsoc.org/grants/franklin-research-grants",
+      "url_verified": "N",
+      "typical_cycle": "Twice yearly, deadlines Oct 1 and Dec 1",
+      "access": "open",
+      "why_niche_or_notes": "Up to about USD 6k for research expenses (travel, materials) for PhD holders in any field. US academics are eligible and RIT can apply. The next deadline is likely Dec 1 2026. It is a small grant with marginal fit, best for music and health humanities angles. Source: RIT news (APS grant to an RIT humanities faculty). Added by quarterly peer harvest 2026-10-14, URL from search, fetch rate limited so recheck."
+    },
+    {
+      "funder": "New York State DOT Transportation Research and Development Bureau",
+      "category": "new_york_regional",
+      "opportunities_url": "https://www.dot.ny.gov/divisions/engineering/technical-services/transportation-research-development",
+      "url_verified": "N",
+      "typical_cycle": "Annual SPR research problem statements and project selection, often via UTC or consultant contracts",
+      "access": "limited_submission",
+      "why_niche_or_notes": "NYSDOT funds applied transportation research through State Planning and Research funds, often contracted with NY universities and UTCs. Engage via problem statements and NYSDOT program managers. Source: analog of state DOT funders seen on peer pages (NCDOT, ADOT, CCTRP). Added by quarterly peer harvest 2026-10-14, URL from search, fetch rate limited so recheck."
+    },
+    {
+      "funder": "Open Technology Fund (OTF)",
+      "category": "foundation_general",
+      "opportunities_url": "https://www.opentech.fund/funds/",
+      "url_verified": "N",
+      "typical_cycle": "Rolling concept notes with periodic review rounds",
+      "access": "open",
+      "why_niche_or_notes": "Funds internet freedom and open source tools (Internet Freedom Fund, FOSS Sustainability Fund, labs and fellowships) for censorship circumvention, privacy and digital security. Academics may apply if the project fits, application at apply.opentech.fund. Funding status may be affected by USAGM budget disputes. Source: RIT news (Uzun, OTF/Gisa). Added by quarterly peer harvest 2026-10-14, URL from search, fetch rate limited so recheck."
+    },
+    {
+      "funder": "Griffiss Institute (Information Institute with AFRL/RI)",
+      "category": "new_york_regional",
+      "opportunities_url": "https://www.griffissinstitute.org/information-institute/",
+      "url_verified": "N",
+      "typical_cycle": "Visiting Faculty Research Program summer residencies plus rolling collaborative projects",
+      "access": "open",
+      "why_niche_or_notes": "Rome NY is about 2.5 hours from RIT. Information Institute runs AFRL/RI visiting faculty and student programs. Best path is to identify an AFRL/RI researcher in AI, networks or resilience and ask the program director about the next VFRP cycle. Source: RIT news and grant table (Ororbia, Griffiss Institute via AFRL). Added by quarterly peer harvest 2026-10-14, URL from search, fetch rate limited so recheck."
+    },
+    {
+      "funder": "DOE Sandia National Labs (Sandia Academic Alliance / University Partnerships Network)",
+      "category": "federal_niche",
+      "opportunities_url": "https://www.sandia.gov/working-with-sandia/academic-partnerships/sandia-academic-alliance-program/",
+      "url_verified": "N",
+      "typical_cycle": "Annual alliance funding to fixed partner universities. Other work via LDRD subcontracts year round",
+      "access": "invitation",
+      "why_niche_or_notes": "Alliance is a fixed set of partner universities and RIT is not one. Path in is a Sandia staff PI who funds a subcontract from their LDRD or program budget, or a summer faculty visit. Strong fit for infrastructure resilience and graph analytics. Source: peer page (Josiah Hanna, Sandia University Partnership Network). Added by quarterly peer harvest 2026-10-14, URL from search, fetch rate limited so recheck."
+    },
+    {
+      "funder": "DOE Lawrence Livermore National Lab (university collaborations)",
+      "category": "federal_niche",
+      "opportunities_url": "https://st.llnl.gov/about-us/AEO/university-collaborations",
+      "url_verified": "N",
+      "typical_cycle": "LDRD and program subcontracts year round. Academic Collaboration Teams and institutes on internal cycles",
+      "access": "invitation",
+      "why_niche_or_notes": "Mostly relationship based through an LLNL staff scientist sponsor, often via a former student or summer intern. LLNL data science institute and AI groups are the likely sponsors for interpretability and graph ML work. Source: peer pages (LLNL collaborations incl. Chaowei Xiao, Nate Veldt). Added by quarterly peer harvest 2026-10-14, URL from search, fetch rate limited so recheck."
+    },
+    {
+      "funder": "Siemens EDA academic program",
+      "category": "industry_longtail",
+      "opportunities_url": "https://www.sw.siemens.com/en-US/academic/educators/eda-higher-education-software",
+      "url_verified": "N",
+      "typical_cycle": "Software grants open year round. Research gifts ad hoc",
+      "access": "open",
+      "why_niche_or_notes": "Software access program open to educators. Research gifts are relationship based via a Siemens EDA product or research lead (e.g. Calibre or AI EDA teams). Useful for graph methods on netlists and layouts. Source: RIT CV (Huenerfauth, Siemens PLM academic grant). Added by quarterly peer harvest 2026-10-14, URL from search, fetch rate limited so recheck."
+    },
+    {
+      "funder": "Anthropic (Fellows Program and AI for Science)",
+      "category": "industry_longtail",
+      "opportunities_url": "https://support.claude.com/en/articles/11199177-anthropics-ai-for-science-program",
+      "url_verified": "Y",
+      "typical_cycle": "AI for Science monthly review. Fellows rolling cohorts",
+      "access": "open",
+      "why_niche_or_notes": "AI for Science up to 20k USD API credits. Fellows for students at https://job-boards.greenhouse.io/anthropic/jobs/5023394008. Contact Anthropic interpretability researchers as fellow mentors. Added weekly run 2026-10-14"
+    },
+    {
+      "funder": "OpenAI Researcher Access Program",
+      "category": "industry_longtail",
+      "opportunities_url": "https://grants.openai.com/prog/openai_researcher_access_program/",
+      "url_verified": "Y",
+      "typical_cycle": "Quarterly review",
+      "access": "open",
+      "why_niche_or_notes": "Up to 1000 USD API credits, topics include interpretability. Added weekly run 2026-10-14"
+    },
+    {
+      "funder": "Corrigibility Research Fund (Lightcone)",
+      "category": "ai_safety_philanthropy",
+      "opportunities_url": "https://corrigibilityresearch.org/",
+      "url_verified": "Y",
+      "typical_cycle": "Rounds",
+      "access": "open",
+      "why_niche_or_notes": "Small fast grants 5k to 35k for AI control and corrigibility. Round 2 due 2026-10-31. Added weekly run 2026-10-14"
+    },
+    {
+      "funder": "Lightcone Commons",
+      "category": "ai_safety_philanthropy",
+      "opportunities_url": "https://www.lightconecommons.com/apply",
+      "url_verified": "Y",
+      "typical_cycle": "About quarterly S-Process rounds",
+      "access": "open",
+      "why_niche_or_notes": "New regranting platform, next round about 2027-01-23. Added weekly run 2026-10-14"
+    },
+    {
+      "funder": "Iliad",
+      "category": "ai_safety_philanthropy",
+      "opportunities_url": "https://www.iliad.ac/funding",
+      "url_verified": "Y",
+      "typical_cycle": "Open call plus RFP",
+      "access": "open",
+      "why_niche_or_notes": "Theory of neural networks and AI safety epistemics. Added weekly run 2026-10-14"
+    },
+    {
+      "funder": "GTR Foundation AI Safety Fund",
+      "category": "ai_safety_philanthropy",
+      "opportunities_url": "https://www.gtr-foundation.org/gtr-ai-safety-fund",
+      "url_verified": "Y",
+      "typical_cycle": "Rolling",
+      "access": "open",
+      "why_niche_or_notes": "No geographic limit, catastrophic risk focus. Added weekly run 2026-10-14"
+    },
+    {
+      "funder": "AI Alignment Foundation",
+      "category": "ai_safety_philanthropy",
+      "opportunities_url": "https://www.aialignmentfoundation.org/approach/apply",
+      "url_verified": "Y",
+      "typical_cycle": "Rolling",
+      "access": "open",
+      "why_niche_or_notes": "Wants novel alignment directions, not standard mech interp. Added weekly run 2026-10-14"
+    },
+    {
+      "funder": "Astralis Foundation and Macroscopic Ventures (Middle Powers)",
+      "category": "ai_safety_philanthropy",
+      "opportunities_url": "https://middlepowers.ai/",
+      "url_verified": "Y",
+      "typical_cycle": "RFP based",
+      "access": "open",
+      "why_niche_or_notes": "AI governance grantmakers, universities eligible. Low fit. Added weekly run 2026-10-14"
+    },
+    {
+      "funder": "Paradigm 3",
+      "category": "ai_safety_philanthropy",
+      "opportunities_url": "https://www.paradigm3.org/research/fund",
+      "url_verified": "Y",
+      "typical_cycle": "No formal call",
+      "access": "invitation",
+      "why_niche_or_notes": "Evals science and AI externalities. Contact hi@paradigm3.org. Added weekly run 2026-10-14"
+    },
+    {
+      "funder": "Halcyon Futures",
+      "category": "ai_safety_philanthropy",
+      "opportunities_url": "https://www.halcyonfutures.org/",
+      "url_verified": "N",
+      "typical_cycle": "Unknown",
+      "access": "unknown",
+      "why_niche_or_notes": "Listed in Manifund bulletin with seed grants up to 1M. Page not fetched. Added weekly run 2026-10-14"
+    },
+    {
+      "funder": "FNIH Music as Medicine",
+      "category": "adjacent_domain",
+      "opportunities_url": "https://fnih.org/our-programs/powering-science/music-as-medicine/",
+      "url_verified": "Y",
+      "typical_cycle": "Annual nomination cycle",
+      "access": "nomination",
+      "why_niche_or_notes": "100k per year renewable for music health research, doctorate at least 5 years before deadline. Strong fit for music and ADRD. Added weekly run 2026-10-14"
+    },
+    {
+      "funder": "Unconventional AI (Unconventional Grant)",
+      "category": "industry_longtail",
+      "opportunities_url": "https://unconv.ai/grant/",
+      "url_verified": "Y",
+      "typical_cycle": "Annual, 2026 closed Jul 28",
+      "access": "open",
+      "why_niche_or_notes": "100k unrestricted gifts to US professors for energy efficient AI hardware and circuits. Added weekly run 2026-10-14"
+    },
+    {
+      "funder": "Genesis Mission Consortium",
+      "category": "aggregator_early_signal",
+      "opportunities_url": "https://www.nextgov.com/artificial-intelligence/2026/10/white-house-unveils-billions-investments-genesis-mission/416517/",
+      "url_verified": "N",
+      "typical_cycle": "Announced 2026-10-08",
+      "access": "unknown",
+      "why_niche_or_notes": "About 2.4B USD industry compute pledges, academic route not yet defined. Watch NSF and DOE calls. Added weekly run 2026-10-14"
+    },
+    {
+      "funder": "IARPA Solutions Marketplace",
+      "category": "defense_niche",
+      "opportunities_url": "https://www.iarpa.gov/",
+      "url_verified": "N",
+      "typical_cycle": "Rolling monthly review through 2027-07-31",
+      "access": "unknown",
+      "why_niche_or_notes": "Five minute video pitches incl AI security. University eligibility not stated. Added weekly run 2026-10-14"
+    },
+    {
+      "funder": "AIMO Interpretability Challenge",
+      "category": "aggregator_early_signal",
+      "opportunities_url": "https://aimo-interp.github.io/",
+      "url_verified": "Y",
+      "typical_cycle": "Competition tied to NeurIPS",
+      "access": "open",
+      "why_niche_or_notes": "12.5k prizes, good student project. Added weekly run 2026-10-14"
+    },
+    {
+      "funder": "AFOSR Open BAA",
+      "category": "defense_niche",
+      "opportunities_url": "https://simpler.grants.gov/opportunity/de479d2e-aad1-466a-acc3-d5d11cf7918d",
+      "url_verified": "Y",
+      "typical_cycle": "Open until superseded",
+      "access": "open",
+      "why_niche_or_notes": "FA955026S0001. Computational Cognition and Machine Intelligence, Complex Networks programs. Added weekly run 2026-10-14"
+    },
+    {
+      "funder": "ORAU Ralph E. Powe Junior Faculty Enhancement Awards",
+      "category": "foundation_general",
+      "opportunities_url": "https://www.orau.org/partnerships/grant-programs/powe/index.html",
+      "url_verified": "Y",
+      "typical_cycle": "Annual, sponsor deadline early Jan",
+      "access": "limited_submission",
+      "why_niche_or_notes": "5k plus match for first two years on tenure track at ORAU member schools. RIT membership unverified. Added weekly run 2026-10-14"
+    }
+  ]
+}

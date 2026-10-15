@@ -16,7 +16,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Download from Google Drive and build pages
+      - name: Download from Google Drive
         env:
           BRIEF_ID: 1et39rEJJ70voUUF7ud2RYhXTwZX7ogenrGvKdwve540
           REGISTRY_ID: 1-OKjccnRGEzTQUtGdGYQ8s-4fyIiS6en7IXhUqs_XCo
@@ -26,60 +26,17 @@ jobs:
           curl -fsSL "https://docs.google.com/document/d/$BRIEF_ID/export?format=txt" -o brief.txt
           curl -fsSL "https://docs.google.com/document/d/$REGISTRY_ID/export?format=txt" -o registry.txt
           curl -fsSL "https://docs.google.com/spreadsheets/d/$WATCHLIST_ID/export?format=csv" -o watchlist.csv
-          python3 - <<'PY'
-          import csv, io, pathlib, re
 
-          def load(p):
-              t = pathlib.Path(p).read_text(encoding="utf-8-sig").replace("\r\n", "\n")
-              if t.lstrip().lower().startswith(("<!doctype", "<html")):
-                  raise SystemExit(f"{p}: got an HTML page, the Drive file is probably not shared as 'Anyone with the link'")
-              return t
-
-          brief = load("brief.txt")
-          m = re.search(r"AI Funding Brief (\d{4}-\d{2}-\d{2})", brief)
-          if not m:
-              raise SystemExit("brief heading 'AI Funding Brief YYYY-MM-DD' not found")
-          d = m.group(1)
-          body = re.sub(r"^\s*#\s*AI Funding Brief \d{4}-\d{2}-\d{2}\s*\n", "", brief, count=1)
-
-          pages = pathlib.Path("src/pages/funding")
-          arch = pages / "archive"
-          pub = pathlib.Path("public/funding")
-          for p in (pages, arch, pub):
-              p.mkdir(parents=True, exist_ok=True)
-
-          def page(title, extra=""):
-              return (f'---\ntitle: "{title}"\ndate: {d}\n---\n\n# {title}\n\n'
-                      f"更新于 {d}. 标注 未核实 的条目未在一手页面确认. 仅供参考, 以资助方官网为准.\n\n"
-                      f"{extra}{body.strip()}\n")
-
-          links = "[往期](/funding/archive/) | [registry.csv](/funding/registry.csv) | [watchlist.csv](/funding/watchlist.csv)\n\n"
-          (pages / "index.md").write_text(page(f"AI Funding Brief {d}", links), encoding="utf-8")
-          (arch / f"{d}.md").write_text(page(f"AI Funding Brief {d}"), encoding="utf-8")
-
-          dates = sorted((p.stem for p in arch.glob("????-??-??.md")), reverse=True)
-          lst = "\n".join(f"- [{x}](/funding/archive/{x}/)" for x in dates)
-          (arch / "index.md").write_text(
-              f'---\ntitle: "AI Funding Brief Archive"\n---\n\n# AI Funding Brief Archive\n\n{lst}\n', encoding="utf-8")
-
-          rows = []
-          for line in load("registry.txt").splitlines():
-              if re.match(r"^\s*\d{4}-\d{2}-\d{2}\s*\|", line):
-                  parts = [x.strip() for x in line.split("|")]
-                  parts = (parts + [""] * 5)[:4] + [" | ".join(parts[4:]) if len(parts) > 5 else (parts + [""] * 5)[4]]
-                  rows.append(parts)
-          with open(pub / "registry.csv", "w", newline="", encoding="utf-8") as f:
-              w = csv.writer(f)
-              w.writerow(["first_seen_date", "sponsor", "program", "deadline", "url"])
-              w.writerows(rows)
-
-          (pub / "watchlist.csv").write_text(load("watchlist.csv"), encoding="utf-8")
-          print(f"brief {d}, {len(rows)} registry rows")
-          PY
-          rm -f brief.txt registry.txt watchlist.csv
+      # The parser lives in the repo rather than inline here, so it can be run
+      # and checked locally before a Friday morning does it unattended. It
+      # strips every personal field out of the Drive brief and fails the run
+      # rather than letting one through. See the header of the script.
+      - name: Build the public pages and data
+        run: python3 scripts/build-funding.py brief.txt registry.txt watchlist.csv
 
       - name: Commit and push
         run: |
+          rm -f brief.txt registry.txt watchlist.csv
           git config user.name "aquastar"
           git config user.email "2832070+aquastar@users.noreply.github.com"
           git add src/pages/funding public/funding
