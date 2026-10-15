@@ -1,37 +1,5 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import { ranked as confRanked, notable as confNotable } from '../data/conferences.js';
-import fundingData from '../data/funding.json';
-
-// The two tracker pages, promoted with their own live numbers rather than a
-// fixed boast that would rot the first time either list changed.
-const TODAY = new Date().toISOString().slice(0, 10);
-const confCount = confRanked.length + confNotable.length;
-const confSoon = confRanked
-  .map((c) => (c.rounds || []).map((r) => r.d).filter((d) => d >= TODAY))
-  .flat()
-  .sort()[0] || '';
-const fundOpen = fundingData.registry.filter((r) =>
-  (r.deadline || '').match(/\d{4}-\d{2}-\d{2}/g)?.some((d) => d >= TODAY)).length;
-const trackers = [
-  {
-    href: '/conferences',
-    icon: 'fa-calendar-check',
-    title: 'Conferences',
-    blurb: 'Deadlines, acceptance rates, CCF and CORE ranks, and where each one is held.',
-    stat: `${confCount} venues`,
-    note: confSoon ? `next deadline ${confSoon}` : '',
-  },
-  {
-    href: '/funding',
-    icon: 'fa-hand-holding-dollar',
-    title: 'Funding',
-    blurb: 'A weekly sweep of federal, foundation and industry calls in AI and nearby computing.',
-    stat: `${fundingData.counts.registry} calls`,
-    note: `${fundOpen} still open`,
-  },
-];
-
 const updates = [
   { type: 'paper', date: '09/2026', venue: '<strong class="venue">BIBM 2026</strong>', text: '<strong>KSNet</strong>: interpretable Koopman-spectral representations for EEG-based seizure prediction.' },
   { type: 'paper', date: '08/2026', venue: '<strong class="venue">CIKM 2026</strong>', text: 'A formal pre-condition for checking whether a knowledge graph structurally supports a query before an LLM generates from it.' },
@@ -746,8 +714,7 @@ const selectedGroups = selectedFilters
             </li>
           </ul>
           <p class="narr-trackers">
-            I also keep two lists current: <a href="/conferences">{confCount} conference deadlines</a>
-            {confSoon && <> (next one {confSoon})</>} and <a href="/funding">{fundingData.counts.registry} funding calls</a>, {fundOpen} of them still open.
+            We also built AI-tracked lists of <a href="/conferences">conference deadlines</a> and <a href="/funding">funding calls</a>.
           </p>
         </article>
 
