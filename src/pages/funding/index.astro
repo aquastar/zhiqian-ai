@@ -142,9 +142,9 @@ const COMP_WORD = { 1: 'light', 2: 'moderate', 3: 'competitive', 4: 'hard', 5: '
           <tr>
             <th class="c-who">Funder and program</th>
             <th class="c-terms">Terms</th>
+            <th class="c-hard">Difficulty</th>
             <th class="c-fit">Who it suits</th>
             <th class="c-when">Next date</th>
-            <th class="c-seen">First seen</th>
           </tr>
         </thead>
         <tbody>
@@ -159,7 +159,8 @@ const COMP_WORD = { 1: 'light', 2: 'moderate', 3: 'competitive', 4: 'hard', 5: '
                   </span>
                   <div class="who-body">
                     <span class="who-line">
-                      <span class="sponsor">{r.sponsor}</span>
+                      <span class="sponsor" title={r.sponsor}>{r.sponsor}</span>
+                      {r.category && <span class={`kind kind-${slug(r.category)}`} title="What kind of body is paying, worked out from the funder and its own domain">{r.category}</span>}
                       {r.pick && <span class="pick-tag" title="Picked out in this week's brief">this week</span>}
                       {r.source_tier && <span class="tier-tag" title="How the call was found: L1 a primary source, L2 an aggregator, L3 a secondary mention">{r.source_tier}</span>}
                     </span>
@@ -170,12 +171,13 @@ const COMP_WORD = { 1: 'light', 2: 'moderate', 3: 'competitive', 4: 'hard', 5: '
                 </div>
               </td>
               <td class="c-terms" data-label="Terms">
-                {r.category && <span class={`kind kind-${slug(r.category)}`} title="What kind of body is paying, worked out from the funder and its own domain">{r.category}</span>}
                 {/* The summary carries the money, the restriction worth knowing
                     and the timing, so the separate budget and eligibility
                     lines it was assembled from would only repeat it. The full
                     eligibility text is in data.json. */}
                 <span class="tldr" title={r.eligibility ? `Eligibility as written: ${r.eligibility}` : undefined}>{r.tldr}</span>
+              </td>
+              <td class="c-hard" data-label="Difficulty">
                 <span class={`comp comp-${r.comp_score}`} title={r.comp_basis}>
                   <span class="comp-dots" aria-hidden="true">
                     {[1, 2, 3, 4, 5].map((i) => <i class={i <= r.comp_score ? 'on' : ''}></i>)}
@@ -203,7 +205,6 @@ const COMP_WORD = { 1: 'light', 2: 'moderate', 3: 'competitive', 4: 'hard', 5: '
                   <span class="also">also {r.dl.dates.filter((d) => d !== r.dl.next).join(', ')}</span>
                 )}
               </td>
-              <td class="c-seen" data-label="First seen">{r.first_seen_date}</td>
             </tr>
           ))}
         </tbody>
@@ -296,11 +297,11 @@ const COMP_WORD = { 1: 'light', 2: 'moderate', 3: 'competitive', 4: 'hard', 5: '
   .fund tbody tr[data-pick="1"] { background:#fffdf5; }
   .fund tbody tr[data-pick="1"]:hover { background:#fef9e7; }
 
-  .c-who { width:29%; }
-  .c-terms { width:24%; }
-  .c-fit { width:19%; }
+  .c-who { width:31%; }
+  .c-terms { width:22%; }
+  .c-hard { width:12%; }
+  .c-fit { width:16%; }
   .c-when { width:19%; }
-  .c-seen { width:9%; font-variant-numeric:tabular-nums; color:#94a3b8; font-size:.74rem; white-space:nowrap; }
 
   /* What the call is after, in the funder's own words reduced to keywords. */
   .fits { display:flex; flex-wrap:wrap; gap:4px; }
@@ -328,8 +329,13 @@ const COMP_WORD = { 1: 'light', 2: 'moderate', 3: 'competitive', 4: 'hard', 5: '
   .mark img { width:22px; height:22px; object-fit:contain; }
   .mark-text { font-size:.68rem; font-weight:800; letter-spacing:.02em; color:#94a3b8; }
   .who-body { min-width:0; }
-  .who-line { display:flex; flex-wrap:wrap; align-items:center; gap:6px; margin-bottom:1px; }
-  .sponsor { font-size:.64rem; font-weight:600; letter-spacing:.07em; text-transform:uppercase; color:#94a3b8; }
+  /* One line, like the programme beneath it. Three funders have names long
+     enough to push their chips onto a second row, which put the cell back to
+     three lines and left the mark with nothing fixed to match. */
+  .who-line { display:flex; flex-wrap:nowrap; align-items:center; gap:6px; margin-bottom:1px; min-width:0; }
+  .sponsor { font-size:.64rem; font-weight:600; letter-spacing:.07em; text-transform:uppercase;
+    color:#94a3b8; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; min-width:0; }
+  .who-line > :not(.sponsor) { flex:0 0 auto; }
   .pick-tag { font-size:.58rem; font-weight:800; letter-spacing:.06em; text-transform:uppercase;
     color:#a16207; background:#fef3c7; border:1px solid #fde68a; border-radius:4px; padding:1px 6px; }
   .tier-tag { font-size:.58rem; font-weight:800; color:#0369a1; background:#e0f2fe;
@@ -345,8 +351,8 @@ const COMP_WORD = { 1: 'light', 2: 'moderate', 3: 'competitive', 4: 'hard', 5: '
   .program i { font-size:.6rem; opacity:.45; flex:0 0 auto; }
   .elig { display:block; margin-top:3px; font-size:.72rem; color:#64748b; line-height:1.4; }
   /* One quiet chip saying what kind of money this is. */
-  .kind { display:inline-block; margin-bottom:3px; padding:1px 7px; border-radius:4px;
-    font-size:.6rem; font-weight:800; letter-spacing:.05em; text-transform:uppercase;
+  .kind { display:inline-block; padding:0 6px; border-radius:4px;
+    font-size:.56rem; font-weight:800; letter-spacing:.05em; text-transform:uppercase;
     color:#475569; background:#f1f5f9; border:1px solid rgba(148,163,184,.3); }
   .kind-federal { color:#1d4ed8; background:#e8eeff; border-color:#c7d7fe; }
   .kind-state { color:#0f766e; background:#e6fbf7; border-color:#99f6e4; }
@@ -377,7 +383,7 @@ const COMP_WORD = { 1: 'light', 2: 'moderate', 3: 'competitive', 4: 'hard', 5: '
   /* Five dots, because every row carries a reading and a bare word would not
      say how far apart two of them are. "est." marks the ones inferred from
      the kind of call rather than taken from a published rate. */
-  .comp { display:flex; align-items:center; gap:6px; margin-top:4px; cursor:help; }
+  .comp { display:flex; flex-wrap:wrap; align-items:center; gap:3px 6px; cursor:help; }
   .comp-dots { display:inline-flex; gap:2px; }
   .comp-dots i { width:6px; height:6px; border-radius:50%; background:#e2e8f0; }
   .comp-label { font-size:.63rem; font-weight:800; letter-spacing:.02em; }
@@ -417,10 +423,12 @@ const COMP_WORD = { 1: 'light', 2: 'moderate', 3: 'competitive', 4: 'hard', 5: '
     .fund tbody td + td { margin-top:8px; padding-top:8px; border-top:1px dashed rgba(148,163,184,.3); }
     .fund tbody td[data-label]::before { content:attr(data-label); display:block; margin-bottom:3px;
       font-size:.6rem; font-weight:700; letter-spacing:.07em; text-transform:uppercase; color:#94a3b8; }
-    .c-seen, .c-fit { white-space:normal; }
+    .c-fit, .c-hard { white-space:normal; }
     .when-line .days { margin-left:0; }
     /* A card has the width to show the whole name, so stop cutting it. */
     .program { flex-wrap:wrap; }
+    .who-line { flex-wrap:wrap; }
+    .sponsor { overflow:visible; text-overflow:clip; white-space:normal; }
     .program-name { overflow:visible; text-overflow:clip; white-space:normal;
       overflow-wrap:anywhere; }
     .brief-side { align-items:flex-start; }

@@ -620,6 +620,18 @@ def _band(pct):
     return 5 if pct < 10 else 4 if pct < 20 else 3 if pct < 35 else 2 if pct < 55 else 1
 
 
+# An allocation of machine time or model access, as opposed to money.
+ACCESS = (r'credits?|cluster|compute|GPU|NAIRR|model access|Researcher Access|'
+          r'allocation|node hours|for Academics|API')
+# A named, single-round award with a fixed and small number of places.
+NAMED_AWARD = r'Award|Fellowship|Grant|Scholar|Catalyst|Innovation|Prize'
+# Facts the company does publish, so the estimate is not pulled from nowhere.
+AWARD_NOTES = {
+    'Amazon': ('Amazon publishes recipients but not applications: 68 awards '
+               'worldwide in the Fall 2025 cycle and 75 the year before, across '
+               'every topic it funds.'),
+}
+
 BRIEF_SCORE = {'high': 4, 'medium to high': 4, 'medium': 3, 'low to medium': 2, 'low': 1}
 
 
@@ -636,14 +648,33 @@ def competition(row):
         return BRIEF_SCORE[graded], f'Graded "{graded}" in this week\'s brief, not a published rate.'
     kind = row.get('category', '')
     prog = row.get('program', '')
-    if re.search(r'credits?|cluster|compute|GPU|NAIRR', prog, re.I):
-        return 2, 'Estimated from the kind of call: compute allocations turn down far fewer applicants than cash does.'
+    money = row.get('budget', '')
+    # What is on offer, not who is paying. Treating every company programme as
+    # easy was wrong: Amazon Research Awards, the Microsoft and NVIDIA
+    # fellowships and the Qualcomm Innovation Fellowship are single global
+    # rounds, and are at least as contested as a federal solicitation. What is
+    # genuinely softer is an allocation of credits or model access, which is
+    # reviewed on a rolling basis and costs the company little to grant.
+    if re.search(ACCESS, prog, re.I) or re.search(ACCESS, money, re.I):
+        return 2, ('Estimated from what is on offer: an allocation of compute or '
+                   'model access is reviewed as it arrives and turns down far '
+                   'fewer applicants than a cash award. No rate is published.')
     if re.search(r'\bBAA\b|rolling|Office-Wide', prog, re.I):
-        return 3, 'Estimated from the kind of call: an open BAA takes white papers continuously rather than running one round.'
+        return 3, ('Estimated from the kind of call: an open BAA takes white papers '
+                   'continuously rather than running one round.')
+    if kind == 'Industry' and re.search(NAMED_AWARD, prog, re.I):
+        note = AWARD_NOTES.get(row.get('sponsor', '').split()[0], '')
+        return 4, ('Estimated from what is on offer: a named company award is one '
+                   'global round for a fixed and small number of places. ' + note
+                   ).strip()
     if kind == 'Federal':
-        return 4, 'Estimated from the kind of call: federal research solicitations typically fund well under a quarter of what they receive.'
+        return 4, ('Estimated from the kind of call: federal research solicitations '
+                   'typically fund well under a quarter of what they receive.')
+    if kind == 'Industry':
+        return 3, 'Estimated from the kind of call, not a published rate.'
     if kind in ('Foundation', 'Nonprofit', 'State'):
         return 3, 'Estimated from the kind of call, not a published rate.'
+    return 3, 'Estimated from the kind of call, not a published rate.'
     if kind == 'Industry':
         return 2, 'Estimated from the kind of call: company programmes are usually smaller and less contested than federal ones.'
     return 3, 'Estimated from the kind of call, not a published rate.'

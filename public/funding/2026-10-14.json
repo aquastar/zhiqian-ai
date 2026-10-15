@@ -325,8 +325,8 @@
       "logo_px": 180,
       "category": "Industry",
       "fit": [],
-      "comp_score": 2,
-      "comp_basis": "Estimated from the kind of call: company programmes are usually smaller and less contested than federal ones.",
+      "comp_score": 4,
+      "comp_basis": "Estimated from what is on offer: a named company award is one global round for a fixed and small number of places. Amazon publishes recipients but not applications: 68 awards worldwide in the Fall 2025 cycle and 75 the year before, across every topic it funds.",
       "tldr": "An unstated amount from a company. Closes 2026-11-04."
     },
     {
@@ -938,8 +938,8 @@
       "fit": [
         "AI safety and alignment"
       ],
-      "comp_score": 2,
-      "comp_basis": "Estimated from the kind of call: company programmes are usually smaller and less contested than federal ones.",
+      "comp_score": 3,
+      "comp_basis": "Estimated from the kind of call, not a published rate.",
       "tldr": "An unstated amount from a company. Rolling."
     },
     {
@@ -955,8 +955,8 @@
       "fit": [
         "open call"
       ],
-      "comp_score": 2,
-      "comp_basis": "Estimated from the kind of call: company programmes are usually smaller and less contested than federal ones.",
+      "comp_score": 3,
+      "comp_basis": "Estimated from the kind of call, not a published rate.",
       "tldr": "An unstated amount from a company. Closes 2026-10-21."
     },
     {
@@ -1022,8 +1022,8 @@
       "fit": [
         "for an individual, not a lab"
       ],
-      "comp_score": 2,
-      "comp_basis": "Estimated from the kind of call: company programmes are usually smaller and less contested than federal ones.",
+      "comp_score": 4,
+      "comp_basis": "Estimated from what is on offer: a named company award is one global round for a fixed and small number of places.",
       "tldr": "An unstated amount from a company. Closes 2026-10-30."
     },
     {
@@ -1039,8 +1039,8 @@
       "fit": [
         "for an individual, not a lab"
       ],
-      "comp_score": 2,
-      "comp_basis": "Estimated from the kind of call: company programmes are usually smaller and less contested than federal ones.",
+      "comp_score": 4,
+      "comp_basis": "Estimated from what is on offer: a named company award is one global round for a fixed and small number of places.",
       "tldr": "An unstated amount from a company. Expected 2026-12-16."
     },
     {
@@ -1764,8 +1764,8 @@
       "fit": [
         "AI safety and alignment"
       ],
-      "comp_score": 2,
-      "comp_basis": "Estimated from the kind of call: company programmes are usually smaller and less contested than federal ones.",
+      "comp_score": 3,
+      "comp_basis": "Estimated from the kind of call, not a published rate.",
       "tldr": "An unstated amount from a company."
     },
     {
@@ -1779,8 +1779,8 @@
       "logo_px": 180,
       "category": "Industry",
       "fit": [],
-      "comp_score": 2,
-      "comp_basis": "Estimated from the kind of call: company programmes are usually smaller and less contested than federal ones.",
+      "comp_score": 4,
+      "comp_basis": "Estimated from what is on offer: a named company award is one global round for a fixed and small number of places.",
       "tldr": "An unstated amount from a company. Rolling."
     },
     {
@@ -1794,8 +1794,8 @@
       "logo_px": 9999,
       "category": "Industry",
       "fit": [],
-      "comp_score": 2,
-      "comp_basis": "Estimated from the kind of call: company programmes are usually smaller and less contested than federal ones.",
+      "comp_score": 4,
+      "comp_basis": "Estimated from what is on offer: a named company award is one global round for a fixed and small number of places.",
       "tldr": "An unstated amount from a company."
     },
     {
@@ -1810,7 +1810,7 @@
       "category": "Industry",
       "fit": [],
       "comp_score": 2,
-      "comp_basis": "Estimated from the kind of call: company programmes are usually smaller and less contested than federal ones.",
+      "comp_basis": "Estimated from what is on offer: an allocation of compute or model access is reviewed as it arrives and turns down far fewer applicants than a cash award. No rate is published.",
       "tldr": "An unstated amount from a company. Rolling."
     },
     {
@@ -1827,7 +1827,7 @@
         "compute, not cash"
       ],
       "comp_score": 2,
-      "comp_basis": "Estimated from the kind of call: compute allocations turn down far fewer applicants than cash does.",
+      "comp_basis": "Estimated from what is on offer: an allocation of compute or model access is reviewed as it arrives and turns down far fewer applicants than a cash award. No rate is published.",
       "tldr": "An unstated amount from a company."
     },
     {
@@ -1867,7 +1867,7 @@
         "model access, not cash"
       ],
       "comp_score": 2,
-      "comp_basis": "Estimated from the kind of call: company programmes are usually smaller and less contested than federal ones.",
+      "comp_basis": "Estimated from what is on offer: an allocation of compute or model access is reviewed as it arrives and turns down far fewer applicants than a cash award. No rate is published.",
       "tldr": "An unstated amount from a company. Quarterly, Dec 2026."
     },
     {
@@ -2115,8 +2115,8 @@
         "semiconductors",
         "open call"
       ],
-      "comp_score": 2,
-      "comp_basis": "Estimated from the kind of call: company programmes are usually smaller and less contested than federal ones.",
+      "comp_score": 3,
+      "comp_basis": "Estimated from the kind of call, not a published rate.",
       "tldr": "An unstated amount from a company. Rolling."
     },
     {
@@ -2410,7 +2410,7 @@
         "international scope"
       ],
       "comp_score": 2,
-      "comp_basis": "Estimated from the kind of call: company programmes are usually smaller and less contested than federal ones.",
+      "comp_basis": "Estimated from what is on offer: an allocation of compute or model access is reviewed as it arrives and turns down far fewer applicants than a cash award. No rate is published.",
       "tldr": "An unstated amount from a company."
     },
     {
@@ -2426,8 +2426,8 @@
       "fit": [
         "open call"
       ],
-      "comp_score": 2,
-      "comp_basis": "Estimated from the kind of call: company programmes are usually smaller and less contested than federal ones.",
+      "comp_score": 3,
+      "comp_basis": "Estimated from the kind of call, not a published rate.",
       "tldr": "An unstated amount from a company. Closes 2026-10-23."
     },
     {
@@ -2443,8 +2443,8 @@
       "fit": [
         "for an individual, not a lab"
       ],
-      "comp_score": 2,
-      "comp_basis": "Estimated from the kind of call: company programmes are usually smaller and less contested than federal ones.",
+      "comp_score": 4,
+      "comp_basis": "Estimated from what is on offer: a named company award is one global round for a fixed and small number of places.",
       "tldr": "An unstated amount from a company."
     },
     {
@@ -2728,7 +2728,7 @@
         "team award"
       ],
       "comp_score": 2,
-      "comp_basis": "Estimated from the kind of call: compute allocations turn down far fewer applicants than cash does.",
+      "comp_basis": "Estimated from what is on offer: an allocation of compute or model access is reviewed as it arrives and turns down far fewer applicants than a cash award. No rate is published.",
       "tldr": "An unstated amount from a federal agency."
     },
     {
@@ -2764,7 +2764,7 @@
         "open call"
       ],
       "comp_score": 2,
-      "comp_basis": "Estimated from the kind of call: compute allocations turn down far fewer applicants than cash does.",
+      "comp_basis": "Estimated from what is on offer: an allocation of compute or model access is reviewed as it arrives and turns down far fewer applicants than a cash award. No rate is published.",
       "tldr": "An unstated amount from a university."
     },
     {
@@ -2795,8 +2795,8 @@
       "logo_px": 512,
       "category": "Industry",
       "fit": [],
-      "comp_score": 2,
-      "comp_basis": "Estimated from the kind of call: company programmes are usually smaller and less contested than federal ones.",
+      "comp_score": 4,
+      "comp_basis": "Estimated from what is on offer: a named company award is one global round for a fixed and small number of places.",
       "tldr": "An unstated amount from a company. Next cycle TBD."
     },
     {
