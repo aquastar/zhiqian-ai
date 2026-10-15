@@ -37,7 +37,126 @@ PUBLIC = ROOT / 'public' / 'funding'
 COLUMNS = ['sponsor', 'program', 'deadline', 'budget', 'eligibility',
            'skip', 'competition', 'source_tier', 'url']
 
-CAVEAT = ('未核实 = 未在一手页面确认. 以资助方官网为准, 本页仅为汇总.')
+CJK = re.compile(r'[\u4e00-\u9fff]')
+
+# The Drive brief is written in Chinese. The page is not, so everything that
+# crosses over gets translated here.
+#
+# Three layers, in order. EXACT covers the phrasings the brief actually uses,
+# which is a small and formulaic vocabulary, and gives readable English.
+# GLOSSARY is the fallback for wordings not seen before, applied longest
+# phrase first so that 每年 is taken before 年. Whatever still carries a Chinese
+# character after both is dropped from the output rather than published, and
+# named in the run log so the term can be added. check_english() is the
+# backstop that fails the run if anything slips past all three.
+EXACT = {
+    # competition
+    '高': 'high', '中': 'medium', '低': 'low',
+    '中到高': 'medium to high', '低到中': 'low to medium',
+    # budget
+    '未列': 'not listed',
+    '无上限, 最长 5 年': 'no cap, up to 5 years',
+    '最多 $1M, 最长 4 年': 'up to $1M, up to 4 years',
+    '总额 $100M, 最长 5 年': '$100M total, up to 5 years',
+    '总额 $110M, 最长 5 年': '$110M total, up to 5 years',
+    '约 $245K 到 $250K 每年, 36 个月': 'about $245K to $250K per year, 36 months',
+    '$150K 到 $350K 每年': '$150K to $350K per year',
+    '年直接费用低于 $500K': 'annual direct costs under $500K',
+    '每年最多 $903,954': 'up to $903,954 per year',
+    '单项 $3M 到 $35M': '$3M to $35M per award',
+    '最多 $20,000 额度': 'up to $20,000 in credits',
+    '起步 $5,000 额度': 'from $5,000 in credits',
+    '$3,850 每周 4 个月加算力': '$3,850 per week for 4 months, plus compute',
+    '12 个月算力': '12 months of compute',
+    '奖金 $12,500': '$12,500 prize',
+    '节点时': 'node hours',
+    '随宿主项目': 'follows the host program',
+    '最多 $50,000': 'up to $50,000',
+    '最高 $10M': 'up to $10M',
+    '$10K 到 $150K': '$10K to $150K',
+    '$1M 到 $1.3M': '$1M to $1.3M',
+    '$50K 到 $3M': '$50K to $3M',
+    '$5K 到 $35K': '$5K to $35K',
+    # eligibility
+    '开放': 'open',
+    '全开放': 'fully open',
+    '高校可投': 'universities eligible',
+    '高校可投, 非限额': 'universities eligible, not a limited submission',
+    '无人数限制': 'no cap on applicants',
+    '无人数或机构限制': 'no cap on applicants or institutions',
+    '每人 12 个月内最多 2 份, 非限额': 'at most 2 per person in 12 months, not a limited submission',
+    '限额, 每机构 3 份': 'limited submission, 3 per institution',
+    '限额, 每校 2 份': 'limited submission, 2 per campus',
+    '仅 ESI, 新方向, 禁止预实验数据': 'ESI only, genuinely new direction, no preliminary data',
+    '早期研究者, ESI 7 年内': 'early career, within 7 years of ESI status',
+    '仅设备': 'equipment only',
+    '学术研究者': 'academic researchers',
+    '美国机构研究者': 'researchers at US institutions',
+    '适合博士生或博后': 'suited to PhD students and postdocs',
+    '训练开源权重 LLM': 'training open-weight LLMs',
+    '须开源': 'must be open source',
+    '需注册 AUP': 'requires an AUP registration',
+    '需基础到临床团队': 'requires a bench-to-clinic team',
+    '以 AI 风险为框架': 'framed around AI risk',
+    '列出 AI 与图模型': 'names AI and graph models',
+    'PI 需 UR 主聘': 'PI must hold a primary UR appointment',
+    '标题以 "Genesis Mission:" 开头': 'title must begin with "Genesis Mission:"',
+    # sponsors and programme names
+    'NIH (含 NIA NIDCD NLM)': 'NIH (NIA, NIDCD, NLM)',
+    'NSF 跨学部': 'NSF cross-directorate',
+    # early signals
+    'NIDCD Strategic Plan 2028 到 2032 RFI, 评论截止 2026-10-26':
+        'NIDCD strategic plan 2028 to 2032 RFI, comments due 2026-10-26',
+    'NSF X-Labs 未来主题 RFI, 截止 2026-10-30':
+        'NSF X-Labs future topics RFI, closes 2026-10-30',
+    'NSF SINI (PCLNet 下, 最多 $75M 5 年) 即将发布':
+        'NSF SINI, under PCLNet, up to $75M over 5 years, release expected',
+    'AI Forge (DARPA, NSF, NIST CAISI) 尚无征集':
+        'AI Forge (DARPA, NSF, NIST CAISI), no solicitation yet',
+    'NIH DP2 New Innovator RFA-RM-28-002 预计 2027-08-19 截止':
+        'NIH DP2 New Innovator RFA-RM-28-002, expected to close 2027-08-19',
+    'NIH Bridge2AI Stage 2 RFA-RM-28-010 预计 2027-03-01 截止':
+        'NIH Bridge2AI Stage 2 RFA-RM-28-010, expected to close 2027-03-01',
+    'DARPA YFA 2027 尚未发布': 'DARPA YFA 2027 not released yet',
+}
+
+GLOSSARY = [
+    ('每月 15 日', '15th of each month'), ('每月评审', 'reviewed monthly'),
+    ('白皮书', 'white paper'), ('预告', 'forecast'), ('至 ', 'through '),
+    ('年直接费用低于', 'annual direct costs under'), ('随宿主项目', 'follows the host program'),
+    ('无人数或机构限制', 'no cap on applicants or institutions'), ('无人数限制', 'no cap on applicants'),
+    ('高校可投', 'universities eligible'), ('学术研究者', 'academic researchers'),
+    ('美国机构研究者', 'researchers at US institutions'), ('即将发布', 'release expected'),
+    ('尚无征集', 'no solicitation yet'), ('尚未发布', 'not released yet'),
+    ('评论截止', 'comments due'), ('未来主题', 'future topics'),
+    ('个月算力', 'months of compute'), ('加算力', 'plus compute'),
+    ('非限额', 'not a limited submission'), ('限额', 'limited submission'),
+    ('无上限', 'no cap'), ('未列', 'not listed'), ('节点时', 'node hours'),
+    ('每年', 'per year'), ('每周', 'per week'), ('每月', 'per month'),
+    ('最多', 'up to'), ('最高', 'up to'), ('最长', 'up to'), ('起步', 'from'),
+    ('总额', 'total'), ('单项', 'per award'), ('奖金', 'prize'), ('额度', 'in credits'),
+    ('预计', 'expected'), ('截止', 'deadline'), ('开放', 'open'), ('同上', 'same as above'),
+    ('滚动', 'rolling'), ('随时', 'anytime'), ('目标日', 'target date'),
+    ('个月', ' months'), ('年', ' years'), ('约', 'about'), ('到', ' to '), ('含', 'including'),
+    ('中到高', 'medium to high'), ('低到中', 'low to medium'),
+    ('高', 'high'), ('中', 'medium'), ('低', 'low'),
+]
+
+
+def to_english(value):
+    """Return English, or '' when a Chinese term survives translation."""
+    v = (value or '').strip()
+    if not v or not CJK.search(v):
+        return v
+    if v in EXACT:
+        return EXACT[v]
+    for zh, en in GLOSSARY:
+        v = v.replace(zh, en)
+    v = re.sub(r'\s+', ' ', v).replace(' ,', ',').strip()
+    return '' if CJK.search(v) else v
+
+CAVEAT = ('Entries marked unverified were not confirmed against a primary page. '
+          'The sponsor site is the authority; this is only an index.')
 
 
 def load(path):
@@ -72,6 +191,12 @@ def parse_brief(text):
         if cells[0] in ('机构', '') or set(cells[0]) <= set('-: '):
             continue        # header and the --- separator
         row = {k: v for k, v in zip(COLUMNS, cells) if k != 'skip'}
+        # 同上 means "as the row above". Resolve it against the real value
+        # before translation, or the cell would read "same as above" on a page
+        # whose sort order no longer puts that row above it.
+        for k, v in row.items():
+            if v.strip() == '同上' and rows:
+                row[k] = rows[-1][k]
         rows.append(row)
 
     signals = []
@@ -88,7 +213,23 @@ def parse_brief(text):
                 'url': u.group(1) if u else '',
             })
 
-    return date, window, rows, signals
+    dropped = []
+    for r in rows:
+        for k, v in list(r.items()):
+            if k == 'url':
+                continue
+            en = to_english(v)
+            if not en and v:
+                dropped.append(v)
+            r[k] = en
+    for sig in signals:
+        en = to_english(sig['note'])
+        if not en and sig['note']:
+            dropped.append(sig['note'])
+        sig['note'] = en
+    signals[:] = [sig for sig in signals if sig['note']]
+
+    return date, window, rows, signals, dropped
 
 
 def parse_registry(text):
@@ -116,7 +257,7 @@ def parse_watchlist(text):
 
 def main():
     brief_p, registry_p, watchlist_p = sys.argv[1:4]
-    date, window, opps, signals = parse_brief(load(brief_p))
+    date, window, opps, signals, dropped = parse_brief(load(brief_p))
     registry = parse_registry(load(registry_p))
     watchlist = parse_watchlist(load(watchlist_p))
 
@@ -191,9 +332,24 @@ def main():
     for p in list(PUBLIC.glob('*')) + [DATA / 'funding.json']:
         if p.is_dir():
             continue
-        hit = [b for b in banned if b in p.read_text(encoding='utf-8')]
+        body = p.read_text(encoding='utf-8')
+        hit = [b for b in banned if b in body]
         if hit:
             sys.exit(f'{p}: personal content leaked into a public file: {hit}')
+        # The page is in English. Anything the translation missed should have
+        # been dropped above, so a Chinese character here is a bug, not a
+        # wording to argue with. Fail rather than publish it.
+        zh = sorted(set(CJK.findall(body)))
+        if zh:
+            sample = [ln.strip() for ln in body.splitlines() if CJK.search(ln)][:3]
+            sys.exit(f'{p}: untranslated Chinese reached a public file: '
+                     f'{"".join(zh)[:40]} ... e.g. {sample}')
+
+    if dropped:
+        print(f'  dropped {len(dropped)} field(s) with no translation, add them '
+              f'to EXACT or GLOSSARY in this script:')
+        for v in sorted(set(dropped)):
+            print(f'    {v}')
 
     picks = sum(1 for r in registry if r.get('pick'))
     print(f'brief {date}: {len(opps)} opportunities ({picks} matched into the '

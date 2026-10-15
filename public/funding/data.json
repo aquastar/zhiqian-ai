@@ -4,7 +4,7 @@
     "new_since": "2026-10-07",
     "deadline_before": "2026-12-13"
   },
-  "caveat": "未核实 = 未在一手页面确认. 以资助方官网为准, 本页仅为汇总.",
+  "caveat": "Entries marked unverified were not confirmed against a primary page. The sponsor site is the authority; this is only an index.",
   "counts": {
     "opportunities": 27,
     "early_signals": 7,
@@ -15,100 +15,100 @@
     {
       "sponsor": "NSF CISE",
       "program": "Future CoRe NSF 25-543",
-      "deadline": "随时, 目标日 2027-02-04",
-      "budget": "最多 $1M, 最长 4 年",
-      "eligibility": "每人 12 个月内最多 2 份, 非限额",
-      "competition": "高",
+      "deadline": "anytime, target date 2027-02-04",
+      "budget": "up to $1M, up to 4 years",
+      "eligibility": "at most 2 per person in 12 months, not a limited submission",
+      "competition": "high",
       "source_tier": "L1 L2",
       "url": "https://www.nsf.gov/funding/opportunities/future-core-computer-information-science-engineering-future-computing/nsf25-543/solicitation"
     },
     {
-      "sponsor": "NIH (含 NIA NIDCD NLM)",
+      "sponsor": "NIH (NIA, NIDCD, NLM)",
       "program": "Katz ESI R01 PAR-25-322",
       "deadline": "2027-01-26, 2027-05-28, 2027-09-28",
-      "budget": "无上限, 最长 5 年",
-      "eligibility": "仅 ESI, 新方向, 禁止预实验数据",
-      "competition": "中",
+      "budget": "no cap, up to 5 years",
+      "eligibility": "ESI only, genuinely new direction, no preliminary data",
+      "competition": "medium",
       "source_tier": "L1",
       "url": "https://grants.nih.gov/grants/guide/pa-files/PAR-25-322.html"
     },
     {
       "sponsor": "ACL NIDILRR",
-      "program": "FIP Development HHS-2027-ACL-NIDILRR-IFDV-0304 (预告)",
-      "deadline": "预计 2026-12-14",
-      "budget": "约 $245K 到 $250K 每年, 36 个月",
-      "eligibility": "高校可投, 非限额",
-      "competition": "中",
+      "program": "FIP Development HHS-2027-ACL-NIDILRR-IFDV-0304 (forecast)",
+      "deadline": "expected 2026-12-14",
+      "budget": "about $245K to $250K per year, 36 months",
+      "eligibility": "universities eligible, not a limited submission",
+      "competition": "medium",
       "source_tier": "L1 L2",
       "url": "https://simpler.grants.gov/opportunity/9179a04a-da76-447f-8d23-3a5e899ddd47"
     },
     {
       "sponsor": "ACL NIDILRR",
-      "program": "FIP Research HHS-2027-ACL-NIDILRR-IFRE-0303 (预告)",
-      "deadline": "预计 2026-12-14",
-      "budget": "同上",
-      "eligibility": "同上",
-      "competition": "中",
+      "program": "FIP Research HHS-2027-ACL-NIDILRR-IFRE-0303 (forecast)",
+      "deadline": "expected 2026-12-14",
+      "budget": "about $245K to $250K per year, 36 months",
+      "eligibility": "universities eligible, not a limited submission",
+      "competition": "medium",
       "source_tier": "L1 L2",
       "url": "https://simpler.grants.gov/opportunity/23540a91-8dc4-454a-89d1-9ecc031b819c"
     },
     {
       "sponsor": "NSF ENG ECCS",
       "program": "NSF 26-514 (EPCL)",
-      "deadline": "随时",
-      "budget": "总额 $110M, 最长 5 年",
-      "eligibility": "无人数或机构限制",
-      "competition": "中",
+      "deadline": "anytime",
+      "budget": "$110M total, up to 5 years",
+      "eligibility": "no cap on applicants or institutions",
+      "competition": "medium",
       "source_tier": "L1 L2",
       "url": "https://www.nsf.gov/funding/opportunities/eccs-engineering-electrical-communications-computing-systems/nsf26-514/solicitation"
     },
     {
-      "sponsor": "NSF 跨学部",
+      "sponsor": "NSF cross-directorate",
       "program": "Genesis Mission DCL NSF 26-023",
-      "deadline": "随宿主项目",
-      "budget": "随宿主项目",
-      "eligibility": "标题以 \"Genesis Mission:\" 开头",
-      "competition": "中",
+      "deadline": "follows the host program",
+      "budget": "follows the host program",
+      "eligibility": "title must begin with \"Genesis Mission:\"",
+      "competition": "medium",
       "source_tier": "L1",
       "url": "https://www.nsf.gov/funding/opportunities/dcl-unleashing-new-age-ai-enabled-scientific-discovery-through"
     },
     {
       "sponsor": "NSF NAIRR Pilot",
       "program": "Resource Requests",
-      "deadline": "滚动, 每月 15 日",
-      "budget": "12 个月算力",
-      "eligibility": "美国机构研究者",
-      "competition": "中",
+      "deadline": "rolling, 15th of each month",
+      "budget": "12 months of compute",
+      "eligibility": "researchers at US institutions",
+      "competition": "medium",
       "source_tier": "L2",
       "url": "https://nairrpilot.org/opportunities/allocations"
     },
     {
       "sponsor": "Thinking Machines",
       "program": "Tinker Research Grants",
-      "deadline": "滚动",
-      "budget": "起步 $5,000 额度",
-      "eligibility": "训练开源权重 LLM",
-      "competition": "低到中",
+      "deadline": "rolling",
+      "budget": "from $5,000 in credits",
+      "eligibility": "training open-weight LLMs",
+      "competition": "low to medium",
       "source_tier": "L2",
       "url": "https://thinkingmachines.ai/news/tinker-research-and-teaching-grants/"
     },
     {
       "sponsor": "Anthropic",
       "program": "Fellows Program",
-      "deadline": "滚动",
-      "budget": "$3,850 每周 4 个月加算力",
-      "eligibility": "适合博士生或博后",
-      "competition": "高",
+      "deadline": "rolling",
+      "budget": "$3,850 per week for 4 months, plus compute",
+      "eligibility": "suited to PhD students and postdocs",
+      "competition": "high",
       "source_tier": "L1",
       "url": "https://job-boards.greenhouse.io/anthropic/jobs/5023394008"
     },
     {
       "sponsor": "NSF ENG CMMI",
       "program": "NSF 26-515",
-      "deadline": "随时",
-      "budget": "总额 $100M, 最长 5 年",
-      "eligibility": "无人数限制",
-      "competition": "中",
+      "deadline": "anytime",
+      "budget": "$100M total, up to 5 years",
+      "eligibility": "no cap on applicants",
+      "competition": "medium",
       "source_tier": "L1 L2",
       "url": "https://www.nsf.gov/funding/opportunities/engineering-eng-civil-mechanical-manufacturing-innovation/nsf26-515/solicitation"
     },
@@ -116,19 +116,19 @@
       "sponsor": "Alzheimer's Association",
       "program": "BFDN Bridge Funding",
       "deadline": "LOI 2026-10-30",
-      "budget": "未列",
-      "eligibility": "早期研究者, ESI 7 年内",
-      "competition": "中",
+      "budget": "not listed",
+      "eligibility": "early career, within 7 years of ESI status",
+      "competition": "medium",
       "source_tier": "L2",
       "url": "https://www.alz.org/research/for_researchers/grants/types-of-grants"
     },
     {
       "sponsor": "AFRL RI (Rome NY)",
       "program": "Knowledge Discovery BAA FA8750-24-S-7006",
-      "deadline": "白皮书 2026-11-30",
-      "budget": "单项 $3M 到 $35M",
-      "eligibility": "全开放",
-      "competition": "中",
+      "deadline": "white paper 2026-11-30",
+      "budget": "$3M to $35M per award",
+      "eligibility": "fully open",
+      "competition": "medium",
       "source_tier": "L1",
       "url": "https://govcontractfinder.com/contracts/automated-processes-for-knowledge-discovery-and-information--FA875024S7006"
     },
@@ -136,29 +136,29 @@
       "sponsor": "ONR",
       "program": "Long Range BAA N0001425SB001",
       "deadline": "2026-12-31",
-      "budget": "未列",
-      "eligibility": "开放",
-      "competition": "中",
+      "budget": "not listed",
+      "eligibility": "open",
+      "competition": "medium",
       "source_tier": "L1 L2",
       "url": "https://www.onr.navy.mil/work-with-us/funding-opportunities/fy25-long-range-broad-agency-announcement-baa-navy-and-marine"
     },
     {
       "sponsor": "AFOSR",
       "program": "Open BAA FA955026S0001",
-      "deadline": "滚动",
-      "budget": "最高 $10M",
-      "eligibility": "开放",
-      "competition": "中",
+      "deadline": "rolling",
+      "budget": "up to $10M",
+      "eligibility": "open",
+      "competition": "medium",
       "source_tier": "L1",
       "url": "https://simpler.grants.gov/opportunity/de479d2e-aad1-466a-acc3-d5d11cf7918d"
     },
     {
       "sponsor": "ARL / ARO",
       "program": "Foundational Research BAA W911NF-23-S-0001",
-      "deadline": "至 2027-11-20",
-      "budget": "未列",
-      "eligibility": "开放",
-      "competition": "中",
+      "deadline": "through 2027-11-20",
+      "budget": "not listed",
+      "eligibility": "open",
+      "competition": "medium",
       "source_tier": "L1",
       "url": "https://simpler.grants.gov/opportunity/5e185327-5f25-4c09-889a-43615e1f54da"
     },
@@ -166,29 +166,29 @@
       "sponsor": "AMD",
       "program": "AI and HPC Cluster",
       "deadline": "2026-11-15",
-      "budget": "节点时",
-      "eligibility": "需注册 AUP",
-      "competition": "中",
+      "budget": "node hours",
+      "eligibility": "requires an AUP registration",
+      "competition": "medium",
       "source_tier": "L2",
       "url": "https://www.amd.com/en/corporate/university-program/ai-hpc-cluster.html"
     },
     {
       "sponsor": "Anthropic",
       "program": "AI for Science credits",
-      "deadline": "每月评审",
-      "budget": "最多 $20,000 额度",
-      "eligibility": "学术研究者",
-      "competition": "中",
+      "deadline": "reviewed monthly",
+      "budget": "up to $20,000 in credits",
+      "eligibility": "academic researchers",
+      "competition": "medium",
       "source_tier": "L1",
       "url": "https://support.claude.com/en/articles/11199177-anthropics-ai-for-science-program"
     },
     {
       "sponsor": "EA Funds",
       "program": "Transformative AI Fund",
-      "deadline": "滚动",
-      "budget": "$10K 到 $150K",
-      "eligibility": "以 AI 风险为框架",
-      "competition": "中",
+      "deadline": "rolling",
+      "budget": "$10K to $150K",
+      "eligibility": "framed around AI risk",
+      "competition": "medium",
       "source_tier": "L2",
       "url": "https://funds.effectivealtruism.org/funds/transformative-ai"
     },
@@ -196,9 +196,9 @@
       "sponsor": "UR CTSI",
       "program": "Pilot Studies TS01",
       "deadline": "LOI 2026-10-26",
-      "budget": "最多 $50,000",
-      "eligibility": "PI 需 UR 主聘",
-      "competition": "中",
+      "budget": "up to $50,000",
+      "eligibility": "PI must hold a primary UR appointment",
+      "competition": "medium",
       "source_tier": "L2",
       "url": "https://www.urmc.rochester.edu/clinical-translational-science-institute/funding/request-for-applications-pilot-studies"
     },
@@ -206,9 +206,9 @@
       "sponsor": "NIH NIDCD",
       "program": "RFA-DC-25-002",
       "deadline": "2027-02-12",
-      "budget": "年直接费用低于 $500K",
-      "eligibility": "需基础到临床团队",
-      "competition": "中",
+      "budget": "annual direct costs under $500K",
+      "eligibility": "requires a bench-to-clinic team",
+      "competition": "medium",
       "source_tier": "L1",
       "url": "https://grants.nih.gov/grants/guide/rfa-files/RFA-DC-25-002.html"
     },
@@ -216,9 +216,9 @@
       "sponsor": "NIH BRAIN",
       "program": "RFA-DA-27-004",
       "deadline": "2027-10-06",
-      "budget": "$150K 到 $350K 每年",
-      "eligibility": "列出 AI 与图模型",
-      "competition": "中",
+      "budget": "$150K to $350K per year",
+      "eligibility": "names AI and graph models",
+      "competition": "medium",
       "source_tier": "L1",
       "url": "https://grants.nih.gov/grants/guide/rfa-files/RFA-DA-27-004.html"
     },
@@ -226,9 +226,9 @@
       "sponsor": "DoD",
       "program": "FY2027 DURIP N0001426SF003",
       "deadline": "2026-11-06",
-      "budget": "$50K 到 $3M",
-      "eligibility": "仅设备",
-      "competition": "中到高",
+      "budget": "$50K to $3M",
+      "eligibility": "equipment only",
+      "competition": "medium to high",
       "source_tier": "L1 L2",
       "url": "https://simpler.grants.gov/opportunity/812b55e0-deb1-43cc-a2e2-f9f82ad735ad"
     },
@@ -236,19 +236,19 @@
       "sponsor": "W. M. Keck Foundation",
       "program": "Research Program",
       "deadline": "2026-12-07",
-      "budget": "$1M 到 $1.3M",
-      "eligibility": "限额, 每机构 3 份",
-      "competition": "高",
+      "budget": "$1M to $1.3M",
+      "eligibility": "limited submission, 3 per institution",
+      "competition": "high",
       "source_tier": "L2",
       "url": "https://www.wmkeck.org/research-overview/"
     },
     {
       "sponsor": "ARPA-H",
       "program": "Mission Office ISOs",
-      "deadline": "滚动",
-      "budget": "未列",
-      "eligibility": "高校可投",
-      "competition": "高",
+      "deadline": "rolling",
+      "budget": "not listed",
+      "eligibility": "universities eligible",
+      "competition": "high",
       "source_tier": "L1 L2",
       "url": "https://arpa-h.gov/explore-funding/open-funding-opportunities"
     },
@@ -256,9 +256,9 @@
       "sponsor": "AIMO",
       "program": "Interpretability Challenge",
       "deadline": "2026-11-01",
-      "budget": "奖金 $12,500",
-      "eligibility": "须开源",
-      "competition": "中",
+      "budget": "$12,500 prize",
+      "eligibility": "must be open source",
+      "competition": "medium",
       "source_tier": "L3",
       "url": "https://aimo-interp.github.io/"
     },
@@ -266,9 +266,9 @@
       "sponsor": "Corrigibility Research Fund",
       "program": "Round 2",
       "deadline": "2026-10-31",
-      "budget": "$5K 到 $35K",
-      "eligibility": "未列",
-      "competition": "低到中",
+      "budget": "$5K to $35K",
+      "eligibility": "not listed",
+      "competition": "low to medium",
       "source_tier": "L3",
       "url": "https://corrigibilityresearch.org/"
     },
@@ -276,40 +276,40 @@
       "sponsor": "NYS ESD / NYSTAR",
       "program": "CAT RFP 2026",
       "deadline": "2026-10-30",
-      "budget": "每年最多 $903,954",
-      "eligibility": "限额, 每校 2 份",
-      "competition": "高",
+      "budget": "up to $903,954 per year",
+      "eligibility": "limited submission, 2 per campus",
+      "competition": "high",
       "source_tier": "L2",
       "url": "https://esd.ny.gov/sites/default/files/media/document/CAT2026-RFPFINAL-CORRECTED-DUEDATE.pdf"
     }
   ],
   "early_signals": [
     {
-      "note": "NIDCD Strategic Plan 2028 到 2032 RFI, 评论截止 2026-10-26",
+      "note": "NIDCD strategic plan 2028 to 2032 RFI, comments due 2026-10-26",
       "url": "https://www.federalregister.gov/documents/2026/08/25/2026-17311/request-for-information-rfi-request-for-information-on-new-and-emerging-areas-of-science-relevant-to"
     },
     {
-      "note": "NSF X-Labs 未来主题 RFI, 截止 2026-10-30",
+      "note": "NSF X-Labs future topics RFI, closes 2026-10-30",
       "url": "https://www.nsf.gov/news/nsf-announces-3-additional-topics-part-nsf-x-labs-initiative"
     },
     {
-      "note": "NSF SINI (PCLNet 下, 最多 $75M 5 年) 即将发布",
+      "note": "NSF SINI, under PCLNet, up to $75M over 5 years, release expected",
       "url": "https://www.nsf.gov/news/nsf-lays-foundation-next-generation-technologies-support"
     },
     {
-      "note": "AI Forge (DARPA, NSF, NIST CAISI) 尚无征集",
+      "note": "AI Forge (DARPA, NSF, NIST CAISI), no solicitation yet",
       "url": "https://www.darpa.mil/research/programs/ai-forge"
     },
     {
-      "note": "NIH DP2 New Innovator RFA-RM-28-002 预计 2027-08-19 截止",
+      "note": "NIH DP2 New Innovator RFA-RM-28-002, expected to close 2027-08-19",
       "url": "https://simpler.grants.gov/opportunity/469a39ab-1b4c-471e-b612-5e979f656f27"
     },
     {
-      "note": "NIH Bridge2AI Stage 2 RFA-RM-28-010 预计 2027-03-01 截止",
+      "note": "NIH Bridge2AI Stage 2 RFA-RM-28-010, expected to close 2027-03-01",
       "url": "https://simpler.grants.gov/opportunity/602cbc1a-d601-44f1-90d7-e6914ba594a6"
     },
     {
-      "note": "DARPA YFA 2027 尚未发布",
+      "note": "DARPA YFA 2027 not released yet",
       "url": "https://www.darpa.mil/work-with-us/for-universities/young-faculty-award"
     }
   ],
@@ -657,9 +657,9 @@
       "deadline": "anytime, target 2027-02-04",
       "url": "https://www.nsf.gov/funding/opportunities/future-core-computer-information-science-engineering-future-computing/nsf25-543/solicitation",
       "pick": true,
-      "budget": "最多 $1M, 最长 4 年",
-      "eligibility": "每人 12 个月内最多 2 份, 非限额",
-      "competition": "高",
+      "budget": "up to $1M, up to 4 years",
+      "eligibility": "at most 2 per person in 12 months, not a limited submission",
+      "competition": "high",
       "source_tier": "L1 L2"
     },
     {
@@ -669,9 +669,9 @@
       "deadline": "new 2027-01-26",
       "url": "https://grants.nih.gov/grants/guide/pa-files/PAR-25-322.html",
       "pick": true,
-      "budget": "无上限, 最长 5 年",
-      "eligibility": "仅 ESI, 新方向, 禁止预实验数据",
-      "competition": "中",
+      "budget": "no cap, up to 5 years",
+      "eligibility": "ESI only, genuinely new direction, no preliminary data",
+      "competition": "medium",
       "source_tier": "L1"
     },
     {
@@ -681,9 +681,9 @@
       "deadline": "est 2026-12-14",
       "url": "https://simpler.grants.gov/opportunity/9179a04a-da76-447f-8d23-3a5e899ddd47",
       "pick": true,
-      "budget": "约 $245K 到 $250K 每年, 36 个月",
-      "eligibility": "高校可投, 非限额",
-      "competition": "中",
+      "budget": "about $245K to $250K per year, 36 months",
+      "eligibility": "universities eligible, not a limited submission",
+      "competition": "medium",
       "source_tier": "L1 L2"
     },
     {
@@ -693,9 +693,9 @@
       "deadline": "est 2026-12-14",
       "url": "https://simpler.grants.gov/opportunity/23540a91-8dc4-454a-89d1-9ecc031b819c",
       "pick": true,
-      "budget": "同上",
-      "eligibility": "同上",
-      "competition": "中",
+      "budget": "about $245K to $250K per year, 36 months",
+      "eligibility": "universities eligible, not a limited submission",
+      "competition": "medium",
       "source_tier": "L1 L2"
     },
     {
@@ -705,9 +705,9 @@
       "deadline": "anytime",
       "url": "https://www.nsf.gov/funding/opportunities/eccs-engineering-electrical-communications-computing-systems/nsf26-514/solicitation",
       "pick": true,
-      "budget": "总额 $110M, 最长 5 年",
-      "eligibility": "无人数或机构限制",
-      "competition": "中",
+      "budget": "$110M total, up to 5 years",
+      "eligibility": "no cap on applicants or institutions",
+      "competition": "medium",
       "source_tier": "L1 L2"
     },
     {
@@ -717,9 +717,9 @@
       "deadline": "anytime",
       "url": "https://www.nsf.gov/funding/opportunities/engineering-eng-civil-mechanical-manufacturing-innovation/nsf26-515/solicitation",
       "pick": true,
-      "budget": "总额 $100M, 最长 5 年",
-      "eligibility": "无人数限制",
-      "competition": "中",
+      "budget": "$100M total, up to 5 years",
+      "eligibility": "no cap on applicants",
+      "competition": "medium",
       "source_tier": "L1 L2"
     },
     {
@@ -729,9 +729,9 @@
       "deadline": "per host program",
       "url": "https://www.nsf.gov/funding/opportunities/dcl-unleashing-new-age-ai-enabled-scientific-discovery-through",
       "pick": true,
-      "budget": "随宿主项目",
-      "eligibility": "标题以 \"Genesis Mission:\" 开头",
-      "competition": "中",
+      "budget": "follows the host program",
+      "eligibility": "title must begin with \"Genesis Mission:\"",
+      "competition": "medium",
       "source_tier": "L1"
     },
     {
@@ -741,9 +741,9 @@
       "deadline": "rolling, monthly 15th",
       "url": "https://nairrpilot.org/opportunities/allocations",
       "pick": true,
-      "budget": "12 个月算力",
-      "eligibility": "美国机构研究者",
-      "competition": "中",
+      "budget": "12 months of compute",
+      "eligibility": "researchers at US institutions",
+      "competition": "medium",
       "source_tier": "L2"
     },
     {
@@ -753,9 +753,9 @@
       "deadline": "rolling",
       "url": "https://thinkingmachines.ai/news/tinker-research-and-teaching-grants/",
       "pick": true,
-      "budget": "起步 $5,000 额度",
-      "eligibility": "训练开源权重 LLM",
-      "competition": "低到中",
+      "budget": "from $5,000 in credits",
+      "eligibility": "training open-weight LLMs",
+      "competition": "low to medium",
       "source_tier": "L2"
     },
     {
@@ -765,9 +765,9 @@
       "deadline": "rolling",
       "url": "https://job-boards.greenhouse.io/anthropic/jobs/5023394008",
       "pick": true,
-      "budget": "$3,850 每周 4 个月加算力",
-      "eligibility": "适合博士生或博后",
-      "competition": "高",
+      "budget": "$3,850 per week for 4 months, plus compute",
+      "eligibility": "suited to PhD students and postdocs",
+      "competition": "high",
       "source_tier": "L1"
     },
     {
@@ -777,9 +777,9 @@
       "deadline": "monthly review 2026-11-02",
       "url": "https://support.claude.com/en/articles/11199177-anthropics-ai-for-science-program",
       "pick": true,
-      "budget": "最多 $20,000 额度",
-      "eligibility": "学术研究者",
-      "competition": "中",
+      "budget": "up to $20,000 in credits",
+      "eligibility": "academic researchers",
+      "competition": "medium",
       "source_tier": "L1"
     },
     {
@@ -789,9 +789,9 @@
       "deadline": "LOI 2026-10-30",
       "url": "https://www.alz.org/research/for_researchers/grants/types-of-grants",
       "pick": true,
-      "budget": "未列",
-      "eligibility": "早期研究者, ESI 7 年内",
-      "competition": "中",
+      "budget": "not listed",
+      "eligibility": "early career, within 7 years of ESI status",
+      "competition": "medium",
       "source_tier": "L2"
     },
     {
@@ -808,9 +808,9 @@
       "deadline": "FY27 white paper 2026-11-30",
       "url": "https://govcontractfinder.com/contracts/automated-processes-for-knowledge-discovery-and-information--FA875024S7006",
       "pick": true,
-      "budget": "单项 $3M 到 $35M",
-      "eligibility": "全开放",
-      "competition": "中",
+      "budget": "$3M to $35M per award",
+      "eligibility": "fully open",
+      "competition": "medium",
       "source_tier": "L1"
     },
     {
@@ -820,9 +820,9 @@
       "deadline": "2026-12-31",
       "url": "https://www.onr.navy.mil/work-with-us/funding-opportunities/fy25-long-range-broad-agency-announcement-baa-navy-and-marine",
       "pick": true,
-      "budget": "未列",
-      "eligibility": "开放",
-      "competition": "中",
+      "budget": "not listed",
+      "eligibility": "open",
+      "competition": "medium",
       "source_tier": "L1 L2"
     },
     {
@@ -832,9 +832,9 @@
       "deadline": "rolling",
       "url": "https://simpler.grants.gov/opportunity/de479d2e-aad1-466a-acc3-d5d11cf7918d",
       "pick": true,
-      "budget": "最高 $10M",
-      "eligibility": "开放",
-      "competition": "中",
+      "budget": "up to $10M",
+      "eligibility": "open",
+      "competition": "medium",
       "source_tier": "L1"
     },
     {
@@ -844,9 +844,9 @@
       "deadline": "to 2027-11-20",
       "url": "https://simpler.grants.gov/opportunity/5e185327-5f25-4c09-889a-43615e1f54da",
       "pick": true,
-      "budget": "未列",
-      "eligibility": "开放",
-      "competition": "中",
+      "budget": "not listed",
+      "eligibility": "open",
+      "competition": "medium",
       "source_tier": "L1"
     },
     {
@@ -856,9 +856,9 @@
       "deadline": "2026-11-15",
       "url": "https://www.amd.com/en/corporate/university-program/ai-hpc-cluster.html",
       "pick": true,
-      "budget": "节点时",
-      "eligibility": "需注册 AUP",
-      "competition": "中",
+      "budget": "node hours",
+      "eligibility": "requires an AUP registration",
+      "competition": "medium",
       "source_tier": "L2"
     },
     {
@@ -868,9 +868,9 @@
       "deadline": "rolling",
       "url": "https://funds.effectivealtruism.org/funds/transformative-ai",
       "pick": true,
-      "budget": "$10K 到 $150K",
-      "eligibility": "以 AI 风险为框架",
-      "competition": "中",
+      "budget": "$10K to $150K",
+      "eligibility": "framed around AI risk",
+      "competition": "medium",
       "source_tier": "L2"
     },
     {
@@ -880,9 +880,9 @@
       "deadline": "LOI 2026-10-26",
       "url": "https://www.urmc.rochester.edu/clinical-translational-science-institute/funding/request-for-applications-pilot-studies",
       "pick": true,
-      "budget": "最多 $50,000",
-      "eligibility": "PI 需 UR 主聘",
-      "competition": "中",
+      "budget": "up to $50,000",
+      "eligibility": "PI must hold a primary UR appointment",
+      "competition": "medium",
       "source_tier": "L2"
     },
     {
@@ -892,9 +892,9 @@
       "deadline": "2027-02-12",
       "url": "https://grants.nih.gov/grants/guide/rfa-files/RFA-DC-25-002.html",
       "pick": true,
-      "budget": "年直接费用低于 $500K",
-      "eligibility": "需基础到临床团队",
-      "competition": "中",
+      "budget": "annual direct costs under $500K",
+      "eligibility": "requires a bench-to-clinic team",
+      "competition": "medium",
       "source_tier": "L1"
     },
     {
@@ -904,9 +904,9 @@
       "deadline": "next 2027-10-06",
       "url": "https://grants.nih.gov/grants/guide/rfa-files/RFA-DA-27-004.html",
       "pick": true,
-      "budget": "$150K 到 $350K 每年",
-      "eligibility": "列出 AI 与图模型",
-      "competition": "中",
+      "budget": "$150K to $350K per year",
+      "eligibility": "names AI and graph models",
+      "competition": "medium",
       "source_tier": "L1"
     },
     {
@@ -916,9 +916,9 @@
       "deadline": "2026-11-06",
       "url": "https://simpler.grants.gov/opportunity/812b55e0-deb1-43cc-a2e2-f9f82ad735ad",
       "pick": true,
-      "budget": "$50K 到 $3M",
-      "eligibility": "仅设备",
-      "competition": "中到高",
+      "budget": "$50K to $3M",
+      "eligibility": "equipment only",
+      "competition": "medium to high",
       "source_tier": "L1 L2"
     },
     {
@@ -928,9 +928,9 @@
       "deadline": "2026-12-07",
       "url": "https://www.wmkeck.org/research-overview/",
       "pick": true,
-      "budget": "$1M 到 $1.3M",
-      "eligibility": "限额, 每机构 3 份",
-      "competition": "高",
+      "budget": "$1M to $1.3M",
+      "eligibility": "limited submission, 3 per institution",
+      "competition": "high",
       "source_tier": "L2"
     },
     {
@@ -940,9 +940,9 @@
       "deadline": "rolling",
       "url": "https://arpa-h.gov/explore-funding/open-funding-opportunities",
       "pick": true,
-      "budget": "未列",
-      "eligibility": "高校可投",
-      "competition": "高",
+      "budget": "not listed",
+      "eligibility": "universities eligible",
+      "competition": "high",
       "source_tier": "L1 L2"
     },
     {
@@ -1001,9 +1001,9 @@
       "deadline": "2026-11-01",
       "url": "https://aimo-interp.github.io/",
       "pick": true,
-      "budget": "奖金 $12,500",
-      "eligibility": "须开源",
-      "competition": "中",
+      "budget": "$12,500 prize",
+      "eligibility": "must be open source",
+      "competition": "medium",
       "source_tier": "L3"
     },
     {
@@ -1020,9 +1020,9 @@
       "deadline": "2026-10-31",
       "url": "https://corrigibilityresearch.org/",
       "pick": true,
-      "budget": "$5K 到 $35K",
-      "eligibility": "未列",
-      "competition": "低到中",
+      "budget": "$5K to $35K",
+      "eligibility": "not listed",
+      "competition": "low to medium",
       "source_tier": "L3"
     },
     {
@@ -1067,9 +1067,9 @@
       "deadline": "2026-10-30",
       "url": "https://esd.ny.gov/sites/default/files/media/document/CAT2026-RFPFINAL-CORRECTED-DUEDATE.pdf",
       "pick": true,
-      "budget": "每年最多 $903,954",
-      "eligibility": "限额, 每校 2 份",
-      "competition": "高",
+      "budget": "up to $903,954 per year",
+      "eligibility": "limited submission, 2 per campus",
+      "competition": "high",
       "source_tier": "L2"
     },
     {

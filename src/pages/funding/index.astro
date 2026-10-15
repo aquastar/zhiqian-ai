@@ -58,8 +58,15 @@ const FILTERS = [
   { key: 'rolling', label: 'Rolling or undated', icon: 'fa-infinity', n: counts.rolling },
 ];
 
-const compClass = (c) =>
-  /低/.test(c || '') ? 'comp-low' : /高/.test(c || '') ? 'comp-high' : 'comp-mid';
+// The brief grades how crowded a call looks. The build script translates the
+// grade, so match on the English it produces: "low to medium" counts as low,
+// "medium to high" as high, because the warning is the useful half.
+const compClass = (c) => {
+  const v = (c || '').toLowerCase();
+  if (v.includes('high')) return 'comp-high';
+  if (v.includes('low')) return 'comp-low';
+  return 'comp-mid';
+};
 ---
 
 <Layout title="Funding | Zhiqian Chen">
@@ -159,7 +166,7 @@ const compClass = (c) =>
               </td>
               <td class="c-terms" data-label="Terms">
                 {r.budget && <span class="budget">{r.budget}</span>}
-                {r.competition && <span class={`comp ${compClass(r.competition)}`}>竞争 {r.competition}</span>}
+                {r.competition && <span class={`comp ${compClass(r.competition)}`} title="How crowded the call looks, as graded in the weekly brief">{r.competition} competition</span>}
                 {!r.budget && !r.competition && <span class="none">not summarized</span>}
               </td>
               <td class="c-seen" data-label="First seen">{r.first_seen_date}</td>
