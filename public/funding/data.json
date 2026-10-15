@@ -323,7 +323,10 @@
       "logo_domain": "amazon.science",
       "logo": "/funding/logos/amazon.science.png",
       "logo_px": 180,
-      "category": "Industry"
+      "category": "Industry",
+      "fit": [],
+      "comp_score": 2,
+      "comp_basis": "Estimated from the kind of call: company programmes are usually smaller and less contested than federal ones."
     },
     {
       "first_seen_date": "2026-10-09",
@@ -334,7 +337,12 @@
       "logo_domain": "arpa-h.gov",
       "logo": "/funding/logos/arpa-h.gov.svg",
       "logo_px": 9999,
-      "category": "Federal"
+      "category": "Federal",
+      "fit": [
+        "health, high risk"
+      ],
+      "comp_score": 4,
+      "comp_basis": "Estimated from the kind of call: federal research solicitations typically fund well under a quarter of what they receive."
     },
     {
       "first_seen_date": "2026-10-09",
@@ -345,7 +353,12 @@
       "logo_domain": "arpa-h.gov",
       "logo": "/funding/logos/arpa-h.gov.svg",
       "logo_px": 9999,
-      "category": "Federal"
+      "category": "Federal",
+      "fit": [
+        "health, high risk"
+      ],
+      "comp_score": 4,
+      "comp_basis": "Estimated from the kind of call: federal research solicitations typically fund well under a quarter of what they receive."
     },
     {
       "first_seen_date": "2026-10-09",
@@ -356,7 +369,12 @@
       "logo_domain": "arpa-h.gov",
       "logo": "/funding/logos/arpa-h.gov.svg",
       "logo_px": 9999,
-      "category": "Federal"
+      "category": "Federal",
+      "fit": [
+        "health, high risk"
+      ],
+      "comp_score": 4,
+      "comp_basis": "Estimated from the kind of call: federal research solicitations typically fund well under a quarter of what they receive."
     },
     {
       "first_seen_date": "2026-10-09",
@@ -367,7 +385,12 @@
       "logo_domain": "arpa-h.gov",
       "logo": "/funding/logos/arpa-h.gov.svg",
       "logo_px": 9999,
-      "category": "Federal"
+      "category": "Federal",
+      "fit": [
+        "health, high risk"
+      ],
+      "comp_score": 4,
+      "comp_basis": "Estimated from the kind of call: federal research solicitations typically fund well under a quarter of what they receive."
     },
     {
       "first_seen_date": "2026-10-09",
@@ -378,7 +401,13 @@
       "logo_domain": "onr.navy.mil",
       "logo": "",
       "logo_px": 0,
-      "category": "Federal"
+      "category": "Federal",
+      "fit": [
+        "within a few years of the PhD",
+        "defense basic research"
+      ],
+      "comp_score": 4,
+      "comp_basis": "Estimated from the kind of call: federal research solicitations typically fund well under a quarter of what they receive."
     },
     {
       "first_seen_date": "2026-10-09",
@@ -389,7 +418,13 @@
       "logo_domain": "afrl.af.mil",
       "logo": "",
       "logo_px": 0,
-      "category": "Federal"
+      "category": "Federal",
+      "fit": [
+        "within a few years of the PhD",
+        "defense basic research"
+      ],
+      "comp_score": 4,
+      "comp_basis": "Estimated from the kind of call: federal research solicitations typically fund well under a quarter of what they receive."
     },
     {
       "first_seen_date": "2026-10-09",
@@ -400,7 +435,13 @@
       "logo_domain": "science.osti.gov",
       "logo": "/funding/logos/science.osti.gov.png",
       "logo_px": 180,
-      "category": "Federal"
+      "category": "Federal",
+      "fit": [
+        "energy and scientific computing",
+        "open call"
+      ],
+      "comp_score": 4,
+      "comp_basis": "Estimated from the kind of call: federal research solicitations typically fund well under a quarter of what they receive."
     },
     {
       "first_seen_date": "2026-10-09",
@@ -411,7 +452,13 @@
       "logo_domain": "science.osti.gov",
       "logo": "/funding/logos/science.osti.gov.png",
       "logo_px": 180,
-      "category": "Federal"
+      "category": "Federal",
+      "fit": [
+        "for an individual, not a lab",
+        "energy and scientific computing"
+      ],
+      "comp_score": 4,
+      "comp_basis": "Estimated from the kind of call: federal research solicitations typically fund well under a quarter of what they receive."
     },
     {
       "first_seen_date": "2026-10-09",
@@ -422,7 +469,13 @@
       "logo_domain": "darpa.mil",
       "logo": "",
       "logo_px": 16,
-      "category": "Federal"
+      "category": "Federal",
+      "fit": [
+        "white paper first",
+        "defense, high risk"
+      ],
+      "comp_score": 3,
+      "comp_basis": "Estimated from the kind of call: an open BAA takes white papers continuously rather than running one round."
     },
     {
       "first_seen_date": "2026-10-09",
@@ -433,7 +486,12 @@
       "logo_domain": "darpa.mil",
       "logo": "",
       "logo_px": 16,
-      "category": "Federal"
+      "category": "Federal",
+      "fit": [
+        "defense, high risk"
+      ],
+      "comp_score": 4,
+      "comp_basis": "Estimated from the kind of call: federal research solicitations typically fund well under a quarter of what they receive."
     },
     {
       "first_seen_date": "2026-10-09",
@@ -444,7 +502,13 @@
       "logo_domain": "darpa.mil",
       "logo": "",
       "logo_px": 16,
-      "category": "Federal"
+      "category": "Federal",
+      "fit": [
+        "white paper first",
+        "defense, high risk"
+      ],
+      "comp_score": 3,
+      "comp_basis": "Estimated from the kind of call: an open BAA takes white papers continuously rather than running one round."
     },
     {
       "first_seen_date": "2026-10-09",
@@ -455,7 +519,13 @@
       "logo_domain": "onr.navy.mil",
       "logo": "",
       "logo_px": 0,
-      "category": "Federal"
+      "category": "Federal",
+      "fit": [
+        "multi-university team",
+        "defense basic research"
+      ],
+      "comp_score": 4,
+      "comp_basis": "Estimated from the kind of call: federal research solicitations typically fund well under a quarter of what they receive."
     },
     {
       "first_seen_date": "2026-10-09",
@@ -466,7 +536,12 @@
       "logo_domain": "onr.navy.mil",
       "logo": "",
       "logo_px": 0,
-      "category": "Federal"
+      "category": "Federal",
+      "fit": [
+        "defense basic research"
+      ],
+      "comp_score": 4,
+      "comp_basis": "Estimated from the kind of call: federal research solicitations typically fund well under a quarter of what they receive."
     },
     {
       "first_seen_date": "2026-10-09",
@@ -477,7 +552,10 @@
       "logo_domain": "nsf.gov",
       "logo": "/funding/logos/nsf.gov.png",
       "logo_px": 192,
-      "category": "Federal"
+      "category": "Federal",
+      "fit": [],
+      "comp_score": 4,
+      "comp_basis": "Estimated from the kind of call: federal research solicitations typically fund well under a quarter of what they receive."
     },
     {
       "first_seen_date": "2026-10-09",
@@ -488,7 +566,13 @@
       "logo_domain": "nsf.gov",
       "logo": "/funding/logos/nsf.gov.png",
       "logo_px": 192,
-      "category": "Federal"
+      "category": "Federal",
+      "fit": [
+        "large multi-PI team",
+        "your institution nominates"
+      ],
+      "comp_score": 5,
+      "comp_basis": "Limited submission: your institution runs its own competition first."
     },
     {
       "first_seen_date": "2026-10-09",
@@ -499,7 +583,10 @@
       "logo_domain": "nsf.gov",
       "logo": "/funding/logos/nsf.gov.png",
       "logo_px": 192,
-      "category": "Federal"
+      "category": "Federal",
+      "fit": [],
+      "comp_score": 4,
+      "comp_basis": "Estimated from the kind of call: federal research solicitations typically fund well under a quarter of what they receive."
     },
     {
       "first_seen_date": "2026-10-09",
@@ -510,7 +597,12 @@
       "logo_domain": "nsf.gov",
       "logo": "/funding/logos/nsf.gov.png",
       "logo_px": 192,
-      "category": "Federal"
+      "category": "Federal",
+      "fit": [
+        "large multi-PI team"
+      ],
+      "comp_score": 4,
+      "comp_basis": "Estimated from the kind of call: federal research solicitations typically fund well under a quarter of what they receive."
     },
     {
       "first_seen_date": "2026-10-09",
@@ -521,7 +613,12 @@
       "logo_domain": "nsf.gov",
       "logo": "/funding/logos/nsf.gov.png",
       "logo_px": 192,
-      "category": "Federal"
+      "category": "Federal",
+      "fit": [
+        "K-12 teacher partners"
+      ],
+      "comp_score": 4,
+      "comp_basis": "Estimated from the kind of call: federal research solicitations typically fund well under a quarter of what they receive."
     },
     {
       "first_seen_date": "2026-10-09",
@@ -532,7 +629,10 @@
       "logo_domain": "nsf.gov",
       "logo": "/funding/logos/nsf.gov.png",
       "logo_px": 192,
-      "category": "Federal"
+      "category": "Federal",
+      "fit": [],
+      "comp_score": 4,
+      "comp_basis": "Estimated from the kind of call: federal research solicitations typically fund well under a quarter of what they receive."
     },
     {
       "first_seen_date": "2026-10-09",
@@ -543,7 +643,10 @@
       "logo_domain": "nsf.gov",
       "logo": "/funding/logos/nsf.gov.png",
       "logo_px": 192,
-      "category": "Federal"
+      "category": "Federal",
+      "fit": [],
+      "comp_score": 4,
+      "comp_basis": "Estimated from the kind of call: federal research solicitations typically fund well under a quarter of what they receive."
     },
     {
       "first_seen_date": "2026-10-09",
@@ -554,7 +657,12 @@
       "logo_domain": "nsf.gov",
       "logo": "/funding/logos/nsf.gov.png",
       "logo_px": 192,
-      "category": "Federal"
+      "category": "Federal",
+      "fit": [
+        "your institution nominates"
+      ],
+      "comp_score": 5,
+      "comp_basis": "Limited submission: your institution runs its own competition first."
     },
     {
       "first_seen_date": "2026-10-09",
@@ -565,7 +673,10 @@
       "logo_domain": "nsf.gov",
       "logo": "/funding/logos/nsf.gov.png",
       "logo_px": 192,
-      "category": "Federal"
+      "category": "Federal",
+      "fit": [],
+      "comp_score": 4,
+      "comp_basis": "Estimated from the kind of call: federal research solicitations typically fund well under a quarter of what they receive."
     },
     {
       "first_seen_date": "2026-10-09",
@@ -576,7 +687,10 @@
       "logo_domain": "nsf.gov",
       "logo": "/funding/logos/nsf.gov.png",
       "logo_px": 192,
-      "category": "Federal"
+      "category": "Federal",
+      "fit": [],
+      "comp_score": 4,
+      "comp_basis": "Estimated from the kind of call: federal research solicitations typically fund well under a quarter of what they receive."
     },
     {
       "first_seen_date": "2026-10-09",
@@ -587,7 +701,10 @@
       "logo_domain": "nsf.gov",
       "logo": "/funding/logos/nsf.gov.png",
       "logo_px": 192,
-      "category": "Federal"
+      "category": "Federal",
+      "fit": [],
+      "comp_score": 4,
+      "comp_basis": "Estimated from the kind of call: federal research solicitations typically fund well under a quarter of what they receive."
     },
     {
       "first_seen_date": "2026-10-09",
@@ -602,7 +719,12 @@
       "rate": "13%",
       "rate_basis": "NIH-wide R01-equivalent success rate, FY2025: 5,471 awards from 42,022 applications. Not this call's odds, and individual institutes differ.",
       "rate_source": "https://report.nih.gov/nihdatabook/category/10",
-      "rate_source_name": "NIH Data Book"
+      "rate_source_name": "NIH Data Book",
+      "fit": [
+        "undergraduate-serving campus"
+      ],
+      "comp_score": 4,
+      "comp_basis": "From the funder's published success rate of 13%. NIH-wide R01-equivalent success rate, FY2025: 5,471 awards from 42,022 applications. Not this call's odds, and individual institutes differ."
     },
     {
       "first_seen_date": "2026-10-09",
@@ -617,7 +739,13 @@
       "rate": "13%",
       "rate_basis": "NIH-wide R01-equivalent success rate, FY2025: 5,471 awards from 42,022 applications. Not this call's odds, and individual institutes differ.",
       "rate_source": "https://report.nih.gov/nihdatabook/category/10",
-      "rate_source_name": "NIH Data Book"
+      "rate_source_name": "NIH Data Book",
+      "fit": [
+        "exploratory, no preliminary data",
+        "small and short"
+      ],
+      "comp_score": 4,
+      "comp_basis": "From the funder's published success rate of 13%. NIH-wide R01-equivalent success rate, FY2025: 5,471 awards from 42,022 applications. Not this call's odds, and individual institutes differ."
     },
     {
       "first_seen_date": "2026-10-09",
@@ -632,7 +760,13 @@
       "rate": "13%",
       "rate_basis": "NIH-wide R01-equivalent success rate, FY2025: 5,471 awards from 42,022 applications. Not this call's odds, and individual institutes differ.",
       "rate_source": "https://report.nih.gov/nihdatabook/category/10",
-      "rate_source_name": "NIH Data Book"
+      "rate_source_name": "NIH Data Book",
+      "fit": [
+        "exploratory, no preliminary data",
+        "hearing and communication"
+      ],
+      "comp_score": 4,
+      "comp_basis": "From the funder's published success rate of 13%. NIH-wide R01-equivalent success rate, FY2025: 5,471 awards from 42,022 applications. Not this call's odds, and individual institutes differ."
     },
     {
       "first_seen_date": "2026-10-09",
@@ -647,7 +781,12 @@
       "rate": "13%",
       "rate_basis": "NIH-wide R01-equivalent success rate, FY2025: 5,471 awards from 42,022 applications. Not this call's odds, and individual institutes differ.",
       "rate_source": "https://report.nih.gov/nihdatabook/category/10",
-      "rate_source_name": "NIH Data Book"
+      "rate_source_name": "NIH Data Book",
+      "fit": [
+        "mentored career award"
+      ],
+      "comp_score": 4,
+      "comp_basis": "From the funder's published success rate of 13%. NIH-wide R01-equivalent success rate, FY2025: 5,471 awards from 42,022 applications. Not this call's odds, and individual institutes differ."
     },
     {
       "first_seen_date": "2026-10-09",
@@ -662,7 +801,12 @@
       "rate": "13%",
       "rate_basis": "NIH-wide R01-equivalent success rate, FY2025: 5,471 awards from 42,022 applications. Not this call's odds, and individual institutes differ.",
       "rate_source": "https://report.nih.gov/nihdatabook/category/10",
-      "rate_source_name": "NIH Data Book"
+      "rate_source_name": "NIH Data Book",
+      "fit": [
+        "biomedical informatics"
+      ],
+      "comp_score": 4,
+      "comp_basis": "From the funder's published success rate of 13%. NIH-wide R01-equivalent success rate, FY2025: 5,471 awards from 42,022 applications. Not this call's odds, and individual institutes differ."
     },
     {
       "first_seen_date": "2026-10-09",
@@ -677,7 +821,12 @@
       "rate": "13%",
       "rate_basis": "NIH-wide R01-equivalent success rate, FY2025: 5,471 awards from 42,022 applications. Not this call's odds, and individual institutes differ.",
       "rate_source": "https://report.nih.gov/nihdatabook/category/10",
-      "rate_source_name": "NIH Data Book"
+      "rate_source_name": "NIH Data Book",
+      "fit": [
+        "small and short"
+      ],
+      "comp_score": 4,
+      "comp_basis": "From the funder's published success rate of 13%. NIH-wide R01-equivalent success rate, FY2025: 5,471 awards from 42,022 applications. Not this call's odds, and individual institutes differ."
     },
     {
       "first_seen_date": "2026-10-09",
@@ -688,7 +837,12 @@
       "logo_domain": "nigms.nih.gov",
       "logo": "/funding/logos/nigms.nih.gov.png",
       "logo_px": 144,
-      "category": "Federal"
+      "category": "Federal",
+      "fit": [
+        "basic biomedical"
+      ],
+      "comp_score": 4,
+      "comp_basis": "Estimated from the kind of call: federal research solicitations typically fund well under a quarter of what they receive."
     },
     {
       "first_seen_date": "2026-10-09",
@@ -699,7 +853,12 @@
       "logo_domain": "simonsfoundation.org",
       "logo": "/funding/logos/simonsfoundation.org.svg",
       "logo_px": 9999,
-      "category": "Foundation"
+      "category": "Foundation",
+      "fit": [
+        "New York State work"
+      ],
+      "comp_score": 3,
+      "comp_basis": "Estimated from the kind of call, not a published rate."
     },
     {
       "first_seen_date": "2026-10-09",
@@ -710,7 +869,12 @@
       "logo_domain": "simonsfoundation.org",
       "logo": "/funding/logos/simonsfoundation.org.svg",
       "logo_px": 9999,
-      "category": "Foundation"
+      "category": "Foundation",
+      "fit": [
+        "team award"
+      ],
+      "comp_score": 3,
+      "comp_basis": "Estimated from the kind of call, not a published rate."
     },
     {
       "first_seen_date": "2026-10-09",
@@ -721,7 +885,10 @@
       "logo_domain": "hearinghealthfoundation.org",
       "logo": "/funding/logos/hearinghealthfoundation.org.png",
       "logo_px": 100,
-      "category": "Foundation"
+      "category": "Foundation",
+      "fit": [],
+      "comp_score": 3,
+      "comp_basis": "Estimated from the kind of call, not a published rate."
     },
     {
       "first_seen_date": "2026-10-09",
@@ -732,7 +899,12 @@
       "logo_domain": "mercor.com",
       "logo": "/funding/logos/mercor.com.png",
       "logo_px": 256,
-      "category": "Industry"
+      "category": "Industry",
+      "fit": [
+        "AI safety and alignment"
+      ],
+      "comp_score": 2,
+      "comp_basis": "Estimated from the kind of call: company programmes are usually smaller and less contested than federal ones."
     },
     {
       "first_seen_date": "2026-10-09",
@@ -743,7 +915,12 @@
       "logo_domain": "humanityai.ai",
       "logo": "/funding/logos/humanityai.ai.png",
       "logo_px": 150,
-      "category": "Industry"
+      "category": "Industry",
+      "fit": [
+        "open call"
+      ],
+      "comp_score": 2,
+      "comp_basis": "Estimated from the kind of call: company programmes are usually smaller and less contested than federal ones."
     },
     {
       "first_seen_date": "2026-10-09",
@@ -754,7 +931,13 @@
       "logo_domain": "foresight.org",
       "logo": "/funding/logos/foresight.org.png",
       "logo_px": 240,
-      "category": "Nonprofit"
+      "category": "Nonprofit",
+      "fit": [
+        "team award",
+        "open call"
+      ],
+      "comp_score": 3,
+      "comp_basis": "Estimated from the kind of call, not a published rate."
     },
     {
       "first_seen_date": "2026-10-09",
@@ -765,7 +948,10 @@
       "logo_domain": "nyhealthfoundation.org",
       "logo": "/funding/logos/nyhealthfoundation.org.png",
       "logo_px": 180,
-      "category": "Foundation"
+      "category": "Foundation",
+      "fit": [],
+      "comp_score": 3,
+      "comp_basis": "Estimated from the kind of call, not a published rate."
     },
     {
       "first_seen_date": "2026-10-09",
@@ -776,7 +962,12 @@
       "logo_domain": "portal.nyserda.ny.gov",
       "logo": "/funding/logos/portal.nyserda.ny.gov.png",
       "logo_px": 152,
-      "category": "State"
+      "category": "State",
+      "fit": [
+        "New York State work"
+      ],
+      "comp_score": 3,
+      "comp_basis": "Estimated from the kind of call, not a published rate."
     },
     {
       "first_seen_date": "2026-10-09",
@@ -787,7 +978,12 @@
       "logo_domain": "blogs.nvidia.com",
       "logo": "/funding/logos/blogs.nvidia.com.png",
       "logo_px": 48,
-      "category": "Industry"
+      "category": "Industry",
+      "fit": [
+        "for an individual, not a lab"
+      ],
+      "comp_score": 2,
+      "comp_basis": "Estimated from the kind of call: company programmes are usually smaller and less contested than federal ones."
     },
     {
       "first_seen_date": "2026-10-09",
@@ -798,7 +994,12 @@
       "logo_domain": "microsoft.com",
       "logo": "/funding/logos/microsoft.com.ico",
       "logo_px": 128,
-      "category": "Industry"
+      "category": "Industry",
+      "fit": [
+        "for an individual, not a lab"
+      ],
+      "comp_score": 2,
+      "comp_basis": "Estimated from the kind of call: company programmes are usually smaller and less contested than federal ones."
     },
     {
       "first_seen_date": "2026-10-09",
@@ -809,7 +1010,12 @@
       "logo_domain": "rit.edu",
       "logo": "/funding/logos/rit.edu.png",
       "logo_px": 180,
-      "category": "University"
+      "category": "University",
+      "fit": [
+        "pilot scale"
+      ],
+      "comp_score": 3,
+      "comp_basis": "Estimated from the kind of call, not a published rate."
     },
     {
       "first_seen_date": "2026-10-14",
@@ -820,7 +1026,12 @@
       "logo_domain": "rrf.org",
       "logo": "/funding/logos/rrf.org.png",
       "logo_px": 300,
-      "category": "Foundation"
+      "category": "Foundation",
+      "fit": [
+        "letter of intent first"
+      ],
+      "comp_score": 3,
+      "comp_basis": "Estimated from the kind of call, not a published rate."
     },
     {
       "first_seen_date": "2026-10-14",
@@ -831,7 +1042,12 @@
       "logo_domain": "dana.org",
       "logo": "/funding/logos/dana.org.png",
       "logo_px": 180,
-      "category": "Foundation"
+      "category": "Foundation",
+      "fit": [
+        "letter of intent first"
+      ],
+      "comp_score": 3,
+      "comp_basis": "Estimated from the kind of call, not a published rate."
     },
     {
       "first_seen_date": "2026-10-14",
@@ -842,7 +1058,12 @@
       "logo_domain": "alzdiscovery.org",
       "logo": "",
       "logo_px": 16,
-      "category": "Foundation"
+      "category": "Foundation",
+      "fit": [
+        "aging and dementia"
+      ],
+      "comp_score": 3,
+      "comp_basis": "Estimated from the kind of call, not a published rate."
     },
     {
       "first_seen_date": "2026-10-14",
@@ -853,7 +1074,12 @@
       "logo_domain": "aria.org.uk",
       "logo": "/funding/logos/aria.org.uk.png",
       "logo_px": 180,
-      "category": "Public (non-US)"
+      "category": "Public (non-US)",
+      "fit": [
+        "AI safety and alignment"
+      ],
+      "comp_score": 3,
+      "comp_basis": "Estimated from the kind of call: an open BAA takes white papers continuously rather than running one round."
     },
     {
       "first_seen_date": "2026-10-14",
@@ -864,7 +1090,13 @@
       "logo_domain": "arnoldventures.org",
       "logo": "/funding/logos/arnoldventures.org.svg",
       "logo_px": 9999,
-      "category": "Foundation"
+      "category": "Foundation",
+      "fit": [
+        "K-12 education",
+        "open call"
+      ],
+      "comp_score": 3,
+      "comp_basis": "Estimated from the kind of call, not a published rate."
     },
     {
       "first_seen_date": "2026-10-14",
@@ -880,7 +1112,13 @@
       "logo_domain": "nsf.gov",
       "logo": "/funding/logos/nsf.gov.png",
       "logo_px": 192,
-      "category": "Federal"
+      "category": "Federal",
+      "fit": [
+        "core computing",
+        "your institution nominates"
+      ],
+      "comp_score": 5,
+      "comp_basis": "Limited submission: your institution runs its own competition first."
     },
     {
       "first_seen_date": "2026-10-14",
@@ -900,7 +1138,13 @@
       "rate": "13%",
       "rate_basis": "NIH-wide R01-equivalent success rate, FY2025: 5,471 awards from 42,022 applications. Not this call's odds, and individual institutes differ.",
       "rate_source": "https://report.nih.gov/nihdatabook/category/10",
-      "rate_source_name": "NIH Data Book"
+      "rate_source_name": "NIH Data Book",
+      "fit": [
+        "full research project",
+        "early-stage investigator only"
+      ],
+      "comp_score": 4,
+      "comp_basis": "From the funder's published success rate of 13%. NIH-wide R01-equivalent success rate, FY2025: 5,471 awards from 42,022 applications. Not this call's odds, and individual institutes differ."
     },
     {
       "first_seen_date": "2026-10-14",
@@ -916,7 +1160,12 @@
       "logo_domain": "acl.gov",
       "logo": "/funding/logos/acl.gov.ico",
       "logo_px": 32,
-      "category": "Federal"
+      "category": "Federal",
+      "fit": [
+        "your institution nominates"
+      ],
+      "comp_score": 5,
+      "comp_basis": "Limited submission: your institution runs its own competition first."
     },
     {
       "first_seen_date": "2026-10-14",
@@ -932,7 +1181,12 @@
       "logo_domain": "acl.gov",
       "logo": "/funding/logos/acl.gov.ico",
       "logo_px": 32,
-      "category": "Federal"
+      "category": "Federal",
+      "fit": [
+        "your institution nominates"
+      ],
+      "comp_score": 5,
+      "comp_basis": "Limited submission: your institution runs its own competition first."
     },
     {
       "first_seen_date": "2026-10-14",
@@ -948,7 +1202,12 @@
       "logo_domain": "nsf.gov",
       "logo": "/funding/logos/nsf.gov.png",
       "logo_px": 192,
-      "category": "Federal"
+      "category": "Federal",
+      "fit": [
+        "engineering"
+      ],
+      "comp_score": 3,
+      "comp_basis": "Graded \"medium\" in this week's brief, not a published rate."
     },
     {
       "first_seen_date": "2026-10-14",
@@ -964,7 +1223,12 @@
       "logo_domain": "nsf.gov",
       "logo": "/funding/logos/nsf.gov.png",
       "logo_px": 192,
-      "category": "Federal"
+      "category": "Federal",
+      "fit": [
+        "engineering"
+      ],
+      "comp_score": 3,
+      "comp_basis": "Graded \"medium\" in this week's brief, not a published rate."
     },
     {
       "first_seen_date": "2026-10-14",
@@ -980,7 +1244,12 @@
       "logo_domain": "nsf.gov",
       "logo": "/funding/logos/nsf.gov.png",
       "logo_px": 192,
-      "category": "Federal"
+      "category": "Federal",
+      "fit": [
+        "energy and scientific computing"
+      ],
+      "comp_score": 3,
+      "comp_basis": "Graded \"medium\" in this week's brief, not a published rate."
     },
     {
       "first_seen_date": "2026-10-14",
@@ -996,7 +1265,14 @@
       "logo_domain": "nairrpilot.org",
       "logo": "/funding/logos/nairrpilot.org.png",
       "logo_px": 180,
-      "category": "Federal"
+      "category": "Federal",
+      "fit": [
+        "compute, not cash",
+        "pilot scale",
+        "US institutions only"
+      ],
+      "comp_score": 3,
+      "comp_basis": "Graded \"medium\" in this week's brief, not a published rate."
     },
     {
       "first_seen_date": "2026-10-14",
@@ -1012,7 +1288,12 @@
       "logo_domain": "thinkingmachines.ai",
       "logo": "/funding/logos/thinkingmachines.ai.png",
       "logo_px": 180,
-      "category": "Industry"
+      "category": "Industry",
+      "fit": [
+        "must publish openly"
+      ],
+      "comp_score": 2,
+      "comp_basis": "Graded \"low to medium\" in this week's brief, not a published rate."
     },
     {
       "first_seen_date": "2026-10-14",
@@ -1028,7 +1309,12 @@
       "logo_domain": "anthropic.com",
       "logo": "/funding/logos/anthropic.com.png",
       "logo_px": 256,
-      "category": "Industry"
+      "category": "Industry",
+      "fit": [
+        "for students and postdocs"
+      ],
+      "comp_score": 4,
+      "comp_basis": "Graded \"high\" in this week's brief, not a published rate."
     },
     {
       "first_seen_date": "2026-10-14",
@@ -1044,7 +1330,13 @@
       "logo_domain": "support.claude.com",
       "logo": "/funding/logos/support.claude.com.png",
       "logo_px": 94,
-      "category": "Industry"
+      "category": "Industry",
+      "fit": [
+        "compute, not cash",
+        "model access, not cash"
+      ],
+      "comp_score": 3,
+      "comp_basis": "Graded \"medium\" in this week's brief, not a published rate."
     },
     {
       "first_seen_date": "2026-10-14",
@@ -1060,7 +1352,14 @@
       "logo_domain": "alz.org",
       "logo": "/funding/logos/alz.org.ico",
       "logo_px": 32,
-      "category": "Nonprofit"
+      "category": "Nonprofit",
+      "fit": [
+        "pilot scale",
+        "aging and dementia",
+        "early-stage investigator only"
+      ],
+      "comp_score": 3,
+      "comp_basis": "Graded \"medium\" in this week's brief, not a published rate."
     },
     {
       "first_seen_date": "2026-10-14",
@@ -1071,7 +1370,12 @@
       "logo_domain": "alz.org",
       "logo": "/funding/logos/alz.org.ico",
       "logo_px": 32,
-      "category": "Nonprofit"
+      "category": "Nonprofit",
+      "fit": [
+        "aging and dementia"
+      ],
+      "comp_score": 3,
+      "comp_basis": "Estimated from the kind of call, not a published rate."
     },
     {
       "first_seen_date": "2026-10-14",
@@ -1087,7 +1391,13 @@
       "logo_domain": "afrl.af.mil",
       "logo": "",
       "logo_px": 0,
-      "category": "Federal"
+      "category": "Federal",
+      "fit": [
+        "white paper first",
+        "defense basic research"
+      ],
+      "comp_score": 3,
+      "comp_basis": "Graded \"medium\" in this week's brief, not a published rate."
     },
     {
       "first_seen_date": "2026-10-14",
@@ -1103,7 +1413,13 @@
       "logo_domain": "onr.navy.mil",
       "logo": "",
       "logo_px": 0,
-      "category": "Federal"
+      "category": "Federal",
+      "fit": [
+        "white paper first",
+        "defense basic research"
+      ],
+      "comp_score": 3,
+      "comp_basis": "Graded \"medium\" in this week's brief, not a published rate."
     },
     {
       "first_seen_date": "2026-10-14",
@@ -1119,7 +1435,13 @@
       "logo_domain": "afrl.af.mil",
       "logo": "",
       "logo_px": 0,
-      "category": "Federal"
+      "category": "Federal",
+      "fit": [
+        "white paper first",
+        "defense basic research"
+      ],
+      "comp_score": 3,
+      "comp_basis": "Graded \"medium\" in this week's brief, not a published rate."
     },
     {
       "first_seen_date": "2026-10-14",
@@ -1135,7 +1457,13 @@
       "logo_domain": "arl.army.mil",
       "logo": "/funding/logos/arl.army.mil.png",
       "logo_px": 180,
-      "category": "Federal"
+      "category": "Federal",
+      "fit": [
+        "white paper first",
+        "defense basic research"
+      ],
+      "comp_score": 3,
+      "comp_basis": "Graded \"medium\" in this week's brief, not a published rate."
     },
     {
       "first_seen_date": "2026-10-14",
@@ -1151,7 +1479,12 @@
       "logo_domain": "amd.com",
       "logo": "",
       "logo_px": 16,
-      "category": "Industry"
+      "category": "Industry",
+      "fit": [
+        "compute, not cash"
+      ],
+      "comp_score": 3,
+      "comp_basis": "Graded \"medium\" in this week's brief, not a published rate."
     },
     {
       "first_seen_date": "2026-10-14",
@@ -1167,7 +1500,10 @@
       "logo_domain": "funds.effectivealtruism.org",
       "logo": "/funding/logos/funds.effectivealtruism.org.svg",
       "logo_px": 9999,
-      "category": "Nonprofit"
+      "category": "Nonprofit",
+      "fit": [],
+      "comp_score": 3,
+      "comp_basis": "Graded \"medium\" in this week's brief, not a published rate."
     },
     {
       "first_seen_date": "2026-10-14",
@@ -1183,7 +1519,13 @@
       "logo_domain": "urmc.rochester.edu",
       "logo": "/funding/logos/urmc.rochester.edu.png",
       "logo_px": 180,
-      "category": "University"
+      "category": "University",
+      "fit": [
+        "pilot scale",
+        "host-institution appointment"
+      ],
+      "comp_score": 3,
+      "comp_basis": "Graded \"medium\" in this week's brief, not a published rate."
     },
     {
       "first_seen_date": "2026-10-14",
@@ -1203,7 +1545,14 @@
       "rate": "13%",
       "rate_basis": "NIH-wide R01-equivalent success rate, FY2025: 5,471 awards from 42,022 applications. Not this call's odds, and individual institutes differ.",
       "rate_source": "https://report.nih.gov/nihdatabook/category/10",
-      "rate_source_name": "NIH Data Book"
+      "rate_source_name": "NIH Data Book",
+      "fit": [
+        "full research project",
+        "hearing and communication",
+        "clinical partner needed"
+      ],
+      "comp_score": 4,
+      "comp_basis": "From the funder's published success rate of 13%. NIH-wide R01-equivalent success rate, FY2025: 5,471 awards from 42,022 applications. Not this call's odds, and individual institutes differ."
     },
     {
       "first_seen_date": "2026-10-14",
@@ -1223,7 +1572,13 @@
       "rate": "13%",
       "rate_basis": "NIH-wide R01-equivalent success rate, FY2025: 5,471 awards from 42,022 applications. Not this call's odds, and individual institutes differ.",
       "rate_source": "https://report.nih.gov/nihdatabook/category/10",
-      "rate_source_name": "NIH Data Book"
+      "rate_source_name": "NIH Data Book",
+      "fit": [
+        "full research project",
+        "neuroscience"
+      ],
+      "comp_score": 4,
+      "comp_basis": "From the funder's published success rate of 13%. NIH-wide R01-equivalent success rate, FY2025: 5,471 awards from 42,022 applications. Not this call's odds, and individual institutes differ."
     },
     {
       "first_seen_date": "2026-10-14",
@@ -1239,7 +1594,13 @@
       "logo_domain": "defense.gov",
       "logo": "/funding/logos/defense.gov.png",
       "logo_px": 48,
-      "category": "Federal"
+      "category": "Federal",
+      "fit": [
+        "equipment only",
+        "defense basic research"
+      ],
+      "comp_score": 4,
+      "comp_basis": "Graded \"medium to high\" in this week's brief, not a published rate."
     },
     {
       "first_seen_date": "2026-10-14",
@@ -1255,7 +1616,12 @@
       "logo_domain": "wmkeck.org",
       "logo": "/funding/logos/wmkeck.org.png",
       "logo_px": 300,
-      "category": "Foundation"
+      "category": "Foundation",
+      "fit": [
+        "your institution nominates"
+      ],
+      "comp_score": 5,
+      "comp_basis": "Limited submission: your institution runs its own competition first."
     },
     {
       "first_seen_date": "2026-10-14",
@@ -1271,7 +1637,12 @@
       "logo_domain": "arpa-h.gov",
       "logo": "/funding/logos/arpa-h.gov.svg",
       "logo_px": 9999,
-      "category": "Federal"
+      "category": "Federal",
+      "fit": [
+        "health, high risk"
+      ],
+      "comp_score": 4,
+      "comp_basis": "Graded \"high\" in this week's brief, not a published rate."
     },
     {
       "first_seen_date": "2026-10-14",
@@ -1282,7 +1653,12 @@
       "logo_domain": "arpa-h.gov",
       "logo": "/funding/logos/arpa-h.gov.svg",
       "logo_px": 9999,
-      "category": "Federal"
+      "category": "Federal",
+      "fit": [
+        "health, high risk"
+      ],
+      "comp_score": 4,
+      "comp_basis": "Estimated from the kind of call: federal research solicitations typically fund well under a quarter of what they receive."
     },
     {
       "first_seen_date": "2026-10-14",
@@ -1293,7 +1669,12 @@
       "logo_domain": "arpa-h.gov",
       "logo": "/funding/logos/arpa-h.gov.svg",
       "logo_px": 9999,
-      "category": "Federal"
+      "category": "Federal",
+      "fit": [
+        "health, high risk"
+      ],
+      "comp_score": 4,
+      "comp_basis": "Estimated from the kind of call: federal research solicitations typically fund well under a quarter of what they receive."
     },
     {
       "first_seen_date": "2026-10-14",
@@ -1304,7 +1685,12 @@
       "logo_domain": "app.grantmaking.ai",
       "logo": "/funding/logos/app.grantmaking.ai.svg",
       "logo_px": 9999,
-      "category": "Industry"
+      "category": "Industry",
+      "fit": [
+        "AI safety and alignment"
+      ],
+      "comp_score": 2,
+      "comp_basis": "Estimated from the kind of call: company programmes are usually smaller and less contested than federal ones."
     },
     {
       "first_seen_date": "2026-10-14",
@@ -1315,7 +1701,10 @@
       "logo_domain": "cohere.com",
       "logo": "/funding/logos/cohere.com.png",
       "logo_px": 180,
-      "category": "Industry"
+      "category": "Industry",
+      "fit": [],
+      "comp_score": 2,
+      "comp_basis": "Estimated from the kind of call: company programmes are usually smaller and less contested than federal ones."
     },
     {
       "first_seen_date": "2026-10-14",
@@ -1326,7 +1715,10 @@
       "logo_domain": "lambda.ai",
       "logo": "/funding/logos/lambda.ai.svg",
       "logo_px": 9999,
-      "category": "Industry"
+      "category": "Industry",
+      "fit": [],
+      "comp_score": 2,
+      "comp_basis": "Estimated from the kind of call: company programmes are usually smaller and less contested than federal ones."
     },
     {
       "first_seen_date": "2026-10-14",
@@ -1337,7 +1729,10 @@
       "logo_domain": "modal.com",
       "logo": "/funding/logos/modal.com.svg",
       "logo_px": 9999,
-      "category": "Industry"
+      "category": "Industry",
+      "fit": [],
+      "comp_score": 2,
+      "comp_basis": "Estimated from the kind of call: company programmes are usually smaller and less contested than federal ones."
     },
     {
       "first_seen_date": "2026-10-14",
@@ -1348,7 +1743,12 @@
       "logo_domain": "nebius.com",
       "logo": "/funding/logos/nebius.com.svg",
       "logo_px": 9999,
-      "category": "Industry"
+      "category": "Industry",
+      "fit": [
+        "compute, not cash"
+      ],
+      "comp_score": 2,
+      "comp_basis": "Estimated from the kind of call: compute allocations turn down far fewer applicants than cash does."
     },
     {
       "first_seen_date": "2026-10-14",
@@ -1364,7 +1764,13 @@
       "logo_domain": "aimo-interp.github.io",
       "logo": "/funding/logos/aimo-interp.github.io.png",
       "logo_px": 96,
-      "category": "Industry"
+      "category": "Industry",
+      "fit": [
+        "contest, not a proposal",
+        "must publish openly"
+      ],
+      "comp_score": 3,
+      "comp_basis": "Graded \"medium\" in this week's brief, not a published rate."
     },
     {
       "first_seen_date": "2026-10-14",
@@ -1375,7 +1781,12 @@
       "logo_domain": "grants.openai.com",
       "logo": "/funding/logos/grants.openai.com.ico",
       "logo_px": 322,
-      "category": "Industry"
+      "category": "Industry",
+      "fit": [
+        "model access, not cash"
+      ],
+      "comp_score": 2,
+      "comp_basis": "Estimated from the kind of call: company programmes are usually smaller and less contested than federal ones."
     },
     {
       "first_seen_date": "2026-10-14",
@@ -1391,7 +1802,12 @@
       "logo_domain": "corrigibilityresearch.org",
       "logo": "",
       "logo_px": 0,
-      "category": "Foundation"
+      "category": "Foundation",
+      "fit": [
+        "AI safety and alignment"
+      ],
+      "comp_score": 2,
+      "comp_basis": "Graded \"low to medium\" in this week's brief, not a published rate."
     },
     {
       "first_seen_date": "2026-10-14",
@@ -1406,7 +1822,12 @@
       "rate": "13%",
       "rate_basis": "NIH-wide R01-equivalent success rate, FY2025: 5,471 awards from 42,022 applications. Not this call's odds, and individual institutes differ.",
       "rate_source": "https://report.nih.gov/nihdatabook/category/10",
-      "rate_source_name": "NIH Data Book"
+      "rate_source_name": "NIH Data Book",
+      "fit": [
+        "genomics"
+      ],
+      "comp_score": 4,
+      "comp_basis": "From the funder's published success rate of 13%. NIH-wide R01-equivalent success rate, FY2025: 5,471 awards from 42,022 applications. Not this call's odds, and individual institutes differ."
     },
     {
       "first_seen_date": "2026-10-14",
@@ -1417,7 +1838,12 @@
       "logo_domain": "pcori.org",
       "logo": "/funding/logos/pcori.org.ico",
       "logo_px": 48,
-      "category": "Nonprofit"
+      "category": "Nonprofit",
+      "fit": [
+        "digital health"
+      ],
+      "comp_score": 3,
+      "comp_basis": "Estimated from the kind of call, not a published rate."
     },
     {
       "first_seen_date": "2026-10-14",
@@ -1428,7 +1854,12 @@
       "logo_domain": "griffissinstitute.org",
       "logo": "/funding/logos/griffissinstitute.org.png",
       "logo_px": 180,
-      "category": "Nonprofit"
+      "category": "Nonprofit",
+      "fit": [
+        "for an individual, not a lab"
+      ],
+      "comp_score": 3,
+      "comp_basis": "Estimated from the kind of call, not a published rate."
     },
     {
       "first_seen_date": "2026-10-14",
@@ -1439,7 +1870,12 @@
       "logo_domain": "johnahartford.org",
       "logo": "/funding/logos/johnahartford.org.ico",
       "logo_px": 64,
-      "category": "Foundation"
+      "category": "Foundation",
+      "fit": [
+        "open call"
+      ],
+      "comp_score": 3,
+      "comp_basis": "Estimated from the kind of call, not a published rate."
     },
     {
       "first_seen_date": "2026-10-14",
@@ -1450,7 +1886,12 @@
       "logo_domain": "nyserda.ny.gov",
       "logo": "/funding/logos/nyserda.ny.gov.png",
       "logo_px": 152,
-      "category": "State"
+      "category": "State",
+      "fit": [
+        "New York State work"
+      ],
+      "comp_score": 3,
+      "comp_basis": "Estimated from the kind of call, not a published rate."
     },
     {
       "first_seen_date": "2026-10-14",
@@ -1466,7 +1907,14 @@
       "logo_domain": "esd.ny.gov",
       "logo": "/funding/logos/esd.ny.gov.png",
       "logo_px": 256,
-      "category": "State"
+      "category": "State",
+      "fit": [
+        "your institution nominates",
+        "New York State work",
+        "open call"
+      ],
+      "comp_score": 5,
+      "comp_basis": "Limited submission: your institution runs its own competition first."
     },
     {
       "first_seen_date": "2026-10-14",
@@ -1481,7 +1929,13 @@
       "rate": "13%",
       "rate_basis": "NIH-wide R01-equivalent success rate, FY2025: 5,471 awards from 42,022 applications. Not this call's odds, and individual institutes differ.",
       "rate_source": "https://report.nih.gov/nihdatabook/category/10",
-      "rate_source_name": "NIH Data Book"
+      "rate_source_name": "NIH Data Book",
+      "fit": [
+        "full research project",
+        "complementary health"
+      ],
+      "comp_score": 4,
+      "comp_basis": "From the funder's published success rate of 13%. NIH-wide R01-equivalent success rate, FY2025: 5,471 awards from 42,022 applications. Not this call's odds, and individual institutes differ."
     },
     {
       "first_seen_date": "2026-10-14",
@@ -1496,7 +1950,12 @@
       "rate": "13%",
       "rate_basis": "NIH-wide R01-equivalent success rate, FY2025: 5,471 awards from 42,022 applications. Not this call's odds, and individual institutes differ.",
       "rate_source": "https://report.nih.gov/nihdatabook/category/10",
-      "rate_source_name": "NIH Data Book"
+      "rate_source_name": "NIH Data Book",
+      "fit": [
+        "team award"
+      ],
+      "comp_score": 4,
+      "comp_basis": "From the funder's published success rate of 13%. NIH-wide R01-equivalent success rate, FY2025: 5,471 awards from 42,022 applications. Not this call's odds, and individual institutes differ."
     },
     {
       "first_seen_date": "2026-10-14",
@@ -1511,7 +1970,12 @@
       "rate": "13%",
       "rate_basis": "NIH-wide R01-equivalent success rate, FY2025: 5,471 awards from 42,022 applications. Not this call's odds, and individual institutes differ.",
       "rate_source": "https://report.nih.gov/nihdatabook/category/10",
-      "rate_source_name": "NIH Data Book"
+      "rate_source_name": "NIH Data Book",
+      "fit": [
+        "specific biomedical topic"
+      ],
+      "comp_score": 4,
+      "comp_basis": "From the funder's published success rate of 13%. NIH-wide R01-equivalent success rate, FY2025: 5,471 awards from 42,022 applications. Not this call's odds, and individual institutes differ."
     },
     {
       "first_seen_date": "2026-10-14",
@@ -1522,7 +1986,12 @@
       "logo_domain": "nij.ojp.gov",
       "logo": "",
       "logo_px": 16,
-      "category": "Federal"
+      "category": "Federal",
+      "fit": [
+        "criminal justice"
+      ],
+      "comp_score": 4,
+      "comp_basis": "Estimated from the kind of call: federal research solicitations typically fund well under a quarter of what they receive."
     },
     {
       "first_seen_date": "2026-10-14",
@@ -1533,7 +2002,10 @@
       "logo_domain": "amphilsoc.org",
       "logo": "/funding/logos/amphilsoc.org.png",
       "logo_px": 48,
-      "category": "Nonprofit"
+      "category": "Nonprofit",
+      "fit": [],
+      "comp_score": 3,
+      "comp_basis": "Estimated from the kind of call, not a published rate."
     },
     {
       "first_seen_date": "2026-10-14",
@@ -1544,7 +2016,13 @@
       "logo_domain": "research.cisco.com",
       "logo": "/funding/logos/research.cisco.com.png",
       "logo_px": 48,
-      "category": "Industry"
+      "category": "Industry",
+      "fit": [
+        "semiconductors",
+        "open call"
+      ],
+      "comp_score": 2,
+      "comp_basis": "Estimated from the kind of call: company programmes are usually smaller and less contested than federal ones."
     },
     {
       "first_seen_date": "2026-10-14",
@@ -1555,7 +2033,14 @@
       "logo_domain": "nist.gov",
       "logo": "/funding/logos/nist.gov.ico",
       "logo_px": 64,
-      "category": "Federal"
+      "category": "Federal",
+      "fit": [
+        "white paper first",
+        "standards and microelectronics",
+        "semiconductors"
+      ],
+      "comp_score": 3,
+      "comp_basis": "Estimated from the kind of call: an open BAA takes white papers continuously rather than running one round."
     },
     {
       "first_seen_date": "2026-10-14",
@@ -1566,7 +2051,13 @@
       "logo_domain": "orau.org",
       "logo": "/funding/logos/orau.org.svg",
       "logo_px": 9999,
-      "category": "Foundation"
+      "category": "Foundation",
+      "fit": [
+        "your institution nominates",
+        "named award for an individual"
+      ],
+      "comp_score": 5,
+      "comp_basis": "Limited submission: your institution runs its own competition first."
     },
     {
       "first_seen_date": "2026-10-14",
@@ -1577,7 +2068,12 @@
       "logo_domain": "humboldt-foundation.de",
       "logo": "/funding/logos/humboldt-foundation.de.svg",
       "logo_px": 9999,
-      "category": "Foundation"
+      "category": "Foundation",
+      "fit": [
+        "for an individual, not a lab"
+      ],
+      "comp_score": 3,
+      "comp_basis": "Estimated from the kind of call, not a published rate."
     },
     {
       "first_seen_date": "2026-10-14",
@@ -1588,7 +2084,14 @@
       "logo_domain": "thebrf.org",
       "logo": "/funding/logos/thebrf.org.png",
       "logo_px": 180,
-      "category": "Foundation"
+      "category": "Foundation",
+      "fit": [
+        "pilot scale",
+        "your institution nominates",
+        "neuroscience"
+      ],
+      "comp_score": 5,
+      "comp_basis": "Limited submission: your institution runs its own competition first."
     },
     {
       "first_seen_date": "2026-10-14",
@@ -1599,7 +2102,12 @@
       "logo_domain": "iliad.ac",
       "logo": "/funding/logos/iliad.ac.png",
       "logo_px": 180,
-      "category": "Foundation"
+      "category": "Foundation",
+      "fit": [
+        "open call"
+      ],
+      "comp_score": 3,
+      "comp_basis": "Estimated from the kind of call, not a published rate."
     },
     {
       "first_seen_date": "2026-10-14",
@@ -1610,7 +2118,12 @@
       "logo_domain": "gtr-foundation.org",
       "logo": "/funding/logos/gtr-foundation.org.png",
       "logo_px": 256,
-      "category": "Foundation"
+      "category": "Foundation",
+      "fit": [
+        "AI safety and alignment"
+      ],
+      "comp_score": 3,
+      "comp_basis": "Estimated from the kind of call, not a published rate."
     },
     {
       "first_seen_date": "2026-10-14",
@@ -1621,7 +2134,13 @@
       "logo_domain": "aialignmentfoundation.org",
       "logo": "/funding/logos/aialignmentfoundation.org.svg",
       "logo_px": 9999,
-      "category": "Foundation"
+      "category": "Foundation",
+      "fit": [
+        "AI safety and alignment",
+        "open call"
+      ],
+      "comp_score": 3,
+      "comp_basis": "Estimated from the kind of call, not a published rate."
     },
     {
       "first_seen_date": "2026-10-14",
@@ -1632,7 +2151,10 @@
       "logo_domain": "lightconecommons.com",
       "logo": "/funding/logos/lightconecommons.com.png",
       "logo_px": 256,
-      "category": "Foundation"
+      "category": "Foundation",
+      "fit": [],
+      "comp_score": 3,
+      "comp_basis": "Estimated from the kind of call, not a published rate."
     },
     {
       "first_seen_date": "2026-10-14",
@@ -1643,7 +2165,13 @@
       "logo_domain": "noaa.gov",
       "logo": "/funding/logos/noaa.gov.ico",
       "logo_px": 32,
-      "category": "Federal"
+      "category": "Federal",
+      "fit": [
+        "white paper first",
+        "environment and satellites"
+      ],
+      "comp_score": 3,
+      "comp_basis": "Estimated from the kind of call: an open BAA takes white papers continuously rather than running one round."
     },
     {
       "first_seen_date": "2026-10-14",
@@ -1654,7 +2182,10 @@
       "logo_domain": "science.nasa.gov",
       "logo": "/funding/logos/science.nasa.gov.svg",
       "logo_px": 9999,
-      "category": "Federal"
+      "category": "Federal",
+      "fit": [],
+      "comp_score": 4,
+      "comp_basis": "Estimated from the kind of call: federal research solicitations typically fund well under a quarter of what they receive."
     },
     {
       "first_seen_date": "2026-10-14",
@@ -1665,7 +2196,12 @@
       "logo_domain": "dana.org",
       "logo": "/funding/logos/dana.org.png",
       "logo_px": 180,
-      "category": "Foundation"
+      "category": "Foundation",
+      "fit": [
+        "contest, not a proposal"
+      ],
+      "comp_score": 3,
+      "comp_basis": "Estimated from the kind of call, not a published rate."
     },
     {
       "first_seen_date": "2026-10-14",
@@ -1676,7 +2212,12 @@
       "logo_domain": "portal.waterrf.org",
       "logo": "",
       "logo_px": 16,
-      "category": "Foundation"
+      "category": "Foundation",
+      "fit": [
+        "open call"
+      ],
+      "comp_score": 3,
+      "comp_basis": "Estimated from the kind of call, not a published rate."
     },
     {
       "first_seen_date": "2026-10-14",
@@ -1687,7 +2228,13 @@
       "logo_domain": "cifar.ca",
       "logo": "/funding/logos/cifar.ca.svg",
       "logo_px": 9999,
-      "category": "Public (non-US)"
+      "category": "Public (non-US)",
+      "fit": [
+        "named award for an individual",
+        "international scope"
+      ],
+      "comp_score": 3,
+      "comp_basis": "Estimated from the kind of call, not a published rate."
     },
     {
       "first_seen_date": "2026-10-14",
@@ -1698,7 +2245,12 @@
       "logo_domain": "darpa.mil",
       "logo": "",
       "logo_px": 16,
-      "category": "Federal"
+      "category": "Federal",
+      "fit": [
+        "defense, high risk"
+      ],
+      "comp_score": 4,
+      "comp_basis": "Estimated from the kind of call: federal research solicitations typically fund well under a quarter of what they receive."
     },
     {
       "first_seen_date": "2026-10-14",
@@ -1709,7 +2261,12 @@
       "logo_domain": "darpa.mil",
       "logo": "",
       "logo_px": 16,
-      "category": "Federal"
+      "category": "Federal",
+      "fit": [
+        "defense, high risk"
+      ],
+      "comp_score": 4,
+      "comp_basis": "Estimated from the kind of call: federal research solicitations typically fund well under a quarter of what they receive."
     },
     {
       "first_seen_date": "2026-10-14",
@@ -1720,7 +2277,12 @@
       "logo_domain": "darpa.mil",
       "logo": "",
       "logo_px": 16,
-      "category": "Federal"
+      "category": "Federal",
+      "fit": [
+        "defense, high risk"
+      ],
+      "comp_score": 4,
+      "comp_basis": "Estimated from the kind of call: federal research solicitations typically fund well under a quarter of what they receive."
     },
     {
       "first_seen_date": "2026-10-14",
@@ -1731,7 +2293,13 @@
       "logo_domain": "google.com",
       "logo": "/funding/logos/google.com.png",
       "logo_px": 144,
-      "category": "Industry"
+      "category": "Industry",
+      "fit": [
+        "model access, not cash",
+        "international scope"
+      ],
+      "comp_score": 2,
+      "comp_basis": "Estimated from the kind of call: company programmes are usually smaller and less contested than federal ones."
     },
     {
       "first_seen_date": "2026-10-14",
@@ -1742,7 +2310,12 @@
       "logo_domain": "middlepowers.ai",
       "logo": "/funding/logos/middlepowers.ai.svg",
       "logo_px": 9999,
-      "category": "Industry"
+      "category": "Industry",
+      "fit": [
+        "open call"
+      ],
+      "comp_score": 2,
+      "comp_basis": "Estimated from the kind of call: company programmes are usually smaller and less contested than federal ones."
     },
     {
       "first_seen_date": "2026-10-14",
@@ -1753,7 +2326,12 @@
       "logo_domain": "qualcomm.com",
       "logo": "/funding/logos/qualcomm.com.ico",
       "logo_px": 32,
-      "category": "Industry"
+      "category": "Industry",
+      "fit": [
+        "for an individual, not a lab"
+      ],
+      "comp_score": 2,
+      "comp_basis": "Estimated from the kind of call: company programmes are usually smaller and less contested than federal ones."
     },
     {
       "first_seen_date": "2026-10-14",
@@ -1764,7 +2342,13 @@
       "logo_domain": "simonsfoundation.org",
       "logo": "/funding/logos/simonsfoundation.org.svg",
       "logo_px": 9999,
-      "category": "Foundation"
+      "category": "Foundation",
+      "fit": [
+        "research software",
+        "named award for an individual"
+      ],
+      "comp_score": 3,
+      "comp_basis": "Estimated from the kind of call, not a published rate."
     },
     {
       "first_seen_date": "2026-10-14",
@@ -1775,7 +2359,13 @@
       "logo_domain": "aria.org.uk",
       "logo": "/funding/logos/aria.org.uk.png",
       "logo_px": 180,
-      "category": "Public (non-US)"
+      "category": "Public (non-US)",
+      "fit": [
+        "specific biomedical topic",
+        "open call"
+      ],
+      "comp_score": 3,
+      "comp_basis": "Estimated from the kind of call, not a published rate."
     },
     {
       "first_seen_date": "2026-10-14",
@@ -1786,7 +2376,12 @@
       "logo_domain": "blavatnikawards.org",
       "logo": "/funding/logos/blavatnikawards.org.png",
       "logo_px": 32,
-      "category": "Foundation"
+      "category": "Foundation",
+      "fit": [
+        "named award for an individual"
+      ],
+      "comp_score": 3,
+      "comp_basis": "Estimated from the kind of call, not a published rate."
     },
     {
       "first_seen_date": "2026-10-14",
@@ -1797,7 +2392,10 @@
       "logo_domain": "williamdemantfonden.dk",
       "logo": "",
       "logo_px": 0,
-      "category": "Foundation"
+      "category": "Foundation",
+      "fit": [],
+      "comp_score": 3,
+      "comp_basis": "Estimated from the kind of call, not a published rate."
     },
     {
       "first_seen_date": "2026-10-14",
@@ -1808,7 +2406,12 @@
       "logo_domain": "nsf.gov",
       "logo": "/funding/logos/nsf.gov.png",
       "logo_px": 192,
-      "category": "Federal"
+      "category": "Federal",
+      "fit": [
+        "comment, not a proposal"
+      ],
+      "comp_score": 4,
+      "comp_basis": "Estimated from the kind of call: federal research solicitations typically fund well under a quarter of what they receive."
     },
     {
       "first_seen_date": "2026-10-14",
@@ -1823,7 +2426,13 @@
       "rate": "13%",
       "rate_basis": "NIH-wide R01-equivalent success rate, FY2025: 5,471 awards from 42,022 applications. Not this call's odds, and individual institutes differ.",
       "rate_source": "https://report.nih.gov/nihdatabook/category/10",
-      "rate_source_name": "NIH Data Book"
+      "rate_source_name": "NIH Data Book",
+      "fit": [
+        "hearing and communication",
+        "comment, not a proposal"
+      ],
+      "comp_score": 4,
+      "comp_basis": "From the funder's published success rate of 13%. NIH-wide R01-equivalent success rate, FY2025: 5,471 awards from 42,022 applications. Not this call's odds, and individual institutes differ."
     },
     {
       "first_seen_date": "2026-10-14",
@@ -1834,7 +2443,10 @@
       "logo_domain": "nsf.gov",
       "logo": "/funding/logos/nsf.gov.png",
       "logo_px": 192,
-      "category": "Federal"
+      "category": "Federal",
+      "fit": [],
+      "comp_score": 4,
+      "comp_basis": "Estimated from the kind of call: federal research solicitations typically fund well under a quarter of what they receive."
     },
     {
       "first_seen_date": "2026-10-14",
@@ -1845,7 +2457,12 @@
       "logo_domain": "darpa.mil",
       "logo": "",
       "logo_px": 16,
-      "category": "Federal"
+      "category": "Federal",
+      "fit": [
+        "defense, high risk"
+      ],
+      "comp_score": 4,
+      "comp_basis": "Estimated from the kind of call: federal research solicitations typically fund well under a quarter of what they receive."
     },
     {
       "first_seen_date": "2026-10-14",
@@ -1860,7 +2477,12 @@
       "rate": "13%",
       "rate_basis": "NIH-wide R01-equivalent success rate, FY2025: 5,471 awards from 42,022 applications. Not this call's odds, and individual institutes differ.",
       "rate_source": "https://report.nih.gov/nihdatabook/category/10",
-      "rate_source_name": "NIH Data Book"
+      "rate_source_name": "NIH Data Book",
+      "fit": [
+        "early-career, high risk"
+      ],
+      "comp_score": 4,
+      "comp_basis": "From the funder's published success rate of 13%. NIH-wide R01-equivalent success rate, FY2025: 5,471 awards from 42,022 applications. Not this call's odds, and individual institutes differ."
     },
     {
       "first_seen_date": "2026-10-14",
@@ -1875,7 +2497,13 @@
       "rate": "13%",
       "rate_basis": "NIH-wide R01-equivalent success rate, FY2025: 5,471 awards from 42,022 applications. Not this call's odds, and individual institutes differ.",
       "rate_source": "https://report.nih.gov/nihdatabook/category/10",
-      "rate_source_name": "NIH Data Book"
+      "rate_source_name": "NIH Data Book",
+      "fit": [
+        "exploratory, no preliminary data",
+        "bioimaging and bioengineering"
+      ],
+      "comp_score": 4,
+      "comp_basis": "From the funder's published success rate of 13%. NIH-wide R01-equivalent success rate, FY2025: 5,471 awards from 42,022 applications. Not this call's odds, and individual institutes differ."
     },
     {
       "first_seen_date": "2026-10-14",
@@ -1890,7 +2518,12 @@
       "rate": "13%",
       "rate_basis": "NIH-wide R01-equivalent success rate, FY2025: 5,471 awards from 42,022 applications. Not this call's odds, and individual institutes differ.",
       "rate_source": "https://report.nih.gov/nihdatabook/category/10",
-      "rate_source_name": "NIH Data Book"
+      "rate_source_name": "NIH Data Book",
+      "fit": [
+        "pilot scale"
+      ],
+      "comp_score": 4,
+      "comp_basis": "From the funder's published success rate of 13%. NIH-wide R01-equivalent success rate, FY2025: 5,471 awards from 42,022 applications. Not this call's odds, and individual institutes differ."
     },
     {
       "first_seen_date": "2026-10-14",
@@ -1905,7 +2538,13 @@
       "rate": "13%",
       "rate_basis": "NIH-wide R01-equivalent success rate, FY2025: 5,471 awards from 42,022 applications. Not this call's odds, and individual institutes differ.",
       "rate_source": "https://report.nih.gov/nihdatabook/category/10",
-      "rate_source_name": "NIH Data Book"
+      "rate_source_name": "NIH Data Book",
+      "fit": [
+        "aging and dementia",
+        "specific biomedical topic"
+      ],
+      "comp_score": 4,
+      "comp_basis": "From the funder's published success rate of 13%. NIH-wide R01-equivalent success rate, FY2025: 5,471 awards from 42,022 applications. Not this call's odds, and individual institutes differ."
     },
     {
       "first_seen_date": "2026-10-14",
@@ -1920,7 +2559,13 @@
       "rate": "13%",
       "rate_basis": "NIH-wide R01-equivalent success rate, FY2025: 5,471 awards from 42,022 applications. Not this call's odds, and individual institutes differ.",
       "rate_source": "https://report.nih.gov/nihdatabook/category/10",
-      "rate_source_name": "NIH Data Book"
+      "rate_source_name": "NIH Data Book",
+      "fit": [
+        "aging and dementia",
+        "digital health"
+      ],
+      "comp_score": 4,
+      "comp_basis": "From the funder's published success rate of 13%. NIH-wide R01-equivalent success rate, FY2025: 5,471 awards from 42,022 applications. Not this call's odds, and individual institutes differ."
     },
     {
       "first_seen_date": "2026-10-14",
@@ -1931,7 +2576,13 @@
       "logo_domain": "energy.gov",
       "logo": "/funding/logos/energy.gov.ico",
       "logo_px": 48,
-      "category": "Federal"
+      "category": "Federal",
+      "fit": [
+        "contest, not a proposal",
+        "energy and scientific computing"
+      ],
+      "comp_score": 4,
+      "comp_basis": "Estimated from the kind of call: federal research solicitations typically fund well under a quarter of what they receive."
     },
     {
       "first_seen_date": "2026-10-14",
@@ -1942,7 +2593,14 @@
       "logo_domain": "energy.gov",
       "logo": "/funding/logos/energy.gov.ico",
       "logo_px": 48,
-      "category": "Federal"
+      "category": "Federal",
+      "fit": [
+        "compute, not cash",
+        "energy and scientific computing",
+        "team award"
+      ],
+      "comp_score": 2,
+      "comp_basis": "Estimated from the kind of call: compute allocations turn down far fewer applicants than cash does."
     },
     {
       "first_seen_date": "2026-10-14",
@@ -1953,7 +2611,12 @@
       "logo_domain": "darpa.mil",
       "logo": "",
       "logo_px": 16,
-      "category": "Federal"
+      "category": "Federal",
+      "fit": [
+        "defense, high risk"
+      ],
+      "comp_score": 4,
+      "comp_basis": "Estimated from the kind of call: federal research solicitations typically fund well under a quarter of what they receive."
     },
     {
       "first_seen_date": "2026-10-14",
@@ -1964,7 +2627,14 @@
       "logo_domain": "docs.ccr.buffalo.edu",
       "logo": "",
       "logo_px": 16,
-      "category": "University"
+      "category": "University",
+      "fit": [
+        "compute, not cash",
+        "New York State work",
+        "open call"
+      ],
+      "comp_score": 2,
+      "comp_basis": "Estimated from the kind of call: compute allocations turn down far fewer applicants than cash does."
     },
     {
       "first_seen_date": "2026-10-14",
@@ -1975,7 +2645,12 @@
       "logo_domain": "fnih.org",
       "logo": "/funding/logos/fnih.org.jpg",
       "logo_px": 192,
-      "category": "Foundation"
+      "category": "Foundation",
+      "fit": [
+        "specific biomedical topic"
+      ],
+      "comp_score": 3,
+      "comp_basis": "Estimated from the kind of call, not a published rate."
     },
     {
       "first_seen_date": "2026-10-14",
@@ -1986,7 +2661,10 @@
       "logo_domain": "unconv.ai",
       "logo": "/funding/logos/unconv.ai.png",
       "logo_px": 512,
-      "category": "Industry"
+      "category": "Industry",
+      "fit": [],
+      "comp_score": 2,
+      "comp_basis": "Estimated from the kind of call: company programmes are usually smaller and less contested than federal ones."
     },
     {
       "first_seen_date": "2026-10-14",
@@ -1997,7 +2675,13 @@
       "logo_domain": "alzdiscovery.org",
       "logo": "",
       "logo_px": 16,
-      "category": "Foundation"
+      "category": "Foundation",
+      "fit": [
+        "for an individual, not a lab",
+        "energy and scientific computing"
+      ],
+      "comp_score": 3,
+      "comp_basis": "Estimated from the kind of call, not a published rate."
     }
   ],
   "watchlist": [

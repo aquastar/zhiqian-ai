@@ -476,6 +476,137 @@ def attach_logos(rows):
     return got, len(domains)
 
 
+# ------------------------------------------------- who a call is aimed at ---
+#
+# The sparse funding-rate column is gone. What a reader actually needs before
+# clicking is whether the call is even aimed at them, and that is recoverable
+# from the row: activity codes and programme names encode the shape of the
+# award, institute names encode the subject, and the eligibility line encodes
+# who may apply. None of this is guessed; each tag below fires on a token the
+# funder itself put in the name.
+FIT_RULES = [
+    # shape of the award, from the activity code or programme type
+    (r'\bR01\b|Parent R01',            'full research project'),
+    (r'\bR21\b',                       'exploratory, no preliminary data'),
+    (r'\bR03\b',                       'small and short'),
+    (r'\bR15\b|\bAREA\b',             'undergraduate-serving campus'),
+    (r'\bK\d\d\b',                    'mentored career award'),
+    (r'\bDP2\b|New Innovator',         'early-career, high risk'),
+    (r'\bF3\d\b|\bT32\b',            'trainee fellowship'),
+    (r'\bMURI\b',                      'multi-university team'),
+    (r'Young Investigator|\bYIP\b',     'within a few years of the PhD'),
+    (r'\bDURIP\b',                     'equipment only'),
+    (r'\bBAA\b',                       'white paper first'),
+    (r'Expeditions|\bCenter\b|\bHubs\b', 'large multi-PI team'),
+    (r'Fellowship',                     'for an individual, not a lab'),
+    (r'\bSBIR\b|\bSTTR\b',            'small business partner'),
+    (r'Challenge|Prize|Competition',    'contest, not a proposal'),
+    (r'credits?|cluster|compute|GPU|NAIRR', 'compute, not cash'),
+    (r'\bPilot\b|\bSeed\b|Bridge',    'pilot scale'),
+    (r'\bRET\b|Teacher',               'K-12 teacher partners'),
+    (r'\bREU\b',                       'undergraduate researchers'),
+    (r'\(limited\)|limited submission', 'your institution nominates'),
+    # subject, from the institute or directorate
+    (r'NIDCD',          'hearing and communication'),
+    (r'\bNIA\b|Alzheimer|dementia|ADRD', 'aging and dementia'),
+    (r'NCCIH',          'complementary health'),
+    (r'NHGRI|genom',    'genomics'),
+    (r'\bNLM\b',       'biomedical informatics'),
+    (r'NIBIB',          'bioimaging and bioengineering'),
+    (r'BRAIN|neuro',    'neuroscience'),
+    (r'NIGMS',          'basic biomedical'),
+    (r'\bCISE\b',      'core computing'),
+    (r'NSF ENG|\bECCS\b|\bCMMI\b', 'engineering'),
+    (r'ARPA-H',         'health, high risk'),
+    (r'DARPA',          'defense, high risk'),
+    (r'\bONR\b|AFOSR|AFRL|\bARL\b|\bARO\b|\bDoD\b', 'defense basic research'),
+    (r'\bDOE\b|Genesis Mission', 'energy and scientific computing'),
+    (r'NOAA',           'environment and satellites'),
+    (r'\bNIJ\b',       'criminal justice'),
+    (r'NIST|CHIPS',     'standards and microelectronics'),
+    (r'NYSERDA|\bNYS\b|Empire', 'New York State work'),
+    # themes that appear in the name itself rather than in an agency code
+    (r'AI safety|alignment|existential|corrigibility|Safeguarded|AI risk', 'AI safety and alignment'),
+    (r'model access|Researcher Access|API', 'model access, not cash'),
+    (r'[Ss]emiconductor|CHIPS|microelectronic|Reliability', 'semiconductors'),
+    (r'Digital Health|health technolog', 'digital health'),
+    (r'Software', 'research software'),
+    (r'\bK-12\b|Teacher', 'K-12 education'),
+    (r'Mitochondria|Music as Medicine|SenNet|Precision', 'specific biomedical topic'),
+    (r'Collaborat|Consortium|Node', 'team award'),
+    (r'Scholars|Faculty Award|National Awards', 'named award for an individual'),
+    (r'Global|European|International', 'international scope'),
+    (r'\bRFI\b', 'comment, not a proposal'),
+    (r'\bLOI\b|preproposal|pre-proposal', 'letter of intent first'),
+    (r'\bRFP\b|Call for Proposals|open call|open application|Open Call', 'open call'),
+]
+
+# Straight from the eligibility line, which says who may apply in so many words
+FIT_FROM_ELIGIBILITY = [
+    (r'\bESI\b|early career',      'early-stage investigator only'),
+    (r'limited submission',         'your institution nominates'),
+    (r'bench-to-clinic',            'clinical partner needed'),
+    (r'US institutions',            'US institutions only'),
+    (r'PhD students|postdocs',      'for students and postdocs'),
+    (r'open source|open-weight',    'must publish openly'),
+    (r'equipment only',             'equipment only'),
+    (r'primary .* appointment',     'host-institution appointment'),
+]
+
+MAX_FIT = 3
+
+
+def fit_tags(row):
+    text = f"{row.get('sponsor', '')} {row.get('program', '')}"
+    tags = []
+    for pat, tag in FIT_RULES:
+        if re.search(pat, text, re.I) and tag not in tags:
+            tags.append(tag)
+    for pat, tag in FIT_FROM_ELIGIBILITY:
+        if re.search(pat, row.get('eligibility', ''), re.I) and tag not in tags:
+            tags.append(tag)
+    return tags[:MAX_FIT]
+
+
+# -------------------------------------------------------- how crowded it is -
+#
+# Every row gets a 1 to 5 reading, because "no estimate" is not useful to
+# anyone, but the basis is carried with it and shown on hover. A published
+# success rate is not the same kind of claim as a guess from the shape of the
+# call, and the page should not let the two look alike.
+def _band(pct):
+    return 5 if pct < 10 else 4 if pct < 20 else 3 if pct < 35 else 2 if pct < 55 else 1
+
+
+BRIEF_SCORE = {'high': 4, 'medium to high': 4, 'medium': 3, 'low to medium': 2, 'low': 1}
+
+
+def competition(row):
+    elig = row.get('eligibility', '')
+    # An institutional cap means you compete at home before you compete at all.
+    if re.search(r'limited submission', elig, re.I) or '(limited)' in row.get('program', ''):
+        return 5, 'Limited submission: your institution runs its own competition first.'
+    if row.get('rate'):
+        pct = float(re.sub(r'[^0-9.]', '', row['rate']) or 0)
+        return _band(pct), f"From the funder's published success rate of {row['rate']}. {row.get('rate_basis', '')}"
+    graded = (row.get('competition') or '').lower().strip()
+    if graded in BRIEF_SCORE:
+        return BRIEF_SCORE[graded], f'Graded "{graded}" in this week\'s brief, not a published rate.'
+    kind = row.get('category', '')
+    prog = row.get('program', '')
+    if re.search(r'credits?|cluster|compute|GPU|NAIRR', prog, re.I):
+        return 2, 'Estimated from the kind of call: compute allocations turn down far fewer applicants than cash does.'
+    if re.search(r'\bBAA\b|rolling|Office-Wide', prog, re.I):
+        return 3, 'Estimated from the kind of call: an open BAA takes white papers continuously rather than running one round.'
+    if kind == 'Federal':
+        return 4, 'Estimated from the kind of call: federal research solicitations typically fund well under a quarter of what they receive.'
+    if kind in ('Foundation', 'Nonprofit', 'State'):
+        return 3, 'Estimated from the kind of call, not a published rate.'
+    if kind == 'Industry':
+        return 2, 'Estimated from the kind of call: company programmes are usually smaller and less contested than federal ones.'
+    return 3, 'Estimated from the kind of call, not a published rate.'
+
+
 def load(path):
     text = pathlib.Path(path).read_text(encoding='utf-8-sig').replace('\r\n', '\n')
     if text.lstrip().lower().startswith(('<!doctype', '<html')):
@@ -624,6 +755,12 @@ def main():
             r['rate_basis'] = info['basis']
             r['rate_source'] = info['source']
             r['rate_source_name'] = info['source_name']
+
+    # Both of these read the rate and the category, so they run last of the
+    # enrichment steps and, like all of it, before anything is serialized.
+    for r in registry:
+        r['fit'] = fit_tags(r)
+        r['comp_score'], r['comp_basis'] = competition(r)
 
     data = {
         'date': date,

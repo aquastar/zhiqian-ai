@@ -73,15 +73,10 @@ const FILTERS = [
   { key: 'rolling', label: 'Rolling or undated', icon: 'fa-infinity', n: counts.rolling },
 ];
 
-// The brief grades how crowded a call looks. The build script translates the
-// grade, so match on the English it produces: "low to medium" counts as low,
-// "medium to high" as high, because the warning is the useful half.
-const compClass = (c) => {
-  const v = (c || '').toLowerCase();
-  if (v.includes('high')) return 'comp-high';
-  if (v.includes('low')) return 'comp-low';
-  return 'comp-mid';
-};
+// Five steps, worst at the top of the scale. The build script decides the
+// number and carries its reasoning in comp_basis, which is what the tooltip
+// shows, so a published success rate never passes for a guess or the reverse.
+const COMP_WORD = { 1: 'light', 2: 'moderate', 3: 'competitive', 4: 'hard', 5: 'very hard' };
 ---
 
 <Layout title="Funding | Zhiqian Chen">
@@ -147,8 +142,8 @@ const compClass = (c) => {
           <tr>
             <th class="c-who">Funder and program</th>
             <th class="c-terms">Terms</th>
+            <th class="c-fit">Who it suits</th>
             <th class="c-when">Next date</th>
-            <th class="c-rate">Funding rate</th>
             <th class="c-seen">First seen</th>
           </tr>
         </thead>
@@ -178,7 +173,18 @@ const compClass = (c) => {
                 {r.category && <span class={`kind kind-${slug(r.category)}`} title="What kind of body is paying, worked out from the funder and its own domain">{r.category}</span>}
                 {r.budget && <span class="budget">{r.budget}</span>}
                 {r.eligibility && <span class="elig">{r.eligibility}</span>}
-                {r.competition && <span class={`comp ${compClass(r.competition)}`} title="How crowded the call looks, as graded in the weekly brief">{r.competition} competition</span>}
+                <span class={`comp comp-${r.comp_score}`} title={r.comp_basis}>
+                  <span class="comp-dots" aria-hidden="true">
+                    {[1, 2, 3, 4, 5].map((i) => <i class={i <= r.comp_score ? 'on' : ''}></i>)}
+                  </span>
+                  <span class="comp-label">{COMP_WORD[r.comp_score]}</span>
+                  {!/published success rate/.test(r.comp_basis) && <span class="comp-est">est.</span>}
+                </span>
+              </td>
+              <td class="c-fit" data-label="Who it suits">
+                {r.fit && r.fit.length
+                  ? <span class="fits">{r.fit.map((f) => <span class="fit">{f}</span>)}</span>
+                  : <span class="none" title="The call's own name and eligibility line say nothing specific about who it is for.">nothing stated</span>}
               </td>
               <td class="c-when" data-label="Next date">
                 {r.dl.next
@@ -193,13 +199,6 @@ const compClass = (c) => {
                 {r.dl.dates.length > 1 && (
                   <span class="also">also {r.dl.dates.filter((d) => d !== r.dl.next).join(', ')}</span>
                 )}
-              </td>
-              <td class="c-rate" data-label="Funding rate">
-                {r.rate
-                  ? <a class="rate" href={r.rate_source} target="_blank" rel="noopener" title={`${r.rate_basis} Source: ${r.rate_source_name}.`}>
-                      {r.rate}<i class="fas fa-arrow-up-right-from-square" aria-hidden="true"></i>
-                    </a>
-                  : <span class="none" title="This funder does not publish a funding rate. An empty cell here is missing data, not good odds.">not published</span>}
               </td>
               <td class="c-seen" data-label="First seen">{r.first_seen_date}</td>
             </tr>
@@ -294,16 +293,17 @@ const compClass = (c) => {
   .fund tbody tr[data-pick="1"] { background:#fffdf5; }
   .fund tbody tr[data-pick="1"]:hover { background:#fef9e7; }
 
-  .c-who { width:34%; }
-  .c-terms { width:25%; }
-  .c-when { width:20%; }
-  .c-rate { width:11%; }
-  .c-seen { width:10%; font-variant-numeric:tabular-nums; color:#94a3b8; font-size:.74rem; white-space:nowrap; }
-  .rate { display:inline-flex; align-items:baseline; gap:4px; font-size:.86rem; font-weight:800;
-    color:#0f172a; text-decoration:none; font-variant-numeric:tabular-nums;
-    border-bottom:1px solid rgba(148,163,184,.5); }
-  .rate:hover { color:var(--accent); border-color:currentColor; }
-  .rate i { font-size:.55rem; opacity:.45; }
+  .c-who { width:29%; }
+  .c-terms { width:24%; }
+  .c-fit { width:19%; }
+  .c-when { width:19%; }
+  .c-seen { width:9%; font-variant-numeric:tabular-nums; color:#94a3b8; font-size:.74rem; white-space:nowrap; }
+
+  /* What the call is after, in the funder's own words reduced to keywords. */
+  .fits { display:flex; flex-wrap:wrap; gap:4px; }
+  .fit { font-size:.66rem; font-weight:600; color:#475569; background:#f8fafc;
+    border:1px solid rgba(148,163,184,.35); border-radius:999px; padding:1px 8px;
+    line-height:1.5; }
 
   /* Funder and programme were two bold lines a shade apart, which is not a
      difference you can see while scanning. They are now plainly different
@@ -352,7 +352,10 @@ const compClass = (c) => {
   .kind-nonprofit { color:#be185d; background:#fdf0f6; border-color:#fbcfe8; }
   .kind-university { color:#0369a1; background:#e6f5fd; border-color:#bae6fd; }
 
+  /* The date reads from the left, the countdown is pinned to the right edge
+     so the badges line up into a column the eye can run down. */
   .when-line { display:flex; flex-wrap:wrap; align-items:center; gap:6px; }
+  .when-line .days { margin-left:auto; }
   .qual { font-size:.6rem; font-weight:800; letter-spacing:.05em; text-transform:uppercase;
     color:#92400e; background:#fef3c7; border:1px solid #fde68a; border-radius:4px; padding:1px 5px; }
   .date { font-variant-numeric:tabular-nums; font-weight:600; color:#1e293b; }
@@ -367,11 +370,19 @@ const compClass = (c) => {
   .also { display:block; margin-top:3px; font-size:.65rem; color:#94a3b8; font-variant-numeric:tabular-nums; }
 
   .budget { display:block; font-size:.76rem; color:#0f172a; font-weight:600; line-height:1.35; }
-  .comp { display:inline-block; margin-top:3px; font-size:.62rem; font-weight:800;
-    border-radius:4px; padding:1px 6px; }
-  .comp-low { color:#15803d; background:#dcfce7; }
-  .comp-mid { color:#1d4ed8; background:#dbeafe; }
-  .comp-high { color:#b91c1c; background:#fee2e2; }
+  /* Five dots, because every row carries a reading and a bare word would not
+     say how far apart two of them are. "est." marks the ones inferred from
+     the kind of call rather than taken from a published rate. */
+  .comp { display:flex; align-items:center; gap:6px; margin-top:4px; cursor:help; }
+  .comp-dots { display:inline-flex; gap:2px; }
+  .comp-dots i { width:6px; height:6px; border-radius:50%; background:#e2e8f0; }
+  .comp-label { font-size:.63rem; font-weight:800; letter-spacing:.02em; }
+  .comp-est { font-size:.56rem; font-weight:700; color:#cbd5e1; letter-spacing:.04em; }
+  .comp-1 .comp-dots i.on { background:#15803d; } .comp-1 .comp-label { color:#15803d; }
+  .comp-2 .comp-dots i.on { background:#4d7c0f; } .comp-2 .comp-label { color:#4d7c0f; }
+  .comp-3 .comp-dots i.on { background:#1d4ed8; } .comp-3 .comp-label { color:#1d4ed8; }
+  .comp-4 .comp-dots i.on { background:#c2410c; } .comp-4 .comp-label { color:#c2410c; }
+  .comp-5 .comp-dots i.on { background:#b91c1c; } .comp-5 .comp-label { color:#b91c1c; }
   .none { color:#cbd5e1; font-size:.74rem; }
 
   .empty-note { margin:14px 0 0; color:#94a3b8; font-size:.84rem; }
@@ -402,7 +413,8 @@ const compClass = (c) => {
     .fund tbody td + td { margin-top:8px; padding-top:8px; border-top:1px dashed rgba(148,163,184,.3); }
     .fund tbody td[data-label]::before { content:attr(data-label); display:block; margin-bottom:3px;
       font-size:.6rem; font-weight:700; letter-spacing:.07em; text-transform:uppercase; color:#94a3b8; }
-    .c-seen, .c-rate { white-space:normal; }
+    .c-seen, .c-fit { white-space:normal; }
+    .when-line .days { margin-left:0; }
     /* A card has the width to show the whole name, so stop cutting it. */
     .program { flex-wrap:wrap; }
     .program-name { overflow:visible; text-overflow:clip; white-space:normal;
