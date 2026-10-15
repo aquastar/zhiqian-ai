@@ -171,8 +171,11 @@ const COMP_WORD = { 1: 'light', 2: 'moderate', 3: 'competitive', 4: 'hard', 5: '
               </td>
               <td class="c-terms" data-label="Terms">
                 {r.category && <span class={`kind kind-${slug(r.category)}`} title="What kind of body is paying, worked out from the funder and its own domain">{r.category}</span>}
-                {r.budget && <span class="budget">{r.budget}</span>}
-                {r.eligibility && <span class="elig">{r.eligibility}</span>}
+                {/* The summary carries the money, the restriction worth knowing
+                    and the timing, so the separate budget and eligibility
+                    lines it was assembled from would only repeat it. The full
+                    eligibility text is in data.json. */}
+                <span class="tldr" title={r.eligibility ? `Eligibility as written: ${r.eligibility}` : undefined}>{r.tldr}</span>
                 <span class={`comp comp-${r.comp_score}`} title={r.comp_basis}>
                   <span class="comp-dots" aria-hidden="true">
                     {[1, 2, 3, 4, 5].map((i) => <i class={i <= r.comp_score ? 'on' : ''}></i>)}
@@ -369,6 +372,7 @@ const COMP_WORD = { 1: 'light', 2: 'moderate', 3: 'competitive', 4: 'hard', 5: '
   .days.band-past { background:#e2e8f0; color:#64748b; }
   .also { display:block; margin-top:3px; font-size:.65rem; color:#94a3b8; font-variant-numeric:tabular-nums; }
 
+  .tldr { display:block; font-size:.76rem; color:#334155; line-height:1.45; }
   .budget { display:block; font-size:.76rem; color:#0f172a; font-weight:600; line-height:1.35; }
   /* Five dots, because every row carries a reading and a bare word would not
      say how far apart two of them are. "est." marks the ones inferred from

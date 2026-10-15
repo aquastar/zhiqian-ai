@@ -476,6 +476,48 @@ def attach_logos(rows):
     return got, len(domains)
 
 
+# One line a reader can take the whole row from, assembled from fields that
+# are already checked rather than written by hand: what you get, who from,
+# any restriction worth knowing before clicking, and when it shuts.
+KIND_PHRASE = {
+    'Federal': 'a federal agency',
+    'State': 'New York State',
+    'Foundation': 'a private foundation',
+    'Industry': 'a company',
+    'Nonprofit': 'a nonprofit',
+    'University': 'a university',
+    'Public (non-US)': 'a public funder outside the US',
+}
+
+# Eligibility lines worth repeating in a summary. "open" and "not listed" are
+# not, since a one-liner ending "open to anyone" has told you nothing. The
+# negative forms matter here: "not a limited submission" is the opposite of a
+# restriction and must not be read as one.
+TELLING = re.compile(
+    r'\bESI\b|early career|bench-to-clinic|US institutions|PhD students|'
+    r'postdocs|equipment only|open source|open-weight|appointment|'
+    r'small business|undergraduate', re.I)
+LIMITED = re.compile(r'(?<!not a )limited submission', re.I)
+
+
+def tldr(row):
+    money = (row.get('budget') or '').strip()
+    money = money[0].upper() + money[1:] if money and money != 'not listed' else 'An unstated amount'
+    parts = [f"{money} from {KIND_PHRASE.get(row.get('category', ''), 'this funder')}."]
+
+    elig = (row.get('eligibility') or '').strip()
+    if elig and (TELLING.search(elig) or LIMITED.search(elig)):
+        parts.append(elig[0].upper() + elig[1:] + '.')
+
+    raw = (row.get('deadline') or '').strip()
+    if raw and raw.lower() not in ('n/a', 'none', 'none stated', 'tbd'):
+        if re.fullmatch(r'\d{4}-\d{2}-\d{2}', raw):
+            parts.append(f'Closes {raw}.')
+        else:
+            raw = re.sub(r'^est\b\.?', 'Estimated', raw, flags=re.I)
+            parts.append(raw[0].upper() + raw[1:] + '.')
+    return ' '.join(parts)
+
 # ------------------------------------------------- who a call is aimed at ---
 #
 # The sparse funding-rate column is gone. What a reader actually needs before
@@ -761,6 +803,7 @@ def main():
     for r in registry:
         r['fit'] = fit_tags(r)
         r['comp_score'], r['comp_basis'] = competition(r)
+        r['tldr'] = tldr(r)
 
     data = {
         'date': date,
