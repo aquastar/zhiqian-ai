@@ -36,6 +36,16 @@ jobs:
       - name: Rebuild src/data/destinations.js
         run: python3 scripts/build-destinations.py
 
+      # Reports, never rewrites. The deadlines come from ccfddl; this asks
+      # each venue's own site whether ccfddl is still right, and prints the
+      # disagreements. It is allowed to fail without failing the refresh,
+      # because a venue site being down is not a reason to skip a data
+      # update. Read it in the job log: a disagreement means someone should
+      # check the venue and, if confirmed, add it to DEADLINE_FIX.
+      - name: Check deadlines against the venues' own sites
+        continue-on-error: true
+        run: python3 scripts/check-deadlines.py
+
       - name: Commit if the data moved
         run: |
           if git diff --quiet -- src/data/conferences.js src/data/topics.js src/data/destinations.js; then
