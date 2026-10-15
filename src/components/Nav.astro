@@ -1,0 +1,113 @@
+---
+// One nav for every page.
+//
+// Each page used to carry its own copy, and they had drifted: the home page
+// grew a hamburger and a drop-down panel for narrow screens while the other
+// seven kept a flat row that simply wrapped into a pile. Same links, two
+// different behaviours, and any change had to be made eight times. This is
+// the single copy, markup, styles and the toggle script together, so a page
+// only says which entry is the current one.
+//
+// `current` matches a key below. A page that is in no section passes nothing,
+// which is right for /cv: it is reachable from the home page rather than
+// being a section of the site.
+const { current = '' } = Astro.props;
+
+const SECTIONS = [
+  { key: 'home', href: '/', label: 'Home' },
+  { key: 'research', href: '/research', label: 'Research' },
+  { key: 'agenda', href: '/agenda', label: 'Agenda' },
+  { key: 'people', href: '/people', label: 'People' },
+  { key: 'teach', href: '/teach', label: 'Talk & Teach' },
+];
+
+// The two trackers sit apart from the site's own sections, on the right.
+const TRACKERS = [
+  { key: 'conferences', href: '/conferences', label: 'Conferences' },
+  { key: 'funding', href: '/funding', label: 'Funding' },
+];
+
+const SCHOLAR = 'https://scholar.google.com/citations?user=NC3-O6UAAAAJ&hl=en&oi=ao';
+const SUBSTACK = 'https://substack.com/@zhiqianchen1';
+---
+
+<nav class="top-nav" aria-label="Sections">
+  <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav-panel" aria-label="Open navigation menu">
+    <span></span><span></span><span></span>
+  </button>
+  <div class="nav-links" id="site-nav-panel">
+    {SECTIONS.map((l) => (
+      <a href={l.href} aria-current={current === l.key ? 'page' : undefined}>{l.label}</a>
+    ))}
+    <a href={SCHOLAR} target="_blank" rel="noopener">Paper <i class="ai ai-google-scholar-square ai-sm nav-ghost"></i> <i class="fas fa-arrow-up-right-from-square nav-ghost"></i></a>
+    <a href={SUBSTACK} target="_blank" rel="noopener">Zhiqian's Note <svg class="nav-ghost nav-substack" viewBox="0 0 24 24" fill="currentColor" width="11" height="11" aria-hidden="true"><path d="M22.539 8.242H1.46V5.406h21.08v2.836zM1.46 10.812V24L12 18.11 22.54 24V10.812H1.46zM22.54 0H1.46v2.836h21.08V0z"/></svg> <i class="fas fa-arrow-up-right-from-square nav-ghost"></i></a>
+    {TRACKERS.map((l, i) => (
+      <a href={l.href} class={i === 0 ? 'nav-right-start' : undefined}
+         aria-current={current === l.key ? 'page' : undefined}>{l.label}</a>
+    ))}
+  </div>
+</nav>
+
+<style>
+  .top-nav { margin-bottom:7px; padding:10px 0 14px; display:flex; align-items:center;
+    justify-content:flex-start; gap:12px; background:transparent; border:none;
+    border-radius:0; box-shadow:none; position:relative; }
+  /* The links row has to be allowed to grow, or margin-left:auto below has no
+     slack to push into and the trackers just trail the last link. */
+  .nav-links { display:flex; flex-wrap:wrap; gap:8px; align-items:center;
+    justify-content:flex-start; flex:1 1 auto; }
+  .nav-right-start { margin-left:auto; }
+  .top-nav a { text-decoration:none; color:var(--ink); font-family:'Montserrat',sans-serif;
+    font-size:.9rem; padding:7px 10px; border-radius:999px; background:transparent; }
+  .top-nav a:hover { background:#f1f5f9; color:#0f172a; }
+  .top-nav a[aria-current="page"] { background:#e2e8f0; color:#0f172a;
+    box-shadow:inset 0 1px 2px rgba(15,23,42,.10); }
+  .nav-ghost { opacity:.55; font-size:.72em; }
+  .nav-substack { vertical-align:-1px; opacity:.85; }
+
+  .nav-toggle { display:none; width:40px; height:40px; border:1px solid rgba(148,163,184,.18);
+    border-radius:12px; background:#fff; align-items:center; justify-content:center;
+    flex-direction:column; gap:4px; cursor:pointer; box-shadow:0 8px 20px rgba(15,23,42,.05); }
+  .nav-toggle span { display:block; width:16px; height:1.5px; background:#0f172a; border-radius:999px; }
+
+  /* Narrow screens: a hamburger in the flow of the page, and the panel drops
+     below it. The home page used to float this over the profile photo with a
+     zero-height row, which only works on a page that has a photo there. In
+     the flow it behaves the same everywhere. */
+  @media (max-width: 720px) {
+    .top-nav { padding:6px 0 10px; margin-bottom:4px; }
+    .nav-toggle { display:inline-flex; }
+    .nav-links { display:none; }
+    .top-nav.nav-open .nav-links { display:flex; position:absolute; top:52px; left:0;
+      width:fit-content; min-width:196px; max-width:78vw; margin:0; z-index:41;
+      flex-direction:column; align-items:stretch; padding:10px;
+      border:1px solid rgba(255,255,255,.5); border-radius:18px;
+      background:rgba(255,255,255,.72); backdrop-filter:blur(22px) saturate(1.6);
+      -webkit-backdrop-filter:blur(22px) saturate(1.6);
+      box-shadow:0 20px 44px rgba(15,23,42,.28); }
+    .top-nav.nav-open .nav-links a { color:#0f172a; }
+    .top-nav.nav-open .nav-right-start { margin-left:0; }
+    .top-nav.nav-open .nav-links a[aria-current="page"] { background:rgba(255,255,255,.72); box-shadow:none; }
+    .nav-links a { width:auto; min-width:0; text-align:left; justify-content:flex-start;
+      padding:10px 12px; font-size:.98rem; white-space:nowrap; }
+  }
+</style>
+
+<script>
+  const nav = document.querySelector('.top-nav');
+  const toggle = nav?.querySelector('.nav-toggle');
+  const close = () => {
+    nav?.classList.remove('nav-open');
+    toggle?.setAttribute('aria-expanded', 'false');
+  };
+  toggle?.addEventListener('click', () => {
+    const open = nav?.classList.toggle('nav-open');
+    toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+  });
+  nav?.querySelectorAll('.nav-links a').forEach((a) => a.addEventListener('click', close));
+  document.addEventListener('click', (e) => {
+    if (!nav?.classList.contains('nav-open')) return;
+    if (!nav.contains(e.target)) close();
+  });
+  document.addEventListener('keydown', (e) => { if (e.key === 'Escape') close(); });
+</script>

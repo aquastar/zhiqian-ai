@@ -1,0 +1,65 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Nav from '../components/Nav.astro';
+
+// The CV reads in the page rather than downloading. No nav entry: it is
+// reached from the CV icon on the home page, and it is a document rather
+// than a section of the site.
+const PDF = '/cv.pdf';
+---
+
+<Layout title="CV | Zhiqian Chen">
+  <main class="container">
+    <Nav />
+
+    <div class="cv-bar">
+      <h1>Curriculum vitae</h1>
+      <div class="cv-actions">
+        <a class="cv-btn" href={PDF} target="_blank" rel="noopener">
+          <i class="fas fa-arrow-up-right-from-square" aria-hidden="true"></i>Open in a new tab
+        </a>
+        <a class="cv-btn cv-btn-strong" href={PDF} download>
+          <i class="fas fa-download" aria-hidden="true"></i>Download
+        </a>
+      </div>
+    </div>
+
+    {/* An iframe rather than <object>: Chrome's viewer renders the thumbnail
+        rail but leaves the page pane blank inside an object on this layout.
+        No #view hash either, which fought with the viewer's own fit. */}
+    <iframe class="cv-frame" src={PDF} title="Curriculum vitae" loading="lazy"></iframe>
+
+    {/* Phones mostly refuse to render a PDF in a frame at all, so they get
+        the link rather than a grey rectangle. */}
+    <p class="cv-fallback">
+      Not showing above? <a href={PDF} target="_blank" rel="noopener">Open the CV directly</a>.
+    </p>
+  </main>
+</Layout>
+
+<style>
+  .container { max-width: min(95vw, 1600px); margin:0 auto; padding:20px; box-sizing:border-box; }
+  .cv-bar { display:flex; align-items:baseline; justify-content:space-between; gap:16px;
+    flex-wrap:wrap; margin-bottom:12px; }
+  .cv-bar h1 { font-size:1.5rem; margin:0; letter-spacing:-.02em; text-align:left; }
+  .cv-actions { display:flex; gap:8px; }
+  .cv-btn { display:inline-flex; align-items:center; gap:7px; padding:6px 13px; border-radius:999px;
+    border:1px solid rgba(148,163,184,.45); background:#fff; color:#475569;
+    font-size:.8rem; font-weight:600; text-decoration:none; white-space:nowrap; }
+  .cv-btn:hover { color:var(--accent); border-color:rgba(37,99,235,.5); }
+  .cv-btn-strong { background:#0f172a; border-color:#0f172a; color:#fff; }
+  .cv-btn-strong:hover { background:#334155; color:#fff; border-color:#334155; }
+  .cv-btn i { font-size:.72rem; }
+
+  /* Tall enough to read a page at a time without the window scrolling the
+     viewer out from under you. */
+  .cv-frame { display:block; width:100%; height:calc(100vh - 160px); min-height:520px;
+    border:1px solid rgba(148,163,184,.3); border-radius:12px; background:#f8fafc; }
+  .cv-fallback { margin:10px 0 0; font-size:.78rem; color:#94a3b8; text-align:left; }
+  .cv-fallback a { color:#64748b; }
+
+  @media (max-width: 720px) {
+    .cv-frame { height:70vh; min-height:380px; }
+    .cv-bar h1 { font-size:1.25rem; }
+  }
+</style>

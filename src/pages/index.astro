@@ -1,5 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import Nav from '../components/Nav.astro';
 const updates = [
   { type: 'paper', date: '09/2026', venue: '<strong class="venue">BIBM 2026</strong>', text: '<strong>KSNet</strong>: interpretable Koopman-spectral representations for EEG-based seizure prediction.' },
   { type: 'paper', date: '08/2026', venue: '<strong class="venue">CIKM 2026</strong>', text: 'A formal pre-condition for checking whether a knowledge graph structurally supports a query before an LLM generates from it.' },
@@ -624,22 +625,7 @@ const selectedGroups = selectedFilters
 
 <Layout title="Zhiqian Chen">
   <main class="container" id="top">
-    <nav class="top-nav" aria-label="Sections">
-      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="mobile-nav-panel" aria-label="Open navigation menu">
-        <span></span><span></span><span></span>
-      </button>
-      <div class="nav-links" id="mobile-nav-panel">
-        <a href="/" aria-current="page">Home</a>
-        <a href="/research">Research</a>
-        <a href="/agenda">Agenda</a>
-        <a href="/people">People</a>
-        <a href="/teach">Talk &amp; Teach</a>
-        <a href="https://scholar.google.com/citations?user=NC3-O6UAAAAJ&hl=en&oi=ao" target="_blank" rel="noopener">Paper <i class="ai ai-google-scholar-square ai-sm nav-ghost"></i> <i class="fas fa-arrow-up-right-from-square nav-ghost"></i></a>
-        <a href="https://substack.com/@zhiqianchen1" target="_blank" rel="noopener">Zhiqian's Note <svg class="nav-ghost nav-substack" viewBox="0 0 24 24" fill="currentColor" width="11" height="11" aria-hidden="true"><path d="M22.539 8.242H1.46V5.406h21.08v2.836zM1.46 10.812V24L12 18.11 22.54 24V10.812H1.46zM22.54 0H1.46v2.836h21.08V0z"/></svg> <i class="fas fa-arrow-up-right-from-square nav-ghost"></i></a>
-        <a class="nav-right-start" href="/conferences">Conferences</a>
-        <a href="/funding">Funding</a>
-      </div>
-    </nav>
+    <Nav current="home" />
 
     <section class="grid-2">
       <aside class="left-col">
@@ -665,7 +651,7 @@ const selectedGroups = selectedFilters
           </div>
 
           <div class="icons" aria-label="social links">
-            <a href="/cv.pdf" title="CV" target="_blank" rel="noopener"><i class="ai ai-cv"></i></a>
+            <a href="/cv" title="CV"><i class="ai ai-cv"></i></a>
             <a href="https://scholar.google.com/citations?hl=en&user=NC3-O6UAAAAJ" title="Google Scholar"><i class="ai ai-google-scholar"></i></a>
             <a href="https://github.com/aquastar" title="GitHub"><i class="fab fa-github"></i></a>
             <a href="https://www.linkedin.com/in/zhiqian-chen-ai/" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
@@ -895,26 +881,6 @@ const selectedGroups = selectedFilters
       synth.speak(u);
     });
 
-    const navToggle = document.querySelector('.nav-toggle');
-    const topNav = document.querySelector('.top-nav');
-    navToggle?.addEventListener('click', () => {
-      const open = topNav?.classList.toggle('nav-open');
-      navToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
-    });
-    const closeNav = () => {
-      topNav?.classList.remove('nav-open');
-      navToggle?.setAttribute('aria-expanded', 'false');
-    };
-    document.querySelectorAll('.nav-links a').forEach((link) => {
-      link.addEventListener('click', closeNav);
-    });
-    document.addEventListener('click', (event) => {
-      if (!topNav?.classList.contains('nav-open')) return;
-      if (!topNav.contains(event.target)) closeNav();
-    });
-    document.addEventListener('keydown', (event) => {
-      if (event.key === 'Escape') closeNav();
-    });
 
 
     const selectedFilterButtons = Array.from(document.querySelectorAll('[data-selected-filter]'));
@@ -1039,19 +1005,9 @@ const selectedGroups = selectedFilters
   body { background: var(--page); }
   .container { max-width: min(95vw, 1600px); margin: 0 auto; padding: 20px; box-sizing: border-box; }
   .card { background: rgba(255,255,255,0.92); border: 1px solid rgba(148,163,184,0.12); border-radius: 18px; box-shadow: 0 10px 30px rgba(15,23,42,0.06); backdrop-filter: blur(10px); }
-  .top-nav { margin-bottom: 7px; padding: 10px 0 14px; display: flex; align-items: center; justify-content: flex-start; gap: 12px; background: transparent; border: none; border-bottom: none; border-radius: 0; box-shadow: none; position: relative; }
-  .nav-links { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; justify-content: flex-start; flex: 1 1 auto; }
   /* The two tracker pages sit apart from the site sections, on the right.
      The links row has to be allowed to grow first, or margin-left:auto has
      no slack to push into and the pair just trails the last link. */
-  .nav-right-start { margin-left: auto; }
-  .top-nav a { text-decoration: none; color: var(--ink); font-family: 'Montserrat', sans-serif; font-size: 0.9rem; padding: 7px 10px; border-radius: 999px; background: transparent; }
-  .nav-toggle { display: none; width: 40px; height: 40px; border: 1px solid rgba(148,163,184,0.18); border-radius: 12px; background: #fff; align-items: center; justify-content: center; flex-direction: column; gap: 4px; cursor: pointer; box-shadow: 0 8px 20px rgba(15,23,42,0.05); }
-  .nav-toggle span { display: block; width: 16px; height: 1.5px; background: #0f172a; border-radius: 999px; }
-  .top-nav a:hover { background: #f1f5f9; color: #0f172a; }
-  .top-nav a[aria-current="page"] { background: #e2e8f0; color: #0f172a; box-shadow: inset 0 1px 2px rgba(15,23,42,0.10); }
-  .nav-ghost { font-size: 0.78rem; margin-left: 4px; opacity: .85; }
-  .nav-substack { vertical-align: -1px; opacity: .85; }
 
   /* One line, not a card. The trackers are worth mentioning under the
      recruiting note, not announcing above it. */
@@ -1241,15 +1197,7 @@ const selectedGroups = selectedFilters
   @media (max-width: 720px) {
     .container { padding: 14px; position: relative; }
     /* Mobile nav: the row itself takes no height; the hamburger floats over the top-left corner of the profile photo. */
-    .top-nav { display: block; position: relative; height: 0; margin: 0; padding: 0; z-index: 40; }
-    .nav-toggle { display: inline-flex; position: absolute; top: 24px; left: 24px; width: 38px; height: 38px; border-radius: 12px; border: 1px solid rgba(148,163,184,0.3); background: rgba(255,255,255,0.92); backdrop-filter: blur(10px); box-shadow: 0 8px 22px rgba(15,23,42,0.18); z-index: 41; }
-    .nav-links { display: none; }
     /* Open: the panel is a frosted overlay on the photo, so the layout never shifts. */
-    .top-nav.nav-open .nav-links { display: flex; position: absolute; top: 72px; left: 24px; width: fit-content; min-width: 196px; max-width: 78vw; margin: 0; flex-direction: column; align-items: stretch; padding: 10px; border: 1px solid rgba(255,255,255,0.5); border-radius: 18px; background: rgba(255,255,255,0.58); backdrop-filter: blur(22px) saturate(1.6); -webkit-backdrop-filter: blur(22px) saturate(1.6); box-shadow: 0 20px 44px rgba(15,23,42,0.28); }
-    .top-nav.nav-open .nav-links a { color: #0f172a; }
-    .top-nav.nav-open .nav-right-start { margin-left: 0; }
-    .top-nav.nav-open .nav-links a[aria-current="page"] { background: rgba(255,255,255,0.72); box-shadow: none; }
-    .nav-links a { width: auto; min-width: 0; text-align: left; justify-content: flex-start; padding: 10px 12px; font-size: .98rem; white-space: nowrap; }
     .grid-2 { grid-template-columns: 1fr; }
     .subgrid-2 { grid-template-columns: 1fr; }
     .research-flow { grid-template-columns: 1fr; gap: 8px; }
