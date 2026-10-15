@@ -144,7 +144,6 @@ const COMP_WORD = { 1: 'light', 2: 'moderate', 3: 'competitive', 4: 'hard', 5: '
             <th class="c-terms">Terms</th>
             <th class="c-size" title="What one project receives, not what the programme has to spend in total">Per project</th>
             <th class="c-hard">Difficulty</th>
-            <th class="c-fit">Who it suits</th>
             <th class="c-when">Next date</th>
           </tr>
         </thead>
@@ -193,11 +192,6 @@ const COMP_WORD = { 1: 'light', 2: 'moderate', 3: 'competitive', 4: 'hard', 5: '
                   <span class="comp-label">{COMP_WORD[r.comp_score]}</span>
                   {!/published success rate/.test(r.comp_basis) && <span class="comp-est">est.</span>}
                 </span>
-              </td>
-              <td class="c-fit" data-label="Who it suits">
-                {r.fit && r.fit.length
-                  ? <span class="fits">{r.fit.map((f) => <span class="fit">{f}</span>)}</span>
-                  : <span class="none" title="The call's own name and eligibility line say nothing specific about who it is for.">nothing stated</span>}
               </td>
               <td class="c-when" data-label="Next date">
                 {r.dl.next
@@ -307,21 +301,15 @@ const COMP_WORD = { 1: 'light', 2: 'moderate', 3: 'competitive', 4: 'hard', 5: '
   .fund tbody tr[data-pick="1"] { background:#fffdf5; }
   .fund tbody tr[data-pick="1"]:hover { background:#fef9e7; }
 
-  .c-who { width:25%; }
-  .c-terms { width:20%; }
-  .c-size { width:13%; }
-  .c-hard { width:10%; }
-  .c-fit { width:14%; }
-  .c-when { width:18%; }
+  .c-who { width:29%; }
+  .c-terms { width:25%; }
+  .c-size { width:15%; }
+  .c-hard { width:12%; }
+  .c-when { width:19%; }
   .award { display:block; font-size:.78rem; font-weight:700; color:#0f172a; line-height:1.35; }
   .award-note { font-size:.72rem; color:#64748b; cursor:help;
     border-bottom:1px dotted rgba(148,163,184,.7); }
 
-  /* What the call is after, in the funder's own words reduced to keywords. */
-  .fits { display:flex; flex-wrap:wrap; gap:4px; }
-  .fit { font-size:.66rem; font-weight:600; color:#475569; background:#f8fafc;
-    border:1px solid rgba(148,163,184,.35); border-radius:999px; padding:1px 8px;
-    line-height:1.5; }
 
   /* Funder and programme were two bold lines a shade apart, which is not a
      difference you can see while scanning. They are now plainly different
@@ -439,7 +427,7 @@ const COMP_WORD = { 1: 'light', 2: 'moderate', 3: 'competitive', 4: 'hard', 5: '
     .fund tbody td + td { margin-top:8px; padding-top:8px; border-top:1px dashed rgba(148,163,184,.3); }
     .fund tbody td[data-label]::before { content:attr(data-label); display:block; margin-bottom:3px;
       font-size:.6rem; font-weight:700; letter-spacing:.07em; text-transform:uppercase; color:#94a3b8; }
-    .c-fit, .c-hard, .c-size { white-space:normal; }
+    .c-hard, .c-size { white-space:normal; }
     .when-main { margin-left:0; }
     /* A card has the width to show the whole name, so stop cutting it. */
     .program { flex-wrap:wrap; }
