@@ -544,14 +544,26 @@ def tldr(row):
         line = KIND_FALLBACK.get(row.get('category', ''), '')
     # Money only when there is a figure. A row that says "an unstated amount"
     # has spent a line telling the reader nothing.
-    money = (row.get('budget') or '').strip()
-    if money and money.lower() not in ('not listed', 'same as above'):
-        # A programme-wide pot is not what one project gets, and printing
-        # "$110M" beside a single call would read as though it were.
-        money = re.sub(r'^\$(\S+) total', r'$\1 across the whole programme', money)
-        money = money[0].upper() + money[1:]
-        line = f'{line} {money}.'.strip()
     return line
+
+
+def award_size(row):
+    """What one project gets, kept apart from the programme's whole pot.
+
+    A figure like "$110M total" is what the agency has to spend across every
+    award it will make, and printing it against a single call would read as
+    the award size. Those go to the note instead, and the per-project cell
+    says nothing, which is the true answer.
+    """
+    money = (row.get('budget') or '').strip()
+    if not money or money.lower() in ('not listed', 'same as above'):
+        return '', ''
+    if re.search(r'\btotal\b', money, re.I):
+        pot = re.sub(r'\s*\btotal\b\s*,?\s*', ' ', money, flags=re.I).strip(' ,')
+        return '', f'{pot} across the whole programme. Not a per-project figure.'
+    if re.search(r'follows the host|per host', money, re.I):
+        return '', 'Set by whichever programme hosts the work.'
+    return money[0].upper() + money[1:], ''
 
 
 # ------------------------------------------------- who a call is aimed at ---
@@ -871,6 +883,7 @@ def main():
         r['fit'] = fit_tags(r)
         r['comp_score'], r['comp_basis'] = competition(r)
         r['tldr'] = tldr(r)
+        r['award'], r['award_note'] = award_size(r)
 
     data = {
         'date': date,

@@ -142,6 +142,7 @@ const COMP_WORD = { 1: 'light', 2: 'moderate', 3: 'competitive', 4: 'hard', 5: '
           <tr>
             <th class="c-who">Funder and program</th>
             <th class="c-terms">Terms</th>
+            <th class="c-size" title="What one project receives, not what the programme has to spend in total">Per project</th>
             <th class="c-hard">Difficulty</th>
             <th class="c-fit">Who it suits</th>
             <th class="c-when">Next date</th>
@@ -177,6 +178,13 @@ const COMP_WORD = { 1: 'light', 2: 'moderate', 3: 'competitive', 4: 'hard', 5: '
                     eligibility text is in data.json. */}
                 <span class="tldr" title={r.eligibility ? `Eligibility as written: ${r.eligibility}` : undefined}>{r.tldr}</span>
               </td>
+              <td class="c-size" data-label="Per project">
+                {r.award
+                  ? <span class="award">{r.award}</span>
+                  : r.award_note
+                  ? <span class="award-note" title={r.award_note}>see note</span>
+                  : <span class="none" title="The call does not state what one project receives.">not stated</span>}
+              </td>
               <td class="c-hard" data-label="Difficulty">
                 <span class={`comp comp-${r.comp_score}`} title={r.comp_basis}>
                   <span class="comp-dots" aria-hidden="true">
@@ -195,8 +203,10 @@ const COMP_WORD = { 1: 'light', 2: 'moderate', 3: 'competitive', 4: 'hard', 5: '
                 {r.dl.next
                   ? <span class="when-line">
                       {r.dl.qualifier && <span class="qual">{r.dl.qualifier}</span>}
-                      <span class="date">{r.dl.next}</span>
-                      <span class="days" data-deadline={r.dl.next}></span>
+                      <span class="when-main">
+                        <span class="date">{r.dl.next}</span>
+                        <span class="days" data-deadline={r.dl.next}></span>
+                      </span>
                     </span>
                   : r.dl.status === 'closed'
                   ? <span class="when-line"><span class="date is-gone">{r.dl.raw}</span><span class="days band-past">closed</span></span>
@@ -297,11 +307,15 @@ const COMP_WORD = { 1: 'light', 2: 'moderate', 3: 'competitive', 4: 'hard', 5: '
   .fund tbody tr[data-pick="1"] { background:#fffdf5; }
   .fund tbody tr[data-pick="1"]:hover { background:#fef9e7; }
 
-  .c-who { width:31%; }
-  .c-terms { width:22%; }
-  .c-hard { width:12%; }
-  .c-fit { width:16%; }
-  .c-when { width:19%; }
+  .c-who { width:25%; }
+  .c-terms { width:20%; }
+  .c-size { width:13%; }
+  .c-hard { width:10%; }
+  .c-fit { width:14%; }
+  .c-when { width:18%; }
+  .award { display:block; font-size:.78rem; font-weight:700; color:#0f172a; line-height:1.35; }
+  .award-note { font-size:.72rem; color:#64748b; cursor:help;
+    border-bottom:1px dotted rgba(148,163,184,.7); }
 
   /* What the call is after, in the funder's own words reduced to keywords. */
   .fits { display:flex; flex-wrap:wrap; gap:4px; }
@@ -363,8 +377,10 @@ const COMP_WORD = { 1: 'light', 2: 'moderate', 3: 'competitive', 4: 'hard', 5: '
 
   /* The date reads from the left, the countdown is pinned to the right edge
      so the badges line up into a column the eye can run down. */
-  .when-line { display:flex; flex-wrap:wrap; align-items:center; gap:6px; }
-  .when-line .days { margin-left:auto; }
+  .when-line { display:flex; flex-wrap:wrap; align-items:center; gap:4px 6px; }
+  /* Date and countdown are one unit. A long qualifier like "Solution Summary"
+     used to land between them and push the badge onto its own line. */
+  .when-main { display:inline-flex; align-items:center; gap:6px; margin-left:auto; flex:0 0 auto; }
   .qual { font-size:.6rem; font-weight:800; letter-spacing:.05em; text-transform:uppercase;
     color:#92400e; background:#fef3c7; border:1px solid #fde68a; border-radius:4px; padding:1px 5px; }
   .date { font-variant-numeric:tabular-nums; font-weight:600; color:#1e293b; }
@@ -423,8 +439,8 @@ const COMP_WORD = { 1: 'light', 2: 'moderate', 3: 'competitive', 4: 'hard', 5: '
     .fund tbody td + td { margin-top:8px; padding-top:8px; border-top:1px dashed rgba(148,163,184,.3); }
     .fund tbody td[data-label]::before { content:attr(data-label); display:block; margin-bottom:3px;
       font-size:.6rem; font-weight:700; letter-spacing:.07em; text-transform:uppercase; color:#94a3b8; }
-    .c-fit, .c-hard { white-space:normal; }
-    .when-line .days { margin-left:0; }
+    .c-fit, .c-hard, .c-size { white-space:normal; }
+    .when-main { margin-left:0; }
     /* A card has the width to show the whole name, so stop cutting it. */
     .program { flex-wrap:wrap; }
     .who-line { flex-wrap:wrap; }
