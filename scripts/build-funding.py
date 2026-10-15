@@ -30,8 +30,7 @@ import re
 import sys
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
-PAGES = ROOT / 'src' / 'pages' / 'funding'
-ARCHIVE = PAGES / 'archive'
+DATA = ROOT / 'src' / 'data'
 PUBLIC = ROOT / 'public' / 'funding'
 
 # The brief's table, left to right. 'skip' is the personal fit score.
@@ -115,35 +114,45 @@ def parse_watchlist(text):
     return rows
 
 
-def md_table(rows, headers, keys):
-    out = ['| ' + ' | '.join(headers) + ' |',
-           '|' + '|'.join(['---'] * len(headers)) + '|']
-    for r in rows:
-        cells = []
-        for k in keys:
-            v = (r.get(k) or '').replace('|', '\\|')
-            cells.append(f'[链接]({v})' if k == 'url' and v else v)
-        out.append('| ' + ' | '.join(cells) + ' |')
-    return '\n'.join(out)
-
-
-def page(title, date, window, body):
-    w = ''
-    if window:
-        w = (f"收录窗口: {window['new_since']} 以来新发布, "
-             f"或 {window['deadline_before']} 前截止.\n\n")
-    return (f'---\ntitle: "{title}"\ndate: {date}\n---\n\n'
-            f'# {title}\n\n更新于 {date}. {CAVEAT}\n\n{w}{body}\n')
-
-
 def main():
     brief_p, registry_p, watchlist_p = sys.argv[1:4]
     date, window, opps, signals = parse_brief(load(brief_p))
     registry = parse_registry(load(registry_p))
     watchlist = parse_watchlist(load(watchlist_p))
 
-    for d in (PAGES, ARCHIVE, PUBLIC):
+    for d in (DATA, PUBLIC):
         d.mkdir(parents=True, exist_ok=True)
+
+    # Every opportunity in the weekly table is also a registry row, so the page
+    # can show one list instead of two and the brief's extra columns ride along
+    # on the row they belong to. The url alone is not enough of a key: three
+    # sponsors list two separate programs behind a single landing page, and
+    # matching on url would copy one programme's budget onto the other. Where a
+    # url is shared, the programme names have to agree as well.
+    def norm(x):
+        return [t for t in re.split(r'[^a-z0-9]+', (x or '').lower()) if t]
+
+    by_url = {}
+    for r in registry:
+        by_url.setdefault(r.get('url', ''), []).append(r)
+
+    for o in opps:
+        rows = by_url.get(o.get('url', ''), [])
+        if not rows:
+            continue
+        if len(rows) > 1:
+            want = set(norm(o.get('program')))
+            scored = sorted(rows, key=lambda r: len(want & set(norm(r.get('program')))),
+                            reverse=True)
+            best = len(want & set(norm(scored[0].get('program'))))
+            if best == 0:
+                continue                      # same page, different programme
+            rows = [scored[0]]
+        target = rows[0]
+        target['pick'] = True
+        for k in ('budget', 'eligibility', 'competition', 'source_tier'):
+            if o.get(k):
+                target[k] = o[k]
 
     data = {
         'date': date,
@@ -156,38 +165,16 @@ def main():
         'registry': registry,
         'watchlist': watchlist,
     }
-    (PUBLIC / 'data.json').write_text(
-        json.dumps(data, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
-    (PUBLIC / f'{date}.json').write_text(
-        json.dumps(data, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
-
-    body = ['## 机会总表\n',
-            md_table(opps,
-                     ['机构', '项目名称与编号', '截止日期', '预算与年限', '资格要点', '竞争度估计', '来源层', '链接'],
-                     ['sponsor', 'program', 'deadline', 'budget', 'eligibility',
-                      'competition', 'source_tier', 'url'])]
-    if signals:
-        body.append('\n## 早期信号\n')
-        body += [f"- {s['note']}" + (f": {s['url']}" if s['url'] else '')
-                 for s in signals]
-    body = '\n'.join(body)
-
-    links = ('[往期](/funding/archive/) | [data.json](/funding/data.json) | '
-             '[registry.csv](/funding/registry.csv) | '
-             '[watchlist.csv](/funding/watchlist.csv)\n\n')
-    title = f'AI Funding Brief {date}'
-    (PAGES / 'index.md').write_text(page(title, date, window, links + body), encoding='utf-8')
-    (ARCHIVE / f'{date}.md').write_text(page(title, date, window, body), encoding='utf-8')
-
-    dates = sorted((p.stem for p in ARCHIVE.glob('????-??-??.md')), reverse=True)
-    lst = '\n'.join(f'- [{x}](/funding/archive/{x}/)' for x in dates)
-    (ARCHIVE / 'index.md').write_text(
-        f'---\ntitle: "AI Funding Brief Archive"\n---\n\n'
-        f'# AI Funding Brief Archive\n\n{lst}\n', encoding='utf-8')
+    blob = json.dumps(data, ensure_ascii=False, indent=2) + '\n'
+    (PUBLIC / 'data.json').write_text(blob, encoding='utf-8')
+    (PUBLIC / f'{date}.json').write_text(blob, encoding='utf-8')
+    # The page imports this one. Keeping it in src means a missing or malformed
+    # brief breaks the build loudly instead of rendering an empty table.
+    (DATA / 'funding.json').write_text(blob, encoding='utf-8')
 
     with open(PUBLIC / 'registry.csv', 'w', newline='', encoding='utf-8') as f:
         w = csv.DictWriter(f, fieldnames=['first_seen_date', 'sponsor', 'program',
-                                          'deadline', 'url'])
+                                          'deadline', 'url'], extrasaction='ignore')
         w.writeheader()
         w.writerows(registry)
 
@@ -201,17 +188,17 @@ def main():
     # removed structurally above; this is the check that says so out loud, and
     # fails the run rather than publishing a name by accident.
     banned = ['Zhiqian', 'RIT CS', '对象:', '匹配度', '本周头条', 'research_lines']
-    served = list(PUBLIC.glob('*')) + list(PAGES.rglob('*.md'))
-    for p in served:
+    for p in list(PUBLIC.glob('*')) + [DATA / 'funding.json']:
         if p.is_dir():
             continue
-        text = p.read_text(encoding='utf-8')
-        hit = [b for b in banned if b in text]
+        hit = [b for b in banned if b in p.read_text(encoding='utf-8')]
         if hit:
             sys.exit(f'{p}: personal content leaked into a public file: {hit}')
 
-    print(f'brief {date}: {len(opps)} opportunities, {len(signals)} signals, '
-          f'{len(registry)} registry rows, {len(watchlist)} watchlist rows')
+    picks = sum(1 for r in registry if r.get('pick'))
+    print(f'brief {date}: {len(opps)} opportunities ({picks} matched into the '
+          f'registry), {len(signals)} signals, {len(registry)} registry rows, '
+          f'{len(watchlist)} watchlist rows')
 
 
 if __name__ == '__main__':
