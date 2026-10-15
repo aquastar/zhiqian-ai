@@ -178,8 +178,12 @@ const COMP_WORD = { 1: 'light', 2: 'moderate', 3: 'competitive', 4: 'hard', 5: '
                 <span class="tldr" title={r.eligibility ? `Eligibility as written: ${r.eligibility}` : undefined}>{r.tldr}</span>
               </td>
               <td class="c-size" data-label="Per project">
+                {/* The note explains where the figure came from, and for an
+                    NSF row that it is an average rather than a stated award
+                    size. It was only rendered when there was no figure, which
+                    is exactly when it is least needed. */}
                 {r.award
-                  ? <span class="award">{r.award}</span>
+                  ? <span class={`award${/^~/.test(r.award) ? ' is-avg' : ''}`} title={r.award_note || undefined}>{r.award}</span>
                   : r.award_note
                   ? <span class="award-note" title={r.award_note}>see note</span>
                   : <span class="none" title="The call does not state what one project receives.">not stated</span>}
@@ -307,6 +311,10 @@ const COMP_WORD = { 1: 'light', 2: 'moderate', 3: 'competitive', 4: 'hard', 5: '
   .c-hard { width:12%; }
   .c-when { width:19%; }
   .award { display:block; font-size:.78rem; font-weight:700; color:#0f172a; line-height:1.35; }
+  /* A tilde figure is an average worked out from the programme total, not a
+     number the funder printed. It is drawn as the softer claim it is. */
+  .award.is-avg { font-weight:600; color:#475569; cursor:help;
+    border-bottom:1px dotted rgba(148,163,184,.7); display:inline-block; }
   .award-note { font-size:.72rem; color:#64748b; cursor:help;
     border-bottom:1px dotted rgba(148,163,184,.7); }
 
