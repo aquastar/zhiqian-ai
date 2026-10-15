@@ -335,6 +335,67 @@ def dstr(s):
 
 EXTRA={'ICASSP':'AI / ML / Data Mining','InterSpeech':'AI / ML / Data Mining',
        'ICWSM':'AI / ML / Data Mining'}
+# Deadlines read off the venue's own site, overriding ccfddl.
+#
+# ccfddl rolls last year's date forward when a venue has announced nothing,
+# and marks the result an estimate. Those estimates are sometimes badly out,
+# and the failure is quiet: a venue shows as open on a date it did not
+# choose. Checked against each site with scripts/check-deadlines.py, and
+# every entry here was then read by eye on the page named in `source`, with
+# the sentence it came from kept in `quote` so the claim can be rechecked.
+#
+# Only the main paper track. A commitment deadline, a journal track or an
+# industry track is a different door and does not belong in this column.
+DEADLINE_FIX = {
+  'NAACL': {'date':'2026-10-12', 'label':'ARR Submission',
+            'source':'https://2027.naacl.org/',
+            'quote':'Main submission deadline (ARR) October 12, 2026',
+            'checked':'2026-10-15'},
+  'AAMAS': {'date':'2026-10-08', 'label':'Main track paper submission',
+            'source':'https://warwick.ac.uk/fac/sci/dcs/aamas2027/',
+            'quote':'Main Track: Abstract submission: 1 Oct 2026 Paper submission: 8 Oct 2026',
+            'checked':'2026-10-15'},
+  'ECIR':  {'date':'2026-10-12', 'label':'Full paper submission',
+            'source':'https://ecir2027.co.uk/',
+            'quote':'Full paper submission 12 Oct 2026',
+            'checked':'2026-10-15'},
+  'COLING':{'date':'2026-10-12', 'label':'ARR Submission',
+            'source':'https://2027.coling-iccl.org/',
+            'quote':'Important Dates ARR submission deadline Monday October 12, 2026',
+            'checked':'2026-10-15'},
+  'ICDAR': {'date':'2027-02-28', 'label':'Full paper deadline',
+            'source':'https://icdar2027.org/important-dates',
+            'quote':'Main Paper Deadlines for ICDAR 2027 Full Paper Deadline: February 28, 2027',
+            'checked':'2026-10-15'},
+}
+
+
+def apply_deadline_fix(title, rounds):
+    """Replace the main submission round with the date the venue published."""
+    fix = DEADLINE_FIX.get(title)
+    if not fix:
+        return rounds
+    # Every main-track round goes, not just the first. ICDAR carried two,
+    # an estimate and a stale announced date, and replacing only one left the
+    # stale one in front of the verified date. The site is the authority for
+    # this track, so it supplies the whole of it.
+    #
+    # Commitment rounds survive untouched: those are a different door, open
+    # only to papers that already have reviews, and the site's main-track
+    # date says nothing about them.
+    keep = [r for r in rounds if 'commitment' in (r.get('label') or '').lower()]
+    # No abstract deadline is carried across. The one on the round being
+    # replaced came from the same rolled estimate the site has just
+    # contradicted, and an abstract date sorts ahead of its paper date, so
+    # keeping it would have the row ordered by a guess: ICDAR sorted on a
+    # 2027-01-31 abstract that nobody published, in front of the 2027-02-28
+    # the site actually states. An abstract goes in DEADLINE_FIX by hand or
+    # not at all.
+    keep.append({'d': fix['date'], 'label': fix['label'], 'est': False,
+                 'abs': fix.get('abstract', ''), 'fixed': fix['source']})
+    keep.sort(key=lambda x: x['d'])
+    return keep
+
 out=[]
 for sub in ['AI','SC','DB','MX','CG','HI']:
     for f in sorted(glob.glob(f'ccf-deadlines/conference/{sub}/*.yml')):
@@ -427,6 +488,7 @@ for sub in ['AI','SC','DB','MX','CG','HI']:
             cap=max(len(ref_rounds), len(real))
             rounds = real + keep[:max(0, cap - len(real))]
             rounds.sort(key=lambda x: x['d'])
+            rounds = apply_deadline_fix(t, rounds)
             # The soonest round is the headline date, whether it is published
             # or rolled forward.
             nxt=None; est=False

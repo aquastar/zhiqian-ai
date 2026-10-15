@@ -3,8 +3,131 @@
 // CORE ranks are cross-checked against the official CORE2023 export from
 // portal.core.edu.au. Acceptance rates come from
 // github.com/lixin4ever/Conference-Acceptance-Rate (main track only).
-// Built 2026-10-14.
+// Built 2026-10-15.
 export const ranked = [
+  {
+    "title": "AAMAS",
+    "desc": "International Conference on Autonomous Agents and Multiagent Systems",
+    "area": "AI / ML / Data Mining",
+    "sub": "AI",
+    "ccf": "B",
+    "core": "A*",
+    "coreVerified": true,
+    "nextDeadline": "2026-10-08",
+    "nextYear": null,
+    "nextAbstract": "",
+    "estimated": false,
+    "estFrom": "",
+    "rounds": [
+      {
+        "d": "2026-10-08",
+        "label": "Main track paper submission",
+        "est": false,
+        "abs": "",
+        "fixed": "https://warwick.ac.uk/fac/sci/dcs/aamas2027/"
+      }
+    ],
+    "dblp": "ifaamas",
+    "csr": "",
+    "edition": "",
+    "best": "",
+    "link": "",
+    "date": "",
+    "place": "",
+    "cc": "",
+    "city": "",
+    "cycles": 1,
+    "roundLabels": [],
+    "proceedings": "full",
+    "rates": [],
+    "rateSection": "",
+    "rateSrc": "",
+    "rateSlug": "",
+    "tier": 1
+  },
+  {
+    "title": "COLING",
+    "desc": "International Conference on Computational Linguistics",
+    "area": "AI / ML / Data Mining",
+    "sub": "AI",
+    "ccf": "B",
+    "core": "B",
+    "coreVerified": true,
+    "nextDeadline": "2026-10-12",
+    "nextYear": null,
+    "nextAbstract": "",
+    "estimated": false,
+    "estFrom": "",
+    "rounds": [
+      {
+        "d": "2026-10-12",
+        "label": "ARR Submission",
+        "est": false,
+        "abs": "",
+        "fixed": "https://2027.coling-iccl.org/"
+      },
+      {
+        "d": "2026-10-20",
+        "label": "Commitment deadline for papers reviewed by ARR",
+        "est": true,
+        "from": "2024-10-20",
+        "abs": ""
+      },
+      {
+        "d": "2026-12-23",
+        "label": "COLING commitment after ARR meta-reviews; reviewed papers only",
+        "est": false,
+        "year": 2027,
+        "link": "https://2027.coling-iccl.org/",
+        "abs": ""
+      }
+    ],
+    "dblp": "coling",
+    "csr": "",
+    "edition": "",
+    "best": "",
+    "link": "",
+    "date": "",
+    "place": "",
+    "cc": "",
+    "city": "",
+    "cycles": 2,
+    "roundLabels": [
+      "ARR Submission",
+      "COLING commitment after ARR meta-reviews; reviewed papers only"
+    ],
+    "proceedings": "full",
+    "rates": [
+      {
+        "y": 2012,
+        "r": 27.0
+      },
+      {
+        "y": 2014,
+        "r": 30.8
+      },
+      {
+        "y": 2016,
+        "r": 32.4
+      },
+      {
+        "y": 2018,
+        "r": 37.4
+      },
+      {
+        "y": 2020,
+        "r": 33.4
+      },
+      {
+        "y": 2022,
+        "r": 33.4
+      }
+    ],
+    "rateSection": "natural-language-processing-and-computational-linguistics",
+    "rateSrc": "ar",
+    "rateSlug": "",
+    "tier": 2
+  },
   {
     "title": "NAACL",
     "desc": "The Annual Conference of the North American Chapter of the Association for Computational Linguistics",
@@ -13,18 +136,18 @@ export const ranked = [
     "ccf": "B",
     "core": "A",
     "coreVerified": true,
-    "nextDeadline": "2026-10-15",
-    "nextYear": 2027,
+    "nextDeadline": "2026-10-12",
+    "nextYear": null,
     "nextAbstract": "",
-    "estimated": true,
-    "estFrom": "2024-10-15",
+    "estimated": false,
+    "estFrom": "",
     "rounds": [
       {
-        "d": "2026-10-15",
+        "d": "2026-10-12",
         "label": "ARR Submission",
-        "est": true,
-        "from": "2024-10-15",
-        "abs": ""
+        "est": false,
+        "abs": "",
+        "fixed": "https://2027.naacl.org/"
       },
       {
         "d": "2026-12-23",
@@ -37,13 +160,13 @@ export const ranked = [
     ],
     "dblp": "naacl",
     "csr": "NLP",
-    "edition": "20th",
+    "edition": "",
     "best": "",
-    "link": "https://2027.naacl.org/",
-    "date": "June 1-5, 2027",
-    "place": "San Francisco, California, USA",
-    "cc": "us",
-    "city": "sourdough and Dungeness crab, a cable car over the hills, redwoods at Muir Woods",
+    "link": "",
+    "date": "",
+    "place": "",
+    "cc": "",
+    "city": "",
     "cycles": 2,
     "roundLabels": [
       "ARR Submission",
@@ -123,6 +246,143 @@ export const ranked = [
     "rateSection": "natural-language-processing-and-computational-linguistics",
     "rateSrc": "csc",
     "rateSlug": "naacl",
+    "tier": 2
+  },
+  {
+    "title": "ECIR",
+    "desc": "European Conference on Information Retrieval",
+    "area": "AI / ML / Data Mining",
+    "sub": "DB",
+    "ccf": "C",
+    "core": "A",
+    "coreVerified": true,
+    "nextDeadline": "2026-10-12",
+    "nextYear": null,
+    "nextAbstract": "",
+    "estimated": false,
+    "estFrom": "",
+    "rounds": [
+      {
+        "d": "2026-10-12",
+        "label": "Full paper submission",
+        "est": false,
+        "abs": "",
+        "fixed": "https://ecir2027.co.uk/"
+      }
+    ],
+    "dblp": "ecir",
+    "csr": "",
+    "edition": "",
+    "best": "",
+    "link": "",
+    "date": "",
+    "place": "",
+    "cc": "",
+    "city": "",
+    "cycles": 1,
+    "roundLabels": [],
+    "proceedings": "full",
+    "rates": [
+      {
+        "y": 2002,
+        "r": 44.2
+      },
+      {
+        "y": 2003,
+        "r": 30.7
+      },
+      {
+        "y": 2004,
+        "r": 31.8
+      },
+      {
+        "y": 2005,
+        "r": 27.4
+      },
+      {
+        "y": 2006,
+        "r": 20.9
+      },
+      {
+        "y": 2007,
+        "r": 19.1
+      },
+      {
+        "y": 2008,
+        "r": 23.7
+      },
+      {
+        "y": 2009,
+        "r": 22.3
+      },
+      {
+        "y": 2010,
+        "r": 21.8
+      },
+      {
+        "y": 2011,
+        "r": 20.2
+      },
+      {
+        "y": 2012,
+        "r": 22.7
+      },
+      {
+        "y": 2013,
+        "r": 28.8
+      },
+      {
+        "y": 2014,
+        "r": 23.2
+      },
+      {
+        "y": 2015,
+        "r": 23.2
+      },
+      {
+        "y": 2016,
+        "r": 24.9
+      },
+      {
+        "y": 2017,
+        "r": 26.7
+      },
+      {
+        "y": 2018,
+        "r": 22.8
+      },
+      {
+        "y": 2019,
+        "r": 22.9
+      },
+      {
+        "y": 2020,
+        "r": 25.9
+      },
+      {
+        "y": 2021,
+        "r": 24.0
+      },
+      {
+        "y": 2022,
+        "r": 20.0
+      },
+      {
+        "y": 2023,
+        "r": 25.4
+      },
+      {
+        "y": 2024,
+        "r": 24.8
+      },
+      {
+        "y": 2025,
+        "r": 23.0
+      }
+    ],
+    "rateSection": "",
+    "rateSrc": "csc",
+    "rateSlug": "ecir",
     "tier": 2
   },
   {
@@ -348,82 +608,6 @@ export const ranked = [
     "rateSrc": "csc",
     "rateSlug": "sigmod",
     "tier": 1
-  },
-  {
-    "title": "COLING",
-    "desc": "International Conference on Computational Linguistics",
-    "area": "AI / ML / Data Mining",
-    "sub": "AI",
-    "ccf": "B",
-    "core": "B",
-    "coreVerified": true,
-    "nextDeadline": "2026-10-20",
-    "nextYear": 2027,
-    "nextAbstract": "",
-    "estimated": true,
-    "estFrom": "2024-10-20",
-    "rounds": [
-      {
-        "d": "2026-10-20",
-        "label": "Commitment deadline for papers reviewed by ARR",
-        "est": true,
-        "from": "2024-10-20",
-        "abs": ""
-      },
-      {
-        "d": "2026-12-23",
-        "label": "COLING commitment after ARR meta-reviews; reviewed papers only",
-        "est": false,
-        "year": 2027,
-        "link": "https://2027.coling-iccl.org/",
-        "abs": ""
-      }
-    ],
-    "dblp": "coling",
-    "csr": "",
-    "edition": "",
-    "best": "",
-    "link": "https://2027.coling-iccl.org/",
-    "date": "May 9-14, 2027",
-    "place": "Macau SAR, China",
-    "cc": "cn",
-    "city": "egg tarts at Lord Stow's, African chicken, the Ruins of St Paul lit at night",
-    "cycles": 2,
-    "roundLabels": [
-      "ARR Submission",
-      "COLING commitment after ARR meta-reviews; reviewed papers only"
-    ],
-    "proceedings": "full",
-    "rates": [
-      {
-        "y": 2012,
-        "r": 27.0
-      },
-      {
-        "y": 2014,
-        "r": 30.8
-      },
-      {
-        "y": 2016,
-        "r": 32.4
-      },
-      {
-        "y": 2018,
-        "r": 37.4
-      },
-      {
-        "y": 2020,
-        "r": 33.4
-      },
-      {
-        "y": 2022,
-        "r": 33.4
-      }
-    ],
-    "rateSection": "natural-language-processing-and-computational-linguistics",
-    "rateSrc": "ar",
-    "rateSlug": "",
-    "tier": 2
   },
   {
     "title": "WWW",
@@ -1205,54 +1389,6 @@ export const ranked = [
     "tier": 1
   },
   {
-    "title": "ICDAR",
-    "desc": "International Conference on Document Analysis and Recognition",
-    "area": "AI / ML / Data Mining",
-    "sub": "AI",
-    "ccf": "C",
-    "core": "A",
-    "coreVerified": true,
-    "nextDeadline": "2026-11-14",
-    "nextYear": 2027,
-    "nextAbstract": "",
-    "estimated": true,
-    "estFrom": "2025-11-14",
-    "rounds": [
-      {
-        "d": "2026-11-14",
-        "label": "Journal track",
-        "est": true,
-        "from": "2025-11-14",
-        "abs": ""
-      },
-      {
-        "d": "2027-02-20",
-        "label": "",
-        "est": false,
-        "year": 2027,
-        "link": "https://icdar2027.org/",
-        "abs": "2027-01-31"
-      }
-    ],
-    "dblp": "icdar",
-    "csr": "",
-    "edition": "",
-    "best": "",
-    "link": "https://icdar2027.org/",
-    "date": "August 18 - 22, 2027",
-    "place": "Kuala Lumpur, Malaysia",
-    "cc": "my",
-    "city": "nasi lemak at Village Park, 272 steps at Batu Caves, Jalan Alor at midnight",
-    "cycles": 1,
-    "roundLabels": [],
-    "proceedings": "full",
-    "rates": [],
-    "rateSection": "",
-    "rateSrc": "",
-    "rateSlug": "",
-    "tier": 2
-  },
-  {
     "title": "CVPR",
     "desc": "IEEE/CVF Conference on Computer Vision and Pattern Recognition",
     "area": "AI / ML / Data Mining",
@@ -1448,53 +1584,6 @@ export const ranked = [
     "rateSection": "computer-vision-and-pattern-recognition",
     "rateSrc": "csc",
     "rateSlug": "cvpr",
-    "tier": 1
-  },
-  {
-    "title": "AAMAS",
-    "desc": "International Conference on Autonomous Agents and Multiagent Systems",
-    "area": "AI / ML / Data Mining",
-    "sub": "AI",
-    "ccf": "B",
-    "core": "A*",
-    "coreVerified": true,
-    "nextDeadline": "2026-11-17",
-    "nextYear": 2027,
-    "nextAbstract": "",
-    "estimated": true,
-    "estFrom": "2025-11-17",
-    "rounds": [
-      {
-        "d": "2026-11-17",
-        "label": "AAAI track",
-        "est": true,
-        "from": "2025-11-17",
-        "abs": ""
-      },
-      {
-        "d": "2027-10-08",
-        "label": "Main track",
-        "est": true,
-        "from": "2025-10-08",
-        "abs": "2027-10-01"
-      }
-    ],
-    "dblp": "ifaamas",
-    "csr": "",
-    "edition": "",
-    "best": "",
-    "link": "https://warwick.ac.uk/fac/sci/dcs/aamas2027/",
-    "date": "May 3-7, 2027",
-    "place": "Hanoi, Vietnam",
-    "cc": "vn",
-    "city": "pho and egg coffee, scooter chaos in the Old Quarter, an overnight junk on Ha Long Bay",
-    "cycles": 1,
-    "roundLabels": [],
-    "proceedings": "full",
-    "rates": [],
-    "rateSection": "",
-    "rateSrc": "",
-    "rateSlug": "",
     "tier": 1
   },
   {
@@ -4003,6 +4092,46 @@ export const ranked = [
     "tier": 2
   },
   {
+    "title": "ICDAR",
+    "desc": "International Conference on Document Analysis and Recognition",
+    "area": "AI / ML / Data Mining",
+    "sub": "AI",
+    "ccf": "C",
+    "core": "A",
+    "coreVerified": true,
+    "nextDeadline": "2027-02-28",
+    "nextYear": null,
+    "nextAbstract": "",
+    "estimated": false,
+    "estFrom": "",
+    "rounds": [
+      {
+        "d": "2027-02-28",
+        "label": "Full paper deadline",
+        "est": false,
+        "abs": "",
+        "fixed": "https://icdar2027.org/important-dates"
+      }
+    ],
+    "dblp": "icdar",
+    "csr": "",
+    "edition": "",
+    "best": "",
+    "link": "",
+    "date": "",
+    "place": "",
+    "cc": "",
+    "city": "",
+    "cycles": 1,
+    "roundLabels": [],
+    "proceedings": "full",
+    "rates": [],
+    "rateSection": "",
+    "rateSrc": "",
+    "rateSlug": "",
+    "tier": 2
+  },
+  {
     "title": "IROS",
     "desc": "IEEE/RSJ International Conference on Intelligent Robots and Systems",
     "area": "AI / ML / Data Mining",
@@ -5127,6 +5256,46 @@ export const ranked = [
     "rateSrc": "csc",
     "rateSlug": "emnlp",
     "tier": 1
+  },
+  {
+    "title": "ER",
+    "desc": "International Conference on Conceptual Modeling",
+    "area": "AI / ML / Data Mining",
+    "sub": "DB",
+    "ccf": "C",
+    "core": "A",
+    "coreVerified": true,
+    "nextDeadline": "2027-05-19",
+    "nextYear": 2027,
+    "nextAbstract": "",
+    "estimated": true,
+    "estFrom": "2026-05-19",
+    "rounds": [
+      {
+        "d": "2027-05-19",
+        "label": "Main conference full and short papers; extended deadlines; abstract mandatory",
+        "est": true,
+        "from": "2026-05-19",
+        "abs": "2027-05-12"
+      }
+    ],
+    "dblp": "er",
+    "csr": "",
+    "edition": "",
+    "best": "",
+    "link": "https://www.er2026.org/",
+    "date": "",
+    "place": "",
+    "cc": "",
+    "city": "",
+    "cycles": 1,
+    "roundLabels": [],
+    "proceedings": "full",
+    "rates": [],
+    "rateSection": "",
+    "rateSrc": "",
+    "rateSlug": "",
+    "tier": 2
   },
   {
     "title": "CIKM",
@@ -6506,143 +6675,6 @@ export const ranked = [
     "rateSection": "machine-learning-and-learning-theory",
     "rateSrc": "csc",
     "rateSlug": "aistats",
-    "tier": 2
-  },
-  {
-    "title": "ECIR",
-    "desc": "European Conference on Information Retrieval",
-    "area": "AI / ML / Data Mining",
-    "sub": "DB",
-    "ccf": "C",
-    "core": "A",
-    "coreVerified": true,
-    "nextDeadline": "2027-10-02",
-    "nextYear": 2028,
-    "nextAbstract": "",
-    "estimated": true,
-    "estFrom": "2025-10-02",
-    "rounds": [
-      {
-        "d": "2027-10-02",
-        "label": "",
-        "est": true,
-        "from": "2025-10-02",
-        "abs": "2027-09-25"
-      }
-    ],
-    "dblp": "ecir",
-    "csr": "",
-    "edition": "50th",
-    "best": "",
-    "link": "https://ecir2027.co.uk/",
-    "date": "",
-    "place": "",
-    "cc": "",
-    "city": "",
-    "cycles": 1,
-    "roundLabels": [],
-    "proceedings": "full",
-    "rates": [
-      {
-        "y": 2002,
-        "r": 44.2
-      },
-      {
-        "y": 2003,
-        "r": 30.7
-      },
-      {
-        "y": 2004,
-        "r": 31.8
-      },
-      {
-        "y": 2005,
-        "r": 27.4
-      },
-      {
-        "y": 2006,
-        "r": 20.9
-      },
-      {
-        "y": 2007,
-        "r": 19.1
-      },
-      {
-        "y": 2008,
-        "r": 23.7
-      },
-      {
-        "y": 2009,
-        "r": 22.3
-      },
-      {
-        "y": 2010,
-        "r": 21.8
-      },
-      {
-        "y": 2011,
-        "r": 20.2
-      },
-      {
-        "y": 2012,
-        "r": 22.7
-      },
-      {
-        "y": 2013,
-        "r": 28.8
-      },
-      {
-        "y": 2014,
-        "r": 23.2
-      },
-      {
-        "y": 2015,
-        "r": 23.2
-      },
-      {
-        "y": 2016,
-        "r": 24.9
-      },
-      {
-        "y": 2017,
-        "r": 26.7
-      },
-      {
-        "y": 2018,
-        "r": 22.8
-      },
-      {
-        "y": 2019,
-        "r": 22.9
-      },
-      {
-        "y": 2020,
-        "r": 25.9
-      },
-      {
-        "y": 2021,
-        "r": 24.0
-      },
-      {
-        "y": 2022,
-        "r": 20.0
-      },
-      {
-        "y": 2023,
-        "r": 25.4
-      },
-      {
-        "y": 2024,
-        "r": 24.8
-      },
-      {
-        "y": 2025,
-        "r": 23.0
-      }
-    ],
-    "rateSection": "",
-    "rateSrc": "csc",
-    "rateSlug": "ecir",
     "tier": 2
   },
   {
