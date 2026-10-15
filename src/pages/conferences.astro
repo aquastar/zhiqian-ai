@@ -165,8 +165,16 @@ const liveDate = (c) => {
   return { key: rollYear(pool[0].d), expired: true };
 };
 
-const society = notable.map((c) => ({ ...c, society: true }));
-const all = [...ranked, ...society].map((c) => ({ ...c, live: liveDate(c) }));
+// Society meetings are a different kind of thing and no longer share the
+// table. A table's columns are acceptance rate, rank and deadline, and all
+// three are blank for a meeting that reviews nothing and ranks nowhere, so
+// the row said almost nothing while looking like it should. They are cards
+// now, led by what the meeting is and why it matters, which is the part a
+// visitor from another field actually needs.
+const society = notable
+  .map((c) => ({ ...c, society: true, live: liveDate(c) }))
+  .sort((a, b) => (a.live.key || '9999').localeCompare(b.live.key || '9999'));
+const all = ranked.map((c) => ({ ...c, live: liveDate(c) }));
 // One date order, no buckets. A venue that has finished its cycle sinks on
 // its own merits, because a date rolled a year forward is a year away. It
 // does not need a separate block to put it there, and a block would split it
@@ -175,7 +183,12 @@ const dated = all.filter((c) => c.live.key).sort((a, b) => a.live.key.localeComp
 const undated = all.filter((c) => !c.live.key).sort((a, b) => a.title.localeCompare(b.title));
 const rows = [...dated, ...undated].map((c) => ({ ...c, chart: chart(c.rates) }));
 
-const counts = AREAS.map((a) => ({ area: a, n: rows.filter((c) => c.area === a).length })).filter((x) => x.n);
+// Society meetings are no longer table rows, so their chip has to be counted
+// from the card list instead, or the field would vanish from the filter.
+const counts = AREAS.map((a) => ({
+  area: a,
+  n: a === SOCIETY ? society.length : rows.filter((c) => c.area === a).length,
+})).filter((x) => x.n);
 const totalRated = rows.filter((c) => c.rates.length).length;
 const freshRated = rows.filter((c) => c.rates.length && c.rates[c.rates.length - 1].y >= FRESH_FROM).length;
 
@@ -210,7 +223,7 @@ const freshRated = rows.filter((c) => c.rates.length && c.rates[c.rates.length -
         </a>
       </div>
 
-      <ul class="legend">
+      <ul class="legend" id="legend">
         <li><span class="tier-tag tt-1">Top</span> CCF A or CORE A*</li>
         <li><span class="tier-tag tt-2">Strong</span> CCF B or CORE A</li>
         <li><span class="tier-tag tt-3">Listed</span> unranked, importance stated</li>
@@ -366,6 +379,62 @@ const freshRated = rows.filter((c) => c.rates.length && c.rates[c.rates.length -
         place rather than a category, so cities, countries and regions sit side by side. Only venues at CCF A or B,
         or CORE A* or A, plus a handful added by hand because they belong here whatever the tables say. A call
         marked open still has a deadline ahead of today.
+      </p>
+    </section>
+
+    <section class="section society-section" id="society" hidden>
+      <p class="society-lede">
+        These are not conferences in the reviewing sense, which is why they have no acceptance
+        rate and no rank. You send a short abstract, not a paper, and the normal outcome is a
+        slot: a talk if the committee picks yours out, a poster otherwise. The selection that
+        happens is mostly between those two, not between in and out. Nothing is archived as a
+        publication either, so presenting here does not spend your paper. Each card says what
+        the meeting is, how large it is, and what it would be for.
+      </p>
+      <div class="society-grid">
+        {society.map((c) => (
+          <article class="soc-card">
+            <header class="soc-head">
+              <h3>
+                {c.link ? <a href={c.link} target="_blank" rel="noopener">{c.title}</a> : c.title}
+              </h3>
+              <span class={`proc proc-${c.proceedings}`}>
+                {c.proceedings === 'optin' ? 'opt-in proceedings' : 'no proceedings'}
+              </span>
+            </header>
+            <p class="soc-desc">{c.desc}</p>
+            {c.note && <p class="soc-note">{c.note}</p>}
+            <dl class="soc-facts">
+              <div>
+                <dt>Abstract due</dt>
+                <dd>
+                  {c.live.key
+                    ? <span class="soc-when">
+                        <span class={`dl ${c.estimated ? 'is-est' : ''}`}>{c.live.key}</span>
+                        <span class="dl-days" data-deadline={c.live.key}></span>
+                      </span>
+                    : <span class="none">not announced</span>}
+                </dd>
+              </div>
+              <div>
+                <dt>Meeting</dt>
+                <dd>{c.date || <span class="none">not scheduled</span>}</dd>
+              </div>
+              <div>
+                <dt>Where</dt>
+                <dd>{c.place
+                  ? <span class="soc-place">{c.cc && <span class={`fi fi-${c.cc}`} aria-hidden="true"></span>}{c.place}</span>
+                  : <span class="none">not announced</span>}</dd>
+              </div>
+            </dl>
+          </article>
+        ))}
+      </div>
+      <p class="area-note">
+        {society.length} meetings, chosen because a computing researcher might realistically
+        present at one. Attendance figures and review practice come from each society's own
+        pages, read at the time of writing rather than taken from a ranking table, since no
+        ranking table covers them.
       </p>
     </section>
 
@@ -683,6 +752,31 @@ const freshRated = rows.filter((c) => c.rates.length && c.rates[c.rates.length -
   .fbtn-dest:not(.is-on) { color:#0e7490; border-color:#a5f3fc; }
   .fbtn-dest.is-on { background:#0e7490; border-color:#0e7490; }
   .dest-section[hidden], .section[hidden] { display:none; }
+  .legend[hidden] { display:none; }
+
+  /* Society meetings, as cards. A table made them look like venues that had
+     simply failed to report a rank. */
+  .society-lede { margin:0 0 14px; font-size:.86rem; line-height:1.65; color:#475569; max-width:92ch; }
+  .society-grid { display:grid; grid-template-columns:repeat(auto-fill, minmax(330px, 1fr)); gap:12px; }
+  .soc-card { display:flex; flex-direction:column; padding:14px 16px; border-radius:13px;
+    border:1px solid rgba(148,163,184,.32); background:#fff; }
+  .soc-head { display:flex; align-items:baseline; justify-content:space-between; gap:10px; flex-wrap:wrap; }
+  .soc-head h3 { margin:0; font-size:1rem; letter-spacing:-.01em; }
+  .soc-head a { color:#0f172a; text-decoration:none; }
+  .soc-head a:hover { color:var(--accent); text-decoration:underline; }
+  .soc-desc { margin:2px 0 0; font-size:.78rem; color:#64748b; line-height:1.4; }
+  .soc-note { margin:9px 0 0; font-size:.8rem; color:#334155; line-height:1.6; text-align:left; }
+  .soc-facts { display:flex; flex-wrap:wrap; gap:4px 18px; margin:12px 0 0; padding:11px 0 0;
+    border-top:1px dotted rgba(148,163,184,.45); }
+  .soc-facts div { min-width:0; }
+  .soc-facts dt { font-size:.58rem; font-weight:800; letter-spacing:.08em; text-transform:uppercase; color:#94a3b8; }
+  .soc-facts dd { margin:1px 0 0; font-size:.77rem; color:#1e293b; }
+  .soc-when { display:inline-flex; align-items:center; gap:6px; }
+  .soc-place { display:inline-flex; align-items:center; gap:5px; }
+  .soc-place .fi { border-radius:2px; box-shadow:0 0 0 1px rgba(15,23,42,.08); }
+  @media (max-width: 1150px) {
+    .society-grid { grid-template-columns:1fr; }
+  }
   .dest-pick[hidden] { display:none; }
   .dest-pick { display:flex; flex-wrap:wrap; gap:6px; margin-bottom:10px; }
   .dbtn { display:inline-flex; align-items:center; gap:6px; padding:5px 11px; border-radius:999px; cursor:pointer;
@@ -1157,6 +1251,10 @@ const freshRated = rows.filter((c) => c.rates.length && c.rates[c.rates.length -
   const scholarLink = document.getElementById('scholar-link');
   const scholar = scholarLink;
   const destSection = document.getElementById('destinations');
+  const socSection = document.getElementById('society');
+  // The legend explains the table's tier tags and countdown bands. Neither
+  // exists in the card or destination views, so it goes with the table.
+  const legend = document.getElementById('legend');
   const mainTable = document.querySelector('.table-wrap:not(.dest-section .table-wrap)');
 
   const apply = (btn) => {
@@ -1165,13 +1263,25 @@ const freshRated = rows.filter((c) => c.rates.length && c.rates[c.rates.length -
     // rather than filtering it: a row there is one edition in one city, not
     // one venue and its next deadline.
     const onDest = want === 'destinations';
+    // Society meetings replace the table too, for the same reason the
+    // destination view does: the question is different, so the columns would
+    // be empty rather than merely filtered.
+    const onSoc = want === 'society-meetings';
     if (destSection) destSection.hidden = !onDest;
+    if (socSection) socSection.hidden = !onSoc;
+    if (legend) legend.hidden = onDest || onSoc;
     document.querySelectorAll('.section').forEach((sec) => {
-      if (sec.id === 'destinations') return;
+      if (sec.id === 'destinations' || sec.id === 'society') return;
       if (sec.querySelector('table.confs') || sec.querySelector('.rest') || sec.classList.contains('sources')) {
-        sec.hidden = onDest && !sec.classList.contains('sources');
+        sec.hidden = (onDest || onSoc) && !sec.classList.contains('sources');
       }
     });
+    if (onSoc) {
+      document.querySelectorAll('.fbtn').forEach((b) => b.classList.toggle('is-on', b === btn));
+      if (scholarLink) scholarLink.hidden = true;
+      topicSections.forEach((sec) => { sec.hidden = true; });
+      return;
+    }
     if (onDest) {
       document.querySelectorAll('.fbtn').forEach((b) => b.classList.toggle('is-on', b === btn));
       if (scholarLink) scholarLink.hidden = true;
