@@ -1,0 +1,39 @@
+{
+ "https://www.nsf.gov/funding/opportunities/ai-datasets-unlocking-dataset-value-ai-enabled-scientific-discovery/nsf26-512/solicitation": {
+  "n_hi": 50,
+  "n_lo": 25,
+  "pot_hi": 100000000,
+  "pot_lo": 60000000
+ },
+ "https://www.nsf.gov/funding/opportunities/eccs-engineering-electrical-communications-computing-systems/nsf26-514/solicitation": {
+  "n_hi": 300,
+  "n_lo": 245,
+  "pot_hi": null,
+  "pot_lo": 110000000
+ },
+ "https://www.nsf.gov/funding/opportunities/efri-wbc-emerging-frontiers-research-innovation-efri-wave-based/nsf26-524/solicitation": null,
+ "https://www.nsf.gov/funding/opportunities/engineering-eng-civil-mechanical-manufacturing-innovation/nsf26-515/solicitation": {
+  "n_hi": 275,
+  "n_lo": 225,
+  "pot_hi": null,
+  "pot_lo": 100000000
+ },
+ "https://www.nsf.gov/funding/opportunities/mfai-mathematical-foundations-artificial-intelligence/nsf24-569/solicitation": {
+  "n_hi": null,
+  "n_lo": 15,
+  "pot_hi": null,
+  "pot_lo": 8500000
+ },
+ "https://www.nsf.gov/funding/opportunities/techaccess-ai-ready-america/nsf26-508/solicitation": {
+  "n_hi": null,
+  "n_lo": 56,
+  "pot_hi": 224000000,
+  "pot_lo": 168000000
+ },
+ "https://www.nsf.gov/funding/opportunities/us-national-science-foundation-state-regional-artificial/nsf26-513/solicitation": {
+  "n_hi": null,
+  "n_lo": 10,
+  "pot_hi": 100000000,
+  "pot_lo": 40000000
+ }
+}

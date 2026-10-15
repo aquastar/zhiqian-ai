@@ -444,8 +444,9 @@
       "comp_score": 4,
       "comp_basis": "Estimated from the kind of call: federal research solicitations typically fund well under a quarter of what they receive.",
       "tldr": "A single-PI award for someone within a few years of the PhD.",
-      "award": "",
-      "award_note": ""
+      "award": "$150K to $450K",
+      "award_note": "grants.gov lists this per award for FA955026S0003. About 50 awards expected. $4.5M for the whole programme.",
+      "award_src": "grants.gov"
     },
     {
       "first_seen_date": "2026-10-09",
@@ -464,8 +465,9 @@
       "comp_score": 4,
       "comp_basis": "Estimated from the kind of call: federal research solicitations typically fund well under a quarter of what they receive.",
       "tldr": "An open call, with the funder setting the topic.",
-      "award": "",
-      "award_note": ""
+      "award": "$5,000 to $10M",
+      "award_note": "grants.gov lists this per award for DE-FOA-0003665. $400M for the whole programme.",
+      "award_src": "grants.gov"
     },
     {
       "first_seen_date": "2026-10-09",
@@ -484,8 +486,9 @@
       "comp_score": 4,
       "comp_basis": "Estimated from the kind of call: federal research solicitations typically fund well under a quarter of what they receive.",
       "tldr": "Supports a named individual rather than a project.",
-      "award": "",
-      "award_note": ""
+      "award": "Up to $20M",
+      "award_note": "grants.gov lists this per award for DE-FOA-0003673. About 5 awards expected. $100M for the whole programme.",
+      "award_src": "grants.gov"
     },
     {
       "first_seen_date": "2026-10-09",
@@ -599,8 +602,9 @@
       "comp_score": 4,
       "comp_basis": "Estimated from the kind of call: federal research solicitations typically fund well under a quarter of what they receive.",
       "tldr": "An NSF solicitation with its own topic and deadline.",
-      "award": "",
-      "award_note": ""
+      "award": "~$1.2M to $4M",
+      "award_note": "An average, not a stated award size: NSF expects 25 to 50 awards from $60M to $100M for the whole programme. The solicitation gives the size of one award only in prose.",
+      "award_src": "nsf-average"
     },
     {
       "first_seen_date": "2026-10-09",
@@ -619,8 +623,9 @@
       "comp_score": 5,
       "comp_basis": "Limited submission: your institution runs its own competition first.",
       "tldr": "A center-scale award for a large multi-investigator team.",
-      "award": "",
-      "award_note": ""
+      "award": "~$4M to $10M",
+      "award_note": "An average, not a stated award size: NSF expects 10 awards from $40M to $100M for the whole programme. The solicitation gives the size of one award only in prose.",
+      "award_src": "nsf-average"
     },
     {
       "first_seen_date": "2026-10-09",
@@ -636,8 +641,9 @@
       "comp_score": 4,
       "comp_basis": "Estimated from the kind of call: federal research solicitations typically fund well under a quarter of what they receive.",
       "tldr": "Takes existing results toward deployment rather than funding new science.",
-      "award": "",
-      "award_note": ""
+      "award": "$600K to $2M",
+      "award_note": "grants.gov lists this per award for 25-540. $30M for the whole programme.",
+      "award_src": "grants.gov"
     },
     {
       "first_seen_date": "2026-10-09",
@@ -655,8 +661,9 @@
       "comp_score": 4,
       "comp_basis": "Estimated from the kind of call: federal research solicitations typically fund well under a quarter of what they receive.",
       "tldr": "A center-scale award for a large multi-investigator team.",
-      "award": "",
-      "award_note": ""
+      "award": "From $15M",
+      "award_note": "grants.gov lists this per award for 26-525. About 4 awards expected. $60M for the whole programme.",
+      "award_src": "grants.gov"
     },
     {
       "first_seen_date": "2026-10-09",
@@ -674,8 +681,9 @@
       "comp_score": 4,
       "comp_basis": "Estimated from the kind of call: federal research solicitations typically fund well under a quarter of what they receive.",
       "tldr": "Summer research placements for K-12 teachers.",
-      "award": "",
-      "award_note": ""
+      "award": "From $600K",
+      "award_note": "grants.gov lists this per award for 24-503. $5.8M for the whole programme.",
+      "award_src": "grants.gov"
     },
     {
       "first_seen_date": "2026-10-09",
@@ -727,8 +735,9 @@
       "comp_score": 5,
       "comp_basis": "Limited submission: your institution runs its own competition first.",
       "tldr": "An NSF solicitation with its own topic and deadline.",
-      "award": "",
-      "award_note": ""
+      "award": "~$3M to $4M",
+      "award_note": "An average, not a stated award size: NSF expects 56 awards from $168M to $224M for the whole programme. The solicitation gives the size of one award only in prose.",
+      "award_src": "nsf-average"
     },
     {
       "first_seen_date": "2026-10-09",
@@ -778,8 +787,9 @@
       "comp_score": 4,
       "comp_basis": "Estimated from the kind of call: federal research solicitations typically fund well under a quarter of what they receive.",
       "tldr": "An NSF solicitation with its own topic and deadline.",
-      "award": "",
-      "award_note": ""
+      "award": "~$567K",
+      "award_note": "An average, not a stated award size: NSF expects 15 awards from $8.5M for the whole programme. The solicitation gives the size of one award only in prose.",
+      "award_src": "nsf-average"
     },
     {
       "first_seen_date": "2026-10-09",
@@ -918,8 +928,9 @@
       "comp_score": 4,
       "comp_basis": "From the funder's published success rate of 13%. NIH-wide R01-equivalent success rate, FY2025: 5,471 awards from 42,022 applications. Not this call's odds, and individual institutes differ.",
       "tldr": "A small project of up to two years.",
-      "award": "",
-      "award_note": ""
+      "award": "$50K to $100K",
+      "award_note": "grants.gov lists this per award for RFA-RM-27-024. About 13 awards expected. $2M for the whole programme.",
+      "award_src": "grants.gov"
     },
     {
       "first_seen_date": "2026-10-09",
@@ -1365,8 +1376,9 @@
       "comp_score": 3,
       "comp_basis": "Graded \"medium\" in this week's brief, not a published rate.",
       "tldr": "An NSF solicitation with its own topic and deadline.",
-      "award": "",
-      "award_note": "$110M up to 5 years across the whole programme. Not a per-project figure."
+      "award": "~$367K to $449K",
+      "award_note": "An average, not a stated award size: NSF expects 245 to 300 awards from $110M for the whole programme. The solicitation gives the size of one award only in prose.",
+      "award_src": "nsf-average"
     },
     {
       "first_seen_date": "2026-10-14",
@@ -1389,8 +1401,9 @@
       "comp_score": 3,
       "comp_basis": "Graded \"medium\" in this week's brief, not a published rate.",
       "tldr": "An NSF solicitation with its own topic and deadline.",
-      "award": "",
-      "award_note": "$100M up to 5 years across the whole programme. Not a per-project figure."
+      "award": "~$364K to $444K",
+      "award_note": "An average, not a stated award size: NSF expects 225 to 275 awards from $100M for the whole programme. The solicitation gives the size of one award only in prose.",
+      "award_src": "nsf-average"
     },
     {
       "first_seen_date": "2026-10-14",
@@ -2078,8 +2091,9 @@
       "comp_score": 4,
       "comp_basis": "From the funder's published success rate of 13%. NIH-wide R01-equivalent success rate, FY2025: 5,471 awards from 42,022 applications. Not this call's odds, and individual institutes differ.",
       "tldr": "An NIH request for applications, one topic and a fixed pot.",
-      "award": "",
-      "award_note": ""
+      "award": "Up to $800K",
+      "award_note": "grants.gov lists this per award for RFA-HG-27-010. About 5 awards expected. $5M for the whole programme.",
+      "award_src": "grants.gov"
     },
     {
       "first_seen_date": "2026-10-14",
@@ -2850,8 +2864,9 @@
       "comp_score": 4,
       "comp_basis": "From the funder's published success rate of 13%. NIH-wide R01-equivalent success rate, FY2025: 5,471 awards from 42,022 applications. Not this call's odds, and individual institutes differ.",
       "tldr": "A high-risk award for an early-career investigator, no preliminary data.",
-      "award": "",
-      "award_note": ""
+      "award": "Up to $475K",
+      "award_note": "grants.gov lists this per award for RFA-RM-28-002. About 30 awards expected. $22.7M for the whole programme.",
+      "award_src": "grants.gov"
     },
     {
       "first_seen_date": "2026-10-14",
@@ -2897,8 +2912,9 @@
       "comp_score": 4,
       "comp_basis": "From the funder's published success rate of 13%. NIH-wide R01-equivalent success rate, FY2025: 5,471 awards from 42,022 applications. Not this call's odds, and individual institutes differ.",
       "tldr": "A small starter award, usually to produce preliminary data.",
-      "award": "",
-      "award_note": ""
+      "award": "$1M to $7M",
+      "award_note": "grants.gov lists this per award for RFA-RM-28-010. About 5 awards expected. $7M for the whole programme.",
+      "award_src": "grants.gov"
     },
     {
       "first_seen_date": "2026-10-14",

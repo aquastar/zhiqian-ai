@@ -28,6 +28,7 @@ import json
 import pathlib
 import re
 import sys
+import html as html_mod
 import struct
 import urllib.parse
 import urllib.request
@@ -566,6 +567,213 @@ def award_size(row):
     return money[0].upper() + money[1:], ''
 
 
+# ------------------------------------------------- what one award is worth --
+#
+# The weekly brief carries a budget for the 27 calls it picks out. The other
+# hundred-odd rows had nothing, so the column read "not stated" almost all the
+# way down, which is false: a federal solicitation always says what an award
+# is worth. It is on grants.gov, in structured form, for everything posted
+# there.
+#
+# grants.gov defines awardCeiling and awardFloor as the largest and smallest
+# single award, which is precisely this column, and estimatedFunding as the
+# whole programme, which is precisely not. Only the first two are used.
+#
+# Rows are matched by the opportunity number printed in their own title. That
+# is exact: no fuzzy name matching, and a hit is accepted only when the
+# number comes back identical.
+GG_SEARCH = 'https://api.grants.gov/v1/api/search2'
+GG_FETCH = 'https://api.grants.gov/v1/api/fetchOpportunity'
+AWARD_CACHE = ROOT / 'scripts' / 'award-cache.json'
+
+OPP_PATTERNS = [
+    r'\bNSF\s+(\d\d-\d{3})\b',
+    r'\b((?:PAR|PA|RFA|NOT)-[A-Z]{2}-\d\d-\d{3})\b',
+    r'\b(HHS-\d{4}-[A-Z]+-[A-Z]+-[A-Z]+-\d{4})\b',
+    r'\b(DE-FOA-\d{7})\b',
+    r'\b(ARPA-H-SOL-\d\d-\d{3})\b',
+    r'\b(DARPA-[A-Z]{2}-\d\d-\d{3})\b',
+    r'\b(HR\d{9,12})\b',
+    r'\b([NW]\d{8,12}[A-Z]{1,3}\d{1,4})\b',
+    r'\b(FA\d{6,}[A-Z]\d{4})\b',
+    r'\b(W911NF-\d\d-[A-Z]-\d{4})\b',
+]
+
+
+def opp_numbers(row):
+    text = f"{row.get('program', '')}"
+    out = []
+    for pat in OPP_PATTERNS:
+        for m in re.finditer(pat, text, re.I):
+            n = m.group(1).upper()
+            if n not in out:
+                out.append(n)
+    return out
+
+
+def _gg_post(url, payload):
+    req = urllib.request.Request(
+        url, data=json.dumps(payload).encode(),
+        headers={'Content-Type': 'application/json', 'User-Agent': UA})
+    with urllib.request.urlopen(req, timeout=20) as r:
+        return json.load(r)
+
+
+def _money(v):
+    """grants.gov sends amounts as strings, and 'none' for unspecified."""
+    try:
+        n = int(float(v))
+    except (TypeError, ValueError):
+        return None
+    return n if n > 0 else None
+
+
+def _fmt(n):
+    if n >= 1_000_000:
+        s = f'{n / 1_000_000:.1f}'.rstrip('0').rstrip('.')
+        return f'${s}M'
+    if n >= 10_000:
+        s = f'{n / 1000:.0f}'
+        return f'${s}K'
+    return f'${n:,}'
+
+
+def lookup_award(number):
+    """Per-award floor and ceiling from grants.gov, or None."""
+    try:
+        hits = _gg_post(GG_SEARCH, {'keyword': number, 'rows': 5})['data']['oppHits']
+    except Exception:
+        return None
+    hit = next((h for h in hits if (h.get('number') or '').upper() == number), None)
+    if not hit:
+        return None
+    try:
+        data = _gg_post(GG_FETCH, {'opportunityId': int(hit['id'])})['data']
+    except Exception:
+        return None
+    for blk in ('synopsis', 'forecast'):
+        b = data.get(blk) or {}
+        lo, hi = _money(b.get('awardFloor')), _money(b.get('awardCeiling'))
+        if lo or hi:
+            return {'floor': lo, 'ceiling': hi,
+                    'awards': _money(b.get('numberOfAwards')),
+                    'pot': _money(b.get('estimatedFunding')),
+                    'number': number}
+    return None
+
+
+def attach_grants_gov(rows):
+    cache = {}
+    if AWARD_CACHE.exists():
+        cache = json.loads(AWARD_CACHE.read_text(encoding='utf-8'))
+
+    wanted = []
+    for r in rows:
+        for n in opp_numbers(r):
+            if n not in cache and n not in wanted:
+                wanted.append(n)
+    if wanted:
+        with ThreadPoolExecutor(max_workers=8) as pool:
+            for n, res in zip(wanted, pool.map(lookup_award, wanted)):
+                cache[n] = res            # None is cached too, so misses cost once
+        AWARD_CACHE.write_text(json.dumps(cache, indent=1, sort_keys=True) + '\n',
+                               encoding='utf-8')
+
+    found = 0
+    for r in rows:
+        if r.get('award'):
+            continue                      # the brief's own figure wins
+        for n in opp_numbers(r):
+            a = cache.get(n)
+            if not a:
+                continue
+            lo, hi = a.get('floor'), a.get('ceiling')
+            if lo and hi and lo != hi:
+                r['award'] = f'{_fmt(lo)} to {_fmt(hi)}'
+            elif hi:
+                r['award'] = f'Up to {_fmt(hi)}'
+            elif lo:
+                r['award'] = f'From {_fmt(lo)}'
+            else:
+                continue
+            bits = [f"grants.gov lists this per award for {a['number']}."]
+            if a.get('awards'):
+                bits.append(f"About {a['awards']} awards expected.")
+            if a.get('pot'):
+                bits.append(f"{_fmt(a['pot'])} for the whole programme.")
+            r['award_note'] = ' '.join(bits)
+            r['award_src'] = 'grants.gov'
+            found += 1
+            break
+    return found
+
+
+# NSF states, in two labelled fields on every solicitation page, the whole
+# programme's budget and how many awards it expects. It does not state the
+# size of one award in any machine-readable way: that lives in prose which
+# differs per solicitation, and parsing it was tried and abandoned, because
+# on nsf24-569 and nsf24-503 it returned the programme total as though it
+# were the award. Publishing that would be a worse answer than none.
+#
+# What is safe is the division. Total over count is an average award, it is
+# arithmetic on two figures NSF itself publishes, and it is labelled as an
+# average everywhere it appears rather than being passed off as the award.
+NSF_CACHE = ROOT / 'scripts' / 'nsf-cache.json'
+NSF_POT = re.compile(r'Anticipated Funding Amount:\s*\$([\d,]+)(?:\s*to\s*\$([\d,]+))?', re.I)
+NSF_N = re.compile(r'Estimated Number of Awards:\s*([\d,]+)(?:\s*to\s*([\d,]+))?', re.I)
+
+
+def nsf_figures(url):
+    try:
+        req = urllib.request.Request(url, headers={'User-Agent': UA})
+        with urllib.request.urlopen(req, timeout=20) as r:
+            raw = r.read(900_000).decode('utf-8', 'replace')
+    except Exception:
+        return None
+    body = re.sub(r'<script.*?</script>|<style.*?</style>', '', raw, flags=re.S)
+    text = re.sub(r'\s+', ' ', html_mod.unescape(re.sub(r'<[^>]+>', ' ', body)))
+    pot, n = NSF_POT.search(text), NSF_N.search(text)
+    if not pot or not n:
+        return None
+    num = lambda x: int(x.replace(',', '')) if x else None
+    return {'pot_lo': num(pot.group(1)), 'pot_hi': num(pot.group(2)),
+            'n_lo': num(n.group(1)), 'n_hi': num(n.group(2))}
+
+
+def attach_nsf(rows):
+    cache = json.loads(NSF_CACHE.read_text(encoding='utf-8')) if NSF_CACHE.exists() else {}
+    urls = sorted({r['url'] for r in rows
+                   if not r.get('award')
+                   and re.search(r'nsf\.gov/funding/opportunities/.+/nsf\d\d-\d{3}', r.get('url', ''))
+                   and r['url'] not in cache})
+    if urls:
+        with ThreadPoolExecutor(max_workers=8) as pool:
+            for u, res in zip(urls, pool.map(nsf_figures, urls)):
+                cache[u] = res
+        NSF_CACHE.write_text(json.dumps(cache, indent=1, sort_keys=True) + '\n', encoding='utf-8')
+
+    found = 0
+    for r in rows:
+        if r.get('award'):
+            continue
+        f = cache.get(r.get('url'))
+        if not f or not f.get('pot_lo') or not f.get('n_lo'):
+            continue
+        pot_lo, pot_hi = f['pot_lo'], f['pot_hi'] or f['pot_lo']
+        n_lo, n_hi = f['n_lo'], f['n_hi'] or f['n_lo']
+        lo, hi = pot_lo / max(n_hi, 1), pot_hi / max(n_lo, 1)
+        r['award'] = (f'~{_fmt(int(lo))}' if round(lo) == round(hi)
+                      else f'~{_fmt(int(lo))} to {_fmt(int(hi))}')
+        pot = _fmt(pot_lo) if pot_lo == pot_hi else f'{_fmt(pot_lo)} to {_fmt(pot_hi)}'
+        cnt = n_lo if n_lo == n_hi else f'{n_lo} to {n_hi}'
+        r['award_note'] = (f'An average, not a stated award size: NSF expects {cnt} '
+                           f'awards from {pot} for the whole programme. The '
+                           f'solicitation gives the size of one award only in prose.')
+        r['award_src'] = 'nsf-average'
+        found += 1
+    return found
+
+
 # ------------------------------------------------- who a call is aimed at ---
 #
 # The sparse funding-rate column is gone. What a reader actually needs before
@@ -884,6 +1092,8 @@ def main():
         r['comp_score'], r['comp_basis'] = competition(r)
         r['tldr'] = tldr(r)
         r['award'], r['award_note'] = award_size(r)
+    gg = attach_grants_gov(registry)
+    nsf = attach_nsf(registry)
 
     data = {
         'date': date,
@@ -946,7 +1156,9 @@ def main():
     print(f'brief {date}: {len(opps)} opportunities ({picks} matched into the '
           f'registry), {len(signals)} signals, {len(registry)} registry rows '
           f'({rated} with a published funding rate, {logos_found} with a '
-          f'logo across {logo_domains} domains), {len(watchlist)} '
+          f'logo across {logo_domains} domains, {gg} sized from grants.gov, '
+          f'{nsf} averaged from NSF), '
+          f'{len(watchlist)} '
           f'watchlist rows')
 
 

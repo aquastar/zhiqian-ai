@@ -1,0 +1,131 @@
+{
+ "24-503": {
+  "awards": null,
+  "ceiling": null,
+  "floor": 600000,
+  "number": "24-503",
+  "pot": 5800000
+ },
+ "24-569": null,
+ "25-540": {
+  "awards": null,
+  "ceiling": 2000000,
+  "floor": 600000,
+  "number": "25-540",
+  "pot": 30000000
+ },
+ "25-543": {
+  "awards": 600,
+  "ceiling": 12000000,
+  "floor": 600000,
+  "number": "25-543",
+  "pot": 280000000
+ },
+ "26-023": null,
+ "26-507": null,
+ "26-508": null,
+ "26-512": null,
+ "26-513": null,
+ "26-514": null,
+ "26-515": null,
+ "26-524": null,
+ "26-525": {
+  "awards": 4,
+  "ceiling": null,
+  "floor": 15000000,
+  "number": "26-525",
+  "pot": 60000000
+ },
+ "ARPA-H-SOL-26-150": null,
+ "ARPA-H-SOL-26-154": null,
+ "ARPA-H-SOL-26-160": null,
+ "ARPA-H-SOL-26-162": null,
+ "ARPA-H-SOL-26-163": null,
+ "ARPA-H-SOL-26-164": null,
+ "DARPA-PS-26-137": null,
+ "DARPA-PS-26-138": null,
+ "DARPA-PS-26-141": null,
+ "DARPA-SN-26-121": null,
+ "DE-FOA-0003665": {
+  "awards": null,
+  "ceiling": 10000000,
+  "floor": 5000,
+  "number": "DE-FOA-0003665",
+  "pot": 400000000
+ },
+ "DE-FOA-0003673": {
+  "awards": 5,
+  "ceiling": 20000000,
+  "floor": 20000000,
+  "number": "DE-FOA-0003673",
+  "pot": 100000000
+ },
+ "FA955026S0001": {
+  "awards": 9999,
+  "ceiling": 10000000,
+  "floor": null,
+  "number": "FA955026S0001",
+  "pot": null
+ },
+ "FA955026S0003": {
+  "awards": 50,
+  "ceiling": 450000,
+  "floor": 150000,
+  "number": "FA955026S0003",
+  "pot": 4500000
+ },
+ "HHS-2027-ACL-NIDILRR-IFDV-0304": {
+  "awards": 8,
+  "ceiling": 250000,
+  "floor": 245000,
+  "number": "HHS-2027-ACL-NIDILRR-IFDV-0304",
+  "pot": 2000000
+ },
+ "HHS-2027-ACL-NIDILRR-IFRE-0303": {
+  "awards": 8,
+  "ceiling": 250000,
+  "floor": 245000,
+  "number": "HHS-2027-ACL-NIDILRR-IFRE-0303",
+  "pot": 2000000
+ },
+ "RFA-AG-26-022": null,
+ "RFA-AG-27-002": null,
+ "RFA-DA-27-004": null,
+ "RFA-DC-25-002": {
+  "awards": null,
+  "ceiling": 500000,
+  "floor": null,
+  "number": "RFA-DC-25-002",
+  "pot": 500000
+ },
+ "RFA-HG-27-010": {
+  "awards": 5,
+  "ceiling": 800000,
+  "floor": null,
+  "number": "RFA-HG-27-010",
+  "pot": 5000000
+ },
+ "RFA-RM-27-007": null,
+ "RFA-RM-27-024": {
+  "awards": 13,
+  "ceiling": 100000,
+  "floor": 50000,
+  "number": "RFA-RM-27-024",
+  "pot": 2000000
+ },
+ "RFA-RM-28-002": {
+  "awards": 30,
+  "ceiling": 475000,
+  "floor": 475000,
+  "number": "RFA-RM-28-002",
+  "pot": 22700000
+ },
+ "RFA-RM-28-010": {
+  "awards": 5,
+  "ceiling": 7000000,
+  "floor": 1000000,
+  "number": "RFA-RM-28-010",
+  "pot": 7000000
+ },
+ "W911NF-23-S-0001": null
+}

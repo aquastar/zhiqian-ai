@@ -3,85 +3,8 @@
 // CORE ranks are cross-checked against the official CORE2023 export from
 // portal.core.edu.au. Acceptance rates come from
 // github.com/lixin4ever/Conference-Acceptance-Rate (main track only).
-// Built 2026-10-12.
+// Built 2026-10-14.
 export const ranked = [
-  {
-    "title": "COLING",
-    "desc": "International Conference on Computational Linguistics",
-    "area": "AI / ML / Data Mining",
-    "sub": "AI",
-    "ccf": "B",
-    "core": "B",
-    "coreVerified": true,
-    "nextDeadline": "2026-10-12",
-    "nextYear": 2027,
-    "nextAbstract": "",
-    "estimated": false,
-    "estFrom": "",
-    "rounds": [
-      {
-        "d": "2026-10-12",
-        "label": "ARR Submission",
-        "est": false,
-        "year": 2027,
-        "link": "https://2027.coling-iccl.org/",
-        "abs": ""
-      },
-      {
-        "d": "2026-12-23",
-        "label": "COLING commitment after ARR meta-reviews; reviewed papers only",
-        "est": false,
-        "year": 2027,
-        "link": "https://2027.coling-iccl.org/",
-        "abs": ""
-      }
-    ],
-    "dblp": "coling",
-    "csr": "",
-    "edition": "",
-    "best": "",
-    "link": "https://2027.coling-iccl.org/",
-    "date": "May 9-14, 2027",
-    "place": "Macau SAR, China",
-    "cc": "cn",
-    "city": "egg tarts at Lord Stow's, African chicken, the Ruins of St Paul lit at night",
-    "cycles": 2,
-    "roundLabels": [
-      "ARR Submission",
-      "COLING commitment after ARR meta-reviews; reviewed papers only"
-    ],
-    "proceedings": "full",
-    "rates": [
-      {
-        "y": 2012,
-        "r": 27.0
-      },
-      {
-        "y": 2014,
-        "r": 30.8
-      },
-      {
-        "y": 2016,
-        "r": 32.4
-      },
-      {
-        "y": 2018,
-        "r": 37.4
-      },
-      {
-        "y": 2020,
-        "r": 33.4
-      },
-      {
-        "y": 2022,
-        "r": 33.4
-      }
-    ],
-    "rateSection": "natural-language-processing-and-computational-linguistics",
-    "rateSrc": "ar",
-    "rateSlug": "",
-    "tier": 2
-  },
   {
     "title": "NAACL",
     "desc": "The Annual Conference of the North American Chapter of the Association for Computational Linguistics",
@@ -90,18 +13,17 @@ export const ranked = [
     "ccf": "B",
     "core": "A",
     "coreVerified": true,
-    "nextDeadline": "2026-10-12",
+    "nextDeadline": "2026-10-15",
     "nextYear": 2027,
     "nextAbstract": "",
-    "estimated": false,
-    "estFrom": "",
+    "estimated": true,
+    "estFrom": "2024-10-15",
     "rounds": [
       {
-        "d": "2026-10-12",
+        "d": "2026-10-15",
         "label": "ARR Submission",
-        "est": false,
-        "year": 2027,
-        "link": "https://2027.naacl.org/",
+        "est": true,
+        "from": "2024-10-15",
         "abs": ""
       },
       {
@@ -426,6 +348,82 @@ export const ranked = [
     "rateSrc": "csc",
     "rateSlug": "sigmod",
     "tier": 1
+  },
+  {
+    "title": "COLING",
+    "desc": "International Conference on Computational Linguistics",
+    "area": "AI / ML / Data Mining",
+    "sub": "AI",
+    "ccf": "B",
+    "core": "B",
+    "coreVerified": true,
+    "nextDeadline": "2026-10-20",
+    "nextYear": 2027,
+    "nextAbstract": "",
+    "estimated": true,
+    "estFrom": "2024-10-20",
+    "rounds": [
+      {
+        "d": "2026-10-20",
+        "label": "Commitment deadline for papers reviewed by ARR",
+        "est": true,
+        "from": "2024-10-20",
+        "abs": ""
+      },
+      {
+        "d": "2026-12-23",
+        "label": "COLING commitment after ARR meta-reviews; reviewed papers only",
+        "est": false,
+        "year": 2027,
+        "link": "https://2027.coling-iccl.org/",
+        "abs": ""
+      }
+    ],
+    "dblp": "coling",
+    "csr": "",
+    "edition": "",
+    "best": "",
+    "link": "https://2027.coling-iccl.org/",
+    "date": "May 9-14, 2027",
+    "place": "Macau SAR, China",
+    "cc": "cn",
+    "city": "egg tarts at Lord Stow's, African chicken, the Ruins of St Paul lit at night",
+    "cycles": 2,
+    "roundLabels": [
+      "ARR Submission",
+      "COLING commitment after ARR meta-reviews; reviewed papers only"
+    ],
+    "proceedings": "full",
+    "rates": [
+      {
+        "y": 2012,
+        "r": 27.0
+      },
+      {
+        "y": 2014,
+        "r": 30.8
+      },
+      {
+        "y": 2016,
+        "r": 32.4
+      },
+      {
+        "y": 2018,
+        "r": 37.4
+      },
+      {
+        "y": 2020,
+        "r": 33.4
+      },
+      {
+        "y": 2022,
+        "r": 33.4
+      }
+    ],
+    "rateSection": "natural-language-processing-and-computational-linguistics",
+    "rateSrc": "ar",
+    "rateSlug": "",
+    "tier": 2
   },
   {
     "title": "WWW",
@@ -8086,18 +8084,17 @@ export const others = [
     "ccf": "C",
     "core": "B",
     "coreVerified": true,
-    "nextDeadline": "2026-10-12",
-    "nextYear": 2027,
+    "nextDeadline": "2027-10-02",
+    "nextYear": 2028,
     "nextAbstract": "",
-    "estimated": false,
-    "estFrom": "",
+    "estimated": true,
+    "estFrom": "2025-10-02",
     "rounds": [
       {
-        "d": "2026-10-12",
+        "d": "2027-10-02",
         "label": "",
-        "est": false,
-        "year": 2027,
-        "link": "https://algorithmiclearningtheory.org/alt2027/",
+        "est": true,
+        "from": "2025-10-02",
         "abs": ""
       }
     ],
@@ -8106,10 +8103,10 @@ export const others = [
     "edition": "",
     "best": "",
     "link": "https://algorithmiclearningtheory.org/alt2027/",
-    "date": "March 9-12, 2027",
-    "place": "Leiden, Netherlands",
-    "cc": "nl",
-    "city": "the oldest botanical garden in the Netherlands, canal-side terraces, stroopwafels off the iron",
+    "date": "",
+    "place": "",
+    "cc": "",
+    "city": "",
     "cycles": 1,
     "roundLabels": [],
     "proceedings": "full",
@@ -8328,18 +8325,19 @@ export const others = [
     "ccf": "C",
     "core": "B",
     "coreVerified": true,
-    "nextDeadline": "2026-12-04",
+    "nextDeadline": "2026-12-17",
     "nextYear": 2027,
     "nextAbstract": "",
-    "estimated": true,
-    "estFrom": "2025-12-04",
+    "estimated": false,
+    "estFrom": "",
     "rounds": [
       {
-        "d": "2026-12-04",
-        "label": "",
-        "est": true,
-        "from": "2025-12-04",
-        "abs": "2026-11-27"
+        "d": "2026-12-17",
+        "label": "Research track; rebuttal period January 26-29, 2027",
+        "est": false,
+        "year": 2027,
+        "link": "https://2027.eswc-conferences.org/",
+        "abs": "2026-12-10"
       }
     ],
     "dblp": "esws",
@@ -9378,6 +9376,46 @@ export const others = [
       "first round",
       "second round"
     ],
+    "proceedings": "full",
+    "rates": [],
+    "rateSection": "",
+    "rateSrc": "",
+    "rateSlug": "",
+    "tier": 3
+  },
+  {
+    "title": "DEXA",
+    "desc": "International Conference on Database and Expert Systems Applications",
+    "area": "AI / ML / Data Mining",
+    "sub": "DB",
+    "ccf": "C",
+    "core": "C",
+    "coreVerified": true,
+    "nextDeadline": "2027-04-10",
+    "nextYear": 2027,
+    "nextAbstract": "",
+    "estimated": true,
+    "estFrom": "2026-04-10",
+    "rounds": [
+      {
+        "d": "2027-04-10",
+        "label": "Final and firm main conference deadline",
+        "est": true,
+        "from": "2026-04-10",
+        "abs": ""
+      }
+    ],
+    "dblp": "dexa",
+    "csr": "",
+    "edition": "",
+    "best": "",
+    "link": "https://www.dexa.org/2026/dexa2026.html",
+    "date": "",
+    "place": "",
+    "cc": "",
+    "city": "",
+    "cycles": 1,
+    "roundLabels": [],
     "proceedings": "full",
     "rates": [],
     "rateSection": "",
@@ -10449,24 +10487,26 @@ export const others = [
     "ccf": "C",
     "core": "N",
     "coreVerified": false,
-    "nextDeadline": "2026-12-01",
+    "nextDeadline": "2026-11-30",
     "nextYear": 2027,
     "nextAbstract": "",
-    "estimated": true,
-    "estFrom": "2024-12-01",
+    "estimated": false,
+    "estFrom": "",
     "rounds": [
       {
-        "d": "2026-12-01",
-        "label": "1st Round",
-        "est": true,
-        "from": "2024-12-01",
+        "d": "2026-11-30",
+        "label": "Round 1 Submission Deadline",
+        "est": false,
+        "year": 2027,
+        "link": "https://blocksys.info/2027/",
         "abs": ""
       },
       {
-        "d": "2027-03-01",
-        "label": "2nd Round",
-        "est": true,
-        "from": "2025-03-01",
+        "d": "2027-01-31",
+        "label": "Round 2 Submission Deadline",
+        "est": false,
+        "year": 2027,
+        "link": "https://blocksys.info/2027/",
         "abs": ""
       }
     ],
@@ -10474,13 +10514,16 @@ export const others = [
     "csr": "",
     "edition": "",
     "best": "",
-    "link": "https://blocksys.info/2026/",
-    "date": "",
-    "place": "",
-    "cc": "",
+    "link": "https://blocksys.info/2027/",
+    "date": "April 9-11, 2027",
+    "place": "Foshan, China",
+    "cc": "cn",
     "city": "",
-    "cycles": 1,
-    "roundLabels": [],
+    "cycles": 2,
+    "roundLabels": [
+      "Round 1 Submission Deadline",
+      "Round 2 Submission Deadline"
+    ],
     "proceedings": "full",
     "rates": [],
     "rateSection": "",
@@ -10697,14 +10740,14 @@ export const others = [
     "ccf": "C",
     "core": "N",
     "coreVerified": false,
-    "nextDeadline": "2026-10-12",
-    "nextYear": 2026,
+    "nextDeadline": "2027-10-12",
+    "nextYear": 2027,
     "nextAbstract": "",
     "estimated": true,
     "estFrom": "2021-10-12",
     "rounds": [
       {
-        "d": "2026-10-12",
+        "d": "2027-10-12",
         "label": "Extended",
         "est": true,
         "from": "2021-10-12",
@@ -10778,17 +10821,18 @@ export const others = [
     "ccf": "C",
     "core": "N",
     "coreVerified": false,
-    "nextDeadline": "2027-04-10",
+    "nextDeadline": "2027-03-15",
     "nextYear": 2027,
     "nextAbstract": "",
-    "estimated": true,
-    "estFrom": "2025-04-10",
+    "estimated": false,
+    "estFrom": "",
     "rounds": [
       {
-        "d": "2027-04-10",
-        "label": "",
-        "est": true,
-        "from": "2025-04-10",
+        "d": "2027-03-15",
+        "label": "Regular papers; rebuttal notification April 15, 2027",
+        "est": false,
+        "year": 2027,
+        "link": "http://ic-icc.cn/2027/index.php",
         "abs": ""
       }
     ],
@@ -11129,6 +11173,38 @@ export const others = [
     "place": "Poznań, Poland",
     "cc": "pl",
     "city": "St Martin croissants, two mechanical goats butting heads at noon, the colored houses on the square",
+    "cycles": 1,
+    "roundLabels": [],
+    "proceedings": "full",
+    "rates": [],
+    "rateSection": "",
+    "rateSrc": "",
+    "rateSlug": "",
+    "tier": 3
+  },
+  {
+    "title": "CDC",
+    "desc": "IEEE Conference on Decision and Control",
+    "area": "AI / ML / Data Mining",
+    "sub": "AI",
+    "ccf": "N",
+    "core": "N",
+    "coreVerified": false,
+    "link": "https://ieeecss.org/conference/cdc",
+    "nextDeadline": "",
+    "nextYear": null,
+    "nextAbstract": "",
+    "estimated": false,
+    "estFrom": "",
+    "rounds": [],
+    "dblp": "cdc",
+    "csr": "",
+    "edition": "",
+    "best": "",
+    "date": "",
+    "place": "",
+    "cc": "",
+    "city": "",
     "cycles": 1,
     "roundLabels": [],
     "proceedings": "full",
