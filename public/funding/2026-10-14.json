@@ -320,8 +320,10 @@
       "program": "Amazon Research Awards Fall 2026 (9 calls)",
       "deadline": "2026-11-04",
       "url": "https://www.amazon.science/research-awards/call-for-proposals",
+      "logo_domain": "amazon.science",
       "logo": "/funding/logos/amazon.science.png",
-      "logo_domain": "amazon.science"
+      "logo_px": 180,
+      "category": "Industry"
     },
     {
       "first_seen_date": "2026-10-09",
@@ -329,8 +331,10 @@
       "program": "Emerging Health Innovators ARPA-H-SOL-26-150",
       "deadline": "Solution Summary 2026-10-30",
       "url": "https://arpa-h.gov/explore-funding/programs/ehi",
-      "logo": "/funding/logos/arpa-h.gov.ico",
-      "logo_domain": "arpa-h.gov"
+      "logo_domain": "arpa-h.gov",
+      "logo": "/funding/logos/arpa-h.gov.svg",
+      "logo_px": 9999,
+      "category": "Federal"
     },
     {
       "first_seen_date": "2026-10-09",
@@ -338,8 +342,10 @@
       "program": "SPECTRA ARPA-H-SOL-26-163",
       "deadline": "TA4 2026-10-18, TA1 TA2 2026-12-02",
       "url": "https://arpa-h.gov/explore-funding/programs/spectra",
-      "logo": "/funding/logos/arpa-h.gov.ico",
-      "logo_domain": "arpa-h.gov"
+      "logo_domain": "arpa-h.gov",
+      "logo": "/funding/logos/arpa-h.gov.svg",
+      "logo_px": 9999,
+      "category": "Federal"
     },
     {
       "first_seen_date": "2026-10-09",
@@ -347,8 +353,10 @@
       "program": "SURPASS ARPA-H-SOL-26-164",
       "deadline": "Solution Summary 2026-11-30",
       "url": "https://arpa-h.gov/explore-funding/programs/surpass",
-      "logo": "/funding/logos/arpa-h.gov.ico",
-      "logo_domain": "arpa-h.gov"
+      "logo_domain": "arpa-h.gov",
+      "logo": "/funding/logos/arpa-h.gov.svg",
+      "logo_px": 9999,
+      "category": "Federal"
     },
     {
       "first_seen_date": "2026-10-09",
@@ -356,8 +364,10 @@
       "program": "UNIQUE ARPA-H-SOL-26-162",
       "deadline": "Solution Summary 2026-10-29",
       "url": "https://arpa-h.gov/explore-funding/programs/unique",
-      "logo": "/funding/logos/arpa-h.gov.ico",
-      "logo_domain": "arpa-h.gov"
+      "logo_domain": "arpa-h.gov",
+      "logo": "/funding/logos/arpa-h.gov.svg",
+      "logo_px": 9999,
+      "category": "Federal"
     },
     {
       "first_seen_date": "2026-10-09",
@@ -365,8 +375,10 @@
       "program": "FY2027 Young Investigator Program N0001426SF004",
       "deadline": "2026-10-30",
       "url": "https://www.onr.navy.mil/work-with-us/funding-opportunities/fiscal-year-fy-2027-young-investigator-program-yip",
+      "logo_domain": "onr.navy.mil",
       "logo": "",
-      "logo_domain": "onr.navy.mil"
+      "logo_px": 0,
+      "category": "Federal"
     },
     {
       "first_seen_date": "2026-10-09",
@@ -374,8 +386,10 @@
       "program": "FY2027 YIP FA955026S0003",
       "deadline": "white paper 2026-10-09, full 2026-12-04",
       "url": "https://simpler.grants.gov/opportunity/c342c01d-4f34-440f-8bb2-4bdd4d763df0",
+      "logo_domain": "afrl.af.mil",
       "logo": "",
-      "logo_domain": "afrl.af.mil"
+      "logo_px": 0,
+      "category": "Federal"
     },
     {
       "first_seen_date": "2026-10-09",
@@ -383,8 +397,10 @@
       "program": "FY2027 Open Call DE-FOA-0003665",
       "deadline": "rolling to 2027-09-30",
       "url": "https://science.osti.gov/grants/FOAs/FOAs/2027/DE-FOA-0003665",
+      "logo_domain": "science.osti.gov",
       "logo": "/funding/logos/science.osti.gov.png",
-      "logo_domain": "science.osti.gov"
+      "logo_px": 180,
+      "category": "Federal"
     },
     {
       "first_seen_date": "2026-10-09",
@@ -392,8 +408,10 @@
       "program": "Genesis Mission Graduate Fellowship DE-FOA-0003673",
       "deadline": "LOI 2026-11-09",
       "url": "https://science.osti.gov/grants/FOAs/FOAs/2027/DE-FOA-0003673",
+      "logo_domain": "science.osti.gov",
       "logo": "/funding/logos/science.osti.gov.png",
-      "logo_domain": "science.osti.gov"
+      "logo_px": 180,
+      "category": "Federal"
     },
     {
       "first_seen_date": "2026-10-09",
@@ -401,8 +419,10 @@
       "program": "Office-Wide BAA HR001126S0011",
       "deadline": "rolling to 2027-06-22",
       "url": "https://simpler.grants.gov/opportunity/4ec76651-17d7-47fd-ac5e-377e8673b3a4",
-      "logo": "/funding/logos/darpa.mil.ico",
-      "logo_domain": "darpa.mil"
+      "logo_domain": "darpa.mil",
+      "logo": "",
+      "logo_px": 16,
+      "category": "Federal"
     },
     {
       "first_seen_date": "2026-10-09",
@@ -410,8 +430,10 @@
       "program": "Intrinsic Market Resilience DARPA-PS-26-138",
       "deadline": "abstract 2026-10-22",
       "url": "https://www.darpa.mil/research/programs/intrinsic-market-resilience-imr",
-      "logo": "/funding/logos/darpa.mil.ico",
-      "logo_domain": "darpa.mil"
+      "logo_domain": "darpa.mil",
+      "logo": "",
+      "logo_px": 16,
+      "category": "Federal"
     },
     {
       "first_seen_date": "2026-10-09",
@@ -419,8 +441,10 @@
       "program": "Office-Wide BAA HR001126S0015",
       "deadline": "rolling to 2027-08-27",
       "url": "https://simpler.grants.gov/opportunity/1903b420-64ef-4f26-a4c1-c857d4de4f00",
-      "logo": "/funding/logos/darpa.mil.ico",
-      "logo_domain": "darpa.mil"
+      "logo_domain": "darpa.mil",
+      "logo": "",
+      "logo_px": 16,
+      "category": "Federal"
     },
     {
       "first_seen_date": "2026-10-09",
@@ -428,8 +452,10 @@
       "program": "FY2027 MURI N0001426SF002",
       "deadline": "white paper 2026-11-20",
       "url": "https://www.onr.navy.mil/work-with-us/funding-opportunities/fiscal-year-fy-2027-department-war-multidisciplinary-research",
+      "logo_domain": "onr.navy.mil",
       "logo": "",
-      "logo_domain": "onr.navy.mil"
+      "logo_px": 0,
+      "category": "Federal"
     },
     {
       "first_seen_date": "2026-10-09",
@@ -437,8 +463,10 @@
       "program": "FY27 Communications and Networking N0001426SBC11",
       "deadline": "2026-11-16",
       "url": "https://www.onr.navy.mil/work-with-us/funding-opportunities/special-program-announcement-onr-research-opportunity-fy27",
+      "logo_domain": "onr.navy.mil",
       "logo": "",
-      "logo_domain": "onr.navy.mil"
+      "logo_px": 0,
+      "category": "Federal"
     },
     {
       "first_seen_date": "2026-10-09",
@@ -446,8 +474,10 @@
       "program": "AI Datasets NSF 26-512",
       "deadline": "2026-11-04",
       "url": "https://www.nsf.gov/funding/opportunities/ai-datasets-unlocking-dataset-value-ai-enabled-scientific-discovery/nsf26-512/solicitation",
+      "logo_domain": "nsf.gov",
       "logo": "/funding/logos/nsf.gov.png",
-      "logo_domain": "nsf.gov"
+      "logo_px": 192,
+      "category": "Federal"
     },
     {
       "first_seen_date": "2026-10-09",
@@ -455,8 +485,10 @@
       "program": "AI Infrastructure Hubs NSF 26-513 (limited)",
       "deadline": "2026-11-04",
       "url": "https://www.nsf.gov/funding/opportunities/us-national-science-foundation-state-regional-artificial/nsf26-513/solicitation",
+      "logo_domain": "nsf.gov",
       "logo": "/funding/logos/nsf.gov.png",
-      "logo_domain": "nsf.gov"
+      "logo_px": 192,
+      "category": "Federal"
     },
     {
       "first_seen_date": "2026-10-09",
@@ -464,8 +496,10 @@
       "program": "Translation to Practice NSF 25-540",
       "deadline": "2026-11-17",
       "url": "https://www.nsf.gov/funding/opportunities/nsf-ttp-national-science-foundation-translation-practice/nsf25-540/solicitation",
+      "logo_domain": "nsf.gov",
       "logo": "/funding/logos/nsf.gov.png",
-      "logo_domain": "nsf.gov"
+      "logo_px": 192,
+      "category": "Federal"
     },
     {
       "first_seen_date": "2026-10-09",
@@ -473,8 +507,10 @@
       "program": "Expeditions NSF 26-525",
       "deadline": "prelim 2026-12-02",
       "url": "https://www.nsf.gov/funding/opportunities/expeditions-expeditions-computing/nsf26-525/solicitation",
+      "logo_domain": "nsf.gov",
       "logo": "/funding/logos/nsf.gov.png",
-      "logo_domain": "nsf.gov"
+      "logo_px": 192,
+      "category": "Federal"
     },
     {
       "first_seen_date": "2026-10-09",
@@ -482,8 +518,10 @@
       "program": "RET Sites NSF 24-503",
       "deadline": "2026-10-14",
       "url": "https://www.nsf.gov/funding/opportunities/research-experiences-teachers-engineering-computer-science/nsf24-503/solicitation",
+      "logo_domain": "nsf.gov",
       "logo": "/funding/logos/nsf.gov.png",
-      "logo_domain": "nsf.gov"
+      "logo_px": 192,
+      "category": "Federal"
     },
     {
       "first_seen_date": "2026-10-09",
@@ -491,8 +529,10 @@
       "program": "EFRI Wave-Based Computing NSF 26-524",
       "deadline": "concept outline 2026-11-19",
       "url": "https://www.nsf.gov/funding/opportunities/efri-wbc-emerging-frontiers-research-innovation-efri-wave-based/nsf26-524/solicitation",
+      "logo_domain": "nsf.gov",
       "logo": "/funding/logos/nsf.gov.png",
-      "logo_domain": "nsf.gov"
+      "logo_px": 192,
+      "category": "Federal"
     },
     {
       "first_seen_date": "2026-10-09",
@@ -500,8 +540,10 @@
       "program": "FINDERS FOUNDRY NSF 26-507",
       "deadline": "2026-11-18",
       "url": "https://www.nsf.gov/funding/opportunities/nsf-finders-foundry-national-science-foundation-fostering-interdisciplinary",
+      "logo_domain": "nsf.gov",
       "logo": "/funding/logos/nsf.gov.png",
-      "logo_domain": "nsf.gov"
+      "logo_px": 192,
+      "category": "Federal"
     },
     {
       "first_seen_date": "2026-10-09",
@@ -509,8 +551,10 @@
       "program": "TechAccess NSF 26-508 (limited)",
       "deadline": "LOI 2026-12-15",
       "url": "https://www.nsf.gov/funding/opportunities/techaccess-ai-ready-america/nsf26-508/solicitation",
+      "logo_domain": "nsf.gov",
       "logo": "/funding/logos/nsf.gov.png",
-      "logo_domain": "nsf.gov"
+      "logo_px": 192,
+      "category": "Federal"
     },
     {
       "first_seen_date": "2026-10-09",
@@ -518,8 +562,10 @@
       "program": "ELEGANT OTA",
       "deadline": "2026-12-18",
       "url": "https://www.nsf.gov/tip/elegant",
+      "logo_domain": "nsf.gov",
       "logo": "/funding/logos/nsf.gov.png",
-      "logo_domain": "nsf.gov"
+      "logo_px": 192,
+      "category": "Federal"
     },
     {
       "first_seen_date": "2026-10-09",
@@ -527,8 +573,10 @@
       "program": "X-Labs AI for Physical Systems",
       "deadline": "2027-01-07",
       "url": "https://www.nsf.gov/funding/initiatives/nsf-x-labs",
+      "logo_domain": "nsf.gov",
       "logo": "/funding/logos/nsf.gov.png",
-      "logo_domain": "nsf.gov"
+      "logo_px": 192,
+      "category": "Federal"
     },
     {
       "first_seen_date": "2026-10-09",
@@ -536,8 +584,10 @@
       "program": "MFAI NSF 24-569 (inactive)",
       "deadline": "none",
       "url": "https://www.nsf.gov/funding/opportunities/mfai-mathematical-foundations-artificial-intelligence/nsf24-569/solicitation",
+      "logo_domain": "nsf.gov",
       "logo": "/funding/logos/nsf.gov.png",
-      "logo_domain": "nsf.gov"
+      "logo_px": 192,
+      "category": "Federal"
     },
     {
       "first_seen_date": "2026-10-09",
@@ -545,8 +595,10 @@
       "program": "AREA R15 PAR-25-134",
       "deadline": "2026-10-26",
       "url": "https://grants.nih.gov/grants/guide/pa-files/PAR-25-134.html",
-      "logo": "/funding/logos/grants.nih.gov.ico",
       "logo_domain": "grants.nih.gov",
+      "logo": "/funding/logos/grants.nih.gov.png",
+      "logo_px": 144,
+      "category": "Federal",
       "rate": "13%",
       "rate_basis": "NIH-wide R01-equivalent success rate, FY2025: 5,471 awards from 42,022 applications. Not this call's odds, and individual institutes differ.",
       "rate_source": "https://report.nih.gov/nihdatabook/category/10",
@@ -558,8 +610,10 @@
       "program": "Parent R21 PA-25-304 and R03 PA-25-302",
       "deadline": "2026-10-16",
       "url": "https://grants.nih.gov/grants/guide/pa-files/PA-25-304.html",
-      "logo": "/funding/logos/grants.nih.gov.ico",
       "logo_domain": "grants.nih.gov",
+      "logo": "/funding/logos/grants.nih.gov.png",
+      "logo_px": 144,
+      "category": "Federal",
       "rate": "13%",
       "rate_basis": "NIH-wide R01-equivalent success rate, FY2025: 5,471 awards from 42,022 applications. Not this call's odds, and individual institutes differ.",
       "rate_source": "https://report.nih.gov/nihdatabook/category/10",
@@ -571,8 +625,10 @@
       "program": "ECR R21 PAR-25-120 (ineligible, prior federal PI)",
       "deadline": "2026-10-19",
       "url": "https://grants.nih.gov/grants/guide/pa-files/PAR-25-120.html",
-      "logo": "/funding/logos/grants.nih.gov.ico",
       "logo_domain": "grants.nih.gov",
+      "logo": "/funding/logos/grants.nih.gov.png",
+      "logo_px": 144,
+      "category": "Federal",
       "rate": "13%",
       "rate_basis": "NIH-wide R01-equivalent success rate, FY2025: 5,471 awards from 42,022 applications. Not this call's odds, and individual institutes differ.",
       "rate_source": "https://report.nih.gov/nihdatabook/category/10",
@@ -584,8 +640,10 @@
       "program": "Parent K25 PA-24-191",
       "deadline": "2026-10-13",
       "url": "https://grants.nih.gov/grants/guide/pa-files/PA-24-191.html",
-      "logo": "/funding/logos/grants.nih.gov.ico",
       "logo_domain": "grants.nih.gov",
+      "logo": "/funding/logos/grants.nih.gov.png",
+      "logo_px": 144,
+      "category": "Federal",
       "rate": "13%",
       "rate_basis": "NIH-wide R01-equivalent success rate, FY2025: 5,471 awards from 42,022 applications. Not this call's odds, and individual institutes differ.",
       "rate_source": "https://report.nih.gov/nihdatabook/category/10",
@@ -597,8 +655,10 @@
       "program": "PAR-26-042, PAR-26-040, PAR-25-235, PAR-25-131",
       "deadline": "resubmissions Oct to Nov 2026",
       "url": "https://simpler.grants.gov/opportunity/131fabad-5506-431b-b87a-e564f1d8dcc4",
-      "logo": "/funding/logos/nih.gov.png",
       "logo_domain": "nih.gov",
+      "logo": "/funding/logos/nih.gov.png",
+      "logo_px": 144,
+      "category": "Federal",
       "rate": "13%",
       "rate_basis": "NIH-wide R01-equivalent success rate, FY2025: 5,471 awards from 42,022 applications. Not this call's odds, and individual institutes differ.",
       "rate_source": "https://report.nih.gov/nihdatabook/category/10",
@@ -610,8 +670,10 @@
       "program": "Human Virome R03 RFA-RM-27-024",
       "deadline": "2026-11-10",
       "url": "https://simpler.grants.gov/opportunity/50dc6b92-b042-4204-ba74-2753a244be5a",
-      "logo": "/funding/logos/nih.gov.png",
       "logo_domain": "nih.gov",
+      "logo": "/funding/logos/nih.gov.png",
+      "logo_px": 144,
+      "category": "Federal",
       "rate": "13%",
       "rate_basis": "NIH-wide R01-equivalent success rate, FY2025: 5,471 awards from 42,022 applications. Not this call's odds, and individual institutes differ.",
       "rate_source": "https://report.nih.gov/nihdatabook/category/10",
@@ -623,8 +685,10 @@
       "program": "MIRA ESI PAR-27-032",
       "deadline": "2027-02-03",
       "url": "https://simpler.grants.gov/opportunity/9a4aeb2f-d0ac-403b-ac67-9d1fd24d9556",
-      "logo": "/funding/logos/nigms.nih.gov.ico",
-      "logo_domain": "nigms.nih.gov"
+      "logo_domain": "nigms.nih.gov",
+      "logo": "/funding/logos/nigms.nih.gov.png",
+      "logo_px": 144,
+      "category": "Federal"
     },
     {
       "first_seen_date": "2026-10-09",
@@ -632,8 +696,10 @@
       "program": "Utilizing the Full Power of Empire AI RFA",
       "deadline": "2026-12-01",
       "url": "https://www.simonsfoundation.org/grant/utilizing-the-full-power-of-empire-ai-request-for-applications/",
-      "logo": "/funding/logos/simonsfoundation.org.ico",
-      "logo_domain": "simonsfoundation.org"
+      "logo_domain": "simonsfoundation.org",
+      "logo": "/funding/logos/simonsfoundation.org.svg",
+      "logo_px": 9999,
+      "category": "Foundation"
     },
     {
       "first_seen_date": "2026-10-09",
@@ -641,8 +707,10 @@
       "program": "Collaborations in MPS",
       "deadline": "LOI 2026-10-29",
       "url": "https://www.simonsfoundation.org/grant/simons-collaborations-in-mathematics-and-the-physical-sciences/",
-      "logo": "/funding/logos/simonsfoundation.org.ico",
-      "logo_domain": "simonsfoundation.org"
+      "logo_domain": "simonsfoundation.org",
+      "logo": "/funding/logos/simonsfoundation.org.svg",
+      "logo_px": 9999,
+      "category": "Foundation"
     },
     {
       "first_seen_date": "2026-10-09",
@@ -650,8 +718,10 @@
       "program": "Emerging Research Grants 2027 cycle",
       "deadline": "RFP expected Oct 2026",
       "url": "https://hearinghealthfoundation.org/emerging-research-grants",
-      "logo": "/funding/logos/hearinghealthfoundation.org.webp",
-      "logo_domain": "hearinghealthfoundation.org"
+      "logo_domain": "hearinghealthfoundation.org",
+      "logo": "/funding/logos/hearinghealthfoundation.org.png",
+      "logo_px": 100,
+      "category": "Foundation"
     },
     {
       "first_seen_date": "2026-10-09",
@@ -659,8 +729,10 @@
       "program": "AI Safety Fund",
       "deadline": "rolling",
       "url": "https://builtin.com/job/mercor-ai-safety-fund-grants/11187489",
-      "logo": "/funding/logos/builtin.com.png",
-      "logo_domain": "builtin.com"
+      "logo_domain": "mercor.com",
+      "logo": "/funding/logos/mercor.com.png",
+      "logo_px": 256,
+      "category": "Industry"
     },
     {
       "first_seen_date": "2026-10-09",
@@ -668,8 +740,10 @@
       "program": "Communities Leading on AI open call",
       "deadline": "2026-10-21",
       "url": "https://humanityai.ai/open-call/",
+      "logo_domain": "humanityai.ai",
       "logo": "/funding/logos/humanityai.ai.png",
-      "logo_domain": "humanityai.ai"
+      "logo_px": 150,
+      "category": "Industry"
     },
     {
       "first_seen_date": "2026-10-09",
@@ -677,8 +751,10 @@
       "program": "AI for Science and Safety Nodes RFP",
       "deadline": "2026-10-31",
       "url": "https://foresight.org/grants/ai-science-safety-nodes-rfp/",
-      "logo": "/funding/logos/foresight.org.webp",
-      "logo_domain": "foresight.org"
+      "logo_domain": "foresight.org",
+      "logo": "/funding/logos/foresight.org.png",
+      "logo_px": 240,
+      "category": "Nonprofit"
     },
     {
       "first_seen_date": "2026-10-09",
@@ -686,8 +762,10 @@
       "program": "2027 Special Projects Fund",
       "deadline": "LOI 2026-10-15",
       "url": "https://nyhealthfoundation.org/rfp/2027-special-projects-fund/",
+      "logo_domain": "nyhealthfoundation.org",
       "logo": "/funding/logos/nyhealthfoundation.org.png",
-      "logo_domain": "nyhealthfoundation.org"
+      "logo_px": 180,
+      "category": "Foundation"
     },
     {
       "first_seen_date": "2026-10-09",
@@ -695,8 +773,10 @@
       "program": "PON 6149 Grid Enhancing Technologies",
       "deadline": "rolling",
       "url": "https://portal.nyserda.ny.gov/CORE_Solicitation_Detail_Page?SolicitationId=a0rcr0000181NQbAAM",
+      "logo_domain": "portal.nyserda.ny.gov",
       "logo": "/funding/logos/portal.nyserda.ny.gov.png",
-      "logo_domain": "portal.nyserda.ny.gov"
+      "logo_px": 152,
+      "category": "State"
     },
     {
       "first_seen_date": "2026-10-09",
@@ -704,8 +784,10 @@
       "program": "Graduate Fellowship 2027 to 2028",
       "deadline": "2026-10-30",
       "url": "https://blogs.nvidia.com/?p=98499",
-      "logo": "/funding/logos/blogs.nvidia.com.ico",
-      "logo_domain": "blogs.nvidia.com"
+      "logo_domain": "blogs.nvidia.com",
+      "logo": "/funding/logos/blogs.nvidia.com.png",
+      "logo_px": 48,
+      "category": "Industry"
     },
     {
       "first_seen_date": "2026-10-09",
@@ -713,8 +795,10 @@
       "program": "Research Fellowship 2027 (not yet posted)",
       "deadline": "expected 2026-12-16",
       "url": "https://www.microsoft.com/en-us/research/academic-program/microsoft-research-fellowship/how-to-apply/",
+      "logo_domain": "microsoft.com",
       "logo": "/funding/logos/microsoft.com.ico",
-      "logo_domain": "microsoft.com"
+      "logo_px": 128,
+      "category": "Industry"
     },
     {
       "first_seen_date": "2026-10-09",
@@ -722,8 +806,10 @@
       "program": "Grant Writer's Boot Camp Seed Funding",
       "deadline": "NOI 2026-11-16",
       "url": "https://www.rit.edu/srs/internal-funding-opportunities",
+      "logo_domain": "rit.edu",
       "logo": "/funding/logos/rit.edu.png",
-      "logo_domain": "rit.edu"
+      "logo_px": 180,
+      "category": "University"
     },
     {
       "first_seen_date": "2026-10-14",
@@ -731,8 +817,10 @@
       "program": "Research grants LOI",
       "deadline": "2026-11-02",
       "url": "https://www.rrf.org/apply-for-a-grant/research-grants/",
+      "logo_domain": "rrf.org",
       "logo": "/funding/logos/rrf.org.png",
-      "logo_domain": "rrf.org"
+      "logo_px": 300,
+      "category": "Foundation"
     },
     {
       "first_seen_date": "2026-10-14",
@@ -740,8 +828,10 @@
       "program": "More than Medicine preproposals",
       "deadline": "2026-11-18",
       "url": "https://dana.org/grants/",
+      "logo_domain": "dana.org",
       "logo": "/funding/logos/dana.org.png",
-      "logo_domain": "dana.org"
+      "logo_px": 180,
+      "category": "Foundation"
     },
     {
       "first_seen_date": "2026-10-14",
@@ -749,8 +839,10 @@
       "program": "Diagnostics Accelerator and digital biomarker RFPs",
       "deadline": "full proposals 2026-12-07",
       "url": "https://www.alzdiscovery.org/research-and-grants/funding-opportunities",
-      "logo": "/funding/logos/alzdiscovery.org.ico",
-      "logo_domain": "alzdiscovery.org"
+      "logo_domain": "alzdiscovery.org",
+      "logo": "",
+      "logo_px": 16,
+      "category": "Foundation"
     },
     {
       "first_seen_date": "2026-10-14",
@@ -758,8 +850,10 @@
       "program": "Safeguarded AI and Scaling Trust rolling batch",
       "deadline": "2026-10-31",
       "url": "https://www.aria.org.uk/",
+      "logo_domain": "aria.org.uk",
       "logo": "/funding/logos/aria.org.uk.png",
-      "logo_domain": "aria.org.uk"
+      "logo_px": 180,
+      "category": "Public (non-US)"
     },
     {
       "first_seen_date": "2026-10-14",
@@ -767,8 +861,10 @@
       "program": "K-12 RFP (low fit)",
       "deadline": "2026-11-13",
       "url": "https://www.arnoldventures.org/grants",
-      "logo": "/funding/logos/arnoldventures.org.png",
-      "logo_domain": "arnoldventures.org"
+      "logo_domain": "arnoldventures.org",
+      "logo": "/funding/logos/arnoldventures.org.svg",
+      "logo_px": 9999,
+      "category": "Foundation"
     },
     {
       "first_seen_date": "2026-10-14",
@@ -781,8 +877,10 @@
       "eligibility": "at most 2 per person in 12 months, not a limited submission",
       "competition": "high",
       "source_tier": "L1 L2",
+      "logo_domain": "nsf.gov",
       "logo": "/funding/logos/nsf.gov.png",
-      "logo_domain": "nsf.gov"
+      "logo_px": 192,
+      "category": "Federal"
     },
     {
       "first_seen_date": "2026-10-14",
@@ -795,8 +893,10 @@
       "eligibility": "ESI only, genuinely new direction, no preliminary data",
       "competition": "medium",
       "source_tier": "L1",
-      "logo": "/funding/logos/grants.nih.gov.ico",
       "logo_domain": "grants.nih.gov",
+      "logo": "/funding/logos/grants.nih.gov.png",
+      "logo_px": 144,
+      "category": "Federal",
       "rate": "13%",
       "rate_basis": "NIH-wide R01-equivalent success rate, FY2025: 5,471 awards from 42,022 applications. Not this call's odds, and individual institutes differ.",
       "rate_source": "https://report.nih.gov/nihdatabook/category/10",
@@ -813,8 +913,10 @@
       "eligibility": "universities eligible, not a limited submission",
       "competition": "medium",
       "source_tier": "L1 L2",
+      "logo_domain": "acl.gov",
       "logo": "/funding/logos/acl.gov.ico",
-      "logo_domain": "acl.gov"
+      "logo_px": 32,
+      "category": "Federal"
     },
     {
       "first_seen_date": "2026-10-14",
@@ -827,8 +929,10 @@
       "eligibility": "universities eligible, not a limited submission",
       "competition": "medium",
       "source_tier": "L1 L2",
+      "logo_domain": "acl.gov",
       "logo": "/funding/logos/acl.gov.ico",
-      "logo_domain": "acl.gov"
+      "logo_px": 32,
+      "category": "Federal"
     },
     {
       "first_seen_date": "2026-10-14",
@@ -841,8 +945,10 @@
       "eligibility": "no cap on applicants or institutions",
       "competition": "medium",
       "source_tier": "L1 L2",
+      "logo_domain": "nsf.gov",
       "logo": "/funding/logos/nsf.gov.png",
-      "logo_domain": "nsf.gov"
+      "logo_px": 192,
+      "category": "Federal"
     },
     {
       "first_seen_date": "2026-10-14",
@@ -855,8 +961,10 @@
       "eligibility": "no cap on applicants",
       "competition": "medium",
       "source_tier": "L1 L2",
+      "logo_domain": "nsf.gov",
       "logo": "/funding/logos/nsf.gov.png",
-      "logo_domain": "nsf.gov"
+      "logo_px": 192,
+      "category": "Federal"
     },
     {
       "first_seen_date": "2026-10-14",
@@ -869,8 +977,10 @@
       "eligibility": "title must begin with \"Genesis Mission:\"",
       "competition": "medium",
       "source_tier": "L1",
+      "logo_domain": "nsf.gov",
       "logo": "/funding/logos/nsf.gov.png",
-      "logo_domain": "nsf.gov"
+      "logo_px": 192,
+      "category": "Federal"
     },
     {
       "first_seen_date": "2026-10-14",
@@ -883,8 +993,10 @@
       "eligibility": "researchers at US institutions",
       "competition": "medium",
       "source_tier": "L2",
+      "logo_domain": "nairrpilot.org",
       "logo": "/funding/logos/nairrpilot.org.png",
-      "logo_domain": "nairrpilot.org"
+      "logo_px": 180,
+      "category": "Federal"
     },
     {
       "first_seen_date": "2026-10-14",
@@ -897,8 +1009,10 @@
       "eligibility": "training open-weight LLMs",
       "competition": "low to medium",
       "source_tier": "L2",
+      "logo_domain": "thinkingmachines.ai",
       "logo": "/funding/logos/thinkingmachines.ai.png",
-      "logo_domain": "thinkingmachines.ai"
+      "logo_px": 180,
+      "category": "Industry"
     },
     {
       "first_seen_date": "2026-10-14",
@@ -911,8 +1025,10 @@
       "eligibility": "suited to PhD students and postdocs",
       "competition": "high",
       "source_tier": "L1",
+      "logo_domain": "anthropic.com",
       "logo": "/funding/logos/anthropic.com.png",
-      "logo_domain": "anthropic.com"
+      "logo_px": 256,
+      "category": "Industry"
     },
     {
       "first_seen_date": "2026-10-14",
@@ -925,8 +1041,10 @@
       "eligibility": "academic researchers",
       "competition": "medium",
       "source_tier": "L1",
+      "logo_domain": "support.claude.com",
       "logo": "/funding/logos/support.claude.com.png",
-      "logo_domain": "support.claude.com"
+      "logo_px": 94,
+      "category": "Industry"
     },
     {
       "first_seen_date": "2026-10-14",
@@ -939,8 +1057,10 @@
       "eligibility": "early career, within 7 years of ESI status",
       "competition": "medium",
       "source_tier": "L2",
+      "logo_domain": "alz.org",
       "logo": "/funding/logos/alz.org.ico",
-      "logo_domain": "alz.org"
+      "logo_px": 32,
+      "category": "Nonprofit"
     },
     {
       "first_seen_date": "2026-10-14",
@@ -948,8 +1068,10 @@
       "program": "PTC-EM-AI",
       "deadline": "LOI 2026-10-20, full 2026-12-15",
       "url": "https://www.alz.org/research/for_researchers/grants/types-of-grants",
+      "logo_domain": "alz.org",
       "logo": "/funding/logos/alz.org.ico",
-      "logo_domain": "alz.org"
+      "logo_px": 32,
+      "category": "Nonprofit"
     },
     {
       "first_seen_date": "2026-10-14",
@@ -962,8 +1084,10 @@
       "eligibility": "fully open",
       "competition": "medium",
       "source_tier": "L1",
+      "logo_domain": "afrl.af.mil",
       "logo": "",
-      "logo_domain": "afrl.af.mil"
+      "logo_px": 0,
+      "category": "Federal"
     },
     {
       "first_seen_date": "2026-10-14",
@@ -976,8 +1100,10 @@
       "eligibility": "open",
       "competition": "medium",
       "source_tier": "L1 L2",
+      "logo_domain": "onr.navy.mil",
       "logo": "",
-      "logo_domain": "onr.navy.mil"
+      "logo_px": 0,
+      "category": "Federal"
     },
     {
       "first_seen_date": "2026-10-14",
@@ -990,8 +1116,10 @@
       "eligibility": "open",
       "competition": "medium",
       "source_tier": "L1",
+      "logo_domain": "afrl.af.mil",
       "logo": "",
-      "logo_domain": "afrl.af.mil"
+      "logo_px": 0,
+      "category": "Federal"
     },
     {
       "first_seen_date": "2026-10-14",
@@ -1004,8 +1132,10 @@
       "eligibility": "open",
       "competition": "medium",
       "source_tier": "L1",
+      "logo_domain": "arl.army.mil",
       "logo": "/funding/logos/arl.army.mil.png",
-      "logo_domain": "arl.army.mil"
+      "logo_px": 180,
+      "category": "Federal"
     },
     {
       "first_seen_date": "2026-10-14",
@@ -1018,8 +1148,10 @@
       "eligibility": "requires an AUP registration",
       "competition": "medium",
       "source_tier": "L2",
-      "logo": "/funding/logos/amd.com.ico",
-      "logo_domain": "amd.com"
+      "logo_domain": "amd.com",
+      "logo": "",
+      "logo_px": 16,
+      "category": "Industry"
     },
     {
       "first_seen_date": "2026-10-14",
@@ -1032,8 +1164,10 @@
       "eligibility": "framed around AI risk",
       "competition": "medium",
       "source_tier": "L2",
-      "logo": "/funding/logos/funds.effectivealtruism.org.png",
-      "logo_domain": "funds.effectivealtruism.org"
+      "logo_domain": "funds.effectivealtruism.org",
+      "logo": "/funding/logos/funds.effectivealtruism.org.svg",
+      "logo_px": 9999,
+      "category": "Nonprofit"
     },
     {
       "first_seen_date": "2026-10-14",
@@ -1046,8 +1180,10 @@
       "eligibility": "PI must hold a primary UR appointment",
       "competition": "medium",
       "source_tier": "L2",
-      "logo": "/funding/logos/urmc.rochester.edu.ico",
-      "logo_domain": "urmc.rochester.edu"
+      "logo_domain": "urmc.rochester.edu",
+      "logo": "/funding/logos/urmc.rochester.edu.png",
+      "logo_px": 180,
+      "category": "University"
     },
     {
       "first_seen_date": "2026-10-14",
@@ -1060,8 +1196,10 @@
       "eligibility": "requires a bench-to-clinic team",
       "competition": "medium",
       "source_tier": "L1",
-      "logo": "/funding/logos/grants.nih.gov.ico",
       "logo_domain": "grants.nih.gov",
+      "logo": "/funding/logos/grants.nih.gov.png",
+      "logo_px": 144,
+      "category": "Federal",
       "rate": "13%",
       "rate_basis": "NIH-wide R01-equivalent success rate, FY2025: 5,471 awards from 42,022 applications. Not this call's odds, and individual institutes differ.",
       "rate_source": "https://report.nih.gov/nihdatabook/category/10",
@@ -1078,8 +1216,10 @@
       "eligibility": "names AI and graph models",
       "competition": "medium",
       "source_tier": "L1",
-      "logo": "/funding/logos/grants.nih.gov.ico",
       "logo_domain": "grants.nih.gov",
+      "logo": "/funding/logos/grants.nih.gov.png",
+      "logo_px": 144,
+      "category": "Federal",
       "rate": "13%",
       "rate_basis": "NIH-wide R01-equivalent success rate, FY2025: 5,471 awards from 42,022 applications. Not this call's odds, and individual institutes differ.",
       "rate_source": "https://report.nih.gov/nihdatabook/category/10",
@@ -1096,8 +1236,10 @@
       "eligibility": "equipment only",
       "competition": "medium to high",
       "source_tier": "L1 L2",
-      "logo": "/funding/logos/defense.gov.ico",
-      "logo_domain": "defense.gov"
+      "logo_domain": "defense.gov",
+      "logo": "/funding/logos/defense.gov.png",
+      "logo_px": 48,
+      "category": "Federal"
     },
     {
       "first_seen_date": "2026-10-14",
@@ -1110,8 +1252,10 @@
       "eligibility": "limited submission, 3 per institution",
       "competition": "high",
       "source_tier": "L2",
+      "logo_domain": "wmkeck.org",
       "logo": "/funding/logos/wmkeck.org.png",
-      "logo_domain": "wmkeck.org"
+      "logo_px": 300,
+      "category": "Foundation"
     },
     {
       "first_seen_date": "2026-10-14",
@@ -1124,8 +1268,10 @@
       "eligibility": "universities eligible",
       "competition": "high",
       "source_tier": "L1 L2",
-      "logo": "/funding/logos/arpa-h.gov.ico",
-      "logo_domain": "arpa-h.gov"
+      "logo_domain": "arpa-h.gov",
+      "logo": "/funding/logos/arpa-h.gov.svg",
+      "logo_px": 9999,
+      "category": "Federal"
     },
     {
       "first_seen_date": "2026-10-14",
@@ -1133,8 +1279,10 @@
       "program": "FASTPASS ARPA-H-SOL-26-160 (closed to new teams)",
       "deadline": "2026-11-10",
       "url": "https://arpa-h.gov/explore-funding/programs/fastpass",
-      "logo": "/funding/logos/arpa-h.gov.ico",
-      "logo_domain": "arpa-h.gov"
+      "logo_domain": "arpa-h.gov",
+      "logo": "/funding/logos/arpa-h.gov.svg",
+      "logo_px": 9999,
+      "category": "Federal"
     },
     {
       "first_seen_date": "2026-10-14",
@@ -1142,8 +1290,10 @@
       "program": "HEARING ARPA-H-SOL-26-154 (under review)",
       "deadline": "closed",
       "url": "https://arpa-h.gov/explore-funding/programs/hearing",
-      "logo": "/funding/logos/arpa-h.gov.ico",
-      "logo_domain": "arpa-h.gov"
+      "logo_domain": "arpa-h.gov",
+      "logo": "/funding/logos/arpa-h.gov.svg",
+      "logo_px": 9999,
+      "category": "Federal"
     },
     {
       "first_seen_date": "2026-10-14",
@@ -1151,8 +1301,10 @@
       "program": "1M AI existential safety round",
       "deadline": "none stated",
       "url": "https://app.grantmaking.ai/list",
-      "logo": "",
-      "logo_domain": "app.grantmaking.ai"
+      "logo_domain": "app.grantmaking.ai",
+      "logo": "/funding/logos/app.grantmaking.ai.svg",
+      "logo_px": 9999,
+      "category": "Industry"
     },
     {
       "first_seen_date": "2026-10-14",
@@ -1160,8 +1312,10 @@
       "program": "Catalyst Grants",
       "deadline": "rolling",
       "url": "https://cohere.com/research/grants",
+      "logo_domain": "cohere.com",
       "logo": "/funding/logos/cohere.com.png",
-      "logo_domain": "cohere.com"
+      "logo_px": 180,
+      "category": "Industry"
     },
     {
       "first_seen_date": "2026-10-14",
@@ -1169,8 +1323,10 @@
       "program": "Research Grant",
       "deadline": "none stated",
       "url": "https://lambda.ai/research",
+      "logo_domain": "lambda.ai",
       "logo": "/funding/logos/lambda.ai.svg",
-      "logo_domain": "lambda.ai"
+      "logo_px": 9999,
+      "category": "Industry"
     },
     {
       "first_seen_date": "2026-10-14",
@@ -1178,8 +1334,10 @@
       "program": "Modal for Academics",
       "deadline": "rolling",
       "url": "https://modal.com/academics",
-      "logo": "/funding/logos/modal.com.ico",
-      "logo_domain": "modal.com"
+      "logo_domain": "modal.com",
+      "logo": "/funding/logos/modal.com.svg",
+      "logo_px": 9999,
+      "category": "Industry"
     },
     {
       "first_seen_date": "2026-10-14",
@@ -1187,8 +1345,10 @@
       "program": "Research Credits Program (cycle likely closed)",
       "deadline": "none",
       "url": "https://nebius.com/nebius-research-credits-program",
-      "logo": "/funding/logos/nebius.com.ico",
-      "logo_domain": "nebius.com"
+      "logo_domain": "nebius.com",
+      "logo": "/funding/logos/nebius.com.svg",
+      "logo_px": 9999,
+      "category": "Industry"
     },
     {
       "first_seen_date": "2026-10-14",
@@ -1201,8 +1361,10 @@
       "eligibility": "must be open source",
       "competition": "medium",
       "source_tier": "L3",
-      "logo": "",
-      "logo_domain": "aimo-interp.github.io"
+      "logo_domain": "aimo-interp.github.io",
+      "logo": "/funding/logos/aimo-interp.github.io.png",
+      "logo_px": 96,
+      "category": "Industry"
     },
     {
       "first_seen_date": "2026-10-14",
@@ -1210,8 +1372,10 @@
       "program": "Researcher Access Program",
       "deadline": "quarterly, Dec 2026",
       "url": "https://grants.openai.com/prog/openai_researcher_access_program/",
+      "logo_domain": "grants.openai.com",
       "logo": "/funding/logos/grants.openai.com.ico",
-      "logo_domain": "grants.openai.com"
+      "logo_px": 322,
+      "category": "Industry"
     },
     {
       "first_seen_date": "2026-10-14",
@@ -1224,8 +1388,10 @@
       "eligibility": "not listed",
       "competition": "low to medium",
       "source_tier": "L3",
+      "logo_domain": "corrigibilityresearch.org",
       "logo": "",
-      "logo_domain": "corrigibilityresearch.org"
+      "logo_px": 0,
+      "category": "Foundation"
     },
     {
       "first_seen_date": "2026-10-14",
@@ -1233,8 +1399,10 @@
       "program": "IGVF Computational Modeling RFA-HG-27-010",
       "deadline": "2026-12-14",
       "url": "https://simpler.grants.gov/opportunity/c223b7bc-1da4-4533-a09f-d35659e6d29b",
-      "logo": "/funding/logos/nih.gov.png",
       "logo_domain": "nih.gov",
+      "logo": "/funding/logos/nih.gov.png",
+      "logo_px": 144,
+      "category": "Federal",
       "rate": "13%",
       "rate_basis": "NIH-wide R01-equivalent success rate, FY2025: 5,471 awards from 42,022 applications. Not this call's odds, and individual institutes differ.",
       "rate_source": "https://report.nih.gov/nihdatabook/category/10",
@@ -1246,8 +1414,10 @@
       "program": "Digital Health Technologies Cycle 1 2027",
       "deadline": "LOI 2027-01-06",
       "url": "https://www.pcori.org/funding-opportunities/announcement/harnessing-digital-health-technologies-support-patient-centered-comparative-clinical-effectiveness-research-pcori-funding-announcement-cycle-1-2027",
+      "logo_domain": "pcori.org",
       "logo": "/funding/logos/pcori.org.ico",
-      "logo_domain": "pcori.org"
+      "logo_px": 48,
+      "category": "Nonprofit"
     },
     {
       "first_seen_date": "2026-10-14",
@@ -1255,8 +1425,10 @@
       "program": "STFP fellowship",
       "deadline": "2026-11-01",
       "url": "https://www.griffissinstitute.org/information-institute/",
+      "logo_domain": "griffissinstitute.org",
       "logo": "/funding/logos/griffissinstitute.org.png",
-      "logo_domain": "griffissinstitute.org"
+      "logo_px": 180,
+      "category": "Nonprofit"
     },
     {
       "first_seen_date": "2026-10-14",
@@ -1264,8 +1436,10 @@
       "program": "2026 Call for Proposals",
       "deadline": "LOI 2026-10-27",
       "url": "https://www.johnahartford.org/grants-strategy/2026-call-for-proposals",
+      "logo_domain": "johnahartford.org",
       "logo": "/funding/logos/johnahartford.org.ico",
-      "logo_domain": "johnahartford.org"
+      "logo_px": 64,
+      "category": "Foundation"
     },
     {
       "first_seen_date": "2026-10-14",
@@ -1273,8 +1447,10 @@
       "program": "PON 6240 BESS Health Operations",
       "deadline": "2026-11-10",
       "url": "https://www.nyserda.ny.gov/All-Programs/Grid-Modernization-Program",
+      "logo_domain": "nyserda.ny.gov",
       "logo": "/funding/logos/nyserda.ny.gov.png",
-      "logo_domain": "nyserda.ny.gov"
+      "logo_px": 152,
+      "category": "State"
     },
     {
       "first_seen_date": "2026-10-14",
@@ -1287,8 +1463,10 @@
       "eligibility": "limited submission, 2 per campus",
       "competition": "high",
       "source_tier": "L2",
+      "logo_domain": "esd.ny.gov",
       "logo": "/funding/logos/esd.ny.gov.png",
-      "logo_domain": "esd.ny.gov"
+      "logo_px": 256,
+      "category": "State"
     },
     {
       "first_seen_date": "2026-10-14",
@@ -1296,8 +1474,10 @@
       "program": "Remote mHealth CT R01 PAR-25-268",
       "deadline": "2026-11-17",
       "url": "https://simpler.grants.gov/opportunity/e4e8aa66-546b-4bf7-994e-395c11b8b7cf",
-      "logo": "/funding/logos/nih.gov.png",
       "logo_domain": "nih.gov",
+      "logo": "/funding/logos/nih.gov.png",
+      "logo_px": 144,
+      "category": "Federal",
       "rate": "13%",
       "rate_basis": "NIH-wide R01-equivalent success rate, FY2025: 5,471 awards from 42,022 applications. Not this call's odds, and individual institutes differ.",
       "rate_source": "https://report.nih.gov/nihdatabook/category/10",
@@ -1309,8 +1489,10 @@
       "program": "Collaborative Program Grant RM1 PAR-27-003",
       "deadline": "TBD",
       "url": "https://simpler.grants.gov/opportunity/c467080e-51a0-4a76-b416-035664fa95df",
-      "logo": "/funding/logos/nih.gov.png",
       "logo_domain": "nih.gov",
+      "logo": "/funding/logos/nih.gov.png",
+      "logo_px": 144,
+      "category": "Federal",
       "rate": "13%",
       "rate_basis": "NIH-wide R01-equivalent success rate, FY2025: 5,471 awards from 42,022 applications. Not this call's odds, and individual institutes differ.",
       "rate_source": "https://report.nih.gov/nihdatabook/category/10",
@@ -1322,8 +1504,10 @@
       "program": "SenNet SenTecs RFA-RM-27-007",
       "deadline": "2026-11-23",
       "url": "https://simpler.grants.gov/search?agency=HHS-NIH11&status=forecasted,posted&sortby=postedDateDesc",
-      "logo": "/funding/logos/nih.gov.png",
       "logo_domain": "nih.gov",
+      "logo": "/funding/logos/nih.gov.png",
+      "logo_px": 144,
+      "category": "Federal",
       "rate": "13%",
       "rate_basis": "NIH-wide R01-equivalent success rate, FY2025: 5,471 awards from 42,022 applications. Not this call's odds, and individual institutes differ.",
       "rate_source": "https://report.nih.gov/nihdatabook/category/10",
@@ -1335,8 +1519,10 @@
       "program": "FY2026 solicitations incl Crime and Justice Research O-NIJ-2026-172801",
       "deadline": "2026-11-16",
       "url": "https://nij.ojp.gov/funding/current",
-      "logo": "/funding/logos/nij.ojp.gov.png",
-      "logo_domain": "nij.ojp.gov"
+      "logo_domain": "nij.ojp.gov",
+      "logo": "",
+      "logo_px": 16,
+      "category": "Federal"
     },
     {
       "first_seen_date": "2026-10-14",
@@ -1344,8 +1530,10 @@
       "program": "Franklin Research Grants",
       "deadline": "2026-12-01",
       "url": "https://www.amphilsoc.org/grants/franklin-research-grants",
-      "logo": "/funding/logos/amphilsoc.org.ico",
-      "logo_domain": "amphilsoc.org"
+      "logo_domain": "amphilsoc.org",
+      "logo": "/funding/logos/amphilsoc.org.png",
+      "logo_px": 48,
+      "category": "Nonprofit"
     },
     {
       "first_seen_date": "2026-10-14",
@@ -1353,8 +1541,10 @@
       "program": "Semiconductor Reliability RFP",
       "deadline": "rolling",
       "url": "https://research.cisco.com/open-rfps/semiconductor-reliability",
+      "logo_domain": "research.cisco.com",
       "logo": "/funding/logos/research.cisco.com.png",
-      "logo_domain": "research.cisco.com"
+      "logo_px": 48,
+      "category": "Industry"
     },
     {
       "first_seen_date": "2026-10-14",
@@ -1362,8 +1552,10 @@
       "program": "CRDO BAA 2025-NIST-CHIPS-CRDO-01",
       "deadline": "reopen Nov 2026",
       "url": "https://www.nist.gov/chips/chips-rd-funding-opportunities",
+      "logo_domain": "nist.gov",
       "logo": "/funding/logos/nist.gov.ico",
-      "logo_domain": "nist.gov"
+      "logo_px": 64,
+      "category": "Federal"
     },
     {
       "first_seen_date": "2026-10-14",
@@ -1371,8 +1563,10 @@
       "program": "Powe Junior Faculty Awards 2027 (limited)",
       "deadline": "2027-01-06",
       "url": "https://www.orau.org/partnerships/grant-programs/powe/index.html",
-      "logo": "/funding/logos/orau.org.ico",
-      "logo_domain": "orau.org"
+      "logo_domain": "orau.org",
+      "logo": "/funding/logos/orau.org.svg",
+      "logo_px": 9999,
+      "category": "Foundation"
     },
     {
       "first_seen_date": "2026-10-14",
@@ -1380,8 +1574,10 @@
       "program": "Research Fellowship experienced",
       "deadline": "opens 2026-11-15",
       "url": "https://www.humboldt-foundation.de/en/apply/sponsorship-programmes/humboldt-research-fellowship",
-      "logo": "/funding/logos/humboldt-foundation.de.png",
-      "logo_domain": "humboldt-foundation.de"
+      "logo_domain": "humboldt-foundation.de",
+      "logo": "/funding/logos/humboldt-foundation.de.svg",
+      "logo_px": 9999,
+      "category": "Foundation"
     },
     {
       "first_seen_date": "2026-10-14",
@@ -1389,8 +1585,10 @@
       "program": "2027 Seed Grant (limited)",
       "deadline": "LOI TBD",
       "url": "https://www.thebrf.org/seed-grants/",
+      "logo_domain": "thebrf.org",
       "logo": "/funding/logos/thebrf.org.png",
-      "logo_domain": "thebrf.org"
+      "logo_px": 180,
+      "category": "Foundation"
     },
     {
       "first_seen_date": "2026-10-14",
@@ -1398,8 +1596,10 @@
       "program": "2026 RFP",
       "deadline": "none stated",
       "url": "https://www.iliad.ac/opportunity/2026-request-for-proposals",
+      "logo_domain": "iliad.ac",
       "logo": "/funding/logos/iliad.ac.png",
-      "logo_domain": "iliad.ac"
+      "logo_px": 180,
+      "category": "Foundation"
     },
     {
       "first_seen_date": "2026-10-14",
@@ -1407,8 +1607,10 @@
       "program": "AI Safety Fund",
       "deadline": "rolling",
       "url": "https://www.gtr-foundation.org/gtr-ai-safety-fund",
+      "logo_domain": "gtr-foundation.org",
       "logo": "/funding/logos/gtr-foundation.org.png",
-      "logo_domain": "gtr-foundation.org"
+      "logo_px": 256,
+      "category": "Foundation"
     },
     {
       "first_seen_date": "2026-10-14",
@@ -1416,8 +1618,10 @@
       "program": "open application",
       "deadline": "rolling",
       "url": "https://www.aialignmentfoundation.org/approach/apply",
-      "logo": "/funding/logos/aialignmentfoundation.org.png",
-      "logo_domain": "aialignmentfoundation.org"
+      "logo_domain": "aialignmentfoundation.org",
+      "logo": "/funding/logos/aialignmentfoundation.org.svg",
+      "logo_px": 9999,
+      "category": "Foundation"
     },
     {
       "first_seen_date": "2026-10-14",
@@ -1425,8 +1629,10 @@
       "program": "Lightcone Commons",
       "deadline": "next round about 2027-01-23",
       "url": "https://www.lightconecommons.com/apply",
+      "logo_domain": "lightconecommons.com",
       "logo": "/funding/logos/lightconecommons.com.png",
-      "logo_domain": "lightconecommons.com"
+      "logo_px": 256,
+      "category": "Foundation"
     },
     {
       "first_seen_date": "2026-10-14",
@@ -1434,8 +1640,10 @@
       "program": "BAA FY27 to 28 NOAA-NESDIS-NESDISPO-2027-33921 (unverified)",
       "deadline": "2028-09-30",
       "url": "https://simpler.grants.gov/",
-      "logo": "/funding/logos/noaa.gov.png",
-      "logo_domain": "noaa.gov"
+      "logo_domain": "noaa.gov",
+      "logo": "/funding/logos/noaa.gov.ico",
+      "logo_px": 32,
+      "category": "Federal"
     },
     {
       "first_seen_date": "2026-10-14",
@@ -1443,8 +1651,10 @@
       "program": "ROSES-25 A.13 AES",
       "deadline": "2026-10-15",
       "url": "https://science.nasa.gov/researchers/solicitations/roses-2025/amendment-62-new-opportunity-a-13-accelerating-earth-solutions/",
-      "logo": "/funding/logos/science.nasa.gov.png",
-      "logo_domain": "science.nasa.gov"
+      "logo_domain": "science.nasa.gov",
+      "logo": "/funding/logos/science.nasa.gov.svg",
+      "logo_px": 9999,
+      "category": "Federal"
     },
     {
       "first_seen_date": "2026-10-14",
@@ -1452,8 +1662,10 @@
       "program": "Professional Development Awards and MA3 Challenge",
       "deadline": "2026-11-06, 2027-01-08",
       "url": "https://dana.org/grants/",
+      "logo_domain": "dana.org",
       "logo": "/funding/logos/dana.org.png",
-      "logo_domain": "dana.org"
+      "logo_px": 180,
+      "category": "Foundation"
     },
     {
       "first_seen_date": "2026-10-14",
@@ -1461,8 +1673,10 @@
       "program": "RFP 5409 and others",
       "deadline": "2026-10-26",
       "url": "https://portal.waterrf.org/outbound-grants",
+      "logo_domain": "portal.waterrf.org",
       "logo": "",
-      "logo_domain": "portal.waterrf.org"
+      "logo_px": 16,
+      "category": "Foundation"
     },
     {
       "first_seen_date": "2026-10-14",
@@ -1470,8 +1684,10 @@
       "program": "Global Scholars 2027 to 2029",
       "deadline": "2026-11-04",
       "url": "https://www.cifar.ca/global-scholars/",
-      "logo": "/funding/logos/cifar.ca.ico",
-      "logo_domain": "cifar.ca"
+      "logo_domain": "cifar.ca",
+      "logo": "/funding/logos/cifar.ca.svg",
+      "logo_px": 9999,
+      "category": "Public (non-US)"
     },
     {
       "first_seen_date": "2026-10-14",
@@ -1479,8 +1695,10 @@
       "program": "Hubble DARPA-SN-26-121",
       "deadline": "2026-11-05",
       "url": "https://www.darpa.mil/research/programs/hubble",
-      "logo": "/funding/logos/darpa.mil.ico",
-      "logo_domain": "darpa.mil"
+      "logo_domain": "darpa.mil",
+      "logo": "",
+      "logo_px": 16,
+      "category": "Federal"
     },
     {
       "first_seen_date": "2026-10-14",
@@ -1488,8 +1706,10 @@
       "program": "Firefox DARPA-PS-26-137",
       "deadline": "2026-11-09",
       "url": "https://www.darpa.mil/research/programs/firefox",
-      "logo": "/funding/logos/darpa.mil.ico",
-      "logo_domain": "darpa.mil"
+      "logo_domain": "darpa.mil",
+      "logo": "",
+      "logo_px": 16,
+      "category": "Federal"
     },
     {
       "first_seen_date": "2026-10-14",
@@ -1497,8 +1717,10 @@
       "program": "APM DARPA-PS-26-141",
       "deadline": "abstract 2026-10-27, full 2026-12-18",
       "url": "https://www.bwcoconsulting.com/fod/darpa-apm-darpa-ps-26-141",
-      "logo": "/funding/logos/bwcoconsulting.com.webp",
-      "logo_domain": "bwcoconsulting.com"
+      "logo_domain": "darpa.mil",
+      "logo": "",
+      "logo_px": 16,
+      "category": "Federal"
     },
     {
       "first_seen_date": "2026-10-14",
@@ -1506,8 +1728,10 @@
       "program": "European researcher model access (unverified)",
       "deadline": "none",
       "url": "https://www.analyticsinsight.net/news/google-gives-200-european-researchers-access-to-advanced-ai-models",
-      "logo": "/funding/logos/analyticsinsight.net.ico",
-      "logo_domain": "analyticsinsight.net"
+      "logo_domain": "google.com",
+      "logo": "/funding/logos/google.com.png",
+      "logo_px": 144,
+      "category": "Industry"
     },
     {
       "first_seen_date": "2026-10-14",
@@ -1515,8 +1739,10 @@
       "program": "Middle Powers and Transformative AI RFP",
       "deadline": "2026-10-23",
       "url": "https://middlepowers.ai/",
-      "logo": "/funding/logos/middlepowers.ai.png",
-      "logo_domain": "middlepowers.ai"
+      "logo_domain": "middlepowers.ai",
+      "logo": "/funding/logos/middlepowers.ai.svg",
+      "logo_px": 9999,
+      "category": "Industry"
     },
     {
       "first_seen_date": "2026-10-14",
@@ -1524,8 +1750,10 @@
       "program": "Innovation Fellowship 2027 (RIT ineligible)",
       "deadline": "TBD",
       "url": "https://www.qualcomm.com/content/dam/qcomm-martech/dm-assets/documents/QIF-2027-official-rules-US-CANADA.pdf",
+      "logo_domain": "qualcomm.com",
       "logo": "/funding/logos/qualcomm.com.ico",
-      "logo_domain": "qualcomm.com"
+      "logo_px": 32,
+      "category": "Industry"
     },
     {
       "first_seen_date": "2026-10-14",
@@ -1533,8 +1761,10 @@
       "program": "Scientific Software Faculty Award and Fellows-to-Faculty 2027",
       "deadline": "2027-01-21, 2027-01-13",
       "url": "https://www.simonsfoundation.org/funding-opportunities/",
-      "logo": "/funding/logos/simonsfoundation.org.ico",
-      "logo_domain": "simonsfoundation.org"
+      "logo_domain": "simonsfoundation.org",
+      "logo": "/funding/logos/simonsfoundation.org.svg",
+      "logo_px": 9999,
+      "category": "Foundation"
     },
     {
       "first_seen_date": "2026-10-14",
@@ -1542,8 +1772,10 @@
       "program": "Precision Mitochondria RFP",
       "deadline": "2026-11-09",
       "url": "https://aria.org.uk/opportunity-spaces/programmable-physiology/precision-mitochondria/funding",
+      "logo_domain": "aria.org.uk",
       "logo": "/funding/logos/aria.org.uk.png",
-      "logo_domain": "aria.org.uk"
+      "logo_px": 180,
+      "category": "Public (non-US)"
     },
     {
       "first_seen_date": "2026-10-14",
@@ -1551,8 +1783,10 @@
       "program": "National Awards 2027 (limited, unverified)",
       "deadline": "2026-12-02",
       "url": "https://blavatnikawards.org/",
-      "logo": "/funding/logos/blavatnikawards.org.ico",
-      "logo_domain": "blavatnikawards.org"
+      "logo_domain": "blavatnikawards.org",
+      "logo": "/funding/logos/blavatnikawards.org.png",
+      "logo_px": 32,
+      "category": "Foundation"
     },
     {
       "first_seen_date": "2026-10-14",
@@ -1560,8 +1794,10 @@
       "program": "research grants (unverified)",
       "deadline": "rolling",
       "url": "https://www.williamdemantfonden.dk/how-to-apply",
+      "logo_domain": "williamdemantfonden.dk",
       "logo": "",
-      "logo_domain": "williamdemantfonden.dk"
+      "logo_px": 0,
+      "category": "Foundation"
     },
     {
       "first_seen_date": "2026-10-14",
@@ -1569,8 +1805,10 @@
       "program": "X-Labs future topics RFI",
       "deadline": "2026-10-30",
       "url": "https://www.nsf.gov/news/nsf-announces-3-additional-topics-part-nsf-x-labs-initiative",
+      "logo_domain": "nsf.gov",
       "logo": "/funding/logos/nsf.gov.png",
-      "logo_domain": "nsf.gov"
+      "logo_px": 192,
+      "category": "Federal"
     },
     {
       "first_seen_date": "2026-10-14",
@@ -1578,8 +1816,10 @@
       "program": "Strategic Plan 2028 to 2032 RFI",
       "deadline": "2026-10-26",
       "url": "https://www.federalregister.gov/documents/2026/08/25/2026-17311/request-for-information-rfi-request-for-information-on-new-and-emerging-areas-of-science-relevant-to",
-      "logo": "/funding/logos/nih.gov.png",
       "logo_domain": "nih.gov",
+      "logo": "/funding/logos/nih.gov.png",
+      "logo_px": 144,
+      "category": "Federal",
       "rate": "13%",
       "rate_basis": "NIH-wide R01-equivalent success rate, FY2025: 5,471 awards from 42,022 applications. Not this call's odds, and individual institutes differ.",
       "rate_source": "https://report.nih.gov/nihdatabook/category/10",
@@ -1591,8 +1831,10 @@
       "program": "SINI under PCLNet (announced)",
       "deadline": "TBD",
       "url": "https://www.nsf.gov/news/nsf-lays-foundation-next-generation-technologies-support",
+      "logo_domain": "nsf.gov",
       "logo": "/funding/logos/nsf.gov.png",
-      "logo_domain": "nsf.gov"
+      "logo_px": 192,
+      "category": "Federal"
     },
     {
       "first_seen_date": "2026-10-14",
@@ -1600,8 +1842,10 @@
       "program": "AI Forge (no solicitation yet)",
       "deadline": "none",
       "url": "https://www.darpa.mil/research/programs/ai-forge",
-      "logo": "/funding/logos/darpa.mil.ico",
-      "logo_domain": "darpa.mil"
+      "logo_domain": "darpa.mil",
+      "logo": "",
+      "logo_px": 16,
+      "category": "Federal"
     },
     {
       "first_seen_date": "2026-10-14",
@@ -1609,8 +1853,10 @@
       "program": "DP2 New Innovator RFA-RM-28-002 (forecast)",
       "deadline": "est 2027-08-19",
       "url": "https://simpler.grants.gov/opportunity/469a39ab-1b4c-471e-b612-5e979f656f27",
-      "logo": "/funding/logos/nih.gov.png",
       "logo_domain": "nih.gov",
+      "logo": "/funding/logos/nih.gov.png",
+      "logo_px": 144,
+      "category": "Federal",
       "rate": "13%",
       "rate_basis": "NIH-wide R01-equivalent success rate, FY2025: 5,471 awards from 42,022 applications. Not this call's odds, and individual institutes differ.",
       "rate_source": "https://report.nih.gov/nihdatabook/category/10",
@@ -1622,8 +1868,10 @@
       "program": "Trailblazer R21 reissue FOR-EB-26-001 (forecast)",
       "deadline": "TBD",
       "url": "https://simpler.grants.gov/opportunity/9f06c317-b398-4482-89b1-57bcf35363f3",
-      "logo": "/funding/logos/nih.gov.png",
       "logo_domain": "nih.gov",
+      "logo": "/funding/logos/nih.gov.png",
+      "logo_px": 144,
+      "category": "Federal",
       "rate": "13%",
       "rate_basis": "NIH-wide R01-equivalent success rate, FY2025: 5,471 awards from 42,022 applications. Not this call's odds, and individual institutes differ.",
       "rate_source": "https://report.nih.gov/nihdatabook/category/10",
@@ -1635,8 +1883,10 @@
       "program": "Bridge2AI Stage 2 RFA-RM-28-010 (forecast)",
       "deadline": "est 2027-03-01",
       "url": "https://simpler.grants.gov/opportunity/602cbc1a-d601-44f1-90d7-e6914ba594a6",
-      "logo": "/funding/logos/nih.gov.png",
       "logo_domain": "nih.gov",
+      "logo": "/funding/logos/nih.gov.png",
+      "logo_px": 144,
+      "category": "Federal",
       "rate": "13%",
       "rate_basis": "NIH-wide R01-equivalent success rate, FY2025: 5,471 awards from 42,022 applications. Not this call's odds, and individual institutes differ.",
       "rate_source": "https://report.nih.gov/nihdatabook/category/10",
@@ -1648,8 +1898,10 @@
       "program": "Precision Aging RFA-AG-26-022 (forecast)",
       "deadline": "TBD",
       "url": "https://simpler.grants.gov/opportunity/b19c89bb-baf4-4121-a24f-28891f9b1111",
-      "logo": "/funding/logos/nih.gov.png",
       "logo_domain": "nih.gov",
+      "logo": "/funding/logos/nih.gov.png",
+      "logo_px": 144,
+      "category": "Federal",
       "rate": "13%",
       "rate_basis": "NIH-wide R01-equivalent success rate, FY2025: 5,471 awards from 42,022 applications. Not this call's odds, and individual institutes differ.",
       "rate_source": "https://report.nih.gov/nihdatabook/category/10",
@@ -1661,8 +1913,10 @@
       "program": "Digital Health ADRD U54 RFA-AG-27-002 (forecast)",
       "deadline": "TBD",
       "url": "https://simpler.grants.gov/opportunity/e4a95157-fd31-4a44-96ef-cfa0f95ec39c",
-      "logo": "/funding/logos/nih.gov.png",
       "logo_domain": "nih.gov",
+      "logo": "/funding/logos/nih.gov.png",
+      "logo_px": 144,
+      "category": "Federal",
       "rate": "13%",
       "rate_basis": "NIH-wide R01-equivalent success rate, FY2025: 5,471 awards from 42,022 applications. Not this call's odds, and individual institutes differ.",
       "rate_source": "https://report.nih.gov/nihdatabook/category/10",
@@ -1674,8 +1928,10 @@
       "program": "Genesis Mission FY27 Phase I and II competition (expected)",
       "deadline": "TBD",
       "url": "https://simpler.grants.gov/opportunity/0228b895-9cb3-4160-8acc-58709e75c3c7",
+      "logo_domain": "energy.gov",
       "logo": "/funding/logos/energy.gov.ico",
-      "logo_domain": "energy.gov"
+      "logo_px": 48,
+      "category": "Federal"
     },
     {
       "first_seen_date": "2026-10-14",
@@ -1683,8 +1939,10 @@
       "program": "industry compute pledges (no route yet)",
       "deadline": "none",
       "url": "https://www.nextgov.com/artificial-intelligence/2026/10/white-house-unveils-billions-investments-genesis-mission/416517/",
-      "logo": "/funding/logos/nextgov.com.png",
-      "logo_domain": "nextgov.com"
+      "logo_domain": "energy.gov",
+      "logo": "/funding/logos/energy.gov.ico",
+      "logo_px": 48,
+      "category": "Federal"
     },
     {
       "first_seen_date": "2026-10-14",
@@ -1692,8 +1950,10 @@
       "program": "YFA 2027 (not yet posted)",
       "deadline": "expected fall 2026",
       "url": "https://www.darpa.mil/work-with-us/for-universities/young-faculty-award",
-      "logo": "/funding/logos/darpa.mil.ico",
-      "logo_domain": "darpa.mil"
+      "logo_domain": "darpa.mil",
+      "logo": "",
+      "logo_px": 16,
+      "category": "Federal"
     },
     {
       "first_seen_date": "2026-10-14",
@@ -1701,8 +1961,10 @@
       "program": "next compute allocation RFP (expected)",
       "deadline": "TBD",
       "url": "https://docs.ccr.buffalo.edu/en/latest/howto/empireai/",
-      "logo": "/funding/logos/docs.ccr.buffalo.edu.ico",
-      "logo_domain": "docs.ccr.buffalo.edu"
+      "logo_domain": "docs.ccr.buffalo.edu",
+      "logo": "",
+      "logo_px": 16,
+      "category": "University"
     },
     {
       "first_seen_date": "2026-10-14",
@@ -1710,8 +1972,10 @@
       "program": "Music as Medicine (2026 closed)",
       "deadline": "next cycle TBD",
       "url": "https://fnih.org/our-programs/powering-science/music-as-medicine/",
+      "logo_domain": "fnih.org",
       "logo": "/funding/logos/fnih.org.jpg",
-      "logo_domain": "fnih.org"
+      "logo_px": 192,
+      "category": "Foundation"
     },
     {
       "first_seen_date": "2026-10-14",
@@ -1719,8 +1983,10 @@
       "program": "Unconventional Grant (2026 closed)",
       "deadline": "next cycle TBD",
       "url": "https://unconv.ai/grant/",
+      "logo_domain": "unconv.ai",
       "logo": "/funding/logos/unconv.ai.png",
-      "logo_domain": "unconv.ai"
+      "logo_px": 512,
+      "category": "Industry"
     },
     {
       "first_seen_date": "2026-10-14",
@@ -1728,8 +1994,10 @@
       "program": "ADDF correction: Diagnostics Accelerator closed, 2026-12-07 applies to invited Therapeutics RFPs. NSF X-Labs AI for Physical Systems and DOE Genesis Graduate Fellowship flagged limited at BU",
       "deadline": "n/a",
       "url": "https://www.alzdiscovery.org/research-and-grants/funding-opportunities",
-      "logo": "/funding/logos/alzdiscovery.org.ico",
-      "logo_domain": "alzdiscovery.org"
+      "logo_domain": "alzdiscovery.org",
+      "logo": "",
+      "logo_px": 16,
+      "category": "Foundation"
     }
   ],
   "watchlist": [

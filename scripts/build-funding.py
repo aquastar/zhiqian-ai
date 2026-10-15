@@ -28,6 +28,7 @@ import json
 import pathlib
 import re
 import sys
+import struct
 import urllib.parse
 import urllib.request
 from concurrent.futures import ThreadPoolExecutor
@@ -223,7 +224,10 @@ def funding_rate(row):
 LOGO_DIR = ROOT / 'public' / 'funding' / 'logos'
 
 PORTALS = {'simpler.grants.gov', 'grants.gov', 'sam.gov', 'federalregister.gov',
-           'govcontractfinder.com', 'job-boards.greenhouse.io', 'greenhouse.io'}
+           'govcontractfinder.com', 'job-boards.greenhouse.io', 'greenhouse.io',
+           # A trade-press write-up is not the funder either, and its masthead
+           # on a DARPA or DOE row would be a plain error.
+           'nextgov.com', 'analyticsinsight.net', 'builtin.com', 'bwcoconsulting.com'}
 
 SPONSOR_DOMAIN = [
     (re.compile(r'^NIGMS', re.I), 'nigms.nih.gov'),
@@ -245,12 +249,44 @@ SPONSOR_DOMAIN = [
     (re.compile(r'^Google', re.I), 'google.com'),
     (re.compile(r'^Microsoft', re.I), 'microsoft.com'),
     (re.compile(r'^NVIDIA', re.I), 'nvidia.com'),
+    (re.compile(r'^Genesis Mission', re.I), 'energy.gov'),
+    (re.compile(r'^Mercor', re.I), 'mercor.com'),
     (re.compile(r'^AMD\b', re.I), 'amd.com'),
 ]
 
 # Both services answer a miss with a generic globe rather than a 404 body, so
 # the placeholder is recognised by content and discarded.
 PLACEHOLDER_SIZES = {726, 1478}
+UA = ('Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 '
+      '(KHTML, like Gecko) Chrome/124.0 Safari/537.36 zhiqian.ai-logo-fetch')
+
+
+# What kind of body is paying. A federal solicitation, a state programme, a
+# private foundation and a company's credit grant are different animals with
+# different rules, and the sponsor's name alone does not say which. Decided
+# here from the name and the funder's own domain, most specific rule first.
+CATEGORIES = [
+    ('State',      re.compile(r'^nys\b|^nyserda|empire state', re.I), re.compile(r'\.ny\.gov$|\.state\.[a-z]{2}\.us$')),
+    ('University', re.compile(r'^rit\b|ctsi|university', re.I), re.compile(r'\.edu$|\.ac\.uk$')),
+    # A "Foundation for X" is private money even when X is a federal agency,
+    # which is the whole point of FNIH, so this has to come before Federal.
+    ('Foundation', re.compile(r'foundation|^fnih$|^blavatnik|^arnold ventures|^dana\b|^simons\b|^keck|^oticon|^humboldt|^iliad\b|^lightcone|^gtr\b', re.I),
+                   re.compile(r'foundation|^wmkeck|^dana\.org|^thebrf|^rrf\.org|^alzdiscovery|^johnahartford|^blavatnikawards|^fnih|^simonsfoundation|^arnoldventures|^orau\.org|williamdemantfonden')),
+    ('Federal',    re.compile(r'^(nsf|nih|darpa|arpa-h|doe|dod|onr|afosr|afrl|arl|aro|nasa|nist|noaa|nij|acl|nigms|iarpa|epa|usda|ahrq|cdc|fda|neh|genesis mission)\b', re.I),
+                   re.compile(r'\.gov$|\.mil$')),
+    ('Public (non-US)', re.compile(r'^aria$|^cifar$', re.I), re.compile(r'^aria\.org\.uk$|^cifar\.ca$')),
+    ('Industry',   re.compile(r'^(amd|amazon|anthropic|google|microsoft|nvidia|openai|qualcomm|cisco|cohere|lambda|modal|nebius|mercor|thinking machines|astralis|humanity ai|unconventional ai)\b', re.I),
+                   re.compile(r'\.(com|ai|io)$')),
+]
+
+
+def category_of(sponsor, domain):
+    for label, name_re, dom_re in CATEGORIES:
+        if name_re.search(sponsor or '') or dom_re.search(domain or ''):
+            return label
+    if (domain or '').endswith('.org'):
+        return 'Nonprofit'
+    return ''
 
 
 def logo_domain(row):
@@ -270,38 +306,145 @@ def logo_domain(row):
 MISSES = LOGO_DIR / 'no-logo.txt'
 
 
-def fetch_logo(domain, known_misses):
-    """Save the funder's icon, returning its published path or ''."""
-    for existing in LOGO_DIR.glob(f'{domain}.*'):
-        if existing.name != 'no-logo.txt':
-            return f'/funding/logos/{existing.name}'    # already have it
-    if domain in known_misses:
-        return ''
-    sources = [
-        f'https://icons.duckduckgo.com/ip3/{domain}.ico',
-        f'https://www.google.com/s2/favicons?domain={domain}&sz=64',
-    ]
-    for url in sources:
-        try:
-            req = urllib.request.Request(url, headers={'User-Agent': 'zhiqian.ai logo fetch'})
-            with urllib.request.urlopen(req, timeout=6) as r:
-                if r.status != 200:
-                    continue
-                body = r.read(200_000)
-                ctype = (r.headers.get('Content-Type') or '').split(';')[0].strip()
-        except Exception:
+def _dims(body):
+    """Pixel size of a PNG, ICO or JPEG without pulling in an image library."""
+    if body[:8] == b'\x89PNG\r\n\x1a\n':
+        w, h = struct.unpack('>II', body[16:24])
+        return w, h
+    if body[:2] == b'\xff\xd8':
+        i = 2
+        while i + 9 < len(body):
+            if body[i] != 0xFF:
+                i += 1
+                continue
+            marker, length = body[i + 1], struct.unpack('>H', body[i + 2:i + 4])[0]
+            if 0xC0 <= marker <= 0xCF and marker not in (0xC4, 0xC8, 0xCC):
+                h, w = struct.unpack('>HH', body[i + 5:i + 9])
+                return w, h
+            i += 2 + length
+        return (0, 0)
+    if body[:4] == b'\x00\x00\x01\x00':
+        best = (0, 0)
+        for i in range(struct.unpack('<H', body[4:6])[0]):
+            e = 6 + 16 * i
+            w, h = body[e] or 256, body[e + 1] or 256
+            if w * h > best[0] * best[1]:
+                best = (w, h)
+        return best
+    return (0, 0)
+
+
+EXT = {'image/png': 'png', 'image/x-icon': 'ico', 'image/vnd.microsoft.icon': 'ico',
+       'image/svg+xml': 'svg', 'image/jpeg': 'jpg', 'image/gif': 'gif', 'image/webp': 'webp'}
+
+
+def _get(url, limit=400_000):
+    try:
+        req = urllib.request.Request(url, headers={'User-Agent': UA})
+        with urllib.request.urlopen(req, timeout=6) as r:
+            if r.status != 200:
+                return None
+            body = r.read(limit)
+            ctype = (r.headers.get('Content-Type') or '').split(';')[0].strip().lower()
+        return body, ctype
+    except Exception:
+        return None
+
+
+def _candidates(domain):
+    """Icon urls the site declares for itself, best first.
+
+    Favicon services hand back whatever small bitmap they cached, which is how
+    this page ended up with a 16x24 DARPA mark and a 32x32 NSF one. A site's
+    own <link rel="icon"> usually points at something far better, and often at
+    an SVG, which is the only thing that stays sharp at any size on any
+    screen. So the site is asked first and the services are the fallback.
+    """
+    out = []
+    got = _get(f'https://{domain}/', limit=300_000)
+    if got:
+        html = got[0].decode('utf-8', 'replace')
+        for m in re.finditer(r'<link\b[^>]*>', html, re.I):
+            tag = m.group(0)
+            rel = re.search(r'rel\s*=\s*["\']([^"\']+)', tag, re.I)
+            href = re.search(r'href\s*=\s*["\']([^"\']+)', tag, re.I)
+            if not rel or not href:
+                continue
+            rels = rel.group(1).lower()
+            if 'icon' not in rels:
+                continue
+            url = urllib.parse.urljoin(f'https://{domain}/', href.group(1))
+            # An SVG icon beats every bitmap; after that, bigger is better, and
+            # apple-touch-icon is normally the largest bitmap a site publishes.
+            score = 3 if url.lower().endswith('.svg') else 2 if 'apple' in rels else 1
+            size = re.search(r'sizes\s*=\s*["\'](\d+)', tag, re.I)
+            out.append((score, int(size.group(1)) if size else 0, url))
+        out.sort(key=lambda x: (-x[0], -x[1]))
+    urls = [u for _, _, u in out][:4]
+    urls += [f'https://www.google.com/s2/favicons?domain={domain}&sz=256',
+             f'https://icons.duckduckgo.com/ip3/{domain}.ico']
+    return urls
+
+
+def _best_icon(domain):
+    """Largest icon the domain offers, as (rank, bytes, extension) or None."""
+    best = None
+    for url in _candidates(domain):
+        got = _get(url)
+        if not got:
             continue
+        body, ctype = got
         if len(body) in PLACEHOLDER_SIZES or len(body) < 100:
             continue
-        ext = {'image/png': 'png', 'image/x-icon': 'ico', 'image/vnd.microsoft.icon': 'ico',
-               'image/svg+xml': 'svg', 'image/jpeg': 'jpg', 'image/gif': 'gif',
-               'image/webp': 'webp'}.get(ctype)
+        ext = EXT.get(ctype)
+        if not ext and url.lower().endswith('.svg') and b'<svg' in body[:600].lower():
+            ext = 'svg'
         if not ext:
             continue
-        LOGO_DIR.mkdir(parents=True, exist_ok=True)
-        (LOGO_DIR / f'{domain}.{ext}').write_bytes(body)
-        return f'/funding/logos/{domain}.{ext}'
-    return ''
+        if ext == 'svg':
+            best = (10_000, body, ext)             # vector wins outright
+            break
+        w, h = _dims(body)
+        rank = min(w, h)
+        if best is None or rank > best[0]:
+            best = (rank, body, ext)
+        if rank >= 128:
+            break
+    return best
+
+
+def _measure(path):
+    """Smaller side of a stored icon, 9999 for a vector."""
+    body = path.read_bytes()
+    if path.suffix == '.svg' or b'<svg' in body[:400].lower():
+        return 9999
+    w, h = _dims(body)
+    return min(w, h)
+
+
+def fetch_logo(domain, known_misses):
+    """Save the funder's mark, returning (published path, pixel size)."""
+    for existing in LOGO_DIR.glob(f'{domain}.*'):
+        if existing.name != 'no-logo.txt':
+            return f'/funding/logos/{existing.name}', _measure(existing)
+    if domain in known_misses:
+        return '', 0
+    best = _best_icon(domain)
+    # A department's own subdomain often ships nothing but a 16px favicon
+    # inherited from a decade ago, which is why NIH and DARPA arrived as
+    # blurred smudges. The parent domain is the same organisation and usually
+    # keeps a modern one, so it is worth a second ask when the first is poor.
+    if (not best or best[0] < 64) and domain.count('.') >= 2:
+        parent = domain.split('.', 1)[1]
+        if parent.count('.') >= 1 and len(parent.split('.')[0]) > 2:
+            alt = _best_icon(parent)
+            if alt and (not best or alt[0] > best[0]):
+                best = alt
+    if not best:
+        return '', 0
+    LOGO_DIR.mkdir(parents=True, exist_ok=True)
+    (LOGO_DIR / f'{domain}.{best[2]}').write_bytes(best[1])
+    return f'/funding/logos/{domain}.{best[2]}', best[0]
 
 
 def attach_logos(rows):
@@ -317,12 +460,18 @@ def attach_logos(rows):
     with ThreadPoolExecutor(max_workers=12) as pool:
         found = dict(zip(domains, pool.map(lambda d: fetch_logo(d, known), domains)))
 
-    missed = sorted(known | {d for d, path in found.items() if not path})
+    missed = sorted(known | {d for d, (path, _) in found.items() if not path})
     MISSES.write_text('\n'.join(missed) + '\n', encoding='utf-8')
 
     for r in rows:
-        r['logo'] = found.get(r.get('logo_domain') or logo_domain(r), '')
-        r.setdefault('logo_domain', logo_domain(r))
+        dom = r.get('logo_domain') or logo_domain(r)
+        r['logo_domain'] = dom
+        path, px = found.get(dom, ('', 0))
+        # A 16px favicon blown up to the size of two lines of text is a smear.
+        # Below this the row is better off with clean initials than with a
+        # recognisable logo rendered badly.
+        r['logo'] = path if px >= 32 else ''
+        r['logo_px'] = px
     got = sum(1 for r in rows if r.get('logo'))
     return got, len(domains)
 
@@ -464,6 +613,8 @@ def main():
                 target[k] = o[k]
 
     logos_found, logo_domains = attach_logos(registry)
+    for r in registry:
+        r['category'] = category_of(r.get('sponsor', ''), r.get('logo_domain', ''))
 
     # Attach the published funding rate before anything is serialized.
     for r in registry:
