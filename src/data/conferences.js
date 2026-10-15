@@ -6,6 +6,3907 @@
 // Built 2026-10-15.
 export const ranked = [
   {
+    "title": "RecSys",
+    "desc": "ACM Conference on Recommender Systems",
+    "area": "AI / ML / Data Mining",
+    "sub": "DB",
+    "ccf": "B",
+    "core": "A",
+    "coreVerified": true,
+    "nextDeadline": "2026-04-21",
+    "nextYear": 2026,
+    "nextAbstract": "",
+    "estimated": false,
+    "estFrom": "",
+    "rounds": [
+      {
+        "d": "2026-04-21",
+        "label": "",
+        "est": false,
+        "year": 2026,
+        "link": "https://recsys.acm.org/recsys26",
+        "abs": "2026-04-14"
+      }
+    ],
+    "dblp": "recsys",
+    "csr": "",
+    "edition": "",
+    "best": "",
+    "link": "https://recsys.acm.org/recsys26",
+    "date": "September 29 - October 1, 2026",
+    "place": "Minneapolis, Minnesota, USA",
+    "cc": "us",
+    "city": "",
+    "cycles": 1,
+    "roundLabels": [],
+    "proceedings": "full",
+    "rates": [
+      {
+        "y": 2015,
+        "r": 23.0
+      },
+      {
+        "y": 2016,
+        "r": 18.2
+      },
+      {
+        "y": 2017,
+        "r": 20.8
+      },
+      {
+        "y": 2018,
+        "r": 17.7
+      },
+      {
+        "y": 2019,
+        "r": 19.0
+      },
+      {
+        "y": 2020,
+        "r": 17.9
+      }
+    ],
+    "rateSection": "data-mining-and-information-retrieval",
+    "rateSrc": "ar",
+    "rateSlug": "",
+    "tier": 2
+  },
+  {
+    "title": "CCS",
+    "desc": "ACM Conference on Computer and Communications Security",
+    "area": "Security & Medicine",
+    "sub": "SC",
+    "ccf": "A",
+    "core": "A*",
+    "coreVerified": true,
+    "nextDeadline": "2026-04-29",
+    "nextYear": 2026,
+    "nextAbstract": "",
+    "estimated": false,
+    "estFrom": "",
+    "rounds": [
+      {
+        "d": "2026-04-29",
+        "label": "Cycle 2",
+        "est": false,
+        "year": 2026,
+        "link": "https://www.sigsac.org/ccs/CCS2026/",
+        "abs": "2026-04-22"
+      },
+      {
+        "d": "2027-01-09",
+        "label": "Cycle 1",
+        "est": true,
+        "from": "2025-01-09",
+        "abs": "2027-01-02"
+      }
+    ],
+    "dblp": "ccs",
+    "csr": "Security",
+    "edition": "33rd",
+    "best": "",
+    "link": "https://www.sigsac.org/ccs/CCS2026/",
+    "date": "November 16-18, 2026",
+    "place": "World Forum, Hague, Netherlands",
+    "cc": "nl",
+    "city": "",
+    "cycles": 2,
+    "roundLabels": [
+      "Cycle 1",
+      "Cycle 2"
+    ],
+    "proceedings": "full",
+    "rates": [
+      {
+        "y": 1993,
+        "r": 45.0
+      },
+      {
+        "y": 1994,
+        "r": 44.3
+      },
+      {
+        "y": 1996,
+        "r": 32.2
+      },
+      {
+        "y": 1997,
+        "r": 26.6
+      },
+      {
+        "y": 1998,
+        "r": 20.0
+      },
+      {
+        "y": 1999,
+        "r": 19.3
+      },
+      {
+        "y": 2000,
+        "r": 21.2
+      },
+      {
+        "y": 2001,
+        "r": 17.6
+      },
+      {
+        "y": 2002,
+        "r": 17.6
+      },
+      {
+        "y": 2003,
+        "r": 13.8
+      },
+      {
+        "y": 2004,
+        "r": 13.9
+      },
+      {
+        "y": 2005,
+        "r": 15.2
+      },
+      {
+        "y": 2006,
+        "r": 14.8
+      },
+      {
+        "y": 2007,
+        "r": 18.2
+      },
+      {
+        "y": 2008,
+        "r": 18.2
+      },
+      {
+        "y": 2009,
+        "r": 18.4
+      },
+      {
+        "y": 2010,
+        "r": 16.9
+      },
+      {
+        "y": 2011,
+        "r": 14.0
+      },
+      {
+        "y": 2012,
+        "r": 19.1
+      },
+      {
+        "y": 2013,
+        "r": 19.8
+      },
+      {
+        "y": 2014,
+        "r": 19.5
+      },
+      {
+        "y": 2015,
+        "r": 19.4
+      },
+      {
+        "y": 2016,
+        "r": 16.5
+      },
+      {
+        "y": 2017,
+        "r": 18.1
+      },
+      {
+        "y": 2018,
+        "r": 16.6
+      },
+      {
+        "y": 2019,
+        "r": 16.0
+      },
+      {
+        "y": 2020,
+        "r": 16.9
+      },
+      {
+        "y": 2021,
+        "r": 22.3
+      },
+      {
+        "y": 2022,
+        "r": 22.5
+      },
+      {
+        "y": 2023,
+        "r": 19.2
+      },
+      {
+        "y": 2024,
+        "r": 16.7
+      },
+      {
+        "y": 2025,
+        "r": 14.5
+      }
+    ],
+    "rateSection": "",
+    "rateSrc": "csc",
+    "rateSlug": "ccs",
+    "tier": 1
+  },
+  {
+    "title": "VLDB",
+    "desc": "International Conference on Very Large Data Bases",
+    "area": "AI / ML / Data Mining",
+    "sub": "DB",
+    "ccf": "A",
+    "core": "A*",
+    "coreVerified": true,
+    "nextDeadline": "2026-05-01",
+    "nextYear": 2027,
+    "nextAbstract": "",
+    "estimated": false,
+    "estFrom": "",
+    "rounds": [
+      {
+        "d": "2026-05-01",
+        "label": "",
+        "est": false,
+        "year": 2027,
+        "link": "https://www.vldb.org/2027/",
+        "abs": "2026-04-25"
+      },
+      {
+        "d": "2026-06-01",
+        "label": "",
+        "est": false,
+        "year": 2027,
+        "link": "https://www.vldb.org/2027/",
+        "abs": "2026-05-25"
+      },
+      {
+        "d": "2026-07-01",
+        "label": "",
+        "est": false,
+        "year": 2027,
+        "link": "https://www.vldb.org/2027/",
+        "abs": "2026-06-25"
+      },
+      {
+        "d": "2026-08-01",
+        "label": "",
+        "est": false,
+        "year": 2027,
+        "link": "https://www.vldb.org/2027/",
+        "abs": "2026-07-25"
+      },
+      {
+        "d": "2026-09-01",
+        "label": "",
+        "est": false,
+        "year": 2027,
+        "link": "https://www.vldb.org/2027/",
+        "abs": "2026-08-25"
+      },
+      {
+        "d": "2026-10-01",
+        "label": "",
+        "est": false,
+        "year": 2027,
+        "link": "https://www.vldb.org/2027/",
+        "abs": "2026-09-25"
+      },
+      {
+        "d": "2026-11-01",
+        "label": "",
+        "est": false,
+        "year": 2027,
+        "link": "https://www.vldb.org/2027/",
+        "abs": "2026-10-25"
+      },
+      {
+        "d": "2026-12-01",
+        "label": "",
+        "est": false,
+        "year": 2027,
+        "link": "https://www.vldb.org/2027/",
+        "abs": "2026-11-25"
+      },
+      {
+        "d": "2027-01-01",
+        "label": "",
+        "est": false,
+        "year": 2027,
+        "link": "https://www.vldb.org/2027/",
+        "abs": "2026-12-25"
+      },
+      {
+        "d": "2027-02-01",
+        "label": "",
+        "est": false,
+        "year": 2027,
+        "link": "https://www.vldb.org/2027/",
+        "abs": "2027-01-25"
+      },
+      {
+        "d": "2027-03-01",
+        "label": "",
+        "est": false,
+        "year": 2027,
+        "link": "https://www.vldb.org/2027/",
+        "abs": "2027-02-25"
+      },
+      {
+        "d": "2027-04-01",
+        "label": "",
+        "est": true,
+        "from": "2025-04-01",
+        "abs": ""
+      }
+    ],
+    "dblp": "vldb",
+    "csr": "DB",
+    "edition": "53rd",
+    "best": "vldb",
+    "link": "https://www.vldb.org/2027/",
+    "date": "August 23 - August 27, 2027",
+    "place": "Athens, Greece",
+    "cc": "gr",
+    "city": "rooftop dinner under the lit Acropolis, souvlaki on Mitropoleos, Sunday flea at Monastiraki",
+    "cycles": 12,
+    "roundLabels": [],
+    "proceedings": "full",
+    "rates": [
+      {
+        "y": 1985,
+        "r": 15.1
+      },
+      {
+        "y": 1986,
+        "r": 19.4
+      },
+      {
+        "y": 1988,
+        "r": 17.8
+      },
+      {
+        "y": 1991,
+        "r": 15.7
+      },
+      {
+        "y": 1994,
+        "r": 18.4
+      },
+      {
+        "y": 1995,
+        "r": 17.5
+      },
+      {
+        "y": 1996,
+        "r": 13.8
+      },
+      {
+        "y": 1997,
+        "r": 14.9
+      },
+      {
+        "y": 1998,
+        "r": 15.5
+      },
+      {
+        "y": 1999,
+        "r": 13.2
+      },
+      {
+        "y": 2000,
+        "r": 15.2
+      },
+      {
+        "y": 2001,
+        "r": 17.5
+      },
+      {
+        "y": 2002,
+        "r": 16.0
+      },
+      {
+        "y": 2003,
+        "r": 18.2
+      },
+      {
+        "y": 2004,
+        "r": 17.9
+      },
+      {
+        "y": 2005,
+        "r": 16.4
+      },
+      {
+        "y": 2006,
+        "r": 13.3
+      },
+      {
+        "y": 2007,
+        "r": 18.2
+      },
+      {
+        "y": 2008,
+        "r": 17.1
+      },
+      {
+        "y": 2009,
+        "r": 17.4
+      },
+      {
+        "y": 2010,
+        "r": 17.6
+      },
+      {
+        "y": 2011,
+        "r": 18.1
+      },
+      {
+        "y": 2012,
+        "r": 20.3
+      },
+      {
+        "y": 2013,
+        "r": 22.7
+      },
+      {
+        "y": 2015,
+        "r": 21.3
+      },
+      {
+        "y": 2025,
+        "r": 22.9
+      }
+    ],
+    "rateSection": "",
+    "rateSrc": "csc",
+    "rateSlug": "vldb",
+    "tier": 1
+  },
+  {
+    "title": "NDSS",
+    "desc": "Network and Distributed System Security (NDSS) Symposium",
+    "area": "Security & Medicine",
+    "sub": "SC",
+    "ccf": "A",
+    "core": "A*",
+    "coreVerified": true,
+    "nextDeadline": "2026-05-06",
+    "nextYear": 2027,
+    "nextAbstract": "",
+    "estimated": false,
+    "estFrom": "",
+    "rounds": [
+      {
+        "d": "2026-05-06",
+        "label": "Summer",
+        "est": false,
+        "year": 2027,
+        "link": "https://www.ndss-symposium.org/ndss2027/",
+        "abs": ""
+      },
+      {
+        "d": "2026-08-19",
+        "label": "Fall",
+        "est": false,
+        "year": 2027,
+        "link": "https://www.ndss-symposium.org/ndss2027/",
+        "abs": ""
+      }
+    ],
+    "dblp": "ndss",
+    "csr": "Security",
+    "edition": "34th",
+    "best": "",
+    "link": "https://www.ndss-symposium.org/ndss2027/",
+    "date": "March 22 - March 26, 2027",
+    "place": "Seoul, Republic of Korea",
+    "cc": "kr",
+    "city": "Korean barbecue and soju, Gwangjang market, palaces free if you rent a hanbok",
+    "cycles": 2,
+    "roundLabels": [
+      "Summer",
+      "Fall"
+    ],
+    "proceedings": "full",
+    "rates": [
+      {
+        "y": 2007,
+        "r": 14.4
+      },
+      {
+        "y": 2008,
+        "r": 17.8
+      },
+      {
+        "y": 2009,
+        "r": 11.7
+      },
+      {
+        "y": 2010,
+        "r": 15.4
+      },
+      {
+        "y": 2012,
+        "r": 17.8
+      },
+      {
+        "y": 2013,
+        "r": 18.8
+      },
+      {
+        "y": 2014,
+        "r": 18.6
+      },
+      {
+        "y": 2015,
+        "r": 16.9
+      },
+      {
+        "y": 2016,
+        "r": 15.4
+      },
+      {
+        "y": 2017,
+        "r": 16.1
+      },
+      {
+        "y": 2018,
+        "r": 21.5
+      },
+      {
+        "y": 2019,
+        "r": 17.1
+      },
+      {
+        "y": 2020,
+        "r": 17.4
+      },
+      {
+        "y": 2021,
+        "r": 15.2
+      },
+      {
+        "y": 2022,
+        "r": 16.2
+      },
+      {
+        "y": 2023,
+        "r": 16.4
+      },
+      {
+        "y": 2024,
+        "r": 20.5
+      },
+      {
+        "y": 2025,
+        "r": 16.1
+      },
+      {
+        "y": 2026,
+        "r": 17.9
+      }
+    ],
+    "rateSection": "",
+    "rateSrc": "csc",
+    "rateSlug": "ndss",
+    "tier": 1
+  },
+  {
+    "title": "NeurIPS",
+    "desc": "Conference on Neural Information Processing Systems",
+    "area": "AI / ML / Data Mining",
+    "sub": "AI",
+    "ccf": "A",
+    "core": "A*",
+    "coreVerified": true,
+    "nextDeadline": "2026-05-07",
+    "nextYear": 2026,
+    "nextAbstract": "",
+    "estimated": false,
+    "estFrom": "",
+    "rounds": [
+      {
+        "d": "2026-05-07",
+        "label": "",
+        "est": false,
+        "year": 2026,
+        "link": "https://neurips.cc/Conferences/2026",
+        "abs": "2026-05-05"
+      }
+    ],
+    "dblp": "nips",
+    "csr": "ML",
+    "edition": "40th",
+    "best": "neurips",
+    "link": "https://neurips.cc/Conferences/2026",
+    "date": "December 8-10 (Sydney), December 9-11 (Atlanta and Paris), 2026",
+    "place": "Sydney, Australia; Atlanta, USA; Paris, France",
+    "cc": "fr",
+    "city": "the Opera House, the Bondi to Coogee coastal walk, Blue Mountains",
+    "cycles": 1,
+    "roundLabels": [],
+    "proceedings": "full",
+    "rates": [
+      {
+        "y": 1993,
+        "r": 28.0
+      },
+      {
+        "y": 1994,
+        "r": 29.7
+      },
+      {
+        "y": 1995,
+        "r": 32.9
+      },
+      {
+        "y": 1996,
+        "r": 29.7
+      },
+      {
+        "y": 1997,
+        "r": 30.5
+      },
+      {
+        "y": 1998,
+        "r": 31.6
+      },
+      {
+        "y": 1999,
+        "r": 32.1
+      },
+      {
+        "y": 2000,
+        "r": 29.6
+      },
+      {
+        "y": 2002,
+        "r": 29.8
+      },
+      {
+        "y": 2003,
+        "r": 27.6
+      },
+      {
+        "y": 2004,
+        "r": 25.2
+      },
+      {
+        "y": 2005,
+        "r": 27.4
+      },
+      {
+        "y": 2006,
+        "r": 24.5
+      },
+      {
+        "y": 2007,
+        "r": 22.3
+      },
+      {
+        "y": 2008,
+        "r": 24.6
+      },
+      {
+        "y": 2009,
+        "r": 23.8
+      },
+      {
+        "y": 2010,
+        "r": 24.0
+      },
+      {
+        "y": 2011,
+        "r": 21.9
+      },
+      {
+        "y": 2012,
+        "r": 25.5
+      },
+      {
+        "y": 2013,
+        "r": 25.4
+      },
+      {
+        "y": 2014,
+        "r": 24.7
+      },
+      {
+        "y": 2015,
+        "r": 21.9
+      },
+      {
+        "y": 2016,
+        "r": 23.6
+      },
+      {
+        "y": 2017,
+        "r": 20.9
+      },
+      {
+        "y": 2018,
+        "r": 20.8
+      },
+      {
+        "y": 2019,
+        "r": 21.2
+      },
+      {
+        "y": 2020,
+        "r": 20.0
+      },
+      {
+        "y": 2021,
+        "r": 25.6
+      },
+      {
+        "y": 2022,
+        "r": 25.7
+      },
+      {
+        "y": 2023,
+        "r": 26.1
+      },
+      {
+        "y": 2024,
+        "r": 25.8
+      },
+      {
+        "y": 2025,
+        "r": 24.5
+      },
+      {
+        "y": 2026,
+        "r": 25.7
+      }
+    ],
+    "rateSection": "machine-learning-and-learning-theory",
+    "rateSrc": "csc",
+    "rateSlug": "neurips",
+    "tier": 1
+  },
+  {
+    "title": "ISWC",
+    "desc": "International Semantic Web Conference",
+    "area": "AI / ML / Data Mining",
+    "sub": "DB",
+    "ccf": "B",
+    "core": "A",
+    "coreVerified": true,
+    "nextDeadline": "2026-05-07",
+    "nextYear": 2026,
+    "nextAbstract": "",
+    "estimated": false,
+    "estFrom": "",
+    "rounds": [
+      {
+        "d": "2026-05-07",
+        "label": "ESWC resubmissions must be committed by April 11, 2026",
+        "est": false,
+        "year": 2026,
+        "link": "https://iswc2026.semanticweb.org/",
+        "abs": "2026-05-02"
+      }
+    ],
+    "dblp": "semweb",
+    "csr": "",
+    "edition": "",
+    "best": "",
+    "link": "https://iswc2026.semanticweb.org/",
+    "date": "October 27-29, 2026",
+    "place": "Bari, Italy",
+    "cc": "it",
+    "city": "orecchiette rolled by hand in the street, focaccia barese, swimming off the old town wall",
+    "cycles": 1,
+    "roundLabels": [],
+    "proceedings": "full",
+    "rates": [],
+    "rateSection": "",
+    "rateSrc": "",
+    "rateSlug": "",
+    "tier": 2
+  },
+  {
+    "title": "ICWSM",
+    "desc": "The International AAAI Conference on Web and Social Media",
+    "area": "AI / ML / Data Mining",
+    "sub": "HI",
+    "ccf": "B",
+    "core": "A",
+    "coreVerified": true,
+    "nextDeadline": "2026-05-15",
+    "nextYear": 2027,
+    "nextAbstract": "",
+    "estimated": false,
+    "estFrom": "",
+    "rounds": [
+      {
+        "d": "2026-05-15",
+        "label": "1st Full-paper Deadline",
+        "est": false,
+        "year": 2027,
+        "link": "https://www.icwsm.org/2027/",
+        "abs": ""
+      },
+      {
+        "d": "2026-09-15",
+        "label": "2nd Full-paper Deadline",
+        "est": false,
+        "year": 2027,
+        "link": "https://www.icwsm.org/2027/",
+        "abs": ""
+      },
+      {
+        "d": "2027-01-15",
+        "label": "3rd Full-paper Deadline",
+        "est": false,
+        "year": 2027,
+        "link": "https://www.icwsm.org/2027/",
+        "abs": ""
+      }
+    ],
+    "dblp": "icwsm",
+    "csr": "",
+    "edition": "21st",
+    "best": "",
+    "link": "https://www.icwsm.org/2027/",
+    "date": "TBD",
+    "place": "Edinburgh, Scotland",
+    "cc": "gb",
+    "city": "whisky flights, Arthur Seat at sunrise, haggis done well enough to convert you",
+    "cycles": 3,
+    "roundLabels": [
+      "1st Full-paper Deadline",
+      "2nd Full-paper Deadline",
+      "3rd Full-paper Deadline"
+    ],
+    "proceedings": "full",
+    "rates": [
+      {
+        "y": 2010,
+        "r": 22.9
+      },
+      {
+        "y": 2012,
+        "r": 20.3
+      },
+      {
+        "y": 2013,
+        "r": 20.6
+      },
+      {
+        "y": 2014,
+        "r": 22.9
+      },
+      {
+        "y": 2015,
+        "r": 18.7
+      },
+      {
+        "y": 2016,
+        "r": 17.0
+      },
+      {
+        "y": 2017,
+        "r": 13.4
+      },
+      {
+        "y": 2018,
+        "r": 26.4
+      },
+      {
+        "y": 2019,
+        "r": 21.4
+      },
+      {
+        "y": 2020,
+        "r": 24.4
+      }
+    ],
+    "rateSection": "",
+    "rateSrc": "csc",
+    "rateSlug": "icwsm",
+    "tier": 2
+  },
+  {
+    "title": "ER",
+    "desc": "International Conference on Conceptual Modeling",
+    "area": "AI / ML / Data Mining",
+    "sub": "DB",
+    "ccf": "C",
+    "core": "A",
+    "coreVerified": true,
+    "nextDeadline": "2026-05-19",
+    "nextYear": 2026,
+    "nextAbstract": "",
+    "estimated": false,
+    "estFrom": "",
+    "rounds": [
+      {
+        "d": "2026-05-19",
+        "label": "Main conference full and short papers; extended deadlines; abstract mandatory",
+        "est": false,
+        "year": 2026,
+        "link": "https://www.er2026.org/",
+        "abs": "2026-05-12"
+      }
+    ],
+    "dblp": "er",
+    "csr": "",
+    "edition": "",
+    "best": "",
+    "link": "https://www.er2026.org/",
+    "date": "October 6-8, 2026",
+    "place": "St. John's, NL, Canada",
+    "cc": "ca",
+    "city": "",
+    "cycles": 1,
+    "roundLabels": [],
+    "proceedings": "full",
+    "rates": [],
+    "rateSection": "",
+    "rateSrc": "",
+    "rateSlug": "",
+    "tier": 2
+  },
+  {
+    "title": "CIKM",
+    "desc": "ACM International Conference on Information and Knowledge Management",
+    "area": "AI / ML / Data Mining",
+    "sub": "DB",
+    "ccf": "B",
+    "core": "A",
+    "coreVerified": true,
+    "nextDeadline": "2026-05-23",
+    "nextYear": 2026,
+    "nextAbstract": "",
+    "estimated": false,
+    "estFrom": "",
+    "rounds": [
+      {
+        "d": "2026-05-23",
+        "label": "",
+        "est": false,
+        "year": 2026,
+        "link": "https://cikm2026.diag.uniroma1.it/",
+        "abs": "2026-05-16"
+      }
+    ],
+    "dblp": "cikm",
+    "csr": "",
+    "edition": "35th",
+    "best": "cikm",
+    "link": "https://cikm2026.diag.uniroma1.it/",
+    "date": "November 9-11, 2026",
+    "place": "Rome, Italy",
+    "cc": "it",
+    "city": "cacio e pepe in Trastevere, gelato at Giolitti, the Colosseum at opening",
+    "cycles": 1,
+    "roundLabels": [],
+    "proceedings": "full",
+    "rates": [
+      {
+        "y": 1998,
+        "r": 25.2
+      },
+      {
+        "y": 1999,
+        "r": 40.1
+      },
+      {
+        "y": 2000,
+        "r": 19.8
+      },
+      {
+        "y": 2001,
+        "r": 25.5
+      },
+      {
+        "y": 2002,
+        "r": 25.0
+      },
+      {
+        "y": 2003,
+        "r": 15.6
+      },
+      {
+        "y": 2004,
+        "r": 19.8
+      },
+      {
+        "y": 2005,
+        "r": 18.1
+      },
+      {
+        "y": 2006,
+        "r": 16.8
+      },
+      {
+        "y": 2007,
+        "r": 16.8
+      },
+      {
+        "y": 2008,
+        "r": 16.5
+      },
+      {
+        "y": 2009,
+        "r": 14.5
+      },
+      {
+        "y": 2010,
+        "r": 13.3
+      },
+      {
+        "y": 2011,
+        "r": 14.6
+      },
+      {
+        "y": 2012,
+        "r": 13.4
+      },
+      {
+        "y": 2013,
+        "r": 16.9
+      },
+      {
+        "y": 2014,
+        "r": 20.9
+      },
+      {
+        "y": 2015,
+        "r": 25.5
+      },
+      {
+        "y": 2016,
+        "r": 22.8
+      },
+      {
+        "y": 2017,
+        "r": 20.0
+      },
+      {
+        "y": 2018,
+        "r": 17.8
+      },
+      {
+        "y": 2019,
+        "r": 19.6
+      },
+      {
+        "y": 2020,
+        "r": 23.3
+      },
+      {
+        "y": 2021,
+        "r": 21.7
+      },
+      {
+        "y": 2022,
+        "r": 23.3
+      },
+      {
+        "y": 2023,
+        "r": 24.0
+      },
+      {
+        "y": 2024,
+        "r": 23.2
+      },
+      {
+        "y": 2025,
+        "r": 27.2
+      },
+      {
+        "y": 2026,
+        "r": 26.9
+      }
+    ],
+    "rateSection": "data-mining-and-information-retrieval",
+    "rateSrc": "csc",
+    "rateSlug": "cikm",
+    "tier": 2
+  },
+  {
+    "title": "EMNLP",
+    "desc": "The annual Conference on Empirical Methods in Natural Language Processing",
+    "area": "AI / ML / Data Mining",
+    "sub": "AI",
+    "ccf": "B",
+    "core": "A*",
+    "coreVerified": true,
+    "nextDeadline": "2026-05-25",
+    "nextYear": 2026,
+    "nextAbstract": "",
+    "estimated": false,
+    "estFrom": "",
+    "rounds": [
+      {
+        "d": "2026-05-25",
+        "label": "ARR Submission",
+        "est": false,
+        "year": 2026,
+        "link": "https://2026.emnlp.org/",
+        "abs": ""
+      },
+      {
+        "d": "2026-08-02",
+        "label": "Commitment deadline for papers with ARR reviews and meta-reviews",
+        "est": false,
+        "year": 2026,
+        "link": "https://2026.emnlp.org/",
+        "abs": ""
+      }
+    ],
+    "dblp": "emnlp",
+    "csr": "NLP",
+    "edition": "31st",
+    "best": "",
+    "link": "https://2026.emnlp.org/",
+    "date": "October 25-27, 2026",
+    "place": "Budapest, Hungary (Hybrid)",
+    "cc": "hu",
+    "city": "chess in the hot pools at Szechenyi, ruin bar Szimpla Kert, langos the size of your head",
+    "cycles": 2,
+    "roundLabels": [
+      "ARR Submission",
+      "Commitment deadline for papers with ARR reviews and meta-reviews"
+    ],
+    "proceedings": "full",
+    "rates": [
+      {
+        "y": 2002,
+        "r": 28.9
+      },
+      {
+        "y": 2004,
+        "r": 22.6
+      },
+      {
+        "y": 2005,
+        "r": 31.6
+      },
+      {
+        "y": 2006,
+        "r": 31.2
+      },
+      {
+        "y": 2007,
+        "r": 27.4
+      },
+      {
+        "y": 2008,
+        "r": 30.1
+      },
+      {
+        "y": 2009,
+        "r": 34.3
+      },
+      {
+        "y": 2010,
+        "r": 25.0
+      },
+      {
+        "y": 2011,
+        "r": 23.7
+      },
+      {
+        "y": 2012,
+        "r": 24.4
+      },
+      {
+        "y": 2013,
+        "r": 26.6
+      },
+      {
+        "y": 2014,
+        "r": 28.5
+      },
+      {
+        "y": 2015,
+        "r": 24.0
+      },
+      {
+        "y": 2016,
+        "r": 24.3
+      },
+      {
+        "y": 2017,
+        "r": 22.8
+      },
+      {
+        "y": 2018,
+        "r": 24.6
+      },
+      {
+        "y": 2019,
+        "r": 23.7
+      },
+      {
+        "y": 2020,
+        "r": 22.4
+      },
+      {
+        "y": 2021,
+        "r": 23.3
+      },
+      {
+        "y": 2022,
+        "r": 19.8
+      },
+      {
+        "y": 2023,
+        "r": 21.3
+      },
+      {
+        "y": 2024,
+        "r": 20.8
+      },
+      {
+        "y": 2025,
+        "r": 22.2
+      }
+    ],
+    "rateSection": "natural-language-processing-and-computational-linguistics",
+    "rateSrc": "csc",
+    "rateSlug": "emnlp",
+    "tier": 1
+  },
+  {
+    "title": "BMVC",
+    "desc": "British Machine Vision Conference",
+    "area": "AI / ML / Data Mining",
+    "sub": "AI",
+    "ccf": "C",
+    "core": "A",
+    "coreVerified": true,
+    "nextDeadline": "2026-05-29",
+    "nextYear": 2026,
+    "nextAbstract": "",
+    "estimated": false,
+    "estFrom": "",
+    "rounds": [
+      {
+        "d": "2026-05-29",
+        "label": "",
+        "est": false,
+        "year": 2026,
+        "link": "https://bmvc2026.bmva.org/",
+        "abs": "2026-05-22"
+      }
+    ],
+    "dblp": "bmvc",
+    "csr": "",
+    "edition": "",
+    "best": "",
+    "link": "https://bmvc2026.bmva.org/",
+    "date": "November 23-26, 2026",
+    "place": "Lancaster, UK",
+    "cc": "gb",
+    "city": "the Lake District an hour north, sticky toffee pudding, Lancaster Castle",
+    "cycles": 1,
+    "roundLabels": [],
+    "proceedings": "full",
+    "rates": [],
+    "rateSection": "",
+    "rateSrc": "",
+    "rateSlug": "",
+    "tier": 2
+  },
+  {
+    "title": "PODS",
+    "desc": "ACM Symposium on Principles of Database Systems",
+    "area": "AI / ML / Data Mining",
+    "sub": "DB",
+    "ccf": "B",
+    "core": "A*",
+    "coreVerified": true,
+    "nextDeadline": "2026-05-30",
+    "nextYear": 2027,
+    "nextAbstract": "",
+    "estimated": false,
+    "estFrom": "",
+    "rounds": [
+      {
+        "d": "2026-05-30",
+        "label": "First Submission Cycle",
+        "est": false,
+        "year": 2027,
+        "link": "https://2027.sigmod.org/",
+        "abs": "2026-05-23"
+      },
+      {
+        "d": "2026-12-10",
+        "label": "Second Submission Cycle",
+        "est": false,
+        "year": 2027,
+        "link": "https://2027.sigmod.org/",
+        "abs": "2026-12-03"
+      }
+    ],
+    "dblp": "pods",
+    "csr": "DB",
+    "edition": "46th",
+    "best": "pods",
+    "link": "https://2027.sigmod.org/",
+    "date": "June 13-19, 2027",
+    "place": "Huntington Beach, California, USA",
+    "cc": "us",
+    "city": "the pier at sunset, fish tacos, the PCH down to Laguna",
+    "cycles": 2,
+    "roundLabels": [
+      "First Submission Cycle",
+      "Second Submission Cycle"
+    ],
+    "proceedings": "full",
+    "rates": [
+      {
+        "y": 1982,
+        "r": 35.6
+      },
+      {
+        "y": 1983,
+        "r": 32.2
+      },
+      {
+        "y": 1984,
+        "r": 33.6
+      },
+      {
+        "y": 1993,
+        "r": 22.6
+      },
+      {
+        "y": 1994,
+        "r": 23.9
+      },
+      {
+        "y": 1995,
+        "r": 26.6
+      },
+      {
+        "y": 1996,
+        "r": 26.2
+      },
+      {
+        "y": 1997,
+        "r": 19.5
+      },
+      {
+        "y": 1998,
+        "r": 23.5
+      },
+      {
+        "y": 1999,
+        "r": 27.6
+      },
+      {
+        "y": 2000,
+        "r": 21.8
+      },
+      {
+        "y": 2001,
+        "r": 26.3
+      },
+      {
+        "y": 2002,
+        "r": 22.0
+      },
+      {
+        "y": 2003,
+        "r": 19.9
+      },
+      {
+        "y": 2004,
+        "r": 16.4
+      },
+      {
+        "y": 2005,
+        "r": 20.4
+      },
+      {
+        "y": 2006,
+        "r": 18.9
+      },
+      {
+        "y": 2007,
+        "r": 15.0
+      },
+      {
+        "y": 2008,
+        "r": 17.6
+      },
+      {
+        "y": 2009,
+        "r": 26.8
+      },
+      {
+        "y": 2010,
+        "r": 23.9
+      },
+      {
+        "y": 2011,
+        "r": 22.1
+      },
+      {
+        "y": 2012,
+        "r": 25.7
+      },
+      {
+        "y": 2013,
+        "r": 24.7
+      },
+      {
+        "y": 2014,
+        "r": 32.8
+      },
+      {
+        "y": 2015,
+        "r": 31.2
+      },
+      {
+        "y": 2016,
+        "r": 33.0
+      },
+      {
+        "y": 2017,
+        "r": 28.7
+      },
+      {
+        "y": 2018,
+        "r": 34.9
+      },
+      {
+        "y": 2019,
+        "r": 33.3
+      },
+      {
+        "y": 2020,
+        "r": 37.1
+      },
+      {
+        "y": 2021,
+        "r": 32.9
+      },
+      {
+        "y": 2022,
+        "r": 34.7
+      },
+      {
+        "y": 2023,
+        "r": 34.1
+      },
+      {
+        "y": 2024,
+        "r": 35.5
+      },
+      {
+        "y": 2025,
+        "r": 35.4
+      }
+    ],
+    "rateSection": "",
+    "rateSrc": "csc",
+    "rateSlug": "pods",
+    "tier": 1
+  },
+  {
+    "title": "SIGSPATIAL",
+    "desc": "ACM SIGSPATIAL International Conference on Advances in Geographic Information Systems",
+    "area": "AI / ML / Data Mining",
+    "sub": "MX",
+    "ccf": "C",
+    "core": "A",
+    "coreVerified": true,
+    "nextDeadline": "2026-06-05",
+    "nextYear": 2026,
+    "nextAbstract": "",
+    "estimated": false,
+    "estFrom": "",
+    "rounds": [
+      {
+        "d": "2026-06-05",
+        "label": "",
+        "est": false,
+        "year": 2026,
+        "link": "https://sigspatial2026.sigspatial.org/",
+        "abs": "2026-05-29"
+      }
+    ],
+    "dblp": "sigspatial",
+    "csr": "",
+    "edition": "34th",
+    "best": "",
+    "link": "https://sigspatial2026.sigspatial.org/",
+    "date": "November 3-6, 2026",
+    "place": "Riverside, CA, USA",
+    "cc": "us",
+    "city": "the Mission Inn at Christmas, citrus groves, Joshua Tree stargazing",
+    "cycles": 1,
+    "roundLabels": [],
+    "proceedings": "full",
+    "rates": [
+      {
+        "y": 1998,
+        "r": 47.2
+      },
+      {
+        "y": 2001,
+        "r": 31.2
+      },
+      {
+        "y": 2002,
+        "r": 34.6
+      },
+      {
+        "y": 2003,
+        "r": 26.8
+      },
+      {
+        "y": 2004,
+        "r": 33.3
+      },
+      {
+        "y": 2005,
+        "r": 36.5
+      },
+      {
+        "y": 2006,
+        "r": 31.3
+      },
+      {
+        "y": 2007,
+        "r": 28.7
+      },
+      {
+        "y": 2008,
+        "r": 19.7
+      },
+      {
+        "y": 2009,
+        "r": 20.5
+      },
+      {
+        "y": 2010,
+        "r": 20.9
+      },
+      {
+        "y": 2011,
+        "r": 21.9
+      },
+      {
+        "y": 2012,
+        "r": 17.0
+      },
+      {
+        "y": 2013,
+        "r": 19.3
+      },
+      {
+        "y": 2014,
+        "r": 21.2
+      },
+      {
+        "y": 2015,
+        "r": 17.9
+      },
+      {
+        "y": 2016,
+        "r": 18.5
+      },
+      {
+        "y": 2017,
+        "r": 20.2
+      },
+      {
+        "y": 2018,
+        "r": 20.0
+      },
+      {
+        "y": 2019,
+        "r": 21.1
+      },
+      {
+        "y": 2020,
+        "r": 22.1
+      },
+      {
+        "y": 2021,
+        "r": 22.4
+      },
+      {
+        "y": 2022,
+        "r": 23.8
+      },
+      {
+        "y": 2023,
+        "r": 20.1
+      },
+      {
+        "y": 2024,
+        "r": 30.3
+      },
+      {
+        "y": 2025,
+        "r": 25.1
+      }
+    ],
+    "rateSection": "",
+    "rateSrc": "csc",
+    "rateSlug": "sigspatial",
+    "tier": 2
+  },
+  {
+    "title": "ICDM",
+    "desc": "IEEE International Conference on Data Mining",
+    "area": "AI / ML / Data Mining",
+    "sub": "DB",
+    "ccf": "B",
+    "core": "A*",
+    "coreVerified": true,
+    "nextDeadline": "2026-06-06",
+    "nextYear": 2026,
+    "nextAbstract": "",
+    "estimated": false,
+    "estFrom": "",
+    "rounds": [
+      {
+        "d": "2026-06-06",
+        "label": "",
+        "est": false,
+        "year": 2026,
+        "link": "http://icdm2026.neu.edu.cn/",
+        "abs": ""
+      },
+      {
+        "d": "2027-06-06",
+        "label": "Full papers; dates are tentative and subject to change",
+        "est": false,
+        "year": 2027,
+        "link": "https://icdm2027-website.onrender.com/",
+        "abs": ""
+      }
+    ],
+    "dblp": "icdm",
+    "csr": "",
+    "edition": "26th",
+    "best": "",
+    "link": "http://icdm2026.neu.edu.cn/",
+    "date": "November 12-15, 2026",
+    "place": "Shenyang, China",
+    "cc": "cn",
+    "city": "northeastern barbecue, Mukden Palace, skiing at Qipanshan",
+    "cycles": 1,
+    "roundLabels": [],
+    "proceedings": "full",
+    "rates": [
+      {
+        "y": 2001,
+        "r": 30.7
+      },
+      {
+        "y": 2002,
+        "r": 32.8
+      },
+      {
+        "y": 2003,
+        "r": 25.6
+      },
+      {
+        "y": 2004,
+        "r": 23.3
+      },
+      {
+        "y": 2005,
+        "r": 22.4
+      },
+      {
+        "y": 2006,
+        "r": 19.6
+      },
+      {
+        "y": 2007,
+        "r": 19.1
+      },
+      {
+        "y": 2008,
+        "r": 19.9
+      },
+      {
+        "y": 2009,
+        "r": 17.7
+      },
+      {
+        "y": 2010,
+        "r": 19.4
+      },
+      {
+        "y": 2011,
+        "r": 18.8
+      },
+      {
+        "y": 2012,
+        "r": 20.0
+      },
+      {
+        "y": 2013,
+        "r": 19.7
+      },
+      {
+        "y": 2014,
+        "r": 19.7
+      },
+      {
+        "y": 2015,
+        "r": 18.1
+      },
+      {
+        "y": 2016,
+        "r": 19.7
+      },
+      {
+        "y": 2017,
+        "r": 19.9
+      },
+      {
+        "y": 2018,
+        "r": 19.8
+      },
+      {
+        "y": 2019,
+        "r": 18.5
+      },
+      {
+        "y": 2020,
+        "r": 19.7
+      },
+      {
+        "y": 2021,
+        "r": 20.0
+      },
+      {
+        "y": 2022,
+        "r": 20.0
+      },
+      {
+        "y": 2023,
+        "r": 21.6
+      },
+      {
+        "y": 2024,
+        "r": 19.9
+      },
+      {
+        "y": 2025,
+        "r": 23.3
+      }
+    ],
+    "rateSection": "data-mining-and-information-retrieval",
+    "rateSrc": "csc",
+    "rateSlug": "icdm",
+    "tier": 1
+  },
+  {
+    "title": "EDBT",
+    "desc": "International Conference on Extending Database Technology",
+    "area": "AI / ML / Data Mining",
+    "sub": "DB",
+    "ccf": "B",
+    "core": "A",
+    "coreVerified": true,
+    "nextDeadline": "2026-06-10",
+    "nextYear": 2027,
+    "nextAbstract": "",
+    "estimated": false,
+    "estFrom": "",
+    "rounds": [
+      {
+        "d": "2026-06-10",
+        "label": "",
+        "est": false,
+        "year": 2027,
+        "link": "https://edbticdt2027.github.io/",
+        "abs": ""
+      },
+      {
+        "d": "2026-10-07",
+        "label": "",
+        "est": false,
+        "year": 2027,
+        "link": "https://edbticdt2027.github.io/",
+        "abs": ""
+      },
+      {
+        "d": "2027-02-05",
+        "label": "",
+        "est": true,
+        "from": "2025-02-05",
+        "abs": ""
+      }
+    ],
+    "dblp": "edbt",
+    "csr": "",
+    "edition": "",
+    "best": "",
+    "link": "https://edbticdt2027.github.io/",
+    "date": "April 6-9, 2027",
+    "place": "Lille, France",
+    "cc": "fr",
+    "city": "moules-frites, waffles at Meert, the Braderie flea market in September",
+    "cycles": 3,
+    "roundLabels": [
+      "Official February cutoff is 17:00 PST (UTC-8), represented as the equivalent 13:00 AoE."
+    ],
+    "proceedings": "full",
+    "rates": [],
+    "rateSection": "",
+    "rateSrc": "",
+    "rateSlug": "",
+    "tier": 2
+  },
+  {
+    "title": "S&P",
+    "desc": "IEEE Symposium on Security and Privacy",
+    "area": "Security & Medicine",
+    "sub": "SC",
+    "ccf": "A",
+    "core": "A*",
+    "coreVerified": true,
+    "nextDeadline": "2026-06-11",
+    "nextYear": 2027,
+    "nextAbstract": "",
+    "estimated": false,
+    "estFrom": "",
+    "rounds": [
+      {
+        "d": "2026-06-11",
+        "label": "First Paper submission deadline",
+        "est": false,
+        "year": 2027,
+        "link": "https://sp2027.ieee-security.org/index.html",
+        "abs": "2026-06-04"
+      },
+      {
+        "d": "2026-11-17",
+        "label": "Second Paper submission deadline",
+        "est": false,
+        "year": 2027,
+        "link": "https://sp2027.ieee-security.org/index.html",
+        "abs": "2026-11-10"
+      }
+    ],
+    "dblp": "sp",
+    "csr": "Security",
+    "edition": "48th",
+    "best": "s&p",
+    "link": "https://sp2027.ieee-security.org/index.html",
+    "date": "May 17-19, 2027",
+    "place": "MONTREAL, CANADA",
+    "cc": "ca",
+    "city": "smoked meat at Schwartz's, wood-fired bagels at 3am, Mount Royal lookout",
+    "cycles": 2,
+    "roundLabels": [
+      "First Paper submission deadline",
+      "Second Paper submission deadline"
+    ],
+    "proceedings": "full",
+    "rates": [
+      {
+        "y": 1980,
+        "r": 100.0
+      },
+      {
+        "y": 1982,
+        "r": 55.9
+      },
+      {
+        "y": 1983,
+        "r": 67.6
+      },
+      {
+        "y": 1984,
+        "r": 38.5
+      },
+      {
+        "y": 1985,
+        "r": 39.7
+      },
+      {
+        "y": 1986,
+        "r": 25.8
+      },
+      {
+        "y": 1990,
+        "r": 33.3
+      },
+      {
+        "y": 1991,
+        "r": 30.4
+      },
+      {
+        "y": 1992,
+        "r": 23.6
+      },
+      {
+        "y": 1993,
+        "r": 24.3
+      },
+      {
+        "y": 1994,
+        "r": 29.7
+      },
+      {
+        "y": 1995,
+        "r": 27.8
+      },
+      {
+        "y": 1996,
+        "r": 29.9
+      },
+      {
+        "y": 1997,
+        "r": 20.9
+      },
+      {
+        "y": 1998,
+        "r": 16.4
+      },
+      {
+        "y": 1999,
+        "r": 24.6
+      },
+      {
+        "y": 2000,
+        "r": 13.1
+      },
+      {
+        "y": 2001,
+        "r": 17.8
+      },
+      {
+        "y": 2002,
+        "r": 22.1
+      },
+      {
+        "y": 2003,
+        "r": 14.5
+      },
+      {
+        "y": 2004,
+        "r": 10.2
+      },
+      {
+        "y": 2005,
+        "r": 8.9
+      },
+      {
+        "y": 2006,
+        "r": 12.7
+      },
+      {
+        "y": 2007,
+        "r": 11.8
+      },
+      {
+        "y": 2008,
+        "r": 11.2
+      },
+      {
+        "y": 2009,
+        "r": 10.2
+      },
+      {
+        "y": 2010,
+        "r": 11.6
+      },
+      {
+        "y": 2011,
+        "r": 11.0
+      },
+      {
+        "y": 2012,
+        "r": 13.0
+      },
+      {
+        "y": 2013,
+        "r": 12.1
+      },
+      {
+        "y": 2014,
+        "r": 13.2
+      },
+      {
+        "y": 2015,
+        "r": 13.5
+      },
+      {
+        "y": 2016,
+        "r": 13.8
+      },
+      {
+        "y": 2017,
+        "r": 14.3
+      },
+      {
+        "y": 2018,
+        "r": 11.8
+      },
+      {
+        "y": 2019,
+        "r": 12.9
+      },
+      {
+        "y": 2020,
+        "r": 12.4
+      },
+      {
+        "y": 2021,
+        "r": 12.1
+      },
+      {
+        "y": 2022,
+        "r": 14.5
+      },
+      {
+        "y": 2023,
+        "r": 17.3
+      },
+      {
+        "y": 2024,
+        "r": 17.8
+      },
+      {
+        "y": 2025,
+        "r": 14.8
+      },
+      {
+        "y": 2026,
+        "r": 12.7
+      }
+    ],
+    "rateSection": "",
+    "rateSrc": "csc",
+    "rateSlug": "ieee-sp",
+    "tier": 1
+  },
+  {
+    "title": "ICDE",
+    "desc": "IEEE International Conference on Data Engineering",
+    "area": "AI / ML / Data Mining",
+    "sub": "DB",
+    "ccf": "A",
+    "core": "A*",
+    "coreVerified": true,
+    "nextDeadline": "2026-06-11",
+    "nextYear": 2027,
+    "nextAbstract": "",
+    "estimated": false,
+    "estFrom": "",
+    "rounds": [
+      {
+        "d": "2026-06-11",
+        "label": "first round",
+        "est": false,
+        "year": 2027,
+        "link": "https://icde2027.github.io/",
+        "abs": ""
+      },
+      {
+        "d": "2026-11-11",
+        "label": "second round",
+        "est": false,
+        "year": 2027,
+        "link": "https://icde2027.github.io/",
+        "abs": ""
+      }
+    ],
+    "dblp": "icde",
+    "csr": "DB",
+    "edition": "43rd",
+    "best": "",
+    "link": "https://icde2027.github.io/",
+    "date": "May 17-21, 2027",
+    "place": "Copenhagen, Denmark",
+    "cc": "dk",
+    "city": "smorrebrod, Reffen street food on the water, Tivoli lit up after dark",
+    "cycles": 2,
+    "roundLabels": [
+      "first round",
+      "second round"
+    ],
+    "proceedings": "full",
+    "rates": [
+      {
+        "y": 1986,
+        "r": 40.8
+      },
+      {
+        "y": 1987,
+        "r": 34.4
+      },
+      {
+        "y": 1989,
+        "r": 26.4
+      },
+      {
+        "y": 1991,
+        "r": 29.6
+      },
+      {
+        "y": 1992,
+        "r": 32.4
+      },
+      {
+        "y": 1993,
+        "r": 25.2
+      },
+      {
+        "y": 1994,
+        "r": 18.5
+      },
+      {
+        "y": 1995,
+        "r": 24.0
+      },
+      {
+        "y": 1996,
+        "r": 22.7
+      },
+      {
+        "y": 1997,
+        "r": 18.8
+      },
+      {
+        "y": 1998,
+        "r": 22.2
+      },
+      {
+        "y": 1999,
+        "r": 19.1
+      },
+      {
+        "y": 2000,
+        "r": 14.3
+      },
+      {
+        "y": 2001,
+        "r": 18.2
+      },
+      {
+        "y": 2002,
+        "r": 18.8
+      },
+      {
+        "y": 2003,
+        "r": 20.4
+      },
+      {
+        "y": 2004,
+        "r": 18.8
+      },
+      {
+        "y": 2005,
+        "r": 19.2
+      },
+      {
+        "y": 2006,
+        "r": 19.3
+      },
+      {
+        "y": 2007,
+        "r": 17.9
+      },
+      {
+        "y": 2008,
+        "r": 19.3
+      },
+      {
+        "y": 2009,
+        "r": 17.1
+      },
+      {
+        "y": 2010,
+        "r": 21.0
+      },
+      {
+        "y": 2011,
+        "r": 20.0
+      },
+      {
+        "y": 2012,
+        "r": 24.2
+      },
+      {
+        "y": 2013,
+        "r": 21.4
+      },
+      {
+        "y": 2014,
+        "r": 20.0
+      },
+      {
+        "y": 2015,
+        "r": 25.2
+      },
+      {
+        "y": 2016,
+        "r": 25.1
+      },
+      {
+        "y": 2017,
+        "r": 17.7
+      },
+      {
+        "y": 2018,
+        "r": 23.1
+      },
+      {
+        "y": 2019,
+        "r": 22.7
+      },
+      {
+        "y": 2020,
+        "r": 22.7
+      },
+      {
+        "y": 2021,
+        "r": 27.5
+      },
+      {
+        "y": 2022,
+        "r": 27.1
+      },
+      {
+        "y": 2023,
+        "r": 30.6
+      },
+      {
+        "y": 2024,
+        "r": 25.4
+      },
+      {
+        "y": 2025,
+        "r": 19.8
+      }
+    ],
+    "rateSection": "",
+    "rateSrc": "csc",
+    "rateSlug": "icde",
+    "tier": 1
+  },
+  {
+    "title": "WACV",
+    "desc": "IEEE/CVF Winter Conference on Applications of Computer Vision",
+    "area": "AI / ML / Data Mining",
+    "sub": "AI",
+    "ccf": "N",
+    "core": "A",
+    "coreVerified": true,
+    "nextDeadline": "2026-06-26",
+    "nextYear": 2027,
+    "nextAbstract": "",
+    "estimated": false,
+    "estFrom": "",
+    "rounds": [
+      {
+        "d": "2026-06-26",
+        "label": "First round",
+        "est": false,
+        "year": 2027,
+        "link": "https://wacv.thecvf.com/",
+        "abs": "2026-06-19"
+      },
+      {
+        "d": "2026-08-28",
+        "label": "Second round",
+        "est": false,
+        "year": 2027,
+        "link": "https://wacv.thecvf.com/",
+        "abs": "2026-08-21"
+      }
+    ],
+    "dblp": "wacv",
+    "csr": "",
+    "edition": "",
+    "best": "",
+    "link": "https://wacv.thecvf.com/",
+    "date": "Jan 4 - 8, 2027",
+    "place": "Disney Springs, Buena Vista, FL, USA",
+    "cc": "us",
+    "city": "Disney World, a Space Coast rocket launch, Cuban sandwiches in Ybor City",
+    "cycles": 2,
+    "roundLabels": [
+      "First round",
+      "Second round"
+    ],
+    "proceedings": "full",
+    "rates": [],
+    "rateSection": "",
+    "rateSrc": "",
+    "rateSlug": "",
+    "tier": 2
+  },
+  {
+    "title": "WISE",
+    "desc": "International Conference on Web Information Systems Engineering",
+    "area": "AI / ML / Data Mining",
+    "sub": "DB",
+    "ccf": "B",
+    "core": "B",
+    "coreVerified": true,
+    "nextDeadline": "2026-06-30",
+    "nextYear": 2026,
+    "nextAbstract": "",
+    "estimated": false,
+    "estFrom": "",
+    "rounds": [
+      {
+        "d": "2026-06-30",
+        "label": "Extended submission deadline",
+        "est": false,
+        "year": 2026,
+        "link": "https://conferences.sigappfr.org/wise2026/",
+        "abs": ""
+      }
+    ],
+    "dblp": "wise",
+    "csr": "",
+    "edition": "",
+    "best": "",
+    "link": "https://conferences.sigappfr.org/wise2026/",
+    "date": "November 1-5, 2026",
+    "place": "Venice, Italy",
+    "cc": "it",
+    "city": "cicchetti and spritz standing up, a gondola through the back canals, glassblowing on Murano",
+    "cycles": 1,
+    "roundLabels": [],
+    "proceedings": "full",
+    "rates": [],
+    "rateSection": "",
+    "rateSrc": "",
+    "rateSlug": "",
+    "tier": 2
+  },
+  {
+    "title": "BIBM",
+    "desc": "IEEE International Conference on Bioinformatics and Biomedicine",
+    "area": "Security & Medicine",
+    "sub": "MX",
+    "ccf": "B",
+    "core": "N",
+    "coreVerified": false,
+    "nextDeadline": "2026-07-05",
+    "nextYear": 2026,
+    "nextAbstract": "",
+    "estimated": false,
+    "estFrom": "",
+    "rounds": [
+      {
+        "d": "2026-07-05",
+        "label": "",
+        "est": false,
+        "year": 2026,
+        "link": "https://ieeebibm.org/BIBM2026/",
+        "abs": ""
+      }
+    ],
+    "dblp": "bibm",
+    "csr": "",
+    "edition": "",
+    "best": "",
+    "link": "https://ieeebibm.org/BIBM2026/",
+    "date": "Dec 1-4, 2026",
+    "place": "Dallas, USA",
+    "cc": "us",
+    "city": "Texas brisket, the Sixth Floor Museum window, live music in Deep Ellum",
+    "cycles": 1,
+    "roundLabels": [],
+    "proceedings": "full",
+    "rates": [],
+    "rateSection": "",
+    "rateSrc": "",
+    "rateSlug": "",
+    "tier": 2
+  },
+  {
+    "title": "SIGMOD",
+    "desc": "ACM Conference on Management of Data",
+    "area": "AI / ML / Data Mining",
+    "sub": "DB",
+    "ccf": "A",
+    "core": "A*",
+    "coreVerified": true,
+    "nextDeadline": "2026-07-17",
+    "nextYear": 2027,
+    "nextAbstract": "",
+    "estimated": false,
+    "estFrom": "",
+    "rounds": [
+      {
+        "d": "2026-07-17",
+        "label": "round 3",
+        "est": false,
+        "year": 2027,
+        "link": "https://2027.sigmod.org/",
+        "abs": "2026-07-10"
+      },
+      {
+        "d": "2026-10-17",
+        "label": "round 4",
+        "est": false,
+        "year": 2027,
+        "link": "https://2027.sigmod.org/",
+        "abs": "2026-10-10"
+      },
+      {
+        "d": "2027-01-17",
+        "label": "round 1",
+        "est": true,
+        "from": "2025-01-17",
+        "abs": "2027-01-10"
+      },
+      {
+        "d": "2027-04-17",
+        "label": "round 2",
+        "est": true,
+        "from": "2025-04-17",
+        "abs": "2027-04-10"
+      }
+    ],
+    "dblp": "sigmod",
+    "csr": "DB",
+    "edition": "53rd",
+    "best": "sigmod",
+    "link": "https://2027.sigmod.org/",
+    "date": "June 13-19, 2027",
+    "place": "Huntington Beach, CA, USA",
+    "cc": "us",
+    "city": "the pier at sunset, fish tacos, the PCH down to Laguna",
+    "cycles": 4,
+    "roundLabels": [
+      "round 1",
+      "round 2",
+      "round 3",
+      "round 4"
+    ],
+    "proceedings": "full",
+    "rates": [
+      {
+        "y": 1981,
+        "r": 26.9
+      },
+      {
+        "y": 1982,
+        "r": 26.8
+      },
+      {
+        "y": 1983,
+        "r": 22.3
+      },
+      {
+        "y": 1986,
+        "r": 19.0
+      },
+      {
+        "y": 1987,
+        "r": 23.6
+      },
+      {
+        "y": 1988,
+        "r": 22.7
+      },
+      {
+        "y": 1990,
+        "r": 18.0
+      },
+      {
+        "y": 1994,
+        "r": 14.3
+      },
+      {
+        "y": 1996,
+        "r": 16.2
+      },
+      {
+        "y": 1997,
+        "r": 20.8
+      },
+      {
+        "y": 1998,
+        "r": 17.1
+      },
+      {
+        "y": 1999,
+        "r": 20.5
+      },
+      {
+        "y": 2000,
+        "r": 16.9
+      },
+      {
+        "y": 2001,
+        "r": 15.0
+      },
+      {
+        "y": 2002,
+        "r": 17.5
+      },
+      {
+        "y": 2003,
+        "r": 15.5
+      },
+      {
+        "y": 2004,
+        "r": 16.0
+      },
+      {
+        "y": 2005,
+        "r": 15.1
+      },
+      {
+        "y": 2006,
+        "r": 13.0
+      },
+      {
+        "y": 2007,
+        "r": 14.6
+      },
+      {
+        "y": 2008,
+        "r": 17.9
+      },
+      {
+        "y": 2009,
+        "r": 15.9
+      },
+      {
+        "y": 2010,
+        "r": 20.8
+      },
+      {
+        "y": 2011,
+        "r": 22.4
+      },
+      {
+        "y": 2012,
+        "r": 16.6
+      },
+      {
+        "y": 2013,
+        "r": 20.4
+      },
+      {
+        "y": 2014,
+        "r": 25.4
+      },
+      {
+        "y": 2015,
+        "r": 25.7
+      },
+      {
+        "y": 2016,
+        "r": 20.4
+      },
+      {
+        "y": 2017,
+        "r": 19.6
+      },
+      {
+        "y": 2018,
+        "r": 19.7
+      },
+      {
+        "y": 2019,
+        "r": 21.1
+      },
+      {
+        "y": 2020,
+        "r": 26.9
+      },
+      {
+        "y": 2021,
+        "r": 41.8
+      },
+      {
+        "y": 2022,
+        "r": 29.4
+      },
+      {
+        "y": 2023,
+        "r": 28.2
+      },
+      {
+        "y": 2024,
+        "r": 27.7
+      },
+      {
+        "y": 2025,
+        "r": 24.8
+      },
+      {
+        "y": 2026,
+        "r": 33.3
+      }
+    ],
+    "rateSection": "",
+    "rateSrc": "csc",
+    "rateSlug": "sigmod",
+    "tier": 1
+  },
+  {
+    "title": "SIGKDD",
+    "desc": "ACM Knowledge Discovery and Data Mining",
+    "area": "AI / ML / Data Mining",
+    "sub": "DB",
+    "ccf": "A",
+    "core": "A*",
+    "coreVerified": false,
+    "nextDeadline": "2026-07-26",
+    "nextYear": 2027,
+    "nextAbstract": "",
+    "estimated": false,
+    "estFrom": "",
+    "rounds": [
+      {
+        "d": "2026-07-26",
+        "label": "1st round of 2 total rounds",
+        "est": false,
+        "year": 2027,
+        "link": "https://kdd2027.kdd.org/",
+        "abs": "2026-07-19"
+      },
+      {
+        "d": "2027-02-08",
+        "label": "second round",
+        "est": true,
+        "from": "2026-02-08",
+        "abs": "2027-02-01"
+      }
+    ],
+    "dblp": "kdd",
+    "csr": "ML",
+    "edition": "33rd",
+    "best": "kdd",
+    "link": "https://kdd2027.kdd.org/",
+    "date": "August 1-5, 2027",
+    "place": "San Jose, California, USA",
+    "cc": "us",
+    "city": "Vietnamese food on Story Road, the Winchester Mystery House, the Santa Cruz boardwalk",
+    "cycles": 1,
+    "roundLabels": [],
+    "proceedings": "full",
+    "rates": [
+      {
+        "y": 1996,
+        "r": 19.5
+      },
+      {
+        "y": 1997,
+        "r": 10.5
+      },
+      {
+        "y": 1998,
+        "r": 7.2
+      },
+      {
+        "y": 1999,
+        "r": 21.9
+      },
+      {
+        "y": 2000,
+        "r": 18.6
+      },
+      {
+        "y": 2001,
+        "r": 25.6
+      },
+      {
+        "y": 2002,
+        "r": 25.6
+      },
+      {
+        "y": 2003,
+        "r": 27.1
+      },
+      {
+        "y": 2004,
+        "r": 25.2
+      },
+      {
+        "y": 2005,
+        "r": 16.3
+      },
+      {
+        "y": 2006,
+        "r": 23.0
+      },
+      {
+        "y": 2007,
+        "r": 17.9
+      },
+      {
+        "y": 2008,
+        "r": 18.6
+      },
+      {
+        "y": 2009,
+        "r": 19.6
+      },
+      {
+        "y": 2010,
+        "r": 17.5
+      },
+      {
+        "y": 2011,
+        "r": 17.6
+      },
+      {
+        "y": 2012,
+        "r": 17.6
+      },
+      {
+        "y": 2013,
+        "r": 17.2
+      },
+      {
+        "y": 2014,
+        "r": 14.6
+      },
+      {
+        "y": 2015,
+        "r": 19.5
+      },
+      {
+        "y": 2016,
+        "r": 18.1
+      },
+      {
+        "y": 2017,
+        "r": 17.4
+      },
+      {
+        "y": 2018,
+        "r": 18.4
+      },
+      {
+        "y": 2019,
+        "r": 14.8
+      },
+      {
+        "y": 2020,
+        "r": 17.0
+      },
+      {
+        "y": 2021,
+        "r": 15.5
+      },
+      {
+        "y": 2022,
+        "r": 15.3
+      },
+      {
+        "y": 2023,
+        "r": 22.1
+      },
+      {
+        "y": 2024,
+        "r": 20.1
+      },
+      {
+        "y": 2025,
+        "r": 18.7
+      },
+      {
+        "y": 2026,
+        "r": 18.5
+      }
+    ],
+    "rateSection": "data-mining-and-information-retrieval",
+    "rateSrc": "csc",
+    "rateSlug": "kdd",
+    "tier": 1
+  },
+  {
+    "title": "AAAI",
+    "desc": "AAAI Conference on Artificial Intelligence",
+    "area": "AI / ML / Data Mining",
+    "sub": "AI",
+    "ccf": "A",
+    "core": "A*",
+    "coreVerified": true,
+    "nextDeadline": "2026-07-28",
+    "nextYear": 2027,
+    "nextAbstract": "",
+    "estimated": false,
+    "estFrom": "",
+    "rounds": [
+      {
+        "d": "2026-07-28",
+        "label": "",
+        "est": false,
+        "year": 2027,
+        "link": "https://aaai.org/conference/aaai/aaai-27/",
+        "abs": "2026-07-21"
+      }
+    ],
+    "dblp": "aaai",
+    "csr": "AI",
+    "edition": "41st",
+    "best": "aaai",
+    "link": "https://aaai.org/conference/aaai/aaai-27/",
+    "date": "February 16-23, 2027",
+    "place": "Montréal, Québec, Canada",
+    "cc": "ca",
+    "city": "smoked meat at Schwartz's, wood-fired bagels at 3am, Mount Royal lookout",
+    "cycles": 1,
+    "roundLabels": [],
+    "proceedings": "full",
+    "rates": [
+      {
+        "y": 1986,
+        "r": 22.9
+      },
+      {
+        "y": 1987,
+        "r": 20.8
+      },
+      {
+        "y": 1988,
+        "r": 17.4
+      },
+      {
+        "y": 1990,
+        "r": 17.4
+      },
+      {
+        "y": 1991,
+        "r": 23.5
+      },
+      {
+        "y": 1992,
+        "r": 20.9
+      },
+      {
+        "y": 1993,
+        "r": 24.0
+      },
+      {
+        "y": 1994,
+        "r": 30.6
+      },
+      {
+        "y": 1996,
+        "r": 30.6
+      },
+      {
+        "y": 1997,
+        "r": 36.2
+      },
+      {
+        "y": 1998,
+        "r": 30.1
+      },
+      {
+        "y": 1999,
+        "r": 27.2
+      },
+      {
+        "y": 2000,
+        "r": 33.2
+      },
+      {
+        "y": 2002,
+        "r": 25.8
+      },
+      {
+        "y": 2004,
+        "r": 26.5
+      },
+      {
+        "y": 2005,
+        "r": 28.5
+      },
+      {
+        "y": 2006,
+        "r": 22.1
+      },
+      {
+        "y": 2007,
+        "r": 27.2
+      },
+      {
+        "y": 2008,
+        "r": 24.2
+      },
+      {
+        "y": 2010,
+        "r": 27.0
+      },
+      {
+        "y": 2011,
+        "r": 24.4
+      },
+      {
+        "y": 2012,
+        "r": 26.0
+      },
+      {
+        "y": 2013,
+        "r": 29.4
+      },
+      {
+        "y": 2014,
+        "r": 28.3
+      },
+      {
+        "y": 2015,
+        "r": 27.1
+      },
+      {
+        "y": 2016,
+        "r": 25.6
+      },
+      {
+        "y": 2017,
+        "r": 24.9
+      },
+      {
+        "y": 2018,
+        "r": 24.6
+      },
+      {
+        "y": 2019,
+        "r": 16.2
+      },
+      {
+        "y": 2020,
+        "r": 20.6
+      },
+      {
+        "y": 2021,
+        "r": 21.4
+      },
+      {
+        "y": 2022,
+        "r": 15.0
+      },
+      {
+        "y": 2023,
+        "r": 19.6
+      },
+      {
+        "y": 2024,
+        "r": 23.7
+      },
+      {
+        "y": 2025,
+        "r": 23.4
+      },
+      {
+        "y": 2026,
+        "r": 17.6
+      }
+    ],
+    "rateSection": "artificial-intelligence",
+    "rateSrc": "csc",
+    "rateSlug": "aaai",
+    "tier": 1
+  },
+  {
+    "title": "EACL",
+    "desc": "The Annual Conference of the European Chapter of the Association for Computational Linguistics",
+    "area": "AI / ML / Data Mining",
+    "sub": "AI",
+    "ccf": "N",
+    "core": "A",
+    "coreVerified": true,
+    "nextDeadline": "2026-08-03",
+    "nextYear": 2027,
+    "nextAbstract": "",
+    "estimated": false,
+    "estFrom": "",
+    "rounds": [
+      {
+        "d": "2026-08-03",
+        "label": "ARR Submission",
+        "est": false,
+        "year": 2027,
+        "link": "https://2027.eacl.org/",
+        "abs": ""
+      },
+      {
+        "d": "2026-10-11",
+        "label": "EACL commitment after ARR meta-reviews; reviewed papers only",
+        "est": false,
+        "year": 2027,
+        "link": "https://2027.eacl.org/",
+        "abs": ""
+      }
+    ],
+    "dblp": "eacl",
+    "csr": "",
+    "edition": "",
+    "best": "",
+    "link": "https://2027.eacl.org/",
+    "date": "March 9-14, 2027",
+    "place": "Athens, Greece",
+    "cc": "gr",
+    "city": "rooftop dinner under the lit Acropolis, souvlaki on Mitropoleos, Sunday flea at Monastiraki",
+    "cycles": 2,
+    "roundLabels": [
+      "ARR Submission",
+      "EACL commitment after ARR meta-reviews; reviewed papers only"
+    ],
+    "proceedings": "full",
+    "rates": [],
+    "rateSection": "",
+    "rateSrc": "",
+    "rateSlug": "",
+    "tier": 2
+  },
+  {
+    "title": "CIDR",
+    "desc": "International Conference on Innovative Data Systems Research",
+    "area": "AI / ML / Data Mining",
+    "sub": "DB",
+    "ccf": "B",
+    "core": "A",
+    "coreVerified": true,
+    "nextDeadline": "2026-08-04",
+    "nextYear": 2027,
+    "nextAbstract": "",
+    "estimated": false,
+    "estFrom": "",
+    "rounds": [
+      {
+        "d": "2026-08-04",
+        "label": "",
+        "est": false,
+        "year": 2027,
+        "link": "https://www.cidrdb.org/cidr2027/",
+        "abs": ""
+      }
+    ],
+    "dblp": "cidr",
+    "csr": "",
+    "edition": "",
+    "best": "",
+    "link": "https://www.cidrdb.org/cidr2027/",
+    "date": "January 24-27, 2027",
+    "place": "Amsterdam, The Netherlands",
+    "cc": "nl",
+    "city": "herring from a street cart, genever in a brown cafe, Van Gogh's own bedroom",
+    "cycles": 1,
+    "roundLabels": [],
+    "proceedings": "full",
+    "rates": [],
+    "rateSection": "",
+    "rateSrc": "",
+    "rateSlug": "",
+    "tier": 2
+  },
+  {
+    "title": "WSDM",
+    "desc": "International Conference on Web Search and Data Mining",
+    "area": "AI / ML / Data Mining",
+    "sub": "DB",
+    "ccf": "B",
+    "core": "A",
+    "coreVerified": true,
+    "nextDeadline": "2026-08-24",
+    "nextYear": 2027,
+    "nextAbstract": "",
+    "estimated": false,
+    "estFrom": "",
+    "rounds": [
+      {
+        "d": "2026-08-24",
+        "label": "Full Paper",
+        "est": false,
+        "year": 2027,
+        "link": "https://wsdm-conference.org/2027/",
+        "abs": "2026-08-17"
+      }
+    ],
+    "dblp": "wsdm",
+    "csr": "",
+    "edition": "20th",
+    "best": "",
+    "link": "https://wsdm-conference.org/2027/",
+    "date": "February 15 - 19, 2027",
+    "place": "Cordis, Hong Kong SAR, China",
+    "cc": "cn",
+    "city": "dim sum off a trolley, the Peak tram after dark, Tai O stilt houses and shrimp paste",
+    "cycles": 1,
+    "roundLabels": [],
+    "proceedings": "full",
+    "rates": [
+      {
+        "y": 2008,
+        "r": 15.9
+      },
+      {
+        "y": 2009,
+        "r": 17.1
+      },
+      {
+        "y": 2010,
+        "r": 15.5
+      },
+      {
+        "y": 2011,
+        "r": 22.3
+      },
+      {
+        "y": 2012,
+        "r": 20.7
+      },
+      {
+        "y": 2013,
+        "r": 18.9
+      },
+      {
+        "y": 2014,
+        "r": 18.0
+      },
+      {
+        "y": 2015,
+        "r": 16.4
+      },
+      {
+        "y": 2016,
+        "r": 17.4
+      },
+      {
+        "y": 2017,
+        "r": 15.8
+      },
+      {
+        "y": 2018,
+        "r": 15.8
+      },
+      {
+        "y": 2019,
+        "r": 16.4
+      },
+      {
+        "y": 2020,
+        "r": 14.8
+      },
+      {
+        "y": 2021,
+        "r": 18.6
+      },
+      {
+        "y": 2022,
+        "r": 20.3
+      },
+      {
+        "y": 2023,
+        "r": 17.8
+      },
+      {
+        "y": 2024,
+        "r": 17.7
+      },
+      {
+        "y": 2025,
+        "r": 17.5
+      },
+      {
+        "y": 2026,
+        "r": 16.3
+      }
+    ],
+    "rateSection": "data-mining-and-information-retrieval",
+    "rateSrc": "csc",
+    "rateSlug": "wsdm",
+    "tier": 2
+  },
+  {
+    "title": "USENIX Security",
+    "desc": "USENIX Security Symposium",
+    "area": "Security & Medicine",
+    "sub": "SC",
+    "ccf": "A",
+    "core": "A*",
+    "coreVerified": true,
+    "nextDeadline": "2026-08-25",
+    "nextYear": 2027,
+    "nextAbstract": "",
+    "estimated": false,
+    "estFrom": "",
+    "rounds": [
+      {
+        "d": "2026-08-25",
+        "label": "Cycle 1 Deadline",
+        "est": false,
+        "year": 2027,
+        "link": "https://www.usenix.org/conference/usenixsecurity27",
+        "abs": "2026-08-18"
+      },
+      {
+        "d": "2027-01-26",
+        "label": "Cycle 2 Deadline",
+        "est": false,
+        "year": 2027,
+        "link": "https://www.usenix.org/conference/usenixsecurity27",
+        "abs": "2027-01-19"
+      }
+    ],
+    "dblp": "uss",
+    "csr": "Security",
+    "edition": "36th",
+    "best": "",
+    "link": "https://www.usenix.org/conference/usenixsecurity27",
+    "date": "August 11-13, 2027",
+    "place": "Denver, CO, USA",
+    "cc": "us",
+    "city": "a show at Red Rocks, green chile smothered burritos, skiing two hours west",
+    "cycles": 2,
+    "roundLabels": [
+      "Cycle 1 Deadline",
+      "Cycle 2 Deadline"
+    ],
+    "proceedings": "full",
+    "rates": [
+      {
+        "y": 1998,
+        "r": 27.7
+      },
+      {
+        "y": 1999,
+        "r": 26.9
+      },
+      {
+        "y": 2001,
+        "r": 28.9
+      },
+      {
+        "y": 2002,
+        "r": 16.9
+      },
+      {
+        "y": 2003,
+        "r": 16.4
+      },
+      {
+        "y": 2004,
+        "r": 12.0
+      },
+      {
+        "y": 2005,
+        "r": 14.8
+      },
+      {
+        "y": 2006,
+        "r": 12.3
+      },
+      {
+        "y": 2007,
+        "r": 12.3
+      },
+      {
+        "y": 2008,
+        "r": 15.9
+      },
+      {
+        "y": 2009,
+        "r": 15.1
+      },
+      {
+        "y": 2010,
+        "r": 14.9
+      },
+      {
+        "y": 2011,
+        "r": 17.2
+      },
+      {
+        "y": 2012,
+        "r": 19.4
+      },
+      {
+        "y": 2013,
+        "r": 15.9
+      },
+      {
+        "y": 2014,
+        "r": 19.1
+      },
+      {
+        "y": 2015,
+        "r": 16.5
+      },
+      {
+        "y": 2016,
+        "r": 16.0
+      },
+      {
+        "y": 2017,
+        "r": 15.4
+      },
+      {
+        "y": 2018,
+        "r": 20.0
+      },
+      {
+        "y": 2019,
+        "r": 16.2
+      },
+      {
+        "y": 2020,
+        "r": 16.1
+      },
+      {
+        "y": 2021,
+        "r": 19.0
+      },
+      {
+        "y": 2022,
+        "r": 18.1
+      },
+      {
+        "y": 2023,
+        "r": 29.2
+      },
+      {
+        "y": 2024,
+        "r": 19.2
+      },
+      {
+        "y": 2025,
+        "r": 17.1
+      },
+      {
+        "y": 2026,
+        "r": 13.2
+      }
+    ],
+    "rateSection": "",
+    "rateSrc": "csc",
+    "rateSlug": "usenix-security",
+    "tier": 1
+  },
+  {
+    "title": "ICDT",
+    "desc": "International Conference on Database Theory",
+    "area": "AI / ML / Data Mining",
+    "sub": "DB",
+    "ccf": "B",
+    "core": "A",
+    "coreVerified": true,
+    "nextDeadline": "2026-09-10",
+    "nextYear": 2027,
+    "nextAbstract": "",
+    "estimated": false,
+    "estFrom": "",
+    "rounds": [
+      {
+        "d": "2026-09-10",
+        "label": "",
+        "est": false,
+        "year": 2027,
+        "link": "https://edbticdt2027.github.io/",
+        "abs": "2026-09-03"
+      },
+      {
+        "d": "2027-03-20",
+        "label": "",
+        "est": true,
+        "from": "2025-03-20",
+        "abs": "2027-03-13"
+      }
+    ],
+    "dblp": "icdt",
+    "csr": "",
+    "edition": "",
+    "best": "",
+    "link": "https://edbticdt2027.github.io/",
+    "date": "April 6-9, 2027",
+    "place": "Lille, France",
+    "cc": "fr",
+    "city": "moules-frites, waffles at Meert, the Braderie flea market in September",
+    "cycles": 2,
+    "roundLabels": [],
+    "proceedings": "full",
+    "rates": [],
+    "rateSection": "",
+    "rateSrc": "",
+    "rateSlug": "",
+    "tier": 2
+  },
+  {
+    "title": "ICRA",
+    "desc": "IEEE International Conference on Robotics and Automation",
+    "area": "AI / ML / Data Mining",
+    "sub": "AI",
+    "ccf": "B",
+    "core": "A*",
+    "coreVerified": true,
+    "nextDeadline": "2026-09-16",
+    "nextYear": 2027,
+    "nextAbstract": "",
+    "estimated": false,
+    "estFrom": "",
+    "rounds": [
+      {
+        "d": "2026-09-16",
+        "label": "Extended submission deadline",
+        "est": false,
+        "year": 2027,
+        "link": "https://2027.ieee-icra.org/",
+        "abs": ""
+      }
+    ],
+    "dblp": "icra",
+    "csr": "Robotics",
+    "edition": "44th",
+    "best": "",
+    "link": "https://2027.ieee-icra.org/",
+    "date": "May 24-28, 2027",
+    "place": "Seoul, Republic of Korea",
+    "cc": "kr",
+    "city": "Korean barbecue and soju, Gwangjang market, palaces free if you rent a hanbok",
+    "cycles": 1,
+    "roundLabels": [],
+    "proceedings": "full",
+    "rates": [
+      {
+        "y": 1986,
+        "r": 70.0
+      },
+      {
+        "y": 1987,
+        "r": 60.0
+      },
+      {
+        "y": 1996,
+        "r": 64.6
+      },
+      {
+        "y": 1997,
+        "r": 63.8
+      },
+      {
+        "y": 1998,
+        "r": 61.9
+      },
+      {
+        "y": 1999,
+        "r": 62.4
+      },
+      {
+        "y": 2000,
+        "r": 58.3
+      },
+      {
+        "y": 2001,
+        "r": 59.0
+      },
+      {
+        "y": 2002,
+        "r": 58.8
+      },
+      {
+        "y": 2003,
+        "r": 60.7
+      },
+      {
+        "y": 2004,
+        "r": 58.9
+      },
+      {
+        "y": 2007,
+        "r": 45.3
+      },
+      {
+        "y": 2008,
+        "r": 44.7
+      },
+      {
+        "y": 2010,
+        "r": 42.2
+      },
+      {
+        "y": 2011,
+        "r": 51.8
+      },
+      {
+        "y": 2012,
+        "r": 40.6
+      },
+      {
+        "y": 2013,
+        "r": 38.3
+      },
+      {
+        "y": 2014,
+        "r": 48.6
+      },
+      {
+        "y": 2015,
+        "r": 41.2
+      },
+      {
+        "y": 2016,
+        "r": 34.6
+      },
+      {
+        "y": 2017,
+        "r": 41.0
+      },
+      {
+        "y": 2018,
+        "r": 40.8
+      },
+      {
+        "y": 2019,
+        "r": 45.2
+      },
+      {
+        "y": 2020,
+        "r": 44.0
+      },
+      {
+        "y": 2021,
+        "r": 43.6
+      },
+      {
+        "y": 2022,
+        "r": 43.8
+      },
+      {
+        "y": 2023,
+        "r": 43.0
+      },
+      {
+        "y": 2024,
+        "r": 44.7
+      },
+      {
+        "y": 2025,
+        "r": 38.7
+      },
+      {
+        "y": 2026,
+        "r": 38.0
+      }
+    ],
+    "rateSection": "",
+    "rateSrc": "csc",
+    "rateSlug": "icra",
+    "tier": 1
+  },
+  {
+    "title": "ICASSP",
+    "desc": "IEEE International Conference on Acoustics, Speech, and Signal Processing",
+    "area": "AI / ML / Data Mining",
+    "sub": "CG",
+    "ccf": "B",
+    "core": "B",
+    "coreVerified": true,
+    "nextDeadline": "2026-09-23",
+    "nextYear": 2027,
+    "nextAbstract": "",
+    "estimated": false,
+    "estFrom": "",
+    "rounds": [
+      {
+        "d": "2026-09-23",
+        "label": "",
+        "est": false,
+        "year": 2027,
+        "link": "https://2027.ieeeicassp.org/",
+        "abs": ""
+      }
+    ],
+    "dblp": "icassp",
+    "csr": "",
+    "edition": "",
+    "best": "",
+    "link": "https://2027.ieeeicassp.org/",
+    "date": "May 16-21, 2027",
+    "place": "Toronto, Canada",
+    "cc": "ca",
+    "city": "peameal bacon at St Lawrence Market, the CN Tower EdgeWalk, Niagara in a day",
+    "cycles": 1,
+    "roundLabels": [],
+    "proceedings": "full",
+    "rates": [
+      {
+        "y": 2014,
+        "r": 48.0
+      },
+      {
+        "y": 2015,
+        "r": 52.0
+      },
+      {
+        "y": 2016,
+        "r": 47.0
+      },
+      {
+        "y": 2017,
+        "r": 52.0
+      },
+      {
+        "y": 2018,
+        "r": 49.7
+      },
+      {
+        "y": 2019,
+        "r": 46.5
+      },
+      {
+        "y": 2021,
+        "r": 48.0
+      },
+      {
+        "y": 2022,
+        "r": 45.0
+      },
+      {
+        "y": 2023,
+        "r": 45.1
+      },
+      {
+        "y": 2024,
+        "r": 45.0
+      }
+    ],
+    "rateSection": "speech-and-signal-processing",
+    "rateSrc": "ar",
+    "rateSlug": "",
+    "tier": 2
+  },
+  {
+    "title": "ICLR",
+    "desc": "International Conference on Learning Representations",
+    "area": "AI / ML / Data Mining",
+    "sub": "AI",
+    "ccf": "A",
+    "core": "A*",
+    "coreVerified": true,
+    "nextDeadline": "2026-09-25",
+    "nextYear": 2027,
+    "nextAbstract": "",
+    "estimated": false,
+    "estFrom": "",
+    "rounds": [
+      {
+        "d": "2026-09-25",
+        "label": "",
+        "est": false,
+        "year": 2027,
+        "link": "https://iclr.cc/Conferences/2027",
+        "abs": "2026-09-18"
+      }
+    ],
+    "dblp": "iclr",
+    "csr": "ML",
+    "edition": "15th",
+    "best": "",
+    "link": "https://iclr.cc/Conferences/2027",
+    "date": "April 26-30, 2027",
+    "place": "San Francisco, CA, USA",
+    "cc": "us",
+    "city": "sourdough and Dungeness crab, a cable car over the hills, redwoods at Muir Woods",
+    "cycles": 1,
+    "roundLabels": [],
+    "proceedings": "full",
+    "rates": [
+      {
+        "y": 2013,
+        "r": 34.3
+      },
+      {
+        "y": 2014,
+        "r": 40.2
+      },
+      {
+        "y": 2015,
+        "r": 21.7
+      },
+      {
+        "y": 2016,
+        "r": 30.2
+      },
+      {
+        "y": 2017,
+        "r": 39.1
+      },
+      {
+        "y": 2018,
+        "r": 32.0
+      },
+      {
+        "y": 2019,
+        "r": 31.4
+      },
+      {
+        "y": 2020,
+        "r": 26.5
+      },
+      {
+        "y": 2021,
+        "r": 28.7
+      },
+      {
+        "y": 2022,
+        "r": 32.3
+      },
+      {
+        "y": 2023,
+        "r": 31.9
+      },
+      {
+        "y": 2024,
+        "r": 30.8
+      },
+      {
+        "y": 2025,
+        "r": 32.1
+      },
+      {
+        "y": 2026,
+        "r": 27.4
+      }
+    ],
+    "rateSection": "machine-learning-and-learning-theory",
+    "rateSrc": "csc",
+    "rateSlug": "iclr",
+    "tier": 1
+  },
+  {
+    "title": "AISTATS",
+    "desc": "International Conference on Artificial Intelligence and Statistics",
+    "area": "AI / ML / Data Mining",
+    "sub": "AI",
+    "ccf": "C",
+    "core": "A",
+    "coreVerified": true,
+    "nextDeadline": "2026-10-06",
+    "nextYear": 2027,
+    "nextAbstract": "",
+    "estimated": false,
+    "estFrom": "",
+    "rounds": [
+      {
+        "d": "2026-10-06",
+        "label": "",
+        "est": false,
+        "year": 2027,
+        "link": "https://virtual.aistats.org/Conferences/2027",
+        "abs": "2026-09-29"
+      }
+    ],
+    "dblp": "aistats",
+    "csr": "",
+    "edition": "30th",
+    "best": "",
+    "link": "https://virtual.aistats.org/Conferences/2027",
+    "date": "May 3-6, 2027",
+    "place": "Montréal, Canada",
+    "cc": "ca",
+    "city": "smoked meat at Schwartz's, wood-fired bagels at 3am, Mount Royal lookout",
+    "cycles": 1,
+    "roundLabels": [],
+    "proceedings": "full",
+    "rates": [
+      {
+        "y": 1995,
+        "r": 55.9
+      },
+      {
+        "y": 2003,
+        "r": 39.3
+      },
+      {
+        "y": 2005,
+        "r": 38.0
+      },
+      {
+        "y": 2007,
+        "r": 56.7
+      },
+      {
+        "y": 2009,
+        "r": 40.0
+      },
+      {
+        "y": 2010,
+        "r": 41.1
+      },
+      {
+        "y": 2011,
+        "r": 36.4
+      },
+      {
+        "y": 2012,
+        "r": 39.1
+      },
+      {
+        "y": 2013,
+        "r": 33.6
+      },
+      {
+        "y": 2014,
+        "r": 35.8
+      },
+      {
+        "y": 2015,
+        "r": 28.7
+      },
+      {
+        "y": 2016,
+        "r": 30.7
+      },
+      {
+        "y": 2017,
+        "r": 31.7
+      },
+      {
+        "y": 2018,
+        "r": 33.2
+      },
+      {
+        "y": 2019,
+        "r": 32.4
+      },
+      {
+        "y": 2021,
+        "r": 29.8
+      },
+      {
+        "y": 2022,
+        "r": 29.2
+      },
+      {
+        "y": 2023,
+        "r": 29.4
+      },
+      {
+        "y": 2024,
+        "r": 27.6
+      },
+      {
+        "y": 2025,
+        "r": 31.3
+      },
+      {
+        "y": 2026,
+        "r": 28.1
+      }
+    ],
+    "rateSection": "machine-learning-and-learning-theory",
+    "rateSrc": "csc",
+    "rateSlug": "aistats",
+    "tier": 2
+  },
+  {
     "title": "AAMAS",
     "desc": "International Conference on Autonomous Agents and Multiagent Systems",
     "area": "AI / ML / Data Mining",
@@ -65,13 +3966,6 @@ export const ranked = [
         "est": false,
         "abs": "",
         "fixed": "https://2027.coling-iccl.org/"
-      },
-      {
-        "d": "2026-10-20",
-        "label": "Commitment deadline for papers reviewed by ARR",
-        "est": true,
-        "from": "2024-10-20",
-        "abs": ""
       },
       {
         "d": "2026-12-23",
@@ -386,230 +4280,6 @@ export const ranked = [
     "tier": 2
   },
   {
-    "title": "SIGMOD",
-    "desc": "ACM Conference on Management of Data",
-    "area": "AI / ML / Data Mining",
-    "sub": "DB",
-    "ccf": "A",
-    "core": "A*",
-    "coreVerified": true,
-    "nextDeadline": "2026-10-17",
-    "nextYear": 2027,
-    "nextAbstract": "",
-    "estimated": false,
-    "estFrom": "",
-    "rounds": [
-      {
-        "d": "2026-10-17",
-        "label": "round 4",
-        "est": false,
-        "year": 2027,
-        "link": "https://2027.sigmod.org/",
-        "abs": "2026-10-10"
-      },
-      {
-        "d": "2027-01-17",
-        "label": "round 1",
-        "est": true,
-        "from": "2025-01-17",
-        "abs": "2027-01-10"
-      },
-      {
-        "d": "2027-04-17",
-        "label": "round 2",
-        "est": true,
-        "from": "2025-04-17",
-        "abs": "2027-04-10"
-      },
-      {
-        "d": "2027-07-17",
-        "label": "round 3",
-        "est": true,
-        "from": "2025-07-17",
-        "abs": "2027-07-10"
-      }
-    ],
-    "dblp": "sigmod",
-    "csr": "DB",
-    "edition": "53rd",
-    "best": "sigmod",
-    "link": "https://2027.sigmod.org/",
-    "date": "June 13-19, 2027",
-    "place": "Huntington Beach, CA, USA",
-    "cc": "us",
-    "city": "the pier at sunset, fish tacos, the PCH down to Laguna",
-    "cycles": 4,
-    "roundLabels": [
-      "round 1",
-      "round 2",
-      "round 3",
-      "round 4"
-    ],
-    "proceedings": "full",
-    "rates": [
-      {
-        "y": 1981,
-        "r": 26.9
-      },
-      {
-        "y": 1982,
-        "r": 26.8
-      },
-      {
-        "y": 1983,
-        "r": 22.3
-      },
-      {
-        "y": 1986,
-        "r": 19.0
-      },
-      {
-        "y": 1987,
-        "r": 23.6
-      },
-      {
-        "y": 1988,
-        "r": 22.7
-      },
-      {
-        "y": 1990,
-        "r": 18.0
-      },
-      {
-        "y": 1994,
-        "r": 14.3
-      },
-      {
-        "y": 1996,
-        "r": 16.2
-      },
-      {
-        "y": 1997,
-        "r": 20.8
-      },
-      {
-        "y": 1998,
-        "r": 17.1
-      },
-      {
-        "y": 1999,
-        "r": 20.5
-      },
-      {
-        "y": 2000,
-        "r": 16.9
-      },
-      {
-        "y": 2001,
-        "r": 15.0
-      },
-      {
-        "y": 2002,
-        "r": 17.5
-      },
-      {
-        "y": 2003,
-        "r": 15.5
-      },
-      {
-        "y": 2004,
-        "r": 16.0
-      },
-      {
-        "y": 2005,
-        "r": 15.1
-      },
-      {
-        "y": 2006,
-        "r": 13.0
-      },
-      {
-        "y": 2007,
-        "r": 14.6
-      },
-      {
-        "y": 2008,
-        "r": 17.9
-      },
-      {
-        "y": 2009,
-        "r": 15.9
-      },
-      {
-        "y": 2010,
-        "r": 20.8
-      },
-      {
-        "y": 2011,
-        "r": 22.4
-      },
-      {
-        "y": 2012,
-        "r": 16.6
-      },
-      {
-        "y": 2013,
-        "r": 20.4
-      },
-      {
-        "y": 2014,
-        "r": 25.4
-      },
-      {
-        "y": 2015,
-        "r": 25.7
-      },
-      {
-        "y": 2016,
-        "r": 20.4
-      },
-      {
-        "y": 2017,
-        "r": 19.6
-      },
-      {
-        "y": 2018,
-        "r": 19.7
-      },
-      {
-        "y": 2019,
-        "r": 21.1
-      },
-      {
-        "y": 2020,
-        "r": 26.9
-      },
-      {
-        "y": 2021,
-        "r": 41.8
-      },
-      {
-        "y": 2022,
-        "r": 29.4
-      },
-      {
-        "y": 2023,
-        "r": 28.2
-      },
-      {
-        "y": 2024,
-        "r": 27.7
-      },
-      {
-        "y": 2025,
-        "r": 24.8
-      },
-      {
-        "y": 2026,
-        "r": 33.3
-      }
-    ],
-    "rateSection": "",
-    "rateSrc": "csc",
-    "rateSlug": "sigmod",
-    "tier": 1
-  },
-  {
     "title": "WWW",
     "desc": "International World Wide Web Conferences",
     "area": "AI / ML / Data Mining",
@@ -812,233 +4482,6 @@ export const ranked = [
     "tier": 2
   },
   {
-    "title": "VLDB",
-    "desc": "International Conference on Very Large Data Bases",
-    "area": "AI / ML / Data Mining",
-    "sub": "DB",
-    "ccf": "A",
-    "core": "A*",
-    "coreVerified": true,
-    "nextDeadline": "2026-11-01",
-    "nextYear": 2027,
-    "nextAbstract": "",
-    "estimated": false,
-    "estFrom": "",
-    "rounds": [
-      {
-        "d": "2026-11-01",
-        "label": "",
-        "est": false,
-        "year": 2027,
-        "link": "https://www.vldb.org/2027/",
-        "abs": "2026-10-25"
-      },
-      {
-        "d": "2026-12-01",
-        "label": "",
-        "est": false,
-        "year": 2027,
-        "link": "https://www.vldb.org/2027/",
-        "abs": "2026-11-25"
-      },
-      {
-        "d": "2027-01-01",
-        "label": "",
-        "est": false,
-        "year": 2027,
-        "link": "https://www.vldb.org/2027/",
-        "abs": "2026-12-25"
-      },
-      {
-        "d": "2027-02-01",
-        "label": "",
-        "est": false,
-        "year": 2027,
-        "link": "https://www.vldb.org/2027/",
-        "abs": "2027-01-25"
-      },
-      {
-        "d": "2027-03-01",
-        "label": "",
-        "est": false,
-        "year": 2027,
-        "link": "https://www.vldb.org/2027/",
-        "abs": "2027-02-25"
-      },
-      {
-        "d": "2027-04-01",
-        "label": "",
-        "est": true,
-        "from": "2025-04-01",
-        "abs": ""
-      },
-      {
-        "d": "2027-05-01",
-        "label": "",
-        "est": true,
-        "from": "2025-05-01",
-        "abs": ""
-      },
-      {
-        "d": "2027-06-01",
-        "label": "",
-        "est": true,
-        "from": "2025-06-01",
-        "abs": ""
-      },
-      {
-        "d": "2027-07-01",
-        "label": "",
-        "est": true,
-        "from": "2025-07-01",
-        "abs": ""
-      },
-      {
-        "d": "2027-08-01",
-        "label": "",
-        "est": true,
-        "from": "2025-08-01",
-        "abs": ""
-      },
-      {
-        "d": "2027-09-01",
-        "label": "",
-        "est": true,
-        "from": "2025-09-01",
-        "abs": ""
-      },
-      {
-        "d": "2027-10-01",
-        "label": "",
-        "est": true,
-        "from": "2025-10-01",
-        "abs": ""
-      }
-    ],
-    "dblp": "vldb",
-    "csr": "DB",
-    "edition": "53rd",
-    "best": "vldb",
-    "link": "https://www.vldb.org/2027/",
-    "date": "August 23 - August 27, 2027",
-    "place": "Athens, Greece",
-    "cc": "gr",
-    "city": "rooftop dinner under the lit Acropolis, souvlaki on Mitropoleos, Sunday flea at Monastiraki",
-    "cycles": 12,
-    "roundLabels": [],
-    "proceedings": "full",
-    "rates": [
-      {
-        "y": 1985,
-        "r": 15.1
-      },
-      {
-        "y": 1986,
-        "r": 19.4
-      },
-      {
-        "y": 1988,
-        "r": 17.8
-      },
-      {
-        "y": 1991,
-        "r": 15.7
-      },
-      {
-        "y": 1994,
-        "r": 18.4
-      },
-      {
-        "y": 1995,
-        "r": 17.5
-      },
-      {
-        "y": 1996,
-        "r": 13.8
-      },
-      {
-        "y": 1997,
-        "r": 14.9
-      },
-      {
-        "y": 1998,
-        "r": 15.5
-      },
-      {
-        "y": 1999,
-        "r": 13.2
-      },
-      {
-        "y": 2000,
-        "r": 15.2
-      },
-      {
-        "y": 2001,
-        "r": 17.5
-      },
-      {
-        "y": 2002,
-        "r": 16.0
-      },
-      {
-        "y": 2003,
-        "r": 18.2
-      },
-      {
-        "y": 2004,
-        "r": 17.9
-      },
-      {
-        "y": 2005,
-        "r": 16.4
-      },
-      {
-        "y": 2006,
-        "r": 13.3
-      },
-      {
-        "y": 2007,
-        "r": 18.2
-      },
-      {
-        "y": 2008,
-        "r": 17.1
-      },
-      {
-        "y": 2009,
-        "r": 17.4
-      },
-      {
-        "y": 2010,
-        "r": 17.6
-      },
-      {
-        "y": 2011,
-        "r": 18.1
-      },
-      {
-        "y": 2012,
-        "r": 20.3
-      },
-      {
-        "y": 2013,
-        "r": 22.7
-      },
-      {
-        "y": 2015,
-        "r": 21.3
-      },
-      {
-        "y": 2025,
-        "r": 22.9
-      }
-    ],
-    "rateSection": "",
-    "rateSrc": "csc",
-    "rateSlug": "vldb",
-    "tier": 1
-  },
-  {
     "title": "RECOMB",
     "desc": "International Conference on Research inComputational Molecular Biology",
     "area": "Security & Medicine",
@@ -1183,210 +4626,6 @@ export const ranked = [
     "rateSrc": "csc",
     "rateSlug": "recomb",
     "tier": 2
-  },
-  {
-    "title": "ICDE",
-    "desc": "IEEE International Conference on Data Engineering",
-    "area": "AI / ML / Data Mining",
-    "sub": "DB",
-    "ccf": "A",
-    "core": "A*",
-    "coreVerified": true,
-    "nextDeadline": "2026-11-11",
-    "nextYear": 2027,
-    "nextAbstract": "",
-    "estimated": false,
-    "estFrom": "",
-    "rounds": [
-      {
-        "d": "2026-11-11",
-        "label": "second round",
-        "est": false,
-        "year": 2027,
-        "link": "https://icde2027.github.io/",
-        "abs": ""
-      },
-      {
-        "d": "2027-06-18",
-        "label": "first round",
-        "est": true,
-        "from": "2025-06-18",
-        "abs": ""
-      }
-    ],
-    "dblp": "icde",
-    "csr": "DB",
-    "edition": "43rd",
-    "best": "",
-    "link": "https://icde2027.github.io/",
-    "date": "May 17-21, 2027",
-    "place": "Copenhagen, Denmark",
-    "cc": "dk",
-    "city": "smorrebrod, Reffen street food on the water, Tivoli lit up after dark",
-    "cycles": 2,
-    "roundLabels": [
-      "first round",
-      "second round"
-    ],
-    "proceedings": "full",
-    "rates": [
-      {
-        "y": 1986,
-        "r": 40.8
-      },
-      {
-        "y": 1987,
-        "r": 34.4
-      },
-      {
-        "y": 1989,
-        "r": 26.4
-      },
-      {
-        "y": 1991,
-        "r": 29.6
-      },
-      {
-        "y": 1992,
-        "r": 32.4
-      },
-      {
-        "y": 1993,
-        "r": 25.2
-      },
-      {
-        "y": 1994,
-        "r": 18.5
-      },
-      {
-        "y": 1995,
-        "r": 24.0
-      },
-      {
-        "y": 1996,
-        "r": 22.7
-      },
-      {
-        "y": 1997,
-        "r": 18.8
-      },
-      {
-        "y": 1998,
-        "r": 22.2
-      },
-      {
-        "y": 1999,
-        "r": 19.1
-      },
-      {
-        "y": 2000,
-        "r": 14.3
-      },
-      {
-        "y": 2001,
-        "r": 18.2
-      },
-      {
-        "y": 2002,
-        "r": 18.8
-      },
-      {
-        "y": 2003,
-        "r": 20.4
-      },
-      {
-        "y": 2004,
-        "r": 18.8
-      },
-      {
-        "y": 2005,
-        "r": 19.2
-      },
-      {
-        "y": 2006,
-        "r": 19.3
-      },
-      {
-        "y": 2007,
-        "r": 17.9
-      },
-      {
-        "y": 2008,
-        "r": 19.3
-      },
-      {
-        "y": 2009,
-        "r": 17.1
-      },
-      {
-        "y": 2010,
-        "r": 21.0
-      },
-      {
-        "y": 2011,
-        "r": 20.0
-      },
-      {
-        "y": 2012,
-        "r": 24.2
-      },
-      {
-        "y": 2013,
-        "r": 21.4
-      },
-      {
-        "y": 2014,
-        "r": 20.0
-      },
-      {
-        "y": 2015,
-        "r": 25.2
-      },
-      {
-        "y": 2016,
-        "r": 25.1
-      },
-      {
-        "y": 2017,
-        "r": 17.7
-      },
-      {
-        "y": 2018,
-        "r": 23.1
-      },
-      {
-        "y": 2019,
-        "r": 22.7
-      },
-      {
-        "y": 2020,
-        "r": 22.7
-      },
-      {
-        "y": 2021,
-        "r": 27.5
-      },
-      {
-        "y": 2022,
-        "r": 27.1
-      },
-      {
-        "y": 2023,
-        "r": 30.6
-      },
-      {
-        "y": 2024,
-        "r": 25.4
-      },
-      {
-        "y": 2025,
-        "r": 19.8
-      }
-    ],
-    "rateSection": "",
-    "rateSrc": "csc",
-    "rateSlug": "icde",
-    "tier": 1
   },
   {
     "title": "CVPR",
@@ -1587,230 +4826,6 @@ export const ranked = [
     "tier": 1
   },
   {
-    "title": "S&P",
-    "desc": "IEEE Symposium on Security and Privacy",
-    "area": "Security & Medicine",
-    "sub": "SC",
-    "ccf": "A",
-    "core": "A*",
-    "coreVerified": true,
-    "nextDeadline": "2026-11-17",
-    "nextYear": 2027,
-    "nextAbstract": "",
-    "estimated": false,
-    "estFrom": "",
-    "rounds": [
-      {
-        "d": "2026-11-17",
-        "label": "Second Paper submission deadline",
-        "est": false,
-        "year": 2027,
-        "link": "https://sp2027.ieee-security.org/index.html",
-        "abs": "2026-11-10"
-      },
-      {
-        "d": "2027-06-05",
-        "label": "Cycle 1",
-        "est": true,
-        "from": "2025-06-05",
-        "abs": "2027-05-29"
-      }
-    ],
-    "dblp": "sp",
-    "csr": "Security",
-    "edition": "48th",
-    "best": "s&p",
-    "link": "https://sp2027.ieee-security.org/index.html",
-    "date": "May 17-19, 2027",
-    "place": "MONTREAL, CANADA",
-    "cc": "ca",
-    "city": "smoked meat at Schwartz's, wood-fired bagels at 3am, Mount Royal lookout",
-    "cycles": 2,
-    "roundLabels": [
-      "First Paper submission deadline",
-      "Second Paper submission deadline"
-    ],
-    "proceedings": "full",
-    "rates": [
-      {
-        "y": 1980,
-        "r": 100.0
-      },
-      {
-        "y": 1982,
-        "r": 55.9
-      },
-      {
-        "y": 1983,
-        "r": 67.6
-      },
-      {
-        "y": 1984,
-        "r": 38.5
-      },
-      {
-        "y": 1985,
-        "r": 39.7
-      },
-      {
-        "y": 1986,
-        "r": 25.8
-      },
-      {
-        "y": 1990,
-        "r": 33.3
-      },
-      {
-        "y": 1991,
-        "r": 30.4
-      },
-      {
-        "y": 1992,
-        "r": 23.6
-      },
-      {
-        "y": 1993,
-        "r": 24.3
-      },
-      {
-        "y": 1994,
-        "r": 29.7
-      },
-      {
-        "y": 1995,
-        "r": 27.8
-      },
-      {
-        "y": 1996,
-        "r": 29.9
-      },
-      {
-        "y": 1997,
-        "r": 20.9
-      },
-      {
-        "y": 1998,
-        "r": 16.4
-      },
-      {
-        "y": 1999,
-        "r": 24.6
-      },
-      {
-        "y": 2000,
-        "r": 13.1
-      },
-      {
-        "y": 2001,
-        "r": 17.8
-      },
-      {
-        "y": 2002,
-        "r": 22.1
-      },
-      {
-        "y": 2003,
-        "r": 14.5
-      },
-      {
-        "y": 2004,
-        "r": 10.2
-      },
-      {
-        "y": 2005,
-        "r": 8.9
-      },
-      {
-        "y": 2006,
-        "r": 12.7
-      },
-      {
-        "y": 2007,
-        "r": 11.8
-      },
-      {
-        "y": 2008,
-        "r": 11.2
-      },
-      {
-        "y": 2009,
-        "r": 10.2
-      },
-      {
-        "y": 2010,
-        "r": 11.6
-      },
-      {
-        "y": 2011,
-        "r": 11.0
-      },
-      {
-        "y": 2012,
-        "r": 13.0
-      },
-      {
-        "y": 2013,
-        "r": 12.1
-      },
-      {
-        "y": 2014,
-        "r": 13.2
-      },
-      {
-        "y": 2015,
-        "r": 13.5
-      },
-      {
-        "y": 2016,
-        "r": 13.8
-      },
-      {
-        "y": 2017,
-        "r": 14.3
-      },
-      {
-        "y": 2018,
-        "r": 11.8
-      },
-      {
-        "y": 2019,
-        "r": 12.9
-      },
-      {
-        "y": 2020,
-        "r": 12.4
-      },
-      {
-        "y": 2021,
-        "r": 12.1
-      },
-      {
-        "y": 2022,
-        "r": 14.5
-      },
-      {
-        "y": 2023,
-        "r": 17.3
-      },
-      {
-        "y": 2024,
-        "r": 17.8
-      },
-      {
-        "y": 2025,
-        "r": 14.8
-      },
-      {
-        "y": 2026,
-        "r": 12.7
-      }
-    ],
-    "rateSection": "",
-    "rateSrc": "csc",
-    "rateSlug": "ieee-sp",
-    "tier": 1
-  },
-  {
     "title": "DASFAA",
     "desc": "Database Systems for Advanced Applications",
     "area": "AI / ML / Data Mining",
@@ -1850,202 +4865,6 @@ export const ranked = [
     "rateSrc": "",
     "rateSlug": "",
     "tier": 2
-  },
-  {
-    "title": "PODS",
-    "desc": "ACM Symposium on Principles of Database Systems",
-    "area": "AI / ML / Data Mining",
-    "sub": "DB",
-    "ccf": "B",
-    "core": "A*",
-    "coreVerified": true,
-    "nextDeadline": "2026-12-10",
-    "nextYear": 2027,
-    "nextAbstract": "",
-    "estimated": false,
-    "estFrom": "",
-    "rounds": [
-      {
-        "d": "2026-12-10",
-        "label": "Second Submission Cycle",
-        "est": false,
-        "year": 2027,
-        "link": "https://2027.sigmod.org/",
-        "abs": "2026-12-03"
-      },
-      {
-        "d": "2027-06-10",
-        "label": "First submission cycle",
-        "est": true,
-        "from": "2025-06-10",
-        "abs": "2027-06-03"
-      }
-    ],
-    "dblp": "pods",
-    "csr": "DB",
-    "edition": "46th",
-    "best": "pods",
-    "link": "https://2027.sigmod.org/",
-    "date": "June 13-19, 2027",
-    "place": "Huntington Beach, California, USA",
-    "cc": "us",
-    "city": "the pier at sunset, fish tacos, the PCH down to Laguna",
-    "cycles": 2,
-    "roundLabels": [
-      "First Submission Cycle",
-      "Second Submission Cycle"
-    ],
-    "proceedings": "full",
-    "rates": [
-      {
-        "y": 1982,
-        "r": 35.6
-      },
-      {
-        "y": 1983,
-        "r": 32.2
-      },
-      {
-        "y": 1984,
-        "r": 33.6
-      },
-      {
-        "y": 1993,
-        "r": 22.6
-      },
-      {
-        "y": 1994,
-        "r": 23.9
-      },
-      {
-        "y": 1995,
-        "r": 26.6
-      },
-      {
-        "y": 1996,
-        "r": 26.2
-      },
-      {
-        "y": 1997,
-        "r": 19.5
-      },
-      {
-        "y": 1998,
-        "r": 23.5
-      },
-      {
-        "y": 1999,
-        "r": 27.6
-      },
-      {
-        "y": 2000,
-        "r": 21.8
-      },
-      {
-        "y": 2001,
-        "r": 26.3
-      },
-      {
-        "y": 2002,
-        "r": 22.0
-      },
-      {
-        "y": 2003,
-        "r": 19.9
-      },
-      {
-        "y": 2004,
-        "r": 16.4
-      },
-      {
-        "y": 2005,
-        "r": 20.4
-      },
-      {
-        "y": 2006,
-        "r": 18.9
-      },
-      {
-        "y": 2007,
-        "r": 15.0
-      },
-      {
-        "y": 2008,
-        "r": 17.6
-      },
-      {
-        "y": 2009,
-        "r": 26.8
-      },
-      {
-        "y": 2010,
-        "r": 23.9
-      },
-      {
-        "y": 2011,
-        "r": 22.1
-      },
-      {
-        "y": 2012,
-        "r": 25.7
-      },
-      {
-        "y": 2013,
-        "r": 24.7
-      },
-      {
-        "y": 2014,
-        "r": 32.8
-      },
-      {
-        "y": 2015,
-        "r": 31.2
-      },
-      {
-        "y": 2016,
-        "r": 33.0
-      },
-      {
-        "y": 2017,
-        "r": 28.7
-      },
-      {
-        "y": 2018,
-        "r": 34.9
-      },
-      {
-        "y": 2019,
-        "r": 33.3
-      },
-      {
-        "y": 2020,
-        "r": 37.1
-      },
-      {
-        "y": 2021,
-        "r": 32.9
-      },
-      {
-        "y": 2022,
-        "r": 34.7
-      },
-      {
-        "y": 2023,
-        "r": 34.1
-      },
-      {
-        "y": 2024,
-        "r": 35.5
-      },
-      {
-        "y": 2025,
-        "r": 35.4
-      }
-    ],
-    "rateSection": "",
-    "rateSrc": "csc",
-    "rateSlug": "pods",
-    "tier": 1
   },
   {
     "title": "ECML-PKDD",
@@ -2324,182 +5143,6 @@ export const ranked = [
     "rateSection": "natural-language-processing-and-computational-linguistics",
     "rateSrc": "csc",
     "rateSlug": "acl",
-    "tier": 1
-  },
-  {
-    "title": "CCS",
-    "desc": "ACM Conference on Computer and Communications Security",
-    "area": "Security & Medicine",
-    "sub": "SC",
-    "ccf": "A",
-    "core": "A*",
-    "coreVerified": true,
-    "nextDeadline": "2027-01-09",
-    "nextYear": 2027,
-    "nextAbstract": "",
-    "estimated": true,
-    "estFrom": "2025-01-09",
-    "rounds": [
-      {
-        "d": "2027-01-09",
-        "label": "Cycle 1",
-        "est": true,
-        "from": "2025-01-09",
-        "abs": "2027-01-02"
-      },
-      {
-        "d": "2027-04-14",
-        "label": "Cycle 2",
-        "est": true,
-        "from": "2025-04-14",
-        "abs": "2027-04-07"
-      }
-    ],
-    "dblp": "ccs",
-    "csr": "Security",
-    "edition": "34th",
-    "best": "",
-    "link": "https://www.sigsac.org/ccs/CCS2027/",
-    "date": "October 11-15, 2027",
-    "place": "Atlanta, USA",
-    "cc": "us",
-    "city": "Busy Bee fried chicken, walking under the whale sharks, Ponce City Market rooftop",
-    "cycles": 1,
-    "roundLabels": [],
-    "proceedings": "full",
-    "rates": [
-      {
-        "y": 1993,
-        "r": 45.0
-      },
-      {
-        "y": 1994,
-        "r": 44.3
-      },
-      {
-        "y": 1996,
-        "r": 32.2
-      },
-      {
-        "y": 1997,
-        "r": 26.6
-      },
-      {
-        "y": 1998,
-        "r": 20.0
-      },
-      {
-        "y": 1999,
-        "r": 19.3
-      },
-      {
-        "y": 2000,
-        "r": 21.2
-      },
-      {
-        "y": 2001,
-        "r": 17.6
-      },
-      {
-        "y": 2002,
-        "r": 17.6
-      },
-      {
-        "y": 2003,
-        "r": 13.8
-      },
-      {
-        "y": 2004,
-        "r": 13.9
-      },
-      {
-        "y": 2005,
-        "r": 15.2
-      },
-      {
-        "y": 2006,
-        "r": 14.8
-      },
-      {
-        "y": 2007,
-        "r": 18.2
-      },
-      {
-        "y": 2008,
-        "r": 18.2
-      },
-      {
-        "y": 2009,
-        "r": 18.4
-      },
-      {
-        "y": 2010,
-        "r": 16.9
-      },
-      {
-        "y": 2011,
-        "r": 14.0
-      },
-      {
-        "y": 2012,
-        "r": 19.1
-      },
-      {
-        "y": 2013,
-        "r": 19.8
-      },
-      {
-        "y": 2014,
-        "r": 19.5
-      },
-      {
-        "y": 2015,
-        "r": 19.4
-      },
-      {
-        "y": 2016,
-        "r": 16.5
-      },
-      {
-        "y": 2017,
-        "r": 18.1
-      },
-      {
-        "y": 2018,
-        "r": 16.6
-      },
-      {
-        "y": 2019,
-        "r": 16.0
-      },
-      {
-        "y": 2020,
-        "r": 16.9
-      },
-      {
-        "y": 2021,
-        "r": 22.3
-      },
-      {
-        "y": 2022,
-        "r": 22.5
-      },
-      {
-        "y": 2023,
-        "r": 19.2
-      },
-      {
-        "y": 2024,
-        "r": 16.7
-      },
-      {
-        "y": 2025,
-        "r": 14.5
-      }
-    ],
-    "rateSection": "",
-    "rateSrc": "csc",
-    "rateSlug": "ccs",
     "tier": 1
   },
   {
@@ -2791,106 +5434,6 @@ export const ranked = [
     "tier": 2
   },
   {
-    "title": "ICWSM",
-    "desc": "The International AAAI Conference on Web and Social Media",
-    "area": "AI / ML / Data Mining",
-    "sub": "HI",
-    "ccf": "B",
-    "core": "A",
-    "coreVerified": true,
-    "nextDeadline": "2027-01-15",
-    "nextYear": 2027,
-    "nextAbstract": "",
-    "estimated": false,
-    "estFrom": "",
-    "rounds": [
-      {
-        "d": "2027-01-15",
-        "label": "3rd Full-paper Deadline",
-        "est": false,
-        "year": 2027,
-        "link": "https://www.icwsm.org/2027/",
-        "abs": ""
-      },
-      {
-        "d": "2027-05-15",
-        "label": "1st Full-paper Deadline",
-        "est": true,
-        "from": "2025-05-15",
-        "abs": ""
-      },
-      {
-        "d": "2027-09-15",
-        "label": "2nd Full-paper Deadline",
-        "est": true,
-        "from": "2025-09-15",
-        "abs": ""
-      }
-    ],
-    "dblp": "icwsm",
-    "csr": "",
-    "edition": "21st",
-    "best": "",
-    "link": "https://www.icwsm.org/2027/",
-    "date": "TBD",
-    "place": "Edinburgh, Scotland",
-    "cc": "gb",
-    "city": "whisky flights, Arthur Seat at sunrise, haggis done well enough to convert you",
-    "cycles": 3,
-    "roundLabels": [
-      "1st Full-paper Deadline",
-      "2nd Full-paper Deadline",
-      "3rd Full-paper Deadline"
-    ],
-    "proceedings": "full",
-    "rates": [
-      {
-        "y": 2010,
-        "r": 22.9
-      },
-      {
-        "y": 2012,
-        "r": 20.3
-      },
-      {
-        "y": 2013,
-        "r": 20.6
-      },
-      {
-        "y": 2014,
-        "r": 22.9
-      },
-      {
-        "y": 2015,
-        "r": 18.7
-      },
-      {
-        "y": 2016,
-        "r": 17.0
-      },
-      {
-        "y": 2017,
-        "r": 13.4
-      },
-      {
-        "y": 2018,
-        "r": 26.4
-      },
-      {
-        "y": 2019,
-        "r": 21.4
-      },
-      {
-        "y": 2020,
-        "r": 24.4
-      }
-    ],
-    "rateSection": "",
-    "rateSrc": "csc",
-    "rateSlug": "icwsm",
-    "tier": 2
-  },
-  {
     "title": "SIGIR",
     "desc": "International Conference on Research on Development in Information Retrieval",
     "area": "AI / ML / Data Mining",
@@ -3038,170 +5581,6 @@ export const ranked = [
     "rateSection": "data-mining-and-information-retrieval",
     "rateSrc": "csc",
     "rateSlug": "sigir",
-    "tier": 1
-  },
-  {
-    "title": "USENIX Security",
-    "desc": "USENIX Security Symposium",
-    "area": "Security & Medicine",
-    "sub": "SC",
-    "ccf": "A",
-    "core": "A*",
-    "coreVerified": true,
-    "nextDeadline": "2027-01-26",
-    "nextYear": 2027,
-    "nextAbstract": "",
-    "estimated": false,
-    "estFrom": "",
-    "rounds": [
-      {
-        "d": "2027-01-26",
-        "label": "Cycle 2 Deadline",
-        "est": false,
-        "year": 2027,
-        "link": "https://www.usenix.org/conference/usenixsecurity27",
-        "abs": "2027-01-19"
-      },
-      {
-        "d": "2027-08-26",
-        "label": "Cycle 1 Deadline",
-        "est": true,
-        "from": "2025-08-26",
-        "abs": "2027-08-19"
-      }
-    ],
-    "dblp": "uss",
-    "csr": "Security",
-    "edition": "36th",
-    "best": "",
-    "link": "https://www.usenix.org/conference/usenixsecurity27",
-    "date": "August 11-13, 2027",
-    "place": "Denver, CO, USA",
-    "cc": "us",
-    "city": "a show at Red Rocks, green chile smothered burritos, skiing two hours west",
-    "cycles": 2,
-    "roundLabels": [
-      "Cycle 1 Deadline",
-      "Cycle 2 Deadline"
-    ],
-    "proceedings": "full",
-    "rates": [
-      {
-        "y": 1998,
-        "r": 27.7
-      },
-      {
-        "y": 1999,
-        "r": 26.9
-      },
-      {
-        "y": 2001,
-        "r": 28.9
-      },
-      {
-        "y": 2002,
-        "r": 16.9
-      },
-      {
-        "y": 2003,
-        "r": 16.4
-      },
-      {
-        "y": 2004,
-        "r": 12.0
-      },
-      {
-        "y": 2005,
-        "r": 14.8
-      },
-      {
-        "y": 2006,
-        "r": 12.3
-      },
-      {
-        "y": 2007,
-        "r": 12.3
-      },
-      {
-        "y": 2008,
-        "r": 15.9
-      },
-      {
-        "y": 2009,
-        "r": 15.1
-      },
-      {
-        "y": 2010,
-        "r": 14.9
-      },
-      {
-        "y": 2011,
-        "r": 17.2
-      },
-      {
-        "y": 2012,
-        "r": 19.4
-      },
-      {
-        "y": 2013,
-        "r": 15.9
-      },
-      {
-        "y": 2014,
-        "r": 19.1
-      },
-      {
-        "y": 2015,
-        "r": 16.5
-      },
-      {
-        "y": 2016,
-        "r": 16.0
-      },
-      {
-        "y": 2017,
-        "r": 15.4
-      },
-      {
-        "y": 2018,
-        "r": 20.0
-      },
-      {
-        "y": 2019,
-        "r": 16.2
-      },
-      {
-        "y": 2020,
-        "r": 16.1
-      },
-      {
-        "y": 2021,
-        "r": 19.0
-      },
-      {
-        "y": 2022,
-        "r": 18.1
-      },
-      {
-        "y": 2023,
-        "r": 29.2
-      },
-      {
-        "y": 2024,
-        "r": 19.2
-      },
-      {
-        "y": 2025,
-        "r": 17.1
-      },
-      {
-        "y": 2026,
-        "r": 13.2
-      }
-    ],
-    "rateSection": "",
-    "rateSrc": "csc",
-    "rateSlug": "usenix-security",
     "tier": 1
   },
   {
@@ -3402,62 +5781,6 @@ export const ranked = [
     "tier": 1
   },
   {
-    "title": "EDBT",
-    "desc": "International Conference on Extending Database Technology",
-    "area": "AI / ML / Data Mining",
-    "sub": "DB",
-    "ccf": "B",
-    "core": "A",
-    "coreVerified": true,
-    "nextDeadline": "2027-02-05",
-    "nextYear": 2028,
-    "nextAbstract": "",
-    "estimated": true,
-    "estFrom": "2025-02-05",
-    "rounds": [
-      {
-        "d": "2027-02-05",
-        "label": "",
-        "est": true,
-        "from": "2025-02-05",
-        "abs": ""
-      },
-      {
-        "d": "2027-06-04",
-        "label": "",
-        "est": true,
-        "from": "2025-06-04",
-        "abs": ""
-      },
-      {
-        "d": "2027-10-08",
-        "label": "",
-        "est": true,
-        "from": "2025-10-08",
-        "abs": ""
-      }
-    ],
-    "dblp": "edbt",
-    "csr": "",
-    "edition": "",
-    "best": "",
-    "link": "https://edbticdt2027.github.io/",
-    "date": "",
-    "place": "",
-    "cc": "",
-    "city": "",
-    "cycles": 3,
-    "roundLabels": [
-      "Official February cutoff is 17:00 PST (UTC-8), represented as the equivalent 13:00 AoE."
-    ],
-    "proceedings": "full",
-    "rates": [],
-    "rateSection": "",
-    "rateSrc": "",
-    "rateSlug": "",
-    "tier": 2
-  },
-  {
     "title": "COLT",
     "desc": "Annual Conference on Learning Theory",
     "area": "AI / ML / Data Mining",
@@ -3612,178 +5935,6 @@ export const ranked = [
     "rateSection": "machine-learning-and-learning-theory",
     "rateSrc": "csc",
     "rateSlug": "colt",
-    "tier": 1
-  },
-  {
-    "title": "SIGKDD",
-    "desc": "ACM Knowledge Discovery and Data Mining",
-    "area": "AI / ML / Data Mining",
-    "sub": "DB",
-    "ccf": "A",
-    "core": "A*",
-    "coreVerified": false,
-    "nextDeadline": "2027-02-08",
-    "nextYear": 2027,
-    "nextAbstract": "",
-    "estimated": true,
-    "estFrom": "2026-02-08",
-    "rounds": [
-      {
-        "d": "2027-02-08",
-        "label": "second round",
-        "est": true,
-        "from": "2026-02-08",
-        "abs": "2027-02-01"
-      },
-      {
-        "d": "2027-07-31",
-        "label": "first round",
-        "est": true,
-        "from": "2025-07-31",
-        "abs": "2027-07-24"
-      }
-    ],
-    "dblp": "kdd",
-    "csr": "ML",
-    "edition": "33rd",
-    "best": "kdd",
-    "link": "https://kdd2027.kdd.org/",
-    "date": "August 1-5, 2027",
-    "place": "San Jose, California, USA",
-    "cc": "us",
-    "city": "Vietnamese food on Story Road, the Winchester Mystery House, the Santa Cruz boardwalk",
-    "cycles": 1,
-    "roundLabels": [],
-    "proceedings": "full",
-    "rates": [
-      {
-        "y": 1996,
-        "r": 19.5
-      },
-      {
-        "y": 1997,
-        "r": 10.5
-      },
-      {
-        "y": 1998,
-        "r": 7.2
-      },
-      {
-        "y": 1999,
-        "r": 21.9
-      },
-      {
-        "y": 2000,
-        "r": 18.6
-      },
-      {
-        "y": 2001,
-        "r": 25.6
-      },
-      {
-        "y": 2002,
-        "r": 25.6
-      },
-      {
-        "y": 2003,
-        "r": 27.1
-      },
-      {
-        "y": 2004,
-        "r": 25.2
-      },
-      {
-        "y": 2005,
-        "r": 16.3
-      },
-      {
-        "y": 2006,
-        "r": 23.0
-      },
-      {
-        "y": 2007,
-        "r": 17.9
-      },
-      {
-        "y": 2008,
-        "r": 18.6
-      },
-      {
-        "y": 2009,
-        "r": 19.6
-      },
-      {
-        "y": 2010,
-        "r": 17.5
-      },
-      {
-        "y": 2011,
-        "r": 17.6
-      },
-      {
-        "y": 2012,
-        "r": 17.6
-      },
-      {
-        "y": 2013,
-        "r": 17.2
-      },
-      {
-        "y": 2014,
-        "r": 14.6
-      },
-      {
-        "y": 2015,
-        "r": 19.5
-      },
-      {
-        "y": 2016,
-        "r": 18.1
-      },
-      {
-        "y": 2017,
-        "r": 17.4
-      },
-      {
-        "y": 2018,
-        "r": 18.4
-      },
-      {
-        "y": 2019,
-        "r": 14.8
-      },
-      {
-        "y": 2020,
-        "r": 17.0
-      },
-      {
-        "y": 2021,
-        "r": 15.5
-      },
-      {
-        "y": 2022,
-        "r": 15.3
-      },
-      {
-        "y": 2023,
-        "r": 22.1
-      },
-      {
-        "y": 2024,
-        "r": 20.1
-      },
-      {
-        "y": 2025,
-        "r": 18.7
-      },
-      {
-        "y": 2026,
-        "r": 18.5
-      }
-    ],
-    "rateSection": "data-mining-and-information-retrieval",
-    "rateSrc": "csc",
-    "rateSlug": "kdd",
     "tier": 1
   },
   {
@@ -4467,53 +6618,6 @@ export const ranked = [
     "tier": 2
   },
   {
-    "title": "ICDT",
-    "desc": "International Conference on Database Theory",
-    "area": "AI / ML / Data Mining",
-    "sub": "DB",
-    "ccf": "B",
-    "core": "A",
-    "coreVerified": true,
-    "nextDeadline": "2027-03-20",
-    "nextYear": 2028,
-    "nextAbstract": "",
-    "estimated": true,
-    "estFrom": "2025-03-20",
-    "rounds": [
-      {
-        "d": "2027-03-20",
-        "label": "",
-        "est": true,
-        "from": "2025-03-20",
-        "abs": "2027-03-13"
-      },
-      {
-        "d": "2027-09-10",
-        "label": "",
-        "est": true,
-        "from": "2025-09-10",
-        "abs": "2027-09-03"
-      }
-    ],
-    "dblp": "icdt",
-    "csr": "",
-    "edition": "",
-    "best": "",
-    "link": "https://edbticdt2027.github.io/",
-    "date": "",
-    "place": "",
-    "cc": "",
-    "city": "",
-    "cycles": 2,
-    "roundLabels": [],
-    "proceedings": "full",
-    "rates": [],
-    "rateSection": "",
-    "rateSrc": "",
-    "rateSlug": "",
-    "tier": 2
-  },
-  {
     "title": "COLM",
     "equivalent": "CCF B / CORE A",
     "desc": "Conference on Language Modeling",
@@ -4547,71 +6651,6 @@ export const ranked = [
     "place": "",
     "cc": "",
     "city": "",
-    "tier": 2
-  },
-  {
-    "title": "RecSys",
-    "desc": "ACM Conference on Recommender Systems",
-    "area": "AI / ML / Data Mining",
-    "sub": "DB",
-    "ccf": "B",
-    "core": "A",
-    "coreVerified": true,
-    "nextDeadline": "2027-04-08",
-    "nextYear": 2027,
-    "nextAbstract": "",
-    "estimated": true,
-    "estFrom": "2025-04-08",
-    "rounds": [
-      {
-        "d": "2027-04-08",
-        "label": "",
-        "est": true,
-        "from": "2025-04-08",
-        "abs": "2027-04-01"
-      }
-    ],
-    "dblp": "recsys",
-    "csr": "",
-    "edition": "",
-    "best": "",
-    "link": "https://recsys.acm.org/recsys27/",
-    "date": "August 23-27, 2027",
-    "place": "Honolulu, O‘ahu, Hawaii, USA",
-    "cc": "us",
-    "city": "poke and shave ice, Diamond Head at sunrise, North Shore surf in winter",
-    "cycles": 1,
-    "roundLabels": [],
-    "proceedings": "full",
-    "rates": [
-      {
-        "y": 2015,
-        "r": 23.0
-      },
-      {
-        "y": 2016,
-        "r": 18.2
-      },
-      {
-        "y": 2017,
-        "r": 20.8
-      },
-      {
-        "y": 2018,
-        "r": 17.7
-      },
-      {
-        "y": 2019,
-        "r": 19.0
-      },
-      {
-        "y": 2020,
-        "r": 17.9
-      }
-    ],
-    "rateSection": "data-mining-and-information-retrieval",
-    "rateSrc": "ar",
-    "rateSlug": "",
     "tier": 2
   },
   {
@@ -4654,133 +6693,6 @@ export const ranked = [
     "rateSrc": "",
     "rateSlug": "",
     "tier": 2
-  },
-  {
-    "title": "NDSS",
-    "desc": "Network and Distributed System Security (NDSS) Symposium",
-    "area": "Security & Medicine",
-    "sub": "SC",
-    "ccf": "A",
-    "core": "A*",
-    "coreVerified": true,
-    "nextDeadline": "2027-04-23",
-    "nextYear": 2028,
-    "nextAbstract": "",
-    "estimated": true,
-    "estFrom": "2025-04-23",
-    "rounds": [
-      {
-        "d": "2027-04-23",
-        "label": "Summer",
-        "est": true,
-        "from": "2025-04-23",
-        "abs": "2027-04-16"
-      },
-      {
-        "d": "2027-08-06",
-        "label": "Fall",
-        "est": true,
-        "from": "2025-08-06",
-        "abs": "2027-07-30"
-      }
-    ],
-    "dblp": "ndss",
-    "csr": "Security",
-    "edition": "35th",
-    "best": "",
-    "link": "https://www.ndss-symposium.org/ndss2027/",
-    "date": "",
-    "place": "",
-    "cc": "",
-    "city": "",
-    "cycles": 2,
-    "roundLabels": [
-      "Summer",
-      "Fall"
-    ],
-    "proceedings": "full",
-    "rates": [
-      {
-        "y": 2007,
-        "r": 14.4
-      },
-      {
-        "y": 2008,
-        "r": 17.8
-      },
-      {
-        "y": 2009,
-        "r": 11.7
-      },
-      {
-        "y": 2010,
-        "r": 15.4
-      },
-      {
-        "y": 2012,
-        "r": 17.8
-      },
-      {
-        "y": 2013,
-        "r": 18.8
-      },
-      {
-        "y": 2014,
-        "r": 18.6
-      },
-      {
-        "y": 2015,
-        "r": 16.9
-      },
-      {
-        "y": 2016,
-        "r": 15.4
-      },
-      {
-        "y": 2017,
-        "r": 16.1
-      },
-      {
-        "y": 2018,
-        "r": 21.5
-      },
-      {
-        "y": 2019,
-        "r": 17.1
-      },
-      {
-        "y": 2020,
-        "r": 17.4
-      },
-      {
-        "y": 2021,
-        "r": 15.2
-      },
-      {
-        "y": 2022,
-        "r": 16.2
-      },
-      {
-        "y": 2023,
-        "r": 16.4
-      },
-      {
-        "y": 2024,
-        "r": 20.5
-      },
-      {
-        "y": 2025,
-        "r": 16.1
-      },
-      {
-        "y": 2026,
-        "r": 17.9
-      }
-    ],
-    "rateSection": "",
-    "rateSrc": "csc",
-    "rateSlug": "ndss",
-    "tier": 1
   },
   {
     "title": "KR",
@@ -4860,1822 +6772,6 @@ export const ranked = [
     "cc": "",
     "city": "",
     "tier": 3
-  },
-  {
-    "title": "ISWC",
-    "desc": "International Semantic Web Conference",
-    "area": "AI / ML / Data Mining",
-    "sub": "DB",
-    "ccf": "B",
-    "core": "A",
-    "coreVerified": true,
-    "nextDeadline": "2027-05-14",
-    "nextYear": 2027,
-    "nextAbstract": "",
-    "estimated": true,
-    "estFrom": "2025-05-14",
-    "rounds": [
-      {
-        "d": "2027-05-14",
-        "label": "",
-        "est": true,
-        "from": "2025-05-14",
-        "abs": "2027-05-06"
-      }
-    ],
-    "dblp": "semweb",
-    "csr": "",
-    "edition": "",
-    "best": "",
-    "link": "https://iswc2026.semanticweb.org/",
-    "date": "",
-    "place": "",
-    "cc": "",
-    "city": "",
-    "cycles": 1,
-    "roundLabels": [],
-    "proceedings": "full",
-    "rates": [],
-    "rateSection": "",
-    "rateSrc": "",
-    "rateSlug": "",
-    "tier": 2
-  },
-  {
-    "title": "NeurIPS",
-    "desc": "Conference on Neural Information Processing Systems",
-    "area": "AI / ML / Data Mining",
-    "sub": "AI",
-    "ccf": "A",
-    "core": "A*",
-    "coreVerified": true,
-    "nextDeadline": "2027-05-15",
-    "nextYear": 2027,
-    "nextAbstract": "",
-    "estimated": true,
-    "estFrom": "2025-05-15",
-    "rounds": [
-      {
-        "d": "2027-05-15",
-        "label": "",
-        "est": true,
-        "from": "2025-05-15",
-        "abs": "2027-05-11"
-      }
-    ],
-    "dblp": "nips",
-    "csr": "ML",
-    "edition": "41st",
-    "best": "neurips",
-    "link": "https://neurips.cc/Conferences/2026",
-    "date": "",
-    "place": "",
-    "cc": "",
-    "city": "",
-    "cycles": 1,
-    "roundLabels": [],
-    "proceedings": "full",
-    "rates": [
-      {
-        "y": 1993,
-        "r": 28.0
-      },
-      {
-        "y": 1994,
-        "r": 29.7
-      },
-      {
-        "y": 1995,
-        "r": 32.9
-      },
-      {
-        "y": 1996,
-        "r": 29.7
-      },
-      {
-        "y": 1997,
-        "r": 30.5
-      },
-      {
-        "y": 1998,
-        "r": 31.6
-      },
-      {
-        "y": 1999,
-        "r": 32.1
-      },
-      {
-        "y": 2000,
-        "r": 29.6
-      },
-      {
-        "y": 2002,
-        "r": 29.8
-      },
-      {
-        "y": 2003,
-        "r": 27.6
-      },
-      {
-        "y": 2004,
-        "r": 25.2
-      },
-      {
-        "y": 2005,
-        "r": 27.4
-      },
-      {
-        "y": 2006,
-        "r": 24.5
-      },
-      {
-        "y": 2007,
-        "r": 22.3
-      },
-      {
-        "y": 2008,
-        "r": 24.6
-      },
-      {
-        "y": 2009,
-        "r": 23.8
-      },
-      {
-        "y": 2010,
-        "r": 24.0
-      },
-      {
-        "y": 2011,
-        "r": 21.9
-      },
-      {
-        "y": 2012,
-        "r": 25.5
-      },
-      {
-        "y": 2013,
-        "r": 25.4
-      },
-      {
-        "y": 2014,
-        "r": 24.7
-      },
-      {
-        "y": 2015,
-        "r": 21.9
-      },
-      {
-        "y": 2016,
-        "r": 23.6
-      },
-      {
-        "y": 2017,
-        "r": 20.9
-      },
-      {
-        "y": 2018,
-        "r": 20.8
-      },
-      {
-        "y": 2019,
-        "r": 21.2
-      },
-      {
-        "y": 2020,
-        "r": 20.0
-      },
-      {
-        "y": 2021,
-        "r": 25.6
-      },
-      {
-        "y": 2022,
-        "r": 25.7
-      },
-      {
-        "y": 2023,
-        "r": 26.1
-      },
-      {
-        "y": 2024,
-        "r": 25.8
-      },
-      {
-        "y": 2025,
-        "r": 24.5
-      },
-      {
-        "y": 2026,
-        "r": 25.7
-      }
-    ],
-    "rateSection": "machine-learning-and-learning-theory",
-    "rateSrc": "csc",
-    "rateSlug": "neurips",
-    "tier": 1
-  },
-  {
-    "title": "BMVC",
-    "desc": "British Machine Vision Conference",
-    "area": "AI / ML / Data Mining",
-    "sub": "AI",
-    "ccf": "C",
-    "core": "A",
-    "coreVerified": true,
-    "nextDeadline": "2027-05-16",
-    "nextYear": 2027,
-    "nextAbstract": "",
-    "estimated": true,
-    "estFrom": "2025-05-16",
-    "rounds": [
-      {
-        "d": "2027-05-16",
-        "label": "",
-        "est": true,
-        "from": "2025-05-16",
-        "abs": "2027-05-13"
-      }
-    ],
-    "dblp": "bmvc",
-    "csr": "",
-    "edition": "",
-    "best": "",
-    "link": "https://bmvc2026.bmva.org/",
-    "date": "",
-    "place": "",
-    "cc": "",
-    "city": "",
-    "cycles": 1,
-    "roundLabels": [],
-    "proceedings": "full",
-    "rates": [],
-    "rateSection": "",
-    "rateSrc": "",
-    "rateSlug": "",
-    "tier": 2
-  },
-  {
-    "title": "EMNLP",
-    "desc": "The annual Conference on Empirical Methods in Natural Language Processing",
-    "area": "AI / ML / Data Mining",
-    "sub": "AI",
-    "ccf": "B",
-    "core": "A*",
-    "coreVerified": true,
-    "nextDeadline": "2027-05-19",
-    "nextYear": 2027,
-    "nextAbstract": "",
-    "estimated": true,
-    "estFrom": "2025-05-19",
-    "rounds": [
-      {
-        "d": "2027-05-19",
-        "label": "ARR Submission",
-        "est": true,
-        "from": "2025-05-19",
-        "abs": ""
-      },
-      {
-        "d": "2027-08-01",
-        "label": "Commitment deadline for papers reviewed by ARR",
-        "est": true,
-        "from": "2025-08-01",
-        "abs": ""
-      }
-    ],
-    "dblp": "emnlp",
-    "csr": "NLP",
-    "edition": "32nd",
-    "best": "",
-    "link": "https://2026.emnlp.org/",
-    "date": "",
-    "place": "",
-    "cc": "",
-    "city": "",
-    "cycles": 2,
-    "roundLabels": [
-      "ARR Submission",
-      "Commitment deadline for papers with ARR reviews and meta-reviews"
-    ],
-    "proceedings": "full",
-    "rates": [
-      {
-        "y": 2002,
-        "r": 28.9
-      },
-      {
-        "y": 2004,
-        "r": 22.6
-      },
-      {
-        "y": 2005,
-        "r": 31.6
-      },
-      {
-        "y": 2006,
-        "r": 31.2
-      },
-      {
-        "y": 2007,
-        "r": 27.4
-      },
-      {
-        "y": 2008,
-        "r": 30.1
-      },
-      {
-        "y": 2009,
-        "r": 34.3
-      },
-      {
-        "y": 2010,
-        "r": 25.0
-      },
-      {
-        "y": 2011,
-        "r": 23.7
-      },
-      {
-        "y": 2012,
-        "r": 24.4
-      },
-      {
-        "y": 2013,
-        "r": 26.6
-      },
-      {
-        "y": 2014,
-        "r": 28.5
-      },
-      {
-        "y": 2015,
-        "r": 24.0
-      },
-      {
-        "y": 2016,
-        "r": 24.3
-      },
-      {
-        "y": 2017,
-        "r": 22.8
-      },
-      {
-        "y": 2018,
-        "r": 24.6
-      },
-      {
-        "y": 2019,
-        "r": 23.7
-      },
-      {
-        "y": 2020,
-        "r": 22.4
-      },
-      {
-        "y": 2021,
-        "r": 23.3
-      },
-      {
-        "y": 2022,
-        "r": 19.8
-      },
-      {
-        "y": 2023,
-        "r": 21.3
-      },
-      {
-        "y": 2024,
-        "r": 20.8
-      },
-      {
-        "y": 2025,
-        "r": 22.2
-      }
-    ],
-    "rateSection": "natural-language-processing-and-computational-linguistics",
-    "rateSrc": "csc",
-    "rateSlug": "emnlp",
-    "tier": 1
-  },
-  {
-    "title": "ER",
-    "desc": "International Conference on Conceptual Modeling",
-    "area": "AI / ML / Data Mining",
-    "sub": "DB",
-    "ccf": "C",
-    "core": "A",
-    "coreVerified": true,
-    "nextDeadline": "2027-05-19",
-    "nextYear": 2027,
-    "nextAbstract": "",
-    "estimated": true,
-    "estFrom": "2026-05-19",
-    "rounds": [
-      {
-        "d": "2027-05-19",
-        "label": "Main conference full and short papers; extended deadlines; abstract mandatory",
-        "est": true,
-        "from": "2026-05-19",
-        "abs": "2027-05-12"
-      }
-    ],
-    "dblp": "er",
-    "csr": "",
-    "edition": "",
-    "best": "",
-    "link": "https://www.er2026.org/",
-    "date": "",
-    "place": "",
-    "cc": "",
-    "city": "",
-    "cycles": 1,
-    "roundLabels": [],
-    "proceedings": "full",
-    "rates": [],
-    "rateSection": "",
-    "rateSrc": "",
-    "rateSlug": "",
-    "tier": 2
-  },
-  {
-    "title": "CIKM",
-    "desc": "ACM International Conference on Information and Knowledge Management",
-    "area": "AI / ML / Data Mining",
-    "sub": "DB",
-    "ccf": "B",
-    "core": "A",
-    "coreVerified": true,
-    "nextDeadline": "2027-05-23",
-    "nextYear": 2027,
-    "nextAbstract": "",
-    "estimated": true,
-    "estFrom": "2025-05-23",
-    "rounds": [
-      {
-        "d": "2027-05-23",
-        "label": "",
-        "est": true,
-        "from": "2025-05-23",
-        "abs": "2027-05-16"
-      }
-    ],
-    "dblp": "cikm",
-    "csr": "",
-    "edition": "36th",
-    "best": "cikm",
-    "link": "https://cikm2026.diag.uniroma1.it/",
-    "date": "",
-    "place": "",
-    "cc": "",
-    "city": "",
-    "cycles": 1,
-    "roundLabels": [],
-    "proceedings": "full",
-    "rates": [
-      {
-        "y": 1998,
-        "r": 25.2
-      },
-      {
-        "y": 1999,
-        "r": 40.1
-      },
-      {
-        "y": 2000,
-        "r": 19.8
-      },
-      {
-        "y": 2001,
-        "r": 25.5
-      },
-      {
-        "y": 2002,
-        "r": 25.0
-      },
-      {
-        "y": 2003,
-        "r": 15.6
-      },
-      {
-        "y": 2004,
-        "r": 19.8
-      },
-      {
-        "y": 2005,
-        "r": 18.1
-      },
-      {
-        "y": 2006,
-        "r": 16.8
-      },
-      {
-        "y": 2007,
-        "r": 16.8
-      },
-      {
-        "y": 2008,
-        "r": 16.5
-      },
-      {
-        "y": 2009,
-        "r": 14.5
-      },
-      {
-        "y": 2010,
-        "r": 13.3
-      },
-      {
-        "y": 2011,
-        "r": 14.6
-      },
-      {
-        "y": 2012,
-        "r": 13.4
-      },
-      {
-        "y": 2013,
-        "r": 16.9
-      },
-      {
-        "y": 2014,
-        "r": 20.9
-      },
-      {
-        "y": 2015,
-        "r": 25.5
-      },
-      {
-        "y": 2016,
-        "r": 22.8
-      },
-      {
-        "y": 2017,
-        "r": 20.0
-      },
-      {
-        "y": 2018,
-        "r": 17.8
-      },
-      {
-        "y": 2019,
-        "r": 19.6
-      },
-      {
-        "y": 2020,
-        "r": 23.3
-      },
-      {
-        "y": 2021,
-        "r": 21.7
-      },
-      {
-        "y": 2022,
-        "r": 23.3
-      },
-      {
-        "y": 2023,
-        "r": 24.0
-      },
-      {
-        "y": 2024,
-        "r": 23.2
-      },
-      {
-        "y": 2025,
-        "r": 27.2
-      },
-      {
-        "y": 2026,
-        "r": 26.9
-      }
-    ],
-    "rateSection": "data-mining-and-information-retrieval",
-    "rateSrc": "csc",
-    "rateSlug": "cikm",
-    "tier": 2
-  },
-  {
-    "title": "ICDM",
-    "desc": "IEEE International Conference on Data Mining",
-    "area": "AI / ML / Data Mining",
-    "sub": "DB",
-    "ccf": "B",
-    "core": "A*",
-    "coreVerified": true,
-    "nextDeadline": "2027-06-06",
-    "nextYear": 2027,
-    "nextAbstract": "",
-    "estimated": false,
-    "estFrom": "",
-    "rounds": [
-      {
-        "d": "2027-06-06",
-        "label": "Full papers; dates are tentative and subject to change",
-        "est": false,
-        "year": 2027,
-        "link": "https://icdm2027-website.onrender.com/",
-        "abs": ""
-      }
-    ],
-    "dblp": "icdm",
-    "csr": "",
-    "edition": "27th",
-    "best": "",
-    "link": "https://icdm2027-website.onrender.com/",
-    "date": "November 15-18, 2027",
-    "place": "Brisbane, Australia",
-    "cc": "au",
-    "city": "sandboarding Moreton Island, holding a koala at Lone Pine, Eat Street shipping-container markets",
-    "cycles": 1,
-    "roundLabels": [],
-    "proceedings": "full",
-    "rates": [
-      {
-        "y": 2001,
-        "r": 30.7
-      },
-      {
-        "y": 2002,
-        "r": 32.8
-      },
-      {
-        "y": 2003,
-        "r": 25.6
-      },
-      {
-        "y": 2004,
-        "r": 23.3
-      },
-      {
-        "y": 2005,
-        "r": 22.4
-      },
-      {
-        "y": 2006,
-        "r": 19.6
-      },
-      {
-        "y": 2007,
-        "r": 19.1
-      },
-      {
-        "y": 2008,
-        "r": 19.9
-      },
-      {
-        "y": 2009,
-        "r": 17.7
-      },
-      {
-        "y": 2010,
-        "r": 19.4
-      },
-      {
-        "y": 2011,
-        "r": 18.8
-      },
-      {
-        "y": 2012,
-        "r": 20.0
-      },
-      {
-        "y": 2013,
-        "r": 19.7
-      },
-      {
-        "y": 2014,
-        "r": 19.7
-      },
-      {
-        "y": 2015,
-        "r": 18.1
-      },
-      {
-        "y": 2016,
-        "r": 19.7
-      },
-      {
-        "y": 2017,
-        "r": 19.9
-      },
-      {
-        "y": 2018,
-        "r": 19.8
-      },
-      {
-        "y": 2019,
-        "r": 18.5
-      },
-      {
-        "y": 2020,
-        "r": 19.7
-      },
-      {
-        "y": 2021,
-        "r": 20.0
-      },
-      {
-        "y": 2022,
-        "r": 20.0
-      },
-      {
-        "y": 2023,
-        "r": 21.6
-      },
-      {
-        "y": 2024,
-        "r": 19.9
-      },
-      {
-        "y": 2025,
-        "r": 23.3
-      }
-    ],
-    "rateSection": "data-mining-and-information-retrieval",
-    "rateSrc": "csc",
-    "rateSlug": "icdm",
-    "tier": 1
-  },
-  {
-    "title": "SIGSPATIAL",
-    "desc": "ACM SIGSPATIAL International Conference on Advances in Geographic Information Systems",
-    "area": "AI / ML / Data Mining",
-    "sub": "MX",
-    "ccf": "C",
-    "core": "A",
-    "coreVerified": true,
-    "nextDeadline": "2027-06-06",
-    "nextYear": 2027,
-    "nextAbstract": "",
-    "estimated": true,
-    "estFrom": "2025-06-06",
-    "rounds": [
-      {
-        "d": "2027-06-06",
-        "label": "",
-        "est": true,
-        "from": "2025-06-06",
-        "abs": "2027-05-30"
-      }
-    ],
-    "dblp": "sigspatial",
-    "csr": "",
-    "edition": "35th",
-    "best": "",
-    "link": "https://sigspatial2026.sigspatial.org/",
-    "date": "",
-    "place": "",
-    "cc": "",
-    "city": "",
-    "cycles": 1,
-    "roundLabels": [],
-    "proceedings": "full",
-    "rates": [
-      {
-        "y": 1998,
-        "r": 47.2
-      },
-      {
-        "y": 2001,
-        "r": 31.2
-      },
-      {
-        "y": 2002,
-        "r": 34.6
-      },
-      {
-        "y": 2003,
-        "r": 26.8
-      },
-      {
-        "y": 2004,
-        "r": 33.3
-      },
-      {
-        "y": 2005,
-        "r": 36.5
-      },
-      {
-        "y": 2006,
-        "r": 31.3
-      },
-      {
-        "y": 2007,
-        "r": 28.7
-      },
-      {
-        "y": 2008,
-        "r": 19.7
-      },
-      {
-        "y": 2009,
-        "r": 20.5
-      },
-      {
-        "y": 2010,
-        "r": 20.9
-      },
-      {
-        "y": 2011,
-        "r": 21.9
-      },
-      {
-        "y": 2012,
-        "r": 17.0
-      },
-      {
-        "y": 2013,
-        "r": 19.3
-      },
-      {
-        "y": 2014,
-        "r": 21.2
-      },
-      {
-        "y": 2015,
-        "r": 17.9
-      },
-      {
-        "y": 2016,
-        "r": 18.5
-      },
-      {
-        "y": 2017,
-        "r": 20.2
-      },
-      {
-        "y": 2018,
-        "r": 20.0
-      },
-      {
-        "y": 2019,
-        "r": 21.1
-      },
-      {
-        "y": 2020,
-        "r": 22.1
-      },
-      {
-        "y": 2021,
-        "r": 22.4
-      },
-      {
-        "y": 2022,
-        "r": 23.8
-      },
-      {
-        "y": 2023,
-        "r": 20.1
-      },
-      {
-        "y": 2024,
-        "r": 30.3
-      },
-      {
-        "y": 2025,
-        "r": 25.1
-      }
-    ],
-    "rateSection": "",
-    "rateSrc": "csc",
-    "rateSlug": "sigspatial",
-    "tier": 2
-  },
-  {
-    "title": "WISE",
-    "desc": "International Conference on Web Information Systems Engineering",
-    "area": "AI / ML / Data Mining",
-    "sub": "DB",
-    "ccf": "B",
-    "core": "B",
-    "coreVerified": true,
-    "nextDeadline": "2027-07-17",
-    "nextYear": 2027,
-    "nextAbstract": "",
-    "estimated": true,
-    "estFrom": "2025-07-17",
-    "rounds": [
-      {
-        "d": "2027-07-17",
-        "label": "",
-        "est": true,
-        "from": "2025-07-17",
-        "abs": ""
-      }
-    ],
-    "dblp": "wise",
-    "csr": "",
-    "edition": "",
-    "best": "",
-    "link": "https://conferences.sigappfr.org/wise2026/",
-    "date": "",
-    "place": "",
-    "cc": "",
-    "city": "",
-    "cycles": 1,
-    "roundLabels": [],
-    "proceedings": "full",
-    "rates": [],
-    "rateSection": "",
-    "rateSrc": "",
-    "rateSlug": "",
-    "tier": 2
-  },
-  {
-    "title": "WACV",
-    "desc": "IEEE/CVF Winter Conference on Applications of Computer Vision",
-    "area": "AI / ML / Data Mining",
-    "sub": "AI",
-    "ccf": "N",
-    "core": "A",
-    "coreVerified": true,
-    "nextDeadline": "2027-07-18",
-    "nextYear": 2028,
-    "nextAbstract": "",
-    "estimated": true,
-    "estFrom": "2025-07-18",
-    "rounds": [
-      {
-        "d": "2027-07-18",
-        "label": "First round",
-        "est": true,
-        "from": "2025-07-18",
-        "abs": "2027-07-11"
-      },
-      {
-        "d": "2027-09-19",
-        "label": "Second round",
-        "est": true,
-        "from": "2025-09-19",
-        "abs": "2027-09-12"
-      }
-    ],
-    "dblp": "wacv",
-    "csr": "",
-    "edition": "",
-    "best": "",
-    "link": "https://wacv.thecvf.com/",
-    "date": "",
-    "place": "",
-    "cc": "",
-    "city": "",
-    "cycles": 2,
-    "roundLabels": [
-      "First round",
-      "Second round"
-    ],
-    "proceedings": "full",
-    "rates": [],
-    "rateSection": "",
-    "rateSrc": "",
-    "rateSlug": "",
-    "tier": 2
-  },
-  {
-    "title": "AAAI",
-    "desc": "AAAI Conference on Artificial Intelligence",
-    "area": "AI / ML / Data Mining",
-    "sub": "AI",
-    "ccf": "A",
-    "core": "A*",
-    "coreVerified": true,
-    "nextDeadline": "2027-08-01",
-    "nextYear": 2028,
-    "nextAbstract": "",
-    "estimated": true,
-    "estFrom": "2025-08-01",
-    "rounds": [
-      {
-        "d": "2027-08-01",
-        "label": "",
-        "est": true,
-        "from": "2025-08-01",
-        "abs": "2027-07-25"
-      }
-    ],
-    "dblp": "aaai",
-    "csr": "AI",
-    "edition": "42nd",
-    "best": "aaai",
-    "link": "https://aaai.org/conference/aaai/aaai-27/",
-    "date": "",
-    "place": "",
-    "cc": "",
-    "city": "",
-    "cycles": 1,
-    "roundLabels": [],
-    "proceedings": "full",
-    "rates": [
-      {
-        "y": 1986,
-        "r": 22.9
-      },
-      {
-        "y": 1987,
-        "r": 20.8
-      },
-      {
-        "y": 1988,
-        "r": 17.4
-      },
-      {
-        "y": 1990,
-        "r": 17.4
-      },
-      {
-        "y": 1991,
-        "r": 23.5
-      },
-      {
-        "y": 1992,
-        "r": 20.9
-      },
-      {
-        "y": 1993,
-        "r": 24.0
-      },
-      {
-        "y": 1994,
-        "r": 30.6
-      },
-      {
-        "y": 1996,
-        "r": 30.6
-      },
-      {
-        "y": 1997,
-        "r": 36.2
-      },
-      {
-        "y": 1998,
-        "r": 30.1
-      },
-      {
-        "y": 1999,
-        "r": 27.2
-      },
-      {
-        "y": 2000,
-        "r": 33.2
-      },
-      {
-        "y": 2002,
-        "r": 25.8
-      },
-      {
-        "y": 2004,
-        "r": 26.5
-      },
-      {
-        "y": 2005,
-        "r": 28.5
-      },
-      {
-        "y": 2006,
-        "r": 22.1
-      },
-      {
-        "y": 2007,
-        "r": 27.2
-      },
-      {
-        "y": 2008,
-        "r": 24.2
-      },
-      {
-        "y": 2010,
-        "r": 27.0
-      },
-      {
-        "y": 2011,
-        "r": 24.4
-      },
-      {
-        "y": 2012,
-        "r": 26.0
-      },
-      {
-        "y": 2013,
-        "r": 29.4
-      },
-      {
-        "y": 2014,
-        "r": 28.3
-      },
-      {
-        "y": 2015,
-        "r": 27.1
-      },
-      {
-        "y": 2016,
-        "r": 25.6
-      },
-      {
-        "y": 2017,
-        "r": 24.9
-      },
-      {
-        "y": 2018,
-        "r": 24.6
-      },
-      {
-        "y": 2019,
-        "r": 16.2
-      },
-      {
-        "y": 2020,
-        "r": 20.6
-      },
-      {
-        "y": 2021,
-        "r": 21.4
-      },
-      {
-        "y": 2022,
-        "r": 15.0
-      },
-      {
-        "y": 2023,
-        "r": 19.6
-      },
-      {
-        "y": 2024,
-        "r": 23.7
-      },
-      {
-        "y": 2025,
-        "r": 23.4
-      },
-      {
-        "y": 2026,
-        "r": 17.6
-      }
-    ],
-    "rateSection": "artificial-intelligence",
-    "rateSrc": "csc",
-    "rateSlug": "aaai",
-    "tier": 1
-  },
-  {
-    "title": "BIBM",
-    "desc": "IEEE International Conference on Bioinformatics and Biomedicine",
-    "area": "Security & Medicine",
-    "sub": "MX",
-    "ccf": "B",
-    "core": "N",
-    "coreVerified": false,
-    "nextDeadline": "2027-08-03",
-    "nextYear": 2027,
-    "nextAbstract": "",
-    "estimated": true,
-    "estFrom": "2025-08-03",
-    "rounds": [
-      {
-        "d": "2027-08-03",
-        "label": "",
-        "est": true,
-        "from": "2025-08-03",
-        "abs": ""
-      }
-    ],
-    "dblp": "bibm",
-    "csr": "",
-    "edition": "",
-    "best": "",
-    "link": "https://ieeebibm.org/BIBM2026/",
-    "date": "",
-    "place": "",
-    "cc": "",
-    "city": "",
-    "cycles": 1,
-    "roundLabels": [],
-    "proceedings": "full",
-    "rates": [],
-    "rateSection": "",
-    "rateSrc": "",
-    "rateSlug": "",
-    "tier": 2
-  },
-  {
-    "title": "CIDR",
-    "desc": "International Conference on Innovative Data Systems Research",
-    "area": "AI / ML / Data Mining",
-    "sub": "DB",
-    "ccf": "B",
-    "core": "A",
-    "coreVerified": true,
-    "nextDeadline": "2027-08-05",
-    "nextYear": 2028,
-    "nextAbstract": "",
-    "estimated": true,
-    "estFrom": "2025-08-05",
-    "rounds": [
-      {
-        "d": "2027-08-05",
-        "label": "",
-        "est": true,
-        "from": "2025-08-05",
-        "abs": ""
-      }
-    ],
-    "dblp": "cidr",
-    "csr": "",
-    "edition": "",
-    "best": "",
-    "link": "https://www.cidrdb.org/cidr2027/",
-    "date": "",
-    "place": "",
-    "cc": "",
-    "city": "",
-    "cycles": 1,
-    "roundLabels": [],
-    "proceedings": "full",
-    "rates": [],
-    "rateSection": "",
-    "rateSrc": "",
-    "rateSlug": "",
-    "tier": 2
-  },
-  {
-    "title": "WSDM",
-    "desc": "International Conference on Web Search and Data Mining",
-    "area": "AI / ML / Data Mining",
-    "sub": "DB",
-    "ccf": "B",
-    "core": "A",
-    "coreVerified": true,
-    "nextDeadline": "2027-08-14",
-    "nextYear": 2028,
-    "nextAbstract": "",
-    "estimated": true,
-    "estFrom": "2025-08-14",
-    "rounds": [
-      {
-        "d": "2027-08-14",
-        "label": "",
-        "est": true,
-        "from": "2025-08-14",
-        "abs": "2027-08-07"
-      }
-    ],
-    "dblp": "wsdm",
-    "csr": "",
-    "edition": "21st",
-    "best": "",
-    "link": "https://wsdm-conference.org/2027/",
-    "date": "",
-    "place": "",
-    "cc": "",
-    "city": "",
-    "cycles": 1,
-    "roundLabels": [],
-    "proceedings": "full",
-    "rates": [
-      {
-        "y": 2008,
-        "r": 15.9
-      },
-      {
-        "y": 2009,
-        "r": 17.1
-      },
-      {
-        "y": 2010,
-        "r": 15.5
-      },
-      {
-        "y": 2011,
-        "r": 22.3
-      },
-      {
-        "y": 2012,
-        "r": 20.7
-      },
-      {
-        "y": 2013,
-        "r": 18.9
-      },
-      {
-        "y": 2014,
-        "r": 18.0
-      },
-      {
-        "y": 2015,
-        "r": 16.4
-      },
-      {
-        "y": 2016,
-        "r": 17.4
-      },
-      {
-        "y": 2017,
-        "r": 15.8
-      },
-      {
-        "y": 2018,
-        "r": 15.8
-      },
-      {
-        "y": 2019,
-        "r": 16.4
-      },
-      {
-        "y": 2020,
-        "r": 14.8
-      },
-      {
-        "y": 2021,
-        "r": 18.6
-      },
-      {
-        "y": 2022,
-        "r": 20.3
-      },
-      {
-        "y": 2023,
-        "r": 17.8
-      },
-      {
-        "y": 2024,
-        "r": 17.7
-      },
-      {
-        "y": 2025,
-        "r": 17.5
-      },
-      {
-        "y": 2026,
-        "r": 16.3
-      }
-    ],
-    "rateSection": "data-mining-and-information-retrieval",
-    "rateSrc": "csc",
-    "rateSlug": "wsdm",
-    "tier": 2
-  },
-  {
-    "title": "ICRA",
-    "desc": "IEEE International Conference on Robotics and Automation",
-    "area": "AI / ML / Data Mining",
-    "sub": "AI",
-    "ccf": "B",
-    "core": "A*",
-    "coreVerified": true,
-    "nextDeadline": "2027-09-15",
-    "nextYear": 2028,
-    "nextAbstract": "",
-    "estimated": true,
-    "estFrom": "2025-09-15",
-    "rounds": [
-      {
-        "d": "2027-09-15",
-        "label": "",
-        "est": true,
-        "from": "2025-09-15",
-        "abs": ""
-      }
-    ],
-    "dblp": "icra",
-    "csr": "Robotics",
-    "edition": "45th",
-    "best": "",
-    "link": "https://2027.ieee-icra.org/",
-    "date": "",
-    "place": "",
-    "cc": "",
-    "city": "",
-    "cycles": 1,
-    "roundLabels": [],
-    "proceedings": "full",
-    "rates": [
-      {
-        "y": 1986,
-        "r": 70.0
-      },
-      {
-        "y": 1987,
-        "r": 60.0
-      },
-      {
-        "y": 1996,
-        "r": 64.6
-      },
-      {
-        "y": 1997,
-        "r": 63.8
-      },
-      {
-        "y": 1998,
-        "r": 61.9
-      },
-      {
-        "y": 1999,
-        "r": 62.4
-      },
-      {
-        "y": 2000,
-        "r": 58.3
-      },
-      {
-        "y": 2001,
-        "r": 59.0
-      },
-      {
-        "y": 2002,
-        "r": 58.8
-      },
-      {
-        "y": 2003,
-        "r": 60.7
-      },
-      {
-        "y": 2004,
-        "r": 58.9
-      },
-      {
-        "y": 2007,
-        "r": 45.3
-      },
-      {
-        "y": 2008,
-        "r": 44.7
-      },
-      {
-        "y": 2010,
-        "r": 42.2
-      },
-      {
-        "y": 2011,
-        "r": 51.8
-      },
-      {
-        "y": 2012,
-        "r": 40.6
-      },
-      {
-        "y": 2013,
-        "r": 38.3
-      },
-      {
-        "y": 2014,
-        "r": 48.6
-      },
-      {
-        "y": 2015,
-        "r": 41.2
-      },
-      {
-        "y": 2016,
-        "r": 34.6
-      },
-      {
-        "y": 2017,
-        "r": 41.0
-      },
-      {
-        "y": 2018,
-        "r": 40.8
-      },
-      {
-        "y": 2019,
-        "r": 45.2
-      },
-      {
-        "y": 2020,
-        "r": 44.0
-      },
-      {
-        "y": 2021,
-        "r": 43.6
-      },
-      {
-        "y": 2022,
-        "r": 43.8
-      },
-      {
-        "y": 2023,
-        "r": 43.0
-      },
-      {
-        "y": 2024,
-        "r": 44.7
-      },
-      {
-        "y": 2025,
-        "r": 38.7
-      },
-      {
-        "y": 2026,
-        "r": 38.0
-      }
-    ],
-    "rateSection": "",
-    "rateSrc": "csc",
-    "rateSlug": "icra",
-    "tier": 1
-  },
-  {
-    "title": "ICASSP",
-    "desc": "IEEE International Conference on Acoustics, Speech, and Signal Processing",
-    "area": "AI / ML / Data Mining",
-    "sub": "CG",
-    "ccf": "B",
-    "core": "B",
-    "coreVerified": true,
-    "nextDeadline": "2027-09-17",
-    "nextYear": 2028,
-    "nextAbstract": "",
-    "estimated": true,
-    "estFrom": "2025-09-17",
-    "rounds": [
-      {
-        "d": "2027-09-17",
-        "label": "",
-        "est": true,
-        "from": "2025-09-17",
-        "abs": ""
-      }
-    ],
-    "dblp": "icassp",
-    "csr": "",
-    "edition": "",
-    "best": "",
-    "link": "https://2028.ieeeicassp.org/",
-    "date": "May 28-June 2, 2028",
-    "place": "Tokyo, Japan",
-    "cc": "jp",
-    "city": "breakfast at the Tsukiji outer market, teamLab, standing sushi bars",
-    "cycles": 1,
-    "roundLabels": [],
-    "proceedings": "full",
-    "rates": [
-      {
-        "y": 2014,
-        "r": 48.0
-      },
-      {
-        "y": 2015,
-        "r": 52.0
-      },
-      {
-        "y": 2016,
-        "r": 47.0
-      },
-      {
-        "y": 2017,
-        "r": 52.0
-      },
-      {
-        "y": 2018,
-        "r": 49.7
-      },
-      {
-        "y": 2019,
-        "r": 46.5
-      },
-      {
-        "y": 2021,
-        "r": 48.0
-      },
-      {
-        "y": 2022,
-        "r": 45.0
-      },
-      {
-        "y": 2023,
-        "r": 45.1
-      },
-      {
-        "y": 2024,
-        "r": 45.0
-      }
-    ],
-    "rateSection": "speech-and-signal-processing",
-    "rateSrc": "ar",
-    "rateSlug": "",
-    "tier": 2
-  },
-  {
-    "title": "ICLR",
-    "desc": "International Conference on Learning Representations",
-    "area": "AI / ML / Data Mining",
-    "sub": "AI",
-    "ccf": "A",
-    "core": "A*",
-    "coreVerified": true,
-    "nextDeadline": "2027-09-24",
-    "nextYear": 2028,
-    "nextAbstract": "",
-    "estimated": true,
-    "estFrom": "2025-09-24",
-    "rounds": [
-      {
-        "d": "2027-09-24",
-        "label": "",
-        "est": true,
-        "from": "2025-09-24",
-        "abs": "2027-09-19"
-      }
-    ],
-    "dblp": "iclr",
-    "csr": "ML",
-    "edition": "16th",
-    "best": "",
-    "link": "https://iclr.cc/Conferences/2027",
-    "date": "",
-    "place": "",
-    "cc": "",
-    "city": "",
-    "cycles": 1,
-    "roundLabels": [],
-    "proceedings": "full",
-    "rates": [
-      {
-        "y": 2013,
-        "r": 34.3
-      },
-      {
-        "y": 2014,
-        "r": 40.2
-      },
-      {
-        "y": 2015,
-        "r": 21.7
-      },
-      {
-        "y": 2016,
-        "r": 30.2
-      },
-      {
-        "y": 2017,
-        "r": 39.1
-      },
-      {
-        "y": 2018,
-        "r": 32.0
-      },
-      {
-        "y": 2019,
-        "r": 31.4
-      },
-      {
-        "y": 2020,
-        "r": 26.5
-      },
-      {
-        "y": 2021,
-        "r": 28.7
-      },
-      {
-        "y": 2022,
-        "r": 32.3
-      },
-      {
-        "y": 2023,
-        "r": 31.9
-      },
-      {
-        "y": 2024,
-        "r": 30.8
-      },
-      {
-        "y": 2025,
-        "r": 32.1
-      },
-      {
-        "y": 2026,
-        "r": 27.4
-      }
-    ],
-    "rateSection": "machine-learning-and-learning-theory",
-    "rateSrc": "csc",
-    "rateSlug": "iclr",
-    "tier": 1
-  },
-  {
-    "title": "AISTATS",
-    "desc": "International Conference on Artificial Intelligence and Statistics",
-    "area": "AI / ML / Data Mining",
-    "sub": "AI",
-    "ccf": "C",
-    "core": "A",
-    "coreVerified": true,
-    "nextDeadline": "2027-10-02",
-    "nextYear": 2028,
-    "nextAbstract": "",
-    "estimated": true,
-    "estFrom": "2025-10-02",
-    "rounds": [
-      {
-        "d": "2027-10-02",
-        "label": "",
-        "est": true,
-        "from": "2025-10-02",
-        "abs": "2027-09-25"
-      }
-    ],
-    "dblp": "aistats",
-    "csr": "",
-    "edition": "31st",
-    "best": "",
-    "link": "https://virtual.aistats.org/Conferences/2027",
-    "date": "",
-    "place": "",
-    "cc": "",
-    "city": "",
-    "cycles": 1,
-    "roundLabels": [],
-    "proceedings": "full",
-    "rates": [
-      {
-        "y": 1995,
-        "r": 55.9
-      },
-      {
-        "y": 2003,
-        "r": 39.3
-      },
-      {
-        "y": 2005,
-        "r": 38.0
-      },
-      {
-        "y": 2007,
-        "r": 56.7
-      },
-      {
-        "y": 2009,
-        "r": 40.0
-      },
-      {
-        "y": 2010,
-        "r": 41.1
-      },
-      {
-        "y": 2011,
-        "r": 36.4
-      },
-      {
-        "y": 2012,
-        "r": 39.1
-      },
-      {
-        "y": 2013,
-        "r": 33.6
-      },
-      {
-        "y": 2014,
-        "r": 35.8
-      },
-      {
-        "y": 2015,
-        "r": 28.7
-      },
-      {
-        "y": 2016,
-        "r": 30.7
-      },
-      {
-        "y": 2017,
-        "r": 31.7
-      },
-      {
-        "y": 2018,
-        "r": 33.2
-      },
-      {
-        "y": 2019,
-        "r": 32.4
-      },
-      {
-        "y": 2021,
-        "r": 29.8
-      },
-      {
-        "y": 2022,
-        "r": 29.2
-      },
-      {
-        "y": 2023,
-        "r": 29.4
-      },
-      {
-        "y": 2024,
-        "r": 27.6
-      },
-      {
-        "y": 2025,
-        "r": 31.3
-      },
-      {
-        "y": 2026,
-        "r": 28.1
-      }
-    ],
-    "rateSection": "machine-learning-and-learning-theory",
-    "rateSrc": "csc",
-    "rateSlug": "aistats",
-    "tier": 2
   },
   {
     "title": "SDM",
@@ -6780,56 +6876,6 @@ export const ranked = [
     "rateSection": "",
     "rateSrc": "csc",
     "rateSlug": "sdm",
-    "tier": 2
-  },
-  {
-    "title": "EACL",
-    "desc": "The Annual Conference of the European Chapter of the Association for Computational Linguistics",
-    "area": "AI / ML / Data Mining",
-    "sub": "AI",
-    "ccf": "N",
-    "core": "A",
-    "coreVerified": true,
-    "nextDeadline": "2027-10-06",
-    "nextYear": 2028,
-    "nextAbstract": "",
-    "estimated": true,
-    "estFrom": "2025-10-06",
-    "rounds": [
-      {
-        "d": "2027-10-06",
-        "label": "ARR Submission",
-        "est": true,
-        "from": "2025-10-06",
-        "abs": ""
-      },
-      {
-        "d": "2027-12-14",
-        "label": "Commitment deadline for papers reviewed by ARR",
-        "est": true,
-        "from": "2025-12-14",
-        "abs": ""
-      }
-    ],
-    "dblp": "eacl",
-    "csr": "",
-    "edition": "",
-    "best": "",
-    "link": "https://2027.eacl.org/",
-    "date": "",
-    "place": "",
-    "cc": "",
-    "city": "",
-    "cycles": 2,
-    "roundLabels": [
-      "ARR Submission",
-      "EACL commitment after ARR meta-reviews; reviewed papers only"
-    ],
-    "proceedings": "full",
-    "rates": [],
-    "rateSection": "",
-    "rateSrc": "",
-    "rateSlug": "",
     "tier": 2
   },
   {
@@ -7040,17 +7086,18 @@ export const others = [
     "ccf": "A",
     "core": "A*",
     "coreVerified": false,
-    "nextDeadline": "2027-10-02",
-    "nextYear": 2028,
+    "nextDeadline": "2026-09-17",
+    "nextYear": 2027,
     "nextAbstract": "",
-    "estimated": true,
-    "estFrom": "2025-10-02",
+    "estimated": false,
+    "estFrom": "",
     "rounds": [
       {
-        "d": "2027-10-02",
+        "d": "2026-09-17",
         "label": "",
-        "est": true,
-        "from": "2025-10-02",
+        "est": false,
+        "year": 2027,
+        "link": "https://eurocrypt.iacr.org/2027/",
         "abs": ""
       }
     ],
@@ -7059,10 +7106,10 @@ export const others = [
     "edition": "",
     "best": "",
     "link": "https://eurocrypt.iacr.org/2027/",
-    "date": "",
-    "place": "",
-    "cc": "",
-    "city": "",
+    "date": "April 11-15, 2027",
+    "place": "Eindhoven, Netherlands",
+    "cc": "nl",
+    "city": "Dutch Design Week, bitterballen with mustard, the Strijp-S factory district",
     "cycles": 1,
     "roundLabels": [],
     "proceedings": "full",
@@ -7080,29 +7127,30 @@ export const others = [
     "ccf": "A",
     "core": "A*",
     "coreVerified": true,
-    "nextDeadline": "2027-05-22",
-    "nextYear": 2027,
+    "nextDeadline": "2026-05-26",
+    "nextYear": 2026,
     "nextAbstract": "",
-    "estimated": true,
-    "estFrom": "2025-05-22",
+    "estimated": false,
+    "estFrom": "",
     "rounds": [
       {
-        "d": "2027-05-22",
+        "d": "2026-05-26",
         "label": "",
-        "est": true,
-        "from": "2025-05-22",
-        "abs": ""
+        "est": false,
+        "year": 2026,
+        "link": "http://2026.rtss.org/",
+        "abs": "2026-05-21"
       }
     ],
     "dblp": "rtss",
     "csr": "Embedded",
-    "edition": "48th",
+    "edition": "47th",
     "best": "",
     "link": "http://2026.rtss.org/",
-    "date": "",
-    "place": "",
-    "cc": "",
-    "city": "",
+    "date": "December 9-11, 2026",
+    "place": "Yokohama, Japan",
+    "cc": "jp",
+    "city": "the biggest Chinatown in Japan, the Cup Noodles Museum, Minato Mirai at night",
     "cycles": 1,
     "roundLabels": [],
     "proceedings": "full",
@@ -7245,17 +7293,18 @@ export const others = [
     "ccf": "B",
     "core": "A",
     "coreVerified": true,
-    "nextDeadline": "2027-05-30",
-    "nextYear": 2027,
+    "nextDeadline": "2026-05-26",
+    "nextYear": 2026,
     "nextAbstract": "",
-    "estimated": true,
-    "estFrom": "2025-05-30",
+    "estimated": false,
+    "estFrom": "",
     "rounds": [
       {
-        "d": "2027-05-30",
+        "d": "2026-05-26",
         "label": "",
-        "est": true,
-        "from": "2025-05-30",
+        "est": false,
+        "year": 2026,
+        "link": "https://www.acsac.org/2026/",
         "abs": ""
       }
     ],
@@ -7264,10 +7313,10 @@ export const others = [
     "edition": "",
     "best": "",
     "link": "https://www.acsac.org/2026/",
-    "date": "",
-    "place": "",
-    "cc": "",
-    "city": "",
+    "date": "December 7-11, 2026",
+    "place": "Los Angeles, California, USA",
+    "cc": "us",
+    "city": "tacos al pastor off a truck, Griffith Observatory at dusk, the Getty for free",
     "cycles": 1,
     "roundLabels": [],
     "proceedings": "full",
@@ -7285,17 +7334,18 @@ export const others = [
     "ccf": "B",
     "core": "A",
     "coreVerified": true,
-    "nextDeadline": "2027-05-16",
-    "nextYear": 2027,
+    "nextDeadline": "2026-05-22",
+    "nextYear": 2026,
     "nextAbstract": "",
-    "estimated": true,
-    "estFrom": "2025-05-16",
+    "estimated": false,
+    "estFrom": "",
     "rounds": [
       {
-        "d": "2027-05-16",
+        "d": "2026-05-22",
         "label": "",
-        "est": true,
-        "from": "2025-05-16",
+        "est": false,
+        "year": 2026,
+        "link": "https://asiacrypt.iacr.org/2026/",
         "abs": ""
       }
     ],
@@ -7304,10 +7354,10 @@ export const others = [
     "edition": "",
     "best": "",
     "link": "https://asiacrypt.iacr.org/2026/",
-    "date": "",
-    "place": "",
-    "cc": "",
-    "city": "",
+    "date": "December 7-11, 2026",
+    "place": "Hong Kong, China",
+    "cc": "cn",
+    "city": "dim sum off a trolley, the Peak tram after dark, Tai O stilt houses and shrimp paste",
     "cycles": 1,
     "roundLabels": [],
     "proceedings": "full",
@@ -7325,12 +7375,20 @@ export const others = [
     "ccf": "B",
     "core": "A",
     "coreVerified": true,
-    "nextDeadline": "2026-10-15",
+    "nextDeadline": "2026-07-15",
     "nextYear": 2027,
     "nextAbstract": "",
     "estimated": false,
     "estFrom": "",
     "rounds": [
+      {
+        "d": "2026-07-15",
+        "label": "Schedule for TCHES Volume 2027/1",
+        "est": false,
+        "year": 2027,
+        "link": "https://ches.iacr.org/2027/",
+        "abs": ""
+      },
       {
         "d": "2026-10-15",
         "label": "Schedule for TCHES Volume 2027/2",
@@ -7353,13 +7411,6 @@ export const others = [
         "est": false,
         "year": 2027,
         "link": "https://ches.iacr.org/2027/",
-        "abs": ""
-      },
-      {
-        "d": "2027-07-15",
-        "label": "TCHES 2026/1",
-        "est": true,
-        "from": "2025-07-15",
         "abs": ""
       }
     ],
@@ -7394,12 +7445,20 @@ export const others = [
     "ccf": "B",
     "core": "A",
     "coreVerified": false,
-    "nextDeadline": "2026-10-15",
+    "nextDeadline": "2026-08-03",
     "nextYear": 2027,
     "nextAbstract": "",
     "estimated": false,
     "estFrom": "",
     "rounds": [
+      {
+        "d": "2026-08-03",
+        "label": "Summer",
+        "est": false,
+        "year": 2027,
+        "link": "https://www.ieee-security.org/TC/CSF2027/",
+        "abs": ""
+      },
       {
         "d": "2026-10-15",
         "label": "Fall",
@@ -7414,13 +7473,6 @@ export const others = [
         "est": false,
         "year": 2027,
         "link": "https://www.ieee-security.org/TC/CSF2027/",
-        "abs": ""
-      },
-      {
-        "d": "2027-07-24",
-        "label": "Summer",
-        "est": true,
-        "from": "2025-07-24",
         "abs": ""
       }
     ],
@@ -7495,24 +7547,25 @@ export const others = [
     "ccf": "B",
     "core": "A",
     "coreVerified": true,
-    "nextDeadline": "2027-01-10",
-    "nextYear": 2027,
+    "nextDeadline": "2026-04-21",
+    "nextYear": 2026,
     "nextAbstract": "",
-    "estimated": true,
-    "estFrom": "2025-01-10",
+    "estimated": false,
+    "estFrom": "",
     "rounds": [
+      {
+        "d": "2026-04-21",
+        "label": "Spring",
+        "est": false,
+        "year": 2026,
+        "link": "https://sites.google.com/di.uniroma1.it/esorics2026/home",
+        "abs": ""
+      },
       {
         "d": "2027-01-10",
         "label": "Winter",
         "est": true,
         "from": "2025-01-10",
-        "abs": ""
-      },
-      {
-        "d": "2027-04-29",
-        "label": "Spring",
-        "est": true,
-        "from": "2025-04-29",
         "abs": ""
       }
     ],
@@ -7521,10 +7574,10 @@ export const others = [
     "edition": "",
     "best": "",
     "link": "https://sites.google.com/di.uniroma1.it/esorics2026/home",
-    "date": "",
-    "place": "",
-    "cc": "",
-    "city": "",
+    "date": "September 14-16, 2026",
+    "place": "Rome, Italy",
+    "cc": "it",
+    "city": "cacio e pepe in Trastevere, gelato at Giolitti, the Colosseum at opening",
     "cycles": 2,
     "roundLabels": [
       "Winter",
@@ -7585,17 +7638,18 @@ export const others = [
     "ccf": "B",
     "core": "A",
     "coreVerified": true,
-    "nextDeadline": "2027-05-27",
-    "nextYear": 2027,
+    "nextDeadline": "2026-05-19",
+    "nextYear": 2026,
     "nextAbstract": "",
-    "estimated": true,
-    "estFrom": "2025-05-27",
+    "estimated": false,
+    "estFrom": "",
     "rounds": [
       {
-        "d": "2027-05-27",
+        "d": "2026-05-19",
         "label": "",
-        "est": true,
-        "from": "2025-05-27",
+        "est": false,
+        "year": 2026,
+        "link": "https://tcc.iacr.org/2026/",
         "abs": ""
       }
     ],
@@ -7604,10 +7658,10 @@ export const others = [
     "edition": "",
     "best": "",
     "link": "https://tcc.iacr.org/2026/",
-    "date": "",
-    "place": "",
-    "cc": "",
-    "city": "",
+    "date": "November 10-13, 2026",
+    "place": "New York City, USA",
+    "cc": "us",
+    "city": "a slice at 2am, the Met, standing-room Broadway tickets",
     "cycles": 1,
     "roundLabels": [],
     "proceedings": "full",
@@ -7625,25 +7679,26 @@ export const others = [
     "ccf": "C",
     "core": "A",
     "coreVerified": true,
-    "nextDeadline": "2026-12-11",
+    "nextDeadline": "2026-08-21",
     "nextYear": 2027,
     "nextAbstract": "",
     "estimated": false,
     "estFrom": "",
     "rounds": [
       {
-        "d": "2026-12-11",
-        "label": "2nd round Deadline",
+        "d": "2026-08-21",
+        "label": "1st round Deadline",
         "est": false,
         "year": 2027,
         "link": "https://asiaccs2027.cityu.edu.mo/index.html",
         "abs": ""
       },
       {
-        "d": "2027-08-25",
-        "label": "Round 1",
-        "est": true,
-        "from": "2025-08-25",
+        "d": "2026-12-11",
+        "label": "2nd round Deadline",
+        "est": false,
+        "year": 2027,
+        "link": "https://asiaccs2027.cityu.edu.mo/index.html",
         "abs": ""
       }
     ],
@@ -7717,17 +7772,18 @@ export const others = [
     "ccf": "C",
     "core": "A",
     "coreVerified": true,
-    "nextDeadline": "2027-09-20",
-    "nextYear": 2028,
+    "nextDeadline": "2026-09-24",
+    "nextYear": 2027,
     "nextAbstract": "",
-    "estimated": true,
-    "estFrom": "2025-09-20",
+    "estimated": false,
+    "estFrom": "",
     "rounds": [
       {
-        "d": "2027-09-20",
-        "label": "",
-        "est": true,
-        "from": "2025-09-20",
+        "d": "2026-09-24",
+        "label": "Submission deadline",
+        "est": false,
+        "year": 2027,
+        "link": "https://fc27.ifca.ai/",
         "abs": ""
       }
     ],
@@ -7736,10 +7792,10 @@ export const others = [
     "edition": "",
     "best": "",
     "link": "https://fc27.ifca.ai/",
-    "date": "",
-    "place": "",
-    "cc": "",
-    "city": "",
+    "date": "February 8-12, 2027",
+    "place": "Barbados",
+    "cc": "bb",
+    "city": "Friday fish fry at Oistins, Mount Gay rum since 1703, swimming with wild turtles off Carlisle Bay",
     "cycles": 1,
     "roundLabels": [],
     "proceedings": "full",
@@ -7757,12 +7813,28 @@ export const others = [
     "ccf": "C",
     "core": "A",
     "coreVerified": true,
-    "nextDeadline": "2026-11-30",
+    "nextDeadline": "2026-05-31",
     "nextYear": 2027,
     "nextAbstract": "",
     "estimated": false,
     "estFrom": "",
     "rounds": [
+      {
+        "d": "2026-05-31",
+        "label": "Issue 1 Paper Submission Deadline",
+        "est": false,
+        "year": 2027,
+        "link": "https://petsymposium.org/cfp27.php",
+        "abs": ""
+      },
+      {
+        "d": "2026-08-31",
+        "label": "Issue 2 Paper Submission Deadline",
+        "est": false,
+        "year": 2027,
+        "link": "https://petsymposium.org/cfp27.php",
+        "abs": ""
+      },
       {
         "d": "2026-11-30",
         "label": "Issue 3 Paper Submission Deadline",
@@ -7777,20 +7849,6 @@ export const others = [
         "est": false,
         "year": 2027,
         "link": "https://petsymposium.org/cfp27.php",
-        "abs": ""
-      },
-      {
-        "d": "2027-05-31",
-        "label": "Issue 1",
-        "est": true,
-        "from": "2025-05-31",
-        "abs": ""
-      },
-      {
-        "d": "2027-08-31",
-        "label": "Issue 2",
-        "est": true,
-        "from": "2025-08-31",
         "abs": ""
       }
     ],
@@ -7825,18 +7883,19 @@ export const others = [
     "ccf": "N",
     "core": "A",
     "coreVerified": true,
-    "nextDeadline": "2027-07-03",
-    "nextYear": 2028,
+    "nextDeadline": "2026-07-03",
+    "nextYear": 2027,
     "nextAbstract": "",
-    "estimated": true,
-    "estFrom": "2025-07-03",
+    "estimated": false,
+    "estFrom": "",
     "rounds": [
       {
-        "d": "2027-07-03",
+        "d": "2026-07-03",
         "label": "",
-        "est": true,
-        "from": "2025-07-03",
-        "abs": "2027-06-26"
+        "est": false,
+        "year": 2027,
+        "link": "https://2027.sigcse-ts.acm.org/",
+        "abs": "2026-06-26"
       }
     ],
     "dblp": "sigcse",
@@ -7844,10 +7903,10 @@ export const others = [
     "edition": "",
     "best": "",
     "link": "https://2027.sigcse-ts.acm.org/",
-    "date": "",
-    "place": "",
-    "cc": "",
-    "city": "",
+    "date": "February 17-20, 2027",
+    "place": "Sacramento, California, USA",
+    "cc": "us",
+    "city": "farm-to-fork dining, Old Sacramento boardwalks, Napa an hour west",
     "cycles": 1,
     "roundLabels": [],
     "proceedings": "full",
@@ -7905,17 +7964,18 @@ export const others = [
     "ccf": "B",
     "core": "B",
     "coreVerified": true,
-    "nextDeadline": "2026-10-24",
+    "nextDeadline": "2026-08-16",
     "nextYear": 2027,
     "nextAbstract": "",
-    "estimated": true,
-    "estFrom": "2025-10-24",
+    "estimated": false,
+    "estFrom": "",
     "rounds": [
       {
-        "d": "2026-10-24",
+        "d": "2026-08-16",
         "label": "",
-        "est": true,
-        "from": "2025-10-24",
+        "est": false,
+        "year": 2027,
+        "link": "https://pkc.iacr.org/2027/",
         "abs": ""
       }
     ],
@@ -7985,18 +8045,19 @@ export const others = [
     "ccf": "C",
     "core": "B",
     "coreVerified": true,
-    "nextDeadline": "2028-07-05",
-    "nextYear": 2028,
+    "nextDeadline": "2026-07-05",
+    "nextYear": 2026,
     "nextAbstract": "",
-    "estimated": true,
-    "estFrom": "2024-07-05",
+    "estimated": false,
+    "estFrom": "",
     "rounds": [
       {
-        "d": "2028-07-05",
+        "d": "2026-07-05",
         "label": "",
-        "est": true,
-        "from": "2024-07-05",
-        "abs": "2028-07-03"
+        "est": false,
+        "year": 2026,
+        "link": "https://accv2026.org/",
+        "abs": "2026-07-03"
       }
     ],
     "dblp": "accv",
@@ -8004,10 +8065,10 @@ export const others = [
     "edition": "",
     "best": "",
     "link": "https://accv2026.org/",
-    "date": "",
-    "place": "",
-    "cc": "",
-    "city": "",
+    "date": "December 16-18, 2026",
+    "place": "Osaka, Japan",
+    "cc": "jp",
+    "city": "takoyaki and okonomiyaki, Dotonbori neon, Nara deer in a day",
     "cycles": 1,
     "roundLabels": [],
     "proceedings": "full",
@@ -8025,25 +8086,26 @@ export const others = [
     "ccf": "C",
     "core": "B",
     "coreVerified": true,
-    "nextDeadline": "2027-01-21",
+    "nextDeadline": "2026-09-24",
     "nextYear": 2027,
     "nextAbstract": "",
     "estimated": false,
     "estFrom": "",
     "rounds": [
       {
-        "d": "2027-01-21",
-        "label": "Cycle 2 Submission deadline",
+        "d": "2026-09-24",
+        "label": "Cycle 1 Submission deadline",
         "est": false,
         "year": 2027,
         "link": "https://acns2027.isg.rhul.ac.uk/",
         "abs": ""
       },
       {
-        "d": "2027-09-26",
-        "label": "Cycle 1 Submission deadline",
-        "est": true,
-        "from": "2025-09-26",
+        "d": "2027-01-21",
+        "label": "Cycle 2 Submission deadline",
+        "est": false,
+        "year": 2027,
+        "link": "https://acns2027.isg.rhul.ac.uk/",
         "abs": ""
       }
     ],
@@ -8076,18 +8138,19 @@ export const others = [
     "ccf": "C",
     "core": "B",
     "coreVerified": false,
-    "nextDeadline": "2027-05-28",
-    "nextYear": 2027,
+    "nextDeadline": "2026-05-27",
+    "nextYear": 2026,
     "nextAbstract": "",
-    "estimated": true,
-    "estFrom": "2025-05-28",
+    "estimated": false,
+    "estFrom": "",
     "rounds": [
       {
-        "d": "2027-05-28",
+        "d": "2026-05-27",
         "label": "",
-        "est": true,
-        "from": "2025-05-28",
-        "abs": ""
+        "est": false,
+        "year": 2026,
+        "link": "https://aft.ifca.ai/aft26/index.html",
+        "abs": "2026-05-20"
       }
     ],
     "dblp": "aft",
@@ -8095,10 +8158,10 @@ export const others = [
     "edition": "",
     "best": "",
     "link": "https://aft.ifca.ai/aft26/index.html",
-    "date": "",
-    "place": "",
-    "cc": "",
-    "city": "",
+    "date": "October 7-9, 2026",
+    "place": "London, UK",
+    "cc": "gb",
+    "city": "lunch at Borough Market, a West End show, Sunday roast in a proper pub",
     "cycles": 1,
     "roundLabels": [],
     "proceedings": "full",
@@ -8116,17 +8179,18 @@ export const others = [
     "ccf": "C",
     "core": "B",
     "coreVerified": true,
-    "nextDeadline": "2027-10-02",
-    "nextYear": 2028,
+    "nextDeadline": "2026-10-12",
+    "nextYear": 2027,
     "nextAbstract": "",
-    "estimated": true,
-    "estFrom": "2025-10-02",
+    "estimated": false,
+    "estFrom": "",
     "rounds": [
       {
-        "d": "2027-10-02",
+        "d": "2026-10-12",
         "label": "",
-        "est": true,
-        "from": "2025-10-02",
+        "est": false,
+        "year": 2027,
+        "link": "https://algorithmiclearningtheory.org/alt2027/",
         "abs": ""
       }
     ],
@@ -8135,10 +8199,10 @@ export const others = [
     "edition": "",
     "best": "",
     "link": "https://algorithmiclearningtheory.org/alt2027/",
-    "date": "",
-    "place": "",
-    "cc": "",
-    "city": "",
+    "date": "March 9-12, 2027",
+    "place": "Leiden, Netherlands",
+    "cc": "nl",
+    "city": "the oldest botanical garden in the Netherlands, canal-side terraces, stroopwafels off the iron",
     "cycles": 1,
     "roundLabels": [],
     "proceedings": "full",
@@ -8156,17 +8220,18 @@ export const others = [
     "ccf": "C",
     "core": "B",
     "coreVerified": true,
-    "nextDeadline": "2027-07-15",
-    "nextYear": 2027,
+    "nextDeadline": "2026-07-17",
+    "nextYear": 2026,
     "nextAbstract": "",
-    "estimated": true,
-    "estFrom": "2025-07-15",
+    "estimated": false,
+    "estFrom": "",
     "rounds": [
       {
-        "d": "2027-07-15",
+        "d": "2026-07-17",
         "label": "",
-        "est": true,
-        "from": "2025-07-15",
+        "est": false,
+        "year": 2026,
+        "link": "https://www.apbc2026.com/home",
         "abs": ""
       }
     ],
@@ -8175,10 +8240,10 @@ export const others = [
     "edition": "",
     "best": "",
     "link": "https://www.apbc2026.com/home",
-    "date": "",
-    "place": "",
-    "cc": "",
-    "city": "",
+    "date": "October 22-24, 2026",
+    "place": "Hsinchu",
+    "cc": null,
+    "city": "Hsinchu rice noodles and pork meatballs, Beipu Hakka lei cha, Taipei forty minutes by rail",
     "cycles": 1,
     "roundLabels": [],
     "proceedings": "full",
@@ -8196,17 +8261,18 @@ export const others = [
     "ccf": "C",
     "core": "B",
     "coreVerified": true,
-    "nextDeadline": "2027-08-29",
-    "nextYear": 2027,
+    "nextDeadline": "2026-08-21",
+    "nextYear": 2026,
     "nextAbstract": "",
-    "estimated": true,
-    "estFrom": "2025-08-29",
+    "estimated": false,
+    "estFrom": "",
     "rounds": [
       {
-        "d": "2027-08-29",
+        "d": "2026-08-21",
         "label": "",
-        "est": true,
-        "from": "2025-08-29",
+        "est": false,
+        "year": 2026,
+        "link": "https://bigdataieee.org/BigData2026/",
         "abs": ""
       }
     ],
@@ -8215,10 +8281,10 @@ export const others = [
     "edition": "",
     "best": "",
     "link": "https://bigdataieee.org/BigData2026/",
-    "date": "",
-    "place": "",
-    "cc": "",
-    "city": "",
+    "date": "December 14-17, 2026",
+    "place": "Phoenix, Arizona, United State",
+    "cc": "us",
+    "city": "Sonoran hot dogs, Camelback at sunrise, Sedona red rocks",
     "cycles": 1,
     "roundLabels": [],
     "proceedings": "full",
@@ -8446,17 +8512,18 @@ export const others = [
     "ccf": "C",
     "core": "B",
     "coreVerified": true,
-    "nextDeadline": "2027-07-22",
-    "nextYear": 2027,
+    "nextDeadline": "2026-05-31",
+    "nextYear": 2026,
     "nextAbstract": "",
-    "estimated": true,
-    "estFrom": "2024-07-22",
+    "estimated": false,
+    "estFrom": "",
     "rounds": [
       {
-        "d": "2027-07-22",
+        "d": "2026-05-31",
         "label": "",
-        "est": true,
-        "from": "2024-07-22",
+        "est": false,
+        "year": 2026,
+        "link": "https://www.iconip2026.org/",
         "abs": ""
       }
     ],
@@ -8465,10 +8532,10 @@ export const others = [
     "edition": "",
     "best": "",
     "link": "https://www.iconip2026.org/",
-    "date": "",
-    "place": "",
-    "cc": "",
-    "city": "",
+    "date": "November 23-27, 2026",
+    "place": "Melbourne, Australia",
+    "cc": "au",
+    "city": "laneway coffee that ruins other coffee, AFL at the MCG, the Great Ocean Road",
     "cycles": 1,
     "roundLabels": [],
     "proceedings": "full",
@@ -8527,17 +8594,18 @@ export const others = [
     "ccf": "C",
     "core": "B",
     "coreVerified": true,
-    "nextDeadline": "2027-07-15",
-    "nextYear": 2027,
+    "nextDeadline": "2026-07-21",
+    "nextYear": 2026,
     "nextAbstract": "",
-    "estimated": true,
-    "estFrom": "2025-07-15",
+    "estimated": false,
+    "estFrom": "",
     "rounds": [
       {
-        "d": "2027-07-15",
+        "d": "2026-07-21",
         "label": "",
-        "est": true,
-        "from": "2025-07-15",
+        "est": false,
+        "year": 2026,
+        "link": "https://ictai.computer.org/2026/",
         "abs": ""
       }
     ],
@@ -8546,9 +8614,9 @@ export const others = [
     "edition": "",
     "best": "",
     "link": "https://ictai.computer.org/2026/",
-    "date": "",
-    "place": "",
-    "cc": "",
+    "date": "November 02-04, 2026",
+    "place": "Boca Raton FL, USA",
+    "cc": "us",
     "city": "",
     "cycles": 1,
     "roundLabels": [],
@@ -8608,18 +8676,19 @@ export const others = [
     "ccf": "C",
     "core": "B",
     "coreVerified": true,
-    "nextDeadline": "2027-05-05",
-    "nextYear": 2027,
+    "nextDeadline": "2026-04-30",
+    "nextYear": 2026,
     "nextAbstract": "",
-    "estimated": true,
-    "estFrom": "2025-05-05",
+    "estimated": false,
+    "estFrom": "",
     "rounds": [
       {
-        "d": "2027-05-05",
+        "d": "2026-04-30",
         "label": "",
-        "est": true,
-        "from": "2025-05-05",
-        "abs": "2027-05-05"
+        "est": false,
+        "year": 2026,
+        "link": "https://ijcb2026.ieee-biometrics.org/",
+        "abs": ""
       }
     ],
     "dblp": "icb",
@@ -8627,10 +8696,10 @@ export const others = [
     "edition": "",
     "best": "",
     "link": "https://ijcb2026.ieee-biometrics.org/",
-    "date": "",
-    "place": "",
-    "cc": "",
-    "city": "",
+    "date": "September 1-4, 2026",
+    "place": "Rome, Italy",
+    "cc": "it",
+    "city": "cacio e pepe in Trastevere, gelato at Giolitti, the Colosseum at opening",
     "cycles": 1,
     "roundLabels": [],
     "proceedings": "full",
@@ -8770,17 +8839,18 @@ export const others = [
     "ccf": "C",
     "core": "B",
     "coreVerified": true,
-    "nextDeadline": "2027-06-27",
-    "nextYear": 2027,
+    "nextDeadline": "2026-06-27",
+    "nextYear": 2026,
     "nextAbstract": "",
-    "estimated": true,
-    "estFrom": "2025-06-27",
+    "estimated": false,
+    "estFrom": "",
     "rounds": [
       {
-        "d": "2027-06-27",
+        "d": "2026-06-27",
         "label": "",
-        "est": true,
-        "from": "2025-06-27",
+        "est": false,
+        "year": 2026,
+        "link": "https://2026.pricai.org/",
         "abs": ""
       }
     ],
@@ -8789,10 +8859,10 @@ export const others = [
     "edition": "",
     "best": "",
     "link": "https://2026.pricai.org/",
-    "date": "",
-    "place": "",
-    "cc": "",
-    "city": "",
+    "date": "November 18-20, 2026",
+    "place": "Guangzhou, China",
+    "cc": "cn",
+    "city": "morning yum cha trolleys, late-night congee on Shamian, Canton Tower",
     "cycles": 1,
     "roundLabels": [],
     "proceedings": "full",
@@ -8810,24 +8880,25 @@ export const others = [
     "ccf": "C",
     "core": "B",
     "coreVerified": true,
-    "nextDeadline": "2027-01-27",
-    "nextYear": 2027,
+    "nextDeadline": "2026-05-11",
+    "nextYear": 2026,
     "nextAbstract": "",
-    "estimated": true,
-    "estFrom": "2025-01-27",
+    "estimated": false,
+    "estFrom": "",
     "rounds": [
+      {
+        "d": "2026-05-11",
+        "label": "Cycle 2",
+        "est": false,
+        "year": 2026,
+        "link": "https://sacworkshop.org/SAC26/",
+        "abs": ""
+      },
       {
         "d": "2027-01-27",
         "label": "Cycle 1",
         "est": true,
         "from": "2025-01-27",
-        "abs": ""
-      },
-      {
-        "d": "2027-05-07",
-        "label": "Cycle 2",
-        "est": true,
-        "from": "2025-05-07",
         "abs": ""
       }
     ],
@@ -8836,10 +8907,10 @@ export const others = [
     "edition": "",
     "best": "",
     "link": "https://sacworkshop.org/SAC26/",
-    "date": "",
-    "place": "",
-    "cc": "",
-    "city": "",
+    "date": "August 26-28, 2026",
+    "place": "Ottawa, Ontario, Canada",
+    "cc": "ca",
+    "city": "BeaverTails on the Rideau Canal, skating the canal in winter, the National Gallery",
     "cycles": 2,
     "roundLabels": [
       "Cycle 1",
@@ -8860,17 +8931,18 @@ export const others = [
     "ccf": "C",
     "core": "B",
     "coreVerified": true,
-    "nextDeadline": "2027-05-04",
-    "nextYear": 2027,
+    "nextDeadline": "2026-05-03",
+    "nextYear": 2026,
     "nextAbstract": "",
-    "estimated": true,
-    "estFrom": "2025-05-04",
+    "estimated": false,
+    "estFrom": "",
     "rounds": [
       {
-        "d": "2027-05-04",
+        "d": "2026-05-03",
         "label": "",
-        "est": true,
-        "from": "2025-05-04",
+        "est": false,
+        "year": 2026,
+        "link": "https://www.ieeesmc2026.org/",
         "abs": ""
       }
     ],
@@ -8879,10 +8951,10 @@ export const others = [
     "edition": "",
     "best": "",
     "link": "https://www.ieeesmc2026.org/",
-    "date": "",
-    "place": "",
-    "cc": "",
-    "city": "",
+    "date": "October 4-7, 2026",
+    "place": "Bellevue, WA, USA",
+    "cc": "us",
+    "city": "Din Tai Fung soup dumplings, Snoqualmie Falls, Seattle twenty minutes west",
     "cycles": 1,
     "roundLabels": [],
     "proceedings": "full",
@@ -9194,31 +9266,34 @@ export const others = [
     "ccf": "N",
     "core": "B",
     "coreVerified": true,
-    "nextDeadline": "2027-05-25",
-    "nextYear": 2027,
+    "nextDeadline": "2026-05-25",
+    "nextYear": 2026,
     "nextAbstract": "",
-    "estimated": true,
-    "estFrom": "2026-05-25",
+    "estimated": false,
+    "estFrom": "",
     "rounds": [
       {
-        "d": "2027-05-25",
+        "d": "2026-05-25",
         "label": "ARR initial submission",
-        "est": true,
-        "from": "2026-05-25",
+        "est": false,
+        "year": 2026,
+        "link": "https://2026.aaclnet.org/",
         "abs": ""
       },
       {
-        "d": "2027-08-07",
+        "d": "2026-08-07",
         "label": "Reviewed-paper commitment, round 1",
-        "est": true,
-        "from": "2026-08-07",
+        "est": false,
+        "year": 2026,
+        "link": "https://2026.aaclnet.org/",
         "abs": ""
       },
       {
-        "d": "2027-08-25",
+        "d": "2026-08-25",
         "label": "Reviewed-paper commitment, round 2",
-        "est": true,
-        "from": "2026-08-25",
+        "est": false,
+        "year": 2026,
+        "link": "https://2026.aaclnet.org/",
         "abs": ""
       }
     ],
@@ -9227,10 +9302,10 @@ export const others = [
     "edition": "",
     "best": "",
     "link": "https://2026.aaclnet.org/",
-    "date": "",
-    "place": "",
-    "cc": "",
-    "city": "",
+    "date": "Nov 6-10, 2026",
+    "place": "Hengqin, Zhuhai, China (Hybrid)",
+    "cc": "cn",
+    "city": "Chimelong Ocean Kingdom, Macau over the bridge, Hengqin seafood night market",
     "cycles": 3,
     "roundLabels": [
       "ARR initial submission",
@@ -9293,18 +9368,19 @@ export const others = [
     "ccf": "N",
     "core": "B",
     "coreVerified": true,
-    "nextDeadline": "2027-06-20",
-    "nextYear": 2027,
+    "nextDeadline": "2026-05-22",
+    "nextYear": 2026,
     "nextAbstract": "",
-    "estimated": true,
-    "estFrom": "2025-06-20",
+    "estimated": false,
+    "estFrom": "",
     "rounds": [
       {
-        "d": "2027-06-20",
-        "label": "Regular papers",
-        "est": true,
-        "from": "2025-06-20",
-        "abs": "2027-06-20"
+        "d": "2026-05-22",
+        "label": "",
+        "est": false,
+        "year": 2026,
+        "link": "https://2026.declarativeai.net/ruleml-rr",
+        "abs": "2026-05-15"
       }
     ],
     "dblp": "rulemlrr",
@@ -9312,10 +9388,10 @@ export const others = [
     "edition": "",
     "best": "",
     "link": "https://2026.declarativeai.net/ruleml-rr",
-    "date": "",
-    "place": "",
-    "cc": "",
-    "city": "",
+    "date": "August 24-26, 2026",
+    "place": "Vilnius, Lithuania",
+    "cc": "lt",
+    "city": "cepelinai, the self-declared republic of Uzupis, baroque old town",
     "cycles": 1,
     "roundLabels": [],
     "proceedings": "full",
@@ -9333,17 +9409,18 @@ export const others = [
     "ccf": "C",
     "core": "C",
     "coreVerified": true,
-    "nextDeadline": "2027-06-05",
-    "nextYear": 2027,
+    "nextDeadline": "2026-07-17",
+    "nextYear": 2026,
     "nextAbstract": "",
-    "estimated": true,
-    "estFrom": "2025-06-05",
+    "estimated": false,
+    "estFrom": "",
     "rounds": [
       {
-        "d": "2027-06-05",
+        "d": "2026-07-17",
         "label": "",
-        "est": true,
-        "from": "2025-06-05",
+        "est": false,
+        "year": 2026,
+        "link": "https://adma2026.github.io/",
         "abs": ""
       }
     ],
@@ -9352,10 +9429,10 @@ export const others = [
     "edition": "",
     "best": "",
     "link": "https://adma2026.github.io/",
-    "date": "",
-    "place": "",
-    "cc": "",
-    "city": "",
+    "date": "November 13 - 15, 2026",
+    "place": "Hong Kong, China",
+    "cc": "cn",
+    "city": "dim sum off a trolley, the Peak tram after dark, Tai O stilt houses and shrimp paste",
     "cycles": 1,
     "roundLabels": [],
     "proceedings": "full",
@@ -9373,24 +9450,25 @@ export const others = [
     "ccf": "C",
     "core": "C",
     "coreVerified": false,
-    "nextDeadline": "2027-03-09",
-    "nextYear": 2027,
+    "nextDeadline": "2026-05-24",
+    "nextYear": 2026,
     "nextAbstract": "",
-    "estimated": true,
-    "estFrom": "2025-03-09",
+    "estimated": false,
+    "estFrom": "",
     "rounds": [
+      {
+        "d": "2026-05-24",
+        "label": "second round",
+        "est": false,
+        "year": 2026,
+        "link": "https://conferences.sigappfr.org/apweb2026/",
+        "abs": ""
+      },
       {
         "d": "2027-03-09",
         "label": "first round",
         "est": true,
         "from": "2025-03-09",
-        "abs": ""
-      },
-      {
-        "d": "2027-05-18",
-        "label": "second round",
-        "est": true,
-        "from": "2025-05-18",
         "abs": ""
       }
     ],
@@ -9399,10 +9477,10 @@ export const others = [
     "edition": "",
     "best": "",
     "link": "https://conferences.sigappfr.org/apweb2026/",
-    "date": "",
-    "place": "",
-    "cc": "",
-    "city": "",
+    "date": "September 7-9, 2026",
+    "place": "Danang, Vietnam / Online",
+    "cc": "vn",
+    "city": "mi quang and banh mi, the Golden Bridge hands, Hoi An lanterns an hour south",
     "cycles": 2,
     "roundLabels": [
       "first round",
@@ -9553,24 +9631,25 @@ export const others = [
     "ccf": "C",
     "core": "C",
     "coreVerified": true,
-    "nextDeadline": "2027-03-09",
-    "nextYear": 2027,
+    "nextDeadline": "2026-06-01",
+    "nextYear": 2026,
     "nextAbstract": "",
-    "estimated": true,
-    "estFrom": "2025-03-09",
+    "estimated": false,
+    "estFrom": "",
     "rounds": [
+      {
+        "d": "2026-06-01",
+        "label": "Second round",
+        "est": false,
+        "year": 2026,
+        "link": "https://sulab-sever.u-aizu.ac.jp/icics2026/cfp.html",
+        "abs": ""
+      },
       {
         "d": "2027-03-09",
         "label": "First round",
         "est": true,
         "from": "2025-03-09",
-        "abs": ""
-      },
-      {
-        "d": "2027-05-23",
-        "label": "Second round",
-        "est": true,
-        "from": "2025-05-23",
         "abs": ""
       }
     ],
@@ -9579,10 +9658,10 @@ export const others = [
     "edition": "",
     "best": "",
     "link": "https://sulab-sever.u-aizu.ac.jp/icics2026/cfp.html",
-    "date": "",
-    "place": "",
-    "cc": "",
-    "city": "",
+    "date": "October 27-30, 2026",
+    "place": "Fukui, Japan",
+    "cc": "jp",
+    "city": "Echizen snow crab in season, the dinosaur museum, an overnight stay at Eiheiji zen temple",
     "cycles": 2,
     "roundLabels": [
       "First round",
@@ -9643,17 +9722,18 @@ export const others = [
     "ccf": "C",
     "core": "C",
     "coreVerified": true,
-    "nextDeadline": "2027-06-11",
-    "nextYear": 2027,
+    "nextDeadline": "2026-07-02",
+    "nextYear": 2026,
     "nextAbstract": "",
-    "estimated": true,
-    "estFrom": "2025-06-11",
+    "estimated": false,
+    "estFrom": "",
     "rounds": [
       {
-        "d": "2027-06-11",
+        "d": "2026-07-02",
         "label": "",
-        "est": true,
-        "from": "2025-06-11",
+        "est": false,
+        "year": 2026,
+        "link": "https://isc2026.github.io/",
         "abs": ""
       }
     ],
@@ -9662,10 +9742,10 @@ export const others = [
     "edition": "",
     "best": "",
     "link": "https://isc2026.github.io/",
-    "date": "",
-    "place": "",
-    "cc": "",
-    "city": "",
+    "date": "October 28-30, 2026",
+    "place": "Rennes, France",
+    "cc": "fr",
+    "city": "galettes and cider, the half-timbered old town, Mont Saint-Michel in a day",
     "cycles": 1,
     "roundLabels": [],
     "proceedings": "full",
@@ -9723,17 +9803,18 @@ export const others = [
     "ccf": "C",
     "core": "C",
     "coreVerified": true,
-    "nextDeadline": "2027-04-25",
-    "nextYear": 2027,
+    "nextDeadline": "2026-05-14",
+    "nextYear": 2026,
     "nextAbstract": "",
-    "estimated": true,
-    "estFrom": "2025-04-25",
+    "estimated": false,
+    "estFrom": "",
     "rounds": [
       {
-        "d": "2027-04-25",
+        "d": "2026-05-14",
         "label": "",
-        "est": true,
-        "from": "2025-04-25",
+        "est": false,
+        "year": 2026,
+        "link": "https://www.nspw.org/2026",
         "abs": ""
       }
     ],
@@ -9742,10 +9823,10 @@ export const others = [
     "edition": "",
     "best": "",
     "link": "https://www.nspw.org/2026",
-    "date": "",
-    "place": "",
-    "cc": "",
-    "city": "",
+    "date": "September 27-30, 2026",
+    "place": "Sooke, BC, Canada",
+    "cc": "ca",
+    "city": "swimming the Sooke Potholes, West Coast seafood, Vancouver Island rainforest",
     "cycles": 1,
     "roundLabels": [],
     "proceedings": "full",
@@ -9908,17 +9989,18 @@ export const others = [
     "ccf": "N",
     "core": "C",
     "coreVerified": true,
-    "nextDeadline": "2027-07-28",
-    "nextYear": 2027,
+    "nextDeadline": "2026-05-31",
+    "nextYear": 2026,
     "nextAbstract": "",
-    "estimated": true,
-    "estFrom": "2025-07-28",
+    "estimated": false,
+    "estFrom": "",
     "rounds": [
       {
-        "d": "2027-07-28",
+        "d": "2026-05-31",
         "label": "Main Conference Papers DDL.",
-        "est": true,
-        "from": "2025-07-28",
+        "est": false,
+        "year": 2026,
+        "link": "https://www.icmla-conference.org/icmla26/",
         "abs": ""
       }
     ],
@@ -9927,9 +10009,9 @@ export const others = [
     "edition": "",
     "best": "",
     "link": "https://www.icmla-conference.org/icmla26/",
-    "date": "",
-    "place": "",
-    "cc": "",
+    "date": "October 5-7, 2026",
+    "place": "Oakland Center, Rochester, Michigan, USA",
+    "cc": "us",
     "city": "",
     "cycles": 1,
     "roundLabels": [],
@@ -10199,12 +10281,20 @@ export const others = [
     "ccf": "B",
     "core": "JP",
     "coreVerified": true,
-    "nextDeadline": "2026-12-01",
+    "nextDeadline": "2026-09-01",
     "nextYear": 2027,
     "nextAbstract": "",
     "estimated": false,
     "estFrom": "",
     "rounds": [
+      {
+        "d": "2026-09-01",
+        "label": "ToSC, Volume 2026, Issue 4 Submission deadline",
+        "est": false,
+        "year": 2027,
+        "link": "https://fse.iacr.org/2027/",
+        "abs": ""
+      },
       {
         "d": "2026-12-01",
         "label": "ToSC, Volume 2027, Issue 1 Submission deadline",
@@ -10225,13 +10315,6 @@ export const others = [
         "label": "ToSC 2025/3",
         "est": true,
         "from": "2025-06-01",
-        "abs": ""
-      },
-      {
-        "d": "2027-09-01",
-        "label": "ToSC 2025/4",
-        "est": true,
-        "from": "2025-09-01",
         "abs": ""
       }
     ],
@@ -10377,17 +10460,18 @@ export const others = [
     "ccf": "B",
     "core": "N",
     "coreVerified": false,
-    "nextDeadline": "2027-07-03",
-    "nextYear": 2027,
+    "nextDeadline": "2026-07-02",
+    "nextYear": 2026,
     "nextAbstract": "",
-    "estimated": true,
-    "estFrom": "2025-07-03",
+    "estimated": false,
+    "estFrom": "",
     "rounds": [
       {
-        "d": "2027-07-03",
+        "d": "2026-07-02",
         "label": "",
-        "est": true,
-        "from": "2025-07-03",
+        "est": false,
+        "year": 2026,
+        "link": "https://wine2026conf.github.io/",
         "abs": ""
       }
     ],
@@ -10396,10 +10480,10 @@ export const others = [
     "edition": "",
     "best": "",
     "link": "https://wine2026conf.github.io/",
-    "date": "",
-    "place": "",
-    "cc": "",
-    "city": "",
+    "date": "December 1-4, 2026",
+    "place": "Hong Kong, China",
+    "cc": "cn",
+    "city": "dim sum off a trolley, the Peak tram after dark, Tai O stilt houses and shrimp paste",
     "cycles": 1,
     "roundLabels": [],
     "proceedings": "full",
@@ -10469,24 +10553,26 @@ export const others = [
     "ccf": "C",
     "core": "N",
     "coreVerified": true,
-    "nextDeadline": "2027-05-30",
-    "nextYear": 2027,
+    "nextDeadline": "2026-06-20",
+    "nextYear": 2026,
     "nextAbstract": "",
-    "estimated": true,
-    "estFrom": "2025-05-30",
+    "estimated": false,
+    "estFrom": "",
     "rounds": [
       {
-        "d": "2027-05-30",
+        "d": "2026-06-20",
         "label": "Journal Track",
-        "est": true,
-        "from": "2025-05-30",
+        "est": false,
+        "year": 2026,
+        "link": "https://www.acml-conf.org/2026/",
         "abs": ""
       },
       {
-        "d": "2027-06-26",
+        "d": "2026-07-05",
         "label": "Conference Track",
-        "est": true,
-        "from": "2025-06-26",
+        "est": false,
+        "year": 2026,
+        "link": "https://www.acml-conf.org/2026/",
         "abs": ""
       }
     ],
@@ -10495,10 +10581,10 @@ export const others = [
     "edition": "",
     "best": "",
     "link": "https://www.acml-conf.org/2026/",
-    "date": "",
-    "place": "",
-    "cc": "",
-    "city": "",
+    "date": "TBD",
+    "place": "Melbourne, Australia",
+    "cc": "au",
+    "city": "laneway coffee that ruins other coffee, AFL at the MCG, the Great Ocean Road",
     "cycles": 2,
     "roundLabels": [
       "Journal Track",
@@ -10519,12 +10605,20 @@ export const others = [
     "ccf": "C",
     "core": "N",
     "coreVerified": false,
-    "nextDeadline": "2026-11-30",
-    "nextYear": 2027,
+    "nextDeadline": "2026-04-20",
+    "nextYear": 2026,
     "nextAbstract": "",
     "estimated": false,
     "estFrom": "",
     "rounds": [
+      {
+        "d": "2026-04-20",
+        "label": "",
+        "est": false,
+        "year": 2026,
+        "link": "https://blocksys.info/2026/",
+        "abs": ""
+      },
       {
         "d": "2026-11-30",
         "label": "Round 1 Submission Deadline",
@@ -10546,16 +10640,13 @@ export const others = [
     "csr": "",
     "edition": "",
     "best": "",
-    "link": "https://blocksys.info/2027/",
-    "date": "April 9-11, 2027",
-    "place": "Foshan, China",
+    "link": "https://blocksys.info/2026/",
+    "date": "July 29-31, 2026",
+    "place": "Chengdu, China",
     "cc": "cn",
-    "city": "",
-    "cycles": 2,
-    "roundLabels": [
-      "Round 1 Submission Deadline",
-      "Round 2 Submission Deadline"
-    ],
+    "city": "mala hotpot you will remember, pandas at morning feeding, ear cleaning in a Renmin Park teahouse",
+    "cycles": 1,
+    "roundLabels": [],
     "proceedings": "full",
     "rates": [],
     "rateSection": "",
@@ -10612,17 +10703,18 @@ export const others = [
     "ccf": "C",
     "core": "N",
     "coreVerified": false,
-    "nextDeadline": "2027-09-08",
-    "nextYear": 2027,
+    "nextDeadline": "2026-09-15",
+    "nextYear": 2026,
     "nextAbstract": "",
-    "estimated": true,
-    "estFrom": "2025-09-08",
+    "estimated": false,
+    "estFrom": "",
     "rounds": [
       {
-        "d": "2027-09-08",
+        "d": "2026-09-15",
         "label": "",
-        "est": true,
-        "from": "2025-09-08",
+        "est": false,
+        "year": 2026,
+        "link": "https://www.cloud-conf.net/cscloud/2026/cscloud/",
         "abs": ""
       }
     ],
@@ -10631,10 +10723,10 @@ export const others = [
     "edition": "",
     "best": "",
     "link": "https://www.cloud-conf.net/cscloud/2026/cscloud/",
-    "date": "",
-    "place": "",
-    "cc": "",
-    "city": "",
+    "date": "December 19-21, 2026",
+    "place": "Shanghai, China",
+    "cc": "cn",
+    "city": "xiaolongbao, the Bund lit at night, the lanes of Tianzifang",
     "cycles": 1,
     "roundLabels": [],
     "proceedings": "full",
@@ -10652,17 +10744,18 @@ export const others = [
     "ccf": "C",
     "core": "N",
     "coreVerified": false,
-    "nextDeadline": "2027-08-21",
-    "nextYear": 2027,
+    "nextDeadline": "2026-08-03",
+    "nextYear": 2026,
     "nextAbstract": "",
-    "estimated": true,
-    "estFrom": "2025-08-21",
+    "estimated": false,
+    "estFrom": "",
     "rounds": [
       {
-        "d": "2027-08-21",
+        "d": "2026-08-03",
         "label": "",
-        "est": true,
-        "from": "2025-08-21",
+        "est": false,
+        "year": 2026,
+        "link": "https://www.adai.ai/dai/2026/index.html",
         "abs": ""
       }
     ],
@@ -10671,10 +10764,10 @@ export const others = [
     "edition": "",
     "best": "",
     "link": "https://www.adai.ai/dai/2026/index.html",
-    "date": "",
-    "place": "",
-    "cc": "",
-    "city": "",
+    "date": "November 30-December 1, 2026",
+    "place": "Hong Kong, China",
+    "cc": "cn",
+    "city": "dim sum off a trolley, the Peak tram after dark, Tai O stilt houses and shrimp paste",
     "cycles": 1,
     "roundLabels": [],
     "proceedings": "full",
@@ -10692,18 +10785,19 @@ export const others = [
     "ccf": "C",
     "core": "N",
     "coreVerified": false,
-    "nextDeadline": "2027-10-10",
-    "nextYear": 2028,
+    "nextDeadline": "2026-10-09",
+    "nextYear": 2027,
     "nextAbstract": "",
-    "estimated": true,
-    "estFrom": "2025-10-10",
+    "estimated": false,
+    "estFrom": "",
     "rounds": [
       {
-        "d": "2027-10-10",
-        "label": "",
-        "est": true,
-        "from": "2025-10-10",
-        "abs": "2027-10-03"
+        "d": "2026-10-09",
+        "label": "Extended deadlines",
+        "est": false,
+        "year": 2027,
+        "link": "https://dfrws.org/conferences/dfceurope2027/",
+        "abs": "2026-10-02"
       }
     ],
     "dblp": "dfrws",
@@ -10711,10 +10805,10 @@ export const others = [
     "edition": "",
     "best": "",
     "link": "https://dfrws.org/conferences/dfceurope2027/",
-    "date": "",
-    "place": "",
-    "cc": "",
-    "city": "",
+    "date": "March 30 - April 2, 2027",
+    "place": "Edinburgh, Scotland",
+    "cc": "gb",
+    "city": "whisky flights, Arthur Seat at sunrise, haggis done well enough to convert you",
     "cycles": 1,
     "roundLabels": [],
     "proceedings": "full",
@@ -10732,18 +10826,19 @@ export const others = [
     "ccf": "C",
     "core": "N",
     "coreVerified": false,
-    "nextDeadline": "2027-05-23",
-    "nextYear": 2027,
+    "nextDeadline": "2026-06-05",
+    "nextYear": 2026,
     "nextAbstract": "",
-    "estimated": true,
-    "estFrom": "2025-05-23",
+    "estimated": false,
+    "estFrom": "",
     "rounds": [
       {
-        "d": "2027-05-23",
+        "d": "2026-06-05",
         "label": "",
-        "est": true,
-        "from": "2025-05-23",
-        "abs": ""
+        "est": false,
+        "year": 2026,
+        "link": "https://dfrws.org/conferences/dfrws-apac-2026/",
+        "abs": "2026-05-29"
       }
     ],
     "dblp": "di",
@@ -10751,10 +10846,10 @@ export const others = [
     "edition": "",
     "best": "",
     "link": "https://dfrws.org/conferences/dfrws-apac-2026/",
-    "date": "",
-    "place": "",
-    "cc": "",
-    "city": "",
+    "date": "October 19-22, 2026",
+    "place": "Singapore",
+    "cc": "sg",
+    "city": "chili crab, hawker chicken rice for a few dollars, the Gardens by the Bay light show",
     "cycles": 1,
     "roundLabels": [],
     "proceedings": "full",
@@ -10894,17 +10989,18 @@ export const others = [
     "ccf": "C",
     "core": "N",
     "coreVerified": false,
-    "nextDeadline": "2026-10-31",
+    "nextDeadline": "2026-10-10",
     "nextYear": 2027,
     "nextAbstract": "",
-    "estimated": true,
-    "estFrom": "2025-10-31",
+    "estimated": false,
+    "estFrom": "",
     "rounds": [
       {
-        "d": "2026-10-31",
-        "label": "",
-        "est": true,
-        "from": "2025-10-31",
+        "d": "2026-10-10",
+        "label": "Submission Deadline",
+        "est": false,
+        "year": 2027,
+        "link": "https://www.ifip119.org/Conferences/",
         "abs": ""
       }
     ],
@@ -10934,24 +11030,18 @@ export const others = [
     "ccf": "C",
     "core": "N",
     "coreVerified": true,
-    "nextDeadline": "2027-04-15",
-    "nextYear": 2027,
+    "nextDeadline": "2026-05-08",
+    "nextYear": 2026,
     "nextAbstract": "",
-    "estimated": true,
-    "estFrom": "2025-04-15",
+    "estimated": false,
+    "estFrom": "",
     "rounds": [
       {
-        "d": "2027-04-15",
+        "d": "2026-05-08",
         "label": "1st Round",
-        "est": true,
-        "from": "2025-04-15",
-        "abs": ""
-      },
-      {
-        "d": "2027-06-30",
-        "label": "2nd Round",
-        "est": true,
-        "from": "2025-06-30",
+        "est": false,
+        "year": 2026,
+        "link": "https://inscrypt2026.comp.polyu.edu.hk",
         "abs": ""
       }
     ],
@@ -10960,10 +11050,10 @@ export const others = [
     "edition": "",
     "best": "",
     "link": "https://inscrypt2026.comp.polyu.edu.hk",
-    "date": "",
-    "place": "",
-    "cc": "",
-    "city": "",
+    "date": "Nov 07-09, 2026",
+    "place": "Hong Kong SAR, China",
+    "cc": "cn",
+    "city": "dim sum off a trolley, the Peak tram after dark, Tai O stilt houses and shrimp paste",
     "cycles": 1,
     "roundLabels": [],
     "proceedings": "full",
@@ -11021,17 +11111,18 @@ export const others = [
     "ccf": "C",
     "core": "N",
     "coreVerified": false,
-    "nextDeadline": "2027-04-20",
-    "nextYear": 2027,
+    "nextDeadline": "2026-06-20",
+    "nextYear": 2026,
     "nextAbstract": "",
-    "estimated": true,
-    "estFrom": "2025-04-20",
+    "estimated": false,
+    "estFrom": "",
     "rounds": [
       {
-        "d": "2027-04-20",
+        "d": "2026-06-20",
         "label": "",
-        "est": true,
-        "from": "2025-04-20",
+        "est": false,
+        "year": 2026,
+        "link": "http://tcci.ccf.org.cn/conference/2026/",
         "abs": ""
       }
     ],
@@ -11040,10 +11131,10 @@ export const others = [
     "edition": "",
     "best": "",
     "link": "http://tcci.ccf.org.cn/conference/2026/",
-    "date": "",
-    "place": "",
-    "cc": "",
-    "city": "",
+    "date": "November 4-5, 2026",
+    "place": "Macau, China",
+    "cc": "cn",
+    "city": "egg tarts at Lord Stow's, African chicken, the Ruins of St Paul lit at night",
     "cycles": 1,
     "roundLabels": [],
     "proceedings": "full",
@@ -11101,18 +11192,19 @@ export const others = [
     "ccf": "C",
     "core": "N",
     "coreVerified": true,
-    "nextDeadline": "2027-06-15",
-    "nextYear": 2027,
+    "nextDeadline": "2026-05-18",
+    "nextYear": 2026,
     "nextAbstract": "",
-    "estimated": true,
-    "estFrom": "2025-06-15",
+    "estimated": false,
+    "estFrom": "",
     "rounds": [
       {
-        "d": "2027-06-15",
-        "label": "Abstract dates conflict",
-        "est": true,
-        "from": "2025-06-15",
-        "abs": ""
+        "d": "2026-05-18",
+        "label": "",
+        "est": false,
+        "year": 2026,
+        "link": "https://conf.ccf.org.cn/WISA2026",
+        "abs": "2026-05-18"
       }
     ],
     "dblp": "wisa",
@@ -11120,10 +11212,10 @@ export const others = [
     "edition": "",
     "best": "",
     "link": "https://conf.ccf.org.cn/WISA2026",
-    "date": "",
-    "place": "",
-    "cc": "",
-    "city": "",
+    "date": "August 07-09, 2026",
+    "place": "Kunming, China",
+    "cc": "cn",
+    "city": "crossing-the-bridge noodles, the Stone Forest, spring weather all year",
     "cycles": 1,
     "roundLabels": [],
     "proceedings": "full",
@@ -11141,17 +11233,18 @@ export const others = [
     "ccf": "N",
     "core": "N",
     "coreVerified": false,
-    "nextDeadline": "2027-05-20",
-    "nextYear": 2027,
+    "nextDeadline": "2026-06-10",
+    "nextYear": 2026,
     "nextAbstract": "",
-    "estimated": true,
-    "estFrom": "2024-05-20",
+    "estimated": false,
+    "estFrom": "",
     "rounds": [
       {
-        "d": "2027-05-20",
+        "d": "2026-06-10",
         "label": "",
-        "est": true,
-        "from": "2024-05-20",
+        "est": false,
+        "year": 2026,
+        "link": "https://www.acmturc.com/2026/en/",
         "abs": ""
       }
     ],
@@ -11160,10 +11253,10 @@ export const others = [
     "edition": "",
     "best": "",
     "link": "https://www.acmturc.com/2026/en/",
-    "date": "",
-    "place": "",
-    "cc": "",
-    "city": "",
+    "date": "July 11-12, 2026",
+    "place": "Hangzhou, China",
+    "cc": "cn",
+    "city": "West Lake at dawn, picking Longjing tea, dongpo pork",
     "cycles": 1,
     "roundLabels": [],
     "proceedings": "full",
@@ -11254,17 +11347,18 @@ export const others = [
     "ccf": "N",
     "core": "N",
     "coreVerified": false,
-    "nextDeadline": "2027-06-30",
-    "nextYear": 2027,
+    "nextDeadline": "2026-06-08",
+    "nextYear": 2026,
     "nextAbstract": "",
-    "estimated": true,
-    "estFrom": "2023-06-30",
+    "estimated": false,
+    "estFrom": "",
     "rounds": [
       {
-        "d": "2027-06-30",
+        "d": "2026-06-08",
         "label": "",
-        "est": true,
-        "from": "2023-06-30",
+        "est": false,
+        "year": 2026,
+        "link": "https://cicai.caai.cn/index.html",
         "abs": ""
       }
     ],
@@ -11273,10 +11367,10 @@ export const others = [
     "edition": "",
     "best": "",
     "link": "https://cicai.caai.cn/index.html",
-    "date": "",
-    "place": "",
-    "cc": "",
-    "city": "",
+    "date": "October 17-19, 2026",
+    "place": "Haining, Zhejiang, China",
+    "cc": "cn",
+    "city": "the Qiantang tidal bore in autumn, leather markets, Hangzhou forty minutes away",
     "cycles": 1,
     "roundLabels": [],
     "proceedings": "full",
@@ -11294,17 +11388,18 @@ export const others = [
     "ccf": "N",
     "core": "N",
     "coreVerified": false,
-    "nextDeadline": "2027-05-30",
-    "nextYear": 2027,
+    "nextDeadline": "2026-05-18",
+    "nextYear": 2026,
     "nextAbstract": "",
-    "estimated": true,
-    "estFrom": "2025-05-30",
+    "estimated": false,
+    "estFrom": "",
     "rounds": [
       {
-        "d": "2027-05-30",
+        "d": "2026-05-18",
         "label": "",
-        "est": true,
-        "from": "2025-05-30",
+        "est": false,
+        "year": 2026,
+        "link": "https://cns2026.ieee-cns.org/",
         "abs": ""
       }
     ],
@@ -11313,10 +11408,10 @@ export const others = [
     "edition": "",
     "best": "",
     "link": "https://cns2026.ieee-cns.org/",
-    "date": "",
-    "place": "",
-    "cc": "",
-    "city": "",
+    "date": "September 14-16, 2026",
+    "place": "Newark, Delaware, USA",
+    "cc": "us",
+    "city": "Ironbound Portuguese grills, Branch Brook cherry blossoms, Manhattan twenty minutes away",
     "cycles": 1,
     "roundLabels": [],
     "proceedings": "full",
@@ -11374,18 +11469,19 @@ export const others = [
     "ccf": "N",
     "core": "N",
     "coreVerified": true,
-    "nextDeadline": "2027-04-30",
-    "nextYear": 2027,
+    "nextDeadline": "2026-05-28",
+    "nextYear": 2026,
     "nextAbstract": "",
-    "estimated": true,
-    "estFrom": "2025-04-30",
+    "estimated": false,
+    "estFrom": "",
     "rounds": [
       {
-        "d": "2027-04-30",
+        "d": "2026-05-28",
         "label": "",
-        "est": true,
-        "from": "2025-04-30",
-        "abs": "2027-04-23"
+        "est": false,
+        "year": 2026,
+        "link": "https://www.corl.org/",
+        "abs": "2026-05-25"
       }
     ],
     "dblp": "corl",
@@ -11393,10 +11489,10 @@ export const others = [
     "edition": "",
     "best": "",
     "link": "https://www.corl.org/",
-    "date": "",
-    "place": "",
-    "cc": "",
-    "city": "",
+    "date": "November 9-11, 2026",
+    "place": "Austin, Texas, USA",
+    "cc": "us",
+    "city": "Franklin brisket worth the queue, 1.5 million bats off Congress Bridge at dusk, 68F Barton Springs",
     "cycles": 1,
     "roundLabels": [],
     "proceedings": "full",
@@ -11455,17 +11551,26 @@ export const others = [
     "ccf": "N",
     "core": "N",
     "coreVerified": false,
-    "nextDeadline": "2027-02-01",
+    "nextDeadline": "2026-09-01",
     "nextYear": 2027,
     "nextAbstract": "",
-    "estimated": true,
-    "estFrom": "2026-02-01",
+    "estimated": false,
+    "estFrom": "",
     "rounds": [
       {
-        "d": "2027-02-01",
+        "d": "2026-09-01",
+        "label": "Round 1",
+        "est": false,
+        "year": 2027,
+        "link": "https://saiconference.com/CVC",
+        "abs": ""
+      },
+      {
+        "d": "2026-10-01",
         "label": "Round 2",
-        "est": true,
-        "from": "2026-02-01",
+        "est": false,
+        "year": 2027,
+        "link": "https://saiconference.com/CVC",
         "abs": ""
       },
       {
@@ -11473,13 +11578,6 @@ export const others = [
         "label": "Late-breaking round",
         "est": true,
         "from": "2026-03-01",
-        "abs": ""
-      },
-      {
-        "d": "2027-10-01",
-        "label": "Round 1",
-        "est": true,
-        "from": "2025-10-01",
         "abs": ""
       }
     ],
@@ -11512,17 +11610,18 @@ export const others = [
     "ccf": "N",
     "core": "N",
     "coreVerified": false,
-    "nextDeadline": "2027-06-15",
-    "nextYear": 2027,
+    "nextDeadline": "2026-06-15",
+    "nextYear": 2026,
     "nextAbstract": "",
-    "estimated": true,
-    "estFrom": "2025-06-15",
+    "estimated": false,
+    "estFrom": "",
     "rounds": [
       {
-        "d": "2027-06-15",
+        "d": "2026-06-15",
         "label": "",
-        "est": true,
-        "from": "2025-06-15",
+        "est": false,
+        "year": 2026,
+        "link": "https://euvip2026.github.io/",
         "abs": ""
       }
     ],
@@ -11531,10 +11630,10 @@ export const others = [
     "edition": "",
     "best": "",
     "link": "https://euvip2026.github.io/",
-    "date": "",
-    "place": "",
-    "cc": "",
-    "city": "",
+    "date": "September 28 - October 1, 2026",
+    "place": "Luxembourg, Luxembourg",
+    "cc": "lu",
+    "city": "the Bock casemates, Mullerthal hiking trails, judd mat gaardebounen",
     "cycles": 1,
     "roundLabels": [],
     "proceedings": "full",
@@ -11552,17 +11651,18 @@ export const others = [
     "ccf": "N",
     "core": "N",
     "coreVerified": false,
-    "nextDeadline": "2027-08-03",
-    "nextYear": 2027,
+    "nextDeadline": "2026-08-09",
+    "nextYear": 2026,
     "nextAbstract": "",
-    "estimated": true,
-    "estFrom": "2025-08-03",
+    "estimated": false,
+    "estFrom": "",
     "rounds": [
       {
-        "d": "2027-08-03",
+        "d": "2026-08-09",
         "label": "",
-        "est": true,
-        "from": "2025-08-03",
+        "est": false,
+        "year": 2026,
+        "link": "https://icaif2026.org/index.html",
         "abs": ""
       }
     ],
@@ -11571,10 +11671,10 @@ export const others = [
     "edition": "",
     "best": "",
     "link": "https://icaif2026.org/index.html",
-    "date": "",
-    "place": "",
-    "cc": "",
-    "city": "",
+    "date": "November 16-17, 2026",
+    "place": "Milan, Italy",
+    "cc": "it",
+    "city": "aperitivo hour, risotto alla milanese, the Last Supper if you book early",
     "cycles": 1,
     "roundLabels": [],
     "proceedings": "full",
@@ -11592,17 +11692,18 @@ export const others = [
     "ccf": "N",
     "core": "N",
     "coreVerified": true,
-    "nextDeadline": "2027-09-10",
-    "nextYear": 2027,
+    "nextDeadline": "2026-08-27",
+    "nextYear": 2026,
     "nextAbstract": "",
-    "estimated": true,
-    "estFrom": "2025-09-10",
+    "estimated": false,
+    "estFrom": "",
     "rounds": [
       {
-        "d": "2027-09-10",
-        "label": "",
-        "est": true,
-        "from": "2025-09-10",
+        "d": "2026-08-27",
+        "label": "Extended submission deadline",
+        "est": false,
+        "year": 2026,
+        "link": "https://indocrypt2026.cdacb.in/",
         "abs": ""
       }
     ],
@@ -11611,10 +11712,10 @@ export const others = [
     "edition": "",
     "best": "",
     "link": "https://indocrypt2026.cdacb.in/",
-    "date": "",
-    "place": "",
-    "cc": "",
-    "city": "",
+    "date": "December 13-16, 2026",
+    "place": "Bengaluru, India",
+    "cc": "in",
+    "city": "masala dosa at CTR, filter coffee by the glass, Nandi Hills above the clouds at sunrise",
     "cycles": 1,
     "roundLabels": [],
     "proceedings": "full",
@@ -11632,18 +11733,19 @@ export const others = [
     "ccf": "N",
     "core": "N",
     "coreVerified": false,
-    "nextDeadline": "2027-08-29",
-    "nextYear": 2027,
+    "nextDeadline": "2026-08-07",
+    "nextYear": 2026,
     "nextAbstract": "",
-    "estimated": true,
-    "estFrom": "2025-08-29",
+    "estimated": false,
+    "estFrom": "",
     "rounds": [
       {
-        "d": "2027-08-29",
-        "label": "Abstract cutoff unresolved; full precision unverified",
-        "est": true,
-        "from": "2025-08-29",
-        "abs": ""
+        "d": "2026-08-07",
+        "label": "",
+        "est": false,
+        "year": 2026,
+        "link": "https://logconference.org/",
+        "abs": "2026-08-05"
       }
     ],
     "dblp": "log",
@@ -11651,9 +11753,9 @@ export const others = [
     "edition": "",
     "best": "",
     "link": "https://logconference.org/",
-    "date": "",
-    "place": "",
-    "cc": "",
+    "date": "November 20-22, 2026",
+    "place": "Northeastern University, Boston, USA",
+    "cc": "us",
     "city": "",
     "cycles": 1,
     "roundLabels": [],
@@ -11753,25 +11855,26 @@ export const others = [
     "ccf": "N",
     "core": "N",
     "coreVerified": false,
-    "nextDeadline": "2026-12-01",
+    "nextDeadline": "2026-10-01",
     "nextYear": 2027,
     "nextAbstract": "",
     "estimated": false,
     "estFrom": "",
     "rounds": [
       {
-        "d": "2026-12-01",
-        "label": "Round 2",
+        "d": "2026-10-01",
+        "label": "Round 1",
         "est": false,
         "year": 2027,
         "link": "https://saiconference.com/Computing",
         "abs": ""
       },
       {
-        "d": "2027-08-01",
-        "label": "Round 1",
-        "est": true,
-        "from": "2025-08-01",
+        "d": "2026-12-01",
+        "label": "Round 2",
+        "est": false,
+        "year": 2027,
+        "link": "https://saiconference.com/Computing",
         "abs": ""
       }
     ],
@@ -11804,18 +11907,19 @@ export const others = [
     "ccf": "N",
     "core": "N",
     "coreVerified": false,
-    "nextDeadline": "2027-09-24",
-    "nextYear": 2028,
+    "nextDeadline": "2026-09-29",
+    "nextYear": 2027,
     "nextAbstract": "",
-    "estimated": true,
-    "estFrom": "2025-09-24",
+    "estimated": false,
+    "estFrom": "",
     "rounds": [
       {
-        "d": "2027-09-24",
+        "d": "2026-09-29",
         "label": "",
-        "est": true,
-        "from": "2025-09-24",
-        "abs": ""
+        "est": false,
+        "year": 2027,
+        "link": "https://satml.org/",
+        "abs": "2026-09-22"
       }
     ],
     "dblp": "satml",
@@ -11823,10 +11927,10 @@ export const others = [
     "edition": "",
     "best": "",
     "link": "https://satml.org/",
-    "date": "",
-    "place": "",
-    "cc": "",
-    "city": "",
+    "date": "May 2027 (exact dates TBD)",
+    "place": "Reykjavik, Iceland",
+    "cc": "is",
+    "city": "the Blue Lagoon, northern lights in winter, the hot dog stand everyone queues at",
     "cycles": 1,
     "roundLabels": [],
     "proceedings": "full",

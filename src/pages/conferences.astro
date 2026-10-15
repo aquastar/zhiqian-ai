@@ -56,6 +56,22 @@ const DBLP = 'https://dblp.org/db/conf';
 const BEST = 'https://jeffhuang.com/best_paper_awards/conferences.html';
 const MAX_ROUNDS = 3;
 
+// Which rounds to print for a venue that runs more than we can show.
+//
+// Taking the first three stopped working once closed rounds were allowed to
+// stay in the data. VLDB runs twelve, and its first three had all passed, so
+// the cell showed three dead dates while the one you could still submit to
+// sat in the overflow tooltip. Show the live ones, and fall back to the most
+// recently closed only to fill the space, since knowing a round shut last
+// week is useful and knowing one shut in May is not.
+const roundWindow = (rounds) => {
+  if (!rounds || rounds.length <= MAX_ROUNDS) return rounds || [];
+  const live = rounds.filter((r) => r.d >= TODAY);
+  if (live.length >= MAX_ROUNDS) return live.slice(0, MAX_ROUNDS);
+  const past = rounds.filter((r) => r.d < TODAY);
+  return [...past.slice(-(MAX_ROUNDS - live.length)), ...live];
+};
+
 // Per-topic acceptance, newest edition, with the change against the one
 // before it. Scaled to the spread rather than to zero, because every topic
 // sits between about 25 and 50 percent and a zero baseline flattens them.
@@ -492,7 +508,7 @@ const freshRated = rows.filter((c) => c.rates.length && c.rates[c.rates.length -
                   )}
                   {c.rounds && c.rounds.length
                     ? <>
-                        {c.rounds.slice(0, MAX_ROUNDS).map((r) => (
+                        {roundWindow(c.rounds).map((r) => (
                           <div class="round">
                             {r.abs && (
                               <span class="abs-line" data-abs={r.abs}
@@ -506,9 +522,9 @@ const freshRated = rows.filter((c) => c.rates.length && c.rates[c.rates.length -
                             {r.label && <span class="round-label">{r.label}</span>}
                           </div>
                         ))}
-                        {c.rounds.length > MAX_ROUNDS && (
-                          <span class="round-more" title={c.rounds.slice(MAX_ROUNDS).map((r) => r.d).join(', ')}>
-                            +{c.rounds.length - MAX_ROUNDS} more rounds
+                        {c.rounds.length > roundWindow(c.rounds).length && (
+                          <span class="round-more" title={c.rounds.filter((r) => !roundWindow(c.rounds).includes(r)).map((r) => r.d).join(', ')}>
+                            +{c.rounds.length - roundWindow(c.rounds).length} more rounds
                           </span>
                         )}
                       </>

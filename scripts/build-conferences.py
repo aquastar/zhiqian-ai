@@ -7,6 +7,10 @@ acceptance-rate table into .conf-cache/, then rewrites the data module.
 import yaml, glob, csv, re, json, datetime, collections, os, subprocess, urllib.request, unicodedata
 
 TODAY = datetime.date.today()
+# How far into the past an announced deadline still counts as belonging to
+# the cycle now in play. Wide enough to hold a call that has just closed,
+# narrow enough to exclude the previous edition.
+ANNOUNCED_GRACE = datetime.timedelta(days=180)
 CACHE = '.conf-cache'
 os.makedirs(CACHE, exist_ok=True)
 os.chdir(CACHE)
@@ -403,12 +407,28 @@ for sub in ['AI','SC','DB','MX','CG','HI']:
             r=c.get('rank') or {}; t=c['title']; d=(c.get('description') or '').strip()
             if sub in ('CG','HI') and t not in EXTRA: continue
             confs=c.get('confs') or []
-            # next deadline still ahead of today, across every published edition
+            # Announced deadlines for the edition now in play, across every
+            # published edition.
+            #
+            # The window reaches back, which it did not used to, and that was
+            # the bug behind NAACL, AAMAS and ECIR all showing invented dates
+            # in October 2026. ccfddl had every one of those deadlines
+            # correctly recorded. They had simply passed within the last few
+            # days, this filter dropped them for being in the past, and the
+            # code below then rolled some *other* round forward to fill the
+            # gap. A real date three days old was replaced by a guess, which
+            # is the worst trade available.
+            #
+            # A date that has just passed is still the truth about this
+            # cycle, and the page knows what to do with it: the live-date
+            # rule rolls it forward itself and sinks the row. Half a year is
+            # wide enough to hold a cycle that has just closed and narrow
+            # enough to exclude the previous edition.
             upcoming=[]
             for ed in confs:
                 for tl in (ed.get('timeline') or []):
                     ds=dstr(tl.get('deadline'))
-                    if ds and datetime.date.fromisoformat(ds) >= TODAY:
+                    if ds and datetime.date.fromisoformat(ds) >= TODAY - ANNOUNCED_GRACE:
                         upcoming.append((ds, ed.get('year'), ed.get('link',''),
                                          dstr(tl.get('abstract_deadline')),
                                          (tl.get('comment') or '').strip()))
@@ -483,6 +503,11 @@ for sub in ['AI','SC','DB','MX','CG','HI']:
                 # announced round it belongs to a later edition, and the
                 # announced rounds are the authority on how many there are.
                 if real_days and (ed_ - real_days[0]).days > 365: continue
+                # An estimate never outranks an announced date. ICDAR had its
+                # 2027 conference track announced for 2027-02-20 and still led
+                # with 2026-11-14, which was its *journal* track rolled a year
+                # forward. A guess that sorts ahead of a fact decides the row.
+                if real_days and ed_ < real_days[0]: continue
                 keep.append(e)
             keep.sort(key=lambda x: x['d'])
             cap=max(len(ref_rounds), len(real))
