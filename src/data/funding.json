@@ -327,7 +327,7 @@
       "fit": [],
       "comp_score": 4,
       "comp_basis": "Estimated from what is on offer: a named company award is one global round for a fixed and small number of places. Amazon publishes recipients but not applications: 68 awards worldwide in the Fall 2025 cycle and 75 the year before, across every topic it funds.",
-      "tldr": "An unstated amount from a company. Closes 2026-11-04."
+      "tldr": "An unrestricted gift to one PI, decided in a single global round."
     },
     {
       "first_seen_date": "2026-10-09",
@@ -344,7 +344,7 @@
       ],
       "comp_score": 4,
       "comp_basis": "Estimated from the kind of call: federal research solicitations typically fund well under a quarter of what they receive.",
-      "tldr": "An unstated amount from a federal agency. Solution Summary 2026-10-30."
+      "tldr": "An ARPA-H solicitation, judged on a short solution summary first."
     },
     {
       "first_seen_date": "2026-10-09",
@@ -361,7 +361,7 @@
       ],
       "comp_score": 4,
       "comp_basis": "Estimated from the kind of call: federal research solicitations typically fund well under a quarter of what they receive.",
-      "tldr": "An unstated amount from a federal agency. TA4 2026-10-18, TA1 TA2 2026-12-02."
+      "tldr": "An ARPA-H solicitation, judged on a short solution summary first."
     },
     {
       "first_seen_date": "2026-10-09",
@@ -378,7 +378,7 @@
       ],
       "comp_score": 4,
       "comp_basis": "Estimated from the kind of call: federal research solicitations typically fund well under a quarter of what they receive.",
-      "tldr": "An unstated amount from a federal agency. Solution Summary 2026-11-30."
+      "tldr": "An ARPA-H solicitation, judged on a short solution summary first."
     },
     {
       "first_seen_date": "2026-10-09",
@@ -395,7 +395,7 @@
       ],
       "comp_score": 4,
       "comp_basis": "Estimated from the kind of call: federal research solicitations typically fund well under a quarter of what they receive.",
-      "tldr": "An unstated amount from a federal agency. Solution Summary 2026-10-29."
+      "tldr": "An ARPA-H solicitation, judged on a short solution summary first."
     },
     {
       "first_seen_date": "2026-10-09",
@@ -413,7 +413,7 @@
       ],
       "comp_score": 4,
       "comp_basis": "Estimated from the kind of call: federal research solicitations typically fund well under a quarter of what they receive.",
-      "tldr": "An unstated amount from a federal agency. Closes 2026-10-30."
+      "tldr": "A single-PI award for someone within a few years of the PhD."
     },
     {
       "first_seen_date": "2026-10-09",
@@ -431,7 +431,7 @@
       ],
       "comp_score": 4,
       "comp_basis": "Estimated from the kind of call: federal research solicitations typically fund well under a quarter of what they receive.",
-      "tldr": "An unstated amount from a federal agency. White paper 2026-10-09, full 2026-12-04."
+      "tldr": "A single-PI award for someone within a few years of the PhD."
     },
     {
       "first_seen_date": "2026-10-09",
@@ -449,7 +449,7 @@
       ],
       "comp_score": 4,
       "comp_basis": "Estimated from the kind of call: federal research solicitations typically fund well under a quarter of what they receive.",
-      "tldr": "An unstated amount from a federal agency. Rolling to 2027-09-30."
+      "tldr": "An open call, with the funder setting the topic."
     },
     {
       "first_seen_date": "2026-10-09",
@@ -467,7 +467,7 @@
       ],
       "comp_score": 4,
       "comp_basis": "Estimated from the kind of call: federal research solicitations typically fund well under a quarter of what they receive.",
-      "tldr": "An unstated amount from a federal agency. LOI 2026-11-09."
+      "tldr": "Supports a named individual rather than a project."
     },
     {
       "first_seen_date": "2026-10-09",
@@ -485,7 +485,7 @@
       ],
       "comp_score": 3,
       "comp_basis": "Estimated from the kind of call: an open BAA takes white papers continuously rather than running one round.",
-      "tldr": "An unstated amount from a federal agency. Rolling to 2027-06-22."
+      "tldr": "A standing call across the office's whole portfolio, white paper first."
     },
     {
       "first_seen_date": "2026-10-09",
@@ -502,7 +502,7 @@
       ],
       "comp_score": 4,
       "comp_basis": "Estimated from the kind of call: federal research solicitations typically fund well under a quarter of what they receive.",
-      "tldr": "An unstated amount from a federal agency. Abstract 2026-10-22."
+      "tldr": "A DARPA programme call, narrow in scope and run to its own schedule."
     },
     {
       "first_seen_date": "2026-10-09",
@@ -520,7 +520,7 @@
       ],
       "comp_score": 3,
       "comp_basis": "Estimated from the kind of call: an open BAA takes white papers continuously rather than running one round.",
-      "tldr": "An unstated amount from a federal agency. Rolling to 2027-08-27."
+      "tldr": "A standing call across the office's whole portfolio, white paper first."
     },
     {
       "first_seen_date": "2026-10-09",
@@ -538,7 +538,7 @@
       ],
       "comp_score": 4,
       "comp_basis": "Estimated from the kind of call: federal research solicitations typically fund well under a quarter of what they receive.",
-      "tldr": "An unstated amount from a federal agency. White paper 2026-11-20."
+      "tldr": "A multi-university team on one topic, usually five years."
     },
     {
       "first_seen_date": "2026-10-09",
@@ -555,7 +555,7 @@
       ],
       "comp_score": 4,
       "comp_basis": "Estimated from the kind of call: federal research solicitations typically fund well under a quarter of what they receive.",
-      "tldr": "An unstated amount from a federal agency. Closes 2026-11-16."
+      "tldr": "A federal research call."
     },
     {
       "first_seen_date": "2026-10-09",
@@ -570,7 +570,7 @@
       "fit": [],
       "comp_score": 4,
       "comp_basis": "Estimated from the kind of call: federal research solicitations typically fund well under a quarter of what they receive.",
-      "tldr": "An unstated amount from a federal agency. Closes 2026-11-04."
+      "tldr": "An NSF solicitation with its own topic and deadline."
     },
     {
       "first_seen_date": "2026-10-09",
@@ -588,7 +588,7 @@
       ],
       "comp_score": 5,
       "comp_basis": "Limited submission: your institution runs its own competition first.",
-      "tldr": "An unstated amount from a federal agency. Closes 2026-11-04."
+      "tldr": "A center-scale award for a large multi-investigator team."
     },
     {
       "first_seen_date": "2026-10-09",
@@ -603,7 +603,7 @@
       "fit": [],
       "comp_score": 4,
       "comp_basis": "Estimated from the kind of call: federal research solicitations typically fund well under a quarter of what they receive.",
-      "tldr": "An unstated amount from a federal agency. Closes 2026-11-17."
+      "tldr": "Takes existing results toward deployment rather than funding new science."
     },
     {
       "first_seen_date": "2026-10-09",
@@ -620,7 +620,7 @@
       ],
       "comp_score": 4,
       "comp_basis": "Estimated from the kind of call: federal research solicitations typically fund well under a quarter of what they receive.",
-      "tldr": "An unstated amount from a federal agency. Prelim 2026-12-02."
+      "tldr": "A center-scale award for a large multi-investigator team."
     },
     {
       "first_seen_date": "2026-10-09",
@@ -637,7 +637,7 @@
       ],
       "comp_score": 4,
       "comp_basis": "Estimated from the kind of call: federal research solicitations typically fund well under a quarter of what they receive.",
-      "tldr": "An unstated amount from a federal agency. Closes 2026-10-14."
+      "tldr": "Summer research placements for K-12 teachers."
     },
     {
       "first_seen_date": "2026-10-09",
@@ -652,7 +652,7 @@
       "fit": [],
       "comp_score": 4,
       "comp_basis": "Estimated from the kind of call: federal research solicitations typically fund well under a quarter of what they receive.",
-      "tldr": "An unstated amount from a federal agency. Concept outline 2026-11-19."
+      "tldr": "An NSF solicitation with its own topic and deadline."
     },
     {
       "first_seen_date": "2026-10-09",
@@ -667,7 +667,7 @@
       "fit": [],
       "comp_score": 4,
       "comp_basis": "Estimated from the kind of call: federal research solicitations typically fund well under a quarter of what they receive.",
-      "tldr": "An unstated amount from a federal agency. Closes 2026-11-18."
+      "tldr": "An NSF solicitation with its own topic and deadline."
     },
     {
       "first_seen_date": "2026-10-09",
@@ -684,7 +684,7 @@
       ],
       "comp_score": 5,
       "comp_basis": "Limited submission: your institution runs its own competition first.",
-      "tldr": "An unstated amount from a federal agency. LOI 2026-12-15."
+      "tldr": "An NSF solicitation with its own topic and deadline."
     },
     {
       "first_seen_date": "2026-10-09",
@@ -699,7 +699,7 @@
       "fit": [],
       "comp_score": 4,
       "comp_basis": "Estimated from the kind of call: federal research solicitations typically fund well under a quarter of what they receive.",
-      "tldr": "An unstated amount from a federal agency. Closes 2026-12-18."
+      "tldr": "An NSF solicitation with its own topic and deadline."
     },
     {
       "first_seen_date": "2026-10-09",
@@ -714,7 +714,7 @@
       "fit": [],
       "comp_score": 4,
       "comp_basis": "Estimated from the kind of call: federal research solicitations typically fund well under a quarter of what they receive.",
-      "tldr": "An unstated amount from a federal agency. Closes 2027-01-07."
+      "tldr": "A federal research call."
     },
     {
       "first_seen_date": "2026-10-09",
@@ -729,7 +729,7 @@
       "fit": [],
       "comp_score": 4,
       "comp_basis": "Estimated from the kind of call: federal research solicitations typically fund well under a quarter of what they receive.",
-      "tldr": "An unstated amount from a federal agency."
+      "tldr": "An NSF solicitation with its own topic and deadline."
     },
     {
       "first_seen_date": "2026-10-09",
@@ -750,7 +750,7 @@
       ],
       "comp_score": 4,
       "comp_basis": "From the funder's published success rate of 13%. NIH-wide R01-equivalent success rate, FY2025: 5,471 awards from 42,022 applications. Not this call's odds, and individual institutes differ.",
-      "tldr": "An unstated amount from a federal agency. Closes 2026-10-26."
+      "tldr": "Research at a campus that is not research-intensive, with undergraduates involved."
     },
     {
       "first_seen_date": "2026-10-09",
@@ -772,7 +772,7 @@
       ],
       "comp_score": 4,
       "comp_basis": "From the funder's published success rate of 13%. NIH-wide R01-equivalent success rate, FY2025: 5,471 awards from 42,022 applications. Not this call's odds, and individual institutes differ.",
-      "tldr": "An unstated amount from a federal agency. Closes 2026-10-16."
+      "tldr": "An exploratory project of up to two years, no preliminary data expected."
     },
     {
       "first_seen_date": "2026-10-09",
@@ -794,7 +794,7 @@
       ],
       "comp_score": 4,
       "comp_basis": "From the funder's published success rate of 13%. NIH-wide R01-equivalent success rate, FY2025: 5,471 awards from 42,022 applications. Not this call's odds, and individual institutes differ.",
-      "tldr": "An unstated amount from a federal agency. Closes 2026-10-19."
+      "tldr": "An exploratory project of up to two years, no preliminary data expected."
     },
     {
       "first_seen_date": "2026-10-09",
@@ -815,7 +815,7 @@
       ],
       "comp_score": 4,
       "comp_basis": "From the funder's published success rate of 13%. NIH-wide R01-equivalent success rate, FY2025: 5,471 awards from 42,022 applications. Not this call's odds, and individual institutes differ.",
-      "tldr": "An unstated amount from a federal agency. Closes 2026-10-13."
+      "tldr": "A mentored career-development award for one person."
     },
     {
       "first_seen_date": "2026-10-09",
@@ -836,7 +836,7 @@
       ],
       "comp_score": 4,
       "comp_basis": "From the funder's published success rate of 13%. NIH-wide R01-equivalent success rate, FY2025: 5,471 awards from 42,022 applications. Not this call's odds, and individual institutes differ.",
-      "tldr": "An unstated amount from a federal agency. Resubmissions Oct to Nov 2026."
+      "tldr": "A standing NIH announcement, open to the usual activity codes."
     },
     {
       "first_seen_date": "2026-10-09",
@@ -857,7 +857,7 @@
       ],
       "comp_score": 4,
       "comp_basis": "From the funder's published success rate of 13%. NIH-wide R01-equivalent success rate, FY2025: 5,471 awards from 42,022 applications. Not this call's odds, and individual institutes differ.",
-      "tldr": "An unstated amount from a federal agency. Closes 2026-11-10."
+      "tldr": "A small project of up to two years."
     },
     {
       "first_seen_date": "2026-10-09",
@@ -874,7 +874,7 @@
       ],
       "comp_score": 4,
       "comp_basis": "Estimated from the kind of call: federal research solicitations typically fund well under a quarter of what they receive.",
-      "tldr": "An unstated amount from a federal agency. Closes 2027-02-03."
+      "tldr": "A standing NIH announcement, open to the usual activity codes."
     },
     {
       "first_seen_date": "2026-10-09",
@@ -891,7 +891,7 @@
       ],
       "comp_score": 3,
       "comp_basis": "Estimated from the kind of call, not a published rate.",
-      "tldr": "An unstated amount from a private foundation. Closes 2026-12-01."
+      "tldr": "A private foundation grant."
     },
     {
       "first_seen_date": "2026-10-09",
@@ -908,7 +908,7 @@
       ],
       "comp_score": 3,
       "comp_basis": "Estimated from the kind of call, not a published rate.",
-      "tldr": "An unstated amount from a private foundation. LOI 2026-10-29."
+      "tldr": "A private foundation grant."
     },
     {
       "first_seen_date": "2026-10-09",
@@ -923,7 +923,7 @@
       "fit": [],
       "comp_score": 3,
       "comp_basis": "Estimated from the kind of call, not a published rate.",
-      "tldr": "An unstated amount from a private foundation. RFP expected Oct 2026."
+      "tldr": "A private foundation grant."
     },
     {
       "first_seen_date": "2026-10-09",
@@ -940,7 +940,7 @@
       ],
       "comp_score": 3,
       "comp_basis": "Estimated from the kind of call, not a published rate.",
-      "tldr": "An unstated amount from a company. Rolling."
+      "tldr": "A company programme."
     },
     {
       "first_seen_date": "2026-10-09",
@@ -957,7 +957,7 @@
       ],
       "comp_score": 3,
       "comp_basis": "Estimated from the kind of call, not a published rate.",
-      "tldr": "An unstated amount from a company. Closes 2026-10-21."
+      "tldr": "An open call, with the funder setting the topic."
     },
     {
       "first_seen_date": "2026-10-09",
@@ -975,7 +975,7 @@
       ],
       "comp_score": 3,
       "comp_basis": "Estimated from the kind of call, not a published rate.",
-      "tldr": "An unstated amount from a nonprofit. Closes 2026-10-31."
+      "tldr": "A center-scale award for a large multi-investigator team."
     },
     {
       "first_seen_date": "2026-10-09",
@@ -990,7 +990,7 @@
       "fit": [],
       "comp_score": 3,
       "comp_basis": "Estimated from the kind of call, not a published rate.",
-      "tldr": "An unstated amount from a private foundation. LOI 2026-10-15."
+      "tldr": "A private foundation grant."
     },
     {
       "first_seen_date": "2026-10-09",
@@ -1007,7 +1007,7 @@
       ],
       "comp_score": 3,
       "comp_basis": "Estimated from the kind of call, not a published rate.",
-      "tldr": "An unstated amount from New York State. Rolling."
+      "tldr": "A New York State programme."
     },
     {
       "first_seen_date": "2026-10-09",
@@ -1024,7 +1024,7 @@
       ],
       "comp_score": 4,
       "comp_basis": "Estimated from what is on offer: a named company award is one global round for a fixed and small number of places.",
-      "tldr": "An unstated amount from a company. Closes 2026-10-30."
+      "tldr": "Supports a named individual rather than a project."
     },
     {
       "first_seen_date": "2026-10-09",
@@ -1041,7 +1041,7 @@
       ],
       "comp_score": 4,
       "comp_basis": "Estimated from what is on offer: a named company award is one global round for a fixed and small number of places.",
-      "tldr": "An unstated amount from a company. Expected 2026-12-16."
+      "tldr": "Supports a named individual rather than a project."
     },
     {
       "first_seen_date": "2026-10-09",
@@ -1058,7 +1058,7 @@
       ],
       "comp_score": 3,
       "comp_basis": "Estimated from the kind of call, not a published rate.",
-      "tldr": "An unstated amount from a university. NOI 2026-11-16."
+      "tldr": "A small starter award, usually to produce preliminary data."
     },
     {
       "first_seen_date": "2026-10-14",
@@ -1075,7 +1075,7 @@
       ],
       "comp_score": 3,
       "comp_basis": "Estimated from the kind of call, not a published rate.",
-      "tldr": "An unstated amount from a private foundation. Closes 2026-11-02."
+      "tldr": "An open call, with the funder setting the topic."
     },
     {
       "first_seen_date": "2026-10-14",
@@ -1092,7 +1092,7 @@
       ],
       "comp_score": 3,
       "comp_basis": "Estimated from the kind of call, not a published rate.",
-      "tldr": "An unstated amount from a private foundation. Closes 2026-11-18."
+      "tldr": "An open call, with the funder setting the topic."
     },
     {
       "first_seen_date": "2026-10-14",
@@ -1109,7 +1109,7 @@
       ],
       "comp_score": 3,
       "comp_basis": "Estimated from the kind of call, not a published rate.",
-      "tldr": "An unstated amount from a private foundation. Full proposals 2026-12-07."
+      "tldr": "Takes existing results toward deployment rather than funding new science."
     },
     {
       "first_seen_date": "2026-10-14",
@@ -1126,7 +1126,7 @@
       ],
       "comp_score": 3,
       "comp_basis": "Estimated from the kind of call: an open BAA takes white papers continuously rather than running one round.",
-      "tldr": "An unstated amount from a public funder outside the US. Closes 2026-10-31."
+      "tldr": "A call from a public funder outside the US."
     },
     {
       "first_seen_date": "2026-10-14",
@@ -1144,7 +1144,7 @@
       ],
       "comp_score": 3,
       "comp_basis": "Estimated from the kind of call, not a published rate.",
-      "tldr": "An unstated amount from a private foundation. Closes 2026-11-13."
+      "tldr": "An open call, with the funder setting the topic."
     },
     {
       "first_seen_date": "2026-10-14",
@@ -1167,7 +1167,7 @@
       ],
       "comp_score": 5,
       "comp_basis": "Limited submission: your institution runs its own competition first.",
-      "tldr": "Up to $1M, up to 4 years from a federal agency. Anytime, target 2027-02-04."
+      "tldr": "An NSF solicitation with its own topic and deadline. Up to $1M, up to 4 years."
     },
     {
       "first_seen_date": "2026-10-14",
@@ -1194,7 +1194,7 @@
       ],
       "comp_score": 4,
       "comp_basis": "From the funder's published success rate of 13%. NIH-wide R01-equivalent success rate, FY2025: 5,471 awards from 42,022 applications. Not this call's odds, and individual institutes differ.",
-      "tldr": "No cap, up to 5 years from a federal agency. ESI only, genuinely new direction, no preliminary data. New 2027-01-26."
+      "tldr": "A full-scale research project, usually four to five years. No cap, up to 5 years."
     },
     {
       "first_seen_date": "2026-10-14",
@@ -1216,7 +1216,7 @@
       ],
       "comp_score": 5,
       "comp_basis": "Limited submission: your institution runs its own competition first.",
-      "tldr": "About $245K to $250K per year, 36 months from a federal agency. Estimated 2026-12-14."
+      "tldr": "A disability and rehabilitation research project, three years. About $245K to $250K per year, 36 months."
     },
     {
       "first_seen_date": "2026-10-14",
@@ -1238,7 +1238,7 @@
       ],
       "comp_score": 5,
       "comp_basis": "Limited submission: your institution runs its own competition first.",
-      "tldr": "About $245K to $250K per year, 36 months from a federal agency. Estimated 2026-12-14."
+      "tldr": "A disability and rehabilitation research project, three years. About $245K to $250K per year, 36 months."
     },
     {
       "first_seen_date": "2026-10-14",
@@ -1260,7 +1260,7 @@
       ],
       "comp_score": 3,
       "comp_basis": "Graded \"medium\" in this week's brief, not a published rate.",
-      "tldr": "$110M total, up to 5 years from a federal agency. Anytime."
+      "tldr": "An NSF solicitation with its own topic and deadline. $110M across the whole programme, up to 5 years."
     },
     {
       "first_seen_date": "2026-10-14",
@@ -1282,7 +1282,7 @@
       ],
       "comp_score": 3,
       "comp_basis": "Graded \"medium\" in this week's brief, not a published rate.",
-      "tldr": "$100M total, up to 5 years from a federal agency. Anytime."
+      "tldr": "An NSF solicitation with its own topic and deadline. $100M across the whole programme, up to 5 years."
     },
     {
       "first_seen_date": "2026-10-14",
@@ -1304,7 +1304,7 @@
       ],
       "comp_score": 3,
       "comp_basis": "Graded \"medium\" in this week's brief, not a published rate.",
-      "tldr": "Follows the host program from a federal agency. Per host program."
+      "tldr": "An NSF solicitation with its own topic and deadline. Follows the host program."
     },
     {
       "first_seen_date": "2026-10-14",
@@ -1328,7 +1328,7 @@
       ],
       "comp_score": 3,
       "comp_basis": "Graded \"medium\" in this week's brief, not a published rate.",
-      "tldr": "12 months of compute from a federal agency. Researchers at US institutions. Rolling, monthly 15th."
+      "tldr": "A small starter award, usually to produce preliminary data. 12 months of compute."
     },
     {
       "first_seen_date": "2026-10-14",
@@ -1350,7 +1350,7 @@
       ],
       "comp_score": 2,
       "comp_basis": "Graded \"low to medium\" in this week's brief, not a published rate.",
-      "tldr": "From $5,000 in credits from a company. Training open-weight LLMs. Rolling."
+      "tldr": "A company programme. From $5,000 in credits."
     },
     {
       "first_seen_date": "2026-10-14",
@@ -1372,7 +1372,7 @@
       ],
       "comp_score": 4,
       "comp_basis": "Graded \"high\" in this week's brief, not a published rate.",
-      "tldr": "$3,850 per week for 4 months, plus compute from a company. Suited to PhD students and postdocs. Rolling."
+      "tldr": "A company programme. $3,850 per week for 4 months, plus compute."
     },
     {
       "first_seen_date": "2026-10-14",
@@ -1395,7 +1395,7 @@
       ],
       "comp_score": 3,
       "comp_basis": "Graded \"medium\" in this week's brief, not a published rate.",
-      "tldr": "Up to $20,000 in credits from a company. Monthly review 2026-11-02."
+      "tldr": "An allocation of compute or model access rather than money. Up to $20,000 in credits."
     },
     {
       "first_seen_date": "2026-10-14",
@@ -1419,7 +1419,7 @@
       ],
       "comp_score": 3,
       "comp_basis": "Graded \"medium\" in this week's brief, not a published rate.",
-      "tldr": "An unstated amount from a nonprofit. Early career, within 7 years of ESI status. LOI 2026-10-30."
+      "tldr": "A small starter award, usually to produce preliminary data."
     },
     {
       "first_seen_date": "2026-10-14",
@@ -1436,7 +1436,7 @@
       ],
       "comp_score": 3,
       "comp_basis": "Estimated from the kind of call, not a published rate.",
-      "tldr": "An unstated amount from a nonprofit. LOI 2026-10-20, full 2026-12-15."
+      "tldr": "A nonprofit grant."
     },
     {
       "first_seen_date": "2026-10-14",
@@ -1459,7 +1459,7 @@
       ],
       "comp_score": 3,
       "comp_basis": "Graded \"medium\" in this week's brief, not a published rate.",
-      "tldr": "$3M to $35M per award from a federal agency. FY27 white paper 2026-11-30."
+      "tldr": "A standing call across the office's whole portfolio, white paper first. $3M to $35M per award."
     },
     {
       "first_seen_date": "2026-10-14",
@@ -1482,7 +1482,7 @@
       ],
       "comp_score": 3,
       "comp_basis": "Graded \"medium\" in this week's brief, not a published rate.",
-      "tldr": "An unstated amount from a federal agency. Closes 2026-12-31."
+      "tldr": "A standing call across the office's whole portfolio, white paper first."
     },
     {
       "first_seen_date": "2026-10-14",
@@ -1505,7 +1505,7 @@
       ],
       "comp_score": 3,
       "comp_basis": "Graded \"medium\" in this week's brief, not a published rate.",
-      "tldr": "Up to $10M from a federal agency. Rolling."
+      "tldr": "A standing call across the office's whole portfolio, white paper first. Up to $10M."
     },
     {
       "first_seen_date": "2026-10-14",
@@ -1528,7 +1528,7 @@
       ],
       "comp_score": 3,
       "comp_basis": "Graded \"medium\" in this week's brief, not a published rate.",
-      "tldr": "An unstated amount from a federal agency. To 2027-11-20."
+      "tldr": "A standing call across the office's whole portfolio, white paper first."
     },
     {
       "first_seen_date": "2026-10-14",
@@ -1550,7 +1550,7 @@
       ],
       "comp_score": 3,
       "comp_basis": "Graded \"medium\" in this week's brief, not a published rate.",
-      "tldr": "Node hours from a company. Closes 2026-11-15."
+      "tldr": "An allocation of compute or model access rather than money. Node hours."
     },
     {
       "first_seen_date": "2026-10-14",
@@ -1570,7 +1570,7 @@
       "fit": [],
       "comp_score": 3,
       "comp_basis": "Graded \"medium\" in this week's brief, not a published rate.",
-      "tldr": "$10K to $150K from a nonprofit. Rolling."
+      "tldr": "A nonprofit grant. $10K to $150K."
     },
     {
       "first_seen_date": "2026-10-14",
@@ -1593,7 +1593,7 @@
       ],
       "comp_score": 3,
       "comp_basis": "Graded \"medium\" in this week's brief, not a published rate.",
-      "tldr": "Up to $50,000 from a university. PI must hold a primary UR appointment. LOI 2026-10-26."
+      "tldr": "A small starter award, usually to produce preliminary data. Up to $50,000."
     },
     {
       "first_seen_date": "2026-10-14",
@@ -1621,7 +1621,7 @@
       ],
       "comp_score": 4,
       "comp_basis": "From the funder's published success rate of 13%. NIH-wide R01-equivalent success rate, FY2025: 5,471 awards from 42,022 applications. Not this call's odds, and individual institutes differ.",
-      "tldr": "Annual direct costs under $500K from a federal agency. Requires a bench-to-clinic team. Closes 2027-02-12."
+      "tldr": "A full-scale research project, usually four to five years. Annual direct costs under $500K."
     },
     {
       "first_seen_date": "2026-10-14",
@@ -1648,7 +1648,7 @@
       ],
       "comp_score": 4,
       "comp_basis": "From the funder's published success rate of 13%. NIH-wide R01-equivalent success rate, FY2025: 5,471 awards from 42,022 applications. Not this call's odds, and individual institutes differ.",
-      "tldr": "$150K to $350K per year from a federal agency. Next 2027-10-06."
+      "tldr": "A full-scale research project, usually four to five years. $150K to $350K per year."
     },
     {
       "first_seen_date": "2026-10-14",
@@ -1671,7 +1671,7 @@
       ],
       "comp_score": 4,
       "comp_basis": "Graded \"medium to high\" in this week's brief, not a published rate.",
-      "tldr": "$50K to $3M from a federal agency. Equipment only. Closes 2026-11-06."
+      "tldr": "Buys equipment only, with no salary or research costs. $50K to $3M."
     },
     {
       "first_seen_date": "2026-10-14",
@@ -1693,7 +1693,7 @@
       ],
       "comp_score": 5,
       "comp_basis": "Limited submission: your institution runs its own competition first.",
-      "tldr": "$1M to $1.3M from a private foundation. Limited submission, 3 per institution. Closes 2026-12-07."
+      "tldr": "A private foundation grant. $1M to $1.3M."
     },
     {
       "first_seen_date": "2026-10-14",
@@ -1715,7 +1715,7 @@
       ],
       "comp_score": 4,
       "comp_basis": "Graded \"high\" in this week's brief, not a published rate.",
-      "tldr": "An unstated amount from a federal agency. Rolling."
+      "tldr": "An ARPA-H solicitation, judged on a short solution summary first."
     },
     {
       "first_seen_date": "2026-10-14",
@@ -1732,7 +1732,7 @@
       ],
       "comp_score": 4,
       "comp_basis": "Estimated from the kind of call: federal research solicitations typically fund well under a quarter of what they receive.",
-      "tldr": "An unstated amount from a federal agency. Closes 2026-11-10."
+      "tldr": "An ARPA-H solicitation, judged on a short solution summary first."
     },
     {
       "first_seen_date": "2026-10-14",
@@ -1749,7 +1749,7 @@
       ],
       "comp_score": 4,
       "comp_basis": "Estimated from the kind of call: federal research solicitations typically fund well under a quarter of what they receive.",
-      "tldr": "An unstated amount from a federal agency. Closed."
+      "tldr": "An ARPA-H solicitation, judged on a short solution summary first."
     },
     {
       "first_seen_date": "2026-10-14",
@@ -1766,7 +1766,7 @@
       ],
       "comp_score": 3,
       "comp_basis": "Estimated from the kind of call, not a published rate.",
-      "tldr": "An unstated amount from a company."
+      "tldr": "A company programme."
     },
     {
       "first_seen_date": "2026-10-14",
@@ -1781,7 +1781,7 @@
       "fit": [],
       "comp_score": 4,
       "comp_basis": "Estimated from what is on offer: a named company award is one global round for a fixed and small number of places.",
-      "tldr": "An unstated amount from a company. Rolling."
+      "tldr": "A company programme."
     },
     {
       "first_seen_date": "2026-10-14",
@@ -1796,7 +1796,7 @@
       "fit": [],
       "comp_score": 4,
       "comp_basis": "Estimated from what is on offer: a named company award is one global round for a fixed and small number of places.",
-      "tldr": "An unstated amount from a company."
+      "tldr": "A company programme."
     },
     {
       "first_seen_date": "2026-10-14",
@@ -1811,7 +1811,7 @@
       "fit": [],
       "comp_score": 2,
       "comp_basis": "Estimated from what is on offer: an allocation of compute or model access is reviewed as it arrives and turns down far fewer applicants than a cash award. No rate is published.",
-      "tldr": "An unstated amount from a company. Rolling."
+      "tldr": "An allocation of compute or model access rather than money."
     },
     {
       "first_seen_date": "2026-10-14",
@@ -1828,7 +1828,7 @@
       ],
       "comp_score": 2,
       "comp_basis": "Estimated from what is on offer: an allocation of compute or model access is reviewed as it arrives and turns down far fewer applicants than a cash award. No rate is published.",
-      "tldr": "An unstated amount from a company."
+      "tldr": "An allocation of compute or model access rather than money."
     },
     {
       "first_seen_date": "2026-10-14",
@@ -1851,7 +1851,7 @@
       ],
       "comp_score": 3,
       "comp_basis": "Graded \"medium\" in this week's brief, not a published rate.",
-      "tldr": "$12,500 prize from a company. Must be open source. Closes 2026-11-01."
+      "tldr": "An open competition judged on results, not on a proposal. $12,500 prize."
     },
     {
       "first_seen_date": "2026-10-14",
@@ -1868,7 +1868,7 @@
       ],
       "comp_score": 2,
       "comp_basis": "Estimated from what is on offer: an allocation of compute or model access is reviewed as it arrives and turns down far fewer applicants than a cash award. No rate is published.",
-      "tldr": "An unstated amount from a company. Quarterly, Dec 2026."
+      "tldr": "An allocation of compute or model access rather than money."
     },
     {
       "first_seen_date": "2026-10-14",
@@ -1890,7 +1890,7 @@
       ],
       "comp_score": 2,
       "comp_basis": "Graded \"low to medium\" in this week's brief, not a published rate.",
-      "tldr": "$5K to $35K from a private foundation. Closes 2026-10-31."
+      "tldr": "A private foundation grant. $5K to $35K."
     },
     {
       "first_seen_date": "2026-10-14",
@@ -1911,7 +1911,7 @@
       ],
       "comp_score": 4,
       "comp_basis": "From the funder's published success rate of 13%. NIH-wide R01-equivalent success rate, FY2025: 5,471 awards from 42,022 applications. Not this call's odds, and individual institutes differ.",
-      "tldr": "An unstated amount from a federal agency. Closes 2026-12-14."
+      "tldr": "An NIH request for applications, one topic and a fixed pot."
     },
     {
       "first_seen_date": "2026-10-14",
@@ -1928,7 +1928,7 @@
       ],
       "comp_score": 3,
       "comp_basis": "Estimated from the kind of call, not a published rate.",
-      "tldr": "An unstated amount from a nonprofit. LOI 2027-01-06."
+      "tldr": "A nonprofit grant."
     },
     {
       "first_seen_date": "2026-10-14",
@@ -1945,7 +1945,7 @@
       ],
       "comp_score": 3,
       "comp_basis": "Estimated from the kind of call, not a published rate.",
-      "tldr": "An unstated amount from a nonprofit. Closes 2026-11-01."
+      "tldr": "A center-scale award for a large multi-investigator team."
     },
     {
       "first_seen_date": "2026-10-14",
@@ -1962,7 +1962,7 @@
       ],
       "comp_score": 3,
       "comp_basis": "Estimated from the kind of call, not a published rate.",
-      "tldr": "An unstated amount from a private foundation. LOI 2026-10-27."
+      "tldr": "An open call, with the funder setting the topic."
     },
     {
       "first_seen_date": "2026-10-14",
@@ -1979,7 +1979,7 @@
       ],
       "comp_score": 3,
       "comp_basis": "Estimated from the kind of call, not a published rate.",
-      "tldr": "An unstated amount from New York State. Closes 2026-11-10."
+      "tldr": "A New York State programme."
     },
     {
       "first_seen_date": "2026-10-14",
@@ -2003,7 +2003,7 @@
       ],
       "comp_score": 5,
       "comp_basis": "Limited submission: your institution runs its own competition first.",
-      "tldr": "Up to $903,954 per year from New York State. Limited submission, 2 per campus. Closes 2026-10-30."
+      "tldr": "An open call, with the funder setting the topic. Up to $903,954 per year."
     },
     {
       "first_seen_date": "2026-10-14",
@@ -2025,7 +2025,7 @@
       ],
       "comp_score": 4,
       "comp_basis": "From the funder's published success rate of 13%. NIH-wide R01-equivalent success rate, FY2025: 5,471 awards from 42,022 applications. Not this call's odds, and individual institutes differ.",
-      "tldr": "An unstated amount from a federal agency. Closes 2026-11-17."
+      "tldr": "A full-scale research project, usually four to five years."
     },
     {
       "first_seen_date": "2026-10-14",
@@ -2046,7 +2046,7 @@
       ],
       "comp_score": 4,
       "comp_basis": "From the funder's published success rate of 13%. NIH-wide R01-equivalent success rate, FY2025: 5,471 awards from 42,022 applications. Not this call's odds, and individual institutes differ.",
-      "tldr": "An unstated amount from a federal agency."
+      "tldr": "A team programme rather than a single-PI project."
     },
     {
       "first_seen_date": "2026-10-14",
@@ -2067,7 +2067,7 @@
       ],
       "comp_score": 4,
       "comp_basis": "From the funder's published success rate of 13%. NIH-wide R01-equivalent success rate, FY2025: 5,471 awards from 42,022 applications. Not this call's odds, and individual institutes differ.",
-      "tldr": "An unstated amount from a federal agency. Closes 2026-11-23."
+      "tldr": "An NIH request for applications, one topic and a fixed pot."
     },
     {
       "first_seen_date": "2026-10-14",
@@ -2084,7 +2084,7 @@
       ],
       "comp_score": 4,
       "comp_basis": "Estimated from the kind of call: federal research solicitations typically fund well under a quarter of what they receive.",
-      "tldr": "An unstated amount from a federal agency. Closes 2026-11-16."
+      "tldr": "An agency solicitation."
     },
     {
       "first_seen_date": "2026-10-14",
@@ -2099,7 +2099,7 @@
       "fit": [],
       "comp_score": 3,
       "comp_basis": "Estimated from the kind of call, not a published rate.",
-      "tldr": "An unstated amount from a nonprofit. Closes 2026-12-01."
+      "tldr": "A nonprofit grant."
     },
     {
       "first_seen_date": "2026-10-14",
@@ -2117,7 +2117,7 @@
       ],
       "comp_score": 3,
       "comp_basis": "Estimated from the kind of call, not a published rate.",
-      "tldr": "An unstated amount from a company. Rolling."
+      "tldr": "An open call, with the funder setting the topic."
     },
     {
       "first_seen_date": "2026-10-14",
@@ -2136,7 +2136,7 @@
       ],
       "comp_score": 3,
       "comp_basis": "Estimated from the kind of call: an open BAA takes white papers continuously rather than running one round.",
-      "tldr": "An unstated amount from a federal agency. Reopen Nov 2026."
+      "tldr": "A standing call across the office's whole portfolio, white paper first."
     },
     {
       "first_seen_date": "2026-10-14",
@@ -2154,7 +2154,7 @@
       ],
       "comp_score": 5,
       "comp_basis": "Limited submission: your institution runs its own competition first.",
-      "tldr": "An unstated amount from a private foundation. Closes 2027-01-06."
+      "tldr": "A private foundation grant."
     },
     {
       "first_seen_date": "2026-10-14",
@@ -2171,7 +2171,7 @@
       ],
       "comp_score": 3,
       "comp_basis": "Estimated from the kind of call, not a published rate.",
-      "tldr": "An unstated amount from a private foundation. Opens 2026-11-15."
+      "tldr": "Supports a named individual rather than a project."
     },
     {
       "first_seen_date": "2026-10-14",
@@ -2190,7 +2190,7 @@
       ],
       "comp_score": 5,
       "comp_basis": "Limited submission: your institution runs its own competition first.",
-      "tldr": "An unstated amount from a private foundation. LOI TBD."
+      "tldr": "A small starter award, usually to produce preliminary data."
     },
     {
       "first_seen_date": "2026-10-14",
@@ -2207,7 +2207,7 @@
       ],
       "comp_score": 3,
       "comp_basis": "Estimated from the kind of call, not a published rate.",
-      "tldr": "An unstated amount from a private foundation."
+      "tldr": "An open call, with the funder setting the topic."
     },
     {
       "first_seen_date": "2026-10-14",
@@ -2224,7 +2224,7 @@
       ],
       "comp_score": 3,
       "comp_basis": "Estimated from the kind of call, not a published rate.",
-      "tldr": "An unstated amount from a private foundation. Rolling."
+      "tldr": "A private foundation grant."
     },
     {
       "first_seen_date": "2026-10-14",
@@ -2242,7 +2242,7 @@
       ],
       "comp_score": 3,
       "comp_basis": "Estimated from the kind of call, not a published rate.",
-      "tldr": "An unstated amount from a private foundation. Rolling."
+      "tldr": "A private foundation grant."
     },
     {
       "first_seen_date": "2026-10-14",
@@ -2257,7 +2257,7 @@
       "fit": [],
       "comp_score": 3,
       "comp_basis": "Estimated from the kind of call, not a published rate.",
-      "tldr": "An unstated amount from a private foundation. Next round about 2027-01-23."
+      "tldr": "A private foundation grant."
     },
     {
       "first_seen_date": "2026-10-14",
@@ -2275,7 +2275,7 @@
       ],
       "comp_score": 3,
       "comp_basis": "Estimated from the kind of call: an open BAA takes white papers continuously rather than running one round.",
-      "tldr": "An unstated amount from a federal agency. Closes 2028-09-30."
+      "tldr": "A standing call across the office's whole portfolio, white paper first."
     },
     {
       "first_seen_date": "2026-10-14",
@@ -2290,7 +2290,7 @@
       "fit": [],
       "comp_score": 4,
       "comp_basis": "Estimated from the kind of call: federal research solicitations typically fund well under a quarter of what they receive.",
-      "tldr": "An unstated amount from a federal agency. Closes 2026-10-15."
+      "tldr": "A NASA omnibus call, one element of many under a single solicitation."
     },
     {
       "first_seen_date": "2026-10-14",
@@ -2307,7 +2307,7 @@
       ],
       "comp_score": 3,
       "comp_basis": "Estimated from the kind of call, not a published rate.",
-      "tldr": "An unstated amount from a private foundation. 2026-11-06, 2027-01-08."
+      "tldr": "An open competition judged on results, not on a proposal."
     },
     {
       "first_seen_date": "2026-10-14",
@@ -2324,7 +2324,7 @@
       ],
       "comp_score": 3,
       "comp_basis": "Estimated from the kind of call, not a published rate.",
-      "tldr": "An unstated amount from a private foundation. Closes 2026-10-26."
+      "tldr": "An open call, with the funder setting the topic."
     },
     {
       "first_seen_date": "2026-10-14",
@@ -2342,7 +2342,7 @@
       ],
       "comp_score": 3,
       "comp_basis": "Estimated from the kind of call, not a published rate.",
-      "tldr": "An unstated amount from a public funder outside the US. Closes 2026-11-04."
+      "tldr": "A call from a public funder outside the US."
     },
     {
       "first_seen_date": "2026-10-14",
@@ -2359,7 +2359,7 @@
       ],
       "comp_score": 4,
       "comp_basis": "Estimated from the kind of call: federal research solicitations typically fund well under a quarter of what they receive.",
-      "tldr": "An unstated amount from a federal agency. Closes 2026-11-05."
+      "tldr": "A DARPA programme call, narrow in scope and run to its own schedule."
     },
     {
       "first_seen_date": "2026-10-14",
@@ -2376,7 +2376,7 @@
       ],
       "comp_score": 4,
       "comp_basis": "Estimated from the kind of call: federal research solicitations typically fund well under a quarter of what they receive.",
-      "tldr": "An unstated amount from a federal agency. Closes 2026-11-09."
+      "tldr": "A DARPA programme call, narrow in scope and run to its own schedule."
     },
     {
       "first_seen_date": "2026-10-14",
@@ -2393,7 +2393,7 @@
       ],
       "comp_score": 4,
       "comp_basis": "Estimated from the kind of call: federal research solicitations typically fund well under a quarter of what they receive.",
-      "tldr": "An unstated amount from a federal agency. Abstract 2026-10-27, full 2026-12-18."
+      "tldr": "A DARPA programme call, narrow in scope and run to its own schedule."
     },
     {
       "first_seen_date": "2026-10-14",
@@ -2411,7 +2411,7 @@
       ],
       "comp_score": 2,
       "comp_basis": "Estimated from what is on offer: an allocation of compute or model access is reviewed as it arrives and turns down far fewer applicants than a cash award. No rate is published.",
-      "tldr": "An unstated amount from a company."
+      "tldr": "An allocation of compute or model access rather than money."
     },
     {
       "first_seen_date": "2026-10-14",
@@ -2428,7 +2428,7 @@
       ],
       "comp_score": 3,
       "comp_basis": "Estimated from the kind of call, not a published rate.",
-      "tldr": "An unstated amount from a company. Closes 2026-10-23."
+      "tldr": "An open call, with the funder setting the topic."
     },
     {
       "first_seen_date": "2026-10-14",
@@ -2445,7 +2445,7 @@
       ],
       "comp_score": 4,
       "comp_basis": "Estimated from what is on offer: a named company award is one global round for a fixed and small number of places.",
-      "tldr": "An unstated amount from a company."
+      "tldr": "Supports a named individual rather than a project."
     },
     {
       "first_seen_date": "2026-10-14",
@@ -2463,7 +2463,7 @@
       ],
       "comp_score": 3,
       "comp_basis": "Estimated from the kind of call, not a published rate.",
-      "tldr": "An unstated amount from a private foundation. 2027-01-21, 2027-01-13."
+      "tldr": "A private foundation grant."
     },
     {
       "first_seen_date": "2026-10-14",
@@ -2481,7 +2481,7 @@
       ],
       "comp_score": 3,
       "comp_basis": "Estimated from the kind of call, not a published rate.",
-      "tldr": "An unstated amount from a public funder outside the US. Closes 2026-11-09."
+      "tldr": "An open call, with the funder setting the topic."
     },
     {
       "first_seen_date": "2026-10-14",
@@ -2498,7 +2498,7 @@
       ],
       "comp_score": 3,
       "comp_basis": "Estimated from the kind of call, not a published rate.",
-      "tldr": "An unstated amount from a private foundation. Closes 2026-12-02."
+      "tldr": "A private foundation grant."
     },
     {
       "first_seen_date": "2026-10-14",
@@ -2513,7 +2513,7 @@
       "fit": [],
       "comp_score": 3,
       "comp_basis": "Estimated from the kind of call, not a published rate.",
-      "tldr": "An unstated amount from a private foundation. Rolling."
+      "tldr": "A private foundation grant."
     },
     {
       "first_seen_date": "2026-10-14",
@@ -2530,7 +2530,7 @@
       ],
       "comp_score": 4,
       "comp_basis": "Estimated from the kind of call: federal research solicitations typically fund well under a quarter of what they receive.",
-      "tldr": "An unstated amount from a federal agency. Closes 2026-10-30."
+      "tldr": "A request for comment, not a funding call."
     },
     {
       "first_seen_date": "2026-10-14",
@@ -2552,7 +2552,7 @@
       ],
       "comp_score": 4,
       "comp_basis": "From the funder's published success rate of 13%. NIH-wide R01-equivalent success rate, FY2025: 5,471 awards from 42,022 applications. Not this call's odds, and individual institutes differ.",
-      "tldr": "An unstated amount from a federal agency. Closes 2026-10-26."
+      "tldr": "A request for comment, not a funding call."
     },
     {
       "first_seen_date": "2026-10-14",
@@ -2567,7 +2567,7 @@
       "fit": [],
       "comp_score": 4,
       "comp_basis": "Estimated from the kind of call: federal research solicitations typically fund well under a quarter of what they receive.",
-      "tldr": "An unstated amount from a federal agency."
+      "tldr": "A federal research call."
     },
     {
       "first_seen_date": "2026-10-14",
@@ -2584,7 +2584,7 @@
       ],
       "comp_score": 4,
       "comp_basis": "Estimated from the kind of call: federal research solicitations typically fund well under a quarter of what they receive.",
-      "tldr": "An unstated amount from a federal agency."
+      "tldr": "An agency solicitation."
     },
     {
       "first_seen_date": "2026-10-14",
@@ -2605,7 +2605,7 @@
       ],
       "comp_score": 4,
       "comp_basis": "From the funder's published success rate of 13%. NIH-wide R01-equivalent success rate, FY2025: 5,471 awards from 42,022 applications. Not this call's odds, and individual institutes differ.",
-      "tldr": "An unstated amount from a federal agency. Estimated 2027-08-19."
+      "tldr": "A high-risk award for an early-career investigator, no preliminary data."
     },
     {
       "first_seen_date": "2026-10-14",
@@ -2627,7 +2627,7 @@
       ],
       "comp_score": 4,
       "comp_basis": "From the funder's published success rate of 13%. NIH-wide R01-equivalent success rate, FY2025: 5,471 awards from 42,022 applications. Not this call's odds, and individual institutes differ.",
-      "tldr": "An unstated amount from a federal agency."
+      "tldr": "An exploratory project of up to two years, no preliminary data expected."
     },
     {
       "first_seen_date": "2026-10-14",
@@ -2648,7 +2648,7 @@
       ],
       "comp_score": 4,
       "comp_basis": "From the funder's published success rate of 13%. NIH-wide R01-equivalent success rate, FY2025: 5,471 awards from 42,022 applications. Not this call's odds, and individual institutes differ.",
-      "tldr": "An unstated amount from a federal agency. Estimated 2027-03-01."
+      "tldr": "A small starter award, usually to produce preliminary data."
     },
     {
       "first_seen_date": "2026-10-14",
@@ -2670,7 +2670,7 @@
       ],
       "comp_score": 4,
       "comp_basis": "From the funder's published success rate of 13%. NIH-wide R01-equivalent success rate, FY2025: 5,471 awards from 42,022 applications. Not this call's odds, and individual institutes differ.",
-      "tldr": "An unstated amount from a federal agency."
+      "tldr": "An NIH request for applications, one topic and a fixed pot."
     },
     {
       "first_seen_date": "2026-10-14",
@@ -2692,7 +2692,7 @@
       ],
       "comp_score": 4,
       "comp_basis": "From the funder's published success rate of 13%. NIH-wide R01-equivalent success rate, FY2025: 5,471 awards from 42,022 applications. Not this call's odds, and individual institutes differ.",
-      "tldr": "An unstated amount from a federal agency."
+      "tldr": "An NIH request for applications, one topic and a fixed pot."
     },
     {
       "first_seen_date": "2026-10-14",
@@ -2710,7 +2710,7 @@
       ],
       "comp_score": 4,
       "comp_basis": "Estimated from the kind of call: federal research solicitations typically fund well under a quarter of what they receive.",
-      "tldr": "An unstated amount from a federal agency."
+      "tldr": "An open competition judged on results, not on a proposal."
     },
     {
       "first_seen_date": "2026-10-14",
@@ -2729,7 +2729,7 @@
       ],
       "comp_score": 2,
       "comp_basis": "Estimated from what is on offer: an allocation of compute or model access is reviewed as it arrives and turns down far fewer applicants than a cash award. No rate is published.",
-      "tldr": "An unstated amount from a federal agency."
+      "tldr": "An allocation of compute or model access rather than money."
     },
     {
       "first_seen_date": "2026-10-14",
@@ -2746,7 +2746,7 @@
       ],
       "comp_score": 4,
       "comp_basis": "Estimated from the kind of call: federal research solicitations typically fund well under a quarter of what they receive.",
-      "tldr": "An unstated amount from a federal agency. Expected fall 2026."
+      "tldr": "A DARPA programme call, narrow in scope and run to its own schedule."
     },
     {
       "first_seen_date": "2026-10-14",
@@ -2765,7 +2765,7 @@
       ],
       "comp_score": 2,
       "comp_basis": "Estimated from what is on offer: an allocation of compute or model access is reviewed as it arrives and turns down far fewer applicants than a cash award. No rate is published.",
-      "tldr": "An unstated amount from a university."
+      "tldr": "An allocation of compute or model access rather than money."
     },
     {
       "first_seen_date": "2026-10-14",
@@ -2782,7 +2782,7 @@
       ],
       "comp_score": 3,
       "comp_basis": "Estimated from the kind of call, not a published rate.",
-      "tldr": "An unstated amount from a private foundation. Next cycle TBD."
+      "tldr": "A private foundation grant."
     },
     {
       "first_seen_date": "2026-10-14",
@@ -2797,7 +2797,7 @@
       "fit": [],
       "comp_score": 4,
       "comp_basis": "Estimated from what is on offer: a named company award is one global round for a fixed and small number of places.",
-      "tldr": "An unstated amount from a company. Next cycle TBD."
+      "tldr": "A company programme."
     },
     {
       "first_seen_date": "2026-10-14",
@@ -2815,7 +2815,7 @@
       ],
       "comp_score": 3,
       "comp_basis": "Estimated from the kind of call, not a published rate.",
-      "tldr": "An unstated amount from a private foundation."
+      "tldr": "Supports a named individual rather than a project."
     }
   ],
   "watchlist": [

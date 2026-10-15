@@ -476,47 +476,83 @@ def attach_logos(rows):
     return got, len(domains)
 
 
-# One line a reader can take the whole row from, assembled from fields that
-# are already checked rather than written by hand: what you get, who from,
-# any restriction worth knowing before clicking, and when it shuts.
-KIND_PHRASE = {
-    'Federal': 'a federal agency',
-    'State': 'New York State',
-    'Foundation': 'a private foundation',
-    'Industry': 'a company',
-    'Nonprofit': 'a nonprofit',
-    'University': 'a university',
-    'Public (non-US)': 'a public funder outside the US',
-}
+# A one-line synopsis of what the award actually is.
+#
+# The registry has no description field, and scraping 134 funder sites for one
+# would be slow and brittle. It does not need one: almost every row is a
+# standard mechanism, and the mechanism is named in the programme title. An
+# R21 is an exploratory project with no preliminary data wherever it appears,
+# a DURIP buys equipment and nothing else, a BAA takes white papers all year.
+# So the synopsis is looked up from the mechanism, most specific first, and a
+# row whose title names no mechanism gets no sentence rather than a vague one.
+SYNOPSIS = [
+    (r'\bRFI\b',                  'A request for comment, not a funding call.'),
+    (r'\bDURIP\b',                'Buys equipment only, with no salary or research costs.'),
+    (r'\bMURI\b',                 'A multi-university team on one topic, usually five years.'),
+    (r'\bCAREER\b',               'Five years for a pre-tenure faculty member, research and teaching together.'),
+    (r'Young Investigator|\bYIP\b', 'A single-PI award for someone within a few years of the PhD.'),
+    (r'New Innovator|\bDP2\b',     'A high-risk award for an early-career investigator, no preliminary data.'),
+    (r'\bR01\b',                  'A full-scale research project, usually four to five years.'),
+    (r'\bR21\b',                  'An exploratory project of up to two years, no preliminary data expected.'),
+    (r'\bR03\b',                  'A small project of up to two years.'),
+    (r'\bR15\b|\bAREA\b',        'Research at a campus that is not research-intensive, with undergraduates involved.'),
+    (r'\bR35\b',                  'One long award in place of several separate grants.'),
+    (r'\bRM1\b',                  'A team programme rather than a single-PI project.'),
+    (r'\bK\d\d\b',               'A mentored career-development award for one person.'),
+    (r'\bF3\d\b|\bT32\b',       'A training award for a student or postdoc.'),
+    (r'\bU01\b|\bUM1\b|Cooperative', 'A cooperative agreement, with programme staff involved in the work.'),
+    (r'\bR13\b|Conference|Workshop', 'Supports a meeting rather than research.'),
+    (r'\bRET\b',                  'Summer research placements for K-12 teachers.'),
+    (r'\bREU\b',                  'Research placements for undergraduates.'),
+    (r'Expeditions|\bHubs\b|Institute\b', 'A center-scale award for a large multi-investigator team.'),
+    (r'Office-Wide|\bBAA\b',       "A standing call across the office's whole portfolio, white paper first."),
+    (r'Challenge|Prize|Competition', 'An open competition judged on results, not on a proposal.'),
+    (r'credits?|compute|cluster|GPU|model access|Researcher Access|for Academics|allocation|node hours',
+                                   'An allocation of compute or model access rather than money.'),
+    (r'Graduate Fellowship|\bFellowship\b', 'Supports a named individual rather than a project.'),
+    (r'\bPilot\b|\bSeed\b|Bridge', 'A small starter award, usually to produce preliminary data.'),
+    (r'Research Award',            'An unrestricted gift to one PI, decided in a single global round.'),
+    (r'Translation to Practice|Accelerator', 'Takes existing results toward deployment rather than funding new science.'),
+    (r'\bLOI\b|preproposal|Call for Proposals|open call|\bRFP\b', 'An open call, with the funder setting the topic.'),
+    # Agency-specific shapes, for the titles that name no generic mechanism
+    (r'ARPA-H-SOL|Mission Office ISO', 'An ARPA-H solicitation, judged on a short solution summary first.'),
+    (r'DARPA-PS-|DARPA-SN-|\bYFA\b', 'A DARPA programme call, narrow in scope and run to its own schedule.'),
+    (r'\bRFA-[A-Z]{2}-', 'An NIH request for applications, one topic and a fixed pot.'),
+    (r'\bPAR-\d\d|\bPA-\d\d', 'A standing NIH announcement, open to the usual activity codes.'),
+    (r'\bMIRA\b', 'One award covering the whole lab, in place of project-by-project grants.'),
+    (r'NSF \d\d-\d\d\d|\bOTA\b|\bDCL\b', 'An NSF solicitation with its own topic and deadline.'),
+    (r'\bROSES\b', 'A NASA omnibus call, one element of many under a single solicitation.'),
+    (r'\bFIP\b|NIDILRR', 'A disability and rehabilitation research project, three years.'),
+    (r'solicitation', 'An agency solicitation.'),
+]
 
-# Eligibility lines worth repeating in a summary. "open" and "not listed" are
-# not, since a one-liner ending "open to anyone" has told you nothing. The
-# negative forms matter here: "not a limited submission" is the opposite of a
-# restriction and must not be read as one.
-TELLING = re.compile(
-    r'\bESI\b|early career|bench-to-clinic|US institutions|PhD students|'
-    r'postdocs|equipment only|open source|open-weight|appointment|'
-    r'small business|undergraduate', re.I)
-LIMITED = re.compile(r'(?<!not a )limited submission', re.I)
+KIND_FALLBACK = {
+    'Federal': 'A federal research call.',
+    'State': 'A New York State programme.',
+    'Foundation': 'A private foundation grant.',
+    'Industry': 'A company programme.',
+    'Nonprofit': 'A nonprofit grant.',
+    'University': 'An internal university programme.',
+    'Public (non-US)': 'A call from a public funder outside the US.',
+}
 
 
 def tldr(row):
+    text = f"{row.get('sponsor', '')} {row.get('program', '')}"
+    line = next((s for pat, s in SYNOPSIS if re.search(pat, text, re.I)), '')
+    if not line:
+        line = KIND_FALLBACK.get(row.get('category', ''), '')
+    # Money only when there is a figure. A row that says "an unstated amount"
+    # has spent a line telling the reader nothing.
     money = (row.get('budget') or '').strip()
-    money = money[0].upper() + money[1:] if money and money != 'not listed' else 'An unstated amount'
-    parts = [f"{money} from {KIND_PHRASE.get(row.get('category', ''), 'this funder')}."]
+    if money and money.lower() not in ('not listed', 'same as above'):
+        # A programme-wide pot is not what one project gets, and printing
+        # "$110M" beside a single call would read as though it were.
+        money = re.sub(r'^\$(\S+) total', r'$\1 across the whole programme', money)
+        money = money[0].upper() + money[1:]
+        line = f'{line} {money}.'.strip()
+    return line
 
-    elig = (row.get('eligibility') or '').strip()
-    if elig and (TELLING.search(elig) or LIMITED.search(elig)):
-        parts.append(elig[0].upper() + elig[1:] + '.')
-
-    raw = (row.get('deadline') or '').strip()
-    if raw and raw.lower() not in ('n/a', 'none', 'none stated', 'tbd'):
-        if re.fullmatch(r'\d{4}-\d{2}-\d{2}', raw):
-            parts.append(f'Closes {raw}.')
-        else:
-            raw = re.sub(r'^est\b\.?', 'Estimated', raw, flags=re.I)
-            parts.append(raw[0].upper() + raw[1:] + '.')
-    return ' '.join(parts)
 
 # ------------------------------------------------- who a call is aimed at ---
 #
