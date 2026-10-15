@@ -51,6 +51,8 @@ const counts = {
   closed: rows.filter((r) => r.dl.status === 'closed').length,
 };
 
+const unverified = data.watchlist.filter((w) => (w.url_verified || '').toUpperCase() !== 'Y').length;
+
 const FILTERS = [
   { key: 'all', label: 'Everything tracked', icon: 'fa-layer-group', n: counts.all },
   { key: 'pick', label: 'This week', icon: 'fa-star', n: counts.pick },
@@ -110,9 +112,9 @@ const compClass = (c) => {
           <li><b>{data.counts.watchlist}</b><span>on watch</span></li>
         </ul>
         <div class="grabs">
-          <a href="/funding/data.json">data.json</a>
-          <a href="/funding/registry.csv">registry.csv</a>
-          <a href="/funding/watchlist.csv">watchlist.csv</a>
+          <a href="/funding/data.json" title="Everything on this page as one JSON file: the week's opportunities, the full registry, the watchlist and the early signals, with the counts and the collection window. Written by the Friday job from the three sources below it.">data.json</a>
+          <a href="/funding/registry.csv" title={`The ledger of every call the weekly sweep has reported, ${data.counts.registry} rows so far, one line each with the date it was first seen, the funder, the programme, the deadline and the link. The sweep reads it back each week to work out what is genuinely new.`}>registry.csv</a>
+          <a href="/funding/watchlist.csv" title={`The standing scan list, ${data.counts.watchlist} funders checked every run rather than found by one: category, typical cycle, who may apply, and a note on why the funder is on the list. Hand maintained, and ${unverified} of its links are not yet confirmed.`}>watchlist.csv</a>
         </div>
       </div>
     </section>
@@ -133,6 +135,7 @@ const compClass = (c) => {
             <th class="c-who">Funder and program</th>
             <th class="c-when">Next date</th>
             <th class="c-terms">Terms</th>
+            <th class="c-rate">Funding rate</th>
             <th class="c-seen">First seen</th>
           </tr>
         </thead>
@@ -168,6 +171,13 @@ const compClass = (c) => {
                 {r.budget && <span class="budget">{r.budget}</span>}
                 {r.competition && <span class={`comp ${compClass(r.competition)}`} title="How crowded the call looks, as graded in the weekly brief">{r.competition} competition</span>}
                 {!r.budget && !r.competition && <span class="none">not summarized</span>}
+              </td>
+              <td class="c-rate" data-label="Funding rate">
+                {r.rate
+                  ? <a class="rate" href={r.rate_source} target="_blank" rel="noopener" title={`${r.rate_basis} Source: ${r.rate_source_name}.`}>
+                      {r.rate}<i class="fas fa-arrow-up-right-from-square" aria-hidden="true"></i>
+                    </a>
+                  : <span class="none" title="This funder does not publish a funding rate. An empty cell here is missing data, not good odds.">not published</span>}
               </td>
               <td class="c-seen" data-label="First seen">{r.first_seen_date}</td>
             </tr>
@@ -262,10 +272,16 @@ const compClass = (c) => {
   .fund tbody tr[data-pick="1"] { background:#fffdf5; }
   .fund tbody tr[data-pick="1"]:hover { background:#fef9e7; }
 
-  .c-who { width:42%; }
-  .c-when { width:25%; }
-  .c-terms { width:23%; }
-  .c-seen { width:10%; font-variant-numeric:tabular-nums; color:#94a3b8; font-size:.74rem; white-space:nowrap; }
+  .c-who { width:36%; }
+  .c-when { width:22%; }
+  .c-terms { width:21%; }
+  .c-rate { width:12%; }
+  .c-seen { width:9%; font-variant-numeric:tabular-nums; color:#94a3b8; font-size:.74rem; white-space:nowrap; }
+  .rate { display:inline-flex; align-items:baseline; gap:4px; font-size:.86rem; font-weight:800;
+    color:#0f172a; text-decoration:none; font-variant-numeric:tabular-nums;
+    border-bottom:1px solid rgba(148,163,184,.5); }
+  .rate:hover { color:var(--accent); border-color:currentColor; }
+  .rate i { font-size:.55rem; opacity:.45; }
 
   .who-line { display:flex; flex-wrap:wrap; align-items:center; gap:6px; margin-bottom:2px; }
   .sponsor { font-size:.7rem; font-weight:800; letter-spacing:.03em; text-transform:uppercase; color:#475569; }
@@ -329,7 +345,7 @@ const compClass = (c) => {
     .fund tbody td + td { margin-top:8px; padding-top:8px; border-top:1px dashed rgba(148,163,184,.3); }
     .fund tbody td[data-label]::before { content:attr(data-label); display:block; margin-bottom:3px;
       font-size:.6rem; font-weight:700; letter-spacing:.07em; text-transform:uppercase; color:#94a3b8; }
-    .c-seen { white-space:normal; }
+    .c-seen, .c-rate { white-space:normal; }
     .brief-side { align-items:flex-start; }
     .closed-note { margin-left:0; flex:0 0 100%; }
   }

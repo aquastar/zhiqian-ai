@@ -159,6 +159,53 @@ CAVEAT = ('Entries marked unverified were not confirmed against a primary page. 
           'The sponsor site is the authority; this is only an index.')
 
 
+# Published funding rates, and only published ones.
+#
+# A funding rate is the share of competitively reviewed proposals that get
+# funded. It is worth showing because it is the one number that says how long
+# the odds are, and it is dangerous to invent, so nothing here is estimated:
+# each entry is a figure the funder itself publishes, with the arithmetic and
+# the source alongside it.
+#
+# Checked 2026-10-15:
+#
+#   NIH  publishes success rates in the NIH Data Book, pulled here straight
+#        from its own API (report 29, R01-equivalent). FY2025 is 5,471 awards
+#        from 42,022 applications. All research project grants together, its
+#        report 20, land on the same 13% from 8,161 of 62,592.
+#
+#   NSF  does not have a comparable published actual. Its Funding Profile
+#        prints a funding rate, but that table is explicitly an estimate: the
+#        FY2025 request projected 27%, while the year appears to have come in
+#        far lower. NSF by the Numbers carries actuals, as a Tableau embed
+#        with no queryable endpoint and no FY2025 data. So NSF rows say
+#        nothing rather than repeat a projection as though it were a result.
+#
+#   Everyone else, DoD and DARPA through the foundations and the industry
+#        programmes, publishes no rate at all.
+#
+# The honest consequence is that this column is mostly empty. An empty cell
+# here means the funder does not publish the number, not that the odds are
+# unknown to be bad.
+FUNDING_RATES = [
+    (re.compile(r'^NIH\b', re.I), re.compile(r'grants\.nih\.gov|simpler\.grants\.gov|federalregister', re.I), {
+        'rate': '13%',
+        'basis': 'NIH-wide R01-equivalent success rate, FY2025: 5,471 awards '
+                 'from 42,022 applications. Not this call\'s odds, and '
+                 'individual institutes differ.',
+        'source': 'https://report.nih.gov/nihdatabook/category/10',
+        'source_name': 'NIH Data Book',
+    }),
+]
+
+
+def funding_rate(row):
+    for sponsor_re, url_re, info in FUNDING_RATES:
+        if sponsor_re.search(row.get('sponsor', '')) and url_re.search(row.get('url', '')):
+            return info
+    return None
+
+
 def load(path):
     text = pathlib.Path(path).read_text(encoding='utf-8-sig').replace('\r\n', '\n')
     if text.lstrip().lower().startswith(('<!doctype', '<html')):
@@ -295,6 +342,15 @@ def main():
             if o.get(k):
                 target[k] = o[k]
 
+    # Attach the published funding rate before anything is serialized.
+    for r in registry:
+        info = funding_rate(r)
+        if info:
+            r['rate'] = info['rate']
+            r['rate_basis'] = info['basis']
+            r['rate_source'] = info['source']
+            r['rate_source_name'] = info['source_name']
+
     data = {
         'date': date,
         'window': window,
@@ -352,9 +408,11 @@ def main():
             print(f'    {v}')
 
     picks = sum(1 for r in registry if r.get('pick'))
+    rated = sum(1 for r in registry if r.get('rate'))
     print(f'brief {date}: {len(opps)} opportunities ({picks} matched into the '
-          f'registry), {len(signals)} signals, {len(registry)} registry rows, '
-          f'{len(watchlist)} watchlist rows')
+          f'registry), {len(signals)} signals, {len(registry)} registry rows '
+          f'({rated} with a published funding rate), {len(watchlist)} '
+          f'watchlist rows')
 
 
 if __name__ == '__main__':

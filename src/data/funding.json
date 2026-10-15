@@ -494,42 +494,66 @@
       "sponsor": "NIH",
       "program": "AREA R15 PAR-25-134",
       "deadline": "2026-10-26",
-      "url": "https://grants.nih.gov/grants/guide/pa-files/PAR-25-134.html"
+      "url": "https://grants.nih.gov/grants/guide/pa-files/PAR-25-134.html",
+      "rate": "13%",
+      "rate_basis": "NIH-wide R01-equivalent success rate, FY2025: 5,471 awards from 42,022 applications. Not this call's odds, and individual institutes differ.",
+      "rate_source": "https://report.nih.gov/nihdatabook/category/10",
+      "rate_source_name": "NIH Data Book"
     },
     {
       "first_seen_date": "2026-10-09",
       "sponsor": "NIH",
       "program": "Parent R21 PA-25-304 and R03 PA-25-302",
       "deadline": "2026-10-16",
-      "url": "https://grants.nih.gov/grants/guide/pa-files/PA-25-304.html"
+      "url": "https://grants.nih.gov/grants/guide/pa-files/PA-25-304.html",
+      "rate": "13%",
+      "rate_basis": "NIH-wide R01-equivalent success rate, FY2025: 5,471 awards from 42,022 applications. Not this call's odds, and individual institutes differ.",
+      "rate_source": "https://report.nih.gov/nihdatabook/category/10",
+      "rate_source_name": "NIH Data Book"
     },
     {
       "first_seen_date": "2026-10-09",
       "sponsor": "NIH NIDCD",
       "program": "ECR R21 PAR-25-120 (ineligible, prior federal PI)",
       "deadline": "2026-10-19",
-      "url": "https://grants.nih.gov/grants/guide/pa-files/PAR-25-120.html"
+      "url": "https://grants.nih.gov/grants/guide/pa-files/PAR-25-120.html",
+      "rate": "13%",
+      "rate_basis": "NIH-wide R01-equivalent success rate, FY2025: 5,471 awards from 42,022 applications. Not this call's odds, and individual institutes differ.",
+      "rate_source": "https://report.nih.gov/nihdatabook/category/10",
+      "rate_source_name": "NIH Data Book"
     },
     {
       "first_seen_date": "2026-10-09",
       "sponsor": "NIH",
       "program": "Parent K25 PA-24-191",
       "deadline": "2026-10-13",
-      "url": "https://grants.nih.gov/grants/guide/pa-files/PA-24-191.html"
+      "url": "https://grants.nih.gov/grants/guide/pa-files/PA-24-191.html",
+      "rate": "13%",
+      "rate_basis": "NIH-wide R01-equivalent success rate, FY2025: 5,471 awards from 42,022 applications. Not this call's odds, and individual institutes differ.",
+      "rate_source": "https://report.nih.gov/nihdatabook/category/10",
+      "rate_source_name": "NIH Data Book"
     },
     {
       "first_seen_date": "2026-10-09",
       "sponsor": "NIH NLM",
       "program": "PAR-26-042, PAR-26-040, PAR-25-235, PAR-25-131",
       "deadline": "resubmissions Oct to Nov 2026",
-      "url": "https://simpler.grants.gov/opportunity/131fabad-5506-431b-b87a-e564f1d8dcc4"
+      "url": "https://simpler.grants.gov/opportunity/131fabad-5506-431b-b87a-e564f1d8dcc4",
+      "rate": "13%",
+      "rate_basis": "NIH-wide R01-equivalent success rate, FY2025: 5,471 awards from 42,022 applications. Not this call's odds, and individual institutes differ.",
+      "rate_source": "https://report.nih.gov/nihdatabook/category/10",
+      "rate_source_name": "NIH Data Book"
     },
     {
       "first_seen_date": "2026-10-09",
       "sponsor": "NIH Common Fund",
       "program": "Human Virome R03 RFA-RM-27-024",
       "deadline": "2026-11-10",
-      "url": "https://simpler.grants.gov/opportunity/50dc6b92-b042-4204-ba74-2753a244be5a"
+      "url": "https://simpler.grants.gov/opportunity/50dc6b92-b042-4204-ba74-2753a244be5a",
+      "rate": "13%",
+      "rate_basis": "NIH-wide R01-equivalent success rate, FY2025: 5,471 awards from 42,022 applications. Not this call's odds, and individual institutes differ.",
+      "rate_source": "https://report.nih.gov/nihdatabook/category/10",
+      "rate_source_name": "NIH Data Book"
     },
     {
       "first_seen_date": "2026-10-09",
@@ -672,7 +696,11 @@
       "budget": "no cap, up to 5 years",
       "eligibility": "ESI only, genuinely new direction, no preliminary data",
       "competition": "medium",
-      "source_tier": "L1"
+      "source_tier": "L1",
+      "rate": "13%",
+      "rate_basis": "NIH-wide R01-equivalent success rate, FY2025: 5,471 awards from 42,022 applications. Not this call's odds, and individual institutes differ.",
+      "rate_source": "https://report.nih.gov/nihdatabook/category/10",
+      "rate_source_name": "NIH Data Book"
     },
     {
       "first_seen_date": "2026-10-14",
@@ -895,7 +923,11 @@
       "budget": "annual direct costs under $500K",
       "eligibility": "requires a bench-to-clinic team",
       "competition": "medium",
-      "source_tier": "L1"
+      "source_tier": "L1",
+      "rate": "13%",
+      "rate_basis": "NIH-wide R01-equivalent success rate, FY2025: 5,471 awards from 42,022 applications. Not this call's odds, and individual institutes differ.",
+      "rate_source": "https://report.nih.gov/nihdatabook/category/10",
+      "rate_source_name": "NIH Data Book"
     },
     {
       "first_seen_date": "2026-10-14",
@@ -907,7 +939,11 @@
       "budget": "$150K to $350K per year",
       "eligibility": "names AI and graph models",
       "competition": "medium",
-      "source_tier": "L1"
+      "source_tier": "L1",
+      "rate": "13%",
+      "rate_basis": "NIH-wide R01-equivalent success rate, FY2025: 5,471 awards from 42,022 applications. Not this call's odds, and individual institutes differ.",
+      "rate_source": "https://report.nih.gov/nihdatabook/category/10",
+      "rate_source_name": "NIH Data Book"
     },
     {
       "first_seen_date": "2026-10-14",
@@ -1030,7 +1066,11 @@
       "sponsor": "NIH NHGRI",
       "program": "IGVF Computational Modeling RFA-HG-27-010",
       "deadline": "2026-12-14",
-      "url": "https://simpler.grants.gov/opportunity/c223b7bc-1da4-4533-a09f-d35659e6d29b"
+      "url": "https://simpler.grants.gov/opportunity/c223b7bc-1da4-4533-a09f-d35659e6d29b",
+      "rate": "13%",
+      "rate_basis": "NIH-wide R01-equivalent success rate, FY2025: 5,471 awards from 42,022 applications. Not this call's odds, and individual institutes differ.",
+      "rate_source": "https://report.nih.gov/nihdatabook/category/10",
+      "rate_source_name": "NIH Data Book"
     },
     {
       "first_seen_date": "2026-10-14",
@@ -1077,21 +1117,33 @@
       "sponsor": "NIH NCCIH",
       "program": "Remote mHealth CT R01 PAR-25-268",
       "deadline": "2026-11-17",
-      "url": "https://simpler.grants.gov/opportunity/e4e8aa66-546b-4bf7-994e-395c11b8b7cf"
+      "url": "https://simpler.grants.gov/opportunity/e4e8aa66-546b-4bf7-994e-395c11b8b7cf",
+      "rate": "13%",
+      "rate_basis": "NIH-wide R01-equivalent success rate, FY2025: 5,471 awards from 42,022 applications. Not this call's odds, and individual institutes differ.",
+      "rate_source": "https://report.nih.gov/nihdatabook/category/10",
+      "rate_source_name": "NIH Data Book"
     },
     {
       "first_seen_date": "2026-10-14",
       "sponsor": "NIH",
       "program": "Collaborative Program Grant RM1 PAR-27-003",
       "deadline": "TBD",
-      "url": "https://simpler.grants.gov/opportunity/c467080e-51a0-4a76-b416-035664fa95df"
+      "url": "https://simpler.grants.gov/opportunity/c467080e-51a0-4a76-b416-035664fa95df",
+      "rate": "13%",
+      "rate_basis": "NIH-wide R01-equivalent success rate, FY2025: 5,471 awards from 42,022 applications. Not this call's odds, and individual institutes differ.",
+      "rate_source": "https://report.nih.gov/nihdatabook/category/10",
+      "rate_source_name": "NIH Data Book"
     },
     {
       "first_seen_date": "2026-10-14",
       "sponsor": "NIH Common Fund",
       "program": "SenNet SenTecs RFA-RM-27-007",
       "deadline": "2026-11-23",
-      "url": "https://simpler.grants.gov/search?agency=HHS-NIH11&status=forecasted,posted&sortby=postedDateDesc"
+      "url": "https://simpler.grants.gov/search?agency=HHS-NIH11&status=forecasted,posted&sortby=postedDateDesc",
+      "rate": "13%",
+      "rate_basis": "NIH-wide R01-equivalent success rate, FY2025: 5,471 awards from 42,022 applications. Not this call's odds, and individual institutes differ.",
+      "rate_source": "https://report.nih.gov/nihdatabook/category/10",
+      "rate_source_name": "NIH Data Book"
     },
     {
       "first_seen_date": "2026-10-14",
@@ -1287,7 +1339,11 @@
       "sponsor": "NIH NIDCD",
       "program": "Strategic Plan 2028 to 2032 RFI",
       "deadline": "2026-10-26",
-      "url": "https://www.federalregister.gov/documents/2026/08/25/2026-17311/request-for-information-rfi-request-for-information-on-new-and-emerging-areas-of-science-relevant-to"
+      "url": "https://www.federalregister.gov/documents/2026/08/25/2026-17311/request-for-information-rfi-request-for-information-on-new-and-emerging-areas-of-science-relevant-to",
+      "rate": "13%",
+      "rate_basis": "NIH-wide R01-equivalent success rate, FY2025: 5,471 awards from 42,022 applications. Not this call's odds, and individual institutes differ.",
+      "rate_source": "https://report.nih.gov/nihdatabook/category/10",
+      "rate_source_name": "NIH Data Book"
     },
     {
       "first_seen_date": "2026-10-14",
@@ -1308,35 +1364,55 @@
       "sponsor": "NIH Common Fund",
       "program": "DP2 New Innovator RFA-RM-28-002 (forecast)",
       "deadline": "est 2027-08-19",
-      "url": "https://simpler.grants.gov/opportunity/469a39ab-1b4c-471e-b612-5e979f656f27"
+      "url": "https://simpler.grants.gov/opportunity/469a39ab-1b4c-471e-b612-5e979f656f27",
+      "rate": "13%",
+      "rate_basis": "NIH-wide R01-equivalent success rate, FY2025: 5,471 awards from 42,022 applications. Not this call's odds, and individual institutes differ.",
+      "rate_source": "https://report.nih.gov/nihdatabook/category/10",
+      "rate_source_name": "NIH Data Book"
     },
     {
       "first_seen_date": "2026-10-14",
       "sponsor": "NIH NIBIB",
       "program": "Trailblazer R21 reissue FOR-EB-26-001 (forecast)",
       "deadline": "TBD",
-      "url": "https://simpler.grants.gov/opportunity/9f06c317-b398-4482-89b1-57bcf35363f3"
+      "url": "https://simpler.grants.gov/opportunity/9f06c317-b398-4482-89b1-57bcf35363f3",
+      "rate": "13%",
+      "rate_basis": "NIH-wide R01-equivalent success rate, FY2025: 5,471 awards from 42,022 applications. Not this call's odds, and individual institutes differ.",
+      "rate_source": "https://report.nih.gov/nihdatabook/category/10",
+      "rate_source_name": "NIH Data Book"
     },
     {
       "first_seen_date": "2026-10-14",
       "sponsor": "NIH Common Fund",
       "program": "Bridge2AI Stage 2 RFA-RM-28-010 (forecast)",
       "deadline": "est 2027-03-01",
-      "url": "https://simpler.grants.gov/opportunity/602cbc1a-d601-44f1-90d7-e6914ba594a6"
+      "url": "https://simpler.grants.gov/opportunity/602cbc1a-d601-44f1-90d7-e6914ba594a6",
+      "rate": "13%",
+      "rate_basis": "NIH-wide R01-equivalent success rate, FY2025: 5,471 awards from 42,022 applications. Not this call's odds, and individual institutes differ.",
+      "rate_source": "https://report.nih.gov/nihdatabook/category/10",
+      "rate_source_name": "NIH Data Book"
     },
     {
       "first_seen_date": "2026-10-14",
       "sponsor": "NIH NIA",
       "program": "Precision Aging RFA-AG-26-022 (forecast)",
       "deadline": "TBD",
-      "url": "https://simpler.grants.gov/opportunity/b19c89bb-baf4-4121-a24f-28891f9b1111"
+      "url": "https://simpler.grants.gov/opportunity/b19c89bb-baf4-4121-a24f-28891f9b1111",
+      "rate": "13%",
+      "rate_basis": "NIH-wide R01-equivalent success rate, FY2025: 5,471 awards from 42,022 applications. Not this call's odds, and individual institutes differ.",
+      "rate_source": "https://report.nih.gov/nihdatabook/category/10",
+      "rate_source_name": "NIH Data Book"
     },
     {
       "first_seen_date": "2026-10-14",
       "sponsor": "NIH NIA",
       "program": "Digital Health ADRD U54 RFA-AG-27-002 (forecast)",
       "deadline": "TBD",
-      "url": "https://simpler.grants.gov/opportunity/e4a95157-fd31-4a44-96ef-cfa0f95ec39c"
+      "url": "https://simpler.grants.gov/opportunity/e4a95157-fd31-4a44-96ef-cfa0f95ec39c",
+      "rate": "13%",
+      "rate_basis": "NIH-wide R01-equivalent success rate, FY2025: 5,471 awards from 42,022 applications. Not this call's odds, and individual institutes differ.",
+      "rate_source": "https://report.nih.gov/nihdatabook/category/10",
+      "rate_source_name": "NIH Data Book"
     },
     {
       "first_seen_date": "2026-10-14",
