@@ -30,7 +30,6 @@ else:
 for url, dest in [
     ('https://raw.githubusercontent.com/emeryberger/CSrankings/gh-pages/csrankings.js', 'csrankings.js'),
     ('https://portal.core.edu.au/conf-ranks/?search=&by=all&source=CORE2023&sort=atitle&page=1&do=Export', 'core2023.csv'),
-    ('https://raw.githubusercontent.com/lixin4ever/Conference-Acceptance-Rate/master/README.md', 'ar.md'),
 ]:
     with urllib.request.urlopen(url, timeout=120) as r, open(dest,'wb') as f:
         f.write(r.read())
@@ -57,34 +56,12 @@ def official(title, desc):
     return None
 
 # ---------- acceptance rates ----------
-# The rate table and the CCF catalogue spell several venues differently;
-# without these, KDD and friends silently lose their whole history.
-AR_ALIAS={'TheWebConf':'WWW','NAACL-HLT':'NAACL','KDD':'SIGKDD','SIGKDD':'SIGKDD',
-          'CCS':'CCS','S&P':'S&P','Oakland':'S&P','IEEE S&P':'S&P',
-          'USENIX':'USENIX Security','USENIX Sec':'USENIX Security','SP':'S&P',
-          'MM':'ACM MM','ACMMM':'ACM MM'}
-rates=collections.defaultdict(dict)
-# Remember which README section each venue sits under, so the page can link
-# straight to the table the numbers came from instead of the repo root.
-rate_section={}
-_sec=''
-for line in open('ar.md'):
-    if line.startswith('### '):
-        _sec=re.sub(r'[^a-z0-9]+','-',line[4:].strip().lower()).strip('-')
-        continue
-    if not line.startswith('|') or '---' in line or line.startswith('| Conference'): continue
-    cells=[c.strip() for c in line.strip().strip('|').split('|')]
-    m=re.match(r"([A-Za-z0-9&\-\. ]+?)[''](\d{2})(.*)", cells[0])
-    if not m: continue
-    name, yy, suffix = m.group(1).strip(), int(m.group(2)), m.group(3).strip()
-    if 'finding' in suffix.lower(): continue      # Findings is a separate track
-    pct=re.search(r'([\d.]+)%', cells[1] if len(cells)>1 else '')
-    if not pct: continue
-    year = 2000+yy
-    key=AR_ALIAS.get(name, name)
-    rates[key][year]=float(pct.group(1))
-    rate_section.setdefault(key, _sec)
-
+# One source only: cs-conf-stats, which publishes accepted and submitted
+# counts per year and is current to 2026. The older README compilation
+# (lixin4ever/Conference-Acceptance-Rate) used to fill the gaps, but it
+# carried percentages with no counts behind them, no submission series, and
+# no way to check a number against anything. A venue cs-conf-stats does not
+# cover now shows no rate rather than an unverifiable one.
 # cs-conf-stats carries accepted/submitted counts per year and is current to
 # 2026 for most venues, so it is the primary source; the older compilation is
 # kept only to fill venues it does not cover.
@@ -548,9 +525,9 @@ for sub in ['AI','SC','DB','MX','CG','HI']:
             deadlines_in_ref={dstr(t.get('deadline')) for t in tl_ref if dstr(t.get('deadline'))}
             cycles=len(deadlines_in_ref) if len(deadlines_in_ref)>1 else 1
             roundLabels=[l for l in labels if l] if cycles>1 else []
-            hist=sorted((csc_rates.get(t) or rates.get(t, {})).items())
+            hist=sorted(csc_rates.get(t, {}).items())
             subs=sorted(csc_subs.get(t, {}).items())
-            rsrc='csc' if t in csc_rates else ('ar' if t in rates else '')
+            rsrc='csc' if t in csc_rates else ''
             off=official(t,d); mirror=canon(r.get('core','N'))
             out.append({
                 'title':t, 'desc':d, 'area':area(sub,t), 'sub':sub,
@@ -574,7 +551,6 @@ for sub in ['AI','SC','DB','MX','CG','HI']:
                 'proceedings': 'full',
                 'rates': [{'y':y,'r':v} for y,v in hist],
                 'subs': [{'y':y,'n':n} for y,n in subs],
-                'rateSection': rate_section.get(t,''),
                 'rateSrc': rsrc, 'rateSlug': csc_slug.get(t,''),
             })
 json.dump(out, open('built.json','w'))
@@ -715,7 +691,7 @@ for n in NOTABLE:
     n.setdefault('equivalent', None)   # editorial, not an official rank
     nd, ny, est = roll(n.get('lastDeadline',''), n.get('period',1))
     n.update({'ccf':n.get('ccfManual','N'),'core':n.get('coreManual','N'),'coreVerified':False,'nextAbstract':'',
-              'cycles':1,'roundLabels':[],'rates':[],'rateSection':'','rateSrc':'','rateSlug':'','rounds':[],'dblp':'','best':'','csr':'','edition':'','sub':'',
+              'cycles':1,'roundLabels':[],'rates':[],'rateSrc':'','rateSlug':'','rounds':[],'dblp':'','best':'','csr':'','edition':'','sub':'',
               'estimated':est,'estFrom':n.get('lastDeadline','') if est else '',
               # The deadline year is not the edition year for any of these:
               # MLSys closes in October for the following year's conference.
@@ -769,7 +745,7 @@ MANUAL_OTHERS=[
    'nextDeadline':'', 'nextYear':None, 'nextAbstract':'', 'estimated':False, 'estFrom':'',
    'rounds':[], 'dblp':'cdc', 'csr':'', 'edition':'', 'best':'',
    'date':'', 'place':'', 'cc':'', 'city':'', 'cycles':1, 'roundLabels':[],
-   'proceedings':'full', 'rates':[], 'rateSection':'', 'rateSrc':'', 'rateSlug':'',
+   'proceedings':'full', 'rates':[], 'rateSrc':'', 'rateSlug':'',
    'tier':3},
 ]
 others=sorted([c for c in out if not listed(c)] + MANUAL_OTHERS,
@@ -779,8 +755,8 @@ notable=sorted(society, key=lambda c:(c['area'], c['title']))
 hdr=("// Generated by scripts/build-conferences.py — do not edit by hand.\n"
      "// CCF ranks mirror the CCF catalogue via github.com/ccfddl/ccf-deadlines.\n"
      "// CORE ranks are cross-checked against the official CORE2023 export from\n"
-     "// portal.core.edu.au. Acceptance rates come from\n"
-     "// github.com/lixin4ever/Conference-Acceptance-Rate (main track only).\n"
+     "// portal.core.edu.au. Acceptance rates and submission counts come from\n"
+     "// github.com/Xovee/cs-conf-stats (main track only).\n"
      f"// Built {TODAY.isoformat()}.\n")
 body=(hdr + "export const ranked = %s;\n\nexport const others = %s;\n\n"
       "// Hand-maintained; the ranking tables do not reach these.\nexport const notable = %s;\n"

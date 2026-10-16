@@ -21,7 +21,6 @@ const AREA_ICON = {
   [SOCIETY]: 'fa-people-group',
 };
 const DEFAULT_AREA = 'AI / ML / Data Mining';
-const AR_REPO = 'https://github.com/lixin4ever/Conference-Acceptance-Rate';
 // Fixed 0-45% scale: the point of the bars is to compare venues to each other,
 // which a per-row scale would destroy.
 const RATE_MAX = 45;
@@ -123,7 +122,6 @@ const chart = (rates) => {
     span: `${rates[0].y}\u2013${rates[rates.length - 1].y}`,
   };
 };
-const AR_REPO_OLD = 'https://github.com/lixin4ever/Conference-Acceptance-Rate';
 const CSC = 'https://csconfstats.xoveexu.com/conferences';
 const DBLP = 'https://dblp.org/db/conf';
 const BEST = 'https://jeffhuang.com/best_paper_awards/conferences.html';
@@ -621,7 +619,7 @@ const freshRated = rows.filter((c) => c.rates.length && c.rates[c.rates.length -
                   {last
                     ? <div class={`rate ${stale ? 'is-stale' : ''}`}>
                         <div class="rate-side">
-                          <a class="rate-more" href={c.rateSrc === 'csc' ? `${CSC}/${c.rateSlug}/` : `${AR_REPO_OLD}#${c.rateSection}`} target="_blank" rel="noopener" title="Full year-by-year history at the source">
+                          <a class="rate-more" href={`${CSC}/${c.rateSlug}/`} target="_blank" rel="noopener" title="Full year-by-year history at the source">
                             {c.rates.length} yrs <i class="fas fa-arrow-up-right-from-square" aria-hidden="true"></i>
                           </a>
                           {stale && <span class="rate-stale-note">ends {last.y}</span>}
@@ -773,10 +771,6 @@ const freshRated = rows.filter((c) => c.rates.length && c.rates[c.rates.length -
         <li>
           <a href="https://scholar.google.com/citations?view_op=top_venues&hl=en" target="_blank" rel="noopener">Scholar Metrics</a>
           <span>h5-index per field, linked not imported</span>
-        </li>
-        <li>
-          <a href="https://github.com/lixin4ever/Conference-Acceptance-Rate" target="_blank" rel="noopener">Conference-Acceptance-Rate</a>
-          <span>Older rates, fallback only</span>
         </li>
         <li>
           <span class="src-plain">Official conference sites</span>
