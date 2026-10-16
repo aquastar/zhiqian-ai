@@ -89,14 +89,20 @@ for line in open('ar.md'):
 # 2026 for most venues, so it is the primary source; the older compilation is
 # kept only to fill venues it does not cover.
 CSC_ALIAS={'KDD':'SIGKDD','IEEE S&P':'S&P','Interspeech':'InterSpeech'}
-csc_rates={}; csc_slug={}; csc_ordinal={}
+csc_rates={}; csc_slug={}; csc_ordinal={}; csc_subs={}
 for c in json.load(open('cs-conf-stats/data/conf.json'))['conferences']:
     t=CSC_ALIAS.get(c['series'], c['series'])
     hist={}
     for y in c.get('yearly_data') or []:
         mt=y.get('main_track') or {}
         a,sb=mt.get('num_acc'), mt.get('num_sub')
-        if a and sb: hist[y['year']]=round(100*a/sb, 1)
+        if a and sb:
+            hist[y['year']]=round(100*a/sb, 1)
+            # The submission count alongside the rate. A rate cannot tell a
+            # harder bar from a bigger pile; the two series together can.
+            # Most venues grew acceptances in step with submissions and held
+            # their rate near 25%, and the ones whose rate fell did not.
+            csc_subs.setdefault(t, {})[y['year']]=sb
     if hist:
         csc_rates[t]=hist
         csc_slug[t]=c['series'].lower().replace(' ','-').replace('&','')
@@ -543,6 +549,7 @@ for sub in ['AI','SC','DB','MX','CG','HI']:
             cycles=len(deadlines_in_ref) if len(deadlines_in_ref)>1 else 1
             roundLabels=[l for l in labels if l] if cycles>1 else []
             hist=sorted((csc_rates.get(t) or rates.get(t, {})).items())
+            subs=sorted(csc_subs.get(t, {}).items())
             rsrc='csc' if t in csc_rates else ('ar' if t in rates else '')
             off=official(t,d); mirror=canon(r.get('core','N'))
             out.append({
@@ -566,6 +573,7 @@ for sub in ['AI','SC','DB','MX','CG','HI']:
                 'cycles': cycles, 'roundLabels': roundLabels,
                 'proceedings': 'full',
                 'rates': [{'y':y,'r':v} for y,v in hist],
+                'subs': [{'y':y,'n':n} for y,n in subs],
                 'rateSection': rate_section.get(t,''),
                 'rateSrc': rsrc, 'rateSlug': csc_slug.get(t,''),
             })
