@@ -29,7 +29,13 @@ const RATE_MAX = 45;
 // the rest of the cell was empty, which is most of what made this table look
 // padded. The geometry itself grows rather than the drawing being stretched,
 // so the line keeps its weight and the dot stays round.
-const CHART = { w: 300, h: 38 };
+//
+// Twice as tall as it was, too. At 38 units against 300 wide, a swing from
+// 20% to 40% was a few pixels of vertical travel and every venue's history
+// looked like the same flat line. The extra height is pure vertical
+// resolution: the scale is still fixed at 0 to RATE_MAX, so two venues are
+// still directly comparable, there is simply room to see the shape.
+const CHART = { w: 300, h: 76 };
 // A line over the whole published history, on a fixed axis so two venues can
 // be compared by eye. The three most recent numbers are printed underneath,
 // because that is what anyone actually wants off this cell.
