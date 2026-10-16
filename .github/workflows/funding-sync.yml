@@ -39,7 +39,12 @@ jobs:
           rm -f brief.txt registry.txt watchlist.csv
           git config user.name "aquastar"
           git config user.email "2832070+aquastar@users.noreply.github.com"
-          git add src/pages/funding public/funding
+          # src/data/funding.json is what the page imports. Leaving it out
+          # of the commit published new files every week while the rendered
+          # page kept whatever data was last committed by hand: on
+          # 2026-10-16 the published registry held 172 rows and the page
+          # still showed 134.
+          git add src/pages/funding public/funding src/data/funding.json
           if git diff --cached --quiet; then
             echo "No changes"
           else
