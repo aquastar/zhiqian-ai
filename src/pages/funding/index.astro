@@ -88,10 +88,13 @@ const COMP_WORD = { 1: 'light', 2: 'moderate', 3: 'competitive', 4: 'hard', 5: '
       <div class="brief-main">
         <h1>AI funding, tracked weekly</h1>
         <p class="sub">
-          A standing scan of federal, foundation, industry and philanthropic calls in AI and
-          adjacent computing. Rebuilt every Friday morning from the week's sweep. Dates and
-          amounts are copied from the call as written, so treat the sponsor's own page as the
-          authority and this as the index that gets you there.
+          Built every Friday from three things: a hand-kept watchlist of <b>{data.counts.watchlist} funders</b>
+          swept whether or not they have announced anything, that week's own trawl for calls nobody
+          was watching for, and a ledger of everything seen before so the new ones can be told apart.
+          What an award is worth comes from <a href="https://www.grants.gov/" target="_blank" rel="noopener">grants.gov</a>,
+          which publishes a per-award ceiling and floor, and from NSF's own solicitation pages.
+          Everything is copied as the funder wrote it, so their page is the authority and this is
+          the index that gets you there.
         </p>
         <p class="window">
           {data.window.new_since && (
@@ -105,10 +108,10 @@ const COMP_WORD = { 1: 'light', 2: 'moderate', 3: 'competitive', 4: 'hard', 5: '
           <span class="stamp-date">{data.date}</span>
         </div>
         <ul class="tally">
-          <li><b>{counts.all}</b><span>tracked</span></li>
-          <li><b>{counts.pick}</b><span>this week</span></li>
-          <li><b>{counts.open}</b><span>still open</span></li>
-          <li><b>{data.counts.watchlist}</b><span>on watch</span></li>
+          <li title="Every call the sweep has ever reported, including the closed ones, which are kept so the list reads as a record rather than only a to-do."><b>{counts.all}</b><span>tracked</span></li>
+          <li title="Picked out of this week's sweep as worth a look, rather than merely logged. These are the rows carrying a budget and a competition grade."><b>{counts.pick}</b><span>this week</span></li>
+          <li title="Calls with at least one date still ahead of today, counted in your browser rather than at build time."><b>{counts.open}</b><span>still open</span></li>
+          <li title={`Funders on the standing watchlist, checked every Friday whether or not they have announced anything. ${unverified} of their links are not yet confirmed.`}><b>{data.counts.watchlist}</b><span>on watch</span></li>
         </ul>
         <div class="grabs">
           <a href="/funding/data.json" title="Everything on this page as one JSON file: the week's opportunities, the full registry, the watchlist and the early signals, with the counts and the collection window. Written by the Friday job from the three sources below it.">data.json</a>
@@ -247,7 +250,10 @@ const COMP_WORD = { 1: 'light', 2: 'moderate', 3: 'competitive', 4: 'hard', 5: '
      a heading or a table cell, where it opens rivers between two or three
      words. Both are set back to left here. */
   .brief h1 { font-size:1.5rem; margin:0 0 6px; letter-spacing:-.02em; text-align:left; }
-  .sub { margin:0; color:#475569; font-size:.86rem; line-height:1.6; max-width:70ch; }
+  .sub { margin:0; color:#475569; font-size:.82rem; line-height:1.6; max-width:78ch; }
+  .sub b { color:#0f172a; font-weight:700; }
+  .sub a { color:#1d4ed8; text-decoration:none; border-bottom:1px solid rgba(29,78,216,.3); }
+  .sub a:hover { border-color:currentColor; }
   .window { margin:8px 0 0; font-size:.8rem; color:#475569; }
   .window b { color:#0f172a; font-variant-numeric:tabular-nums; }
   .brief-side { flex:0 0 auto; display:flex; flex-direction:column; gap:9px; align-items:flex-end; }
@@ -255,7 +261,7 @@ const COMP_WORD = { 1: 'light', 2: 'moderate', 3: 'competitive', 4: 'hard', 5: '
   .stamp-label { font-size:.6rem; font-weight:800; letter-spacing:.09em; text-transform:uppercase; color:#94a3b8; }
   .stamp-date { font-size:1.05rem; font-weight:800; color:#0f172a; font-variant-numeric:tabular-nums; }
   .tally { list-style:none; display:flex; gap:7px; margin:0; padding:0; }
-  .tally li { display:flex; flex-direction:column; align-items:center; min-width:62px;
+  .tally li { display:flex; flex-direction:column; align-items:center; min-width:62px; cursor:help;
     padding:5px 8px; border-radius:9px; background:#fff; border:1px solid rgba(148,163,184,.3); }
   .tally b { font-size:1rem; color:#0f172a; font-variant-numeric:tabular-nums; }
   .tally span { font-size:.58rem; font-weight:700; letter-spacing:.05em; text-transform:uppercase; color:#94a3b8; }
