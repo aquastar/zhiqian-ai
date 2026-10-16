@@ -248,6 +248,14 @@ MANUAL = [
  {'title':'PSB','desc':'Pacific Symposium on Biocomputing','year':2027,
   'place':'Kohala Coast, Big Island, Hawaii, USA','date':'January 3-7, 2027',
   'deadline':'2026-12-01','open':True,'link':'https://psb.stanford.edu/'},
+ # CDC is in neither ccfddl nor the CORE export, both of which are
+ # computing, so nothing upstream knows it exists and it has to be named
+ # here. The 65th is at the Hilton Hawaiian Village; its paper deadline was
+ # 31 March 2026 and has long gone, so the call shows as closed. The 66th
+ # has no announced venue yet, which is why only this edition is listed.
+ {'title':'CDC','desc':'IEEE Conference on Decision and Control','year':2026,
+  'place':'Honolulu, Hawaii, USA','date':'December 15-18, 2026',
+  'deadline':'2026-03-31','open':False,'link':'https://cdc2026.ieeecss.org/'},
  {'title':'AMOS','desc':'Advanced Maui Optical and Space Surveillance Technologies Conference','year':2027,
   'place':'Maui, Hawaii, USA','date':'September 14-17, 2027',
   'deadline':'','open':False,'link':'https://amostech.com/'},

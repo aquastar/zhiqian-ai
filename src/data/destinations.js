@@ -3,7 +3,7 @@
 // Only CCF A or B, or CORE A* or A, plus the venues added by hand in
 // the script. Destinations deliberately mix cities, countries and
 // regions, because that is how people choose where to go.
-// Built 2026-10-12.
+// Built 2026-10-15.
 export const destinations = {
  "items": [
   {
@@ -209,6 +209,23 @@ export const destinations = {
    "open": false,
    "link": "https://www.sigsac.org/ccs/CCS2026/",
    "q": "world forum, hague, netherlands world forum netherlands "
+  },
+  {
+   "title": "CDC",
+   "desc": "IEEE Conference on Decision and Control",
+   "year": 2026,
+   "place": "Honolulu, Hawaii, USA",
+   "date": "December 15-18, 2026",
+   "deadline": "2026-03-31",
+   "open": false,
+   "link": "https://cdc2026.ieeecss.org/",
+   "city": "Honolulu",
+   "country": "United States",
+   "dest": "Hawaii",
+   "icon": "umbrella-beach",
+   "q": "honolulu, hawaii, usa honolulu united states ",
+   "ccf": "N",
+   "core": "N"
   },
   {
    "title": "CIKM",
@@ -1701,7 +1718,7 @@ export const destinations = {
    "icon": "wine-bottle",
    "ccf": "B",
    "core": "C",
-   "deadline": "2026-10-13",
+   "deadline": "2026-10-22",
    "open": true,
    "link": "https://2027.ieee-iscas.org/",
    "q": "bordeaux, france bordeaux france "
@@ -1837,7 +1854,7 @@ export const destinations = {
    "icon": "sun",
    "ccf": "B",
    "core": "A",
-   "deadline": "2026-10-12",
+   "deadline": "2026-12-23",
    "open": true,
    "link": "https://2027.naacl.org/",
    "q": "san francisco, california, usa san francisco united states "
@@ -1905,8 +1922,8 @@ export const destinations = {
    "icon": "wine-glass",
    "ccf": "B",
    "core": "A",
-   "deadline": "",
-   "open": false,
+   "deadline": "2027-03-01",
+   "open": true,
    "link": "https://conf.researchr.org/home/RE-2027",
    "q": "milan, italy milan italy "
   },
@@ -2187,7 +2204,7 @@ export const destinations = {
   {
    "name": "Hawaii",
    "icon": "umbrella-beach",
-   "n": 8
+   "n": 9
   },
   {
    "name": "Hong Kong",
