@@ -87,15 +87,23 @@ const COMP_WORD = { 1: 'light', 2: 'moderate', 3: 'competitive', 4: 'hard', 5: '
     <section class="brief">
       <div class="brief-main">
         <h1>AI funding, tracked weekly</h1>
-        {/* Sources as a list, not a paragraph. Four facts that each fit on
-            one line do not need prose, and the prose left most of the left
-            half of the header white. */}
-        <ul class="sources">
-          <li><b>{data.counts.watchlist} funders</b> on a standing watchlist, swept every Friday whether or not they have announced anything</li>
-          <li><b>This week's trawl</b>, for calls nobody was watching for</li>
-          <li><b>A ledger</b> of everything seen before, so the genuinely new ones stand out</li>
-          <li><b><a href="https://www.grants.gov/" target="_blank" rel="noopener">grants.gov</a> and NSF</b> for what one award is worth, copied as the funder wrote it</li>
-        </ul>
+        {/* Noun phrases, not sentences. Where the list comes from, named
+            and nothing more.
+
+            CSRankings belongs here even though no script fetches it. The
+            watchlist is hand-assembled, and faculty pages reached through
+            CSRankings are part of how it was built. Reading only the code
+            would miss that, because the code reads the finished sheet and
+            not the work behind it. */}
+        <p class="sources">
+          <span class="sources-label">Sources</span>
+          <span>CSRankings faculty pages</span>
+          <span>{data.counts.watchlist}-funder watchlist</span>
+          <span>weekly trawl</span>
+          <span>prior-sightings ledger</span>
+          <span><a href="https://www.grants.gov/" target="_blank" rel="noopener">grants.gov</a> award ceilings and floors</span>
+          <span>NSF solicitation pages</span>
+        </p>
         <p class="window">
           {data.window.new_since && (
             <>Newly posted since <b>{data.window.new_since}</b>, or closing before <b>{data.window.deadline_before}</b>.</>
@@ -252,15 +260,16 @@ const COMP_WORD = { 1: 'light', 2: 'moderate', 3: 'competitive', 4: 'hard', 5: '
      a heading or a table cell, where it opens rivers between two or three
      words. Both are set back to left here. */
   .brief h1 { font-size:1.3rem; margin:0 0 7px; letter-spacing:-.02em; text-align:left; }
-  /* Two columns of bullets where the width allows, one where it does not, so
-     four short lines use the space instead of stacking down the left edge. */
-  .sources { display:grid; grid-template-columns:repeat(auto-fit, minmax(265px, 1fr));
-    gap:2px 22px; margin:0; padding:0; list-style:none; }
-  .sources li { position:relative; padding-left:12px; font-size:.77rem; color:#64748b;
-    line-height:1.45; text-align:left; }
-  .sources li::before { content:''; position:absolute; left:0; top:.55em; width:4px; height:4px;
-    border-radius:50%; background:#cbd5e1; }
-  .sources b { color:#0f172a; font-weight:700; }
+  /* One flowing line of names, separated by dots. Shorter than bullets and
+     it reads as a list of things rather than a set of claims. */
+  .sources { display:flex; flex-wrap:wrap; align-items:baseline; gap:2px 0;
+    margin:0; font-size:.78rem; color:#475569; text-align:left; }
+  .sources > span { position:relative; padding-right:15px; }
+  .sources > span + span::before { content:'·'; position:absolute; left:-9px;
+    color:#cbd5e1; font-weight:700; }
+  .sources-label { font-size:.6rem; font-weight:800; letter-spacing:.09em;
+    text-transform:uppercase; color:#94a3b8; }
+  .sources > .sources-label + span::before { content:none; }
   .sources a { color:#1d4ed8; text-decoration:none; border-bottom:1px solid rgba(29,78,216,.3); }
   .sources a:hover { border-color:currentColor; }
   .window { margin:7px 0 0; font-size:.75rem; color:#94a3b8; }
