@@ -35,7 +35,9 @@ const RATE_MAX = 45;
 // looked like the same flat line. The extra height is pure vertical
 // resolution: the scale is still fixed at 0 to RATE_MAX, so two venues are
 // still directly comparable, there is simply room to see the shape.
-const CHART = { w: 300, h: 76 };
+const CHART = { w: 300, h: 110 };
+// Headroom above the plot for the three year labels, in the same user units.
+const LABEL_Y = -9;
 // A line over the whole published history, on a fixed axis so two venues can
 // be compared by eye. The three most recent numbers are printed underneath,
 // because that is what anyone actually wants off this cell.
@@ -49,10 +51,31 @@ const chart = (rates) => {
   const d = pts.map(([px, py], i) => `${i ? 'L' : 'M'}${px.toFixed(1)},${py.toFixed(1)}`).join(' ');
   const len = pts.slice(1).reduce(
     (a, [px, py], i) => a + Math.hypot(px - pts[i][0], py - pts[i][1]), 0);
+  // The three most recent years, labelled on the chart itself now that the
+  // row of numbers under it is gone.
+  //
+  // They cannot be labelled in place. Thirty-nine years across 300 units puts
+  // consecutive points about eight units apart, and a label like "'26 33.3%"
+  // is nearer thirty wide, so three of them stacked over the right-hand edge
+  // would sit on top of each other. Instead they are spread along a band
+  // above the plot, each with a hairline leading down to the point it
+  // belongs to, which is why the viewBox carries headroom.
+  const recent = rates.slice(-3);
+  const marks = recent.map((p, k) => {
+    const i = rates.length - recent.length + k;
+    // Kept close to the points they describe, so the leaders stay short
+    // and do not rake across the whole plot.
+    const spread = recent.length === 1 ? [0.95] : recent.length === 2 ? [0.80, 0.97] : [0.66, 0.82, 0.98];
+    return {
+      x: xs[i], y: y(p.r), v: p.r, yr: String(p.y).slice(2),
+      lx: CHART.w * spread[k], ly: LABEL_Y,
+    };
+  });
   return {
     d, len: Math.ceil(len),
     last: { x: xs[xs.length - 1], y: y(rates[rates.length - 1].r) },
     grid: [10, 20, 30, 40].map((v) => ({ v, y: y(v) })),
+    marks,
     span: `${rates[0].y}\u2013${rates[rates.length - 1].y}`,
   };
 };
@@ -558,7 +581,7 @@ const freshRated = rows.filter((c) => c.rates.length && c.rates[c.rates.length -
                           {stale && <span class="rate-stale-note">ends {last.y}</span>}
                         </div>
                         {c.chart && (
-                          <svg class="spark" viewBox={`-2 -6 ${CHART.w + 34} ${CHART.h + 12}`} role="img" aria-label={`Acceptance rate ${c.chart.span}`}>
+                          <svg class="spark" viewBox={`-2 ${LABEL_Y - 9} ${CHART.w + 34} ${CHART.h - LABEL_Y + 15}`} role="img" aria-label={`Acceptance rate ${c.chart.span}`}>
                             {c.chart.grid.map((g) => (
                               <>
                                 <line x1="0" x2={CHART.w} y1={g.y} y2={g.y} class="grid" />
@@ -570,13 +593,17 @@ const freshRated = rows.filter((c) => c.rates.length && c.rates[c.rates.length -
                             <circle class="dot" r="2.6"
                                     style={`offset-path:path('${c.chart.d}'); --delay:${(i % 7) * 0.45}s`} />
                             <circle class="dot-end" cx={c.chart.last.x} cy={c.chart.last.y} r="2.6" />
+                            {c.chart.marks.map((m) => (
+                              <>
+                                <path class="mlead" d={`M${m.lx.toFixed(1)},${(m.ly + 2.5).toFixed(1)} L${m.x.toFixed(1)},${(m.y - 3.5).toFixed(1)}`} />
+                                <circle class="mdot" cx={m.x} cy={m.y} r="2" />
+                                <text class="mlab" x={m.lx} y={m.ly} text-anchor="middle">
+                                  <tspan class="myr">'{m.yr}</tspan> {m.v}%
+                                </text>
+                              </>
+                            ))}
                           </svg>
                         )}
-                        <div class="rate-nums">
-                          {c.rates.slice(-3).reverse().map((p) => (
-                            <span class="rn"><b>{p.r}%</b><i>'{String(p.y).slice(2)}</i></span>
-                          ))}
-                        </div>
 
                       </div>
                     : <span class="none">no published rate</span>}
@@ -893,6 +920,13 @@ const freshRated = rows.filter((c) => c.rates.length && c.rates[c.rates.length -
   .spark .glab { font-size:6px; fill:#94a3b8; }
   .spark .line { fill:none; stroke:currentColor; stroke-width:1.4; stroke-linejoin:round; stroke-linecap:round; }
   .spark .dot, .spark .dot-end { fill:currentColor; }
+  /* The three most recent years, labelled on the chart. The leader is a
+     hairline so it reads as a pointer rather than as data. */
+  .spark .mdot { fill:currentColor; }
+  .spark .mlead { stroke:rgba(148,163,184,.55); stroke-width:.5; fill:none; }
+  .spark .mlab { font-size:8px; font-weight:700; fill:#0f172a; }
+  .spark .myr { font-weight:600; fill:#94a3b8; }
+  .rate.is-stale .spark .mlab { fill:#64748b; }
   /* The line draws itself left to right with a dot at the leading edge, then
      rests on the finished chart before starting over. Staggered so a screen
      full of them does not pulse in unison. */
@@ -934,14 +968,9 @@ const freshRated = rows.filter((c) => c.rates.length && c.rates[c.rates.length -
   /* chart and numbers on the left, the link to the full history on the right */
   .rate { display:grid; grid-template-columns:minmax(0,1fr) auto; column-gap:10px; align-items:center; }
   .rate > .spark { grid-column:1; grid-row:1; }
-  .rate > .rate-nums { grid-column:1; grid-row:2; }
+  .rate > .rate-side { grid-row:1; }
   .rate > .rate-side { grid-column:2; grid-row:1 / span 2; }
   .rate-side { display:flex; flex-direction:column; gap:4px; align-items:flex-start; }
-  .rate-nums { display:flex; gap:9px; margin-top:1px; }
-  .rn { display:flex; align-items:baseline; gap:3px; font-variant-numeric:tabular-nums; }
-  .rn b { font-size:.76rem; font-weight:800; color:#0f172a; }
-  .rn i { font-style:normal; font-size:.62rem; color:#94a3b8; }
-  .rate.is-stale .rn b { color:#64748b; }
   .rate-more { font-size:.63rem; font-weight:700; color:#475569; text-decoration:none; white-space:nowrap;
     border:1px solid rgba(148,163,184,.45); border-radius:999px; padding:1px 7px; background:#fff; }
   .rate-more:hover { color:var(--accent); border-color:rgba(37,99,235,.5); }
