@@ -153,12 +153,16 @@ const roundWindow = (rounds) => {
 // have drawn learning theory, 410 submissions, the same size as frontier
 // models at 1,903.
 //
-// The names are set rotated in the space above each bar. Because the bars
-// are sorted by rate, that space grows from left to right, and every name
-// that does not fit its own column is cut with an ellipsis and kept whole
-// in the tooltip.
-const TC = { w: 1400, base: 400, bar: 180, top: 10, left: 34, lab: 9 };
+// The names are set the right way up, in rows across the empty space above
+// the bars, each tied to its bar by a thin lead line. This is the same
+// arrangement the venue charts use for their annotated years. Rotated
+// labels fitted more characters, but a column of twenty-one of them asked
+// the reader to tilt their head.
+const TC = { w: 1400, base: 400, bar: 180, top: 12, left: 34, lab: 9.4 };
 const TC_TOP = 50;              // the rate axis, in percent
+const LAB_ROWS = 7;             // a label and the next one on its row are
+                                // seven bars apart, which is the room each
+                                // name gets before it has to be cut
 const topicChart = (topics) => {
   const inner = TC.w - TC.left - 6;
   const gap = 2;
@@ -169,17 +173,50 @@ const topicChart = (topics) => {
     const h = (Math.min(t.rate, TC_TOP) / TC_TOP) * TC.bar;
     const bx = x;
     x += w + gap;
-    const room = TC.base - TC.bar + (TC.bar - h) - TC.top - 4;
-    const fits = Math.max(4, Math.floor(room / (TC.lab * 0.56)));
-    const head = `${t.rate}% `;
-    const name = t.area.length + head.length > fits
-      ? t.area.slice(0, Math.max(1, fits - head.length - 1)).replace(/[ ,(]+$/, '') + '\u2026'
-      : t.area;
-    return { ...t, x: bx, w, h, y: TC.base - h, name, head };
+    return { ...t, x: bx, w, h, y: TC.base - h, cx: bx + w / 2 };
   });
   // Shade by rank rather than by value: the rates sit in a 17 point band,
   // so a scale keyed on the number would leave every bar the same colour.
   bars.forEach((b, i) => { b.tone = i < 4 ? 'a' : i < 9 ? 'b' : i < 15 ? 'c' : 'd'; });
+
+  // The label rows fill the space between the top of the chart and the top
+  // of the tallest bar. Row assignment cycles, so neighbouring bars send
+  // their leads to different heights and the lines fan out instead of
+  // piling up.
+  const ceiling = Math.min(...bars.map((b) => b.y));
+  const rowH = Math.max(14, (ceiling - TC.top - 10) / LAB_ROWS);
+  // Each label starts above its own bar and runs right, up to where the
+  // next label on the same row begins. The last pass of rows has no next
+  // label and would otherwise be squeezed against the right edge, so those
+  // labels are set right-aligned and grow leftwards into the space the row
+  // still has.
+  const CH = TC.lab * 0.5;                  // about one character of width
+  const rowEnd = new Array(LAB_ROWS).fill(TC.left);
+  bars.forEach((b, i) => {
+    const row = i % LAB_ROWS;
+    const next = bars[i + LAB_ROWS];
+    const head = `${b.rate}%  `;
+    const tail = `  ${b.n.toLocaleString()}`;
+    b.ly = TC.top + 8 + row * rowH;
+    b.head = head;
+    b.tail = tail;
+    let room;
+    if (next) {
+      b.anchor = 'start';
+      b.lx = Math.max(b.x, rowEnd[row] + 10);
+      room = next.x - b.lx - 10;
+    } else {
+      b.anchor = 'end';
+      b.lx = TC.w - 2;
+      room = b.lx - rowEnd[row] - 12;
+    }
+    const fits = Math.max(6, Math.floor(room / CH) - head.length - tail.length);
+    b.name = b.area.length > fits
+      ? b.area.slice(0, Math.max(1, fits - 1)).replace(/[ ,(]+$/, '') + '\u2026'
+      : b.area;
+    const width = (head.length + b.name.length + tail.length) * CH;
+    rowEnd[row] = (b.anchor === 'start' ? b.lx : b.lx - width) + width;
+  });
   return {
     bars,
     grid: [0, 10, 20, 30, 40, 50].map((v) => ({ v, y: TC.base - (v / TC_TOP) * TC.bar })),
@@ -353,7 +390,7 @@ const freshRated = rows.filter((c) => c.rates.length && c.rates[c.rates.length -
           </summary>
           <div class="tchart-wrap">
             <div class="tchart-scroll">
-            <svg class="tchart" viewBox={`0 0 ${TC.w} ${TC.base + 30}`} role="img"
+            <svg class="tchart" viewBox={`0 0 ${TC.w} ${TC.base + 26}`} role="img"
                  aria-label={`Acceptance rate by topic, ${b.venue} ${b.year}`}>
               {b.chart.grid.map((g) => (
                 <>
@@ -370,14 +407,13 @@ ${t.rate}% accepted, ${t.n.toLocaleString()} submissions, ${t.share}% of the edi
                       topic is still something you can point at. */}
                   <rect class="tc-hit" x={t.x} y={TC.top} width={t.w} height={TC.base - TC.top} />
                   <rect class="tc-fill" x={t.x} y={t.y} width={t.w} height={t.h} rx="2" />
-                  <text class="tc-lab" x={t.x + t.w / 2 + 3.2} y={t.y - 6}
-                        transform={`rotate(-90 ${t.x + t.w / 2 + 3.2} ${t.y - 6})`}>
-                    <tspan class="tc-pct">{t.head}</tspan>{t.name}
+                  <path class="tc-lead" d={`M${(t.anchor === 'end' ? t.lx - 2 : t.lx + 2).toFixed(1)},${(t.ly + 4).toFixed(1)} L${t.cx.toFixed(1)},${(t.y - 3).toFixed(1)}`} />
+                  <text class="tc-lab" x={t.lx} y={t.ly} text-anchor={t.anchor}>
+                    <tspan class="tc-pct">{t.head}</tspan>{t.name}<tspan class="tc-sub">{t.tail}</tspan>
                   </text>
-                  <text class="tc-n" x={t.x + t.w / 2} y={TC.base + 11} text-anchor="middle">{t.share >= 2 ? t.n.toLocaleString() : ''}</text>
                 </g>
               ))}
-              <text class="tc-axis" x={TC.left} y={TC.base + 25}>bar width is the topic's share of submissions, so a bar's area is the papers it took</text>
+              <text class="tc-axis" x={TC.left} y={TC.base + 20}>bar width is the topic's share of submissions, so a bar's area is the papers it took. Each label reads rate, topic, submissions.</text>
             </svg>
             </div>
             {b.rows.map((t) => (
@@ -1138,8 +1174,11 @@ ${t.rate}% accepted, ${t.n.toLocaleString()} submissions, ${t.share}% of the edi
   .tone-c .tc-fill { fill:#7dafff; }
   .tone-d .tc-fill { fill:#b9d4fe; }
   .tc-hit { fill:transparent; cursor:pointer; }
-  .tc-lab { font-size:9.2px; fill:#475569; dominant-baseline:middle; }
+  .tc-lab { font-size:9.4px; fill:#475569; dominant-baseline:middle; }
   .tc-pct { font-weight:800; fill:#0f172a; }
+  .tc-sub { fill:#b6bfcc; font-variant-numeric:tabular-nums; }
+  .tc-lead { fill:none; stroke:rgba(148,163,184,.5); stroke-width:.6; }
+  .tc-bar:hover .tc-lead, .tc-bar.is-on .tc-lead { stroke:#0f172a; stroke-width:1; }
   .tc-bar:hover .tc-fill, .tc-bar.is-on .tc-fill { fill:#0f172a; }
   .tc-bar:hover .tc-lab, .tc-bar.is-on .tc-lab { fill:#0f172a; }
   .tc-bar:focus { outline:none; }
