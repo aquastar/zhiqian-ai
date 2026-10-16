@@ -278,16 +278,20 @@ const COMP_WORD = { 1: 'light', 2: 'moderate', 3: 'competitive', 4: 'hard', 5: '
   .window { margin-left:auto; font-size:.7rem; color:#94a3b8;
     background:none !important; border:0 !important; padding:0 !important; }
   .window b { color:#475569; font-variant-numeric:tabular-nums; font-weight:700; }
-  .brief-side { flex:0 0 auto; display:flex; align-items:center; gap:12px; }
+  /* Wrapping, not fixed. On a phone this row is the whole reason the page
+     used to be 707 pixels wide in a 375 pixel viewport: a flex row with no
+     wrap has a min-content width, and a grid column sized auto hands it
+     that width however small the screen is. */
+  .brief-side { flex:0 0 auto; display:flex; flex-wrap:wrap; align-items:center; gap:10px 12px; }
   .stamp { display:flex; flex-direction:column; align-items:flex-end; line-height:1.1; }
   .stamp-label { font-size:.6rem; font-weight:800; letter-spacing:.09em; text-transform:uppercase; color:#94a3b8; }
   .stamp-date { font-size:1.05rem; font-weight:800; color:#0f172a; font-variant-numeric:tabular-nums; }
-  .tally { list-style:none; display:flex; gap:7px; margin:0; padding:0; }
+  .tally { list-style:none; display:flex; flex-wrap:wrap; gap:7px; margin:0; padding:0; }
   .tally li { display:flex; flex-direction:column; align-items:center; min-width:62px; cursor:help;
     padding:5px 8px; border-radius:9px; background:#fff; border:1px solid rgba(148,163,184,.3); }
   .tally b { font-size:1rem; color:#0f172a; font-variant-numeric:tabular-nums; }
   .tally span { font-size:.58rem; font-weight:700; letter-spacing:.05em; text-transform:uppercase; color:#94a3b8; }
-  .grabs { display:flex; gap:5px; }
+  .grabs { display:flex; flex-wrap:wrap; gap:5px; }
   .grabs a { font-size:.66rem; font-weight:700; color:#475569; text-decoration:none;
     border:1px solid rgba(148,163,184,.45); border-radius:999px; padding:2px 9px; background:#fff; }
   .grabs a:hover { color:var(--accent); border-color:rgba(37,99,235,.5); }
@@ -458,8 +462,38 @@ const COMP_WORD = { 1: 'light', 2: 'moderate', 3: 'competitive', 4: 'hard', 5: '
     /* One column. Two tracks with an auto-sized right half squeezed the
        bullets to zero width and pushed the card past the viewport. */
     .brief { grid-template-columns:1fr; }
-    .brief-side { align-items:flex-start; }
+    .brief-side { align-items:center; }
     .closed-note { margin-left:0; flex:0 0 100%; }
+  }
+
+  /* Phones. Everything above is a desktop table folded into cards, which
+     works down to a tablet; below that the header rows and the chips need
+     room to break rather than to shrink. */
+  @media (max-width: 560px) {
+    .container { padding:14px 12px 20px; max-width:100%; }
+    .brief { padding:10px 12px; gap:8px 14px; border-radius:12px; }
+    .brief h1 { font-size:1.08rem; }
+    .stamp { align-items:flex-start; }
+    .stamp-date { font-size:.95rem; }
+    /* Four counts across a phone, two by two, each taking its half. */
+    .tally { width:100%; gap:6px; }
+    /* border-box, or the padding and border are added to the 50 percent
+       basis and the second tile wraps to a line of its own. */
+    .tally li { box-sizing:border-box; flex:1 1 calc(50% - 3px); min-width:0; padding:3px 6px; }
+    .grabs { width:100%; }
+    .grabs a { font-size:.62rem; padding:2px 8px; }
+    .sources { gap:4px; font-size:.64rem; padding-top:7px; }
+    .sources > span { padding:1px 6px; }
+    .sources-label { width:100%; padding:0 !important; }
+    /* The window note had been pushed to the far end of the sources row by
+       an auto margin, which on one column means its own line anyway. */
+    .window { margin-left:0; width:100%; padding-top:1px !important; }
+    .filter { gap:5px; }
+    .fbtn { font-size:.72rem; padding:4px 9px; }
+    .fund tbody tr { padding:9px 10px; }
+    .logo-cell { width:30px; }
+    .program-name { font-size:.84rem; }
+    .tldr, .size-main, .hard-main { font-size:.78rem; }
   }
 </style>
 
