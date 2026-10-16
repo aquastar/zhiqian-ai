@@ -90,17 +90,71 @@ def rolled(link, year):
     """
     if not year:
         return []
+    out = []
     years = set(re.findall(r'20\d\d', link))
-    if not years or str(year) in years:
+    if years and str(year) not in years:
+        out += [link.replace(y, str(year)) for y in sorted(years)][:1]
+    # Two digit forms too, sdm26 to sdm27, but only where the number sits
+    # against letters and reads as a year near today, so a version number
+    # or a port is left alone.
+    if not years:
+        def two(m):
+            n = 2000 + int(m.group(1))
+            return m.group(0).replace(m.group(1), f'{year % 100:02d}') \
+                if abs(n - TODAY.year) <= 3 and n != year else m.group(0)
+        swapped = re.sub(r'(?<=[a-z])(\d{2})(?=[/._-]|$)', two, link, flags=re.I)
+        if swapped != link:
+            out.append(swapped)
+    return out[:2]
+
+
+HREF_RE = re.compile(r'<a[^>]+href=["\']([^"\']+)["\'][^>]*>(.{0,120}?)</a>', re.I | re.S)
+
+
+def from_root(link, year):
+    """Ask the venue's own front page where the edition we want lives.
+
+    This is the case the year roll cannot reach: ccfddl is behind and the
+    next edition is not at the old address with a new number in it, it is
+    somewhere else entirely. Most series keep one front page that links to
+    the current call, so look there for a link that names the year.
+    """
+    if not year:
         return []
-    return [link.replace(y, str(year)) for y in sorted(years)][:1]
+    parts = urllib.parse.urlsplit(link)
+    if not parts.scheme or not parts.netloc:
+        return []
+    root = f'{parts.scheme}://{parts.netloc}/'
+    if root.rstrip('/') == link.rstrip('/'):
+        return []
+    body = fetch(root)
+    if not body:
+        return []
+    hits = []
+    for m in HREF_RE.finditer(body):
+        href, label = m.group(1), re.sub(r'<[^>]+>', ' ', m.group(2))
+        if str(year) not in href and str(year) not in label:
+            continue
+        url = urllib.parse.urljoin(root, href)
+        if urllib.parse.urlsplit(url).scheme not in ('http', 'https'):
+            continue
+        # A link that also names the call is worth more than one that only
+        # names the year, which could be a news item or a past programme.
+        rank = 0 if re.search(r'call|paper|submit|date|cfp', href + label, re.I) else 1
+        hits.append((rank, url))
+    seen, out = set(), []
+    for _, url in sorted(hits, key=lambda h: h[0]):
+        if url not in seen:
+            seen.add(url)
+            out.append(url)
+    return out[:2]
 
 
 def candidates(link, year=None):
     """Submission-looking dates in the future, with the sentence each came from."""
     body = ''
     used = link
-    for u in [link] + rolled(link, year):
+    for u in [link] + rolled(link, year) + from_root(link, year):
         body = fetch(u)
         # A site that answers but says nothing about the edition we want is
         # worth less than one that does, so keep looking while the year is
