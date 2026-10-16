@@ -36,8 +36,11 @@ const RATE_MAX = 45;
 // resolution: the scale is still fixed at 0 to RATE_MAX, so two venues are
 // still directly comparable, there is simply room to see the shape.
 const CHART = { w: 300, h: 110 };
-// Headroom above the plot for the three year labels, in the same user units.
-const LABEL_Y = -9;
+// Headroom above the plot for the year labels, in the same user units. Five
+// of them at this size will not fit on one row without touching, so they
+// alternate between two, which halves the horizontal space each one needs.
+const LABEL_ROWS = [-24, -10];
+const MARKED_YEARS = 5;
 // A line over the whole published history, on a fixed axis so two venues can
 // be compared by eye. The three most recent numbers are printed underneath,
 // because that is what anyone actually wants off this cell.
@@ -60,15 +63,17 @@ const chart = (rates) => {
   // would sit on top of each other. Instead they are spread along a band
   // above the plot, each with a hairline leading down to the point it
   // belongs to, which is why the viewBox carries headroom.
-  const recent = rates.slice(-3);
+  const recent = rates.slice(-MARKED_YEARS);
+  // Spread evenly across the right of the plot, ending just past the last
+  // point. Fewer years than MARKED_YEARS means a shorter run, so the band
+  // starts later and the labels stay near what they describe.
+  const first = 1 - 0.13 * recent.length;
   const marks = recent.map((p, k) => {
     const i = rates.length - recent.length + k;
-    // Kept close to the points they describe, so the leaders stay short
-    // and do not rake across the whole plot.
-    const spread = recent.length === 1 ? [0.95] : recent.length === 2 ? [0.80, 0.97] : [0.66, 0.82, 0.98];
+    const t = recent.length === 1 ? 1 : first + (1.02 - first) * (k / (recent.length - 1));
     return {
       x: xs[i], y: y(p.r), v: p.r, yr: String(p.y).slice(2),
-      lx: CHART.w * spread[k], ly: LABEL_Y,
+      lx: CHART.w * t, ly: LABEL_ROWS[k % LABEL_ROWS.length],
     };
   });
   return {
@@ -580,12 +585,15 @@ const freshRated = rows.filter((c) => c.rates.length && c.rates[c.rates.length -
                           </a>
                           {stale && <span class="rate-stale-note">ends {last.y}</span>}
                         </div>
+                        {/* The scale moves to the left margin. Five labels
+                            need the whole right-hand side, and the axis
+                            numbers were sitting in it. */}
                         {c.chart && (
-                          <svg class="spark" viewBox={`-2 ${LABEL_Y - 9} ${CHART.w + 34} ${CHART.h - LABEL_Y + 15}`} role="img" aria-label={`Acceptance rate ${c.chart.span}`}>
+                          <svg class="spark" viewBox={`-26 ${LABEL_ROWS[0] - 11} ${CHART.w + 60} ${CHART.h - LABEL_ROWS[0] + 24}`} role="img" aria-label={`Acceptance rate ${c.chart.span}`}>
                             {c.chart.grid.map((g) => (
                               <>
                                 <line x1="0" x2={CHART.w} y1={g.y} y2={g.y} class="grid" />
-                                <text x={CHART.w + 3} y={g.y + 3} class="glab">{g.v}</text>
+                                <text x="-4" y={g.y + 3} class="glab" text-anchor="end">{g.v}</text>
                               </>
                             ))}
                             <path class="line" d={c.chart.d}
@@ -924,7 +932,7 @@ const freshRated = rows.filter((c) => c.rates.length && c.rates[c.rates.length -
      hairline so it reads as a pointer rather than as data. */
   .spark .mdot { fill:currentColor; }
   .spark .mlead { stroke:rgba(148,163,184,.55); stroke-width:.5; fill:none; }
-  .spark .mlab { font-size:8px; font-weight:700; fill:#0f172a; }
+  .spark .mlab { font-size:11px; font-weight:700; fill:#0f172a; }
   .spark .myr { font-weight:600; fill:#94a3b8; }
   .rate.is-stale .spark .mlab { fill:#64748b; }
   /* The line draws itself left to right with a dot at the leading edge, then
