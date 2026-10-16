@@ -87,15 +87,15 @@ const COMP_WORD = { 1: 'light', 2: 'moderate', 3: 'competitive', 4: 'hard', 5: '
     <section class="brief">
       <div class="brief-main">
         <h1>AI funding, tracked weekly</h1>
-        <p class="sub">
-          Built every Friday from three things: a hand-kept watchlist of <b>{data.counts.watchlist} funders</b>
-          swept whether or not they have announced anything, that week's own trawl for calls nobody
-          was watching for, and a ledger of everything seen before so the new ones can be told apart.
-          What an award is worth comes from <a href="https://www.grants.gov/" target="_blank" rel="noopener">grants.gov</a>,
-          which publishes a per-award ceiling and floor, and from NSF's own solicitation pages.
-          Everything is copied as the funder wrote it, so their page is the authority and this is
-          the index that gets you there.
-        </p>
+        {/* Sources as a list, not a paragraph. Four facts that each fit on
+            one line do not need prose, and the prose left most of the left
+            half of the header white. */}
+        <ul class="sources">
+          <li><b>{data.counts.watchlist} funders</b> on a standing watchlist, swept every Friday whether or not they have announced anything</li>
+          <li><b>This week's trawl</b>, for calls nobody was watching for</li>
+          <li><b>A ledger</b> of everything seen before, so the genuinely new ones stand out</li>
+          <li><b><a href="https://www.grants.gov/" target="_blank" rel="noopener">grants.gov</a> and NSF</b> for what one award is worth, copied as the funder wrote it</li>
+        </ul>
         <p class="window">
           {data.window.new_since && (
             <>Newly posted since <b>{data.window.new_since}</b>, or closing before <b>{data.window.deadline_before}</b>.</>
@@ -241,20 +241,29 @@ const COMP_WORD = { 1: 'light', 2: 'moderate', 3: 'competitive', 4: 'hard', 5: '
 
   /* The brief, which is the standing explanation of what this page is, with
      the week's numbers beside it rather than under it. */
-  .brief { display:flex; flex-wrap:wrap; gap:26px; align-items:flex-start;
-    justify-content:space-between; padding:16px 18px; margin-bottom:14px;
+  /* Grid, not flex. The left column takes whatever the counts do not, so
+     there is no pool of white sitting between the two halves. */
+  .brief { display:grid; grid-template-columns:minmax(0,1fr) auto; gap:12px 26px;
+    align-items:start; padding:13px 18px; margin-bottom:12px;
     border:1px solid rgba(148,163,184,.3); border-radius:14px;
     background:linear-gradient(180deg,#fbfdff,#f8fafc); }
-  .brief-main { flex:1 1 460px; min-width:0; }
+  .brief-main { min-width:0; }
   /* The site justifies body text. That is fine for a paragraph and wrong for
      a heading or a table cell, where it opens rivers between two or three
      words. Both are set back to left here. */
-  .brief h1 { font-size:1.5rem; margin:0 0 6px; letter-spacing:-.02em; text-align:left; }
-  .sub { margin:0; color:#475569; font-size:.82rem; line-height:1.6; max-width:78ch; }
-  .sub b { color:#0f172a; font-weight:700; }
-  .sub a { color:#1d4ed8; text-decoration:none; border-bottom:1px solid rgba(29,78,216,.3); }
-  .sub a:hover { border-color:currentColor; }
-  .window { margin:8px 0 0; font-size:.8rem; color:#475569; }
+  .brief h1 { font-size:1.3rem; margin:0 0 7px; letter-spacing:-.02em; text-align:left; }
+  /* Two columns of bullets where the width allows, one where it does not, so
+     four short lines use the space instead of stacking down the left edge. */
+  .sources { display:grid; grid-template-columns:repeat(auto-fit, minmax(265px, 1fr));
+    gap:2px 22px; margin:0; padding:0; list-style:none; }
+  .sources li { position:relative; padding-left:12px; font-size:.77rem; color:#64748b;
+    line-height:1.45; text-align:left; }
+  .sources li::before { content:''; position:absolute; left:0; top:.55em; width:4px; height:4px;
+    border-radius:50%; background:#cbd5e1; }
+  .sources b { color:#0f172a; font-weight:700; }
+  .sources a { color:#1d4ed8; text-decoration:none; border-bottom:1px solid rgba(29,78,216,.3); }
+  .sources a:hover { border-color:currentColor; }
+  .window { margin:7px 0 0; font-size:.75rem; color:#94a3b8; }
   .window b { color:#0f172a; font-variant-numeric:tabular-nums; }
   .brief-side { flex:0 0 auto; display:flex; flex-direction:column; gap:9px; align-items:flex-end; }
   .stamp { display:flex; flex-direction:column; align-items:flex-end; line-height:1.1; }
@@ -433,6 +442,9 @@ const COMP_WORD = { 1: 'light', 2: 'moderate', 3: 'competitive', 4: 'hard', 5: '
     .sponsor { overflow:visible; text-overflow:clip; white-space:normal; }
     .program-name { overflow:visible; text-overflow:clip; white-space:normal;
       overflow-wrap:anywhere; }
+    /* One column. Two tracks with an auto-sized right half squeezed the
+       bullets to zero width and pushed the card past the viewport. */
+    .brief { grid-template-columns:1fr; }
     .brief-side { align-items:flex-start; }
     .closed-note { margin-left:0; flex:0 0 100%; }
   }

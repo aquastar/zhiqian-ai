@@ -489,18 +489,19 @@ const freshRated = rows.filter((c) => c.rates.length && c.rates[c.rates.length -
                     {c.edition && <span class="ed-ord" title="Edition number, projected from the last one on record">{c.edition}</span>}
                     {c.nextYear && !(c.date || '').includes(String(c.nextYear)) ? <span class="ed">{c.nextYear}</span> : null}
                     {c.date ? <span class="when">{c.date}</span> : <span class="none">not yet scheduled</span>}
-                    {c.place && <span class="where">{c.cc && <span class={`fi fi-${c.cc}`} aria-hidden="true"></span>}{c.place}</span>}
-                    {(c.dblp || c.best) && (
-                      <span class="links">
-                        {c.dblp && <a href={`${DBLP}/${c.dblp}/index.html`} target="_blank" rel="noopener" title="Every past edition's proceedings, on DBLP">proceedings</a>}
-                        {c.best && <a href={`${BEST}#${c.best}`} target="_blank" rel="noopener" title="Best-paper awards since 1996, Jeff Huang's compilation">best papers</a>}
-                      </span>
+                    {c.place && (
+                      <a class="where" href={`https://www.tripadvisor.com/Search?q=${encodeURIComponent(c.place)}`}
+                         target="_blank" rel="noopener" title={`Things to do in ${c.place}, on Tripadvisor`}>
+                        {c.cc && <span class={`fi fi-${c.cc}`} aria-hidden="true"></span>}{c.place}
+                        <i class="fas fa-arrow-up-right-from-square" aria-hidden="true"></i>
+                      </a>
                     )}
                   </span>
-                  {c.city && (
-                    <ul class="city">
-                      {c.city.split(', ').map((bit) => <li>{bit}</li>)}
-                    </ul>
+                  {(c.dblp || c.best) && (
+                    <span class="links">
+                      {c.dblp && <a href={`${DBLP}/${c.dblp}/index.html`} target="_blank" rel="noopener" title="Every past edition's proceedings, on DBLP">proceedings</a>}
+                      {c.best && <a href={`${BEST}#${c.best}`} target="_blank" rel="noopener" title="Best-paper awards since 1996, Jeff Huang's compilation">best papers</a>}
+                    </span>
                   )}
                 </td>
                 <td class="c-date" data-label="Next deadline">
@@ -835,10 +836,8 @@ const freshRated = rows.filter((c) => c.rates.length && c.rates[c.rates.length -
     white-space:normal; }
   .round-more { display:inline-block; margin-top:3px; white-space:normal; font-size:.64rem; color:#94a3b8; cursor:help;
     border-bottom:1px dotted rgba(148,163,184,.7); }
-  /* Archive links ride at the end of the when-and-where line rather than
-     claiming a row. They are a footnote, so they are drawn as one. */
-  .links { display:inline-flex; gap:9px; }
-  .links a { font-size:.66rem; font-weight:600; color:#94a3b8; text-decoration:none; }
+  .links { display:flex; gap:12px; margin-top:5px; }
+  .links a { font-size:.67rem; font-weight:600; color:#94a3b8; text-decoration:none; }
   .links a:hover { color:var(--accent); }
   /* The date is what the column is for, so it is set larger than the table's
      body size and given room to breathe rather than being one more .84rem
@@ -863,24 +862,22 @@ const freshRated = rows.filter((c) => c.rates.length && c.rates[c.rates.length -
   /* The edition sits under the name as its own line. It used to be fenced off
      by a dotted rule, which drew a border around two lines of text that were
      never in any danger of being confused. */
+  /* No rule above this line. It was the same hairline the table uses between
+     rows, so it read as a row boundary inside a row. Space does the same job
+     without the ambiguity. */
   .ed-line { display:flex; flex-wrap:wrap; align-items:center; gap:4px 9px;
-    margin-top:6px; font-size:.73rem; color:#475569; line-height:1.4; }
-  /* A hairline above the when-and-where line separates the identity of the
-     venue from the particulars of this edition, without a boxed rule. */
-  .ed-line::before { content:''; flex:0 0 100%; height:0;
-    border-top:1px solid rgba(148,163,184,.22); margin-bottom:5px; }
+    margin-top:7px; font-size:.73rem; color:#475569; line-height:1.4; }
   .ed { display:inline-block; font-weight:700; color:#1e293b; font-size:.76rem; margin-right:5px; }
   .ed-ord { display:inline-block; margin-right:5px; padding:1px 6px; border-radius:4px;
     background:#1e293b; color:#fff; font-size:.63rem; font-weight:800; letter-spacing:.02em; }
-  /* Three things worth going out for, as three things, not one comma-spliced
-     sentence wrapped over four ragged lines. */
-  .city { display:flex; flex-wrap:wrap; gap:2px 12px; margin:5px 0 0; padding:0; list-style:none;
-    font-size:.67rem; color:#a3adbb; line-height:1.45; }
-  .city li { display:flex; align-items:baseline; gap:5px; }
-  .city li::before { content:''; flex:0 0 auto; width:3px; height:3px; border-radius:50%;
-    background:#cbd5e1; transform:translateY(-2px); }
   .when { display:inline; }
-  .where { display:flex; align-items:center; gap:5px; color:#94a3b8; }
+  /* The place is the way out to somewhere that knows about the place. The
+     three hand-written food notes that used to sit under every row said more
+     about my guesswork than about the city. */
+  .where { display:inline-flex; align-items:center; gap:5px; color:#64748b;
+    text-decoration:none; }
+  .where:hover { color:var(--accent); }
+  .where i { font-size:.55rem; opacity:.45; }
   .ed-line .when { display:inline; }
   .where .fi { flex:0 0 auto; border-radius:2px; box-shadow:0 0 0 1px rgba(15,23,42,.08); }
 
@@ -1106,7 +1103,7 @@ const freshRated = rows.filter((c) => c.rates.length && c.rates[c.rates.length -
     .confs tbody td[data-label]::before { content:attr(data-label); display:block; margin-bottom:3px;
       font-size:.6rem; font-weight:700; letter-spacing:.07em; text-transform:uppercase; color:#94a3b8; }
     .c-name, .c-date, .c-when, .c-rate, .c-rank { width:auto !important; white-space:normal; }
-    .conf-desc, .why, .city { max-width:none; }
+    .conf-desc, .why { max-width:none; }
     .round-label, .round-more { max-width:none; }
     .ranks { flex-direction:row; flex-wrap:wrap; gap:6px; }
     .rate { grid-template-columns:auto 1fr; column-gap:14px; }
