@@ -137,12 +137,13 @@ const MAX_ROUNDS = 3;
 // sat in the overflow tooltip. Show the live ones, and fall back to the most
 // recently closed only to fill the space, since knowing a round shut last
 // week is useful and knowing one shut in May is not.
+// Only the rounds still ahead. A closed call is not something anyone can
+// submit to, and on a venue with four cycles the dead ones were most of the
+// cell. If every round has closed the row falls back to the rolled estimate
+// below, which is drawn as the estimate it is.
 const roundWindow = (rounds) => {
-  if (!rounds || rounds.length <= MAX_ROUNDS) return rounds || [];
-  const live = rounds.filter((r) => r.d >= TODAY);
-  if (live.length >= MAX_ROUNDS) return live.slice(0, MAX_ROUNDS);
-  const past = rounds.filter((r) => r.d < TODAY);
-  return [...past.slice(-(MAX_ROUNDS - live.length)), ...live];
+  const live = (rounds || []).filter((r) => r.d >= TODAY);
+  return live.slice(0, MAX_ROUNDS);
 };
 
 // Per-topic acceptance, newest edition, with the change against the one
@@ -580,28 +581,31 @@ const freshRated = rows.filter((c) => c.rates.length && c.rates[c.rates.length -
                     <span class="round-label">next cycle, a year on from the last call</span>
                   </div>
                   )}
-                  {c.rounds && c.rounds.length
+                  {c.rounds && c.rounds.some((r) => r.d >= TODAY)
                     ? <>
                         {roundWindow(c.rounds).map((r) => (
                           <div class="round">
                             {r.abs && (
-                              <span class="abs-line" data-abs={r.abs}
+                              <span class={`abs-line ${r.abs < TODAY ? 'is-past' : ''}`} data-abs={r.abs}
                                     title={`Abstract due ${r.abs}, ${Math.round((Date.parse(r.d) - Date.parse(r.abs)) / 86400000)} days before the paper`}>
-                                <b>abstract</b>{r.abs}<span class="abs-days"></span>
+                                <b>abstract</b><span class="abs-date">{r.abs}</span><span class="abs-days"></span>
                               </span>
                             )}
                             <span class={`dl ${r.est ? 'is-est' : ''}`}>{r.d}</span>
                             <span class="dl-days" data-deadline={r.d}></span>
                             {r.est && <span class="est-tag" title={`Not announced yet. Estimated by rolling last year's deadline (${r.from}) forward.`}>est.<i class="fas fa-circle-question" aria-hidden="true"></i></span>}
-                            {r.label && <span class="round-label">{r.label}</span>}
+                            {r.label && !/^round\s*\d+$/i.test(r.label.trim()) &&
+                              <span class="round-label">{r.label}</span>}
                           </div>
                         ))}
-                        {c.rounds.length > roundWindow(c.rounds).length && (
-                          <span class="round-more" title={c.rounds.filter((r) => !roundWindow(c.rounds).includes(r)).map((r) => r.d).join(', ')}>
-                            +{c.rounds.length - roundWindow(c.rounds).length} more rounds
+                        {c.rounds.filter((r) => r.d >= TODAY).length > roundWindow(c.rounds).length && (
+                          <span class="round-more" title={c.rounds.filter((r) => r.d >= TODAY && !roundWindow(c.rounds).includes(r)).map((r) => r.d).join(', ')}>
+                            +{c.rounds.filter((r) => r.d >= TODAY).length - roundWindow(c.rounds).length} more
                           </span>
                         )}
                       </>
+                    : c.rounds && c.rounds.length
+                    ? null
                     : c.nextDeadline
                     ? <div class="round">
                         <span class={`dl ${c.estimated ? 'is-est' : ''}`}>{c.nextDeadline}</span>
@@ -905,45 +909,41 @@ const freshRated = rows.filter((c) => c.rates.length && c.rates[c.rates.length -
     color:#5b21b6; background:#ede9fe; border:1px solid #ddd6fe; border-radius:4px; padding:1px 6px; }
 
   .c-date { white-space:nowrap; width:19%; }
-  .round { display:flex; align-items:center; flex-wrap:wrap; gap:5px 6px; margin-bottom:7px; }
+  .round { display:flex; align-items:center; flex-wrap:wrap; gap:3px 5px; margin-bottom:5px; }
   .round:last-of-type { margin-bottom:0; }
   /* [hidden] is the weakest rule the browser has and loses to the display
      above it, so the rolled line needs saying twice. */
   .round[hidden] { display:none; }
-  /* A closed round stays on the page, because knowing when the call was is
-     how anyone judges the estimate above it. It is just no longer the thing
-     the row is about. Dimming goes by the round's own date, so a commitment
-     deadline still months out keeps its weight even in a row that has
-     otherwise finished its cycle. */
-  .round.is-past { opacity:.5; }
   /* The abstract deadline comes first and is the one that actually shuts the
-     door, so it leads the round and is coloured, not greyed. */
-  .abs-line { flex:0 0 100%; display:flex; align-items:center; gap:5px; margin-bottom:2px;
-    font-size:.7rem; font-variant-numeric:tabular-nums; color:#92400e; }
-  .abs-line b { font-size:.58rem; font-weight:800; letter-spacing:.06em; text-transform:uppercase;
-    background:#fef3c7; border:1px solid #fde68a; border-radius:4px; padding:1px 5px; color:#92400e; }
-  .abs-days { font-size:.62rem; font-weight:700; }
+     door, so it leads the round and is coloured, not greyed. Once it has
+     passed the date goes and the chip alone remains: the round is closed to
+     new work even while its paper date is still ahead, and that fact is
+     worth one word, not a line. */
+  .abs-line { flex:0 0 100%; display:flex; align-items:center; gap:4px; margin-bottom:1px;
+    font-size:.64rem; font-variant-numeric:tabular-nums; color:#92400e; }
+  .abs-line b { font-size:.54rem; font-weight:800; letter-spacing:.05em; text-transform:uppercase;
+    background:#fef3c7; border:1px solid #fde68a; border-radius:4px; padding:0 4px; color:#92400e; }
+  .abs-days { font-size:.58rem; font-weight:700; }
   .abs-line.is-past { color:#b91c1c; }
   .abs-line.is-past b { background:#fee2e2; border-color:#fecaca; color:#b91c1c; }
-  .round-label { flex:0 0 100%; font-size:.62rem; color:#94a3b8; line-height:1.25; margin-top:-1px;
+  .round-label { flex:0 0 100%; font-size:.58rem; color:#a3adbb; line-height:1.2;
     white-space:normal; }
-  .round-more { display:inline-block; margin-top:3px; white-space:normal; font-size:.64rem; color:#94a3b8; cursor:help;
+  .round-more { display:inline-block; margin-top:2px; white-space:normal; font-size:.6rem; color:#a3adbb; cursor:help;
     border-bottom:1px dotted rgba(148,163,184,.7); }
   .links { display:flex; gap:12px; margin-top:5px; }
   .links a { font-size:.67rem; font-weight:600; color:#94a3b8; text-decoration:none; }
   .links a:hover { color:var(--accent); }
-  /* The date is what the column is for, so it is set larger than the table's
-     body size and given room to breathe rather than being one more .84rem
-     line among the round labels. */
+  /* The date leads the cell, but the cell is now only the dates still ahead,
+     so it does not need to shout to be found. */
   .dl { font-variant-numeric:tabular-nums; font-weight:700; color:#0f172a;
-    font-size:.95rem; line-height:1.5; letter-spacing:-.01em; }
+    font-size:.82rem; line-height:1.35; letter-spacing:-.01em; }
   /* An estimate is drawn differently from a published date, every time. */
   .dl.is-est { color:#64748b; font-weight:500; border-bottom:1px dashed rgba(100,116,139,.6); display:inline-block; }
   .est-tag i { margin-left:3px; opacity:.75; }
-  .est-tag { display:inline-flex; align-items:center; margin-left:5px; font-size:.62rem; font-weight:700; color:#64748b;
-    background:#f1f5f9; border:1px dashed rgba(148,163,184,.6); border-radius:4px; padding:0 5px; cursor:help; }
-  .dl-days { display:inline-block; font-size:.68rem; font-weight:800; color:#fff;
-    border-radius:999px; padding:2px 8px; background:#64748b; }
+  .est-tag { display:inline-flex; align-items:center; margin-left:3px; font-size:.58rem; font-weight:700; color:#64748b;
+    background:#f1f5f9; border:1px dashed rgba(148,163,184,.6); border-radius:4px; padding:0 4px; cursor:help; }
+  .dl-days { display:inline-block; font-size:.62rem; font-weight:800; color:#fff;
+    border-radius:999px; padding:1px 7px; background:#64748b; }
   .dl-days.band-urgent { background:#dc2626; }
   .dl-days.band-soon   { background:#1d4ed8; }
   .dl-days.band-far    { background:#64748b; }
@@ -1259,6 +1259,8 @@ const freshRated = rows.filter((c) => c.rates.length && c.rates[c.rates.length -
     if (days < 0) {
       el.classList.add('is-past');
       if (tag) tag.textContent = 'closed';
+      const date = el.querySelector('.abs-date');
+      if (date) date.hidden = true;
     } else if (tag) {
       tag.textContent = days === 0 ? 'today' : days + 'd';
     }
@@ -1271,10 +1273,13 @@ const freshRated = rows.filter((c) => c.rates.length && c.rates[c.rates.length -
     const days = Math.round((new Date(y, m - 1, d).getTime() - today.getTime()) / DAY);
     const band = days < 0 ? 'past' : days < 30 ? 'urgent' : days < 90 ? 'soon' : 'far';
     el.classList.add('band-' + band);
-    el.textContent = days < 0 ? `closed ${-days}d ago` : days === 0 ? 'today' : `${days}d`;
+    el.textContent = days < 0 ? 'closed' : days === 0 ? 'today' : `${days}d`;
+    // The page is rebuilt weekly, so a round that was live at build time can
+    // close before the next build. It leaves the cell the same way the ones
+    // already closed at build time did, rather than sitting there greyed.
     if (days < 0) {
       const round = el.closest('.round');
-      if (round) round.classList.add('is-past');
+      if (round && !round.classList.contains('rolled')) round.hidden = true;
     }
   });
 
