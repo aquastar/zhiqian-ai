@@ -127,7 +127,10 @@ const AR_REPO_OLD = 'https://github.com/lixin4ever/Conference-Acceptance-Rate';
 const CSC = 'https://csconfstats.xoveexu.com/conferences';
 const DBLP = 'https://dblp.org/db/conf';
 const BEST = 'https://jeffhuang.com/best_paper_awards/conferences.html';
-const MAX_ROUNDS = 3;
+// Two rounds at most. A venue with four open cycles was making its row
+// twice the height of its neighbours, and the charts beside it then sat at
+// a different level in every row. The rest stay in the "+N more" tooltip.
+const MAX_ROUNDS = 2;
 
 // Which rounds to print for a venue that runs more than we can show.
 //
@@ -628,6 +631,7 @@ const freshRated = rows.filter((c) => c.rates.length && c.rates[c.rates.length -
                             numbers were sitting in it. */}
                         {c.chart && (
                           <svg class="spark" viewBox={`-26 ${LABEL_ROWS[0] - 11} ${CHART.w + 60} ${CHART.h - LABEL_ROWS[0] + 24}`} role="img" aria-label={`Acceptance rate ${c.chart.span}`}>
+                            <line x1="0" x2={CHART.w} y1={CHART.h} y2={CHART.h} class="base" />
                             {c.chart.grid.map((g) => (
                               <>
                                 <line x1="0" x2={CHART.w} y1={g.y} y2={g.y} class="grid" />
@@ -660,9 +664,12 @@ const freshRated = rows.filter((c) => c.rates.length && c.rates[c.rates.length -
                   {c.vol
                     ? <div class="rate">
                         <div class="rate-side">
-                          <span class="rate-more rate-flat" title="Submissions that reached a decision, from the same source as the acceptance rate">{c.subs.length} yrs</span>
+                          <a class="rate-more" href={`${CSC}/${c.rateSlug}/`} target="_blank" rel="noopener" title="Submission counts year by year at the source, the same page the acceptance rate comes from">
+                            {c.subs.length} yrs <i class="fas fa-arrow-up-right-from-square" aria-hidden="true"></i>
+                          </a>
                         </div>
                         <svg class="spark spark-vol" viewBox={`-26 ${LABEL_ROWS[0] - 11} ${CHART.w + 60} ${CHART.h - LABEL_ROWS[0] + 24}`} role="img" aria-label={`Submissions ${c.vol.span}`}>
+                          <line x1="0" x2={CHART.w} y1={CHART.h} y2={CHART.h} class="base" />
                           {c.vol.grid.map((g) => (
                             <>
                               <line x1="0" x2={CHART.w} y1={g.y} y2={g.y} class="grid" />
@@ -985,6 +992,9 @@ const freshRated = rows.filter((c) => c.rates.length && c.rates[c.rates.length -
   .rate-flat { cursor:help; }
   .spark { display:block; width:100%; max-width:420px; height:auto; overflow:visible; color:#1d4ed8; }
   .spark .grid { stroke:rgba(148,163,184,.35); stroke-width:.6; stroke-dasharray:2 2; }
+  /* One level shared by every chart on the page. Without it each series
+     floats in its own cell and the column reads as ragged. */
+  .spark .base { stroke:rgba(148,163,184,.55); stroke-width:.7; stroke-dasharray:4 3; }
   .spark .glab { font-size:6px; fill:#94a3b8; }
   .spark .line { fill:none; stroke:currentColor; stroke-width:1.4; stroke-linejoin:round; stroke-linecap:round; }
   .spark .dot, .spark .dot-end { fill:currentColor; }
