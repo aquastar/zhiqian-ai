@@ -627,6 +627,51 @@ NOTABLE=[
   'note':'The main venue for computational and theoretical neuroscience, with double blind review of two page abstracts and heavy dynamical systems content. Its own call states the accepted summaries are not full length proceedings and do not prevent later publication.',
   'field':'computational neuroscience','kind':'flagship, yearly','why':'dynamical systems in neural data',
   'link':'https://www.cosyne.org/abstracts'},
+ # --- added 2026-10-18: psychology, neuroscience, sleep and dreams.
+ # Every date below was read off the society's own 2027 page on 2026-10-18.
+ # Named in full: the physics card below is also an APS, for a different
+ # society, and two bare acronyms in one grid is a trap.
+ {'title':'APS Annual Convention','desc':'Association for Psychological Science',
+  'area':'Society meetings','proceedings':'none','lastDeadline':'2026-12-01','period':1,
+  'date':'May 27-30, 2027','place':'Seattle, Washington, USA',
+  'field':'psychology','kind':'flagship, yearly','why':'the research side of psychology, broadly',
+  'note':'The main convention of the research wing of psychology, as distinct from the clinically oriented APA. Submissions are abstracts for posters and symposia, nothing archival. The date shown is the submission deadline, 5pm Eastern.',
+  'link':'https://www.psychologicalscience.org/conventions/2027-aps-annual-convention'},
+ {'title':'Psychonomics','desc':'Psychonomic Society Annual Meeting',
+  'area':'Society meetings','proceedings':'none','lastDeadline':'2026-06-01','period':1,
+  'field':'cognitive psychology','kind':'flagship, yearly','why':'how the mind works, by behavioral methods',
+  'note':'The premier international meeting for cognitive psychology, close to 2,000 people from more than 35 countries and over 1,000 presentations across three days, focused on fundamental questions studied behaviorally. The 67th meeting is in San Diego in November 2026 and the 68th is not yet dated, so the date shown is the last call rolled a year forward.',
+  'link':'https://www.psychonomic.org/page/2026annualmeeting'},
+ {'title':'OHBM','desc':'Organization for Human Brain Mapping Annual Meeting',
+  'area':'Society meetings','proceedings':'none','period':1,
+  'date':'June 26-30, 2027','place':'Toronto, Ontario, Canada',
+  'field':'brain imaging','kind':'flagship, yearly','why':'neuroimaging methods and their statistics',
+  'note':'The meeting for human neuroimaging, where fMRI, MEG and EEG methodology is argued out. Its 2027 page gives December 2026 for the content submission deadline without naming a day, which is why no date is shown here rather than a guessed one.',
+  'link':'https://www.humanbrainmapping.org/ohbm-2027/'},
+ {'title':'CCN','desc':'Cognitive Computational Neuroscience',
+  'area':'Society meetings','proceedings':'optin','lastDeadline':'2026-02-12','period':1,
+  'field':'computational neuroscience','kind':'yearly','why':'where neuroscience and machine learning meet',
+  'note':'Built around the overlap between neural computation and machine learning, which makes it the closest of these meetings to this site. Two tracks: a two page contribution for presentation, or an eight page paper with a competitive acceptance rate that is published with a DOI in the CCN Proceedings, so the proceedings are opted into. The ninth meeting ran at NYU in August 2026 and the tenth is not yet announced, so the date shown is the eight page deadline rolled a year forward.',
+  'link':'https://2026.ccneuro.org/dates-and-deadlines/'},
+ {'title':'ASSC','desc':'Association for the Scientific Study of Consciousness',
+  'area':'Society meetings','proceedings':'none','period':1,
+  'date':'June 16-19, 2027','place':'Beijing, China',
+  'field':'consciousness','kind':'flagship, yearly','why':'consciousness as an empirical question, dreaming included',
+  'note':'The 30th annual meeting, at the Beijing International Convention Center, drawing cognitive science, neuroscience, medicine and philosophy. Dreaming sits inside its remit as a state of consciousness. The organizers say details are still to come, so no submission date is published yet.',
+  'link':'https://theassc.org/assc-30/'},
+ {'title':'SLEEP','desc':'APSS Annual Meeting, AASM and SRS',
+  'area':'Society meetings','proceedings':'abstracts','lastDeadline':'2026-12-07','period':1,
+  'date':'June 6-9, 2027','place':'Denver, Colorado, USA',
+  'field':'sleep and circadian','kind':'flagship, yearly','why':'where sleep and dream data is presented',
+  'note':'The joint meeting of the American Academy of Sleep Medicine and the Sleep Research Society, over 6,000 attendees and more than 1,500 abstracts, covering clinical sleep medicine and circadian research together. Accepted abstracts are published in a supplement to the journal SLEEP. The date shown is the abstract deadline, 11:59pm Eastern.',
+  'link':'https://www.sleepmeeting.org/call-for-abstracts/'},
+ {'title':'IASD','desc':'International Association for the Study of Dreams',
+  'area':'Society meetings','proceedings':'none','lastDeadline':'2026-12-18','period':1,
+  'date':'May 29 - June 2, 2027','place':'Atlanta, Georgia, USA',
+  'field':'dream research','kind':'flagship, yearly','why':'the one meeting given over entirely to dreaming',
+  'note':'The 44th annual conference, five days and over 100 presentations from as many as 20 countries, and the only international meeting devoted wholly to dreams. It mixes dream science with clinical practice, lucid dreaming and the arts, so it is a wider room than the other cards here. The date shown is the deadline for presentation proposals.',
+  'link':'https://iasdconferences.org/2027/'},
+
  # --- added 2026-10-17, checked against the society's own pages ---
  {'title':'CNS','desc':'Cognitive Neuroscience Society Annual Meeting','area':'Society meetings',
   'proceedings':'abstracts','lastDeadline':'2026-11-03','period':1,
@@ -790,7 +835,9 @@ ranked=sorted([c for c in out if listed(c)] + emerging, key=dkey)
 MANUAL_OTHERS=[]
 others=sorted([c for c in out if not listed(c)] + MANUAL_OTHERS,
               key=lambda c:(CORE_ORDER[c['core']], CCF_ORDER[c['ccf']], c['title'].lower()))
-notable=sorted(society, key=lambda c:(c['area'], c['title']))
+# Grouped by field rather than alphabetically: the field chip is the first
+# thing on a card, so the neighbours of a card should share it.
+notable=sorted(society, key=lambda c:(c.get('field','') or 'zz', c['title'].lower()))
 
 hdr=("// Generated by scripts/build-conferences.py — do not edit by hand.\n"
      "// CCF ranks mirror the CCF catalogue via github.com/ccfddl/ccf-deadlines.\n"

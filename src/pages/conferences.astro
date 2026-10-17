@@ -335,9 +335,14 @@ const liveDate = (c) => {
 // the row said almost nothing while looking like it should. They are cards
 // now, led by what the meeting is and why it matters, which is the part a
 // visitor from another field actually needs.
+// Grouped by field, then by date inside a field. Sorting the whole grid by
+// date alone scattered the four neuroscience meetings across twenty-eight
+// cards, and the field is the first thing on a card and the first thing a
+// reader is filtering on.
 const society = notable
   .map((c) => ({ ...c, society: true, live: liveDate(c) }))
-  .sort((a, b) => (a.live.key || '9999').localeCompare(b.live.key || '9999'));
+  .sort((a, b) => (a.field || 'zz').localeCompare(b.field || 'zz')
+    || (a.live.key || '9999').localeCompare(b.live.key || '9999'));
 const all = ranked.map((c) => ({ ...c, live: liveDate(c) }));
 // One date order, no buckets. A venue that has finished its cycle sinks on
 // its own merits, because a date rolled a year forward is a year away. It
@@ -554,9 +559,11 @@ ${t.rate}% accepted, ${t.n.toLocaleString()} submissions, ${t.share}% of the edi
         rate and no rank. You send a short abstract, not a paper, and the normal outcome is a
         slot: a talk if the committee picks yours out, a poster otherwise. The selection that
         happens is mostly between those two, not between in and out. Nothing is archived as a
-        publication either, so presenting here does not spend your paper. Each card carries
-        three labels: the field, how often the meeting runs and whether it leads that field,
-        and why it is on this list. The last one holds the longer description.
+        publication for most of them, so presenting does not spend your paper, and where
+        something is published the badge on the card says what: an abstract volume, or a
+        paper track you can opt into. Each card carries three labels: the field, how often
+        the meeting runs and whether it leads that field, and why it is on this list. The
+        last one holds the longer description.
       </p>
       <div class="society-grid">
         {society.map((c) => (
