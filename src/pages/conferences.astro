@@ -9,8 +9,8 @@ const SOCIETY = 'Society meetings';
 const AREAS = ['AI / ML / Data Mining', 'Security & Medicine', SOCIETY];
 const AREA_SHORT = {
   'AI / ML / Data Mining': 'AI · ML · Data Mining',
-  'Security & Medicine': 'Other',
-  [SOCIETY]: 'Society meetings',
+  'Security & Medicine': 'Selected',
+  [SOCIETY]: 'Society conferences',
 };
 const slug = (a) => a.toLowerCase().replace(/[^a-z]+/g, '-').replace(/^-|-$/g, '');
 // Each field gets one icon and one hue, used identically in the filter and in
@@ -377,14 +377,23 @@ const freshRated = rows.filter((c) => c.rates.length && c.rates[c.rates.length -
         </a>
       </div>
 
-      <ul class="legend" id="legend">
-        <li><span class="chip band-urgent"></span>&lt;30d</li>
-        <li><span class="chip band-soon"></span>30&ndash;90</li>
-        <li><span class="chip band-far"></span>90+</li>
-        <li><span class="rounds-tag">2&times;</span>cycles / year</li>
-        <li><span class="est-tag">est.<i class="fas fa-circle-question" aria-hidden="true"></i></span>estimated from last year</li>
-        <li><span class="abs-line"><b>abstract</b></span>abstract due before the paper</li>
-      </ul>
+      {/* The legend is a reference, not a thing to read first, so it sits
+          behind the button and comes out on hover or on focus. Focus matters:
+          hover alone would put it out of reach of a keyboard and of a phone,
+          where the button's own tap opens it. */}
+      <div class="legend-wrap" id="legend">
+        <button type="button" class="legend-btn" aria-expanded="false" aria-controls="legend-list">
+          <i class="fas fa-circle-info" aria-hidden="true"></i>What the tags mean
+        </button>
+        <ul class="legend" id="legend-list">
+          <li><span class="chip band-urgent"></span>&lt;30d</li>
+          <li><span class="chip band-soon"></span>30&ndash;90</li>
+          <li><span class="chip band-far"></span>90+</li>
+          <li><span class="rounds-tag">2&times;</span>cycles / year</li>
+          <li><span class="est-tag">est.<i class="fas fa-circle-question" aria-hidden="true"></i></span>estimated from last year</li>
+          <li><span class="abs-line"><b>abstract</b></span>abstract due before the paper</li>
+        </ul>
+      </div>
     </section>
 
     {topicBlocks.map((b) => (
@@ -545,8 +554,9 @@ ${t.rate}% accepted, ${t.n.toLocaleString()} submissions, ${t.share}% of the edi
         rate and no rank. You send a short abstract, not a paper, and the normal outcome is a
         slot: a talk if the committee picks yours out, a poster otherwise. The selection that
         happens is mostly between those two, not between in and out. Nothing is archived as a
-        publication either, so presenting here does not spend your paper. Each card says what
-        the meeting is, how large it is, and what it would be for.
+        publication either, so presenting here does not spend your paper. Each card carries
+        three labels: the field, how often the meeting runs and whether it leads that field,
+        and why it is on this list. The last one holds the longer description.
       </p>
       <div class="society-grid">
         {society.map((c) => (
@@ -558,7 +568,15 @@ ${t.rate}% accepted, ${t.n.toLocaleString()} submissions, ${t.share}% of the edi
               <span class={`proc proc-${c.proceedings}`}>{PROC_TAG[c.proceedings] || PROC_TAG.none}</span>
             </header>
             <p class="soc-desc">{c.desc}</p>
-            {c.note && <p class="soc-note">{c.note}</p>}
+            {/* Three labels in place of the paragraph that used to sit here:
+                the field, how often it runs and whether it leads that field,
+                and why it is on this list at all. The paragraph is still
+                written, and is the tooltip on the third one. */}
+            <ul class="soc-tags">
+              {c.field && <li class="st-field">{c.field}</li>}
+              {c.kind && <li class={`st-kind ${/flagship/.test(c.kind) ? 'is-top' : ''}`}>{c.kind}</li>}
+              {c.why && <li class="st-why" title={c.note || ''}>{c.why}</li>}
+            </ul>
             <dl class="soc-facts">
               <div>
                 <dt>Abstract due</dt>
@@ -622,7 +640,7 @@ ${t.rate}% accepted, ${t.n.toLocaleString()} submissions, ${t.share}% of the edi
                       ? <a class="conf-name" href={c.link} target="_blank" rel="noopener">{c.title}</a>
                       : <span class="conf-name">{c.title}</span>}
                     {c.cycles > 1 && <span class="rounds-tag" title={c.roundLabels.join(' · ')}>{c.cycles}&times;</span>}
-                    {c.notable && !c.society && <span class="new-tag">emerging</span>}
+                    {c.notable && !c.society && c.badge && <span class="new-tag">{c.badge}</span>}
                     {c.society && <span class={`proc proc-${c.proceedings}`}>{PROC_TAG[c.proceedings] || PROC_TAG.none}</span>}
                   </span>
                   <span class="conf-desc">{c.desc}</span>
@@ -895,7 +913,19 @@ ${t.rate}% accepted, ${t.n.toLocaleString()} submissions, ${t.share}% of the edi
   .fcount { font-size:.68rem; font-weight:700; opacity:.6; }
   .fbtn.is-on .fcount { opacity:.75; }
 
-  .legend { list-style:none; margin:10px 0 0; padding:0; display:flex; flex-wrap:wrap; gap:14px; font-size:.76rem; color:#475569; }
+  .legend-wrap { position:relative; display:inline-block; margin-top:8px; }
+  .legend-wrap[hidden] { display:none; }
+  .legend-btn { display:inline-flex; align-items:center; gap:6px; cursor:help; font:inherit;
+    font-size:.7rem; font-weight:600; color:#64748b; background:#fff; padding:3px 10px;
+    border:1px solid rgba(148,163,184,.4); border-radius:999px; }
+  .legend-btn i { font-size:.72rem; color:#94a3b8; }
+  .legend-wrap:hover .legend-btn, .legend-wrap:focus-within .legend-btn { color:var(--accent); border-color:rgba(37,99,235,.45); }
+  .legend { list-style:none; margin:0; padding:9px 13px; display:none; flex-wrap:wrap; gap:9px 16px;
+    font-size:.74rem; color:#475569;
+    position:absolute; z-index:25; top:calc(100% + 6px); left:0; width:max-content; max-width:min(560px, 86vw);
+    background:#fff; border:1px solid rgba(148,163,184,.45); border-radius:11px;
+    box-shadow:0 12px 28px rgba(15,23,42,.16); }
+  .legend-wrap:hover .legend, .legend-wrap:focus-within .legend, .legend-wrap.is-open .legend { display:flex; }
   .legend li { display:inline-flex; align-items:center; gap:6px; }
   .legend .abs-line { flex:0 0 auto; margin:0; }
   .legend strong { font-weight:700; color:#1e293b; }
@@ -1151,6 +1181,15 @@ ${t.rate}% accepted, ${t.n.toLocaleString()} submissions, ${t.share}% of the edi
   .none { color:#b6c0cc; font-size:.75rem; }
   .empty-note { margin:16px 0 0; font-size:.84rem; color:#64748b; }
 
+  /* Three chips where a paragraph used to be. Field first, because that is
+     what a reader scanning twenty cards is sorting on. */
+  .soc-tags { list-style:none; display:flex; flex-wrap:wrap; gap:5px; margin:8px 0 0; padding:0; }
+  .soc-tags li { font-size:.66rem; font-weight:600; line-height:1.3; border-radius:999px;
+    padding:2px 9px; border:1px solid transparent; }
+  .st-field { color:#0f172a; background:#eef2f7; border-color:rgba(148,163,184,.4); font-weight:700; }
+  .st-kind { color:#475569; background:#fff; border-color:rgba(148,163,184,.4); }
+  .st-kind.is-top { color:#0e7490; background:#ecfeff; border-color:rgba(14,116,144,.35); font-weight:700; }
+  .st-why { color:#64748b; background:#fff; border-color:rgba(148,163,184,.3); cursor:help; }
   .proc { font-size:.62rem; font-weight:800; letter-spacing:.04em; text-transform:uppercase; border-radius:4px; padding:2px 6px; }
   .proc-none { color:#475569; background:#e2e8f0; }
   .proc-optin { color:#92400e; background:#fef3c7; }
@@ -1545,6 +1584,30 @@ ${t.rate}% accepted, ${t.n.toLocaleString()} submissions, ${t.share}% of the edi
     });
     document.addEventListener('keydown', (e) => { if (e.key === 'Escape') close(); });
   });
+
+  // Hover covers the mouse, focus covers the keyboard, and this covers the
+  // phone, where neither exists.
+  const legendWrap = document.querySelector('.legend-wrap');
+  if (legendWrap) {
+    const btn = legendWrap.querySelector('.legend-btn');
+    btn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const on = legendWrap.classList.toggle('is-open');
+      btn.setAttribute('aria-expanded', on ? 'true' : 'false');
+    });
+    document.addEventListener('click', (e) => {
+      if (!e.target.closest('.legend-wrap')) {
+        legendWrap.classList.remove('is-open');
+        btn.setAttribute('aria-expanded', 'false');
+      }
+    });
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        legendWrap.classList.remove('is-open');
+        btn.setAttribute('aria-expanded', 'false');
+      }
+    });
+  }
 
   // The topic breakdown is ICLR, so it belongs to one field. There is no
   // equivalent for the others yet, and showing AI's numbers while the reader

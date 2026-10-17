@@ -572,33 +572,40 @@ NOTABLE=[
   'area':'Society meetings','proceedings':'none','lastDeadline':'2026-05-20','period':1,
   'date':'November 1-4, 2026','place':'San Francisco, California, USA',
   'note':'The main annual gathering for operations research and analytics, around 6,000 attendees. The date shown is the abstract deadline.',
+  'field':'operations research','kind':'flagship, yearly','why':'optimization and analytics at scale',
   'link':'https://meetings.informs.org/'},
  {'title':'SIAM MDS','desc':'SIAM Conference on Mathematics of Data Science',
   'area':'Society meetings','proceedings':'none','lastDeadline':'2026-05-18','period':2,
   'date':'November 16-20, 2026','place':'Salt Lake City, Utah, USA',
   'note':'Biennial, even years. Where the mathematical side of data science meets. The date shown is the abstract deadline.',
+  'field':'data science theory','kind':'biennial, even years','why':'the mathematics under data science',
   'link':'https://www.siam.org/conferences-events/siam-conferences/mds26/'},
  {'title':'SIAM CSE','desc':'SIAM Conference on Computational Science and Engineering',
   'area':'Society meetings','proceedings':'none','lastDeadline':'2026-08-25','period':2,
   'date':'February 22-26, 2027','place':'Pittsburgh, Pennsylvania, USA',
   'note':'Biennial, odd years. The largest SIAM meeting and the main venue for scientific machine learning. The date shown is the abstract deadline.',
+  'field':'computational science','kind':'biennial, odd years','why':'scientific machine learning',
   'link':'https://www.siam.org/conferences-events/siam-conferences/cse27/'},
  {'title':'SIAM UQ','desc':'SIAM Conference on Uncertainty Quantification',
   'area':'Society meetings','proceedings':'none','lastDeadline':'2025-09-22','period':2,
   'note':'Biennial, even years. The central applied-maths meeting for UQ. UQ26 ran March 2026 in Minneapolis and UQ28 is not yet announced. The date shown is the abstract deadline.',
+  'field':'uncertainty quantification','kind':'biennial, even years','why':'UQ methods',
   'link':'https://www.siam.org/conferences-events/siam-conferences/uq26/'},
  {'title':'SIAM Annual Meeting','desc':'SIAM Annual Meeting (AN)',
   'area':'Society meetings','proceedings':'none','lastDeadline':'2026-02-16','period':1,
   'note':'Yearly, all of applied mathematics in one room. AN26 ran July 2026 in Cleveland and AN27 is not yet announced. The date shown is the abstract deadline.',
+  'field':'applied mathematics','kind':'yearly','why':'the whole field in one room',
   'link':'https://www.siam.org/conferences-events/siam-conferences/an26/'},
  {'title':'SIAM OP','desc':'SIAM Conference on Optimization',
   'area':'Society meetings','proceedings':'none','lastDeadline':'2025-11-13','period':3,
   'note':'Triennial. OP26 ran June 2026 in Edinburgh, so the next edition falls around 2029. The date shown is the abstract deadline.',
+  'field':'optimization','kind':'triennial','why':'optimization theory',
   'link':'https://www.siam.org/conferences-events/siam-conferences/op26/'},
  {'title':'ICIAM','desc':'International Congress for Industrial and Applied Mathematics',
   'area':'Society meetings','proceedings':'none','lastDeadline':'2026-12-07','period':4,
   'date':'July 12-16, 2027','place':'The Hague, Netherlands',
   'note':'Every four years, the field-wide congress of applied mathematics, around 4,000 participants. The date shown is the abstract deadline, which is published.',
+  'field':'applied mathematics','kind':'every four years','why':'field-wide congress',
   'link':'https://iciam2027.org/'},
 
  # --- added 2026-10-11, each checked against the society's own site ---
@@ -606,63 +613,96 @@ NOTABLE=[
   'area':'Society meetings','proceedings':'none','lastDeadline':'2026-10-22','period':1,
   'date':'April 11-16, 2027','place':'Atlanta, Georgia, USA',
   'note':'The largest physics meeting in the world, around 14,000 attendees and over 10,000 abstracts a year. Formed by merging the March and April meetings, so the name March Meeting is retired. The date shown is the contributed abstract deadline.',
+  'field':'physics','kind':'flagship, yearly','why':'physics-informed modelling',
   'link':'https://summit.aps.org/attend/abstracts'},
  {'title':'SfN','desc':'Society for Neuroscience Annual Meeting','area':'Society meetings',
   'proceedings':'none','lastDeadline':'2026-06-11','period':1,
   'date':'November 14-18, 2026','place':'Washington, District of Columbia, USA',
   'note':'The largest neuroscience meeting worldwide, 21,093 attendees in 2025, poster driven. Abstracts appear only in the online meeting planner, and preprints are explicitly allowed. The date shown is the regular abstract deadline, with late breaking abstracts closing in September.',
+  'field':'neuroscience','kind':'flagship, yearly','why':'the largest neuroscience meeting',
   'link':'https://www.sfn.org/meetings/neuroscience-2026/general-information/dates-and-deadlines'},
  {'title':'COSYNE','desc':'Computational and Systems Neuroscience','area':'Society meetings',
   'proceedings':'none','lastDeadline':'2026-10-18','period':1,
   'date':'March 11-14, 2027','place':'Montreal, Quebec, Canada',
   'note':'The main venue for computational and theoretical neuroscience, with double blind review of two page abstracts and heavy dynamical systems content. Its own call states the accepted summaries are not full length proceedings and do not prevent later publication.',
+  'field':'computational neuroscience','kind':'flagship, yearly','why':'dynamical systems in neural data',
   'link':'https://www.cosyne.org/abstracts'},
  # --- added 2026-10-17, checked against the society's own pages ---
  {'title':'CNS','desc':'Cognitive Neuroscience Society Annual Meeting','area':'Society meetings',
   'proceedings':'abstracts','lastDeadline':'2026-11-03','period':1,
   'date':'March 20-23, 2027','place':'Boston, Massachusetts, USA',
   'note':'Where cognitive neuroscience meets psychology and computational modelling, four days built around poster sessions, invited symposia and award lectures. The 33rd meeting ran in Vancouver in March 2026. Abstracts are 250 words and are published by default in the Proceedings of the Annual Meeting of the Cognitive Neuroscience Society, so this is not a no-proceedings venue, but the proceedings are the abstracts themselves. The Sketchpad Series takes work in progress and is left out of them. Submission requires society membership. The date shown is the poster abstract deadline, which the society says will not be extended.',
+  'field':'cognitive neuroscience','kind':'yearly','why':'cognition, modelling and imaging',
   'link':'https://www.cogneurosociety.org/submit-a-poster/'},
  {'title':'NetSci','desc':'International School and Conference on Network Science',
   'area':'Society meetings','proceedings':'none','lastDeadline':'2025-12-19','period':1,
   'note':'The flagship conference of the Network Science Society and the closest society meeting to graph machine learning. One page abstracts. The date shown is the abstract deadline.',
+  'field':'network science','kind':'flagship, yearly','why':'the closest society meeting to graph ML',
   'link':'https://netscisociety.net/'},
+ # Control theory, which neither CCF nor CORE indexes because both are
+ # computing catalogues. The absence is not a judgement on the venue, so
+ # both ranks read n/a rather than being invented. Dates and both deadlines
+ # read off cdc2027.ieeecss.org on 2026-10-17.
+ {'title':'CDC','desc':'IEEE Conference on Decision and Control',
+  'area':'AI / ML / Data Mining','proceedings':'full','lastDeadline':'2027-03-17','period':1,
+  'date':'December 14-17, 2027','place':'Lisbon, Portugal','badge':'control',
+  'dblp':'cdc','cycles':2,
+  'roundLabels':['L-CSS and CDC','CDC only'],
+  'rounds':[{'d':'2027-03-17','label':'L-CSS and CDC','est':False},
+            {'d':'2027-03-31','label':'CDC only','est':False}],
+  'note':'The main conference of the IEEE Control Systems Society and the premier venue of the field, 66th edition, with full archival proceedings. Papers may be submitted jointly to L-CSS, the society letters journal, on the earlier of the two deadlines. Neither CCF nor CORE indexes it, because both catalogue computing rather than control.',
+  'link':'https://cdc2027.ieeecss.org/'},
+
+ {'title':'CompleNet','desc':'International Conference on Complex Networks',
+  'area':'Society meetings','proceedings':'optin','lastDeadline':'2025-11-30','period':1,
+  'field':'network science','kind':'yearly','why':'plenary only, with a Springer paper track',
+  'note':'Smaller and more personal than NetSci, running since 2009, with every talk in a single plenary session rather than parallel tracks. Two kinds of submission: an abstract for presentation only, or a paper of up to twelve pages that goes into the Springer conference volume. The 17th edition ran in Zaragoza in May 2026 and the next is not yet announced, so the date shown is the last deadline rolled a year forward.',
+  'link':'https://complenet.weeblysite.com/call-for-contributions'},
+
  {'title':'Complex Systems (CCS)','desc':'Conference on Complex Systems','area':'Society meetings',
   'proceedings':'none','lastDeadline':'2026-05-15','period':1,
   'date':'October 12-16, 2026','place':'Binghamton, New York, USA',
   'note':'The annual meeting of the Complex Systems Society, covering networks, dynamical systems and complexity applied to epidemics, traffic and infrastructure. One page extended abstracts. Not to be confused with ACM CCS in security.',
+  'field':'complex systems','kind':'flagship, yearly','why':'networks, epidemics and traffic',
   'link':'https://cssociety.org/'},
  {'title':'IC2S2','desc':'International Conference on Computational Social Science',
   'area':'Society meetings','proceedings':'none','lastDeadline':'2026-03-03','period':1,
   'note':'The main venue for computational social science, heavy on network analysis and large scale data methodology. Its call states submissions are non archival, so work published or in preparation elsewhere may be submitted.',
+  'field':'computational social science','kind':'flagship, yearly','why':'non-archival, network heavy',
   'link':'https://easychair.org/cfp/IC2S2_2026'},
  {'title':'Sunbelt','desc':'INSNA Social Networks Conference','area':'Society meetings',
   'proceedings':'none','lastDeadline':'2026-02-27','period':1,
   'note':'The annual conference of the International Network for Social Network Analysis and the oldest continuing venue for social network analysis, where much of the methodology now used in network science originated.',
+  'field':'social networks','kind':'flagship, yearly','why':'where network methodology began',
   'link':'https://www.insna.org/'},
  {'title':'JSM','desc':'Joint Statistical Meetings','area':'Society meetings',
   'proceedings':'optin','lastDeadline':'2026-02-02','period':1,
   'note':'The largest annual gathering of North American statisticians, over 5,000 attendees from 52 countries, run jointly by the ASA, IMS and allied societies. Presentation is abstract only, but the ASA also publishes an opt-in, non peer reviewed JSM Proceedings volume, which is why this one is not a clean no-proceedings case.',
+  'field':'statistics','kind':'flagship, yearly','why':'statistical methodology',
   'link':'https://ww2.amstat.org/meetings/jsm/2026/'},
  {'title':'JMM','desc':'Joint Mathematics Meetings','area':'Society meetings',
   'proceedings':'none','lastDeadline':'2026-09-15','period':1,
   'date':'January 12-15, 2027','place':'Chicago, Illinois, USA',
   'note':'The largest mathematics meeting in the world and the main annual US gathering across pure and applied mathematics, hosted by the AMS with partner societies. The date shown is the general abstract deadline.',
+  'field':'mathematics','kind':'flagship, yearly','why':'breadth across pure and applied',
   'link':'https://meetings.ams.org/math/jmm2027/cfp.cgi'},
  {'title':'EURO','desc':'European Conference on Operational Research','area':'Society meetings',
   'proceedings':'none','lastDeadline':'2027-02-28','period':1,
   'date':'July 11-14, 2027','place':'Athens, Greece',
   'note':'The flagship annual conference of the Association of European Operational Research Societies, the European counterpart to the INFORMS Annual Meeting. Abstract only, organized into streams.',
+  'field':'operations research','kind':'flagship, yearly','why':'the European counterpart to INFORMS',
   'link':'https://euro2027athens.com/'},
  {'title':'AGU','desc':'American Geophysical Union Annual Meeting','area':'Society meetings',
   'proceedings':'none','lastDeadline':'2026-08-05','period':1,
   'date':'December 7-11, 2026','place':'San Francisco, California, USA',
   'note':'The largest Earth and space science meeting, 25,000 or more attendees from over 100 countries. Relevant for climate and geoscience applications of spectral methods, uncertainty quantification and network analysis. The date shown is the regular abstract deadline.',
+  'field':'Earth and space science','kind':'flagship, yearly','why':'geoscience data at scale',
   'link':'https://www.agu.org/annual-meeting'},
  {'title':'Epidemics','desc':'International Conference on Infectious Disease Dynamics',
   'area':'Society meetings','proceedings':'none','lastDeadline':'2027-06-18','period':2,
   'date':'December 5-8, 2027','place':'Singapore',
   'note':'The main international meeting for infectious disease modelling and epidemic dynamics, directly relevant to network based epidemic models. Run by a publisher rather than a learned society, which makes it the odd one out in this list.',
+  'field':'epidemic modelling','kind':'biennial','why':'network models of disease spread',
   'link':'https://www.elsevier.com/events/conferences/international-conference-on-infectious-disease-dynamics'},
 
  # Full proceedings, but too new or too far outside the catalogues to carry
@@ -695,9 +735,16 @@ def roll(ds, period=1):
 
 for n in NOTABLE:
     n.setdefault('equivalent', None)   # editorial, not an official rank
+    # The chip beside the name. "emerging" is the common case, a venue too
+    # new for the catalogues; CDC is on the list for the opposite reason.
+    n.setdefault('badge', 'emerging')
+    for k in ('field', 'kind', 'why'):
+        n.setdefault(k, '')
     nd, ny, est = roll(n.get('lastDeadline',''), n.get('period',1))
     n.update({'ccf':n.get('ccfManual','N'),'core':n.get('coreManual','N'),'coreVerified':False,'nextAbstract':'',
-              'cycles':1,'roundLabels':[],'rates':[],'rateSrc':'','rateSlug':'','rounds':[],'dblp':'','best':'','csr':'','edition':'','sub':'',
+              'cycles':n.get('cycles',1),'roundLabels':n.get('roundLabels',[]),
+              'rates':[],'rateSrc':'','rateSlug':'','rounds':n.get('rounds',[]),
+              'dblp':n.get('dblp',''),'best':'','csr':'','edition':'','sub':'',
               'estimated':est,'estFrom':n.get('lastDeadline','') if est else '',
               # The deadline year is not the edition year for any of these:
               # MLSys closes in October for the following year's conference.
@@ -738,22 +785,9 @@ society=[n for n in NOTABLE if n['proceedings'] in ('none','optin','abstracts')]
 # One list, ordered by date alone — the reader filters by field in the page.
 ranked=sorted([c for c in out if listed(c)] + emerging, key=dkey)
 # Venues added by hand because the upstream catalogues do not carry them.
-# ccf-deadlines covers the CCF list, which is computer science, and the
-# CORE2023 export covers computing too, so a control-theory conference is
-# absent from both. That absence is not a judgement on the venue, and both
-# ranks read n/a here rather than being invented.
-MANUAL_OTHERS=[
-  {'title':'CDC',
-   'desc':'IEEE Conference on Decision and Control',
-   'area':'AI / ML / Data Mining', 'sub':'AI',
-   'ccf':'N', 'core':'N', 'coreVerified':False,
-   'link':'https://ieeecss.org/conference/cdc',
-   'nextDeadline':'', 'nextYear':None, 'nextAbstract':'', 'estimated':False, 'estFrom':'',
-   'rounds':[], 'dblp':'cdc', 'csr':'', 'edition':'', 'best':'',
-   'date':'', 'place':'', 'cc':'', 'city':'', 'cycles':1, 'roundLabels':[],
-   'proceedings':'full', 'rates':[], 'rateSrc':'', 'rateSlug':'',
-   'tier':3},
-]
+# They live in NOTABLE now, which gives them the same rolled deadlines and
+# the same rendering as everything else.
+MANUAL_OTHERS=[]
 others=sorted([c for c in out if not listed(c)] + MANUAL_OTHERS,
               key=lambda c:(CORE_ORDER[c['core']], CCF_ORDER[c['ccf']], c['title'].lower()))
 notable=sorted(society, key=lambda c:(c['area'], c['title']))
