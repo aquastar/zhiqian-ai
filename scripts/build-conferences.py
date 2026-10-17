@@ -617,9 +617,10 @@ NOTABLE=[
   'link':'https://summit.aps.org/attend/abstracts'},
  {'title':'SfN','desc':'Society for Neuroscience Annual Meeting','area':'Society meetings',
   'proceedings':'none','lastDeadline':'2026-06-11','period':1,
-  'date':'November 14-18, 2026','place':'Washington, District of Columbia, USA',
+  'date':'October 23-27, 2027','place':'Chicago, Illinois, USA',
   'note':'The largest neuroscience meeting worldwide, 21,093 attendees in 2025, poster driven. Abstracts appear only in the online meeting planner, and preprints are explicitly allowed. The date shown is the regular abstract deadline, with late breaking abstracts closing in September.',
   'field':'neuroscience','kind':'flagship, yearly','why':'the largest neuroscience meeting',
+  'estIsForDate':True,
   'link':'https://www.sfn.org/meetings/neuroscience-2026/general-information/dates-and-deadlines'},
  {'title':'COSYNE','desc':'Computational and Systems Neuroscience','area':'Society meetings',
   'proceedings':'none','lastDeadline':'2026-10-18','period':1,
@@ -637,11 +638,26 @@ NOTABLE=[
   'field':'psychology','kind':'flagship, yearly','why':'the research side of psychology, broadly',
   'note':'The main convention of the research wing of psychology, as distinct from the clinically oriented APA. Submissions are abstracts for posters and symposia, nothing archival. The date shown is the submission deadline, 5pm Eastern.',
   'link':'https://www.psychologicalscience.org/conventions/2027-aps-annual-convention'},
+ {'title':'APA Convention','desc':'American Psychological Association Annual Convention',
+  'area':'Society meetings','proceedings':'none','lastDeadline':'2026-01-14','period':1,
+  'date':'August 12-14, 2027','place':'San Francisco, California, USA','estIsForDate':True,
+  'field':'psychology','kind':'flagship, yearly','why':'the practice side, and the larger of the two',
+  'note':'The largest gathering of psychologists in the world, and the professional counterpart to the research-led APS convention: divisions, practice, policy and continuing education alongside the science. Proposals go to the divisions. The 2027 call has not opened, so the date shown is the 2026 deadline rolled a year forward.',
+  'link':'https://convention.apa.org/proposals'},
+ {'title':'World Sleep','desc':'World Sleep Congress',
+  'area':'Society meetings','proceedings':'none','lastDeadline':'2027-05-15','period':2,
+  'date':'September 10-15, 2027','place':'Montreal, Quebec, Canada',
+  'field':'sleep and circadian','kind':'biennial, odd years','why':'the international counterpart to SLEEP',
+  'note':'The World Sleep Society congress, held every two years and the international counterpart to the American SLEEP meeting. Four doors, all published: symposium proposals and fast-track abstracts close on 20 January 2027, oral abstracts on 15 May and posters on 15 July. The date shown is the oral abstract deadline.',
+  'link':'https://worldsleepcongress.com/'},
  {'title':'Psychonomics','desc':'Psychonomic Society Annual Meeting',
   'area':'Society meetings','proceedings':'none','lastDeadline':'2026-06-01','period':1,
   'field':'cognitive psychology','kind':'flagship, yearly','why':'how the mind works, by behavioral methods',
-  'note':'The premier international meeting for cognitive psychology, close to 2,000 people from more than 35 countries and over 1,000 presentations across three days, focused on fundamental questions studied behaviorally. The 67th meeting is in San Diego in November 2026 and the 68th is not yet dated, so the date shown is the last call rolled a year forward.',
-  'link':'https://www.psychonomic.org/page/2026annualmeeting'},
+  'note':'The premier international meeting for cognitive psychology, close to 2,000 people from more than 35 countries and over 1,000 presentations across three days, focused on fundamental questions studied behaviorally. The 68th meeting is at the Sheraton New Orleans. The date shown is the last call rolled a year forward, since the 2027 call has not opened.',
+  'date':'November 18-21, 2027',
+  'place':'New Orleans, Louisiana, USA',
+  'estIsForDate':True,
+  'link':'https://www.psychonomic.org/page/futuremeetings'},
  {'title':'OHBM','desc':'Organization for Human Brain Mapping Annual Meeting',
   'area':'Society meetings','proceedings':'none','period':1,
   'date':'June 26-30, 2027','place':'Toronto, Ontario, Canada',
@@ -649,10 +665,12 @@ NOTABLE=[
   'note':'The meeting for human neuroimaging, where fMRI, MEG and EEG methodology is argued out. Its 2027 page gives December 2026 for the content submission deadline without naming a day, which is why no date is shown here rather than a guessed one.',
   'link':'https://www.humanbrainmapping.org/ohbm-2027/'},
  {'title':'CCN','desc':'Cognitive Computational Neuroscience',
-  'area':'Society meetings','proceedings':'optin','lastDeadline':'2026-02-12','period':1,
+  'area':'Society meetings','proceedings':'optin','lastDeadline':'2027-02-01','period':1,
   'field':'computational neuroscience','kind':'yearly','why':'where neuroscience and machine learning meet',
-  'note':'Built around the overlap between neural computation and machine learning, which makes it the closest of these meetings to this site. Two tracks: a two page contribution for presentation, or an eight page paper with a competitive acceptance rate that is published with a DOI in the CCN Proceedings, so the proceedings are opted into. The ninth meeting ran at NYU in August 2026 and the tenth is not yet announced, so the date shown is the eight page deadline rolled a year forward.',
-  'link':'https://2026.ccneuro.org/dates-and-deadlines/'},
+  'note':'Built around the overlap between neural computation and machine learning, which makes it the closest of these meetings to this site. Two tracks: a two page contribution for presentation, due 1 April 2027, or an eight page paper with a competitive acceptance rate published with a DOI in the CCN Proceedings, whose abstract is due 1 February and whose full paper is due 4 February. The date shown is the first of those. The 10th edition is at the Edinburgh International Conference Centre.',
+  'date':'July 26-29, 2027',
+  'place':'Edinburgh, United Kingdom',
+  'link':'https://2027.ccneuro.org/dates-and-deadlines/'},
  {'title':'ASSC','desc':'Association for the Scientific Study of Consciousness',
   'area':'Society meetings','proceedings':'none','period':1,
   'date':'June 16-19, 2027','place':'Beijing, China',
@@ -680,10 +698,12 @@ NOTABLE=[
   'field':'cognitive neuroscience','kind':'yearly','why':'cognition, modelling and imaging',
   'link':'https://www.cogneurosociety.org/submit-a-poster/'},
  {'title':'NetSci','desc':'International School and Conference on Network Science',
-  'area':'Society meetings','proceedings':'none','lastDeadline':'2025-12-19','period':1,
-  'note':'The flagship conference of the Network Science Society and the closest society meeting to graph machine learning. One page abstracts. The date shown is the abstract deadline.',
+  'area':'Society meetings','proceedings':'none','lastDeadline':'2026-12-01','period':1,
+  'note':'The flagship conference of the Network Science Society and the closest society meeting to graph machine learning. One page abstracts. Hosted by TU Dresden, with satellites and the school on 17 and 18 May, whose own proposals closed on 15 November 2026. The date shown is the abstract deadline.',
   'field':'network science','kind':'flagship, yearly','why':'the closest society meeting to graph ML',
-  'link':'https://netscisociety.net/'},
+  'date':'May 17-21, 2027',
+  'place':'Dresden, Germany',
+  'link':'https://netsci2027.github.io/'},
  # Control theory, which neither CCF nor CORE indexes because both are
  # computing catalogues. The absence is not a judgement on the venue, so
  # both ranks read n/a rather than being invented. Dates and both deadlines
@@ -699,17 +719,20 @@ NOTABLE=[
   'link':'https://cdc2027.ieeecss.org/'},
 
  {'title':'CompleNet','desc':'International Conference on Complex Networks',
-  'area':'Society meetings','proceedings':'optin','lastDeadline':'2025-11-30','period':1,
+  'area':'Society meetings','proceedings':'optin','lastDeadline':'2026-10-17','period':1,
   'field':'network science','kind':'yearly','why':'plenary only, with a Springer paper track',
-  'note':'Smaller and more personal than NetSci, running since 2009, with every talk in a single plenary session rather than parallel tracks. Two kinds of submission: an abstract for presentation only, or a paper of up to twelve pages that goes into the Springer conference volume. The 17th edition ran in Zaragoza in May 2026 and the next is not yet announced, so the date shown is the last deadline rolled a year forward.',
-  'link':'https://complenet.weeblysite.com/call-for-contributions'},
+  'note':'Smaller and more personal than NetSci, running since 2009, with every talk in a single plenary session rather than parallel tracks. Two kinds of submission: an abstract for presentation only, or a paper that goes into the Springer conference volume. The 18th edition is at the University of Rochester. The date shown is the abstract and paper deadline, Anywhere on Earth.',
+  'date':'March 9-12, 2027',
+  'place':'Rochester, New York, USA',
+  'link':'https://complenet.github.io/index.html'},
 
  {'title':'Complex Systems (CCS)','desc':'Conference on Complex Systems','area':'Society meetings',
   'proceedings':'none','lastDeadline':'2026-05-15','period':1,
-  'date':'October 12-16, 2026','place':'Binghamton, New York, USA',
+  'date':'September 17-24, 2027','place':'Wroclaw, Poland',
   'note':'The annual meeting of the Complex Systems Society, covering networks, dynamical systems and complexity applied to epidemics, traffic and infrastructure. One page extended abstracts. Not to be confused with ACM CCS in security.',
   'field':'complex systems','kind':'flagship, yearly','why':'networks, epidemics and traffic',
-  'link':'https://cssociety.org/'},
+  'estIsForDate':True,
+  'link':'https://cssociety.org/ccs'},
  {'title':'IC2S2','desc':'International Conference on Computational Social Science',
   'area':'Society meetings','proceedings':'none','lastDeadline':'2026-03-03','period':1,
   'note':'The main venue for computational social science, heavy on network analysis and large scale data methodology. Its call states submissions are non archival, so work published or in preparation elsewhere may be submitted.',
@@ -719,12 +742,15 @@ NOTABLE=[
   'proceedings':'none','lastDeadline':'2026-02-27','period':1,
   'note':'The annual conference of the International Network for Social Network Analysis and the oldest continuing venue for social network analysis, where much of the methodology now used in network science originated.',
   'field':'social networks','kind':'flagship, yearly','why':'where network methodology began',
-  'link':'https://www.insna.org/'},
+  'date':'June 21-26, 2027',
+  'place':'Montreal, Quebec, Canada',
+  'estIsForDate':True,
+  'link':'https://www.insna.org/events/sunbelt-2027-montreal'},
  {'title':'JSM','desc':'Joint Statistical Meetings','area':'Society meetings',
-  'proceedings':'optin','lastDeadline':'2026-02-02','period':1,
-  'note':'The largest annual gathering of North American statisticians, over 5,000 attendees from 52 countries, run jointly by the ASA, IMS and allied societies. Presentation is abstract only, but the ASA also publishes an opt-in, non peer reviewed JSM Proceedings volume, which is why this one is not a clean no-proceedings case.',
+  'proceedings':'optin','lastDeadline':'2027-02-01','period':1,
+  'note':'The largest annual gathering of North American statisticians, over 5,000 attendees from 52 countries, run jointly by the ASA, IMS and allied societies. Presentation is abstract only, but the ASA also publishes an opt-in, non peer reviewed JSM Proceedings volume, which is why this one is not a clean no-proceedings case. Topic-contributed session proposals close earlier, on 10 December 2026. The date shown is the abstract deadline.',
   'field':'statistics','kind':'flagship, yearly','why':'statistical methodology',
-  'link':'https://ww2.amstat.org/meetings/jsm/2026/'},
+  'link':'https://ww2.amstat.org/meetings/jsm/2027/submissions.cfm'},
  {'title':'JMM','desc':'Joint Mathematics Meetings','area':'Society meetings',
   'proceedings':'none','lastDeadline':'2026-09-15','period':1,
   'date':'January 12-15, 2027','place':'Chicago, Illinois, USA',
@@ -740,7 +766,7 @@ NOTABLE=[
  {'title':'AGU','desc':'American Geophysical Union Annual Meeting','area':'Society meetings',
   'proceedings':'none','lastDeadline':'2026-08-05','period':1,
   'date':'December 7-11, 2026','place':'San Francisco, California, USA',
-  'note':'The largest Earth and space science meeting, 25,000 or more attendees from over 100 countries. Relevant for climate and geoscience applications of spectral methods, uncertainty quantification and network analysis. The date shown is the regular abstract deadline.',
+  'note':'The largest Earth and space science meeting, 25,000 or more attendees from over 100 countries. AGU26 runs 7 to 11 December 2026 in San Francisco and its late-breaking abstracts close on 20 October 2026. The date shown is the regular abstract deadline for the cycle after it.',
   'field':'Earth and space science','kind':'flagship, yearly','why':'geoscience data at scale',
   'link':'https://www.agu.org/annual-meeting'},
  {'title':'Epidemics','desc':'International Conference on Infectious Disease Dynamics',
@@ -785,6 +811,7 @@ for n in NOTABLE:
     n.setdefault('badge', 'emerging')
     for k in ('field', 'kind', 'why'):
         n.setdefault(k, '')
+    n.setdefault('estIsForDate', False)
     nd, ny, est = roll(n.get('lastDeadline',''), n.get('period',1))
     n.update({'ccf':n.get('ccfManual','N'),'core':n.get('coreManual','N'),'coreVerified':False,'nextAbstract':'',
               'cycles':n.get('cycles',1),'roundLabels':n.get('roundLabels',[]),
@@ -797,13 +824,11 @@ for n in NOTABLE:
               'nextDeadline':nd,'nextYear':None,
               'notable':True})
     n.setdefault('date',''); n.setdefault('place','')
-    if est and n['date']:
-        # The meeting on record is the next one to attend, not the one this
-        # estimated deadline belongs to. Say so in the note and leave the
-        # edition column empty rather than pairing a date with the wrong call.
-        where=f" {n['place']}" if n['place'] else ''
-        n['note']=n['note'].rstrip() + f" Next meeting: {n['date']}{where}."
-        n['date']=''; n['place']=''
+    if est and n['date'] and not n.get('estIsForDate'):
+        # The meeting on record is not the one this estimated deadline belongs
+        # to. Both are worth showing, so both stay and the note says which is
+        # which, rather than one of them being deleted to avoid the question.
+        n['note']=n['note'].rstrip() + ' The meeting shown is the next one to attend, which is a cycle ahead of the estimated deadline beside it.'
     n['cc']=flag(n['place'])
     n['city']=city_note(n['place'])
     # An emerging venue carries a stated equivalence so it sorts with its peers;
