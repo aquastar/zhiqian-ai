@@ -3,7 +3,7 @@
 // CORE ranks are cross-checked against the official CORE2023 export from
 // portal.core.edu.au. Acceptance rates and submission counts come from
 // github.com/Xovee/cs-conf-stats (main track only).
-// Built 2026-10-15.
+// Built 2026-10-17.
 export const ranked = [
   {
     "title": "RecSys",
@@ -12761,6 +12761,46 @@ export const others = [
     "tier": 3
   },
   {
+    "title": "MDM",
+    "desc": "IEEE International Conference on Mobile Data Management",
+    "area": "AI / ML / Data Mining",
+    "sub": "DB",
+    "ccf": "C",
+    "core": "B",
+    "coreVerified": true,
+    "nextDeadline": "2027-03-06",
+    "nextYear": 2027,
+    "nextAbstract": "",
+    "estimated": true,
+    "estFrom": "2026-03-06",
+    "rounds": [
+      {
+        "d": "2027-03-06",
+        "label": "Research track regular and short papers; extended deadline",
+        "est": true,
+        "from": "2026-03-06",
+        "abs": ""
+      }
+    ],
+    "dblp": "mdm",
+    "csr": "",
+    "edition": "",
+    "best": "",
+    "link": "https://mdm-2026.github.io/index.html",
+    "date": "",
+    "place": "",
+    "cc": "",
+    "city": "",
+    "cycles": 1,
+    "roundLabels": [],
+    "proceedings": "full",
+    "rates": [],
+    "subs": [],
+    "rateSrc": "",
+    "rateSlug": "",
+    "tier": 3
+  },
+  {
     "title": "PAKDD",
     "desc": "Pacific-Asia Conference on Knowledge Discovery and Data Mining",
     "area": "AI / ML / Data Mining",
@@ -16306,6 +16346,42 @@ export const notable = [
     "notable": true,
     "cc": "us",
     "city": "Busy Bee fried chicken, walking under the whale sharks, Ponce City Market rooftop",
+    "tier": 3
+  },
+  {
+    "title": "CNS",
+    "desc": "Cognitive Neuroscience Society Annual Meeting",
+    "area": "Society meetings",
+    "proceedings": "abstracts",
+    "lastDeadline": "2026-11-03",
+    "period": 1,
+    "date": "March 20-23, 2027",
+    "place": "Boston, Massachusetts, USA",
+    "note": "Where cognitive neuroscience meets psychology and computational modelling, four days built around poster sessions, invited symposia and award lectures. The 33rd meeting ran in Vancouver in March 2026. Abstracts are 250 words and are published by default in the Proceedings of the Annual Meeting of the Cognitive Neuroscience Society, so this is not a no-proceedings venue, but the proceedings are the abstracts themselves. The Sketchpad Series takes work in progress and is left out of them. Submission requires society membership. The date shown is the poster abstract deadline, which the society says will not be extended.",
+    "link": "https://www.cogneurosociety.org/submit-a-poster/",
+    "equivalent": null,
+    "ccf": "N",
+    "core": "N",
+    "coreVerified": false,
+    "nextAbstract": "",
+    "cycles": 1,
+    "roundLabels": [],
+    "rates": [],
+    "rateSrc": "",
+    "rateSlug": "",
+    "rounds": [],
+    "dblp": "",
+    "best": "",
+    "csr": "",
+    "edition": "",
+    "sub": "",
+    "estimated": false,
+    "estFrom": "",
+    "nextDeadline": "2026-11-03",
+    "nextYear": null,
+    "notable": true,
+    "cc": "us",
+    "city": "",
     "tier": 3
   },
   {

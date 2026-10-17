@@ -256,6 +256,15 @@ const topicBlocks = Object.entries(topicRates).map(([venue, eds]) => {
     }),
   };
 });
+// What a society meeting does with its abstracts. Three cases, because
+// "no proceedings" and "opt-in proceedings" did not cover a meeting that
+// publishes every abstract by default and nothing longer.
+const PROC_TAG = { none: 'no proceedings', optin: 'opt-in proceedings', abstracts: 'abstract proceedings' };
+const PROC_WHY = {
+  none: 'not rankable, no archival proceedings',
+  optin: 'not rankable, proceedings are opt-in and not peer reviewed',
+  abstracts: 'not rankable, the proceedings are the abstracts themselves',
+};
 const CSR = 'https://csrankings.org/';
 // Google Scholar Metrics has no API, so the h5-index itself is not pulled in.
 // What is linkable is the category page, which is the field-native ranking.
@@ -546,9 +555,7 @@ ${t.rate}% accepted, ${t.n.toLocaleString()} submissions, ${t.share}% of the edi
               <h3>
                 {c.link ? <a href={c.link} target="_blank" rel="noopener">{c.title}</a> : c.title}
               </h3>
-              <span class={`proc proc-${c.proceedings}`}>
-                {c.proceedings === 'optin' ? 'opt-in proceedings' : 'no proceedings'}
-              </span>
+              <span class={`proc proc-${c.proceedings}`}>{PROC_TAG[c.proceedings] || PROC_TAG.none}</span>
             </header>
             <p class="soc-desc">{c.desc}</p>
             {c.note && <p class="soc-note">{c.note}</p>}
@@ -616,7 +623,7 @@ ${t.rate}% accepted, ${t.n.toLocaleString()} submissions, ${t.share}% of the edi
                       : <span class="conf-name">{c.title}</span>}
                     {c.cycles > 1 && <span class="rounds-tag" title={c.roundLabels.join(' · ')}>{c.cycles}&times;</span>}
                     {c.notable && !c.society && <span class="new-tag">emerging</span>}
-                    {c.society && <span class={`proc proc-${c.proceedings}`}>{c.proceedings === 'optin' ? 'opt-in proceedings' : 'no proceedings'}</span>}
+                    {c.society && <span class={`proc proc-${c.proceedings}`}>{PROC_TAG[c.proceedings] || PROC_TAG.none}</span>}
                   </span>
                   <span class="conf-desc">{c.desc}</span>
                   {c.note && <p class="why">{c.note}</p>}
@@ -764,7 +771,7 @@ ${t.rate}% accepted, ${t.n.toLocaleString()} submissions, ${t.share}% of the edi
                 </td>
                 <td class="c-rank" data-label="Ranking">
                   {c.society
-                    ? <span class="eqv eqv-none">{c.proceedings === 'optin' ? 'not rankable, proceedings are opt-in and not peer reviewed' : 'not rankable, no archival proceedings'}</span>
+                    ? <span class="eqv eqv-none">{PROC_WHY[c.proceedings] || PROC_WHY.none}</span>
                     : c.notable
                     ? <span class="none">not ranked</span>
                     : <span class="ranks">
@@ -1147,6 +1154,7 @@ ${t.rate}% accepted, ${t.n.toLocaleString()} submissions, ${t.share}% of the edi
   .proc { font-size:.62rem; font-weight:800; letter-spacing:.04em; text-transform:uppercase; border-radius:4px; padding:2px 6px; }
   .proc-none { color:#475569; background:#e2e8f0; }
   .proc-optin { color:#92400e; background:#fef3c7; }
+  .proc-abstracts { color:#3730a3; background:#e0e7ff; }
 
   .rest { border:1px solid rgba(148,163,184,.26); border-radius:12px; background:#fbfcfe; }
   .rest > summary { cursor:pointer; list-style:none; display:flex; align-items:center; gap:10px; padding:12px 16px; }

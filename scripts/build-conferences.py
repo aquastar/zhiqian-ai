@@ -617,6 +617,12 @@ NOTABLE=[
   'date':'March 11-14, 2027','place':'Montreal, Quebec, Canada',
   'note':'The main venue for computational and theoretical neuroscience, with double blind review of two page abstracts and heavy dynamical systems content. Its own call states the accepted summaries are not full length proceedings and do not prevent later publication.',
   'link':'https://www.cosyne.org/abstracts'},
+ # --- added 2026-10-17, checked against the society's own pages ---
+ {'title':'CNS','desc':'Cognitive Neuroscience Society Annual Meeting','area':'Society meetings',
+  'proceedings':'abstracts','lastDeadline':'2026-11-03','period':1,
+  'date':'March 20-23, 2027','place':'Boston, Massachusetts, USA',
+  'note':'Where cognitive neuroscience meets psychology and computational modelling, four days built around poster sessions, invited symposia and award lectures. The 33rd meeting ran in Vancouver in March 2026. Abstracts are 250 words and are published by default in the Proceedings of the Annual Meeting of the Cognitive Neuroscience Society, so this is not a no-proceedings venue, but the proceedings are the abstracts themselves. The Sketchpad Series takes work in progress and is left out of them. Submission requires society membership. The date shown is the poster abstract deadline, which the society says will not be extended.',
+  'link':'https://www.cogneurosociety.org/submit-a-poster/'},
  {'title':'NetSci','desc':'International School and Conference on Network Science',
   'area':'Society meetings','proceedings':'none','lastDeadline':'2025-12-19','period':1,
   'note':'The flagship conference of the Network Science Society and the closest society meeting to graph machine learning. One page abstracts. The date shown is the abstract deadline.',
@@ -728,7 +734,7 @@ def listed(c):
 # inside an area, soonest deadline first; anything without one trails behind
 def dkey(c): return (0, c['nextDeadline']) if c['nextDeadline'] else (1, c['title'].lower())
 emerging=[n for n in NOTABLE if n['proceedings']=='full']
-society=[n for n in NOTABLE if n['proceedings'] in ('none','optin')]
+society=[n for n in NOTABLE if n['proceedings'] in ('none','optin','abstracts')]
 # One list, ordered by date alone — the reader filters by field in the page.
 ranked=sorted([c for c in out if listed(c)] + emerging, key=dkey)
 # Venues added by hand because the upstream catalogues do not carry them.
