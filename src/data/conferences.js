@@ -8,8 +8,9 @@ export const ranked = [
   {
     "title": "CCS",
     "desc": "ACM Conference on Computer and Communications Security",
-    "area": "Security",
+    "area": "security",
     "sub": "SC",
+    "frank": "Big Four",
     "ccf": "A",
     "core": "A*",
     "coreVerified": true,
@@ -317,8 +318,9 @@ export const ranked = [
   {
     "title": "VLDB",
     "desc": "International Conference on Very Large Data Bases",
-    "area": "AI / ML / Data Mining",
+    "area": "ai",
     "sub": "DB",
+    "frank": "",
     "ccf": "A",
     "core": "A*",
     "coreVerified": true,
@@ -655,8 +657,9 @@ export const ranked = [
   {
     "title": "NDSS",
     "desc": "Network and Distributed System Security (NDSS) Symposium",
-    "area": "Security",
+    "area": "security",
     "sub": "SC",
+    "frank": "Big Four",
     "ccf": "A",
     "core": "A*",
     "coreVerified": true,
@@ -861,8 +864,9 @@ export const ranked = [
   {
     "title": "NeurIPS",
     "desc": "Conference on Neural Information Processing Systems",
-    "area": "AI / ML / Data Mining",
+    "area": "ai",
     "sub": "AI",
+    "frank": "",
     "ccf": "A",
     "core": "A*",
     "coreVerified": true,
@@ -1168,8 +1172,9 @@ export const ranked = [
   {
     "title": "ISWC",
     "desc": "International Semantic Web Conference",
-    "area": "AI / ML / Data Mining",
+    "area": "ai",
     "sub": "DB",
+    "frank": "",
     "ccf": "B",
     "core": "A",
     "coreVerified": true,
@@ -1209,8 +1214,9 @@ export const ranked = [
   {
     "title": "ICWSM",
     "desc": "The International AAAI Conference on Web and Social Media",
-    "area": "AI / ML / Data Mining",
+    "area": "ai",
     "sub": "HI",
+    "frank": "",
     "ccf": "B",
     "core": "A",
     "coreVerified": true,
@@ -1352,8 +1358,9 @@ export const ranked = [
   {
     "title": "ER",
     "desc": "International Conference on Conceptual Modeling",
-    "area": "AI / ML / Data Mining",
+    "area": "ai",
     "sub": "DB",
+    "frank": "",
     "ccf": "C",
     "core": "A",
     "coreVerified": true,
@@ -1393,8 +1400,9 @@ export const ranked = [
   {
     "title": "CIKM",
     "desc": "ACM International Conference on Information and Knowledge Management",
-    "area": "AI / ML / Data Mining",
+    "area": "ai",
     "sub": "DB",
+    "frank": "",
     "ccf": "B",
     "core": "A",
     "coreVerified": true,
@@ -1668,8 +1676,9 @@ export const ranked = [
   {
     "title": "EMNLP",
     "desc": "The annual Conference on Empirical Methods in Natural Language Processing",
-    "area": "AI / ML / Data Mining",
+    "area": "ai",
     "sub": "AI",
+    "frank": "",
     "ccf": "B",
     "core": "A*",
     "coreVerified": true,
@@ -1906,8 +1915,9 @@ export const ranked = [
   {
     "title": "BMVC",
     "desc": "British Machine Vision Conference",
-    "area": "AI / ML / Data Mining",
+    "area": "ai",
     "sub": "AI",
+    "frank": "",
     "ccf": "C",
     "core": "A",
     "coreVerified": true,
@@ -1947,8 +1957,9 @@ export const ranked = [
   {
     "title": "PODS",
     "desc": "ACM Symposium on Principles of Database Systems",
-    "area": "AI / ML / Data Mining",
+    "area": "ai",
     "sub": "DB",
+    "frank": "",
     "ccf": "B",
     "core": "A*",
     "coreVerified": true,
@@ -2289,8 +2300,9 @@ export const ranked = [
   {
     "title": "SIGSPATIAL",
     "desc": "ACM SIGSPATIAL International Conference on Advances in Geographic Information Systems",
-    "area": "AI / ML / Data Mining",
+    "area": "ai",
     "sub": "MX",
+    "frank": "",
     "ccf": "C",
     "core": "A",
     "coreVerified": true,
@@ -2540,8 +2552,9 @@ export const ranked = [
   {
     "title": "ICDM",
     "desc": "IEEE International Conference on Data Mining",
-    "area": "AI / ML / Data Mining",
+    "area": "ai",
     "sub": "DB",
+    "frank": "",
     "ccf": "B",
     "core": "A*",
     "coreVerified": true,
@@ -2791,8 +2804,9 @@ export const ranked = [
   {
     "title": "EDBT",
     "desc": "International Conference on Extending Database Technology",
-    "area": "AI / ML / Data Mining",
+    "area": "ai",
     "sub": "DB",
+    "frank": "",
     "ccf": "B",
     "core": "A",
     "coreVerified": true,
@@ -2849,8 +2863,9 @@ export const ranked = [
   {
     "title": "S&P",
     "desc": "IEEE Symposium on Security and Privacy",
-    "area": "Security",
+    "area": "security",
     "sub": "SC",
+    "frank": "Big Four",
     "ccf": "A",
     "core": "A*",
     "coreVerified": true,
@@ -3247,8 +3262,9 @@ export const ranked = [
   {
     "title": "ICDE",
     "desc": "IEEE International Conference on Data Engineering",
-    "area": "AI / ML / Data Mining",
+    "area": "ai",
     "sub": "DB",
+    "frank": "",
     "ccf": "A",
     "core": "A*",
     "coreVerified": true,
@@ -3605,8 +3621,9 @@ export const ranked = [
   {
     "title": "WACV",
     "desc": "IEEE/CVF Winter Conference on Applications of Computer Vision",
-    "area": "AI / ML / Data Mining",
+    "area": "ai",
     "sub": "AI",
+    "frank": "",
     "ccf": "N",
     "core": "A",
     "coreVerified": true,
@@ -3657,8 +3674,9 @@ export const ranked = [
   {
     "title": "WISE",
     "desc": "International Conference on Web Information Systems Engineering",
-    "area": "AI / ML / Data Mining",
+    "area": "ai",
     "sub": "DB",
+    "frank": "",
     "ccf": "B",
     "core": "B",
     "coreVerified": true,
@@ -3698,8 +3716,9 @@ export const ranked = [
   {
     "title": "BIBM",
     "desc": "IEEE International Conference on Bioinformatics and Biomedicine",
-    "area": "Health & Bio",
+    "area": "biomed",
     "sub": "MX",
+    "frank": "",
     "ccf": "B",
     "core": "N",
     "coreVerified": false,
@@ -3739,8 +3758,9 @@ export const ranked = [
   {
     "title": "SIGMOD",
     "desc": "ACM Conference on Management of Data",
-    "area": "AI / ML / Data Mining",
+    "area": "ai",
     "sub": "DB",
+    "frank": "",
     "ccf": "A",
     "core": "A*",
     "coreVerified": true,
@@ -4119,10 +4139,53 @@ export const ranked = [
     "tier": 1
   },
   {
+    "title": "ASP-DAC",
+    "desc": "Asia and South Pacific Design Automation Conference",
+    "area": "eda",
+    "sub": "DS",
+    "frank": "EDA, Asia",
+    "ccf": "C",
+    "core": "C",
+    "coreVerified": true,
+    "nextDeadline": "2026-07-18",
+    "nextYear": 2027,
+    "nextAbstract": "",
+    "estimated": false,
+    "estFrom": "",
+    "rounds": [
+      {
+        "d": "2026-07-18",
+        "label": "",
+        "est": false,
+        "year": 2027,
+        "link": "https://www.aspdac.com/aspdac2027/",
+        "abs": "2026-07-11"
+      }
+    ],
+    "dblp": "aspdac",
+    "csr": "",
+    "edition": "",
+    "best": "",
+    "link": "https://www.aspdac.com/aspdac2027/",
+    "date": "Jan 25-28, 2027",
+    "place": "Hitotsubashi Hall, Tokyo, Japan",
+    "cc": "jp",
+    "city": "",
+    "cycles": 1,
+    "roundLabels": [],
+    "proceedings": "full",
+    "rates": [],
+    "subs": [],
+    "rateSrc": "",
+    "rateSlug": "",
+    "tier": 3
+  },
+  {
     "title": "SIGKDD",
     "desc": "ACM Knowledge Discovery and Data Mining",
-    "area": "AI / ML / Data Mining",
+    "area": "ai",
     "sub": "DB",
+    "frank": "",
     "ccf": "A",
     "core": "A*",
     "coreVerified": false,
@@ -4419,8 +4482,9 @@ export const ranked = [
   {
     "title": "AAAI",
     "desc": "AAAI Conference on Artificial Intelligence",
-    "area": "AI / ML / Data Mining",
+    "area": "ai",
     "sub": "AI",
+    "frank": "",
     "ccf": "A",
     "core": "A*",
     "coreVerified": true,
@@ -4748,10 +4812,311 @@ export const ranked = [
     "tier": 1
   },
   {
+    "title": "HPCA",
+    "desc": "IEEE International Symposium on High-Performance Computer Architecture",
+    "area": "eda",
+    "sub": "DS",
+    "frank": "architecture top four",
+    "ccf": "A",
+    "core": "A*",
+    "coreVerified": true,
+    "nextDeadline": "2026-07-31",
+    "nextYear": 2027,
+    "nextAbstract": "",
+    "estimated": false,
+    "estFrom": "",
+    "rounds": [
+      {
+        "d": "2026-07-31",
+        "label": "",
+        "est": false,
+        "year": 2027,
+        "link": "https://conf.researchr.org/home/hpca-2027",
+        "abs": "2026-07-24"
+      }
+    ],
+    "dblp": "hpca",
+    "csr": "Arch",
+    "edition": "33rd",
+    "best": "",
+    "link": "https://conf.researchr.org/home/hpca-2027",
+    "date": "March 20-24, 2027",
+    "place": "Salt Lake City, Utah",
+    "cc": "",
+    "city": "powder skiing within an hour, floating in the Great Salt Lake, Temple Square",
+    "cycles": 1,
+    "roundLabels": [],
+    "proceedings": "full",
+    "rates": [
+      {
+        "y": 1995,
+        "r": 18.9
+      },
+      {
+        "y": 1996,
+        "r": 22.1
+      },
+      {
+        "y": 1997,
+        "r": 19.7
+      },
+      {
+        "y": 1998,
+        "r": 22.0
+      },
+      {
+        "y": 1999,
+        "r": 20.5
+      },
+      {
+        "y": 2000,
+        "r": 21.5
+      },
+      {
+        "y": 2001,
+        "r": 23.6
+      },
+      {
+        "y": 2002,
+        "r": 20.0
+      },
+      {
+        "y": 2003,
+        "r": 22.0
+      },
+      {
+        "y": 2004,
+        "r": 17.6
+      },
+      {
+        "y": 2005,
+        "r": 15.5
+      },
+      {
+        "y": 2006,
+        "r": 15.1
+      },
+      {
+        "y": 2007,
+        "r": 16.1
+      },
+      {
+        "y": 2008,
+        "r": 19.3
+      },
+      {
+        "y": 2009,
+        "r": 19.0
+      },
+      {
+        "y": 2010,
+        "r": 18.3
+      },
+      {
+        "y": 2011,
+        "r": 18.5
+      },
+      {
+        "y": 2012,
+        "r": 16.9
+      },
+      {
+        "y": 2013,
+        "r": 20.5
+      },
+      {
+        "y": 2014,
+        "r": 25.6
+      },
+      {
+        "y": 2015,
+        "r": 22.4
+      },
+      {
+        "y": 2016,
+        "r": 22.1
+      },
+      {
+        "y": 2017,
+        "r": 22.3
+      },
+      {
+        "y": 2018,
+        "r": 20.8
+      },
+      {
+        "y": 2019,
+        "r": 19.7
+      },
+      {
+        "y": 2020,
+        "r": 19.4
+      },
+      {
+        "y": 2021,
+        "r": 23.5
+      },
+      {
+        "y": 2022,
+        "r": 29.3
+      },
+      {
+        "y": 2023,
+        "r": 25.0
+      },
+      {
+        "y": 2024,
+        "r": 18.3
+      },
+      {
+        "y": 2025,
+        "r": 22.7
+      },
+      {
+        "y": 2026,
+        "r": 21.1
+      }
+    ],
+    "subs": [
+      {
+        "y": 1995,
+        "n": 190
+      },
+      {
+        "y": 1996,
+        "n": 131
+      },
+      {
+        "y": 1997,
+        "n": 152
+      },
+      {
+        "y": 1998,
+        "n": 141
+      },
+      {
+        "y": 1999,
+        "n": 117
+      },
+      {
+        "y": 2000,
+        "n": 163
+      },
+      {
+        "y": 2001,
+        "n": 110
+      },
+      {
+        "y": 2002,
+        "n": 130
+      },
+      {
+        "y": 2003,
+        "n": 141
+      },
+      {
+        "y": 2004,
+        "n": 153
+      },
+      {
+        "y": 2005,
+        "n": 181
+      },
+      {
+        "y": 2006,
+        "n": 172
+      },
+      {
+        "y": 2007,
+        "n": 174
+      },
+      {
+        "y": 2008,
+        "n": 161
+      },
+      {
+        "y": 2009,
+        "n": 184
+      },
+      {
+        "y": 2010,
+        "n": 175
+      },
+      {
+        "y": 2011,
+        "n": 227
+      },
+      {
+        "y": 2012,
+        "n": 213
+      },
+      {
+        "y": 2013,
+        "n": 249
+      },
+      {
+        "y": 2014,
+        "n": 215
+      },
+      {
+        "y": 2015,
+        "n": 228
+      },
+      {
+        "y": 2016,
+        "n": 240
+      },
+      {
+        "y": 2017,
+        "n": 224
+      },
+      {
+        "y": 2018,
+        "n": 260
+      },
+      {
+        "y": 2019,
+        "n": 233
+      },
+      {
+        "y": 2020,
+        "n": 248
+      },
+      {
+        "y": 2021,
+        "n": 260
+      },
+      {
+        "y": 2022,
+        "n": 273
+      },
+      {
+        "y": 2023,
+        "n": 364
+      },
+      {
+        "y": 2024,
+        "n": 410
+      },
+      {
+        "y": 2025,
+        "n": 534
+      },
+      {
+        "y": 2026,
+        "n": 563
+      }
+    ],
+    "rateSrc": "csc",
+    "rateSlug": "hpca",
+    "tier": 1
+  },
+  {
     "title": "EACL",
     "desc": "The Annual Conference of the European Chapter of the Association for Computational Linguistics",
-    "area": "AI / ML / Data Mining",
+    "area": "ai",
     "sub": "AI",
+    "frank": "",
     "ccf": "N",
     "core": "A",
     "coreVerified": true,
@@ -4802,8 +5167,9 @@ export const ranked = [
   {
     "title": "CIDR",
     "desc": "International Conference on Innovative Data Systems Research",
-    "area": "AI / ML / Data Mining",
+    "area": "ai",
     "sub": "DB",
+    "frank": "",
     "ccf": "B",
     "core": "A",
     "coreVerified": true,
@@ -4843,8 +5209,9 @@ export const ranked = [
   {
     "title": "WSDM",
     "desc": "International Conference on Web Search and Data Mining",
-    "area": "AI / ML / Data Mining",
+    "area": "ai",
     "sub": "DB",
+    "frank": "",
     "ccf": "B",
     "core": "A",
     "coreVerified": true,
@@ -5038,8 +5405,9 @@ export const ranked = [
   {
     "title": "USENIX Security",
     "desc": "USENIX Security Symposium",
-    "area": "Security",
+    "area": "security",
     "sub": "SC",
+    "frank": "Big Four",
     "ccf": "A",
     "core": "A*",
     "coreVerified": true,
@@ -5314,10 +5682,305 @@ export const ranked = [
     "tier": 1
   },
   {
+    "title": "ASPLOS",
+    "desc": "International Conference on Architectural Support for Programming Languages and Operating Systems",
+    "area": "eda",
+    "sub": "DS",
+    "frank": "architecture top four",
+    "ccf": "A",
+    "core": "A*",
+    "coreVerified": true,
+    "nextDeadline": "2026-09-09",
+    "nextYear": 2027,
+    "nextAbstract": "",
+    "estimated": false,
+    "estFrom": "",
+    "rounds": [
+      {
+        "d": "2026-09-09",
+        "label": "September Cycle Submission Deadline",
+        "est": false,
+        "year": 2027,
+        "link": "https://www.asplos-conference.org/asplos2027/cfp/",
+        "abs": ""
+      },
+      {
+        "d": "2027-03-12",
+        "label": "Spring; later portal upload cutoff has unconfirmed scope",
+        "est": true,
+        "from": "2025-03-12",
+        "abs": "2027-03-06"
+      }
+    ],
+    "dblp": "asplos",
+    "csr": "Arch",
+    "edition": "32nd",
+    "best": "",
+    "link": "https://www.asplos-conference.org/asplos2027/cfp/",
+    "date": "April 11-15, 2027",
+    "place": "Crete, Greece",
+    "cc": "gr",
+    "city": "",
+    "cycles": 2,
+    "roundLabels": [
+      "April Cycle Submission Deadline",
+      "September Cycle Submission Deadline"
+    ],
+    "proceedings": "full",
+    "rates": [
+      {
+        "y": 1987,
+        "r": 33.8
+      },
+      {
+        "y": 1989,
+        "r": 23.7
+      },
+      {
+        "y": 1991,
+        "r": 30.4
+      },
+      {
+        "y": 1992,
+        "r": 16.0
+      },
+      {
+        "y": 1994,
+        "r": 19.9
+      },
+      {
+        "y": 1996,
+        "r": 22.9
+      },
+      {
+        "y": 1998,
+        "r": 22.8
+      },
+      {
+        "y": 2000,
+        "r": 21.1
+      },
+      {
+        "y": 2002,
+        "r": 18.5
+      },
+      {
+        "y": 2004,
+        "r": 14.2
+      },
+      {
+        "y": 2006,
+        "r": 24.1
+      },
+      {
+        "y": 2008,
+        "r": 24.4
+      },
+      {
+        "y": 2009,
+        "r": 25.7
+      },
+      {
+        "y": 2010,
+        "r": 17.7
+      },
+      {
+        "y": 2011,
+        "r": 21.1
+      },
+      {
+        "y": 2012,
+        "r": 21.5
+      },
+      {
+        "y": 2013,
+        "r": 22.8
+      },
+      {
+        "y": 2014,
+        "r": 22.6
+      },
+      {
+        "y": 2015,
+        "r": 16.7
+      },
+      {
+        "y": 2016,
+        "r": 22.8
+      },
+      {
+        "y": 2017,
+        "r": 16.6
+      },
+      {
+        "y": 2018,
+        "r": 17.6
+      },
+      {
+        "y": 2019,
+        "r": 21.1
+      },
+      {
+        "y": 2020,
+        "r": 17.7
+      },
+      {
+        "y": 2021,
+        "r": 18.8
+      },
+      {
+        "y": 2022,
+        "r": 20.2
+      },
+      {
+        "y": 2023,
+        "r": 21.3
+      },
+      {
+        "y": 2024,
+        "r": 20.9
+      },
+      {
+        "y": 2025,
+        "r": 19.4
+      },
+      {
+        "y": 2026,
+        "r": 14.5
+      }
+    ],
+    "subs": [
+      {
+        "y": 1987,
+        "n": 65
+      },
+      {
+        "y": 1989,
+        "n": 114
+      },
+      {
+        "y": 1991,
+        "n": 92
+      },
+      {
+        "y": 1992,
+        "n": 150
+      },
+      {
+        "y": 1994,
+        "n": 146
+      },
+      {
+        "y": 1996,
+        "n": 109
+      },
+      {
+        "y": 1998,
+        "n": 123
+      },
+      {
+        "y": 2000,
+        "n": 114
+      },
+      {
+        "y": 2002,
+        "n": 130
+      },
+      {
+        "y": 2004,
+        "n": 169
+      },
+      {
+        "y": 2006,
+        "n": 158
+      },
+      {
+        "y": 2008,
+        "n": 127
+      },
+      {
+        "y": 2009,
+        "n": 113
+      },
+      {
+        "y": 2010,
+        "n": 181
+      },
+      {
+        "y": 2011,
+        "n": 152
+      },
+      {
+        "y": 2012,
+        "n": 172
+      },
+      {
+        "y": 2013,
+        "n": 193
+      },
+      {
+        "y": 2014,
+        "n": 217
+      },
+      {
+        "y": 2015,
+        "n": 287
+      },
+      {
+        "y": 2016,
+        "n": 232
+      },
+      {
+        "y": 2017,
+        "n": 320
+      },
+      {
+        "y": 2018,
+        "n": 319
+      },
+      {
+        "y": 2019,
+        "n": 351
+      },
+      {
+        "y": 2020,
+        "n": 486
+      },
+      {
+        "y": 2021,
+        "n": 398
+      },
+      {
+        "y": 2022,
+        "n": 397
+      },
+      {
+        "y": 2023,
+        "n": 600
+      },
+      {
+        "y": 2024,
+        "n": 922
+      },
+      {
+        "y": 2025,
+        "n": 912
+      },
+      {
+        "y": 2026,
+        "n": 1048
+      }
+    ],
+    "rateSrc": "csc",
+    "rateSlug": "asplos",
+    "tier": 1
+  },
+  {
     "title": "ICDT",
     "desc": "International Conference on Database Theory",
-    "area": "AI / ML / Data Mining",
+    "area": "ai",
     "sub": "DB",
+    "frank": "",
     "ccf": "B",
     "core": "A",
     "coreVerified": true,
@@ -5364,8 +6027,9 @@ export const ranked = [
   {
     "title": "ICRA",
     "desc": "IEEE International Conference on Robotics and Automation",
-    "area": "AI / ML / Data Mining",
+    "area": "ai",
     "sub": "AI",
+    "frank": "",
     "ccf": "B",
     "core": "A*",
     "coreVerified": true,
@@ -5645,10 +6309,53 @@ export const ranked = [
     "tier": 1
   },
   {
+    "title": "DATE",
+    "desc": "Design, Automation & Test in Europe",
+    "area": "eda",
+    "sub": "DS",
+    "frank": "EDA, Europe",
+    "ccf": "B",
+    "core": "B",
+    "coreVerified": true,
+    "nextDeadline": "2026-09-20",
+    "nextYear": 2027,
+    "nextAbstract": "",
+    "estimated": false,
+    "estFrom": "",
+    "rounds": [
+      {
+        "d": "2026-09-20",
+        "label": "",
+        "est": false,
+        "year": 2027,
+        "link": "https://www.date-conference.com/date-2027-call-papers",
+        "abs": "2026-09-13"
+      }
+    ],
+    "dblp": "date",
+    "csr": "",
+    "edition": "",
+    "best": "",
+    "link": "https://www.date-conference.com/date-2027-call-papers",
+    "date": "March 22-24, 2027",
+    "place": "Dresden, Germany",
+    "cc": "de",
+    "city": "",
+    "cycles": 1,
+    "roundLabels": [],
+    "proceedings": "full",
+    "rates": [],
+    "subs": [],
+    "rateSrc": "",
+    "rateSlug": "",
+    "tier": 2
+  },
+  {
     "title": "ICASSP",
     "desc": "IEEE International Conference on Acoustics, Speech, and Signal Processing",
-    "area": "AI / ML / Data Mining",
+    "area": "audio",
     "sub": "CG",
+    "frank": "SPS flagship",
     "ccf": "B",
     "core": "B",
     "coreVerified": true,
@@ -5688,8 +6395,9 @@ export const ranked = [
   {
     "title": "ICLR",
     "desc": "International Conference on Learning Representations",
-    "area": "AI / ML / Data Mining",
+    "area": "ai",
     "sub": "AI",
+    "frank": "",
     "ccf": "A",
     "core": "A*",
     "coreVerified": true,
@@ -5843,8 +6551,9 @@ export const ranked = [
   {
     "title": "AISTATS",
     "desc": "International Conference on Artificial Intelligence and Statistics",
-    "area": "AI / ML / Data Mining",
+    "area": "ai",
     "sub": "AI",
+    "frank": "",
     "ccf": "C",
     "core": "A",
     "coreVerified": true,
@@ -6054,8 +6763,9 @@ export const ranked = [
   {
     "title": "AAMAS",
     "desc": "International Conference on Autonomous Agents and Multiagent Systems",
-    "area": "AI / ML / Data Mining",
+    "area": "ai",
     "sub": "AI",
+    "frank": "",
     "ccf": "B",
     "core": "A*",
     "coreVerified": true,
@@ -6094,8 +6804,9 @@ export const ranked = [
   {
     "title": "COLING",
     "desc": "International Conference on Computational Linguistics",
-    "area": "AI / ML / Data Mining",
+    "area": "ai",
     "sub": "AI",
+    "frank": "",
     "ccf": "B",
     "core": "B",
     "coreVerified": true,
@@ -6145,8 +6856,9 @@ export const ranked = [
   {
     "title": "NAACL",
     "desc": "The Annual Conference of the North American Chapter of the Association for Computational Linguistics",
-    "area": "AI / ML / Data Mining",
+    "area": "ai",
     "sub": "AI",
+    "frank": "",
     "ccf": "B",
     "core": "A",
     "coreVerified": true,
@@ -6334,8 +7046,9 @@ export const ranked = [
   {
     "title": "ECIR",
     "desc": "European Conference on Information Retrieval",
-    "area": "AI / ML / Data Mining",
+    "area": "ai",
     "sub": "DB",
+    "frank": "",
     "ccf": "C",
     "core": "A",
     "coreVerified": true,
@@ -6568,8 +7281,9 @@ export const ranked = [
   {
     "title": "WWW",
     "desc": "International World Wide Web Conferences",
-    "area": "AI / ML / Data Mining",
+    "area": "ai",
     "sub": "MX",
+    "frank": "",
     "ccf": "A",
     "core": "A*",
     "coreVerified": true,
@@ -6857,14 +7571,68 @@ export const ranked = [
     "tier": 1
   },
   {
+    "title": "ISBI",
+    "desc": "IEEE International Symposium on Biomedical Imaging",
+    "area": "biomed",
+    "proceedings": "full",
+    "lastDeadline": "2026-10-26",
+    "period": 1,
+    "date": "May 25-28, 2027",
+    "place": "Lausanne, Switzerland",
+    "badge": "imaging",
+    "dblp": "isbi",
+    "rounds": [
+      {
+        "d": "2026-10-26",
+        "label": "4-page paper",
+        "est": false
+      },
+      {
+        "d": "2027-02-01",
+        "label": "1-page abstract, poster only",
+        "est": false
+      }
+    ],
+    "note": "Four-page papers, single-blind, presented in person or withdrawn. Deadlines are 11:59pm US Eastern, not Anywhere on Earth. One-page abstracts are posters and are not in the proceedings.",
+    "link": "https://biomedicalimaging.org/2027/",
+    "frank": "",
+    "equivalent": null,
+    "field": "",
+    "kind": "",
+    "why": "",
+    "estIsForDate": false,
+    "ccf": "N",
+    "core": "N",
+    "coreVerified": false,
+    "nextAbstract": "",
+    "cycles": 1,
+    "roundLabels": [],
+    "rates": [],
+    "rateSrc": "",
+    "rateSlug": "",
+    "best": "",
+    "csr": "",
+    "edition": "",
+    "sub": "",
+    "estimated": false,
+    "estFrom": "",
+    "nextDeadline": "2026-10-26",
+    "nextYear": null,
+    "notable": true,
+    "cc": "",
+    "city": "",
+    "tier": 3
+  },
+  {
     "title": "MLSys",
     "equivalent": "CCF B / CORE A",
     "desc": "Conference on Machine Learning and Systems",
-    "area": "AI / ML / Data Mining",
+    "area": "ai",
     "proceedings": "full",
     "note": "Full proceedings. Unranked by both CCF and CORE despite being the main ML-systems venue.",
     "lastDeadline": "2025-10-30",
     "link": "https://mlsys.org/",
+    "frank": "",
     "badge": "emerging",
     "field": "",
     "kind": "",
@@ -6899,7 +7667,7 @@ export const ranked = [
   {
     "title": "ECC",
     "desc": "European Control Conference",
-    "area": "Control",
+    "area": "control",
     "proceedings": "full",
     "lastDeadline": "2026-10-31",
     "period": 1,
@@ -6909,6 +7677,7 @@ export const ranked = [
     "dblp": "eucc",
     "note": "The conference of the European Control Association, 25th edition, at the UCLouvain campus in Woluwe. Full archival proceedings on IEEE Xplore.",
     "link": "https://ecc27.euca-ecc.org/",
+    "frank": "EUCA flagship",
     "equivalent": null,
     "field": "",
     "kind": "",
@@ -6938,260 +7707,51 @@ export const ranked = [
     "tier": 3
   },
   {
-    "title": "RECOMB",
-    "desc": "International Conference on Research inComputational Molecular Biology",
-    "area": "Health & Bio",
-    "sub": "MX",
-    "ccf": "B",
-    "core": "B",
-    "coreVerified": true,
-    "nextDeadline": "2026-11-04",
-    "nextYear": 2027,
+    "title": "PES GM",
+    "desc": "IEEE Power & Energy Society General Meeting",
+    "area": "power",
+    "proceedings": "full",
+    "lastDeadline": "2026-11-10",
+    "period": 1,
+    "date": "July 25-29, 2027",
+    "place": "San Francisco, California, USA",
+    "badge": "power",
+    "dblp": "pesgm",
+    "note": "The power society's large yearly meeting. One round, 5-page papers, about 800 accepted, archived on IEEE Xplore only if presented. Part 1 and Part 2 papers are not accepted.",
+    "link": "https://pes-gm.org/2027-san-francisco/",
+    "frank": "PES flagship",
+    "equivalent": null,
+    "field": "",
+    "kind": "",
+    "why": "",
+    "estIsForDate": false,
+    "ccf": "N",
+    "core": "N",
+    "coreVerified": false,
     "nextAbstract": "",
-    "estimated": false,
-    "estFrom": "",
-    "rounds": [
-      {
-        "d": "2026-11-04",
-        "label": "",
-        "est": false,
-        "year": 2027,
-        "link": "https://recomb.org/recomb2027/",
-        "abs": "2026-10-28"
-      }
-    ],
-    "dblp": "recomb",
-    "csr": "Comp. Bio",
-    "edition": "31st",
-    "best": "",
-    "link": "https://recomb.org/recomb2027/",
-    "date": "May 17-20, 2027",
-    "place": "Toronto, Canada",
-    "cc": "ca",
-    "city": "peameal bacon at St Lawrence Market, the CN Tower EdgeWalk, Niagara in a day",
     "cycles": 1,
     "roundLabels": [],
-    "proceedings": "full",
-    "rates": [
-      {
-        "y": 1997,
-        "r": 36.8
-      },
-      {
-        "y": 2001,
-        "r": 27.3
-      },
-      {
-        "y": 2002,
-        "r": 29.7
-      },
-      {
-        "y": 2003,
-        "r": 20.0
-      },
-      {
-        "y": 2004,
-        "r": 17.7
-      },
-      {
-        "y": 2005,
-        "r": 18.0
-      },
-      {
-        "y": 2006,
-        "r": 18.9
-      },
-      {
-        "y": 2007,
-        "r": 21.9
-      },
-      {
-        "y": 2008,
-        "r": 17.6
-      },
-      {
-        "y": 2009,
-        "r": 22.3
-      },
-      {
-        "y": 2010,
-        "r": 20.5
-      },
-      {
-        "y": 2011,
-        "r": 28.1
-      },
-      {
-        "y": 2012,
-        "r": 15.5
-      },
-      {
-        "y": 2013,
-        "r": 19.2
-      },
-      {
-        "y": 2014,
-        "r": 22.7
-      },
-      {
-        "y": 2015,
-        "r": 21.2
-      },
-      {
-        "y": 2016,
-        "r": 20.3
-      },
-      {
-        "y": 2017,
-        "r": 20.7
-      },
-      {
-        "y": 2018,
-        "r": 19.7
-      },
-      {
-        "y": 2019,
-        "r": 21.1
-      },
-      {
-        "y": 2020,
-        "r": 18.0
-      },
-      {
-        "y": 2021,
-        "r": 20.5
-      },
-      {
-        "y": 2022,
-        "r": 21.3
-      },
-      {
-        "y": 2023,
-        "r": 23.4
-      },
-      {
-        "y": 2024,
-        "r": 16.2
-      },
-      {
-        "y": 2025,
-        "r": 16.2
-      }
-    ],
-    "subs": [
-      {
-        "y": 1997,
-        "n": 117
-      },
-      {
-        "y": 2001,
-        "n": 128
-      },
-      {
-        "y": 2002,
-        "n": 118
-      },
-      {
-        "y": 2003,
-        "n": 175
-      },
-      {
-        "y": 2004,
-        "n": 215
-      },
-      {
-        "y": 2005,
-        "n": 217
-      },
-      {
-        "y": 2006,
-        "n": 212
-      },
-      {
-        "y": 2007,
-        "n": 169
-      },
-      {
-        "y": 2008,
-        "n": 193
-      },
-      {
-        "y": 2009,
-        "n": 166
-      },
-      {
-        "y": 2010,
-        "n": 176
-      },
-      {
-        "y": 2011,
-        "n": 153
-      },
-      {
-        "y": 2012,
-        "n": 200
-      },
-      {
-        "y": 2013,
-        "n": 167
-      },
-      {
-        "y": 2014,
-        "n": 154
-      },
-      {
-        "y": 2015,
-        "n": 170
-      },
-      {
-        "y": 2016,
-        "n": 172
-      },
-      {
-        "y": 2017,
-        "n": 184
-      },
-      {
-        "y": 2018,
-        "n": 193
-      },
-      {
-        "y": 2019,
-        "n": 175
-      },
-      {
-        "y": 2020,
-        "n": 206
-      },
-      {
-        "y": 2021,
-        "n": 195
-      },
-      {
-        "y": 2022,
-        "n": 188
-      },
-      {
-        "y": 2023,
-        "n": 188
-      },
-      {
-        "y": 2024,
-        "n": 352
-      },
-      {
-        "y": 2025,
-        "n": 339
-      }
-    ],
-    "rateSrc": "csc",
-    "rateSlug": "recomb",
-    "tier": 2
+    "rates": [],
+    "rateSrc": "",
+    "rateSlug": "",
+    "rounds": [],
+    "best": "",
+    "csr": "",
+    "edition": "",
+    "sub": "",
+    "estimated": false,
+    "estFrom": "",
+    "nextDeadline": "2026-11-10",
+    "nextYear": null,
+    "notable": true,
+    "cc": "us",
+    "city": "sourdough and Dungeness crab, a cable car over the hills, redwoods at Muir Woods",
+    "tier": 3
   },
   {
     "title": "L4DC",
     "desc": "Learning for Dynamics and Control Conference",
-    "area": "Control",
+    "area": "control",
     "proceedings": "full",
     "lastDeadline": "2026-11-13",
     "period": 1,
@@ -7201,6 +7761,7 @@ export const ranked = [
     "dblp": "l4dc",
     "note": "Where machine learning and control meet, run since 2019, with proceedings in PMLR. Smaller and more selective than CDC or ACC. The 2027 edition is at KTH and reviews on OpenReview for the first time.",
     "link": "https://l4dc2027.control.ee.ethz.ch/",
+    "frank": "",
     "equivalent": null,
     "field": "",
     "kind": "",
@@ -7232,8 +7793,9 @@ export const ranked = [
   {
     "title": "CVPR",
     "desc": "IEEE/CVF Conference on Computer Vision and Pattern Recognition",
-    "area": "AI / ML / Data Mining",
+    "area": "ai",
     "sub": "AI",
+    "frank": "",
     "ccf": "A",
     "core": "A*",
     "coreVerified": true,
@@ -7585,10 +8147,747 @@ export const ranked = [
     "tier": 1
   },
   {
+    "title": "ISCA",
+    "desc": "International Symposium on Computer Architecture",
+    "area": "eda",
+    "sub": "DS",
+    "frank": "architecture top four",
+    "ccf": "A",
+    "core": "A*",
+    "coreVerified": true,
+    "nextDeadline": "2026-11-16",
+    "nextYear": 2027,
+    "nextAbstract": "",
+    "estimated": false,
+    "estFrom": "",
+    "rounds": [
+      {
+        "d": "2026-11-16",
+        "label": "Main Track; rebuttal/revision period: February 16-March 8, 2027",
+        "est": false,
+        "year": 2027,
+        "link": "https://iscaconf.org/isca2027/",
+        "abs": "2026-11-09"
+      }
+    ],
+    "dblp": "isca",
+    "csr": "Arch",
+    "edition": "54th",
+    "best": "",
+    "link": "https://iscaconf.org/isca2027/",
+    "date": "June 5-9, 2027",
+    "place": "Atlanta, Georgia, USA",
+    "cc": "us",
+    "city": "Busy Bee fried chicken, walking under the whale sharks, Ponce City Market rooftop",
+    "cycles": 1,
+    "roundLabels": [],
+    "proceedings": "full",
+    "rates": [
+      {
+        "y": 1976,
+        "r": 50.0
+      },
+      {
+        "y": 1977,
+        "r": 42.9
+      },
+      {
+        "y": 1978,
+        "r": 44.2
+      },
+      {
+        "y": 1979,
+        "r": 48.2
+      },
+      {
+        "y": 1980,
+        "r": 27.6
+      },
+      {
+        "y": 1981,
+        "r": 44.4
+      },
+      {
+        "y": 1982,
+        "r": 38.9
+      },
+      {
+        "y": 1983,
+        "r": 32.2
+      },
+      {
+        "y": 1984,
+        "r": 38.7
+      },
+      {
+        "y": 1985,
+        "r": 33.9
+      },
+      {
+        "y": 1986,
+        "r": 29.2
+      },
+      {
+        "y": 1987,
+        "r": 27.8
+      },
+      {
+        "y": 1988,
+        "r": 18.2
+      },
+      {
+        "y": 1989,
+        "r": 27.1
+      },
+      {
+        "y": 1990,
+        "r": 14.0
+      },
+      {
+        "y": 1991,
+        "r": 19.3
+      },
+      {
+        "y": 1992,
+        "r": 22.5
+      },
+      {
+        "y": 1993,
+        "r": 15.4
+      },
+      {
+        "y": 1994,
+        "r": 23.8
+      },
+      {
+        "y": 1995,
+        "r": 20.6
+      },
+      {
+        "y": 1996,
+        "r": 25.0
+      },
+      {
+        "y": 1997,
+        "r": 20.4
+      },
+      {
+        "y": 1998,
+        "r": 21.2
+      },
+      {
+        "y": 1999,
+        "r": 19.3
+      },
+      {
+        "y": 2000,
+        "r": 17.5
+      },
+      {
+        "y": 2001,
+        "r": 14.7
+      },
+      {
+        "y": 2002,
+        "r": 15.0
+      },
+      {
+        "y": 2003,
+        "r": 19.6
+      },
+      {
+        "y": 2004,
+        "r": 14.3
+      },
+      {
+        "y": 2005,
+        "r": 23.2
+      },
+      {
+        "y": 2006,
+        "r": 13.2
+      },
+      {
+        "y": 2007,
+        "r": 22.5
+      },
+      {
+        "y": 2008,
+        "r": 14.3
+      },
+      {
+        "y": 2009,
+        "r": 20.5
+      },
+      {
+        "y": 2010,
+        "r": 18.0
+      },
+      {
+        "y": 2011,
+        "r": 19.2
+      },
+      {
+        "y": 2012,
+        "r": 17.9
+      },
+      {
+        "y": 2013,
+        "r": 19.4
+      },
+      {
+        "y": 2014,
+        "r": 17.8
+      },
+      {
+        "y": 2015,
+        "r": 19.0
+      },
+      {
+        "y": 2016,
+        "r": 19.6
+      },
+      {
+        "y": 2017,
+        "r": 16.8
+      },
+      {
+        "y": 2018,
+        "r": 17.4
+      },
+      {
+        "y": 2019,
+        "r": 17.0
+      },
+      {
+        "y": 2020,
+        "r": 18.0
+      },
+      {
+        "y": 2021,
+        "r": 18.7
+      },
+      {
+        "y": 2022,
+        "r": 16.8
+      },
+      {
+        "y": 2023,
+        "r": 21.2
+      },
+      {
+        "y": 2024,
+        "r": 19.6
+      },
+      {
+        "y": 2025,
+        "r": 23.2
+      },
+      {
+        "y": 2026,
+        "r": 18.9
+      }
+    ],
+    "subs": [
+      {
+        "y": 1976,
+        "n": 80
+      },
+      {
+        "y": 1977,
+        "n": 63
+      },
+      {
+        "y": 1978,
+        "n": 86
+      },
+      {
+        "y": 1979,
+        "n": 56
+      },
+      {
+        "y": 1980,
+        "n": 145
+      },
+      {
+        "y": 1981,
+        "n": 90
+      },
+      {
+        "y": 1982,
+        "n": 90
+      },
+      {
+        "y": 1983,
+        "n": 149
+      },
+      {
+        "y": 1984,
+        "n": 106
+      },
+      {
+        "y": 1985,
+        "n": 127
+      },
+      {
+        "y": 1986,
+        "n": 171
+      },
+      {
+        "y": 1987,
+        "n": 126
+      },
+      {
+        "y": 1988,
+        "n": 275
+      },
+      {
+        "y": 1989,
+        "n": 170
+      },
+      {
+        "y": 1990,
+        "n": 242
+      },
+      {
+        "y": 1991,
+        "n": 197
+      },
+      {
+        "y": 1992,
+        "n": 173
+      },
+      {
+        "y": 1993,
+        "n": 208
+      },
+      {
+        "y": 1994,
+        "n": 143
+      },
+      {
+        "y": 1995,
+        "n": 180
+      },
+      {
+        "y": 1996,
+        "n": 112
+      },
+      {
+        "y": 1997,
+        "n": 147
+      },
+      {
+        "y": 1998,
+        "n": 156
+      },
+      {
+        "y": 1999,
+        "n": 135
+      },
+      {
+        "y": 2000,
+        "n": 166
+      },
+      {
+        "y": 2001,
+        "n": 163
+      },
+      {
+        "y": 2002,
+        "n": 180
+      },
+      {
+        "y": 2003,
+        "n": 184
+      },
+      {
+        "y": 2004,
+        "n": 217
+      },
+      {
+        "y": 2005,
+        "n": 194
+      },
+      {
+        "y": 2006,
+        "n": 234
+      },
+      {
+        "y": 2007,
+        "n": 204
+      },
+      {
+        "y": 2008,
+        "n": 259
+      },
+      {
+        "y": 2009,
+        "n": 210
+      },
+      {
+        "y": 2010,
+        "n": 245
+      },
+      {
+        "y": 2011,
+        "n": 208
+      },
+      {
+        "y": 2012,
+        "n": 262
+      },
+      {
+        "y": 2013,
+        "n": 288
+      },
+      {
+        "y": 2014,
+        "n": 258
+      },
+      {
+        "y": 2015,
+        "n": 305
+      },
+      {
+        "y": 2016,
+        "n": 291
+      },
+      {
+        "y": 2017,
+        "n": 322
+      },
+      {
+        "y": 2018,
+        "n": 367
+      },
+      {
+        "y": 2019,
+        "n": 365
+      },
+      {
+        "y": 2020,
+        "n": 428
+      },
+      {
+        "y": 2021,
+        "n": 407
+      },
+      {
+        "y": 2022,
+        "n": 400
+      },
+      {
+        "y": 2023,
+        "n": 372
+      },
+      {
+        "y": 2024,
+        "n": 423
+      },
+      {
+        "y": 2025,
+        "n": 570
+      },
+      {
+        "y": 2026,
+        "n": 850
+      }
+    ],
+    "rateSrc": "csc",
+    "rateSlug": "isca",
+    "tier": 1
+  },
+  {
+    "title": "DAC",
+    "desc": "Design Automation Conference",
+    "area": "eda",
+    "sub": "DS",
+    "frank": "EDA top two",
+    "ccf": "A",
+    "core": "TBR",
+    "coreVerified": true,
+    "nextDeadline": "2026-11-18",
+    "nextYear": 2027,
+    "nextAbstract": "",
+    "estimated": false,
+    "estFrom": "",
+    "rounds": [
+      {
+        "d": "2026-11-18",
+        "label": "",
+        "est": false,
+        "year": 2027,
+        "link": "https://dac.com/2027/authors/call-for-contributions",
+        "abs": "2026-11-11"
+      }
+    ],
+    "dblp": "dac",
+    "csr": "EDA",
+    "edition": "64th",
+    "best": "",
+    "link": "https://dac.com/2027/authors/call-for-contributions",
+    "date": "July 11-14, 2027",
+    "place": "San Jose, CA",
+    "cc": "",
+    "city": "Vietnamese food on Story Road, the Winchester Mystery House, the Santa Cruz boardwalk",
+    "cycles": 1,
+    "roundLabels": [],
+    "proceedings": "full",
+    "rates": [
+      {
+        "y": 1984,
+        "r": 40.0
+      },
+      {
+        "y": 1986,
+        "r": 41.3
+      },
+      {
+        "y": 1987,
+        "r": 39.3
+      },
+      {
+        "y": 1988,
+        "r": 31.2
+      },
+      {
+        "y": 1989,
+        "r": 33.5
+      },
+      {
+        "y": 1990,
+        "r": 29.3
+      },
+      {
+        "y": 1993,
+        "r": 27.8
+      },
+      {
+        "y": 1994,
+        "r": 25.8
+      },
+      {
+        "y": 1996,
+        "r": 37.7
+      },
+      {
+        "y": 1997,
+        "r": 34.8
+      },
+      {
+        "y": 1999,
+        "r": 34.1
+      },
+      {
+        "y": 2002,
+        "r": 29.9
+      },
+      {
+        "y": 2003,
+        "r": 24.2
+      },
+      {
+        "y": 2004,
+        "r": 20.8
+      },
+      {
+        "y": 2005,
+        "r": 21.0
+      },
+      {
+        "y": 2006,
+        "r": 24.3
+      },
+      {
+        "y": 2007,
+        "r": 23.1
+      },
+      {
+        "y": 2008,
+        "r": 23.0
+      },
+      {
+        "y": 2009,
+        "r": 22.0
+      },
+      {
+        "y": 2010,
+        "r": 24.4
+      },
+      {
+        "y": 2011,
+        "r": 22.6
+      },
+      {
+        "y": 2013,
+        "r": 20.9
+      },
+      {
+        "y": 2018,
+        "r": 24.3
+      },
+      {
+        "y": 2019,
+        "r": 24.8
+      },
+      {
+        "y": 2020,
+        "r": 23.2
+      },
+      {
+        "y": 2021,
+        "r": 23.5
+      },
+      {
+        "y": 2022,
+        "r": 22.6
+      },
+      {
+        "y": 2023,
+        "r": 22.8
+      },
+      {
+        "y": 2024,
+        "r": 21.8
+      },
+      {
+        "y": 2025,
+        "r": 22.6
+      }
+    ],
+    "subs": [
+      {
+        "y": 1984,
+        "n": 290
+      },
+      {
+        "y": 1986,
+        "n": 300
+      },
+      {
+        "y": 1987,
+        "n": 351
+      },
+      {
+        "y": 1988,
+        "n": 400
+      },
+      {
+        "y": 1989,
+        "n": 465
+      },
+      {
+        "y": 1990,
+        "n": 427
+      },
+      {
+        "y": 1993,
+        "n": 453
+      },
+      {
+        "y": 1994,
+        "n": 450
+      },
+      {
+        "y": 1996,
+        "n": 377
+      },
+      {
+        "y": 1997,
+        "n": 400
+      },
+      {
+        "y": 1999,
+        "n": 451
+      },
+      {
+        "y": 2002,
+        "n": 491
+      },
+      {
+        "y": 2003,
+        "n": 628
+      },
+      {
+        "y": 2004,
+        "n": 785
+      },
+      {
+        "y": 2005,
+        "n": 735
+      },
+      {
+        "y": 2006,
+        "n": 865
+      },
+      {
+        "y": 2007,
+        "n": 659
+      },
+      {
+        "y": 2008,
+        "n": 639
+      },
+      {
+        "y": 2009,
+        "n": 682
+      },
+      {
+        "y": 2010,
+        "n": 607
+      },
+      {
+        "y": 2011,
+        "n": 690
+      },
+      {
+        "y": 2013,
+        "n": 740
+      },
+      {
+        "y": 2018,
+        "n": 691
+      },
+      {
+        "y": 2019,
+        "n": 815
+      },
+      {
+        "y": 2020,
+        "n": 984
+      },
+      {
+        "y": 2021,
+        "n": 914
+      },
+      {
+        "y": 2022,
+        "n": 987
+      },
+      {
+        "y": 2023,
+        "n": 1156
+      },
+      {
+        "y": 2024,
+        "n": 1545
+      },
+      {
+        "y": 2025,
+        "n": 1862
+      }
+    ],
+    "rateSrc": "csc",
+    "rateSlug": "dac",
+    "tier": 1
+  },
+  {
     "title": "DASFAA",
     "desc": "Database Systems for Advanced Applications",
-    "area": "AI / ML / Data Mining",
+    "area": "ai",
     "sub": "DB",
+    "frank": "",
     "ccf": "B",
     "core": "B",
     "coreVerified": true,
@@ -7626,10 +8925,60 @@ export const ranked = [
     "tier": 2
   },
   {
+    "title": "MIDL",
+    "desc": "Medical Imaging with Deep Learning",
+    "area": "biomed",
+    "proceedings": "full",
+    "lastDeadline": "2026-12-04",
+    "period": 1,
+    "date": "July 14-16, 2027",
+    "place": "Porto, Portugal",
+    "badge": "imaging",
+    "dblp": "midl",
+    "rounds": [
+      {
+        "d": "2026-12-04",
+        "abs": "2026-11-30",
+        "label": "full papers",
+        "est": false
+      }
+    ],
+    "note": "Full papers archival in PMLR, 10 pages in the main track; a new clinical-translation track takes 14 and does not require novelty. Short papers come later and are not archived.",
+    "link": "https://2027.midl.io/",
+    "frank": "",
+    "equivalent": null,
+    "field": "",
+    "kind": "",
+    "why": "",
+    "estIsForDate": false,
+    "ccf": "N",
+    "core": "N",
+    "coreVerified": false,
+    "nextAbstract": "",
+    "cycles": 1,
+    "roundLabels": [],
+    "rates": [],
+    "rateSrc": "",
+    "rateSlug": "",
+    "best": "",
+    "csr": "",
+    "edition": "",
+    "sub": "",
+    "estimated": false,
+    "estFrom": "",
+    "nextDeadline": "2026-12-04",
+    "nextYear": null,
+    "notable": true,
+    "cc": "",
+    "city": "",
+    "tier": 3
+  },
+  {
     "title": "ECML-PKDD",
     "desc": "European Conference on Machine Learning and 25th Principles and Practice of Knowledge Discovery in Databases",
-    "area": "AI / ML / Data Mining",
+    "area": "ai",
     "sub": "DB",
+    "frank": "",
     "ccf": "B",
     "core": "A",
     "coreVerified": true,
@@ -7682,8 +9031,9 @@ export const ranked = [
   {
     "title": "ICAPS",
     "desc": "International Conference on Automated Planning and Scheduling",
-    "area": "AI / ML / Data Mining",
+    "area": "ai",
     "sub": "AI",
+    "frank": "",
     "ccf": "B",
     "core": "A*",
     "coreVerified": true,
@@ -7723,8 +9073,9 @@ export const ranked = [
   {
     "title": "ACL",
     "desc": "Annual Meeting of the Association for Computational Linguistics",
-    "area": "AI / ML / Data Mining",
+    "area": "ai",
     "sub": "AI",
+    "frank": "",
     "ccf": "A",
     "core": "A*",
     "coreVerified": true,
@@ -8036,8 +9387,9 @@ export const ranked = [
   {
     "title": "IJCAI",
     "desc": "International Joint Conference on Artificial Intelligence",
-    "area": "AI / ML / Data Mining",
+    "area": "ai",
     "sub": "AI",
+    "frank": "",
     "ccf": "B",
     "core": "A*",
     "coreVerified": true,
@@ -8213,325 +9565,60 @@ export const ranked = [
     "tier": 1
   },
   {
-    "title": "ISMB",
-    "desc": "International Conference on Intelligent Systems for Molecular Biology",
-    "area": "Health & Bio",
-    "sub": "MX",
-    "ccf": "B",
-    "core": "JP",
-    "coreVerified": true,
-    "nextDeadline": "2027-01-14",
-    "nextYear": 2027,
-    "nextAbstract": "",
-    "estimated": false,
-    "estFrom": "",
+    "title": "e-Energy",
+    "desc": "ACM International Conference on Future and Sustainable Energy Systems",
+    "area": "power",
+    "proceedings": "full",
+    "lastDeadline": "2027-01-15",
+    "period": 1,
+    "date": "June 5-11, 2027",
+    "place": "Atlanta, Georgia, USA",
+    "badge": "energy",
+    "dblp": "eenergy",
     "rounds": [
       {
-        "d": "2027-01-14",
-        "label": "Proceedings; conditional acceptance: March 2, 2027; revised papers due: March 18, 2027, 23:59 AoE; no extensions to submission or revision deadlines",
-        "est": false,
-        "year": 2027,
-        "link": "https://www.iscb.org/ismbeccb2027/",
-        "abs": ""
+        "d": "2027-01-15",
+        "abs": "2027-01-08",
+        "label": "winter round",
+        "est": false
       }
     ],
-    "dblp": "ismb",
-    "csr": "Comp. Bio",
-    "edition": "35th",
-    "best": "",
-    "link": "https://www.iscb.org/ismbeccb2027/",
-    "date": "July 18-22, 2027",
-    "place": "Copenhagen, Denmark",
-    "cc": "dk",
-    "city": "smorrebrod, Reffen street food on the water, Tivoli lit up after dark",
+    "note": "ACM's energy-systems conference, part of ACM Sustainability Week at FCRC 2027. Two rounds a year with revisions; the fall round has closed, and a paper rejected in fall cannot go to winter.",
+    "link": "https://energy.acm.org/conferences/eenergy/2027/",
+    "frank": "",
+    "equivalent": null,
+    "field": "",
+    "kind": "",
+    "why": "",
+    "estIsForDate": false,
+    "ccf": "N",
+    "core": "N",
+    "coreVerified": false,
+    "nextAbstract": "",
     "cycles": 1,
     "roundLabels": [],
-    "proceedings": "full",
-    "rates": [
-      {
-        "y": 1993,
-        "r": 75.4
-      },
-      {
-        "y": 1994,
-        "r": 54.7
-      },
-      {
-        "y": 1995,
-        "r": 54.5
-      },
-      {
-        "y": 1996,
-        "r": 41.5
-      },
-      {
-        "y": 1997,
-        "r": 37.6
-      },
-      {
-        "y": 1998,
-        "r": 27.2
-      },
-      {
-        "y": 1999,
-        "r": 37.4
-      },
-      {
-        "y": 2000,
-        "r": 29.1
-      },
-      {
-        "y": 2001,
-        "r": 21.1
-      },
-      {
-        "y": 2002,
-        "r": 20.3
-      },
-      {
-        "y": 2003,
-        "r": 14.1
-      },
-      {
-        "y": 2004,
-        "r": 13.6
-      },
-      {
-        "y": 2005,
-        "r": 13.1
-      },
-      {
-        "y": 2006,
-        "r": 16.6
-      },
-      {
-        "y": 2007,
-        "r": 15.8
-      },
-      {
-        "y": 2008,
-        "r": 16.7
-      },
-      {
-        "y": 2009,
-        "r": 19.0
-      },
-      {
-        "y": 2010,
-        "r": 20.4
-      },
-      {
-        "y": 2011,
-        "r": 18.6
-      },
-      {
-        "y": 2012,
-        "r": 13.1
-      },
-      {
-        "y": 2013,
-        "r": 17.2
-      },
-      {
-        "y": 2014,
-        "r": 21.6
-      },
-      {
-        "y": 2015,
-        "r": 17.4
-      },
-      {
-        "y": 2016,
-        "r": 22.3
-      },
-      {
-        "y": 2017,
-        "r": 16.1
-      },
-      {
-        "y": 2018,
-        "r": 20.1
-      },
-      {
-        "y": 2019,
-        "r": 19.0
-      },
-      {
-        "y": 2020,
-        "r": 19.8
-      },
-      {
-        "y": 2021,
-        "r": 19.0
-      },
-      {
-        "y": 2022,
-        "r": 19.8
-      },
-      {
-        "y": 2023,
-        "r": 17.9
-      },
-      {
-        "y": 2024,
-        "r": 18.2
-      },
-      {
-        "y": 2025,
-        "r": 18.1
-      },
-      {
-        "y": 2026,
-        "r": 15.9
-      }
-    ],
-    "subs": [
-      {
-        "y": 1993,
-        "n": 69
-      },
-      {
-        "y": 1994,
-        "n": 86
-      },
-      {
-        "y": 1995,
-        "n": 88
-      },
-      {
-        "y": 1996,
-        "n": 65
-      },
-      {
-        "y": 1997,
-        "n": 85
-      },
-      {
-        "y": 1998,
-        "n": 92
-      },
-      {
-        "y": 1999,
-        "n": 91
-      },
-      {
-        "y": 2000,
-        "n": 141
-      },
-      {
-        "y": 2001,
-        "n": 180
-      },
-      {
-        "y": 2002,
-        "n": 207
-      },
-      {
-        "y": 2003,
-        "n": 341
-      },
-      {
-        "y": 2004,
-        "n": 492
-      },
-      {
-        "y": 2005,
-        "n": 428
-      },
-      {
-        "y": 2006,
-        "n": 404
-      },
-      {
-        "y": 2007,
-        "n": 417
-      },
-      {
-        "y": 2008,
-        "n": 287
-      },
-      {
-        "y": 2009,
-        "n": 242
-      },
-      {
-        "y": 2010,
-        "n": 235
-      },
-      {
-        "y": 2011,
-        "n": 258
-      },
-      {
-        "y": 2012,
-        "n": 268
-      },
-      {
-        "y": 2013,
-        "n": 233
-      },
-      {
-        "y": 2014,
-        "n": 171
-      },
-      {
-        "y": 2015,
-        "n": 241
-      },
-      {
-        "y": 2016,
-        "n": 188
-      },
-      {
-        "y": 2017,
-        "n": 279
-      },
-      {
-        "y": 2018,
-        "n": 324
-      },
-      {
-        "y": 2019,
-        "n": 363
-      },
-      {
-        "y": 2020,
-        "n": 329
-      },
-      {
-        "y": 2021,
-        "n": 289
-      },
-      {
-        "y": 2022,
-        "n": 243
-      },
-      {
-        "y": 2023,
-        "n": 336
-      },
-      {
-        "y": 2024,
-        "n": 318
-      },
-      {
-        "y": 2025,
-        "n": 371
-      },
-      {
-        "y": 2026,
-        "n": 408
-      }
-    ],
-    "rateSrc": "csc",
-    "rateSlug": "ismb",
-    "tier": 2
+    "rates": [],
+    "rateSrc": "",
+    "rateSlug": "",
+    "best": "",
+    "csr": "",
+    "edition": "",
+    "sub": "",
+    "estimated": false,
+    "estFrom": "",
+    "nextDeadline": "2027-01-15",
+    "nextYear": null,
+    "notable": true,
+    "cc": "us",
+    "city": "Busy Bee fried chicken, walking under the whale sharks, Ponce City Market rooftop",
+    "tier": 3
   },
   {
     "title": "SIGIR",
     "desc": "International Conference on Research on Development in Information Retrieval",
-    "area": "AI / ML / Data Mining",
+    "area": "ai",
     "sub": "DB",
+    "frank": "",
     "ccf": "A",
     "core": "A*",
     "coreVerified": true,
@@ -8789,8 +9876,9 @@ export const ranked = [
   {
     "title": "GECCO",
     "desc": "Genetic and Evolutionary Computation Conference",
-    "area": "AI / ML / Data Mining",
+    "area": "ai",
     "sub": "AI",
+    "frank": "",
     "ccf": "C",
     "core": "A",
     "coreVerified": true,
@@ -8829,8 +9917,9 @@ export const ranked = [
   {
     "title": "ICML",
     "desc": "International Conference on Machine Learning",
-    "area": "AI / ML / Data Mining",
+    "area": "ai",
     "sub": "AI",
+    "frank": "",
     "ccf": "A",
     "core": "A*",
     "coreVerified": true,
@@ -9101,10 +10190,94 @@ export const ranked = [
     "tier": 1
   },
   {
+    "title": "CogSci",
+    "desc": "Annual Meeting of the Cognitive Science Society",
+    "area": "psych",
+    "sub": "MX",
+    "frank": "",
+    "ccf": "B",
+    "core": "B",
+    "coreVerified": true,
+    "nextDeadline": "2027-02-01",
+    "nextYear": 2027,
+    "nextAbstract": "",
+    "estimated": true,
+    "estFrom": "2025-02-01",
+    "rounds": [
+      {
+        "d": "2027-02-01",
+        "label": "",
+        "est": true,
+        "from": "2025-02-01",
+        "abs": ""
+      }
+    ],
+    "dblp": "cogsci",
+    "csr": "",
+    "edition": "",
+    "best": "",
+    "link": "https://cognitivesciencesociety.org/cogsci-2026/",
+    "date": "",
+    "place": "",
+    "cc": "",
+    "city": "",
+    "cycles": 1,
+    "roundLabels": [],
+    "proceedings": "full",
+    "rates": [],
+    "subs": [],
+    "rateSrc": "",
+    "rateSlug": "",
+    "tier": 2
+  },
+  {
+    "title": "CHIL",
+    "desc": "AHLI Conference on Health, Inference, and Learning",
+    "area": "biomed",
+    "proceedings": "full",
+    "lastDeadline": "2027-02-03",
+    "period": 1,
+    "date": "June 28-30, 2027",
+    "place": "Chicago, Illinois, USA",
+    "badge": "ML for health",
+    "dblp": "chil",
+    "note": "Machine learning for health, 8 to 10 pages, double-blind on OpenReview, proceedings in PMLR. One co-author per paper reviews three. Create OpenReview accounts for every author by 15 January. Meeting dates are tentative.",
+    "link": "https://chil.ahli.cc/",
+    "frank": "",
+    "equivalent": null,
+    "field": "",
+    "kind": "",
+    "why": "",
+    "estIsForDate": false,
+    "ccf": "N",
+    "core": "N",
+    "coreVerified": false,
+    "nextAbstract": "",
+    "cycles": 1,
+    "roundLabels": [],
+    "rates": [],
+    "rateSrc": "",
+    "rateSlug": "",
+    "rounds": [],
+    "best": "",
+    "csr": "",
+    "edition": "",
+    "sub": "",
+    "estimated": false,
+    "estFrom": "",
+    "nextDeadline": "2027-02-03",
+    "nextYear": null,
+    "notable": true,
+    "cc": "us",
+    "city": "",
+    "tier": 3
+  },
+  {
     "title": "COLT",
     "desc": "Annual Conference on Learning Theory",
-    "area": "AI / ML / Data Mining",
+    "area": "ai",
     "sub": "AI",
+    "frank": "",
     "ccf": "B",
     "core": "A*",
     "coreVerified": true,
@@ -9377,8 +10550,9 @@ export const ranked = [
   {
     "title": "InterSpeech",
     "desc": "Conference of the International Speech Communication Association",
-    "area": "AI / ML / Data Mining",
+    "area": "audio",
     "sub": "CG",
+    "frank": "speech flagship",
     "ccf": "B",
     "core": "A",
     "coreVerified": false,
@@ -9418,8 +10592,9 @@ export const ranked = [
   {
     "title": "UAI",
     "desc": "Conference on Uncertainty in Artificial Intelligence",
-    "area": "AI / ML / Data Mining",
+    "area": "ai",
     "sub": "AI",
+    "frank": "",
     "ccf": "B",
     "core": "A",
     "coreVerified": true,
@@ -9732,8 +10907,9 @@ export const ranked = [
   {
     "title": "ICCBR",
     "desc": "International Conference on Case-Based Reasoning",
-    "area": "AI / ML / Data Mining",
+    "area": "ai",
     "sub": "AI",
+    "frank": "",
     "ccf": "B",
     "core": "C",
     "coreVerified": true,
@@ -9779,8 +10955,9 @@ export const ranked = [
   {
     "title": "MICCAI",
     "desc": "International Conference on Medical Image Computing and Computer Assisted Intervention",
-    "area": "Health & Bio",
+    "area": "biomed",
     "sub": "MX",
+    "frank": "imaging flagship",
     "ccf": "B",
     "core": "A",
     "coreVerified": true,
@@ -9819,8 +10996,9 @@ export const ranked = [
   {
     "title": "ICDAR",
     "desc": "International Conference on Document Analysis and Recognition",
-    "area": "AI / ML / Data Mining",
+    "area": "ai",
     "sub": "AI",
+    "frank": "",
     "ccf": "C",
     "core": "A",
     "coreVerified": true,
@@ -9859,8 +11037,9 @@ export const ranked = [
   {
     "title": "IROS",
     "desc": "IEEE/RSJ International Conference on Intelligent Robots and Systems",
-    "area": "AI / ML / Data Mining",
+    "area": "ai",
     "sub": "AI",
+    "frank": "",
     "ccf": "C",
     "core": "A",
     "coreVerified": true,
@@ -10174,8 +11353,9 @@ export const ranked = [
   {
     "title": "ICCV",
     "desc": "IEEE International Conference on Computer Vision",
-    "area": "AI / ML / Data Mining",
+    "area": "ai",
     "sub": "AI",
+    "frank": "",
     "ccf": "A",
     "core": "A*",
     "coreVerified": true,
@@ -10376,13 +11556,14 @@ export const ranked = [
   {
     "title": "AMIA",
     "equivalent": "CCF B / CORE A",
+    "badge": "informatics",
     "desc": "AMIA Annual Symposium",
-    "area": "Health & Bio",
+    "area": "biomed",
     "proceedings": "full",
     "note": "Full proceedings, indexed in PubMed. The central US biomedical-informatics meeting.",
     "lastDeadline": "2026-03-10",
     "link": "https://amia.org/education-events/amia-annual-symposium",
-    "badge": "emerging",
+    "frank": "informatics flagship",
     "field": "",
     "kind": "",
     "why": "",
@@ -10416,7 +11597,7 @@ export const ranked = [
   {
     "title": "CDC",
     "desc": "IEEE Conference on Decision and Control",
-    "area": "Control",
+    "area": "control",
     "proceedings": "full",
     "lastDeadline": "2027-03-17",
     "period": 1,
@@ -10443,6 +11624,7 @@ export const ranked = [
     ],
     "note": "The main conference of the IEEE Control Systems Society and the premier venue of the field, 66th edition, with full archival proceedings. Papers may be submitted jointly to L-CSS, the society letters journal, on the earlier of the two deadlines. Neither CCF nor CORE indexes it, because both catalogue computing rather than control.",
     "link": "https://cdc2027.ieeecss.org/",
+    "frank": "CSS flagship",
     "equivalent": null,
     "field": "",
     "kind": "",
@@ -10469,14 +11651,57 @@ export const ranked = [
     "tier": 3
   },
   {
+    "title": "ALIFE",
+    "desc": "Conference on Artificial Life",
+    "area": "complex",
+    "proceedings": "full",
+    "lastDeadline": "2026-03-30",
+    "period": 1,
+    "date": "July 19-23, 2027",
+    "place": "Prague, Czech Republic",
+    "estIsForDate": true,
+    "badge": "artificial life",
+    "field": "artificial life",
+    "kind": "flagship, yearly",
+    "why": "artificial life and emergence",
+    "note": "The ISAL conference. Full papers of 3 to 8 pages go into open-access MIT Press proceedings; two-page summaries of published work are also taken. The 2027 call is not out, so the date shown is the 2026 deadline rolled forward.",
+    "link": "https://2027.alife.org/",
+    "frank": "",
+    "equivalent": null,
+    "ccf": "N",
+    "core": "N",
+    "coreVerified": false,
+    "nextAbstract": "",
+    "cycles": 1,
+    "roundLabels": [],
+    "rates": [],
+    "rateSrc": "",
+    "rateSlug": "",
+    "rounds": [],
+    "dblp": "",
+    "best": "",
+    "csr": "",
+    "edition": "",
+    "sub": "",
+    "estimated": true,
+    "estFrom": "2026-03-30",
+    "nextDeadline": "2027-03-30",
+    "nextYear": null,
+    "notable": true,
+    "cc": "",
+    "city": "",
+    "tier": 3
+  },
+  {
     "title": "COLM",
     "equivalent": "CCF B / CORE A",
     "desc": "Conference on Language Modeling",
-    "area": "AI / ML / Data Mining",
+    "area": "ai",
     "proceedings": "full",
     "note": "Full proceedings. Founded 2024, too new for either ranking table.",
     "lastDeadline": "2026-03-31",
     "link": "https://colm.cc/",
+    "frank": "",
     "badge": "emerging",
     "field": "",
     "kind": "",
@@ -10511,8 +11736,9 @@ export const ranked = [
   {
     "title": "RecSys",
     "desc": "ACM Conference on Recommender Systems",
-    "area": "AI / ML / Data Mining",
+    "area": "ai",
     "sub": "DB",
+    "frank": "",
     "ccf": "B",
     "core": "A",
     "coreVerified": true,
@@ -10549,10 +11775,334 @@ export const ranked = [
     "tier": 2
   },
   {
+    "title": "MICRO",
+    "desc": "IEEE/ACM International Symposium on Microarchitecture",
+    "area": "eda",
+    "sub": "DS",
+    "frank": "architecture top four",
+    "ccf": "A",
+    "core": "TBR",
+    "coreVerified": true,
+    "nextDeadline": "2027-04-11",
+    "nextYear": 2027,
+    "nextAbstract": "",
+    "estimated": true,
+    "estFrom": "2025-04-11",
+    "rounds": [
+      {
+        "d": "2027-04-11",
+        "label": "",
+        "est": true,
+        "from": "2025-04-11",
+        "abs": "2027-04-04"
+      }
+    ],
+    "dblp": "micro",
+    "csr": "Arch",
+    "edition": "60th",
+    "best": "",
+    "link": "https://microarch.org/micro59/",
+    "date": "",
+    "place": "",
+    "cc": "",
+    "city": "",
+    "cycles": 1,
+    "roundLabels": [],
+    "proceedings": "full",
+    "rates": [
+      {
+        "y": 1991,
+        "r": 42.6
+      },
+      {
+        "y": 1992,
+        "r": 26.6
+      },
+      {
+        "y": 1993,
+        "r": 33.3
+      },
+      {
+        "y": 1994,
+        "r": 42.9
+      },
+      {
+        "y": 1995,
+        "r": 24.4
+      },
+      {
+        "y": 1996,
+        "r": 31.9
+      },
+      {
+        "y": 1997,
+        "r": 34.0
+      },
+      {
+        "y": 1998,
+        "r": 25.9
+      },
+      {
+        "y": 1999,
+        "r": 20.6
+      },
+      {
+        "y": 2000,
+        "r": 28.2
+      },
+      {
+        "y": 2001,
+        "r": 20.1
+      },
+      {
+        "y": 2002,
+        "r": 24.0
+      },
+      {
+        "y": 2003,
+        "r": 26.1
+      },
+      {
+        "y": 2004,
+        "r": 18.4
+      },
+      {
+        "y": 2005,
+        "r": 19.7
+      },
+      {
+        "y": 2006,
+        "r": 24.1
+      },
+      {
+        "y": 2007,
+        "r": 21.1
+      },
+      {
+        "y": 2008,
+        "r": 19.0
+      },
+      {
+        "y": 2009,
+        "r": 24.9
+      },
+      {
+        "y": 2010,
+        "r": 16.9
+      },
+      {
+        "y": 2011,
+        "r": 21.1
+      },
+      {
+        "y": 2012,
+        "r": 17.5
+      },
+      {
+        "y": 2013,
+        "r": 16.3
+      },
+      {
+        "y": 2014,
+        "r": 19.0
+      },
+      {
+        "y": 2015,
+        "r": 21.6
+      },
+      {
+        "y": 2016,
+        "r": 21.2
+      },
+      {
+        "y": 2017,
+        "r": 18.7
+      },
+      {
+        "y": 2018,
+        "r": 21.1
+      },
+      {
+        "y": 2019,
+        "r": 23.0
+      },
+      {
+        "y": 2020,
+        "r": 18.4
+      },
+      {
+        "y": 2021,
+        "r": 21.9
+      },
+      {
+        "y": 2022,
+        "r": 22.7
+      },
+      {
+        "y": 2023,
+        "r": 23.3
+      },
+      {
+        "y": 2024,
+        "r": 22.7
+      },
+      {
+        "y": 2025,
+        "r": 20.8
+      }
+    ],
+    "subs": [
+      {
+        "y": 1991,
+        "n": 61
+      },
+      {
+        "y": 1992,
+        "n": 79
+      },
+      {
+        "y": 1993,
+        "n": 63
+      },
+      {
+        "y": 1994,
+        "n": 63
+      },
+      {
+        "y": 1995,
+        "n": 90
+      },
+      {
+        "y": 1996,
+        "n": 94
+      },
+      {
+        "y": 1997,
+        "n": 103
+      },
+      {
+        "y": 1998,
+        "n": 108
+      },
+      {
+        "y": 1999,
+        "n": 131
+      },
+      {
+        "y": 2000,
+        "n": 110
+      },
+      {
+        "y": 2001,
+        "n": 144
+      },
+      {
+        "y": 2002,
+        "n": 150
+      },
+      {
+        "y": 2003,
+        "n": 134
+      },
+      {
+        "y": 2004,
+        "n": 158
+      },
+      {
+        "y": 2005,
+        "n": 147
+      },
+      {
+        "y": 2006,
+        "n": 174
+      },
+      {
+        "y": 2007,
+        "n": 166
+      },
+      {
+        "y": 2008,
+        "n": 210
+      },
+      {
+        "y": 2009,
+        "n": 209
+      },
+      {
+        "y": 2010,
+        "n": 248
+      },
+      {
+        "y": 2011,
+        "n": 209
+      },
+      {
+        "y": 2012,
+        "n": 228
+      },
+      {
+        "y": 2013,
+        "n": 239
+      },
+      {
+        "y": 2014,
+        "n": 279
+      },
+      {
+        "y": 2015,
+        "n": 283
+      },
+      {
+        "y": 2016,
+        "n": 288
+      },
+      {
+        "y": 2017,
+        "n": 327
+      },
+      {
+        "y": 2018,
+        "n": 351
+      },
+      {
+        "y": 2019,
+        "n": 344
+      },
+      {
+        "y": 2020,
+        "n": 446
+      },
+      {
+        "y": 2021,
+        "n": 430
+      },
+      {
+        "y": 2022,
+        "n": 366
+      },
+      {
+        "y": 2023,
+        "n": 434
+      },
+      {
+        "y": 2024,
+        "n": 497
+      },
+      {
+        "y": 2025,
+        "n": 597
+      }
+    ],
+    "rateSrc": "csc",
+    "rateSlug": "micro",
+    "tier": 1
+  },
+  {
     "title": "ECAI",
     "desc": "European Conference on Artificial Intelligence",
-    "area": "AI / ML / Data Mining",
+    "area": "ai",
     "sub": "AI",
+    "frank": "",
     "ccf": "B",
     "core": "A",
     "coreVerified": true,
@@ -10590,10 +12140,377 @@ export const ranked = [
     "tier": 2
   },
   {
+    "title": "ICCAD",
+    "desc": "IEEE/ACM International Conference on Computer-Aided Design",
+    "area": "eda",
+    "sub": "DS",
+    "frank": "EDA top two",
+    "ccf": "B",
+    "core": "A",
+    "coreVerified": true,
+    "nextDeadline": "2027-04-21",
+    "nextYear": 2027,
+    "nextAbstract": "",
+    "estimated": true,
+    "estFrom": "2025-04-21",
+    "rounds": [
+      {
+        "d": "2027-04-21",
+        "label": "",
+        "est": true,
+        "from": "2025-04-21",
+        "abs": "2027-04-14"
+      }
+    ],
+    "dblp": "iccad",
+    "csr": "EDA",
+    "edition": "46th",
+    "best": "",
+    "link": "https://iccad.com/2026",
+    "date": "",
+    "place": "",
+    "cc": "",
+    "city": "",
+    "cycles": 1,
+    "roundLabels": [],
+    "proceedings": "full",
+    "rates": [
+      {
+        "y": 1993,
+        "r": 30.7
+      },
+      {
+        "y": 1995,
+        "r": 30.9
+      },
+      {
+        "y": 1998,
+        "r": 29.6
+      },
+      {
+        "y": 1999,
+        "r": 32.1
+      },
+      {
+        "y": 2000,
+        "r": 32.5
+      },
+      {
+        "y": 2001,
+        "r": 30.6
+      },
+      {
+        "y": 2002,
+        "r": 27.6
+      },
+      {
+        "y": 2003,
+        "r": 26.3
+      },
+      {
+        "y": 2004,
+        "r": 24.4
+      },
+      {
+        "y": 2005,
+        "r": 23.7
+      },
+      {
+        "y": 2007,
+        "r": 27.3
+      },
+      {
+        "y": 2008,
+        "r": 26.6
+      },
+      {
+        "y": 2009,
+        "r": 26.3
+      },
+      {
+        "y": 2010,
+        "r": 30.0
+      },
+      {
+        "y": 2011,
+        "r": 30.4
+      },
+      {
+        "y": 2012,
+        "r": 24.3
+      },
+      {
+        "y": 2013,
+        "r": 26.0
+      },
+      {
+        "y": 2014,
+        "r": 25.3
+      },
+      {
+        "y": 2015,
+        "r": 24.6
+      },
+      {
+        "y": 2016,
+        "r": 23.7
+      },
+      {
+        "y": 2017,
+        "r": 26.3
+      },
+      {
+        "y": 2018,
+        "r": 24.5
+      },
+      {
+        "y": 2019,
+        "r": 23.9
+      },
+      {
+        "y": 2020,
+        "r": 27.0
+      },
+      {
+        "y": 2021,
+        "r": 23.5
+      },
+      {
+        "y": 2022,
+        "r": 22.2
+      },
+      {
+        "y": 2023,
+        "r": 22.9
+      },
+      {
+        "y": 2024,
+        "r": 24.3
+      },
+      {
+        "y": 2025,
+        "r": 24.7
+      }
+    ],
+    "subs": [
+      {
+        "y": 1993,
+        "n": 420
+      },
+      {
+        "y": 1995,
+        "n": 350
+      },
+      {
+        "y": 1998,
+        "n": 345
+      },
+      {
+        "y": 1999,
+        "n": 318
+      },
+      {
+        "y": 2000,
+        "n": 265
+      },
+      {
+        "y": 2001,
+        "n": 301
+      },
+      {
+        "y": 2002,
+        "n": 381
+      },
+      {
+        "y": 2003,
+        "n": 490
+      },
+      {
+        "y": 2004,
+        "n": 520
+      },
+      {
+        "y": 2005,
+        "n": 540
+      },
+      {
+        "y": 2007,
+        "n": 510
+      },
+      {
+        "y": 2008,
+        "n": 458
+      },
+      {
+        "y": 2009,
+        "n": 438
+      },
+      {
+        "y": 2010,
+        "n": 360
+      },
+      {
+        "y": 2011,
+        "n": 349
+      },
+      {
+        "y": 2012,
+        "n": 338
+      },
+      {
+        "y": 2013,
+        "n": 354
+      },
+      {
+        "y": 2014,
+        "n": 304
+      },
+      {
+        "y": 2015,
+        "n": 382
+      },
+      {
+        "y": 2016,
+        "n": 409
+      },
+      {
+        "y": 2017,
+        "n": 399
+      },
+      {
+        "y": 2018,
+        "n": 400
+      },
+      {
+        "y": 2019,
+        "n": 394
+      },
+      {
+        "y": 2020,
+        "n": 470
+      },
+      {
+        "y": 2021,
+        "n": 514
+      },
+      {
+        "y": 2022,
+        "n": 595
+      },
+      {
+        "y": 2023,
+        "n": 750
+      },
+      {
+        "y": 2024,
+        "n": 802
+      },
+      {
+        "y": 2025,
+        "n": 1078
+      }
+    ],
+    "rateSrc": "csc",
+    "rateSlug": "iccad",
+    "tier": 2
+  },
+  {
+    "title": "WASPAA",
+    "desc": "IEEE Workshop on Applications of Signal Processing to Audio and Acoustics",
+    "area": "audio",
+    "proceedings": "full",
+    "lastDeadline": "2027-04-21",
+    "period": 2,
+    "date": "September 19-22, 2027",
+    "place": "Levi, Finland",
+    "badge": "audio",
+    "dblp": "waspaa",
+    "rounds": [
+      {
+        "d": "2027-04-21",
+        "abs": "2027-04-14",
+        "label": "tentative",
+        "est": false
+      }
+    ],
+    "note": "Every other year, small and single track, 4 pages plus references. The first WASPAA held in Europe; it spent most of its history at Mohonk in New York. The dates are the venue's tentative schedule.",
+    "link": "https://waspaa.com/",
+    "frank": "",
+    "equivalent": null,
+    "field": "",
+    "kind": "",
+    "why": "",
+    "estIsForDate": false,
+    "ccf": "N",
+    "core": "N",
+    "coreVerified": false,
+    "nextAbstract": "",
+    "cycles": 1,
+    "roundLabels": [],
+    "rates": [],
+    "rateSrc": "",
+    "rateSlug": "",
+    "best": "",
+    "csr": "",
+    "edition": "",
+    "sub": "",
+    "estimated": false,
+    "estFrom": "",
+    "nextDeadline": "2027-04-21",
+    "nextYear": null,
+    "notable": true,
+    "cc": "",
+    "city": "",
+    "tier": 3
+  },
+  {
+    "title": "ISMIR",
+    "desc": "International Society for Music Information Retrieval Conference",
+    "area": "audio",
+    "proceedings": "full",
+    "lastDeadline": "2026-04-27",
+    "period": 1,
+    "date": "November 8-12, 2026",
+    "place": "Abu Dhabi, United Arab Emirates",
+    "badge": "MIR",
+    "dblp": "ismir",
+    "note": "The music-information-retrieval community's own conference. Papers are 6 pages plus references, double-blind, published open access. The 2027 edition is not announced yet. The meeting shown is the next one to attend, which is a cycle ahead of the estimated deadline beside it.",
+    "link": "https://ismir2026.ismir.net/",
+    "frank": "MIR flagship",
+    "equivalent": null,
+    "field": "",
+    "kind": "",
+    "why": "",
+    "estIsForDate": false,
+    "ccf": "N",
+    "core": "N",
+    "coreVerified": false,
+    "nextAbstract": "",
+    "cycles": 1,
+    "roundLabels": [],
+    "rates": [],
+    "rateSrc": "",
+    "rateSlug": "",
+    "rounds": [],
+    "best": "",
+    "csr": "",
+    "edition": "",
+    "sub": "",
+    "estimated": true,
+    "estFrom": "2026-04-27",
+    "nextDeadline": "2027-04-27",
+    "nextYear": null,
+    "notable": true,
+    "cc": "",
+    "city": "",
+    "tier": 3
+  },
+  {
     "title": "KR",
     "desc": "International Conference on Principles of Knowledge Representation and Reasoning",
-    "area": "AI / ML / Data Mining",
+    "area": "ai",
     "sub": "AI",
+    "frank": "",
     "ccf": "B",
     "core": "A*",
     "coreVerified": true,
@@ -10631,15 +12548,58 @@ export const ranked = [
     "tier": 1
   },
   {
+    "title": "SmartGridComm",
+    "desc": "IEEE International Conference on Communications, Control, and Computing Technologies for Smart Grids",
+    "area": "power",
+    "proceedings": "full",
+    "lastDeadline": "2026-05-03",
+    "period": 1,
+    "date": "October 26-29, 2026",
+    "place": "College Station, Texas, USA",
+    "badge": "smart grid",
+    "dblp": "smartgridcomm",
+    "note": "Six-page papers on IEEE Xplore, presented in person. The 2027 edition is not announced. The meeting shown is the next one to attend, which is a cycle ahead of the estimated deadline beside it.",
+    "link": "https://sgc2026.ieee-smartgridcomm.org/",
+    "frank": "",
+    "equivalent": null,
+    "field": "",
+    "kind": "",
+    "why": "",
+    "estIsForDate": false,
+    "ccf": "N",
+    "core": "N",
+    "coreVerified": false,
+    "nextAbstract": "",
+    "cycles": 1,
+    "roundLabels": [],
+    "rates": [],
+    "rateSrc": "",
+    "rateSlug": "",
+    "rounds": [],
+    "best": "",
+    "csr": "",
+    "edition": "",
+    "sub": "",
+    "estimated": true,
+    "estFrom": "2026-05-03",
+    "nextDeadline": "2027-05-03",
+    "nextYear": null,
+    "notable": true,
+    "cc": "us",
+    "city": "",
+    "tier": 3
+  },
+  {
     "title": "ASONAM",
     "ccfManual": "C",
     "coreManual": "B",
     "desc": "IEEE/ACM International Conference on Advances in Social Networks Analysis and Mining",
-    "area": "AI / ML / Data Mining",
+    "area": "ai",
     "proceedings": "full",
     "note": "Ranked CCF C / CORE B, so below this page's usual bar, but it is the dedicated social-network analysis venue.",
     "lastDeadline": "2026-05-10",
     "link": "https://asonam.cpsc.ucalgary.ca/2026/CFP.php",
+    "frank": "",
     "equivalent": null,
     "badge": "emerging",
     "field": "",
@@ -10673,9 +12633,135 @@ export const ranked = [
     "tier": 3
   },
   {
+    "title": "PSCC",
+    "desc": "Power Systems Computation Conference",
+    "area": "power",
+    "proceedings": "full",
+    "lastDeadline": "2025-06-15",
+    "period": 2,
+    "date": "June 26-30, 2028",
+    "place": "Delft, Netherlands",
+    "badge": "power",
+    "estIsForDate": true,
+    "note": "Every two years and selective. Two stages: a one-page abstract first, then a full paper by invitation only, published in a special issue of Electric Power Systems Research. The 2028 dates are not announced; the date shown is the 2026 abstract deadline rolled forward two years.",
+    "link": "https://pscc2028.dryfta.com/",
+    "frank": "most selective",
+    "equivalent": null,
+    "field": "",
+    "kind": "",
+    "why": "",
+    "ccf": "N",
+    "core": "N",
+    "coreVerified": false,
+    "nextAbstract": "",
+    "cycles": 1,
+    "roundLabels": [],
+    "rates": [],
+    "rateSrc": "",
+    "rateSlug": "",
+    "rounds": [],
+    "dblp": "",
+    "best": "",
+    "csr": "",
+    "edition": "",
+    "sub": "",
+    "estimated": true,
+    "estFrom": "2025-06-15",
+    "nextDeadline": "2027-06-15",
+    "nextYear": null,
+    "notable": true,
+    "cc": "nl",
+    "city": "Vermeer's exact view, painting your own Delft Blue, apple pie on the Markt",
+    "tier": 3
+  },
+  {
+    "title": "DCASE",
+    "desc": "Detection and Classification of Acoustic Scenes and Events Workshop",
+    "area": "audio",
+    "proceedings": "full",
+    "lastDeadline": "2026-07-12",
+    "period": 1,
+    "date": "October 27-29, 2026",
+    "place": "Medford, Massachusetts, USA",
+    "badge": "audio",
+    "dblp": "dcase",
+    "note": "The workshop of the DCASE challenge, 4 pages plus a page of references, open proceedings. The 2027 workshop is not announced yet. The meeting shown is the next one to attend, which is a cycle ahead of the estimated deadline beside it.",
+    "link": "https://dcase.community/workshop2026",
+    "frank": "",
+    "equivalent": null,
+    "field": "",
+    "kind": "",
+    "why": "",
+    "estIsForDate": false,
+    "ccf": "N",
+    "core": "N",
+    "coreVerified": false,
+    "nextAbstract": "",
+    "cycles": 1,
+    "roundLabels": [],
+    "rates": [],
+    "rateSrc": "",
+    "rateSlug": "",
+    "rounds": [],
+    "best": "",
+    "csr": "",
+    "edition": "",
+    "sub": "",
+    "estimated": true,
+    "estFrom": "2026-07-12",
+    "nextDeadline": "2027-07-12",
+    "nextYear": null,
+    "notable": true,
+    "cc": "us",
+    "city": "",
+    "tier": 3
+  },
+  {
+    "title": "ML4H",
+    "desc": "Machine Learning for Health Symposium",
+    "area": "biomed",
+    "proceedings": "full",
+    "lastDeadline": "2026-09-10",
+    "period": 1,
+    "date": "December 6-7, 2026",
+    "place": "Sydney, Australia",
+    "badge": "ML for health",
+    "dblp": "ml4h",
+    "note": "Formerly a NeurIPS workshop, now a standalone symposium. Two tracks: Proceedings, 8 pages and archival in PMLR, and Findings, 4 pages and non-archival. The meeting shown is the next one to attend, which is a cycle ahead of the estimated deadline beside it.",
+    "link": "https://ml4h.ahli.cc/",
+    "frank": "",
+    "equivalent": null,
+    "field": "",
+    "kind": "",
+    "why": "",
+    "estIsForDate": false,
+    "ccf": "N",
+    "core": "N",
+    "coreVerified": false,
+    "nextAbstract": "",
+    "cycles": 1,
+    "roundLabels": [],
+    "rates": [],
+    "rateSrc": "",
+    "rateSlug": "",
+    "rounds": [],
+    "best": "",
+    "csr": "",
+    "edition": "",
+    "sub": "",
+    "estimated": true,
+    "estFrom": "2026-09-10",
+    "nextDeadline": "2027-09-10",
+    "nextYear": null,
+    "notable": true,
+    "cc": "au",
+    "city": "the Opera House, the Bondi to Coogee coastal walk, Blue Mountains",
+    "tier": 3
+  },
+  {
     "title": "ACC",
     "desc": "American Control Conference",
-    "area": "Control",
+    "area": "control",
     "proceedings": "full",
     "lastDeadline": "2026-09-11",
     "period": 1,
@@ -10702,6 +12788,7 @@ export const ranked = [
     ],
     "note": "The American Automatic Control Council conference, the US counterpart to CDC, with full archival proceedings on IEEE Xplore. Eight pages at submission, six in the final version. As at CDC, a paper can go to L-CSS and be presented here, on the earlier deadline. The date shown for ACC only is the firm deadline. The meeting shown is the next one to attend, which is a cycle ahead of the estimated deadline beside it.",
     "link": "https://acc2027.a2c2.org/",
+    "frank": "AACC flagship",
     "equivalent": null,
     "field": "",
     "kind": "",
@@ -10730,8 +12817,9 @@ export const ranked = [
   {
     "title": "SDM",
     "desc": "SIAM International Conference on Data Mining",
-    "area": "AI / ML / Data Mining",
+    "area": "ai",
     "sub": "DB",
+    "frank": "",
     "ccf": "B",
     "core": "A",
     "coreVerified": true,
@@ -10900,8 +12988,9 @@ export const ranked = [
   {
     "title": "ECCV",
     "desc": "European Conference on Computer Vision",
-    "area": "AI / ML / Data Mining",
+    "area": "ai",
     "sub": "AI",
+    "frank": "",
     "ccf": "B",
     "core": "A*",
     "coreVerified": true,
@@ -11094,8 +13183,9 @@ export const ranked = [
   {
     "title": "PPSN",
     "desc": "International Conference on Parallel Problem Solving From Nature",
-    "area": "AI / ML / Data Mining",
+    "area": "ai",
     "sub": "AI",
+    "frank": "",
     "ccf": "B",
     "core": "A",
     "coreVerified": true,
@@ -11138,7 +13228,7 @@ export const notable = [
   {
     "title": "AGU",
     "desc": "American Geophysical Union Annual Meeting",
-    "area": "Society meetings",
+    "area": "dynsys",
     "proceedings": "none",
     "lastDeadline": "2026-08-05",
     "period": 1,
@@ -11149,6 +13239,7 @@ export const notable = [
     "kind": "flagship, yearly",
     "why": "geoscience data at scale",
     "link": "https://www.agu.org/annual-meeting",
+    "frank": "",
     "equivalent": null,
     "badge": "emerging",
     "estIsForDate": false,
@@ -11179,7 +13270,7 @@ export const notable = [
   {
     "title": "ICIAM",
     "desc": "International Congress for Industrial and Applied Mathematics",
-    "area": "Society meetings",
+    "area": "amath",
     "proceedings": "none",
     "lastDeadline": "2026-12-07",
     "period": 4,
@@ -11190,6 +13281,7 @@ export const notable = [
     "kind": "every four years",
     "why": "field-wide congress",
     "link": "https://iciam2027.org/",
+    "frank": "",
     "equivalent": null,
     "badge": "emerging",
     "estIsForDate": false,
@@ -11220,15 +13312,17 @@ export const notable = [
   {
     "title": "SIAM Annual Meeting",
     "desc": "SIAM Annual Meeting (AN)",
-    "area": "Society meetings",
+    "area": "amath",
     "proceedings": "none",
-    "lastDeadline": "2026-02-16",
     "period": 1,
-    "note": "Yearly, all of applied mathematics in one room. AN26 ran July 2026 in Cleveland and AN27 is not yet announced. The date shown is the abstract deadline.",
+    "date": "August 7-11, 2028",
+    "place": "Minneapolis, Minnesota, USA",
+    "note": "All of applied mathematics in one room. There is no AN27: ICIAM takes its place in 2027. AN28 is in Minneapolis, and SIAM plans to post its call in September 2027.",
     "field": "applied mathematics",
-    "kind": "yearly",
+    "kind": "yearly, skips ICIAM years",
     "why": "the whole field in one room",
-    "link": "https://www.siam.org/conferences-events/siam-conferences/an26/",
+    "link": "https://www.siam.org/conferences-events/siam-conferences/an28/",
+    "frank": "",
     "equivalent": null,
     "badge": "emerging",
     "estIsForDate": false,
@@ -11247,21 +13341,19 @@ export const notable = [
     "csr": "",
     "edition": "",
     "sub": "",
-    "estimated": true,
-    "estFrom": "2026-02-16",
-    "nextDeadline": "2027-02-16",
+    "estimated": false,
+    "estFrom": "",
+    "nextDeadline": "",
     "nextYear": null,
     "notable": true,
-    "date": "",
-    "place": "",
-    "cc": "",
+    "cc": "us",
     "city": "",
     "tier": 3
   },
   {
     "title": "OHBM",
     "desc": "Organization for Human Brain Mapping Annual Meeting",
-    "area": "Society meetings",
+    "area": "neuro",
     "proceedings": "none",
     "period": 1,
     "date": "June 26-30, 2027",
@@ -11271,6 +13363,7 @@ export const notable = [
     "why": "neuroimaging methods and their statistics",
     "note": "The meeting for human neuroimaging, where fMRI, MEG and EEG methodology is argued out. Its 2027 page gives December 2026 for the content submission deadline without naming a day, which is why no date is shown here rather than a guessed one.",
     "link": "https://www.humanbrainmapping.org/ohbm-2027/",
+    "frank": "",
     "equivalent": null,
     "badge": "emerging",
     "estIsForDate": false,
@@ -11301,7 +13394,7 @@ export const notable = [
   {
     "title": "CNS",
     "desc": "Cognitive Neuroscience Society Annual Meeting",
-    "area": "Society meetings",
+    "area": "neuro",
     "proceedings": "abstracts",
     "lastDeadline": "2026-11-03",
     "period": 1,
@@ -11312,6 +13405,7 @@ export const notable = [
     "kind": "yearly",
     "why": "cognition, modelling and imaging",
     "link": "https://www.cogneurosociety.org/submit-a-poster/",
+    "frank": "",
     "equivalent": null,
     "badge": "emerging",
     "estIsForDate": false,
@@ -11342,7 +13436,7 @@ export const notable = [
   {
     "title": "Psychonomics",
     "desc": "Psychonomic Society Annual Meeting",
-    "area": "Society meetings",
+    "area": "psych",
     "proceedings": "none",
     "lastDeadline": "2026-06-01",
     "period": 1,
@@ -11354,6 +13448,7 @@ export const notable = [
     "place": "New Orleans, Louisiana, USA",
     "estIsForDate": true,
     "link": "https://www.psychonomic.org/page/futuremeetings",
+    "frank": "",
     "equivalent": null,
     "badge": "emerging",
     "ccf": "N",
@@ -11383,7 +13478,7 @@ export const notable = [
   {
     "title": "Complex Systems (CCS)",
     "desc": "Conference on Complex Systems",
-    "area": "Society meetings",
+    "area": "complex",
     "proceedings": "none",
     "lastDeadline": "2026-05-15",
     "period": 1,
@@ -11395,6 +13490,7 @@ export const notable = [
     "why": "networks, epidemics and traffic",
     "estIsForDate": true,
     "link": "https://cssociety.org/ccs",
+    "frank": "",
     "equivalent": null,
     "badge": "emerging",
     "ccf": "N",
@@ -11424,7 +13520,7 @@ export const notable = [
   {
     "title": "CCN",
     "desc": "Cognitive Computational Neuroscience",
-    "area": "Society meetings",
+    "area": "neuro",
     "proceedings": "optin",
     "lastDeadline": "2027-02-01",
     "period": 1,
@@ -11435,6 +13531,7 @@ export const notable = [
     "date": "July 26-29, 2027",
     "place": "Edinburgh, United Kingdom",
     "link": "https://2027.ccneuro.org/dates-and-deadlines/",
+    "frank": "",
     "equivalent": null,
     "badge": "emerging",
     "estIsForDate": false,
@@ -11465,7 +13562,7 @@ export const notable = [
   {
     "title": "COSYNE",
     "desc": "Computational and Systems Neuroscience",
-    "area": "Society meetings",
+    "area": "neuro",
     "proceedings": "none",
     "lastDeadline": "2026-10-18",
     "period": 1,
@@ -11476,6 +13573,7 @@ export const notable = [
     "kind": "flagship, yearly",
     "why": "dynamical systems in neural data",
     "link": "https://www.cosyne.org/abstracts",
+    "frank": "",
     "equivalent": null,
     "badge": "emerging",
     "estIsForDate": false,
@@ -11506,7 +13604,7 @@ export const notable = [
   {
     "title": "SIAM CSE",
     "desc": "SIAM Conference on Computational Science and Engineering",
-    "area": "Society meetings",
+    "area": "amath",
     "proceedings": "none",
     "lastDeadline": "2026-08-25",
     "period": 2,
@@ -11517,6 +13615,7 @@ export const notable = [
     "kind": "biennial, odd years",
     "why": "scientific machine learning",
     "link": "https://www.siam.org/conferences-events/siam-conferences/cse27/",
+    "frank": "",
     "equivalent": null,
     "badge": "emerging",
     "estIsForDate": false,
@@ -11547,7 +13646,7 @@ export const notable = [
   {
     "title": "IC2S2",
     "desc": "International Conference on Computational Social Science",
-    "area": "Society meetings",
+    "area": "netsci",
     "proceedings": "none",
     "lastDeadline": "2026-03-03",
     "period": 1,
@@ -11556,6 +13655,7 @@ export const notable = [
     "kind": "flagship, yearly",
     "why": "non-archival, network heavy",
     "link": "https://easychair.org/cfp/IC2S2_2026",
+    "frank": "",
     "equivalent": null,
     "badge": "emerging",
     "estIsForDate": false,
@@ -11588,7 +13688,7 @@ export const notable = [
   {
     "title": "ASSC",
     "desc": "Association for the Scientific Study of Consciousness",
-    "area": "Society meetings",
+    "area": "psych",
     "proceedings": "none",
     "period": 1,
     "date": "June 16-19, 2027",
@@ -11598,6 +13698,7 @@ export const notable = [
     "why": "consciousness as an empirical question, dreaming included",
     "note": "The 30th annual meeting, at the Beijing International Convention Center, drawing cognitive science, neuroscience, medicine and philosophy. Dreaming sits inside its remit as a state of consciousness. The organizers say details are still to come, so no submission date is published yet.",
     "link": "https://theassc.org/assc-30/",
+    "frank": "",
     "equivalent": null,
     "badge": "emerging",
     "estIsForDate": false,
@@ -11628,7 +13729,7 @@ export const notable = [
   {
     "title": "SIAM MDS",
     "desc": "SIAM Conference on Mathematics of Data Science",
-    "area": "Society meetings",
+    "area": "amath",
     "proceedings": "none",
     "lastDeadline": "2026-05-18",
     "period": 2,
@@ -11639,6 +13740,7 @@ export const notable = [
     "kind": "biennial, even years",
     "why": "the mathematics under data science",
     "link": "https://www.siam.org/conferences-events/siam-conferences/mds26/",
+    "frank": "",
     "equivalent": null,
     "badge": "emerging",
     "estIsForDate": false,
@@ -11669,7 +13771,7 @@ export const notable = [
   {
     "title": "IASD",
     "desc": "International Association for the Study of Dreams",
-    "area": "Society meetings",
+    "area": "sleep",
     "proceedings": "none",
     "lastDeadline": "2026-12-18",
     "period": 1,
@@ -11680,6 +13782,7 @@ export const notable = [
     "why": "the one meeting given over entirely to dreaming",
     "note": "The 44th annual conference, five days and over 100 presentations from as many as 20 countries, and the only international meeting devoted wholly to dreams. It mixes dream science with clinical practice, lucid dreaming and the arts, so it is a wider room than the other cards here. The date shown is the deadline for presentation proposals.",
     "link": "https://iasdconferences.org/2027/",
+    "frank": "",
     "equivalent": null,
     "badge": "emerging",
     "estIsForDate": false,
@@ -11708,9 +13811,146 @@ export const notable = [
     "tier": 3
   },
   {
+    "title": "Dynamics Days Europe",
+    "desc": "Dynamics Days Europe",
+    "area": "dynsys",
+    "proceedings": "none",
+    "lastDeadline": "2026-04-27",
+    "period": 1,
+    "field": "dynamical systems",
+    "kind": "yearly",
+    "why": "the European counterpart",
+    "note": "The European single-track meeting, 46th edition in Lisbon in July 2026. The 2027 host is not announced, so the date shown is last year's abstract deadline rolled forward.",
+    "link": "https://sites.google.com/view/ddayseurope",
+    "frank": "",
+    "equivalent": null,
+    "badge": "emerging",
+    "estIsForDate": false,
+    "ccf": "N",
+    "core": "N",
+    "coreVerified": false,
+    "nextAbstract": "",
+    "cycles": 1,
+    "roundLabels": [],
+    "rates": [],
+    "rateSrc": "",
+    "rateSlug": "",
+    "rounds": [],
+    "dblp": "",
+    "best": "",
+    "csr": "",
+    "edition": "",
+    "sub": "",
+    "estimated": true,
+    "estFrom": "2026-04-27",
+    "nextDeadline": "2027-04-27",
+    "nextYear": null,
+    "notable": true,
+    "date": "",
+    "place": "",
+    "cc": "",
+    "city": "",
+    "tier": 3
+  },
+  {
+    "title": "Dynamics Days US",
+    "desc": "Dynamics Days US",
+    "area": "dynsys",
+    "proceedings": "none",
+    "lastDeadline": "2026-11-22",
+    "period": 1,
+    "place": "La Jolla, California, USA",
+    "field": "dynamical systems",
+    "kind": "yearly",
+    "why": "single track, nonlinear science",
+    "note": "Single track with no parallel sessions; a few abstracts are picked as talks and the rest are posters. The 2027 meeting is at the Scripps Seaside Forum; its calendar dates are not posted yet.",
+    "link": "https://www.ddays.org/2027/",
+    "frank": "",
+    "equivalent": null,
+    "badge": "emerging",
+    "estIsForDate": false,
+    "ccf": "N",
+    "core": "N",
+    "coreVerified": false,
+    "nextAbstract": "",
+    "cycles": 1,
+    "roundLabels": [],
+    "rates": [],
+    "rateSrc": "",
+    "rateSlug": "",
+    "rounds": [],
+    "dblp": "",
+    "best": "",
+    "csr": "",
+    "edition": "",
+    "sub": "",
+    "estimated": false,
+    "estFrom": "",
+    "nextDeadline": "2026-11-22",
+    "nextYear": null,
+    "notable": true,
+    "date": "",
+    "cc": "us",
+    "city": "",
+    "tier": 3
+  },
+  {
+    "title": "SIAM DS",
+    "desc": "SIAM Conference on Applications of Dynamical Systems",
+    "area": "dynsys",
+    "proceedings": "none",
+    "lastDeadline": "2026-11-23",
+    "period": 2,
+    "date": "May 23-27, 2027",
+    "place": "Atlanta, Georgia, USA",
+    "rounds": [
+      {
+        "d": "2026-10-26",
+        "label": "minisymposium proposal",
+        "est": false
+      },
+      {
+        "d": "2026-11-23",
+        "label": "talk and poster abstracts",
+        "est": false
+      }
+    ],
+    "field": "dynamical systems",
+    "kind": "flagship, odd years",
+    "why": "applied dynamics, the big one",
+    "note": "Every other year. One presentation per person, fully in person. Propose a minisymposium of four talks first, or send a contributed abstract by the later date.",
+    "link": "https://www.siam.org/conferences-events/siam-conferences/ds27/",
+    "frank": "",
+    "equivalent": null,
+    "badge": "emerging",
+    "estIsForDate": false,
+    "ccf": "N",
+    "core": "N",
+    "coreVerified": false,
+    "nextAbstract": "",
+    "cycles": 1,
+    "roundLabels": [],
+    "rates": [],
+    "rateSrc": "",
+    "rateSlug": "",
+    "dblp": "",
+    "best": "",
+    "csr": "",
+    "edition": "",
+    "sub": "",
+    "estimated": false,
+    "estFrom": "",
+    "nextDeadline": "2026-11-23",
+    "nextYear": null,
+    "notable": true,
+    "cc": "us",
+    "city": "Busy Bee fried chicken, walking under the whale sharks, Ponce City Market rooftop",
+    "tier": 3
+  },
+  {
     "title": "Epidemics",
     "desc": "International Conference on Infectious Disease Dynamics",
-    "area": "Society meetings",
+    "area": "epi",
     "proceedings": "none",
     "lastDeadline": "2027-06-18",
     "period": 2,
@@ -11721,6 +13961,7 @@ export const notable = [
     "kind": "biennial",
     "why": "network models of disease spread",
     "link": "https://www.elsevier.com/events/conferences/international-conference-on-infectious-disease-dynamics",
+    "frank": "",
     "equivalent": null,
     "badge": "emerging",
     "estIsForDate": false,
@@ -11749,9 +13990,219 @@ export const notable = [
     "tier": 3
   },
   {
+    "title": "ISF",
+    "desc": "International Symposium on Forecasting",
+    "area": "ts",
+    "proceedings": "none",
+    "lastDeadline": "2027-03-07",
+    "period": 1,
+    "date": "June 20-23, 2027",
+    "place": "Paphos, Cyprus",
+    "field": "forecasting",
+    "kind": "flagship, yearly",
+    "why": "the forecasting community",
+    "note": "The International Institute of Forecasters' yearly meeting, 47th edition. One abstract per person, 350 words, presented in person. The institute's journal is the International Journal of Forecasting.",
+    "link": "https://isf.forecasters.org/",
+    "frank": "",
+    "equivalent": null,
+    "badge": "emerging",
+    "estIsForDate": false,
+    "ccf": "N",
+    "core": "N",
+    "coreVerified": false,
+    "nextAbstract": "",
+    "cycles": 1,
+    "roundLabels": [],
+    "rates": [],
+    "rateSrc": "",
+    "rateSlug": "",
+    "rounds": [],
+    "dblp": "",
+    "best": "",
+    "csr": "",
+    "edition": "",
+    "sub": "",
+    "estimated": false,
+    "estFrom": "",
+    "nextDeadline": "2027-03-07",
+    "nextYear": null,
+    "notable": true,
+    "cc": "cy",
+    "city": "",
+    "tier": 3
+  },
+  {
+    "title": "AI4Mat",
+    "desc": "AI for Accelerated Materials Design, NeurIPS workshop",
+    "area": "materials",
+    "proceedings": "none",
+    "lastDeadline": "2026-08-29",
+    "period": 1,
+    "date": "December 12, 2026",
+    "place": "Sydney, Australia",
+    "field": "materials",
+    "kind": "yearly, at NeurIPS",
+    "why": "where ML meets materials",
+    "note": "Non-archival, so a 4-page paper here can grow into a journal article; selected papers are invited to a Wiley collection. The 2026 deadline has passed. The meeting shown is the next one to attend, which is a cycle ahead of the estimated deadline beside it.",
+    "link": "https://sites.google.com/view/ai4mat",
+    "frank": "",
+    "equivalent": null,
+    "badge": "emerging",
+    "estIsForDate": false,
+    "ccf": "N",
+    "core": "N",
+    "coreVerified": false,
+    "nextAbstract": "",
+    "cycles": 1,
+    "roundLabels": [],
+    "rates": [],
+    "rateSrc": "",
+    "rateSlug": "",
+    "rounds": [],
+    "dblp": "",
+    "best": "",
+    "csr": "",
+    "edition": "",
+    "sub": "",
+    "estimated": true,
+    "estFrom": "2026-08-29",
+    "nextDeadline": "2027-08-29",
+    "nextYear": null,
+    "notable": true,
+    "cc": "au",
+    "city": "the Opera House, the Bondi to Coogee coastal walk, Blue Mountains",
+    "tier": 3
+  },
+  {
+    "title": "MRS Fall",
+    "desc": "Materials Research Society Fall Meeting & Exhibit",
+    "area": "materials",
+    "proceedings": "none",
+    "lastDeadline": "2026-06-17",
+    "period": 1,
+    "date": "November 28 - December 3, 2027",
+    "place": "Boston, Massachusetts, USA",
+    "estIsForDate": true,
+    "field": "materials",
+    "kind": "flagship, yearly",
+    "why": "the larger of the two MRS meetings",
+    "note": "Always in Boston. The 2027 abstract call is not out, so the date shown is the 2026 regular deadline rolled forward; 2026 also had a later Breaking News round.",
+    "link": "https://www.mrs.org/meetings-events/annual-meetings/2027-mrs-fall-meeting-exhibit",
+    "frank": "",
+    "equivalent": null,
+    "badge": "emerging",
+    "ccf": "N",
+    "core": "N",
+    "coreVerified": false,
+    "nextAbstract": "",
+    "cycles": 1,
+    "roundLabels": [],
+    "rates": [],
+    "rateSrc": "",
+    "rateSlug": "",
+    "rounds": [],
+    "dblp": "",
+    "best": "",
+    "csr": "",
+    "edition": "",
+    "sub": "",
+    "estimated": true,
+    "estFrom": "2026-06-17",
+    "nextDeadline": "2027-06-17",
+    "nextYear": null,
+    "notable": true,
+    "cc": "us",
+    "city": "",
+    "tier": 3
+  },
+  {
+    "title": "MRS Spring",
+    "desc": "Materials Research Society Spring Meeting & Exhibit",
+    "area": "materials",
+    "proceedings": "none",
+    "lastDeadline": "2026-10-14",
+    "period": 1,
+    "date": "April 5-9, 2027",
+    "place": "Seattle, Washington, USA",
+    "field": "materials",
+    "kind": "flagship, yearly",
+    "why": "dozens of parallel symposia",
+    "note": "Abstracts go to one symposium inside a topical cluster. The 2027 call closed on 14 October 2026, so the date shown is the next one, estimated. The meeting shown is the next one to attend, which is a cycle ahead of the estimated deadline beside it.",
+    "link": "https://www.mrs.org/meetings-events/annual-meetings/2027-mrs-spring-meeting-exhibit",
+    "frank": "",
+    "equivalent": null,
+    "badge": "emerging",
+    "estIsForDate": false,
+    "ccf": "N",
+    "core": "N",
+    "coreVerified": false,
+    "nextAbstract": "",
+    "cycles": 1,
+    "roundLabels": [],
+    "rates": [],
+    "rateSrc": "",
+    "rateSlug": "",
+    "rounds": [],
+    "dblp": "",
+    "best": "",
+    "csr": "",
+    "edition": "",
+    "sub": "",
+    "estimated": true,
+    "estFrom": "2026-10-14",
+    "nextDeadline": "2027-10-14",
+    "nextYear": null,
+    "notable": true,
+    "cc": "us",
+    "city": "oysters at Elliott's, Pike Place and the first Starbucks, Mount Rainier on a clear day",
+    "tier": 3
+  },
+  {
+    "title": "TMS",
+    "desc": "TMS Annual Meeting & Exhibition",
+    "area": "materials",
+    "proceedings": "optin",
+    "lastDeadline": "2026-07-01",
+    "period": 1,
+    "date": "March 14-18, 2027",
+    "place": "Orlando, Florida, USA",
+    "field": "materials",
+    "kind": "yearly",
+    "why": "metals and processing, 100+ symposia",
+    "note": "The Minerals, Metals & Materials Society meeting, over 4,000 attendees. Mostly abstracts, with full-paper proceedings volumes for some symposia. The 2027 abstract call has closed, so the date shown is the next one, estimated. The meeting shown is the next one to attend, which is a cycle ahead of the estimated deadline beside it.",
+    "link": "https://www.tms.org/TMS2027",
+    "frank": "",
+    "equivalent": null,
+    "badge": "emerging",
+    "estIsForDate": false,
+    "ccf": "N",
+    "core": "N",
+    "coreVerified": false,
+    "nextAbstract": "",
+    "cycles": 1,
+    "roundLabels": [],
+    "rates": [],
+    "rateSrc": "",
+    "rateSlug": "",
+    "rounds": [],
+    "dblp": "",
+    "best": "",
+    "csr": "",
+    "edition": "",
+    "sub": "",
+    "estimated": true,
+    "estFrom": "2026-07-01",
+    "nextDeadline": "2027-07-01",
+    "nextYear": null,
+    "notable": true,
+    "cc": "us",
+    "city": "",
+    "tier": 3
+  },
+  {
     "title": "JMM",
     "desc": "Joint Mathematics Meetings",
-    "area": "Society meetings",
+    "area": "amath",
     "proceedings": "none",
     "lastDeadline": "2026-09-15",
     "period": 1,
@@ -11762,6 +14213,7 @@ export const notable = [
     "kind": "flagship, yearly",
     "why": "breadth across pure and applied",
     "link": "https://meetings.ams.org/math/jmm2027/cfp.cgi",
+    "frank": "",
     "equivalent": null,
     "badge": "emerging",
     "estIsForDate": false,
@@ -11792,7 +14244,7 @@ export const notable = [
   {
     "title": "CompleNet",
     "desc": "International Conference on Complex Networks",
-    "area": "Society meetings",
+    "area": "netsci",
     "proceedings": "optin",
     "lastDeadline": "2026-10-17",
     "period": 1,
@@ -11803,6 +14255,7 @@ export const notable = [
     "date": "March 9-12, 2027",
     "place": "Rochester, New York, USA",
     "link": "https://complenet.github.io/index.html",
+    "frank": "",
     "equivalent": null,
     "badge": "emerging",
     "estIsForDate": false,
@@ -11831,9 +14284,51 @@ export const notable = [
     "tier": 3
   },
   {
+    "title": "Complex Networks",
+    "desc": "International Conference on Complex Networks and their Applications",
+    "area": "netsci",
+    "proceedings": "optin",
+    "lastDeadline": "2026-09-13",
+    "period": 1,
+    "date": "December 2-4, 2026",
+    "place": "Granada, Spain",
+    "field": "network science",
+    "kind": "yearly",
+    "why": "papers in a Springer volume",
+    "note": "Two kinds of submission: a 12-page paper in the Springer proceedings, or a 4-page extended abstract that is not archived. Accepted papers can be invited to journal special issues. The 2026 deadline has passed. The meeting shown is the next one to attend, which is a cycle ahead of the estimated deadline beside it.",
+    "link": "https://complexnetworks.org/",
+    "frank": "",
+    "equivalent": null,
+    "badge": "emerging",
+    "estIsForDate": false,
+    "ccf": "N",
+    "core": "N",
+    "coreVerified": false,
+    "nextAbstract": "",
+    "cycles": 1,
+    "roundLabels": [],
+    "rates": [],
+    "rateSrc": "",
+    "rateSlug": "",
+    "rounds": [],
+    "dblp": "",
+    "best": "",
+    "csr": "",
+    "edition": "",
+    "sub": "",
+    "estimated": true,
+    "estFrom": "2026-09-13",
+    "nextDeadline": "2027-09-13",
+    "nextYear": null,
+    "notable": true,
+    "cc": "es",
+    "city": "",
+    "tier": 3
+  },
+  {
     "title": "NetSci",
     "desc": "International School and Conference on Network Science",
-    "area": "Society meetings",
+    "area": "netsci",
     "proceedings": "none",
     "lastDeadline": "2026-12-01",
     "period": 1,
@@ -11844,6 +14339,7 @@ export const notable = [
     "date": "May 17-21, 2027",
     "place": "Dresden, Germany",
     "link": "https://netsci2027.github.io/",
+    "frank": "",
     "equivalent": null,
     "badge": "emerging",
     "estIsForDate": false,
@@ -11874,7 +14370,7 @@ export const notable = [
   {
     "title": "SfN",
     "desc": "Society for Neuroscience Annual Meeting",
-    "area": "Society meetings",
+    "area": "neuro",
     "proceedings": "none",
     "lastDeadline": "2026-06-11",
     "period": 1,
@@ -11886,6 +14382,7 @@ export const notable = [
     "why": "the largest neuroscience meeting",
     "estIsForDate": true,
     "link": "https://www.sfn.org/meetings/neuroscience-2026/general-information/dates-and-deadlines",
+    "frank": "",
     "equivalent": null,
     "badge": "emerging",
     "ccf": "N",
@@ -11915,7 +14412,7 @@ export const notable = [
   {
     "title": "EURO",
     "desc": "European Conference on Operational Research",
-    "area": "Society meetings",
+    "area": "opt",
     "proceedings": "none",
     "lastDeadline": "2027-02-28",
     "period": 1,
@@ -11926,6 +14423,7 @@ export const notable = [
     "kind": "flagship, yearly",
     "why": "the European counterpart to INFORMS",
     "link": "https://euro2027athens.com/",
+    "frank": "",
     "equivalent": null,
     "badge": "emerging",
     "estIsForDate": false,
@@ -11956,20 +14454,21 @@ export const notable = [
   {
     "title": "INFORMS Annual Meeting",
     "desc": "Institute for Operations Research and the Management Sciences",
-    "area": "Society meetings",
+    "area": "opt",
     "proceedings": "none",
     "lastDeadline": "2026-05-20",
     "period": 1,
-    "date": "November 1-4, 2026",
-    "place": "San Francisco, California, USA",
-    "note": "The main annual gathering for operations research and analytics, around 6,000 attendees. The date shown is the abstract deadline. The meeting shown is the next one to attend, which is a cycle ahead of the estimated deadline beside it.",
+    "date": "October 24-27, 2027",
+    "place": "Seattle, Washington, USA",
+    "estIsForDate": true,
+    "note": "The main annual gathering for operations research and analytics, around 6,000 attendees. The 2027 meeting is in Seattle; its abstract deadline is not announced, so the date shown is last year's rolled forward.",
     "field": "operations research",
     "kind": "flagship, yearly",
     "why": "optimization and analytics at scale",
     "link": "https://meetings.informs.org/",
+    "frank": "",
     "equivalent": null,
     "badge": "emerging",
-    "estIsForDate": false,
     "ccf": "N",
     "core": "N",
     "coreVerified": false,
@@ -11991,13 +14490,55 @@ export const notable = [
     "nextYear": null,
     "notable": true,
     "cc": "us",
-    "city": "sourdough and Dungeness crab, a cable car over the hills, redwoods at Muir Woods",
+    "city": "oysters at Elliott's, Pike Place and the first Starbucks, Mount Rainier on a clear day",
+    "tier": 3
+  },
+  {
+    "title": "ISMP",
+    "desc": "International Symposium on Mathematical Programming",
+    "area": "opt",
+    "proceedings": "none",
+    "lastDeadline": "2027-01-15",
+    "period": 3,
+    "date": "July 25-30, 2027",
+    "place": "Amsterdam, Netherlands",
+    "field": "optimization",
+    "kind": "flagship, every three years",
+    "why": "all of mathematical optimization",
+    "note": "The Mathematical Optimization Society's symposium, 26th edition, every three years. One talk per person. Contributed abstracts and invited-session proposals share the deadline.",
+    "link": "https://ismp2027.mathopt.nl/",
+    "frank": "",
+    "equivalent": null,
+    "badge": "emerging",
+    "estIsForDate": false,
+    "ccf": "N",
+    "core": "N",
+    "coreVerified": false,
+    "nextAbstract": "",
+    "cycles": 1,
+    "roundLabels": [],
+    "rates": [],
+    "rateSrc": "",
+    "rateSlug": "",
+    "rounds": [],
+    "dblp": "",
+    "best": "",
+    "csr": "",
+    "edition": "",
+    "sub": "",
+    "estimated": false,
+    "estFrom": "",
+    "nextDeadline": "2027-01-15",
+    "nextYear": null,
+    "notable": true,
+    "cc": "nl",
+    "city": "herring from a street cart, genever in a brown cafe, Van Gogh's own bedroom",
     "tier": 3
   },
   {
     "title": "SIAM OP",
     "desc": "SIAM Conference on Optimization",
-    "area": "Society meetings",
+    "area": "opt",
     "proceedings": "none",
     "lastDeadline": "2025-11-13",
     "period": 3,
@@ -12006,6 +14547,7 @@ export const notable = [
     "kind": "triennial",
     "why": "optimization theory",
     "link": "https://www.siam.org/conferences-events/siam-conferences/op26/",
+    "frank": "",
     "equivalent": null,
     "badge": "emerging",
     "estIsForDate": false,
@@ -12038,7 +14580,7 @@ export const notable = [
   {
     "title": "APS Global Physics Summit",
     "desc": "American Physical Society Global Physics Summit",
-    "area": "Society meetings",
+    "area": "complex",
     "proceedings": "none",
     "lastDeadline": "2026-10-22",
     "period": 1,
@@ -12049,6 +14591,7 @@ export const notable = [
     "kind": "flagship, yearly",
     "why": "physics-informed modelling",
     "link": "https://summit.aps.org/attend/abstracts",
+    "frank": "",
     "equivalent": null,
     "badge": "emerging",
     "estIsForDate": false,
@@ -12079,7 +14622,7 @@ export const notable = [
   {
     "title": "APA Convention",
     "desc": "American Psychological Association Annual Convention",
-    "area": "Society meetings",
+    "area": "psych",
     "proceedings": "none",
     "lastDeadline": "2026-01-14",
     "period": 1,
@@ -12091,6 +14634,7 @@ export const notable = [
     "why": "the practice side, and the larger of the two",
     "note": "The largest gathering of psychologists in the world, and the professional counterpart to the research-led APS convention: divisions, practice, policy and continuing education alongside the science. Proposals go to the divisions. The 2027 call has not opened, so the date shown is the 2026 deadline rolled a year forward.",
     "link": "https://convention.apa.org/proposals",
+    "frank": "",
     "equivalent": null,
     "badge": "emerging",
     "ccf": "N",
@@ -12120,7 +14664,7 @@ export const notable = [
   {
     "title": "APS Annual Convention",
     "desc": "Association for Psychological Science",
-    "area": "Society meetings",
+    "area": "psych",
     "proceedings": "none",
     "lastDeadline": "2026-12-01",
     "period": 1,
@@ -12131,6 +14675,7 @@ export const notable = [
     "why": "the research side of psychology, broadly",
     "note": "The main convention of the research wing of psychology, as distinct from the clinically oriented APA. Submissions are abstracts for posters and symposia, nothing archival. The date shown is the submission deadline, 5pm Eastern.",
     "link": "https://www.psychologicalscience.org/conventions/2027-aps-annual-convention",
+    "frank": "",
     "equivalent": null,
     "badge": "emerging",
     "estIsForDate": false,
@@ -12159,9 +14704,51 @@ export const notable = [
     "tier": 3
   },
   {
+    "title": "ESCAIDE",
+    "desc": "European Scientific Conference on Applied Infectious Disease Epidemiology",
+    "area": "epi",
+    "proceedings": "none",
+    "lastDeadline": "2026-05-18",
+    "period": 1,
+    "date": "November 18-20, 2026",
+    "place": "Stockholm, Sweden",
+    "field": "public health",
+    "kind": "yearly",
+    "why": "applied epidemiology, run by ECDC",
+    "note": "Run by the European Centre for Disease Prevention and Control, free to attend, hybrid. Abstracts in May, with a late-breaker window in September. The meeting shown is the next one to attend, which is a cycle ahead of the estimated deadline beside it.",
+    "link": "https://www.escaide.eu/en",
+    "frank": "",
+    "equivalent": null,
+    "badge": "emerging",
+    "estIsForDate": false,
+    "ccf": "N",
+    "core": "N",
+    "coreVerified": false,
+    "nextAbstract": "",
+    "cycles": 1,
+    "roundLabels": [],
+    "rates": [],
+    "rateSrc": "",
+    "rateSlug": "",
+    "rounds": [],
+    "dblp": "",
+    "best": "",
+    "csr": "",
+    "edition": "",
+    "sub": "",
+    "estimated": true,
+    "estFrom": "2026-05-18",
+    "nextDeadline": "2027-05-18",
+    "nextYear": null,
+    "notable": true,
+    "cc": "se",
+    "city": "",
+    "tier": 3
+  },
+  {
     "title": "SLEEP",
     "desc": "APSS Annual Meeting, AASM and SRS",
-    "area": "Society meetings",
+    "area": "sleep",
     "proceedings": "abstracts",
     "lastDeadline": "2026-12-07",
     "period": 1,
@@ -12172,6 +14759,7 @@ export const notable = [
     "why": "where sleep and dream data is presented",
     "note": "The joint meeting of the American Academy of Sleep Medicine and the Sleep Research Society, over 6,000 attendees and more than 1,500 abstracts, covering clinical sleep medicine and circadian research together. Accepted abstracts are published in a supplement to the journal SLEEP. The date shown is the abstract deadline, 11:59pm Eastern.",
     "link": "https://www.sleepmeeting.org/call-for-abstracts/",
+    "frank": "",
     "equivalent": null,
     "badge": "emerging",
     "estIsForDate": false,
@@ -12200,9 +14788,51 @@ export const notable = [
     "tier": 3
   },
   {
+    "title": "Sleep Europe",
+    "desc": "European Sleep Research Society Congress",
+    "area": "sleep",
+    "proceedings": "none",
+    "lastDeadline": "2026-04-01",
+    "period": 2,
+    "date": "October 20-23, 2026",
+    "place": "Maastricht, Netherlands",
+    "field": "sleep and circadian",
+    "kind": "flagship, even years",
+    "why": "European sleep research",
+    "note": "The ESRS congress, every two years, 28th edition. 350-word structured abstracts. The 2028 edition is not announced. The meeting shown is the next one to attend, which is a cycle ahead of the estimated deadline beside it.",
+    "link": "https://esrs.eu/sleep-congress/",
+    "frank": "",
+    "equivalent": null,
+    "badge": "emerging",
+    "estIsForDate": false,
+    "ccf": "N",
+    "core": "N",
+    "coreVerified": false,
+    "nextAbstract": "",
+    "cycles": 1,
+    "roundLabels": [],
+    "rates": [],
+    "rateSrc": "",
+    "rateSlug": "",
+    "rounds": [],
+    "dblp": "",
+    "best": "",
+    "csr": "",
+    "edition": "",
+    "sub": "",
+    "estimated": true,
+    "estFrom": "2026-04-01",
+    "nextDeadline": "2028-04-01",
+    "nextYear": null,
+    "notable": true,
+    "cc": "nl",
+    "city": "vlaai pie, the Sint-Pietersberg caves, a bookshop in a 13th-century church",
+    "tier": 3
+  },
+  {
     "title": "World Sleep",
     "desc": "World Sleep Congress",
-    "area": "Society meetings",
+    "area": "sleep",
     "proceedings": "none",
     "lastDeadline": "2027-05-15",
     "period": 2,
@@ -12213,6 +14843,7 @@ export const notable = [
     "why": "the international counterpart to SLEEP",
     "note": "The World Sleep Society congress, held every two years and the international counterpart to the American SLEEP meeting. Four doors, all published: symposium proposals and fast-track abstracts close on 20 January 2027, oral abstracts on 15 May and posters on 15 July. The date shown is the oral abstract deadline.",
     "link": "https://worldsleepcongress.com/",
+    "frank": "",
     "equivalent": null,
     "badge": "emerging",
     "estIsForDate": false,
@@ -12243,7 +14874,7 @@ export const notable = [
   {
     "title": "Sunbelt",
     "desc": "INSNA Social Networks Conference",
-    "area": "Society meetings",
+    "area": "netsci",
     "proceedings": "none",
     "lastDeadline": "2026-02-27",
     "period": 1,
@@ -12255,6 +14886,7 @@ export const notable = [
     "place": "Montreal, Quebec, Canada",
     "estIsForDate": true,
     "link": "https://www.insna.org/events/sunbelt-2027-montreal",
+    "frank": "",
     "equivalent": null,
     "badge": "emerging",
     "ccf": "N",
@@ -12284,7 +14916,7 @@ export const notable = [
   {
     "title": "JSM",
     "desc": "Joint Statistical Meetings",
-    "area": "Society meetings",
+    "area": "uq",
     "proceedings": "optin",
     "lastDeadline": "2027-02-01",
     "period": 1,
@@ -12293,6 +14925,7 @@ export const notable = [
     "kind": "flagship, yearly",
     "why": "statistical methodology",
     "link": "https://ww2.amstat.org/meetings/jsm/2027/submissions.cfm",
+    "frank": "",
     "equivalent": null,
     "badge": "emerging",
     "estIsForDate": false,
@@ -12325,7 +14958,7 @@ export const notable = [
   {
     "title": "SIAM UQ",
     "desc": "SIAM Conference on Uncertainty Quantification",
-    "area": "Society meetings",
+    "area": "uq",
     "proceedings": "none",
     "lastDeadline": "2025-09-22",
     "period": 2,
@@ -12334,6 +14967,7 @@ export const notable = [
     "kind": "biennial, even years",
     "why": "UQ methods",
     "link": "https://www.siam.org/conferences-events/siam-conferences/uq26/",
+    "frank": "",
     "equivalent": null,
     "badge": "emerging",
     "estIsForDate": false,
@@ -12362,6 +14996,59 @@ export const notable = [
     "cc": "",
     "city": "",
     "tier": 3
+  },
+  {
+    "title": "UNCECOMP",
+    "desc": "ECCOMAS Conference on Uncertainty Quantification in Computational Sciences and Engineering",
+    "area": "uq",
+    "proceedings": "optin",
+    "lastDeadline": "2026-10-30",
+    "period": 2,
+    "date": "June 13-16, 2027",
+    "place": "Hersonissos, Crete, Greece",
+    "rounds": [
+      {
+        "d": "2026-10-30",
+        "label": "one-page abstract",
+        "est": false
+      },
+      {
+        "d": "2027-02-28",
+        "label": "optional full paper",
+        "est": false
+      }
+    ],
+    "field": "uncertainty quantification",
+    "kind": "odd years",
+    "why": "engineering UQ, optional papers",
+    "note": "The engineering side of UQ, held with COMPDYN. A one-page abstract gets you on the programme; a full paper, optional, goes into the ECCOMAS proceedings.",
+    "link": "https://2027.uncecomp.org/",
+    "frank": "",
+    "equivalent": null,
+    "badge": "emerging",
+    "estIsForDate": false,
+    "ccf": "N",
+    "core": "N",
+    "coreVerified": false,
+    "nextAbstract": "",
+    "cycles": 1,
+    "roundLabels": [],
+    "rates": [],
+    "rateSrc": "",
+    "rateSlug": "",
+    "dblp": "",
+    "best": "",
+    "csr": "",
+    "edition": "",
+    "sub": "",
+    "estimated": false,
+    "estFrom": "",
+    "nextDeadline": "2026-10-30",
+    "nextYear": null,
+    "notable": true,
+    "cc": "gr",
+    "city": "",
+    "tier": 3
   }
 ];
 
@@ -12372,9 +15059,10 @@ export const journals = [
     "name": "IEEE Transactions on Pattern Analysis and Machine Intelligence",
     "issn": "0162-8828",
     "dblp": "pami",
-    "area": "AI / ML / Data Mining",
+    "area": "ai",
     "pub": "IEEE",
     "why": "vision and learning, the field's top transactions",
+    "rank": "",
     "ccf": "A",
     "subs": [
       {
@@ -12428,9 +15116,10 @@ export const journals = [
     "name": "Journal of Machine Learning Research",
     "issn": "1532-4435",
     "dblp": "jmlr",
-    "area": "AI / ML / Data Mining",
+    "area": "ai",
     "pub": "JMLR",
     "why": "long-form ML theory and methods, open access",
+    "rank": "",
     "ccf": "A",
     "subs": [],
     "cites": null,
@@ -12443,9 +15132,10 @@ export const journals = [
     "name": "Artificial Intelligence",
     "issn": "0004-3702",
     "dblp": "ai",
-    "area": "AI / ML / Data Mining",
+    "area": "ai",
     "pub": "Elsevier",
     "why": "the oldest general AI journal",
+    "rank": "",
     "ccf": "A",
     "subs": [
       {
@@ -12499,9 +15189,10 @@ export const journals = [
     "name": "International Journal of Computer Vision",
     "issn": "0920-5691",
     "dblp": "ijcv",
-    "area": "AI / ML / Data Mining",
+    "area": "ai",
     "pub": "Springer",
     "why": "computer vision",
+    "rank": "",
     "ccf": "A",
     "subs": [
       {
@@ -12555,9 +15246,10 @@ export const journals = [
     "name": "IEEE Transactions on Knowledge and Data Engineering",
     "issn": "1041-4347",
     "dblp": "tkde",
-    "area": "AI / ML / Data Mining",
+    "area": "ai",
     "pub": "IEEE",
     "why": "data mining and databases",
+    "rank": "",
     "ccf": "A",
     "subs": [
       {
@@ -12611,9 +15303,10 @@ export const journals = [
     "name": "IEEE Transactions on Dependable and Secure Computing",
     "issn": "1545-5971",
     "dblp": "tdsc",
-    "area": "Security",
+    "area": "security",
     "pub": "IEEE",
     "why": "systems security and dependability",
+    "rank": "top",
     "ccf": "A",
     "subs": [
       {
@@ -12667,9 +15360,10 @@ export const journals = [
     "name": "IEEE Transactions on Information Forensics and Security",
     "issn": "1556-6013",
     "dblp": "tifs",
-    "area": "Security",
+    "area": "security",
     "pub": "IEEE",
     "why": "forensics, biometrics, privacy",
+    "rank": "top",
     "ccf": "A",
     "subs": [
       {
@@ -12723,9 +15417,10 @@ export const journals = [
     "name": "Journal of Cryptology",
     "issn": "0933-2790",
     "dblp": "joc",
-    "area": "Security",
+    "area": "security",
     "pub": "Springer (IACR)",
-    "why": "the IACR journal of cryptography",
+    "why": "the cryptography journal",
+    "rank": "IACR journal",
     "ccf": "A",
     "subs": [
       {
@@ -12775,293 +15470,14 @@ export const journals = [
     "link": "https://dblp.org/db/journals/joc/index.html"
   },
   {
-    "title": "JAIR",
-    "name": "Journal of Artificial Intelligence Research",
-    "issn": "1076-9757",
-    "dblp": "jair",
-    "area": "AI / ML / Data Mining",
-    "pub": "AI Access Foundation",
-    "why": "general AI, open access",
-    "ccf": "B",
-    "subs": [
-      {
-        "y": 2016,
-        "n": 65
-      },
-      {
-        "y": 2017,
-        "n": 68
-      },
-      {
-        "y": 2018,
-        "n": 70
-      },
-      {
-        "y": 2019,
-        "n": 77
-      },
-      {
-        "y": 2020,
-        "n": 81
-      },
-      {
-        "y": 2021,
-        "n": 100
-      },
-      {
-        "y": 2022,
-        "n": 119
-      },
-      {
-        "y": 2023,
-        "n": 98
-      },
-      {
-        "y": 2024,
-        "n": 109
-      },
-      {
-        "y": 2025,
-        "n": 135
-      }
-    ],
-    "cites": 5.2,
-    "h": 162,
-    "oa": "https://openalex.org/S139930977",
-    "link": "https://dblp.org/db/journals/jair/index.html"
-  },
-  {
-    "title": "TKDD",
-    "name": "ACM Transactions on Knowledge Discovery from Data",
-    "issn": "1556-4681",
-    "dblp": "tkdd",
-    "area": "AI / ML / Data Mining",
-    "pub": "ACM",
-    "why": "data mining, the SIGKDD journal",
-    "ccf": "B",
-    "subs": [
-      {
-        "y": 2016,
-        "n": 58
-      },
-      {
-        "y": 2017,
-        "n": 29
-      },
-      {
-        "y": 2018,
-        "n": 86
-      },
-      {
-        "y": 2019,
-        "n": 79
-      },
-      {
-        "y": 2020,
-        "n": 87
-      },
-      {
-        "y": 2021,
-        "n": 161
-      },
-      {
-        "y": 2022,
-        "n": 144
-      },
-      {
-        "y": 2023,
-        "n": 155
-      },
-      {
-        "y": 2024,
-        "n": 192
-      },
-      {
-        "y": 2025,
-        "n": 153
-      }
-    ],
-    "cites": 6.6,
-    "h": 88,
-    "oa": "https://openalex.org/S41523882",
-    "link": "https://dblp.org/db/journals/tkdd/index.html"
-  },
-  {
-    "title": "DMKD",
-    "name": "Data Mining and Knowledge Discovery",
-    "issn": "1384-5810",
-    "dblp": "datamine",
-    "area": "AI / ML / Data Mining",
-    "pub": "Springer",
-    "why": "data mining, with an ECML PKDD journal track",
-    "ccf": "B",
-    "subs": [
-      {
-        "y": 2016,
-        "n": 45
-      },
-      {
-        "y": 2017,
-        "n": 59
-      },
-      {
-        "y": 2018,
-        "n": 56
-      },
-      {
-        "y": 2019,
-        "n": 57
-      },
-      {
-        "y": 2020,
-        "n": 58
-      },
-      {
-        "y": 2021,
-        "n": 81
-      },
-      {
-        "y": 2022,
-        "n": 92
-      },
-      {
-        "y": 2023,
-        "n": 94
-      },
-      {
-        "y": 2024,
-        "n": 90
-      },
-      {
-        "y": 2025,
-        "n": 93
-      }
-    ],
-    "cites": 4.8,
-    "h": 144,
-    "oa": "https://openalex.org/S121920818",
-    "link": "https://dblp.org/db/journals/datamine/index.html"
-  },
-  {
-    "title": "TNNLS",
-    "name": "IEEE Transactions on Neural Networks and Learning Systems",
-    "issn": "2162-237X",
-    "dblp": "tnn",
-    "area": "AI / ML / Data Mining",
-    "pub": "IEEE",
-    "why": "neural networks, high volume",
-    "ccf": "B",
-    "subs": [
-      {
-        "y": 2016,
-        "n": 359
-      },
-      {
-        "y": 2017,
-        "n": 395
-      },
-      {
-        "y": 2018,
-        "n": 438
-      },
-      {
-        "y": 2019,
-        "n": 506
-      },
-      {
-        "y": 2020,
-        "n": 722
-      },
-      {
-        "y": 2021,
-        "n": 1062
-      },
-      {
-        "y": 2022,
-        "n": 1092
-      },
-      {
-        "y": 2023,
-        "n": 1037
-      },
-      {
-        "y": 2024,
-        "n": 842
-      },
-      {
-        "y": 2025,
-        "n": 807
-      }
-    ],
-    "cites": 10.1,
-    "h": 248,
-    "oa": "https://openalex.org/S4210175523",
-    "link": "https://dblp.org/db/journals/tnn/index.html"
-  },
-  {
-    "title": "TACL",
-    "name": "Transactions of the Association for Computational Linguistics",
-    "issn": "2307-387X",
-    "dblp": "tacl",
-    "area": "AI / ML / Data Mining",
-    "pub": "ACL",
-    "why": "NLP, papers presented at ACL conferences",
-    "ccf": "B",
-    "subs": [
-      {
-        "y": 2016,
-        "n": 41
-      },
-      {
-        "y": 2017,
-        "n": 37
-      },
-      {
-        "y": 2018,
-        "n": 48
-      },
-      {
-        "y": 2019,
-        "n": 45
-      },
-      {
-        "y": 2020,
-        "n": 55
-      },
-      {
-        "y": 2021,
-        "n": 92
-      },
-      {
-        "y": 2022,
-        "n": 84
-      },
-      {
-        "y": 2023,
-        "n": 99
-      },
-      {
-        "y": 2024,
-        "n": 96
-      },
-      {
-        "y": 2025,
-        "n": 80
-      }
-    ],
-    "cites": 14.8,
-    "h": 117,
-    "oa": "https://openalex.org/S2729999759",
-    "link": "https://dblp.org/db/journals/tacl/index.html"
-  },
-  {
     "title": "TOPS",
     "name": "ACM Transactions on Privacy and Security",
     "issn": "2471-2566",
     "dblp": "tissec",
-    "area": "Security",
+    "area": "security",
     "pub": "ACM",
     "why": "security and privacy, ACM's journal",
+    "rank": "",
     "ccf": "B",
     "subs": [
       {
@@ -13115,9 +15531,10 @@ export const journals = [
     "name": "Computers & Security",
     "issn": "0167-4048",
     "dblp": "compsec",
-    "area": "Security",
+    "area": "security",
     "pub": "Elsevier",
     "why": "applied security, high volume",
+    "rank": "",
     "ccf": "B",
     "subs": [
       {
@@ -13171,9 +15588,10 @@ export const journals = [
     "name": "Journal of Computer Security",
     "issn": "0926-227X",
     "dblp": "jcs",
-    "area": "Security",
+    "area": "security",
     "pub": "IOS Press",
     "why": "formal and systems security",
+    "rank": "",
     "ccf": "B",
     "subs": [
       {
@@ -13223,350 +15641,72 @@ export const journals = [
     "link": "https://dblp.org/db/journals/jcs/index.html"
   },
   {
-    "title": "JAMIA",
-    "name": "Journal of the American Medical Informatics Association",
-    "issn": "1067-5027",
-    "dblp": "jamia",
-    "area": "Health & Bio",
-    "pub": "Oxford (AMIA)",
-    "why": "the AMIA journal, clinical informatics",
-    "ccf": "B",
-    "subs": [
-      {
-        "y": 2016,
-        "n": 229
-      },
-      {
-        "y": 2017,
-        "n": 168
-      },
-      {
-        "y": 2018,
-        "n": 193
-      },
-      {
-        "y": 2019,
-        "n": 230
-      },
-      {
-        "y": 2020,
-        "n": 348
-      },
-      {
-        "y": 2021,
-        "n": 301
-      },
-      {
-        "y": 2022,
-        "n": 255
-      },
-      {
-        "y": 2023,
-        "n": 255
-      },
-      {
-        "y": 2024,
-        "n": 323
-      },
-      {
-        "y": 2025,
-        "n": 244
-      }
-    ],
-    "cites": 11.7,
-    "h": 232,
-    "oa": "https://openalex.org/S129839026",
-    "link": "https://dblp.org/db/journals/jamia/index.html"
-  },
-  {
-    "title": "TMI",
-    "name": "IEEE Transactions on Medical Imaging",
-    "issn": "0278-0062",
-    "dblp": "tmi",
-    "area": "Health & Bio",
+    "title": "TCAD",
+    "name": "IEEE Transactions on Computer-Aided Design of Integrated Circuits and Systems",
+    "issn": "0278-0070",
+    "dblp": "tcad",
+    "area": "eda",
     "pub": "IEEE",
-    "why": "medical imaging",
-    "ccf": "B",
+    "why": "long versions of DAC and ICCAD papers",
+    "rank": "journal of record",
+    "ccf": "A",
     "subs": [
       {
         "y": 2016,
-        "n": 295
+        "n": 271
       },
       {
         "y": 2017,
-        "n": 378
+        "n": 352
       },
       {
         "y": 2018,
-        "n": 337
+        "n": 386
       },
       {
         "y": 2019,
-        "n": 357
+        "n": 270
       },
       {
         "y": 2020,
-        "n": 389
+        "n": 412
       },
       {
         "y": 2021,
-        "n": 357
+        "n": 356
       },
       {
         "y": 2022,
-        "n": 361
+        "n": 426
       },
       {
         "y": 2023,
-        "n": 335
+        "n": 370
       },
       {
         "y": 2024,
-        "n": 401
+        "n": 488
       },
       {
         "y": 2025,
-        "n": 422
+        "n": 552
       }
     ],
-    "cites": 10.3,
-    "h": 329,
-    "oa": "https://openalex.org/S58069681",
-    "link": "https://dblp.org/db/journals/tmi/index.html"
+    "cites": 3.1,
+    "h": 192,
+    "oa": "https://openalex.org/S100835903",
+    "link": "https://dblp.org/db/journals/tcad/index.html"
   },
   {
-    "title": "Bioinformatics",
-    "name": "Bioinformatics",
-    "issn": "1367-4803",
-    "dblp": "bioinformatics",
-    "area": "Health & Bio",
-    "pub": "Oxford (ISCB)",
-    "why": "computational biology, carries ISMB proceedings",
-    "ccf": "B",
-    "subs": [
-      {
-        "y": 2016,
-        "n": 860
-      },
-      {
-        "y": 2017,
-        "n": 895
-      },
-      {
-        "y": 2018,
-        "n": 1071
-      },
-      {
-        "y": 2019,
-        "n": 980
-      },
-      {
-        "y": 2020,
-        "n": 997
-      },
-      {
-        "y": 2021,
-        "n": 929
-      },
-      {
-        "y": 2022,
-        "n": 862
-      },
-      {
-        "y": 2023,
-        "n": 810
-      },
-      {
-        "y": 2024,
-        "n": 803
-      },
-      {
-        "y": 2025,
-        "n": 659
-      }
-    ],
-    "cites": 6.5,
-    "h": 558,
-    "oa": "https://openalex.org/S52395412",
-    "link": "https://dblp.org/db/journals/bioinformatics/index.html"
-  },
-  {
-    "title": "Brief. Bioinform.",
-    "name": "Briefings in Bioinformatics",
-    "issn": "1467-5463",
-    "dblp": "bib",
-    "area": "Health & Bio",
-    "pub": "Oxford",
-    "why": "bioinformatics methods and reviews",
-    "ccf": "B",
-    "subs": [
-      {
-        "y": 2016,
-        "n": 158
-      },
-      {
-        "y": 2017,
-        "n": 180
-      },
-      {
-        "y": 2018,
-        "n": 128
-      },
-      {
-        "y": 2019,
-        "n": 173
-      },
-      {
-        "y": 2020,
-        "n": 442
-      },
-      {
-        "y": 2021,
-        "n": 606
-      },
-      {
-        "y": 2022,
-        "n": 610
-      },
-      {
-        "y": 2023,
-        "n": 557
-      },
-      {
-        "y": 2024,
-        "n": 808
-      },
-      {
-        "y": 2025,
-        "n": 718
-      }
-    ],
-    "cites": 7.5,
-    "h": 209,
-    "oa": "https://openalex.org/S91767247",
-    "link": "https://dblp.org/db/journals/bib/index.html"
-  },
-  {
-    "title": "TCBB",
-    "name": "IEEE/ACM Transactions on Computational Biology and Bioinformatics",
-    "issn": "1545-5963",
-    "dblp": "tcbb",
-    "area": "Health & Bio",
-    "pub": "IEEE / ACM",
-    "why": "computational biology",
-    "ccf": "B",
-    "subs": [
-      {
-        "y": 2016,
-        "n": 184
-      },
-      {
-        "y": 2017,
-        "n": 168
-      },
-      {
-        "y": 2018,
-        "n": 260
-      },
-      {
-        "y": 2019,
-        "n": 246
-      },
-      {
-        "y": 2020,
-        "n": 250
-      },
-      {
-        "y": 2021,
-        "n": 280
-      },
-      {
-        "y": 2022,
-        "n": 244
-      },
-      {
-        "y": 2023,
-        "n": 177
-      },
-      {
-        "y": 2024,
-        "n": 176
-      },
-      {
-        "y": 2025,
-        "n": 359
-      }
-    ],
-    "cites": 2.5,
-    "h": 114,
-    "oa": "https://openalex.org/S36029991",
-    "link": "https://dblp.org/db/journals/tcbb/index.html"
-  },
-  {
-    "title": "MedIA",
-    "name": "Medical Image Analysis",
-    "issn": "1361-8415",
-    "dblp": "mia",
-    "area": "Health & Bio",
-    "pub": "Elsevier",
-    "why": "medical imaging methods, the MICCAI journal",
-    "ccf": "C",
-    "subs": [
-      {
-        "y": 2016,
-        "n": 157
-      },
-      {
-        "y": 2017,
-        "n": 123
-      },
-      {
-        "y": 2018,
-        "n": 121
-      },
-      {
-        "y": 2019,
-        "n": 173
-      },
-      {
-        "y": 2020,
-        "n": 249
-      },
-      {
-        "y": 2021,
-        "n": 337
-      },
-      {
-        "y": 2022,
-        "n": 301
-      },
-      {
-        "y": 2023,
-        "n": 309
-      },
-      {
-        "y": 2024,
-        "n": 303
-      },
-      {
-        "y": 2025,
-        "n": 420
-      }
-    ],
-    "cites": 12.3,
-    "h": 221,
-    "oa": "https://openalex.org/S116571295",
-    "link": "https://dblp.org/db/journals/mia/index.html"
-  },
-  {
-    "title": "JBHI",
-    "name": "IEEE Journal of Biomedical and Health Informatics",
-    "issn": "2168-2194",
-    "dblp": "titb",
-    "area": "Health & Bio",
+    "title": "TC",
+    "name": "IEEE Transactions on Computers",
+    "issn": "0018-9340",
+    "dblp": "tc",
+    "area": "eda",
     "pub": "IEEE",
-    "why": "health informatics and sensing",
-    "ccf": "C",
+    "why": "computer architecture and systems",
+    "rank": "",
+    "ccf": "A",
     "subs": [
       {
         "y": 2016,
@@ -13574,167 +15714,492 @@ export const journals = [
       },
       {
         "y": 2017,
-        "n": 288
+        "n": 196
       },
       {
         "y": 2018,
-        "n": 257
+        "n": 151
       },
       {
         "y": 2019,
-        "n": 287
+        "n": 119
       },
       {
         "y": 2020,
-        "n": 454
+        "n": 250
       },
       {
         "y": 2021,
-        "n": 488
+        "n": 223
       },
       {
         "y": 2022,
-        "n": 553
+        "n": 207
       },
       {
         "y": 2023,
-        "n": 675
+        "n": 205
       },
       {
         "y": 2024,
-        "n": 875
+        "n": 221
       },
       {
         "y": 2025,
-        "n": 1141
+        "n": 301
       }
     ],
-    "cites": 6.0,
-    "h": 167,
-    "oa": "https://openalex.org/S2495854775",
-    "link": "https://dblp.org/db/journals/titb/index.html"
+    "cites": 4.1,
+    "h": 260,
+    "oa": "https://openalex.org/S157670870",
+    "link": "https://dblp.org/db/journals/tc/index.html"
   },
   {
-    "title": "JBI",
-    "name": "Journal of Biomedical Informatics",
-    "issn": "1532-0464",
-    "dblp": "jbi",
-    "area": "Health & Bio",
-    "pub": "Elsevier",
-    "why": "biomedical informatics methods",
-    "ccf": "C",
+    "title": "TODAES",
+    "name": "ACM Transactions on Design Automation of Electronic Systems",
+    "issn": "1084-4309",
+    "dblp": "todaes",
+    "area": "eda",
+    "pub": "ACM",
+    "why": "design automation, ACM's journal",
+    "rank": "",
+    "ccf": "B",
     "subs": [
       {
         "y": 2016,
-        "n": 388
+        "n": 84
       },
       {
         "y": 2017,
-        "n": 326
+        "n": 78
       },
       {
         "y": 2018,
-        "n": 236
+        "n": 75
       },
       {
         "y": 2019,
-        "n": 285
+        "n": 76
       },
       {
         "y": 2020,
-        "n": 282
+        "n": 63
       },
       {
         "y": 2021,
-        "n": 262
+        "n": 55
       },
       {
         "y": 2022,
-        "n": 248
+        "n": 91
       },
       {
         "y": 2023,
-        "n": 270
+        "n": 90
       },
       {
         "y": 2024,
-        "n": 169
+        "n": 95
       },
       {
         "y": 2025,
-        "n": 201
+        "n": 168
       }
     ],
-    "cites": 7.2,
-    "h": 168,
-    "oa": "https://openalex.org/S11622463",
-    "link": "https://dblp.org/db/journals/jbi/index.html"
+    "cites": 3.1,
+    "h": 68,
+    "oa": "https://openalex.org/S105046310",
+    "link": "https://dblp.org/db/journals/todaes/index.html"
   },
   {
-    "title": "TMLR",
-    "name": "Transactions on Machine Learning Research",
-    "issn": "2835-8856",
-    "dblp": "tmlr",
-    "area": "AI / ML / Data Mining",
-    "pub": "OpenReview",
-    "why": "rolling review, judged on correctness rather than novelty",
-    "ccf": "N",
-    "subs": [],
-    "cites": null,
-    "h": null,
-    "oa": "https://openalex.org/S4393919742",
-    "link": "https://dblp.org/db/journals/tmlr/index.html"
+    "title": "TVLSI",
+    "name": "IEEE Transactions on Very Large Scale Integration Systems",
+    "issn": "1063-8210",
+    "dblp": "tvlsi",
+    "area": "eda",
+    "pub": "IEEE",
+    "why": "circuits and VLSI design",
+    "rank": "",
+    "ccf": "B",
+    "subs": [
+      {
+        "y": 2016,
+        "n": 321
+      },
+      {
+        "y": 2017,
+        "n": 390
+      },
+      {
+        "y": 2018,
+        "n": 339
+      },
+      {
+        "y": 2019,
+        "n": 320
+      },
+      {
+        "y": 2020,
+        "n": 257
+      },
+      {
+        "y": 2021,
+        "n": 224
+      },
+      {
+        "y": 2022,
+        "n": 229
+      },
+      {
+        "y": 2023,
+        "n": 271
+      },
+      {
+        "y": 2024,
+        "n": 318
+      },
+      {
+        "y": 2025,
+        "n": 368
+      }
+    ],
+    "cites": 2.7,
+    "h": 148,
+    "oa": "https://openalex.org/S37538908",
+    "link": "https://dblp.org/db/journals/tvlsi/index.html"
   },
   {
-    "title": "npj Digit. Med.",
-    "name": "npj Digital Medicine",
-    "issn": "2398-6352",
-    "dblp": "",
-    "area": "Health & Bio",
-    "pub": "Nature Portfolio",
-    "why": "digital health and clinical AI, open access",
+    "title": "TASLP",
+    "name": "IEEE/ACM Transactions on Audio, Speech, and Language Processing",
+    "issn": "2329-9290",
+    "dblp": "taslp",
+    "area": "audio",
+    "pub": "IEEE / ACM",
+    "why": "audio, speech and language, long form",
+    "rank": "top",
+    "ccf": "B",
+    "subs": [
+      {
+        "y": 2015,
+        "n": 325
+      },
+      {
+        "y": 2016,
+        "n": 312
+      },
+      {
+        "y": 2017,
+        "n": 313
+      },
+      {
+        "y": 2018,
+        "n": 297
+      },
+      {
+        "y": 2019,
+        "n": 234
+      },
+      {
+        "y": 2020,
+        "n": 256
+      },
+      {
+        "y": 2021,
+        "n": 283
+      },
+      {
+        "y": 2022,
+        "n": 267
+      },
+      {
+        "y": 2023,
+        "n": 342
+      },
+      {
+        "y": 2024,
+        "n": 304
+      }
+    ],
+    "cites": 12.6,
+    "h": 119,
+    "oa": "https://openalex.org/S4210169297",
+    "link": "https://dblp.org/db/journals/taslp/index.html"
+  },
+  {
+    "title": "TISMIR",
+    "name": "Transactions of the International Society for Music Information Retrieval",
+    "issn": "2514-3298",
+    "dblp": "tismir",
+    "area": "audio",
+    "pub": "Ubiquity Press",
+    "why": "music information retrieval, open access",
+    "rank": "ISMIR journal",
     "ccf": "N",
     "subs": [
       {
-        "y": 2017,
-        "n": 7
-      },
-      {
         "y": 2018,
-        "n": 69
+        "n": 8
       },
       {
         "y": 2019,
-        "n": 132
+        "n": 8
       },
       {
         "y": 2020,
-        "n": 160
+        "n": 18
       },
       {
         "y": 2021,
-        "n": 173
+        "n": 21
       },
       {
         "y": 2022,
-        "n": 197
+        "n": 15
       },
       {
         "y": 2023,
-        "n": 239
+        "n": 14
       },
       {
         "y": 2024,
-        "n": 386
+        "n": 21
       },
       {
         "y": 2025,
-        "n": 882
+        "n": 27
       }
     ],
-    "cites": 13.9,
-    "h": 166,
-    "oa": "https://openalex.org/S4210195431",
+    "cites": 2.2,
+    "h": 21,
+    "oa": "https://openalex.org/S4210180030",
+    "link": "https://dblp.org/db/journals/tismir/index.html"
+  },
+  {
+    "title": "EURASIP JASMP",
+    "name": "EURASIP Journal on Audio, Speech, and Music Processing",
+    "issn": "1687-4714",
+    "dblp": "ejasmp",
+    "area": "audio",
+    "pub": "Springer",
+    "why": "audio and music processing, open access",
+    "rank": "",
+    "ccf": "N",
+    "subs": [
+      {
+        "y": 2016,
+        "n": 20
+      },
+      {
+        "y": 2017,
+        "n": 26
+      },
+      {
+        "y": 2018,
+        "n": 20
+      },
+      {
+        "y": 2019,
+        "n": 24
+      },
+      {
+        "y": 2020,
+        "n": 20
+      },
+      {
+        "y": 2021,
+        "n": 45
+      },
+      {
+        "y": 2022,
+        "n": 34
+      },
+      {
+        "y": 2023,
+        "n": 55
+      },
+      {
+        "y": 2024,
+        "n": 65
+      },
+      {
+        "y": 2025,
+        "n": 51
+      }
+    ],
+    "cites": 4.1,
+    "h": 42,
+    "oa": "https://openalex.org/S19605986",
+    "link": "https://dblp.org/db/journals/ejasmp/index.html"
+  },
+  {
+    "title": "JAES",
+    "name": "Journal of the Audio Engineering Society",
+    "issn": "1549-4950",
+    "dblp": "",
+    "area": "audio",
+    "pub": "AES",
+    "why": "audio engineering, the AES journal",
+    "rank": "",
+    "ccf": "N",
+    "subs": [
+      {
+        "y": 2016,
+        "n": 275
+      },
+      {
+        "y": 2017,
+        "n": 302
+      },
+      {
+        "y": 2018,
+        "n": 318
+      },
+      {
+        "y": 2019,
+        "n": 279
+      },
+      {
+        "y": 2020,
+        "n": 174
+      },
+      {
+        "y": 2021,
+        "n": 209
+      },
+      {
+        "y": 2022,
+        "n": 64
+      },
+      {
+        "y": 2023,
+        "n": 62
+      },
+      {
+        "y": 2024,
+        "n": 68
+      },
+      {
+        "y": 2025,
+        "n": 59
+      }
+    ],
+    "cites": 1.0,
+    "h": 81,
+    "oa": "https://openalex.org/S62507282",
+    "link": ""
+  },
+  {
+    "title": "IJF",
+    "name": "International Journal of Forecasting",
+    "issn": "0169-2070",
+    "dblp": "",
+    "area": "ts",
+    "pub": "Elsevier (IIF)",
+    "why": "forecasting, the IIF's journal",
+    "rank": "IIF journal",
+    "ccf": "N",
+    "subs": [
+      {
+        "y": 2016,
+        "n": 111
+      },
+      {
+        "y": 2017,
+        "n": 85
+      },
+      {
+        "y": 2018,
+        "n": 113
+      },
+      {
+        "y": 2019,
+        "n": 149
+      },
+      {
+        "y": 2020,
+        "n": 135
+      },
+      {
+        "y": 2021,
+        "n": 142
+      },
+      {
+        "y": 2022,
+        "n": 125
+      },
+      {
+        "y": 2023,
+        "n": 93
+      },
+      {
+        "y": 2024,
+        "n": 94
+      },
+      {
+        "y": 2025,
+        "n": 83
+      }
+    ],
+    "cites": 4.2,
+    "h": 191,
+    "oa": "https://openalex.org/S39841227",
+    "link": ""
+  },
+  {
+    "title": "JTSA",
+    "name": "Journal of Time Series Analysis",
+    "issn": "0143-9782",
+    "dblp": "",
+    "area": "ts",
+    "pub": "Wiley",
+    "why": "time-series statistics",
+    "rank": "",
+    "ccf": "N",
+    "subs": [
+      {
+        "y": 2016,
+        "n": 66
+      },
+      {
+        "y": 2017,
+        "n": 58
+      },
+      {
+        "y": 2018,
+        "n": 67
+      },
+      {
+        "y": 2019,
+        "n": 76
+      },
+      {
+        "y": 2020,
+        "n": 64
+      },
+      {
+        "y": 2021,
+        "n": 62
+      },
+      {
+        "y": 2022,
+        "n": 44
+      },
+      {
+        "y": 2023,
+        "n": 56
+      },
+      {
+        "y": 2024,
+        "n": 82
+      },
+      {
+        "y": 2025,
+        "n": 101
+      }
+    ],
+    "cites": 1.3,
+    "h": 111,
+    "oa": "https://openalex.org/S206595242",
     "link": ""
   },
   {
@@ -13742,9 +16207,10 @@ export const journals = [
     "name": "IEEE Transactions on Automatic Control",
     "issn": "0018-9286",
     "dblp": "tac",
-    "area": "Control",
+    "area": "control",
     "pub": "IEEE CSS",
-    "why": "the field's flagship, theory first",
+    "why": "theory first",
+    "rank": "flagship",
     "ccf": "N",
     "subs": [
       {
@@ -13798,9 +16264,10 @@ export const journals = [
     "name": "Automatica",
     "issn": "0005-1098",
     "dblp": "automatica",
-    "area": "Control",
+    "area": "control",
     "pub": "Elsevier (IFAC)",
-    "why": "IFAC's flagship, level with TAC",
+    "why": "IFAC's journal, level with TAC",
+    "rank": "flagship",
     "ccf": "N",
     "subs": [
       {
@@ -13854,9 +16321,10 @@ export const journals = [
     "name": "SIAM Journal on Control and Optimization",
     "issn": "0363-0129",
     "dblp": "siamco",
-    "area": "Control",
+    "area": "control",
     "pub": "SIAM",
     "why": "mathematical control theory",
+    "rank": "",
     "ccf": "N",
     "subs": [
       {
@@ -13910,9 +16378,10 @@ export const journals = [
     "name": "IEEE Transactions on Control Systems Technology",
     "issn": "1063-6536",
     "dblp": "tcst",
-    "area": "Control",
+    "area": "control",
     "pub": "IEEE CSS",
     "why": "control applied to real systems",
+    "rank": "",
     "ccf": "N",
     "subs": [
       {
@@ -13966,9 +16435,10 @@ export const journals = [
     "name": "IEEE Transactions on Control of Network Systems",
     "issn": "2325-5870",
     "dblp": "tcns",
-    "area": "Control",
+    "area": "control",
     "pub": "IEEE CSS",
     "why": "networked and multi-agent control",
+    "rank": "",
     "ccf": "N",
     "subs": [
       {
@@ -14022,9 +16492,10 @@ export const journals = [
     "name": "IEEE Control Systems Letters",
     "issn": "2475-1456",
     "dblp": "lcsys",
-    "area": "Control",
+    "area": "control",
     "pub": "IEEE CSS",
     "why": "six-page letters, presentable at CDC or ACC",
+    "rank": "CDC / ACC track",
     "ccf": "N",
     "subs": [
       {
@@ -14074,9 +16545,10 @@ export const journals = [
     "name": "Systems & Control Letters",
     "issn": "0167-6911",
     "dblp": "scl",
-    "area": "Control",
+    "area": "control",
     "pub": "Elsevier",
     "why": "short theory papers",
+    "rank": "",
     "ccf": "N",
     "subs": [
       {
@@ -14130,9 +16602,10 @@ export const journals = [
     "name": "Annual Reviews in Control",
     "issn": "1367-5788",
     "dblp": "arc",
-    "area": "Control",
+    "area": "control",
     "pub": "Elsevier (IFAC)",
     "why": "invited surveys, so citations run high",
+    "rank": "",
     "ccf": "N",
     "subs": [
       {
@@ -14180,5 +16653,4191 @@ export const journals = [
     "h": 132,
     "oa": "https://openalex.org/S54761077",
     "link": "https://dblp.org/db/journals/arc/index.html"
+  },
+  {
+    "title": "SIADS",
+    "name": "SIAM Journal on Applied Dynamical Systems",
+    "issn": "1536-0040",
+    "dblp": "siamads",
+    "area": "dynsys",
+    "pub": "SIAM",
+    "why": "applied dynamics, the SIAM journal",
+    "rank": "",
+    "ccf": "N",
+    "subs": [
+      {
+        "y": 2016,
+        "n": 77
+      },
+      {
+        "y": 2017,
+        "n": 74
+      },
+      {
+        "y": 2018,
+        "n": 87
+      },
+      {
+        "y": 2019,
+        "n": 74
+      },
+      {
+        "y": 2020,
+        "n": 92
+      },
+      {
+        "y": 2021,
+        "n": 85
+      },
+      {
+        "y": 2022,
+        "n": 87
+      },
+      {
+        "y": 2023,
+        "n": 105
+      },
+      {
+        "y": 2024,
+        "n": 96
+      },
+      {
+        "y": 2025,
+        "n": 97
+      }
+    ],
+    "cites": 3.3,
+    "h": 86,
+    "oa": "https://openalex.org/S161160597",
+    "link": "https://dblp.org/db/journals/siamads/index.html"
+  },
+  {
+    "title": "Chaos",
+    "name": "Chaos: An Interdisciplinary Journal of Nonlinear Science",
+    "issn": "1054-1500",
+    "dblp": "",
+    "area": "dynsys",
+    "pub": "AIP",
+    "why": "nonlinear science across fields",
+    "rank": "",
+    "ccf": "N",
+    "subs": [
+      {
+        "y": 2016,
+        "n": 292
+      },
+      {
+        "y": 2017,
+        "n": 383
+      },
+      {
+        "y": 2018,
+        "n": 492
+      },
+      {
+        "y": 2019,
+        "n": 511
+      },
+      {
+        "y": 2020,
+        "n": 586
+      },
+      {
+        "y": 2021,
+        "n": 546
+      },
+      {
+        "y": 2022,
+        "n": 520
+      },
+      {
+        "y": 2023,
+        "n": 581
+      },
+      {
+        "y": 2024,
+        "n": 652
+      },
+      {
+        "y": 2025,
+        "n": 664
+      }
+    ],
+    "cites": 3.9,
+    "h": 156,
+    "oa": "https://openalex.org/S187806540",
+    "link": ""
+  },
+  {
+    "title": "Physica D",
+    "name": "Physica D: Nonlinear Phenomena",
+    "issn": "0167-2789",
+    "dblp": "",
+    "area": "dynsys",
+    "pub": "Elsevier",
+    "why": "nonlinear phenomena, mathematical",
+    "rank": "",
+    "ccf": "N",
+    "subs": [
+      {
+        "y": 2016,
+        "n": 144
+      },
+      {
+        "y": 2017,
+        "n": 120
+      },
+      {
+        "y": 2018,
+        "n": 96
+      },
+      {
+        "y": 2019,
+        "n": 159
+      },
+      {
+        "y": 2020,
+        "n": 224
+      },
+      {
+        "y": 2021,
+        "n": 189
+      },
+      {
+        "y": 2022,
+        "n": 254
+      },
+      {
+        "y": 2023,
+        "n": 307
+      },
+      {
+        "y": 2024,
+        "n": 376
+      },
+      {
+        "y": 2025,
+        "n": 477
+      }
+    ],
+    "cites": 2.8,
+    "h": 232,
+    "oa": "https://openalex.org/S4210235043",
+    "link": ""
+  },
+  {
+    "title": "Nonlinearity",
+    "name": "Nonlinearity",
+    "issn": "0951-7715",
+    "dblp": "",
+    "area": "dynsys",
+    "pub": "IOP / LMS",
+    "why": "pure and applied dynamics",
+    "rank": "",
+    "ccf": "N",
+    "subs": [
+      {
+        "y": 2016,
+        "n": 163
+      },
+      {
+        "y": 2017,
+        "n": 176
+      },
+      {
+        "y": 2018,
+        "n": 220
+      },
+      {
+        "y": 2019,
+        "n": 202
+      },
+      {
+        "y": 2020,
+        "n": 229
+      },
+      {
+        "y": 2021,
+        "n": 309
+      },
+      {
+        "y": 2022,
+        "n": 206
+      },
+      {
+        "y": 2023,
+        "n": 220
+      },
+      {
+        "y": 2024,
+        "n": 264
+      },
+      {
+        "y": 2025,
+        "n": 293
+      }
+    ],
+    "cites": 1.7,
+    "h": 132,
+    "oa": "https://openalex.org/S158842918",
+    "link": ""
+  },
+  {
+    "title": "Nonlinear Dyn.",
+    "name": "Nonlinear Dynamics",
+    "issn": "0924-090X",
+    "dblp": "",
+    "area": "dynsys",
+    "pub": "Springer",
+    "why": "engineering dynamics, high volume",
+    "rank": "",
+    "ccf": "N",
+    "subs": [
+      {
+        "y": 2016,
+        "n": 740
+      },
+      {
+        "y": 2017,
+        "n": 726
+      },
+      {
+        "y": 2018,
+        "n": 709
+      },
+      {
+        "y": 2019,
+        "n": 733
+      },
+      {
+        "y": 2020,
+        "n": 661
+      },
+      {
+        "y": 2021,
+        "n": 967
+      },
+      {
+        "y": 2022,
+        "n": 1119
+      },
+      {
+        "y": 2023,
+        "n": 987
+      },
+      {
+        "y": 2024,
+        "n": 1586
+      },
+      {
+        "y": 2025,
+        "n": 1145
+      }
+    ],
+    "cites": 6.9,
+    "h": 173,
+    "oa": "https://openalex.org/S138681734",
+    "link": ""
+  },
+  {
+    "title": "PRE",
+    "name": "Physical Review E",
+    "issn": "1539-3755",
+    "dblp": "",
+    "area": "complex",
+    "pub": "APS",
+    "why": "statistical, nonlinear and soft-matter physics",
+    "rank": "",
+    "ccf": "N",
+    "subs": [],
+    "cites": null,
+    "h": null,
+    "oa": "https://openalex.org/S35412551",
+    "link": ""
+  },
+  {
+    "title": "Physica A",
+    "name": "Physica A: Statistical Mechanics and its Applications",
+    "issn": "0378-4371",
+    "dblp": "",
+    "area": "complex",
+    "pub": "Elsevier",
+    "why": "statistical physics applied widely",
+    "rank": "",
+    "ccf": "N",
+    "subs": [
+      {
+        "y": 2016,
+        "n": 1187
+      },
+      {
+        "y": 2017,
+        "n": 1190
+      },
+      {
+        "y": 2018,
+        "n": 1403
+      },
+      {
+        "y": 2019,
+        "n": 2025
+      },
+      {
+        "y": 2020,
+        "n": 913
+      },
+      {
+        "y": 2021,
+        "n": 839
+      },
+      {
+        "y": 2022,
+        "n": 852
+      },
+      {
+        "y": 2023,
+        "n": 774
+      },
+      {
+        "y": 2024,
+        "n": 671
+      },
+      {
+        "y": 2025,
+        "n": 777
+      }
+    ],
+    "cites": 3.1,
+    "h": 235,
+    "oa": "https://openalex.org/S24688465",
+    "link": ""
+  },
+  {
+    "title": "JPhys Complexity",
+    "name": "Journal of Physics: Complexity",
+    "issn": "2632-072X",
+    "dblp": "",
+    "area": "complex",
+    "pub": "IOP",
+    "why": "complex systems, open access",
+    "rank": "",
+    "ccf": "N",
+    "subs": [
+      {
+        "y": 2020,
+        "n": 46
+      },
+      {
+        "y": 2021,
+        "n": 73
+      },
+      {
+        "y": 2022,
+        "n": 56
+      },
+      {
+        "y": 2023,
+        "n": 61
+      },
+      {
+        "y": 2024,
+        "n": 86
+      },
+      {
+        "y": 2025,
+        "n": 75
+      }
+    ],
+    "cites": 2.2,
+    "h": 25,
+    "oa": "https://openalex.org/S4210184083",
+    "link": ""
+  },
+  {
+    "title": "Artificial Life",
+    "name": "Artificial Life",
+    "issn": "1064-5462",
+    "dblp": "",
+    "area": "complex",
+    "pub": "MIT Press",
+    "why": "ISAL's journal",
+    "rank": "ISAL journal",
+    "ccf": "N",
+    "subs": [
+      {
+        "y": 2016,
+        "n": 28
+      },
+      {
+        "y": 2017,
+        "n": 30
+      },
+      {
+        "y": 2018,
+        "n": 21
+      },
+      {
+        "y": 2019,
+        "n": 34
+      },
+      {
+        "y": 2020,
+        "n": 28
+      },
+      {
+        "y": 2021,
+        "n": 23
+      },
+      {
+        "y": 2022,
+        "n": 40
+      },
+      {
+        "y": 2023,
+        "n": 27
+      },
+      {
+        "y": 2024,
+        "n": 45
+      },
+      {
+        "y": 2025,
+        "n": 15
+      }
+    ],
+    "cites": 1.3,
+    "h": 87,
+    "oa": "https://openalex.org/S2181302",
+    "link": ""
+  },
+  {
+    "title": "Complexity",
+    "name": "Complexity",
+    "issn": "1076-2787",
+    "dblp": "",
+    "area": "complex",
+    "pub": "Wiley",
+    "why": "broad complex systems, open access",
+    "rank": "",
+    "ccf": "N",
+    "subs": [
+      {
+        "y": 2016,
+        "n": 108
+      },
+      {
+        "y": 2017,
+        "n": 298
+      },
+      {
+        "y": 2018,
+        "n": 794
+      },
+      {
+        "y": 2019,
+        "n": 702
+      },
+      {
+        "y": 2020,
+        "n": 1494
+      },
+      {
+        "y": 2021,
+        "n": 1626
+      },
+      {
+        "y": 2022,
+        "n": 627
+      },
+      {
+        "y": 2023,
+        "n": 258
+      },
+      {
+        "y": 2024,
+        "n": 251
+      },
+      {
+        "y": 2025,
+        "n": 91
+      }
+    ],
+    "cites": 1.2,
+    "h": 113,
+    "oa": "https://openalex.org/S207319443",
+    "link": ""
+  },
+  {
+    "title": "Network Science",
+    "name": "Network Science",
+    "issn": "2050-1242",
+    "dblp": "netsci",
+    "area": "netsci",
+    "pub": "Cambridge",
+    "why": "the Network Science Society's journal",
+    "rank": "society journal",
+    "ccf": "N",
+    "subs": [
+      {
+        "y": 2016,
+        "n": 32
+      },
+      {
+        "y": 2017,
+        "n": 38
+      },
+      {
+        "y": 2018,
+        "n": 28
+      },
+      {
+        "y": 2019,
+        "n": 52
+      },
+      {
+        "y": 2020,
+        "n": 52
+      },
+      {
+        "y": 2021,
+        "n": 28
+      },
+      {
+        "y": 2022,
+        "n": 40
+      },
+      {
+        "y": 2023,
+        "n": 26
+      },
+      {
+        "y": 2024,
+        "n": 19
+      },
+      {
+        "y": 2025,
+        "n": 22
+      }
+    ],
+    "cites": 1.3,
+    "h": 37,
+    "oa": "https://openalex.org/S2530642067",
+    "link": "https://dblp.org/db/journals/netsci/index.html"
+  },
+  {
+    "title": "J. Complex Netw.",
+    "name": "Journal of Complex Networks",
+    "issn": "2051-1310",
+    "dblp": "compnet",
+    "area": "netsci",
+    "pub": "Oxford",
+    "why": "network theory and methods",
+    "rank": "",
+    "ccf": "N",
+    "subs": [
+      {
+        "y": 2016,
+        "n": 37
+      },
+      {
+        "y": 2017,
+        "n": 62
+      },
+      {
+        "y": 2018,
+        "n": 36
+      },
+      {
+        "y": 2019,
+        "n": 51
+      },
+      {
+        "y": 2020,
+        "n": 52
+      },
+      {
+        "y": 2021,
+        "n": 61
+      },
+      {
+        "y": 2022,
+        "n": 49
+      },
+      {
+        "y": 2023,
+        "n": 55
+      },
+      {
+        "y": 2024,
+        "n": 47
+      },
+      {
+        "y": 2025,
+        "n": 57
+      }
+    ],
+    "cites": 2.0,
+    "h": 43,
+    "oa": "https://openalex.org/S2531583244",
+    "link": "https://dblp.org/db/journals/compnet/index.html"
+  },
+  {
+    "title": "Appl. Netw. Sci.",
+    "name": "Applied Network Science",
+    "issn": "2364-8228",
+    "dblp": "ans",
+    "area": "netsci",
+    "pub": "Springer",
+    "why": "applied networks, open access",
+    "rank": "",
+    "ccf": "N",
+    "subs": [
+      {
+        "y": 2016,
+        "n": 16
+      },
+      {
+        "y": 2017,
+        "n": 37
+      },
+      {
+        "y": 2018,
+        "n": 52
+      },
+      {
+        "y": 2019,
+        "n": 130
+      },
+      {
+        "y": 2020,
+        "n": 98
+      },
+      {
+        "y": 2021,
+        "n": 99
+      },
+      {
+        "y": 2022,
+        "n": 86
+      },
+      {
+        "y": 2023,
+        "n": 82
+      },
+      {
+        "y": 2024,
+        "n": 79
+      },
+      {
+        "y": 2025,
+        "n": 77
+      }
+    ],
+    "cites": 2.2,
+    "h": 45,
+    "oa": "https://openalex.org/S3035517252",
+    "link": "https://dblp.org/db/journals/ans/index.html"
+  },
+  {
+    "title": "Social Networks",
+    "name": "Social Networks",
+    "issn": "0378-8733",
+    "dblp": "socnet",
+    "area": "netsci",
+    "pub": "Elsevier",
+    "why": "social network analysis, INSNA's journal",
+    "rank": "INSNA journal",
+    "ccf": "N",
+    "subs": [
+      {
+        "y": 2016,
+        "n": 65
+      },
+      {
+        "y": 2017,
+        "n": 75
+      },
+      {
+        "y": 2018,
+        "n": 60
+      },
+      {
+        "y": 2019,
+        "n": 66
+      },
+      {
+        "y": 2020,
+        "n": 75
+      },
+      {
+        "y": 2021,
+        "n": 85
+      },
+      {
+        "y": 2022,
+        "n": 94
+      },
+      {
+        "y": 2023,
+        "n": 64
+      },
+      {
+        "y": 2024,
+        "n": 48
+      },
+      {
+        "y": 2025,
+        "n": 64
+      }
+    ],
+    "cites": 2.0,
+    "h": 176,
+    "oa": "https://openalex.org/S26186134",
+    "link": "https://dblp.org/db/journals/socnet/index.html"
+  },
+  {
+    "title": "EPJ Data Sci.",
+    "name": "EPJ Data Science",
+    "issn": "2193-1127",
+    "dblp": "epjds",
+    "area": "netsci",
+    "pub": "Springer",
+    "why": "computational social science, open access",
+    "rank": "",
+    "ccf": "N",
+    "subs": [
+      {
+        "y": 2016,
+        "n": 34
+      },
+      {
+        "y": 2017,
+        "n": 31
+      },
+      {
+        "y": 2018,
+        "n": 50
+      },
+      {
+        "y": 2019,
+        "n": 39
+      },
+      {
+        "y": 2020,
+        "n": 38
+      },
+      {
+        "y": 2021,
+        "n": 56
+      },
+      {
+        "y": 2022,
+        "n": 61
+      },
+      {
+        "y": 2023,
+        "n": 63
+      },
+      {
+        "y": 2024,
+        "n": 77
+      },
+      {
+        "y": 2025,
+        "n": 94
+      }
+    ],
+    "cites": 4.4,
+    "h": 67,
+    "oa": "https://openalex.org/S2504380752",
+    "link": "https://dblp.org/db/journals/epjds/index.html"
+  },
+  {
+    "title": "JUQ",
+    "name": "SIAM/ASA Journal on Uncertainty Quantification",
+    "issn": "2166-2525",
+    "dblp": "juq",
+    "area": "uq",
+    "pub": "SIAM / ASA",
+    "why": "UQ, the joint SIAM and ASA journal",
+    "rank": "SIAM / ASA",
+    "ccf": "N",
+    "subs": [
+      {
+        "y": 2016,
+        "n": 53
+      },
+      {
+        "y": 2017,
+        "n": 48
+      },
+      {
+        "y": 2018,
+        "n": 63
+      },
+      {
+        "y": 2019,
+        "n": 50
+      },
+      {
+        "y": 2020,
+        "n": 52
+      },
+      {
+        "y": 2021,
+        "n": 55
+      },
+      {
+        "y": 2022,
+        "n": 62
+      },
+      {
+        "y": 2023,
+        "n": 46
+      },
+      {
+        "y": 2024,
+        "n": 50
+      },
+      {
+        "y": 2025,
+        "n": 69
+      }
+    ],
+    "cites": 2.2,
+    "h": 52,
+    "oa": "https://openalex.org/S2911293512",
+    "link": "https://dblp.org/db/journals/juq/index.html"
+  },
+  {
+    "title": "IJUQ",
+    "name": "International Journal for Uncertainty Quantification",
+    "issn": "2152-5080",
+    "dblp": "",
+    "area": "uq",
+    "pub": "Begell House",
+    "why": "UQ in engineering",
+    "rank": "",
+    "ccf": "N",
+    "subs": [
+      {
+        "y": 2016,
+        "n": 44
+      },
+      {
+        "y": 2017,
+        "n": 30
+      },
+      {
+        "y": 2018,
+        "n": 39
+      },
+      {
+        "y": 2019,
+        "n": 37
+      },
+      {
+        "y": 2020,
+        "n": 48
+      },
+      {
+        "y": 2021,
+        "n": 36
+      },
+      {
+        "y": 2022,
+        "n": 30
+      },
+      {
+        "y": 2023,
+        "n": 34
+      },
+      {
+        "y": 2024,
+        "n": 33
+      },
+      {
+        "y": 2025,
+        "n": 22
+      }
+    ],
+    "cites": 1.1,
+    "h": 40,
+    "oa": "https://openalex.org/S2764714110",
+    "link": ""
+  },
+  {
+    "title": "JASA",
+    "name": "Journal of the American Statistical Association",
+    "issn": "0162-1459",
+    "dblp": "",
+    "area": "uq",
+    "pub": "ASA / Taylor & Francis",
+    "why": "statistics, the ASA's flagship",
+    "rank": "ASA flagship",
+    "ccf": "N",
+    "subs": [
+      {
+        "y": 2016,
+        "n": 198
+      },
+      {
+        "y": 2017,
+        "n": 155
+      },
+      {
+        "y": 2018,
+        "n": 162
+      },
+      {
+        "y": 2019,
+        "n": 179
+      },
+      {
+        "y": 2020,
+        "n": 230
+      },
+      {
+        "y": 2021,
+        "n": 243
+      },
+      {
+        "y": 2022,
+        "n": 177
+      },
+      {
+        "y": 2023,
+        "n": 200
+      },
+      {
+        "y": 2024,
+        "n": 175
+      },
+      {
+        "y": 2025,
+        "n": 242
+      }
+    ],
+    "cites": 2.1,
+    "h": 633,
+    "oa": "https://openalex.org/S4394736638",
+    "link": ""
+  },
+  {
+    "title": "AoS",
+    "name": "The Annals of Statistics",
+    "issn": "0090-5364",
+    "dblp": "",
+    "area": "uq",
+    "pub": "IMS",
+    "why": "mathematical statistics",
+    "rank": "IMS flagship",
+    "ccf": "N",
+    "subs": [
+      {
+        "y": 2016,
+        "n": 89
+      },
+      {
+        "y": 2017,
+        "n": 89
+      },
+      {
+        "y": 2018,
+        "n": 149
+      },
+      {
+        "y": 2019,
+        "n": 99
+      },
+      {
+        "y": 2020,
+        "n": 159
+      },
+      {
+        "y": 2021,
+        "n": 150
+      },
+      {
+        "y": 2022,
+        "n": 141
+      },
+      {
+        "y": 2023,
+        "n": 97
+      },
+      {
+        "y": 2024,
+        "n": 115
+      },
+      {
+        "y": 2025,
+        "n": 104
+      }
+    ],
+    "cites": 3.7,
+    "h": 325,
+    "oa": "https://openalex.org/S119757635",
+    "link": ""
+  },
+  {
+    "title": "Math. Prog.",
+    "name": "Mathematical Programming",
+    "issn": "0025-5610",
+    "dblp": "mp",
+    "area": "opt",
+    "pub": "Springer (MOS)",
+    "why": "optimization theory, MOS's journal",
+    "rank": "MOS flagship",
+    "ccf": "N",
+    "subs": [
+      {
+        "y": 2016,
+        "n": 134
+      },
+      {
+        "y": 2017,
+        "n": 118
+      },
+      {
+        "y": 2018,
+        "n": 148
+      },
+      {
+        "y": 2019,
+        "n": 100
+      },
+      {
+        "y": 2020,
+        "n": 137
+      },
+      {
+        "y": 2021,
+        "n": 136
+      },
+      {
+        "y": 2022,
+        "n": 176
+      },
+      {
+        "y": 2023,
+        "n": 119
+      },
+      {
+        "y": 2024,
+        "n": 137
+      },
+      {
+        "y": 2025,
+        "n": 138
+      }
+    ],
+    "cites": 2.0,
+    "h": 241,
+    "oa": "https://openalex.org/S193920097",
+    "link": "https://dblp.org/db/journals/mp/index.html"
+  },
+  {
+    "title": "SIOPT",
+    "name": "SIAM Journal on Optimization",
+    "issn": "1052-6234",
+    "dblp": "siamjo",
+    "area": "opt",
+    "pub": "SIAM",
+    "why": "continuous optimization",
+    "rank": "",
+    "ccf": "N",
+    "subs": [
+      {
+        "y": 2016,
+        "n": 114
+      },
+      {
+        "y": 2017,
+        "n": 105
+      },
+      {
+        "y": 2018,
+        "n": 131
+      },
+      {
+        "y": 2019,
+        "n": 123
+      },
+      {
+        "y": 2020,
+        "n": 127
+      },
+      {
+        "y": 2021,
+        "n": 120
+      },
+      {
+        "y": 2022,
+        "n": 111
+      },
+      {
+        "y": 2023,
+        "n": 116
+      },
+      {
+        "y": 2024,
+        "n": 138
+      },
+      {
+        "y": 2025,
+        "n": 101
+      }
+    ],
+    "cites": 3.3,
+    "h": 189,
+    "oa": "https://openalex.org/S928796702",
+    "link": "https://dblp.org/db/journals/siamjo/index.html"
+  },
+  {
+    "title": "OR",
+    "name": "Operations Research",
+    "issn": "0030-364X",
+    "dblp": "ior",
+    "area": "opt",
+    "pub": "INFORMS",
+    "why": "operations research",
+    "rank": "INFORMS flagship",
+    "ccf": "N",
+    "subs": [
+      {
+        "y": 2016,
+        "n": 129
+      },
+      {
+        "y": 2017,
+        "n": 133
+      },
+      {
+        "y": 2018,
+        "n": 109
+      },
+      {
+        "y": 2019,
+        "n": 120
+      },
+      {
+        "y": 2020,
+        "n": 140
+      },
+      {
+        "y": 2021,
+        "n": 194
+      },
+      {
+        "y": 2022,
+        "n": 243
+      },
+      {
+        "y": 2023,
+        "n": 175
+      },
+      {
+        "y": 2024,
+        "n": 146
+      },
+      {
+        "y": 2025,
+        "n": 160
+      }
+    ],
+    "cites": 3.8,
+    "h": 304,
+    "oa": "https://openalex.org/S125775545",
+    "link": "https://dblp.org/db/journals/ior/index.html"
+  },
+  {
+    "title": "MS",
+    "name": "Management Science",
+    "issn": "0025-1909",
+    "dblp": "mansci",
+    "area": "opt",
+    "pub": "INFORMS",
+    "why": "OR meets business and economics",
+    "rank": "",
+    "ccf": "N",
+    "subs": [
+      {
+        "y": 2016,
+        "n": 400
+      },
+      {
+        "y": 2017,
+        "n": 366
+      },
+      {
+        "y": 2018,
+        "n": 242
+      },
+      {
+        "y": 2019,
+        "n": 340
+      },
+      {
+        "y": 2020,
+        "n": 441
+      },
+      {
+        "y": 2021,
+        "n": 416
+      },
+      {
+        "y": 2022,
+        "n": 421
+      },
+      {
+        "y": 2023,
+        "n": 417
+      },
+      {
+        "y": 2024,
+        "n": 445
+      },
+      {
+        "y": 2025,
+        "n": 500
+      }
+    ],
+    "cites": 7.7,
+    "h": 489,
+    "oa": "https://openalex.org/S33323087",
+    "link": "https://dblp.org/db/journals/mansci/index.html"
+  },
+  {
+    "title": "IJOC",
+    "name": "INFORMS Journal on Computing",
+    "issn": "0899-1499",
+    "dblp": "informs",
+    "area": "opt",
+    "pub": "INFORMS",
+    "why": "computation in OR",
+    "rank": "",
+    "ccf": "B",
+    "subs": [
+      {
+        "y": 2016,
+        "n": 70
+      },
+      {
+        "y": 2017,
+        "n": 55
+      },
+      {
+        "y": 2018,
+        "n": 47
+      },
+      {
+        "y": 2019,
+        "n": 83
+      },
+      {
+        "y": 2020,
+        "n": 106
+      },
+      {
+        "y": 2021,
+        "n": 125
+      },
+      {
+        "y": 2022,
+        "n": 168
+      },
+      {
+        "y": 2023,
+        "n": 185
+      },
+      {
+        "y": 2024,
+        "n": 231
+      },
+      {
+        "y": 2025,
+        "n": 216
+      }
+    ],
+    "cites": 1.8,
+    "h": 130,
+    "oa": "https://openalex.org/S165318533",
+    "link": "https://dblp.org/db/journals/informs/index.html"
+  },
+  {
+    "title": "SIAM Review",
+    "name": "SIAM Review",
+    "issn": "0036-1445",
+    "dblp": "siamrev",
+    "area": "amath",
+    "pub": "SIAM",
+    "why": "surveys and expository papers",
+    "rank": "",
+    "ccf": "N",
+    "subs": [
+      {
+        "y": 2016,
+        "n": 44
+      },
+      {
+        "y": 2017,
+        "n": 46
+      },
+      {
+        "y": 2018,
+        "n": 46
+      },
+      {
+        "y": 2019,
+        "n": 43
+      },
+      {
+        "y": 2020,
+        "n": 46
+      },
+      {
+        "y": 2021,
+        "n": 45
+      },
+      {
+        "y": 2022,
+        "n": 50
+      },
+      {
+        "y": 2023,
+        "n": 51
+      },
+      {
+        "y": 2024,
+        "n": 41
+      },
+      {
+        "y": 2025,
+        "n": 65
+      }
+    ],
+    "cites": 3.0,
+    "h": 235,
+    "oa": "https://openalex.org/S160107561",
+    "link": "https://dblp.org/db/journals/siamrev/index.html"
+  },
+  {
+    "title": "SISC",
+    "name": "SIAM Journal on Scientific Computing",
+    "issn": "1064-8275",
+    "dblp": "siamsc",
+    "area": "amath",
+    "pub": "SIAM",
+    "why": "numerical methods and computing",
+    "rank": "",
+    "ccf": "N",
+    "subs": [
+      {
+        "y": 2016,
+        "n": 266
+      },
+      {
+        "y": 2017,
+        "n": 233
+      },
+      {
+        "y": 2018,
+        "n": 265
+      },
+      {
+        "y": 2019,
+        "n": 257
+      },
+      {
+        "y": 2020,
+        "n": 242
+      },
+      {
+        "y": 2021,
+        "n": 261
+      },
+      {
+        "y": 2022,
+        "n": 225
+      },
+      {
+        "y": 2023,
+        "n": 196
+      },
+      {
+        "y": 2024,
+        "n": 242
+      },
+      {
+        "y": 2025,
+        "n": 268
+      }
+    ],
+    "cites": 3.6,
+    "h": 213,
+    "oa": "https://openalex.org/S165512578",
+    "link": "https://dblp.org/db/journals/siamsc/index.html"
+  },
+  {
+    "title": "SIMODS",
+    "name": "SIAM Journal on Mathematics of Data Science",
+    "issn": "2577-0187",
+    "dblp": "simods",
+    "area": "amath",
+    "pub": "SIAM",
+    "why": "mathematics of data science",
+    "rank": "",
+    "ccf": "N",
+    "subs": [
+      {
+        "y": 2019,
+        "n": 33
+      },
+      {
+        "y": 2020,
+        "n": 45
+      },
+      {
+        "y": 2021,
+        "n": 52
+      },
+      {
+        "y": 2022,
+        "n": 58
+      },
+      {
+        "y": 2023,
+        "n": 46
+      },
+      {
+        "y": 2024,
+        "n": 47
+      },
+      {
+        "y": 2025,
+        "n": 74
+      }
+    ],
+    "cites": 2.3,
+    "h": 37,
+    "oa": "https://openalex.org/S4210229561",
+    "link": "https://dblp.org/db/journals/simods/index.html"
+  },
+  {
+    "title": "JCP",
+    "name": "Journal of Computational Physics",
+    "issn": "0021-9991",
+    "dblp": "jcphy",
+    "area": "amath",
+    "pub": "Elsevier",
+    "why": "computational physics and numerics",
+    "rank": "",
+    "ccf": "N",
+    "subs": [
+      {
+        "y": 2016,
+        "n": 778
+      },
+      {
+        "y": 2017,
+        "n": 772
+      },
+      {
+        "y": 2018,
+        "n": 656
+      },
+      {
+        "y": 2019,
+        "n": 777
+      },
+      {
+        "y": 2020,
+        "n": 737
+      },
+      {
+        "y": 2021,
+        "n": 682
+      },
+      {
+        "y": 2022,
+        "n": 804
+      },
+      {
+        "y": 2023,
+        "n": 667
+      },
+      {
+        "y": 2024,
+        "n": 793
+      },
+      {
+        "y": 2025,
+        "n": 749
+      }
+    ],
+    "cites": 4.2,
+    "h": 420,
+    "oa": "https://openalex.org/S148709879",
+    "link": "https://dblp.org/db/journals/jcphy/index.html"
+  },
+  {
+    "title": "Neuron",
+    "name": "Neuron",
+    "issn": "0896-6273",
+    "dblp": "",
+    "area": "neuro",
+    "pub": "Cell Press",
+    "why": "neuroscience, broad and top",
+    "rank": "top",
+    "ccf": "N",
+    "subs": [
+      {
+        "y": 2016,
+        "n": 551
+      },
+      {
+        "y": 2017,
+        "n": 537
+      },
+      {
+        "y": 2018,
+        "n": 552
+      },
+      {
+        "y": 2019,
+        "n": 501
+      },
+      {
+        "y": 2020,
+        "n": 437
+      },
+      {
+        "y": 2021,
+        "n": 409
+      },
+      {
+        "y": 2022,
+        "n": 373
+      },
+      {
+        "y": 2023,
+        "n": 373
+      },
+      {
+        "y": 2024,
+        "n": 333
+      },
+      {
+        "y": 2025,
+        "n": 363
+      }
+    ],
+    "cites": 14.4,
+    "h": 690,
+    "oa": "https://openalex.org/S45757444",
+    "link": ""
+  },
+  {
+    "title": "Nat. Neurosci.",
+    "name": "Nature Neuroscience",
+    "issn": "1097-6256",
+    "dblp": "",
+    "area": "neuro",
+    "pub": "Nature Portfolio",
+    "why": "neuroscience, broad and top",
+    "rank": "top",
+    "ccf": "N",
+    "subs": [
+      {
+        "y": 2016,
+        "n": 257
+      },
+      {
+        "y": 2017,
+        "n": 252
+      },
+      {
+        "y": 2018,
+        "n": 249
+      },
+      {
+        "y": 2019,
+        "n": 262
+      },
+      {
+        "y": 2020,
+        "n": 207
+      },
+      {
+        "y": 2021,
+        "n": 214
+      },
+      {
+        "y": 2022,
+        "n": 247
+      },
+      {
+        "y": 2023,
+        "n": 295
+      },
+      {
+        "y": 2024,
+        "n": 313
+      },
+      {
+        "y": 2025,
+        "n": 343
+      }
+    ],
+    "cites": 18.3,
+    "h": 592,
+    "oa": "https://openalex.org/S2298632",
+    "link": ""
+  },
+  {
+    "title": "JOCN",
+    "name": "Journal of Cognitive Neuroscience",
+    "issn": "0898-929X",
+    "dblp": "",
+    "area": "neuro",
+    "pub": "MIT Press",
+    "why": "cognitive neuroscience itself",
+    "rank": "",
+    "ccf": "N",
+    "subs": [
+      {
+        "y": 2016,
+        "n": 180
+      },
+      {
+        "y": 2017,
+        "n": 136
+      },
+      {
+        "y": 2018,
+        "n": 142
+      },
+      {
+        "y": 2019,
+        "n": 150
+      },
+      {
+        "y": 2020,
+        "n": 157
+      },
+      {
+        "y": 2021,
+        "n": 152
+      },
+      {
+        "y": 2022,
+        "n": 144
+      },
+      {
+        "y": 2023,
+        "n": 143
+      },
+      {
+        "y": 2024,
+        "n": 185
+      },
+      {
+        "y": 2025,
+        "n": 164
+      }
+    ],
+    "cites": 3.6,
+    "h": 305,
+    "oa": "https://openalex.org/S123144817",
+    "link": ""
+  },
+  {
+    "title": "NeuroImage",
+    "name": "NeuroImage",
+    "issn": "1053-8119",
+    "dblp": "",
+    "area": "neuro",
+    "pub": "Elsevier",
+    "why": "brain imaging methods and studies",
+    "rank": "",
+    "ccf": "N",
+    "subs": [
+      {
+        "y": 2016,
+        "n": 870
+      },
+      {
+        "y": 2017,
+        "n": 933
+      },
+      {
+        "y": 2018,
+        "n": 944
+      },
+      {
+        "y": 2019,
+        "n": 936
+      },
+      {
+        "y": 2020,
+        "n": 1075
+      },
+      {
+        "y": 2021,
+        "n": 974
+      },
+      {
+        "y": 2022,
+        "n": 800
+      },
+      {
+        "y": 2023,
+        "n": 597
+      },
+      {
+        "y": 2024,
+        "n": 469
+      },
+      {
+        "y": 2025,
+        "n": 687
+      }
+    ],
+    "cites": 4.3,
+    "h": 522,
+    "oa": "https://openalex.org/S103225281",
+    "link": ""
+  },
+  {
+    "title": "HBM",
+    "name": "Human Brain Mapping",
+    "issn": "1065-9471",
+    "dblp": "",
+    "area": "neuro",
+    "pub": "Wiley",
+    "why": "brain mapping",
+    "rank": "",
+    "ccf": "N",
+    "subs": [
+      {
+        "y": 2016,
+        "n": 403
+      },
+      {
+        "y": 2017,
+        "n": 447
+      },
+      {
+        "y": 2018,
+        "n": 453
+      },
+      {
+        "y": 2019,
+        "n": 425
+      },
+      {
+        "y": 2020,
+        "n": 435
+      },
+      {
+        "y": 2021,
+        "n": 429
+      },
+      {
+        "y": 2022,
+        "n": 460
+      },
+      {
+        "y": 2023,
+        "n": 374
+      },
+      {
+        "y": 2024,
+        "n": 393
+      },
+      {
+        "y": 2025,
+        "n": 376
+      }
+    ],
+    "cites": 5.1,
+    "h": 271,
+    "oa": "https://openalex.org/S121666818",
+    "link": ""
+  },
+  {
+    "title": "PLOS Comp Bio",
+    "name": "PLOS Computational Biology",
+    "issn": "1553-734X",
+    "dblp": "ploscb",
+    "area": "neuro",
+    "pub": "PLOS",
+    "why": "computational neuroscience and biology",
+    "rank": "",
+    "ccf": "B",
+    "subs": [
+      {
+        "y": 2016,
+        "n": 609
+      },
+      {
+        "y": 2017,
+        "n": 638
+      },
+      {
+        "y": 2018,
+        "n": 585
+      },
+      {
+        "y": 2019,
+        "n": 713
+      },
+      {
+        "y": 2020,
+        "n": 772
+      },
+      {
+        "y": 2021,
+        "n": 1029
+      },
+      {
+        "y": 2022,
+        "n": 910
+      },
+      {
+        "y": 2023,
+        "n": 722
+      },
+      {
+        "y": 2024,
+        "n": 754
+      },
+      {
+        "y": 2025,
+        "n": 894
+      }
+    ],
+    "cites": 4.7,
+    "h": 282,
+    "oa": "https://openalex.org/S86033158",
+    "link": "https://dblp.org/db/journals/ploscb/index.html"
+  },
+  {
+    "title": "eLife",
+    "name": "eLife",
+    "issn": "2050-084X",
+    "dblp": "",
+    "area": "neuro",
+    "pub": "eLife",
+    "why": "life sciences, reviewed preprints",
+    "rank": "",
+    "ccf": "N",
+    "subs": [
+      {
+        "y": 2016,
+        "n": 1237
+      },
+      {
+        "y": 2017,
+        "n": 1473
+      },
+      {
+        "y": 2018,
+        "n": 1406
+      },
+      {
+        "y": 2019,
+        "n": 1665
+      },
+      {
+        "y": 2020,
+        "n": 2086
+      },
+      {
+        "y": 2021,
+        "n": 2179
+      },
+      {
+        "y": 2022,
+        "n": 2039
+      },
+      {
+        "y": 2023,
+        "n": 4165
+      },
+      {
+        "y": 2024,
+        "n": 6485
+      },
+      {
+        "y": 2025,
+        "n": 5198
+      }
+    ],
+    "cites": 2.1,
+    "h": 310,
+    "oa": "https://openalex.org/S1336409049",
+    "link": ""
+  },
+  {
+    "title": "Psych. Review",
+    "name": "Psychological Review",
+    "issn": "0033-295X",
+    "dblp": "",
+    "area": "psych",
+    "pub": "APA",
+    "why": "theory, the field's top theory journal",
+    "rank": "top",
+    "ccf": "N",
+    "subs": [
+      {
+        "y": 2016,
+        "n": 34
+      },
+      {
+        "y": 2017,
+        "n": 61
+      },
+      {
+        "y": 2018,
+        "n": 50
+      },
+      {
+        "y": 2019,
+        "n": 64
+      },
+      {
+        "y": 2020,
+        "n": 63
+      },
+      {
+        "y": 2021,
+        "n": 108
+      },
+      {
+        "y": 2022,
+        "n": 87
+      },
+      {
+        "y": 2023,
+        "n": 63
+      },
+      {
+        "y": 2024,
+        "n": 85
+      },
+      {
+        "y": 2025,
+        "n": 100
+      }
+    ],
+    "cites": 6.5,
+    "h": 505,
+    "oa": "https://openalex.org/S35223124",
+    "link": ""
+  },
+  {
+    "title": "Psych. Science",
+    "name": "Psychological Science",
+    "issn": "0956-7976",
+    "dblp": "",
+    "area": "psych",
+    "pub": "SAGE (APS)",
+    "why": "short empirical papers, APS's flagship",
+    "rank": "APS flagship",
+    "ccf": "N",
+    "subs": [
+      {
+        "y": 2016,
+        "n": 164
+      },
+      {
+        "y": 2017,
+        "n": 231
+      },
+      {
+        "y": 2018,
+        "n": 220
+      },
+      {
+        "y": 2019,
+        "n": 226
+      },
+      {
+        "y": 2020,
+        "n": 203
+      },
+      {
+        "y": 2021,
+        "n": 199
+      },
+      {
+        "y": 2022,
+        "n": 164
+      },
+      {
+        "y": 2023,
+        "n": 96
+      },
+      {
+        "y": 2024,
+        "n": 93
+      },
+      {
+        "y": 2025,
+        "n": 65
+      }
+    ],
+    "cites": 6.4,
+    "h": 416,
+    "oa": "https://openalex.org/S58854535",
+    "link": ""
+  },
+  {
+    "title": "TiCS",
+    "name": "Trends in Cognitive Sciences",
+    "issn": "1364-6613",
+    "dblp": "",
+    "area": "psych",
+    "pub": "Cell Press",
+    "why": "reviews and opinion, so citations run high",
+    "rank": "",
+    "ccf": "N",
+    "subs": [
+      {
+        "y": 2016,
+        "n": 123
+      },
+      {
+        "y": 2017,
+        "n": 124
+      },
+      {
+        "y": 2018,
+        "n": 139
+      },
+      {
+        "y": 2019,
+        "n": 137
+      },
+      {
+        "y": 2020,
+        "n": 154
+      },
+      {
+        "y": 2021,
+        "n": 153
+      },
+      {
+        "y": 2022,
+        "n": 158
+      },
+      {
+        "y": 2023,
+        "n": 155
+      },
+      {
+        "y": 2024,
+        "n": 163
+      },
+      {
+        "y": 2025,
+        "n": 185
+      }
+    ],
+    "cites": 10.7,
+    "h": 456,
+    "oa": "https://openalex.org/S192051125",
+    "link": ""
+  },
+  {
+    "title": "JEP: General",
+    "name": "Journal of Experimental Psychology: General",
+    "issn": "0096-3445",
+    "dblp": "",
+    "area": "psych",
+    "pub": "APA",
+    "why": "broad experimental psychology",
+    "rank": "",
+    "ccf": "N",
+    "subs": [
+      {
+        "y": 2016,
+        "n": 178
+      },
+      {
+        "y": 2017,
+        "n": 211
+      },
+      {
+        "y": 2018,
+        "n": 237
+      },
+      {
+        "y": 2019,
+        "n": 281
+      },
+      {
+        "y": 2020,
+        "n": 235
+      },
+      {
+        "y": 2021,
+        "n": 288
+      },
+      {
+        "y": 2022,
+        "n": 267
+      },
+      {
+        "y": 2023,
+        "n": 314
+      },
+      {
+        "y": 2024,
+        "n": 294
+      },
+      {
+        "y": 2025,
+        "n": 305
+      }
+    ],
+    "cites": 2.3,
+    "h": 296,
+    "oa": "https://openalex.org/S62013203",
+    "link": ""
+  },
+  {
+    "title": "Cognition",
+    "name": "Cognition",
+    "issn": "0010-0277",
+    "dblp": "",
+    "area": "psych",
+    "pub": "Elsevier",
+    "why": "cognitive science, experimental",
+    "rank": "",
+    "ccf": "N",
+    "subs": [
+      {
+        "y": 2016,
+        "n": 244
+      },
+      {
+        "y": 2017,
+        "n": 261
+      },
+      {
+        "y": 2018,
+        "n": 255
+      },
+      {
+        "y": 2019,
+        "n": 277
+      },
+      {
+        "y": 2020,
+        "n": 321
+      },
+      {
+        "y": 2021,
+        "n": 336
+      },
+      {
+        "y": 2022,
+        "n": 275
+      },
+      {
+        "y": 2023,
+        "n": 245
+      },
+      {
+        "y": 2024,
+        "n": 272
+      },
+      {
+        "y": 2025,
+        "n": 286
+      }
+    ],
+    "cites": 3.2,
+    "h": 354,
+    "oa": "https://openalex.org/S88198767",
+    "link": ""
+  },
+  {
+    "title": "Cognitive Science",
+    "name": "Cognitive Science",
+    "issn": "0364-0213",
+    "dblp": "cogsci",
+    "area": "psych",
+    "pub": "Wiley",
+    "why": "the Cognitive Science Society's journal",
+    "rank": "society journal",
+    "ccf": "N",
+    "subs": [
+      {
+        "y": 2016,
+        "n": 257
+      },
+      {
+        "y": 2017,
+        "n": 259
+      },
+      {
+        "y": 2018,
+        "n": 258
+      },
+      {
+        "y": 2019,
+        "n": 300
+      },
+      {
+        "y": 2020,
+        "n": 278
+      },
+      {
+        "y": 2021,
+        "n": 173
+      },
+      {
+        "y": 2022,
+        "n": 194
+      },
+      {
+        "y": 2023,
+        "n": 186
+      },
+      {
+        "y": 2024,
+        "n": 146
+      },
+      {
+        "y": 2025,
+        "n": 173
+      }
+    ],
+    "cites": 1.8,
+    "h": 238,
+    "oa": "https://openalex.org/S78735424",
+    "link": "https://dblp.org/db/journals/cogsci/index.html"
+  },
+  {
+    "title": "PB&R",
+    "name": "Psychonomic Bulletin & Review",
+    "issn": "1069-9384",
+    "dblp": "",
+    "area": "psych",
+    "pub": "Springer",
+    "why": "the Psychonomic Society's journal",
+    "rank": "society journal",
+    "ccf": "N",
+    "subs": [
+      {
+        "y": 2016,
+        "n": 220
+      },
+      {
+        "y": 2017,
+        "n": 214
+      },
+      {
+        "y": 2018,
+        "n": 137
+      },
+      {
+        "y": 2019,
+        "n": 123
+      },
+      {
+        "y": 2020,
+        "n": 168
+      },
+      {
+        "y": 2021,
+        "n": 191
+      },
+      {
+        "y": 2022,
+        "n": 188
+      },
+      {
+        "y": 2023,
+        "n": 198
+      },
+      {
+        "y": 2024,
+        "n": 186
+      },
+      {
+        "y": 2025,
+        "n": 168
+      }
+    ],
+    "cites": 3.2,
+    "h": 232,
+    "oa": "https://openalex.org/S138679565",
+    "link": ""
+  },
+  {
+    "title": "SLEEP",
+    "name": "SLEEP",
+    "issn": "0161-8105",
+    "dblp": "",
+    "area": "sleep",
+    "pub": "Oxford (SRS)",
+    "why": "sleep research; publishes the SLEEP meeting abstracts, which drag the citation mean down",
+    "rank": "SRS journal",
+    "ccf": "N",
+    "subs": [
+      {
+        "y": 2016,
+        "n": 286
+      },
+      {
+        "y": 2017,
+        "n": 1482
+      },
+      {
+        "y": 2018,
+        "n": 1422
+      },
+      {
+        "y": 2019,
+        "n": 1378
+      },
+      {
+        "y": 2020,
+        "n": 1562
+      },
+      {
+        "y": 2021,
+        "n": 1175
+      },
+      {
+        "y": 2022,
+        "n": 1175
+      },
+      {
+        "y": 2023,
+        "n": 1382
+      },
+      {
+        "y": 2024,
+        "n": 1549
+      },
+      {
+        "y": 2025,
+        "n": 1942
+      }
+    ],
+    "cites": 0.9,
+    "h": 308,
+    "oa": "https://openalex.org/S42921845",
+    "link": ""
+  },
+  {
+    "title": "Sleep Med. Rev.",
+    "name": "Sleep Medicine Reviews",
+    "issn": "1087-0792",
+    "dblp": "",
+    "area": "sleep",
+    "pub": "Elsevier",
+    "why": "reviews, so citations run high",
+    "rank": "",
+    "ccf": "N",
+    "subs": [
+      {
+        "y": 2016,
+        "n": 80
+      },
+      {
+        "y": 2017,
+        "n": 76
+      },
+      {
+        "y": 2018,
+        "n": 82
+      },
+      {
+        "y": 2019,
+        "n": 100
+      },
+      {
+        "y": 2020,
+        "n": 108
+      },
+      {
+        "y": 2021,
+        "n": 129
+      },
+      {
+        "y": 2022,
+        "n": 117
+      },
+      {
+        "y": 2023,
+        "n": 108
+      },
+      {
+        "y": 2024,
+        "n": 116
+      },
+      {
+        "y": 2025,
+        "n": 135
+      }
+    ],
+    "cites": 8.6,
+    "h": 227,
+    "oa": "https://openalex.org/S28482811",
+    "link": ""
+  },
+  {
+    "title": "JSR",
+    "name": "Journal of Sleep Research",
+    "issn": "0962-1105",
+    "dblp": "",
+    "area": "sleep",
+    "pub": "Wiley (ESRS)",
+    "why": "the ESRS journal",
+    "rank": "ESRS journal",
+    "ccf": "N",
+    "subs": [
+      {
+        "y": 2016,
+        "n": 170
+      },
+      {
+        "y": 2017,
+        "n": 341
+      },
+      {
+        "y": 2018,
+        "n": 443
+      },
+      {
+        "y": 2019,
+        "n": 396
+      },
+      {
+        "y": 2020,
+        "n": 252
+      },
+      {
+        "y": 2021,
+        "n": 250
+      },
+      {
+        "y": 2022,
+        "n": 263
+      },
+      {
+        "y": 2023,
+        "n": 326
+      },
+      {
+        "y": 2024,
+        "n": 323
+      },
+      {
+        "y": 2025,
+        "n": 319
+      }
+    ],
+    "cites": 3.7,
+    "h": 176,
+    "oa": "https://openalex.org/S123151105",
+    "link": ""
+  },
+  {
+    "title": "Dreaming",
+    "name": "Dreaming",
+    "issn": "1053-0797",
+    "dblp": "",
+    "area": "sleep",
+    "pub": "APA (IASD)",
+    "why": "dream research, IASD's journal",
+    "rank": "IASD journal",
+    "ccf": "N",
+    "subs": [
+      {
+        "y": 2016,
+        "n": 30
+      },
+      {
+        "y": 2017,
+        "n": 46
+      },
+      {
+        "y": 2018,
+        "n": 27
+      },
+      {
+        "y": 2019,
+        "n": 28
+      },
+      {
+        "y": 2020,
+        "n": 28
+      },
+      {
+        "y": 2021,
+        "n": 36
+      },
+      {
+        "y": 2022,
+        "n": 52
+      },
+      {
+        "y": 2023,
+        "n": 27
+      },
+      {
+        "y": 2024,
+        "n": 42
+      },
+      {
+        "y": 2025,
+        "n": 30
+      }
+    ],
+    "cites": 0.7,
+    "h": 54,
+    "oa": "https://openalex.org/S13876349",
+    "link": ""
+  },
+  {
+    "title": "IJoDR",
+    "name": "International Journal of Dream Research",
+    "issn": "1866-7953",
+    "dblp": "",
+    "area": "sleep",
+    "pub": "Heidelberg University",
+    "why": "dream research, open access",
+    "rank": "",
+    "ccf": "N",
+    "subs": [
+      {
+        "y": 2016,
+        "n": 46
+      },
+      {
+        "y": 2017,
+        "n": 27
+      },
+      {
+        "y": 2018,
+        "n": 31
+      },
+      {
+        "y": 2019,
+        "n": 42
+      },
+      {
+        "y": 2020,
+        "n": 52
+      },
+      {
+        "y": 2021,
+        "n": 45
+      },
+      {
+        "y": 2022,
+        "n": 24
+      },
+      {
+        "y": 2023,
+        "n": 16
+      },
+      {
+        "y": 2024,
+        "n": 34
+      },
+      {
+        "y": 2025,
+        "n": 52
+      }
+    ],
+    "cites": 0.1,
+    "h": 23,
+    "oa": "https://openalex.org/S2765004361",
+    "link": ""
+  },
+  {
+    "title": "JAMIA",
+    "name": "Journal of the American Medical Informatics Association",
+    "issn": "1067-5027",
+    "dblp": "jamia",
+    "area": "biomed",
+    "pub": "Oxford (AMIA)",
+    "why": "clinical informatics",
+    "rank": "AMIA journal",
+    "ccf": "B",
+    "subs": [
+      {
+        "y": 2016,
+        "n": 229
+      },
+      {
+        "y": 2017,
+        "n": 168
+      },
+      {
+        "y": 2018,
+        "n": 193
+      },
+      {
+        "y": 2019,
+        "n": 230
+      },
+      {
+        "y": 2020,
+        "n": 348
+      },
+      {
+        "y": 2021,
+        "n": 301
+      },
+      {
+        "y": 2022,
+        "n": 255
+      },
+      {
+        "y": 2023,
+        "n": 255
+      },
+      {
+        "y": 2024,
+        "n": 323
+      },
+      {
+        "y": 2025,
+        "n": 244
+      }
+    ],
+    "cites": 11.7,
+    "h": 232,
+    "oa": "https://openalex.org/S129839026",
+    "link": "https://dblp.org/db/journals/jamia/index.html"
+  },
+  {
+    "title": "Lancet Digit. Health",
+    "name": "The Lancet Digital Health",
+    "issn": "2589-7500",
+    "dblp": "",
+    "area": "biomed",
+    "pub": "Elsevier",
+    "why": "digital health for clinicians",
+    "rank": "",
+    "ccf": "N",
+    "subs": [
+      {
+        "y": 2019,
+        "n": 111
+      },
+      {
+        "y": 2020,
+        "n": 157
+      },
+      {
+        "y": 2021,
+        "n": 139
+      },
+      {
+        "y": 2022,
+        "n": 134
+      },
+      {
+        "y": 2023,
+        "n": 141
+      },
+      {
+        "y": 2024,
+        "n": 150
+      },
+      {
+        "y": 2025,
+        "n": 107
+      }
+    ],
+    "cites": 16.7,
+    "h": 132,
+    "oa": "https://openalex.org/S4210237014",
+    "link": ""
+  },
+  {
+    "title": "npj Digit. Med.",
+    "name": "npj Digital Medicine",
+    "issn": "2398-6352",
+    "dblp": "",
+    "area": "biomed",
+    "pub": "Nature Portfolio",
+    "why": "digital health and clinical AI, open access",
+    "rank": "",
+    "ccf": "N",
+    "subs": [
+      {
+        "y": 2017,
+        "n": 7
+      },
+      {
+        "y": 2018,
+        "n": 69
+      },
+      {
+        "y": 2019,
+        "n": 132
+      },
+      {
+        "y": 2020,
+        "n": 160
+      },
+      {
+        "y": 2021,
+        "n": 173
+      },
+      {
+        "y": 2022,
+        "n": 197
+      },
+      {
+        "y": 2023,
+        "n": 239
+      },
+      {
+        "y": 2024,
+        "n": 386
+      },
+      {
+        "y": 2025,
+        "n": 882
+      }
+    ],
+    "cites": 13.9,
+    "h": 166,
+    "oa": "https://openalex.org/S4210195431",
+    "link": ""
+  },
+  {
+    "title": "MedIA",
+    "name": "Medical Image Analysis",
+    "issn": "1361-8415",
+    "dblp": "mia",
+    "area": "biomed",
+    "pub": "Elsevier",
+    "why": "medical imaging methods",
+    "rank": "MICCAI journal",
+    "ccf": "C",
+    "subs": [
+      {
+        "y": 2016,
+        "n": 157
+      },
+      {
+        "y": 2017,
+        "n": 123
+      },
+      {
+        "y": 2018,
+        "n": 121
+      },
+      {
+        "y": 2019,
+        "n": 173
+      },
+      {
+        "y": 2020,
+        "n": 249
+      },
+      {
+        "y": 2021,
+        "n": 337
+      },
+      {
+        "y": 2022,
+        "n": 301
+      },
+      {
+        "y": 2023,
+        "n": 309
+      },
+      {
+        "y": 2024,
+        "n": 303
+      },
+      {
+        "y": 2025,
+        "n": 420
+      }
+    ],
+    "cites": 12.3,
+    "h": 221,
+    "oa": "https://openalex.org/S116571295",
+    "link": "https://dblp.org/db/journals/mia/index.html"
+  },
+  {
+    "title": "TMI",
+    "name": "IEEE Transactions on Medical Imaging",
+    "issn": "0278-0062",
+    "dblp": "tmi",
+    "area": "biomed",
+    "pub": "IEEE",
+    "why": "medical imaging",
+    "rank": "top",
+    "ccf": "B",
+    "subs": [
+      {
+        "y": 2016,
+        "n": 295
+      },
+      {
+        "y": 2017,
+        "n": 378
+      },
+      {
+        "y": 2018,
+        "n": 337
+      },
+      {
+        "y": 2019,
+        "n": 357
+      },
+      {
+        "y": 2020,
+        "n": 389
+      },
+      {
+        "y": 2021,
+        "n": 357
+      },
+      {
+        "y": 2022,
+        "n": 361
+      },
+      {
+        "y": 2023,
+        "n": 335
+      },
+      {
+        "y": 2024,
+        "n": 401
+      },
+      {
+        "y": 2025,
+        "n": 422
+      }
+    ],
+    "cites": 10.3,
+    "h": 329,
+    "oa": "https://openalex.org/S58069681",
+    "link": "https://dblp.org/db/journals/tmi/index.html"
+  },
+  {
+    "title": "TBME",
+    "name": "IEEE Transactions on Biomedical Engineering",
+    "issn": "0018-9294",
+    "dblp": "tbe",
+    "area": "biomed",
+    "pub": "IEEE",
+    "why": "biomedical engineering",
+    "rank": "",
+    "ccf": "N",
+    "subs": [
+      {
+        "y": 2016,
+        "n": 376
+      },
+      {
+        "y": 2017,
+        "n": 415
+      },
+      {
+        "y": 2018,
+        "n": 358
+      },
+      {
+        "y": 2019,
+        "n": 423
+      },
+      {
+        "y": 2020,
+        "n": 396
+      },
+      {
+        "y": 2021,
+        "n": 409
+      },
+      {
+        "y": 2022,
+        "n": 399
+      },
+      {
+        "y": 2023,
+        "n": 364
+      },
+      {
+        "y": 2024,
+        "n": 390
+      },
+      {
+        "y": 2025,
+        "n": 484
+      }
+    ],
+    "cites": 4.1,
+    "h": 310,
+    "oa": "https://openalex.org/S5240358",
+    "link": "https://dblp.org/db/journals/tbe/index.html"
+  },
+  {
+    "title": "JBHI",
+    "name": "IEEE Journal of Biomedical and Health Informatics",
+    "issn": "2168-2194",
+    "dblp": "titb",
+    "area": "biomed",
+    "pub": "IEEE",
+    "why": "health informatics and sensing",
+    "rank": "",
+    "ccf": "C",
+    "subs": [
+      {
+        "y": 2016,
+        "n": 207
+      },
+      {
+        "y": 2017,
+        "n": 288
+      },
+      {
+        "y": 2018,
+        "n": 257
+      },
+      {
+        "y": 2019,
+        "n": 287
+      },
+      {
+        "y": 2020,
+        "n": 454
+      },
+      {
+        "y": 2021,
+        "n": 488
+      },
+      {
+        "y": 2022,
+        "n": 553
+      },
+      {
+        "y": 2023,
+        "n": 675
+      },
+      {
+        "y": 2024,
+        "n": 875
+      },
+      {
+        "y": 2025,
+        "n": 1141
+      }
+    ],
+    "cites": 6.0,
+    "h": 167,
+    "oa": "https://openalex.org/S2495854775",
+    "link": "https://dblp.org/db/journals/titb/index.html"
+  },
+  {
+    "title": "JBI",
+    "name": "Journal of Biomedical Informatics",
+    "issn": "1532-0464",
+    "dblp": "jbi",
+    "area": "biomed",
+    "pub": "Elsevier",
+    "why": "biomedical informatics methods",
+    "rank": "",
+    "ccf": "C",
+    "subs": [
+      {
+        "y": 2016,
+        "n": 388
+      },
+      {
+        "y": 2017,
+        "n": 326
+      },
+      {
+        "y": 2018,
+        "n": 236
+      },
+      {
+        "y": 2019,
+        "n": 285
+      },
+      {
+        "y": 2020,
+        "n": 282
+      },
+      {
+        "y": 2021,
+        "n": 262
+      },
+      {
+        "y": 2022,
+        "n": 248
+      },
+      {
+        "y": 2023,
+        "n": 270
+      },
+      {
+        "y": 2024,
+        "n": 169
+      },
+      {
+        "y": 2025,
+        "n": 201
+      }
+    ],
+    "cites": 7.2,
+    "h": 168,
+    "oa": "https://openalex.org/S11622463",
+    "link": "https://dblp.org/db/journals/jbi/index.html"
+  },
+  {
+    "title": "Epidemics",
+    "name": "Epidemics",
+    "issn": "1755-4365",
+    "dblp": "",
+    "area": "epi",
+    "pub": "Elsevier",
+    "why": "infectious disease dynamics",
+    "rank": "conference journal",
+    "ccf": "N",
+    "subs": [
+      {
+        "y": 2016,
+        "n": 42
+      },
+      {
+        "y": 2017,
+        "n": 67
+      },
+      {
+        "y": 2018,
+        "n": 56
+      },
+      {
+        "y": 2019,
+        "n": 62
+      },
+      {
+        "y": 2020,
+        "n": 38
+      },
+      {
+        "y": 2021,
+        "n": 69
+      },
+      {
+        "y": 2022,
+        "n": 99
+      },
+      {
+        "y": 2023,
+        "n": 70
+      },
+      {
+        "y": 2024,
+        "n": 70
+      },
+      {
+        "y": 2025,
+        "n": 70
+      }
+    ],
+    "cites": 4.0,
+    "h": 72,
+    "oa": "https://openalex.org/S24717195",
+    "link": ""
+  },
+  {
+    "title": "Lancet Inf. Dis.",
+    "name": "The Lancet Infectious Diseases",
+    "issn": "1473-3099",
+    "dblp": "",
+    "area": "epi",
+    "pub": "Elsevier",
+    "why": "infectious disease, clinical and public health",
+    "rank": "top",
+    "ccf": "N",
+    "subs": [
+      {
+        "y": 2016,
+        "n": 539
+      },
+      {
+        "y": 2017,
+        "n": 533
+      },
+      {
+        "y": 2018,
+        "n": 492
+      },
+      {
+        "y": 2019,
+        "n": 541
+      },
+      {
+        "y": 2020,
+        "n": 689
+      },
+      {
+        "y": 2021,
+        "n": 580
+      },
+      {
+        "y": 2022,
+        "n": 594
+      },
+      {
+        "y": 2023,
+        "n": 521
+      },
+      {
+        "y": 2024,
+        "n": 582
+      },
+      {
+        "y": 2025,
+        "n": 520
+      }
+    ],
+    "cites": 12.2,
+    "h": 374,
+    "oa": "https://openalex.org/S23772524",
+    "link": ""
+  },
+  {
+    "title": "Eurosurveillance",
+    "name": "Eurosurveillance",
+    "issn": "1025-496X",
+    "dblp": "",
+    "area": "epi",
+    "pub": "ECDC",
+    "why": "surveillance and outbreak reports, fast",
+    "rank": "",
+    "ccf": "N",
+    "subs": [
+      {
+        "y": 2016,
+        "n": 303
+      },
+      {
+        "y": 2017,
+        "n": 249
+      },
+      {
+        "y": 2018,
+        "n": 223
+      },
+      {
+        "y": 2019,
+        "n": 275
+      },
+      {
+        "y": 2020,
+        "n": 280
+      },
+      {
+        "y": 2021,
+        "n": 251
+      },
+      {
+        "y": 2022,
+        "n": 252
+      },
+      {
+        "y": 2023,
+        "n": 244
+      },
+      {
+        "y": 2024,
+        "n": 272
+      },
+      {
+        "y": 2025,
+        "n": 243
+      }
+    ],
+    "cites": 8.1,
+    "h": 173,
+    "oa": "https://openalex.org/S50690046",
+    "link": ""
+  },
+  {
+    "title": "AJE",
+    "name": "American Journal of Epidemiology",
+    "issn": "0002-9262",
+    "dblp": "",
+    "area": "epi",
+    "pub": "Oxford",
+    "why": "epidemiological methods",
+    "rank": "",
+    "ccf": "N",
+    "subs": [
+      {
+        "y": 2016,
+        "n": 437
+      },
+      {
+        "y": 2017,
+        "n": 422
+      },
+      {
+        "y": 2018,
+        "n": 291
+      },
+      {
+        "y": 2019,
+        "n": 292
+      },
+      {
+        "y": 2020,
+        "n": 292
+      },
+      {
+        "y": 2021,
+        "n": 304
+      },
+      {
+        "y": 2022,
+        "n": 221
+      },
+      {
+        "y": 2023,
+        "n": 250
+      },
+      {
+        "y": 2024,
+        "n": 468
+      },
+      {
+        "y": 2025,
+        "n": 297
+      }
+    ],
+    "cites": 3.2,
+    "h": 416,
+    "oa": "https://openalex.org/S170967050",
+    "link": ""
+  },
+  {
+    "title": "IDM",
+    "name": "Infectious Disease Modelling",
+    "issn": "2468-0427",
+    "dblp": "",
+    "area": "epi",
+    "pub": "KeAi",
+    "why": "modelling, open access",
+    "rank": "",
+    "ccf": "N",
+    "subs": [
+      {
+        "y": 2016,
+        "n": 14
+      },
+      {
+        "y": 2017,
+        "n": 30
+      },
+      {
+        "y": 2018,
+        "n": 27
+      },
+      {
+        "y": 2019,
+        "n": 25
+      },
+      {
+        "y": 2020,
+        "n": 90
+      },
+      {
+        "y": 2021,
+        "n": 84
+      },
+      {
+        "y": 2022,
+        "n": 80
+      },
+      {
+        "y": 2023,
+        "n": 84
+      },
+      {
+        "y": 2024,
+        "n": 104
+      },
+      {
+        "y": 2025,
+        "n": 113
+      }
+    ],
+    "cites": 2.8,
+    "h": 46,
+    "oa": "https://openalex.org/S2898427929",
+    "link": ""
+  },
+  {
+    "title": "Nat. Mater.",
+    "name": "Nature Materials",
+    "issn": "1476-1122",
+    "dblp": "",
+    "area": "materials",
+    "pub": "Nature Portfolio",
+    "why": "materials science, broad and top",
+    "rank": "top",
+    "ccf": "N",
+    "subs": [
+      {
+        "y": 2016,
+        "n": 303
+      },
+      {
+        "y": 2017,
+        "n": 224
+      },
+      {
+        "y": 2018,
+        "n": 281
+      },
+      {
+        "y": 2019,
+        "n": 305
+      },
+      {
+        "y": 2020,
+        "n": 287
+      },
+      {
+        "y": 2021,
+        "n": 307
+      },
+      {
+        "y": 2022,
+        "n": 276
+      },
+      {
+        "y": 2023,
+        "n": 301
+      },
+      {
+        "y": 2024,
+        "n": 314
+      },
+      {
+        "y": 2025,
+        "n": 390
+      }
+    ],
+    "cites": 23.9,
+    "h": 653,
+    "oa": "https://openalex.org/S103895331",
+    "link": ""
+  },
+  {
+    "title": "npj Comput. Mater.",
+    "name": "npj Computational Materials",
+    "issn": "2057-3960",
+    "dblp": "",
+    "area": "materials",
+    "pub": "Nature Portfolio",
+    "why": "computational and ML materials",
+    "rank": "",
+    "ccf": "N",
+    "subs": [
+      {
+        "y": 2016,
+        "n": 29
+      },
+      {
+        "y": 2017,
+        "n": 55
+      },
+      {
+        "y": 2018,
+        "n": 87
+      },
+      {
+        "y": 2019,
+        "n": 124
+      },
+      {
+        "y": 2020,
+        "n": 200
+      },
+      {
+        "y": 2021,
+        "n": 216
+      },
+      {
+        "y": 2022,
+        "n": 264
+      },
+      {
+        "y": 2023,
+        "n": 230
+      },
+      {
+        "y": 2024,
+        "n": 301
+      },
+      {
+        "y": 2025,
+        "n": 432
+      }
+    ],
+    "cites": 11.2,
+    "h": 138,
+    "oa": "https://openalex.org/S4210232664",
+    "link": ""
+  },
+  {
+    "title": "Digital Discovery",
+    "name": "Digital Discovery",
+    "issn": "2635-098X",
+    "dblp": "",
+    "area": "materials",
+    "pub": "RSC",
+    "why": "ML and automation for chemistry and materials",
+    "rank": "",
+    "ccf": "N",
+    "subs": [
+      {
+        "y": 2021,
+        "n": 4
+      },
+      {
+        "y": 2022,
+        "n": 116
+      },
+      {
+        "y": 2023,
+        "n": 193
+      },
+      {
+        "y": 2024,
+        "n": 261
+      },
+      {
+        "y": 2025,
+        "n": 357
+      }
+    ],
+    "cites": 5.8,
+    "h": 45,
+    "oa": "https://openalex.org/S4210202120",
+    "link": ""
+  },
+  {
+    "title": "Acta Mater.",
+    "name": "Acta Materialia",
+    "issn": "1359-6454",
+    "dblp": "",
+    "area": "materials",
+    "pub": "Elsevier",
+    "why": "structural and metallic materials",
+    "rank": "",
+    "ccf": "N",
+    "subs": [
+      {
+        "y": 2016,
+        "n": 902
+      },
+      {
+        "y": 2017,
+        "n": 1209
+      },
+      {
+        "y": 2018,
+        "n": 820
+      },
+      {
+        "y": 2019,
+        "n": 680
+      },
+      {
+        "y": 2020,
+        "n": 865
+      },
+      {
+        "y": 2021,
+        "n": 796
+      },
+      {
+        "y": 2022,
+        "n": 823
+      },
+      {
+        "y": 2023,
+        "n": 790
+      },
+      {
+        "y": 2024,
+        "n": 925
+      },
+      {
+        "y": 2025,
+        "n": 1032
+      }
+    ],
+    "cites": 10.9,
+    "h": 421,
+    "oa": "https://openalex.org/S64016596",
+    "link": ""
+  },
+  {
+    "title": "Chem. Mater.",
+    "name": "Chemistry of Materials",
+    "issn": "0897-4756",
+    "dblp": "",
+    "area": "materials",
+    "pub": "ACS",
+    "why": "materials chemistry",
+    "rank": "",
+    "ccf": "N",
+    "subs": [
+      {
+        "y": 2016,
+        "n": 1223
+      },
+      {
+        "y": 2017,
+        "n": 1177
+      },
+      {
+        "y": 2018,
+        "n": 1042
+      },
+      {
+        "y": 2019,
+        "n": 1149
+      },
+      {
+        "y": 2020,
+        "n": 1057
+      },
+      {
+        "y": 2021,
+        "n": 973
+      },
+      {
+        "y": 2022,
+        "n": 1074
+      },
+      {
+        "y": 2023,
+        "n": 1073
+      },
+      {
+        "y": 2024,
+        "n": 1123
+      },
+      {
+        "y": 2025,
+        "n": 946
+      }
+    ],
+    "cites": 6.8,
+    "h": 474,
+    "oa": "https://openalex.org/S66104727",
+    "link": ""
+  },
+  {
+    "title": "TPWRS",
+    "name": "IEEE Transactions on Power Systems",
+    "issn": "0885-8950",
+    "dblp": "",
+    "area": "power",
+    "pub": "IEEE PES",
+    "why": "power systems",
+    "rank": "top",
+    "ccf": "N",
+    "subs": [
+      {
+        "y": 2016,
+        "n": 570
+      },
+      {
+        "y": 2017,
+        "n": 666
+      },
+      {
+        "y": 2018,
+        "n": 564
+      },
+      {
+        "y": 2019,
+        "n": 550
+      },
+      {
+        "y": 2020,
+        "n": 584
+      },
+      {
+        "y": 2021,
+        "n": 592
+      },
+      {
+        "y": 2022,
+        "n": 624
+      },
+      {
+        "y": 2023,
+        "n": 556
+      },
+      {
+        "y": 2024,
+        "n": 425
+      },
+      {
+        "y": 2025,
+        "n": 408
+      }
+    ],
+    "cites": 7.6,
+    "h": 372,
+    "oa": "https://openalex.org/S201921491",
+    "link": ""
+  },
+  {
+    "title": "TSG",
+    "name": "IEEE Transactions on Smart Grid",
+    "issn": "1949-3053",
+    "dblp": "",
+    "area": "power",
+    "pub": "IEEE PES",
+    "why": "smart grids and data",
+    "rank": "top",
+    "ccf": "N",
+    "subs": [
+      {
+        "y": 2016,
+        "n": 683
+      },
+      {
+        "y": 2017,
+        "n": 652
+      },
+      {
+        "y": 2018,
+        "n": 370
+      },
+      {
+        "y": 2019,
+        "n": 406
+      },
+      {
+        "y": 2020,
+        "n": 479
+      },
+      {
+        "y": 2021,
+        "n": 452
+      },
+      {
+        "y": 2022,
+        "n": 525
+      },
+      {
+        "y": 2023,
+        "n": 436
+      },
+      {
+        "y": 2024,
+        "n": 359
+      },
+      {
+        "y": 2025,
+        "n": 510
+      }
+    ],
+    "cites": 8.5,
+    "h": 285,
+    "oa": "https://openalex.org/S59604973",
+    "link": ""
+  },
+  {
+    "title": "TSTE",
+    "name": "IEEE Transactions on Sustainable Energy",
+    "issn": "1949-3029",
+    "dblp": "",
+    "area": "power",
+    "pub": "IEEE PES",
+    "why": "renewables and storage",
+    "rank": "",
+    "ccf": "N",
+    "subs": [
+      {
+        "y": 2016,
+        "n": 227
+      },
+      {
+        "y": 2017,
+        "n": 253
+      },
+      {
+        "y": 2018,
+        "n": 282
+      },
+      {
+        "y": 2019,
+        "n": 242
+      },
+      {
+        "y": 2020,
+        "n": 200
+      },
+      {
+        "y": 2021,
+        "n": 198
+      },
+      {
+        "y": 2022,
+        "n": 228
+      },
+      {
+        "y": 2023,
+        "n": 219
+      },
+      {
+        "y": 2024,
+        "n": 244
+      },
+      {
+        "y": 2025,
+        "n": 314
+      }
+    ],
+    "cites": 7.5,
+    "h": 201,
+    "oa": "https://openalex.org/S201762130",
+    "link": ""
+  },
+  {
+    "title": "EPSR",
+    "name": "Electric Power Systems Research",
+    "issn": "0378-7796",
+    "dblp": "",
+    "area": "power",
+    "pub": "Elsevier",
+    "why": "power systems; carries PSCC papers",
+    "rank": "PSCC journal",
+    "ccf": "N",
+    "subs": [
+      {
+        "y": 2016,
+        "n": 519
+      },
+      {
+        "y": 2017,
+        "n": 406
+      },
+      {
+        "y": 2018,
+        "n": 336
+      },
+      {
+        "y": 2019,
+        "n": 432
+      },
+      {
+        "y": 2020,
+        "n": 739
+      },
+      {
+        "y": 2021,
+        "n": 660
+      },
+      {
+        "y": 2022,
+        "n": 1065
+      },
+      {
+        "y": 2023,
+        "n": 884
+      },
+      {
+        "y": 2024,
+        "n": 1199
+      },
+      {
+        "y": 2025,
+        "n": 1171
+      }
+    ],
+    "cites": 4.5,
+    "h": 174,
+    "oa": "https://openalex.org/S151498627",
+    "link": ""
+  },
+  {
+    "title": "Applied Energy",
+    "name": "Applied Energy",
+    "issn": "0306-2619",
+    "dblp": "",
+    "area": "power",
+    "pub": "Elsevier",
+    "why": "energy systems, broad, high volume",
+    "rank": "",
+    "ccf": "N",
+    "subs": [
+      {
+        "y": 2016,
+        "n": 1787
+      },
+      {
+        "y": 2017,
+        "n": 2274
+      },
+      {
+        "y": 2018,
+        "n": 1750
+      },
+      {
+        "y": 2019,
+        "n": 1932
+      },
+      {
+        "y": 2020,
+        "n": 1687
+      },
+      {
+        "y": 2021,
+        "n": 1501
+      },
+      {
+        "y": 2022,
+        "n": 1733
+      },
+      {
+        "y": 2023,
+        "n": 1794
+      },
+      {
+        "y": 2024,
+        "n": 2455
+      },
+      {
+        "y": 2025,
+        "n": 1869
+      }
+    ],
+    "cites": 15.8,
+    "h": 388,
+    "oa": "https://openalex.org/S109565702",
+    "link": ""
+  },
+  {
+    "title": "JAIR",
+    "name": "Journal of Artificial Intelligence Research",
+    "issn": "1076-9757",
+    "dblp": "jair",
+    "area": "ai",
+    "pub": "AI Access Foundation",
+    "why": "general AI, open access",
+    "rank": "",
+    "ccf": "B",
+    "subs": [
+      {
+        "y": 2016,
+        "n": 65
+      },
+      {
+        "y": 2017,
+        "n": 68
+      },
+      {
+        "y": 2018,
+        "n": 70
+      },
+      {
+        "y": 2019,
+        "n": 77
+      },
+      {
+        "y": 2020,
+        "n": 81
+      },
+      {
+        "y": 2021,
+        "n": 100
+      },
+      {
+        "y": 2022,
+        "n": 119
+      },
+      {
+        "y": 2023,
+        "n": 98
+      },
+      {
+        "y": 2024,
+        "n": 109
+      },
+      {
+        "y": 2025,
+        "n": 135
+      }
+    ],
+    "cites": 5.2,
+    "h": 162,
+    "oa": "https://openalex.org/S139930977",
+    "link": "https://dblp.org/db/journals/jair/index.html"
+  },
+  {
+    "title": "TKDD",
+    "name": "ACM Transactions on Knowledge Discovery from Data",
+    "issn": "1556-4681",
+    "dblp": "tkdd",
+    "area": "ai",
+    "pub": "ACM",
+    "why": "data mining, the SIGKDD journal",
+    "rank": "",
+    "ccf": "B",
+    "subs": [
+      {
+        "y": 2016,
+        "n": 58
+      },
+      {
+        "y": 2017,
+        "n": 29
+      },
+      {
+        "y": 2018,
+        "n": 86
+      },
+      {
+        "y": 2019,
+        "n": 79
+      },
+      {
+        "y": 2020,
+        "n": 87
+      },
+      {
+        "y": 2021,
+        "n": 161
+      },
+      {
+        "y": 2022,
+        "n": 144
+      },
+      {
+        "y": 2023,
+        "n": 155
+      },
+      {
+        "y": 2024,
+        "n": 192
+      },
+      {
+        "y": 2025,
+        "n": 153
+      }
+    ],
+    "cites": 6.6,
+    "h": 88,
+    "oa": "https://openalex.org/S41523882",
+    "link": "https://dblp.org/db/journals/tkdd/index.html"
+  },
+  {
+    "title": "DMKD",
+    "name": "Data Mining and Knowledge Discovery",
+    "issn": "1384-5810",
+    "dblp": "datamine",
+    "area": "ai",
+    "pub": "Springer",
+    "why": "data mining, with an ECML PKDD journal track",
+    "rank": "",
+    "ccf": "B",
+    "subs": [
+      {
+        "y": 2016,
+        "n": 45
+      },
+      {
+        "y": 2017,
+        "n": 59
+      },
+      {
+        "y": 2018,
+        "n": 56
+      },
+      {
+        "y": 2019,
+        "n": 57
+      },
+      {
+        "y": 2020,
+        "n": 58
+      },
+      {
+        "y": 2021,
+        "n": 81
+      },
+      {
+        "y": 2022,
+        "n": 92
+      },
+      {
+        "y": 2023,
+        "n": 94
+      },
+      {
+        "y": 2024,
+        "n": 90
+      },
+      {
+        "y": 2025,
+        "n": 93
+      }
+    ],
+    "cites": 4.8,
+    "h": 144,
+    "oa": "https://openalex.org/S121920818",
+    "link": "https://dblp.org/db/journals/datamine/index.html"
+  },
+  {
+    "title": "TNNLS",
+    "name": "IEEE Transactions on Neural Networks and Learning Systems",
+    "issn": "2162-237X",
+    "dblp": "tnn",
+    "area": "ai",
+    "pub": "IEEE",
+    "why": "neural networks, high volume",
+    "rank": "",
+    "ccf": "B",
+    "subs": [
+      {
+        "y": 2016,
+        "n": 359
+      },
+      {
+        "y": 2017,
+        "n": 395
+      },
+      {
+        "y": 2018,
+        "n": 438
+      },
+      {
+        "y": 2019,
+        "n": 506
+      },
+      {
+        "y": 2020,
+        "n": 722
+      },
+      {
+        "y": 2021,
+        "n": 1062
+      },
+      {
+        "y": 2022,
+        "n": 1092
+      },
+      {
+        "y": 2023,
+        "n": 1037
+      },
+      {
+        "y": 2024,
+        "n": 842
+      },
+      {
+        "y": 2025,
+        "n": 807
+      }
+    ],
+    "cites": 10.1,
+    "h": 248,
+    "oa": "https://openalex.org/S4210175523",
+    "link": "https://dblp.org/db/journals/tnn/index.html"
+  },
+  {
+    "title": "TACL",
+    "name": "Transactions of the Association for Computational Linguistics",
+    "issn": "2307-387X",
+    "dblp": "tacl",
+    "area": "ai",
+    "pub": "ACL",
+    "why": "NLP, papers presented at ACL conferences",
+    "rank": "",
+    "ccf": "B",
+    "subs": [
+      {
+        "y": 2016,
+        "n": 41
+      },
+      {
+        "y": 2017,
+        "n": 37
+      },
+      {
+        "y": 2018,
+        "n": 48
+      },
+      {
+        "y": 2019,
+        "n": 45
+      },
+      {
+        "y": 2020,
+        "n": 55
+      },
+      {
+        "y": 2021,
+        "n": 92
+      },
+      {
+        "y": 2022,
+        "n": 84
+      },
+      {
+        "y": 2023,
+        "n": 99
+      },
+      {
+        "y": 2024,
+        "n": 96
+      },
+      {
+        "y": 2025,
+        "n": 80
+      }
+    ],
+    "cites": 14.8,
+    "h": 117,
+    "oa": "https://openalex.org/S2729999759",
+    "link": "https://dblp.org/db/journals/tacl/index.html"
+  },
+  {
+    "title": "TMLR",
+    "name": "Transactions on Machine Learning Research",
+    "issn": "2835-8856",
+    "dblp": "tmlr",
+    "area": "ai",
+    "pub": "OpenReview",
+    "why": "rolling review, judged on correctness rather than novelty",
+    "rank": "",
+    "ccf": "N",
+    "subs": [],
+    "cites": null,
+    "h": null,
+    "oa": "https://openalex.org/S4393919742",
+    "link": "https://dblp.org/db/journals/tmlr/index.html"
   }
 ];

@@ -4,7 +4,7 @@ Run from the repo root:  python3 scripts/build-conferences.py
 It clones ccf-deadlines, pulls the official CORE2023 export and the
 acceptance-rate table into .conf-cache/, then rewrites the data module.
 """
-import yaml, glob, csv, re, json, datetime, collections, os, subprocess, urllib.request, unicodedata
+import yaml, glob, csv, re, json, datetime, collections, os, subprocess, urllib.request, urllib.error, unicodedata, time
 
 TODAY = datetime.date.today()
 # How far into the past an announced deadline still counts as belonging to
@@ -295,20 +295,42 @@ def flag(place):
     return CC.get(tail, '')
 
 # ---------- areas ----------
-BIO={'APBC','BIBM','ISMB','ISBRA','RECOMB','MICCAI','EMBC'}
-# One tab per field. Security and medicine used to share a tab called
-# "Selected", which said nothing about either; each now has its own, with
-# its journals beside its conferences.
-AREA_BY_SUB={'AI':'AI / ML / Data Mining','SC':'Security','DB':'AI / ML / Data Mining'}
+# The area is a field id from src/data/domains.js. AI, security and the
+# databases come whole from their CCF sub-areas; every other field takes
+# only the venues named here, because CCF's architecture or multimedia
+# lists hold far more than one field's worth. Pure bioinformatics (RECOMB,
+# ISMB) is left out: the field here is biomedicine.
+AREA_BY_SUB={'AI':'ai','SC':'security','DB':'ai'}
 # CCF files WWW under 交叉/综合/新兴 because of its history, but everyone
 # submitting to it treats it as a web-mining venue.
-AREA_OVERRIDE={'WWW':'AI / ML / Data Mining', 'SIGSPATIAL':'AI / ML / Data Mining'}
+AREA_OVERRIDE={'WWW':'ai', 'SIGSPATIAL':'ai'}
+BY_TITLE={
+    'DAC':'eda','ICCAD':'eda','DATE':'eda','ASP-DAC':'eda',
+    'ISCA':'eda','MICRO':'eda','HPCA':'eda','ASPLOS':'eda',
+    'ICASSP':'audio','InterSpeech':'audio',
+    'MICCAI':'biomed','BIBM':'biomed',
+    'CogSci':'psych',
+}
 def area(sub, title):
     if title in EXTRA: return EXTRA[title]
+    if title in BY_TITLE: return BY_TITLE[title]
     if title in AREA_OVERRIDE: return AREA_OVERRIDE[title]
     if sub in AREA_BY_SUB: return AREA_BY_SUB[sub]
-    if title in BIO: return 'Health & Bio'
-    return 'Science & Interdisciplinary'
+    return 'science'
+
+# The field's own ranking, where it has one, read the way people in the
+# field use it rather than taken from a catalogue. AI has none here on
+# purpose: CCF and CORE are the ranking there.
+FIELD_RANK={
+    'S&P':'Big Four','CCS':'Big Four','USENIX Security':'Big Four','NDSS':'Big Four',
+    'DAC':'EDA top two','ICCAD':'EDA top two','DATE':'EDA, Europe','ASP-DAC':'EDA, Asia',
+    'ISCA':'architecture top four','MICRO':'architecture top four',
+    'HPCA':'architecture top four','ASPLOS':'architecture top four',
+    'ICASSP':'SPS flagship','InterSpeech':'speech flagship','ISMIR':'MIR flagship',
+    'MICCAI':'imaging flagship','AMIA':'informatics flagship',
+    'CDC':'CSS flagship','ACC':'AACC flagship','ECC':'EUCA flagship',
+    'PES GM':'PES flagship','PSCC':'most selective',
+}
 
 def tier_of(ccf, core):
     """1 = top by either table, 2 = strong by either, 3 = the rest."""
@@ -323,8 +345,7 @@ def latest_link(confs):
 def dstr(s):
     m=re.match(r'(\d{4}-\d{2}-\d{2})', str(s or '')); return m.group(1) if m else ''
 
-EXTRA={'ICASSP':'AI / ML / Data Mining','InterSpeech':'AI / ML / Data Mining',
-       'ICWSM':'AI / ML / Data Mining'}
+EXTRA={'ICWSM':'ai'}
 # Deadlines read off the venue's own site, overriding ccfddl.
 #
 # ccfddl rolls last year's date forward when a venue has announced nothing,
@@ -387,11 +408,11 @@ def apply_deadline_fix(title, rounds):
     return keep
 
 out=[]
-for sub in ['AI','SC','DB','MX','CG','HI']:
+for sub in ['AI','SC','DB','MX','CG','HI','DS']:
     for f in sorted(glob.glob(f'ccf-deadlines/conference/{sub}/*.yml')):
         for c in yaml.safe_load(open(f)):
             r=c.get('rank') or {}; t=c['title']; d=(c.get('description') or '').strip()
-            if sub in ('CG','HI') and t not in EXTRA: continue
+            if sub in ('CG','HI','DS') and t not in EXTRA and t not in BY_TITLE: continue
             confs=c.get('confs') or []
             # Announced deadlines for the edition now in play, across every
             # published edition.
@@ -533,7 +554,7 @@ for sub in ['AI','SC','DB','MX','CG','HI']:
             rsrc='csc' if t in csc_rates else ''
             off=official(t,d); mirror=canon(r.get('core','N'))
             out.append({
-                'title':t, 'desc':d, 'area':area(sub,t), 'sub':sub,
+                'title':t, 'desc':d, 'area':area(sub,t), 'sub':sub, 'frank':FIELD_RANK.get(t,''),
                 'ccf':r.get('ccf','N'), 'core': off if off is not None else mirror,
                 'coreVerified': off is not None,
                 'nextDeadline': nxt[0] if nxt else '',
@@ -573,8 +594,8 @@ NOTABLE=[
  # how many years apart the editions run.
  {'title':'INFORMS Annual Meeting','desc':'Institute for Operations Research and the Management Sciences',
   'area':'Society meetings','proceedings':'none','lastDeadline':'2026-05-20','period':1,
-  'date':'November 1-4, 2026','place':'San Francisco, California, USA',
-  'note':'The main annual gathering for operations research and analytics, around 6,000 attendees. The date shown is the abstract deadline.',
+  'date':'October 24-27, 2027','place':'Seattle, Washington, USA','estIsForDate':True,
+  'note':'The main annual gathering for operations research and analytics, around 6,000 attendees. The 2027 meeting is in Seattle; its abstract deadline is not announced, so the date shown is last year\'s rolled forward.',
   'field':'operations research','kind':'flagship, yearly','why':'optimization and analytics at scale',
   'link':'https://meetings.informs.org/'},
  {'title':'SIAM MDS','desc':'SIAM Conference on Mathematics of Data Science',
@@ -595,10 +616,11 @@ NOTABLE=[
   'field':'uncertainty quantification','kind':'biennial, even years','why':'UQ methods',
   'link':'https://www.siam.org/conferences-events/siam-conferences/uq26/'},
  {'title':'SIAM Annual Meeting','desc':'SIAM Annual Meeting (AN)',
-  'area':'Society meetings','proceedings':'none','lastDeadline':'2026-02-16','period':1,
-  'note':'Yearly, all of applied mathematics in one room. AN26 ran July 2026 in Cleveland and AN27 is not yet announced. The date shown is the abstract deadline.',
-  'field':'applied mathematics','kind':'yearly','why':'the whole field in one room',
-  'link':'https://www.siam.org/conferences-events/siam-conferences/an26/'},
+  'area':'Society meetings','proceedings':'none','period':1,
+  'date':'August 7-11, 2028','place':'Minneapolis, Minnesota, USA',
+  'note':'All of applied mathematics in one room. There is no AN27: ICIAM takes its place in 2027. AN28 is in Minneapolis, and SIAM plans to post its call in September 2027.',
+  'field':'applied mathematics','kind':'yearly, skips ICIAM years','why':'the whole field in one room',
+  'link':'https://www.siam.org/conferences-events/siam-conferences/an28/'},
  {'title':'SIAM OP','desc':'SIAM Conference on Optimization',
   'area':'Society meetings','proceedings':'none','lastDeadline':'2025-11-13','period':3,
   'note':'Triennial. OP26 ran June 2026 in Edinburgh, so the next edition falls around 2029. The date shown is the abstract deadline.',
@@ -811,13 +833,196 @@ NOTABLE=[
  {'title':'MLSys', 'equivalent':'CCF B / CORE A','desc':'Conference on Machine Learning and Systems','area':'AI / ML / Data Mining',
   'proceedings':'full','note':'Full proceedings. Unranked by both CCF and CORE despite being the main ML-systems venue.',
   'lastDeadline':'2025-10-30','link':'https://mlsys.org/'},
- {'title':'AMIA', 'equivalent':'CCF B / CORE A','desc':'AMIA Annual Symposium','area':'Health & Bio',
+ {'title':'AMIA', 'equivalent':'CCF B / CORE A','badge':'informatics','desc':'AMIA Annual Symposium','area':'Health & Bio',
   'proceedings':'full','note':'Full proceedings, indexed in PubMed. The central US biomedical-informatics meeting.',
   'lastDeadline':'2026-03-10','link':'https://amia.org/education-events/amia-annual-symposium'},
  {'title':'ASONAM', 'ccfManual':'C','coreManual':'B','desc':'IEEE/ACM International Conference on Advances in Social Networks Analysis and Mining','area':'AI / ML / Data Mining',
   'proceedings':'full','note':'Ranked CCF C / CORE B, so below this page\'s usual bar, but it is the dedicated social-network analysis venue.',
   'lastDeadline':'2026-05-10','link':'https://asonam.cpsc.ucalgary.ca/2026/CFP.php'},
+
+ # ---- Added 2026-10-19 with the per-field tabs. Every date below was read
+ # off the venue's own site that day; "tentative" is the venue's word.
+ # Music & Audio
+ {'title':'ISMIR','desc':'International Society for Music Information Retrieval Conference',
+  'area':'audio','proceedings':'full','lastDeadline':'2026-04-27','period':1,
+  'date':'November 8-12, 2026','place':'Abu Dhabi, United Arab Emirates','badge':'MIR','dblp':'ismir',
+  'note':'The music-information-retrieval community\'s own conference. Papers are 6 pages plus references, double-blind, published open access. The 2027 edition is not announced yet.',
+  'link':'https://ismir2026.ismir.net/'},
+ {'title':'DCASE','desc':'Detection and Classification of Acoustic Scenes and Events Workshop',
+  'area':'audio','proceedings':'full','lastDeadline':'2026-07-12','period':1,
+  'date':'October 27-29, 2026','place':'Medford, Massachusetts, USA','badge':'audio','dblp':'dcase',
+  'note':'The workshop of the DCASE challenge, 4 pages plus a page of references, open proceedings. The 2027 workshop is not announced yet.',
+  'link':'https://dcase.community/workshop2026'},
+ {'title':'WASPAA','desc':'IEEE Workshop on Applications of Signal Processing to Audio and Acoustics',
+  'area':'audio','proceedings':'full','lastDeadline':'2027-04-21','period':2,
+  'date':'September 19-22, 2027','place':'Levi, Finland','badge':'audio','dblp':'waspaa',
+  'rounds':[{'d':'2027-04-21','abs':'2027-04-14','label':'tentative','est':False}],
+  'note':'Every other year, small and single track, 4 pages plus references. The first WASPAA held in Europe; it spent most of its history at Mohonk in New York. The dates are the venue\'s tentative schedule.',
+  'link':'https://waspaa.com/'},
+ # Biomedical
+ {'title':'CHIL','desc':'AHLI Conference on Health, Inference, and Learning',
+  'area':'biomed','proceedings':'full','lastDeadline':'2027-02-03','period':1,
+  'date':'June 28-30, 2027','place':'Chicago, Illinois, USA','badge':'ML for health','dblp':'chil',
+  'note':'Machine learning for health, 8 to 10 pages, double-blind on OpenReview, proceedings in PMLR. One co-author per paper reviews three. Create OpenReview accounts for every author by 15 January. Meeting dates are tentative.',
+  'link':'https://chil.ahli.cc/'},
+ {'title':'ML4H','desc':'Machine Learning for Health Symposium',
+  'area':'biomed','proceedings':'full','lastDeadline':'2026-09-10','period':1,
+  'date':'December 6-7, 2026','place':'Sydney, Australia','badge':'ML for health','dblp':'ml4h',
+  'note':'Formerly a NeurIPS workshop, now a standalone symposium. Two tracks: Proceedings, 8 pages and archival in PMLR, and Findings, 4 pages and non-archival.',
+  'link':'https://ml4h.ahli.cc/'},
+ {'title':'MIDL','desc':'Medical Imaging with Deep Learning',
+  'area':'biomed','proceedings':'full','lastDeadline':'2026-12-04','period':1,
+  'date':'July 14-16, 2027','place':'Porto, Portugal','badge':'imaging','dblp':'midl',
+  'rounds':[{'d':'2026-12-04','abs':'2026-11-30','label':'full papers','est':False}],
+  'note':'Full papers archival in PMLR, 10 pages in the main track; a new clinical-translation track takes 14 and does not require novelty. Short papers come later and are not archived.',
+  'link':'https://2027.midl.io/'},
+ {'title':'ISBI','desc':'IEEE International Symposium on Biomedical Imaging',
+  'area':'biomed','proceedings':'full','lastDeadline':'2026-10-26','period':1,
+  'date':'May 25-28, 2027','place':'Lausanne, Switzerland','badge':'imaging','dblp':'isbi',
+  'rounds':[{'d':'2026-10-26','label':'4-page paper','est':False},
+            {'d':'2027-02-01','label':'1-page abstract, poster only','est':False}],
+  'note':'Four-page papers, single-blind, presented in person or withdrawn. Deadlines are 11:59pm US Eastern, not Anywhere on Earth. One-page abstracts are posters and are not in the proceedings.',
+  'link':'https://biomedicalimaging.org/2027/'},
+ # Time series
+ {'title':'ISF','desc':'International Symposium on Forecasting',
+  'area':'ts','proceedings':'none','lastDeadline':'2027-03-07','period':1,
+  'date':'June 20-23, 2027','place':'Paphos, Cyprus',
+  'field':'forecasting','kind':'flagship, yearly','why':'the forecasting community',
+  'note':'The International Institute of Forecasters\' yearly meeting, 47th edition. One abstract per person, 350 words, presented in person. The institute\'s journal is the International Journal of Forecasting.',
+  'link':'https://isf.forecasters.org/'},
+ # Dynamical systems
+ {'title':'SIAM DS','desc':'SIAM Conference on Applications of Dynamical Systems',
+  'area':'dynsys','proceedings':'none','lastDeadline':'2026-11-23','period':2,
+  'date':'May 23-27, 2027','place':'Atlanta, Georgia, USA',
+  'rounds':[{'d':'2026-10-26','label':'minisymposium proposal','est':False},
+            {'d':'2026-11-23','label':'talk and poster abstracts','est':False}],
+  'field':'dynamical systems','kind':'flagship, odd years','why':'applied dynamics, the big one',
+  'note':'Every other year. One presentation per person, fully in person. Propose a minisymposium of four talks first, or send a contributed abstract by the later date.',
+  'link':'https://www.siam.org/conferences-events/siam-conferences/ds27/'},
+ {'title':'Dynamics Days US','desc':'Dynamics Days US',
+  'area':'dynsys','proceedings':'none','lastDeadline':'2026-11-22','period':1,
+  'place':'La Jolla, California, USA',
+  'field':'dynamical systems','kind':'yearly','why':'single track, nonlinear science',
+  'note':'Single track with no parallel sessions; a few abstracts are picked as talks and the rest are posters. The 2027 meeting is at the Scripps Seaside Forum; its calendar dates are not posted yet.',
+  'link':'https://www.ddays.org/2027/'},
+ {'title':'Dynamics Days Europe','desc':'Dynamics Days Europe',
+  'area':'dynsys','proceedings':'none','lastDeadline':'2026-04-27','period':1,
+  'field':'dynamical systems','kind':'yearly','why':'the European counterpart',
+  'note':'The European single-track meeting, 46th edition in Lisbon in July 2026. The 2027 host is not announced, so the date shown is last year\'s abstract deadline rolled forward.',
+  'link':'https://sites.google.com/view/ddayseurope'},
+ # UQ & statistics
+ {'title':'UNCECOMP','desc':'ECCOMAS Conference on Uncertainty Quantification in Computational Sciences and Engineering',
+  'area':'uq','proceedings':'optin','lastDeadline':'2026-10-30','period':2,
+  'date':'June 13-16, 2027','place':'Hersonissos, Crete, Greece',
+  'rounds':[{'d':'2026-10-30','label':'one-page abstract','est':False},
+            {'d':'2027-02-28','label':'optional full paper','est':False}],
+  'field':'uncertainty quantification','kind':'odd years','why':'engineering UQ, optional papers',
+  'note':'The engineering side of UQ, held with COMPDYN. A one-page abstract gets you on the programme; a full paper, optional, goes into the ECCOMAS proceedings.',
+  'link':'https://2027.uncecomp.org/'},
+ # Optimization & OR
+ {'title':'ISMP','desc':'International Symposium on Mathematical Programming',
+  'area':'opt','proceedings':'none','lastDeadline':'2027-01-15','period':3,
+  'date':'July 25-30, 2027','place':'Amsterdam, Netherlands',
+  'field':'optimization','kind':'flagship, every three years','why':'all of mathematical optimization',
+  'note':'The Mathematical Optimization Society\'s symposium, 26th edition, every three years. One talk per person. Contributed abstracts and invited-session proposals share the deadline.',
+  'link':'https://ismp2027.mathopt.nl/'},
+
+ # Power & energy
+ {'title':'PES GM','desc':'IEEE Power & Energy Society General Meeting',
+  'area':'power','proceedings':'full','lastDeadline':'2026-11-10','period':1,
+  'date':'July 25-29, 2027','place':'San Francisco, California, USA','badge':'power','dblp':'pesgm',
+  'note':'The power society\'s large yearly meeting. One round, 5-page papers, about 800 accepted, archived on IEEE Xplore only if presented. Part 1 and Part 2 papers are not accepted.',
+  'link':'https://pes-gm.org/2027-san-francisco/'},
+ {'title':'PSCC','desc':'Power Systems Computation Conference',
+  'area':'power','proceedings':'full','lastDeadline':'2025-06-15','period':2,
+  'date':'June 26-30, 2028','place':'Delft, Netherlands','badge':'power','estIsForDate':True,
+  'note':'Every two years and selective. Two stages: a one-page abstract first, then a full paper by invitation only, published in a special issue of Electric Power Systems Research. The 2028 dates are not announced; the date shown is the 2026 abstract deadline rolled forward two years.',
+  'link':'https://pscc2028.dryfta.com/'},
+ {'title':'SmartGridComm','desc':'IEEE International Conference on Communications, Control, and Computing Technologies for Smart Grids',
+  'area':'power','proceedings':'full','lastDeadline':'2026-05-03','period':1,
+  'date':'October 26-29, 2026','place':'College Station, Texas, USA','badge':'smart grid','dblp':'smartgridcomm',
+  'note':'Six-page papers on IEEE Xplore, presented in person. The 2027 edition is not announced.',
+  'link':'https://sgc2026.ieee-smartgridcomm.org/'},
+ {'title':'e-Energy','desc':'ACM International Conference on Future and Sustainable Energy Systems',
+  'area':'power','proceedings':'full','lastDeadline':'2027-01-15','period':1,
+  'date':'June 5-11, 2027','place':'Atlanta, Georgia, USA','badge':'energy','dblp':'eenergy',
+  'rounds':[{'d':'2027-01-15','abs':'2027-01-08','label':'winter round','est':False}],
+  'note':'ACM\'s energy-systems conference, part of ACM Sustainability Week at FCRC 2027. Two rounds a year with revisions; the fall round has closed, and a paper rejected in fall cannot go to winter.',
+  'link':'https://energy.acm.org/conferences/eenergy/2027/'},
+ # Materials
+ {'title':'MRS Spring','desc':'Materials Research Society Spring Meeting & Exhibit',
+  'area':'materials','proceedings':'none','lastDeadline':'2026-10-14','period':1,
+  'date':'April 5-9, 2027','place':'Seattle, Washington, USA',
+  'field':'materials','kind':'flagship, yearly','why':'dozens of parallel symposia',
+  'note':'Abstracts go to one symposium inside a topical cluster. The 2027 call closed on 14 October 2026, so the date shown is the next one, estimated.',
+  'link':'https://www.mrs.org/meetings-events/annual-meetings/2027-mrs-spring-meeting-exhibit'},
+ {'title':'MRS Fall','desc':'Materials Research Society Fall Meeting & Exhibit',
+  'area':'materials','proceedings':'none','lastDeadline':'2026-06-17','period':1,
+  'date':'November 28 - December 3, 2027','place':'Boston, Massachusetts, USA','estIsForDate':True,
+  'field':'materials','kind':'flagship, yearly','why':'the larger of the two MRS meetings',
+  'note':'Always in Boston. The 2027 abstract call is not out, so the date shown is the 2026 regular deadline rolled forward; 2026 also had a later Breaking News round.',
+  'link':'https://www.mrs.org/meetings-events/annual-meetings/2027-mrs-fall-meeting-exhibit'},
+ {'title':'TMS','desc':'TMS Annual Meeting & Exhibition',
+  'area':'materials','proceedings':'optin','lastDeadline':'2026-07-01','period':1,
+  'date':'March 14-18, 2027','place':'Orlando, Florida, USA',
+  'field':'materials','kind':'yearly','why':'metals and processing, 100+ symposia',
+  'note':'The Minerals, Metals & Materials Society meeting, over 4,000 attendees. Mostly abstracts, with full-paper proceedings volumes for some symposia. The 2027 abstract call has closed, so the date shown is the next one, estimated.',
+  'link':'https://www.tms.org/TMS2027'},
+ {'title':'AI4Mat','desc':'AI for Accelerated Materials Design, NeurIPS workshop',
+  'area':'materials','proceedings':'none','lastDeadline':'2026-08-29','period':1,
+  'date':'December 12, 2026','place':'Sydney, Australia',
+  'field':'materials','kind':'yearly, at NeurIPS','why':'where ML meets materials',
+  'note':'Non-archival, so a 4-page paper here can grow into a journal article; selected papers are invited to a Wiley collection. The 2026 deadline has passed.',
+  'link':'https://sites.google.com/view/ai4mat'},
+ # Epidemics, sleep, complex systems, network science
+ {'title':'ESCAIDE','desc':'European Scientific Conference on Applied Infectious Disease Epidemiology',
+  'area':'epi','proceedings':'none','lastDeadline':'2026-05-18','period':1,
+  'date':'November 18-20, 2026','place':'Stockholm, Sweden',
+  'field':'public health','kind':'yearly','why':'applied epidemiology, run by ECDC',
+  'note':'Run by the European Centre for Disease Prevention and Control, free to attend, hybrid. Abstracts in May, with a late-breaker window in September.',
+  'link':'https://www.escaide.eu/en'},
+ {'title':'Sleep Europe','desc':'European Sleep Research Society Congress',
+  'area':'sleep','proceedings':'none','lastDeadline':'2026-04-01','period':2,
+  'date':'October 20-23, 2026','place':'Maastricht, Netherlands',
+  'field':'sleep and circadian','kind':'flagship, even years','why':'European sleep research',
+  'note':'The ESRS congress, every two years, 28th edition. 350-word structured abstracts. The 2028 edition is not announced.',
+  'link':'https://esrs.eu/sleep-congress/'},
+ {'title':'ALIFE','desc':'Conference on Artificial Life',
+  'area':'complex','proceedings':'full','lastDeadline':'2026-03-30','period':1,
+  'date':'July 19-23, 2027','place':'Prague, Czech Republic','estIsForDate':True,'badge':'artificial life',
+  'field':'artificial life','kind':'flagship, yearly','why':'artificial life and emergence',
+  'note':'The ISAL conference. Full papers of 3 to 8 pages go into open-access MIT Press proceedings; two-page summaries of published work are also taken. The 2027 call is not out, so the date shown is the 2026 deadline rolled forward.',
+  'link':'https://2027.alife.org/'},
+ {'title':'Complex Networks','desc':'International Conference on Complex Networks and their Applications',
+  'area':'netsci','proceedings':'optin','lastDeadline':'2026-09-13','period':1,
+  'date':'December 2-4, 2026','place':'Granada, Spain',
+  'field':'network science','kind':'yearly','why':'papers in a Springer volume',
+  'note':'Two kinds of submission: a 12-page paper in the Springer proceedings, or a 4-page extended abstract that is not archived. Accepted papers can be invited to journal special issues. The 2026 deadline has passed.',
+  'link':'https://complexnetworks.org/'},
 ]
+
+# Society meetings used to be one tab. They are spread over their fields
+# now, keyed on the field label each card already carried.
+FIELD_DOMAIN={
+    'applied mathematics':'amath','computational science':'amath','data science theory':'amath','mathematics':'amath',
+    'brain imaging':'neuro','cognitive neuroscience':'neuro','computational neuroscience':'neuro','neuroscience':'neuro',
+    'cognitive psychology':'psych','psychology':'psych','consciousness':'psych',
+    'dream research':'sleep','sleep and circadian':'sleep',
+    'complex systems':'complex','physics':'complex','artificial life':'complex',
+    'network science':'netsci','social networks':'netsci','computational social science':'netsci',
+    'epidemic modelling':'epi','public health':'epi',
+    'operations research':'opt','optimization':'opt',
+    'statistics':'uq','uncertainty quantification':'uq',
+    'Earth and space science':'dynsys','dynamical systems':'dynsys',
+    'forecasting':'ts','materials':'materials',
+}
+AREA_RENAME={'AI / ML / Data Mining':'ai','Control':'control','Health & Bio':'biomed'}
+for n in NOTABLE:
+    if n['area']=='Society meetings':
+        n['area']=FIELD_DOMAIN[n['field']]
+    else:
+        n['area']=AREA_RENAME.get(n['area'], n['area'])
+    n['frank']=FIELD_RANK.get(n['title'],'')
 
 def roll(ds, period=1):
     """Last published deadline -> next plausible one, same month and day."""
@@ -870,8 +1075,10 @@ CCF_ORDER={'A':0,'B':1,'C':2,'N':3}
 # moved to AI. Everything dropped here lands in the folded Others section.
 BIG_FOUR = {'CCS', 'S&P', 'USENIX Security', 'NDSS'}
 def listed(c):
+    if c['area'] == 'science': return False
+    # A venue named into a field is there on purpose, whatever its tier.
+    if c['title'] in BY_TITLE: return True
     if not (c['core'] in ('A*','A') or c['ccf'] in ('A','B')): return False
-    if c['area'] == 'Science & Interdisciplinary': return False
     if c['sub'] == 'SC' and c['title'] not in BIG_FOUR: return False
     return True
 # inside an area, soonest deadline first; anything without one trails behind
@@ -900,44 +1107,130 @@ notable=sorted(society, key=lambda c:(c.get('field','') or 'zz', c['title'].lowe
 # have no CCF tier because CCF catalogues computing; that reads n/a, not a
 # judgement.
 JOURNALS=[
- # AI / ML / Data Mining
- {'title':'TPAMI','name':'IEEE Transactions on Pattern Analysis and Machine Intelligence','issn':'0162-8828','dblp':'pami','area':'AI / ML / Data Mining','pub':'IEEE','why':'vision and learning, the field\'s top transactions'},
- {'title':'JMLR','name':'Journal of Machine Learning Research','issn':'1532-4435','dblp':'jmlr','area':'AI / ML / Data Mining','pub':'JMLR','why':'long-form ML theory and methods, open access'},
- {'title':'TMLR','name':'Transactions on Machine Learning Research','issn':'2835-8856','dblp':'tmlr','area':'AI / ML / Data Mining','pub':'OpenReview','why':'rolling review, judged on correctness rather than novelty'},
- {'title':'AIJ','name':'Artificial Intelligence','issn':'0004-3702','dblp':'ai','area':'AI / ML / Data Mining','pub':'Elsevier','why':'the oldest general AI journal'},
- {'title':'JAIR','name':'Journal of Artificial Intelligence Research','issn':'1076-9757','dblp':'jair','area':'AI / ML / Data Mining','pub':'AI Access Foundation','why':'general AI, open access'},
- {'title':'IJCV','name':'International Journal of Computer Vision','issn':'0920-5691','dblp':'ijcv','area':'AI / ML / Data Mining','pub':'Springer','why':'computer vision'},
- {'title':'TKDE','name':'IEEE Transactions on Knowledge and Data Engineering','issn':'1041-4347','dblp':'tkde','area':'AI / ML / Data Mining','pub':'IEEE','why':'data mining and databases'},
- {'title':'TKDD','name':'ACM Transactions on Knowledge Discovery from Data','issn':'1556-4681','dblp':'tkdd','area':'AI / ML / Data Mining','pub':'ACM','why':'data mining, the SIGKDD journal'},
- {'title':'DMKD','name':'Data Mining and Knowledge Discovery','issn':'1384-5810','dblp':'datamine','area':'AI / ML / Data Mining','pub':'Springer','why':'data mining, with an ECML PKDD journal track'},
- {'title':'TNNLS','name':'IEEE Transactions on Neural Networks and Learning Systems','issn':'2162-237X','dblp':'tnn','area':'AI / ML / Data Mining','pub':'IEEE','why':'neural networks, high volume'},
- {'title':'TACL','name':'Transactions of the Association for Computational Linguistics','issn':'2307-387X','dblp':'tacl','area':'AI / ML / Data Mining','pub':'ACL','why':'NLP, papers presented at ACL conferences'},
- # Security
- {'title':'TDSC','name':'IEEE Transactions on Dependable and Secure Computing','issn':'1545-5971','dblp':'tdsc','area':'Security','pub':'IEEE','why':'systems security and dependability'},
- {'title':'TIFS','name':'IEEE Transactions on Information Forensics and Security','issn':'1556-6013','dblp':'tifs','area':'Security','pub':'IEEE','why':'forensics, biometrics, privacy'},
- {'title':'JoC','name':'Journal of Cryptology','issn':'0933-2790','dblp':'joc','area':'Security','pub':'Springer (IACR)','why':'the IACR journal of cryptography'},
- {'title':'TOPS','name':'ACM Transactions on Privacy and Security','issn':'2471-2566','dblp':'tissec','area':'Security','pub':'ACM','why':'security and privacy, ACM\'s journal'},
- {'title':'Computers & Security','name':'Computers & Security','issn':'0167-4048','dblp':'compsec','area':'Security','pub':'Elsevier','why':'applied security, high volume'},
- {'title':'JCS','name':'Journal of Computer Security','issn':'0926-227X','dblp':'jcs','area':'Security','pub':'IOS Press','why':'formal and systems security'},
- # Health & Bio
- {'title':'JAMIA','name':'Journal of the American Medical Informatics Association','issn':'1067-5027','dblp':'jamia','area':'Health & Bio','pub':'Oxford (AMIA)','why':'the AMIA journal, clinical informatics'},
- {'title':'npj Digit. Med.','name':'npj Digital Medicine','issn':'2398-6352','dblp':'','area':'Health & Bio','pub':'Nature Portfolio','why':'digital health and clinical AI, open access'},
- {'title':'MedIA','name':'Medical Image Analysis','issn':'1361-8415','dblp':'mia','area':'Health & Bio','pub':'Elsevier','why':'medical imaging methods, the MICCAI journal'},
- {'title':'TMI','name':'IEEE Transactions on Medical Imaging','issn':'0278-0062','dblp':'tmi','area':'Health & Bio','pub':'IEEE','why':'medical imaging'},
- {'title':'JBHI','name':'IEEE Journal of Biomedical and Health Informatics','issn':'2168-2194','dblp':'titb','area':'Health & Bio','pub':'IEEE','why':'health informatics and sensing'},
- {'title':'JBI','name':'Journal of Biomedical Informatics','issn':'1532-0464','dblp':'jbi','area':'Health & Bio','pub':'Elsevier','why':'biomedical informatics methods'},
- {'title':'Bioinformatics','name':'Bioinformatics','issn':'1367-4803','dblp':'bioinformatics','area':'Health & Bio','pub':'Oxford (ISCB)','why':'computational biology, carries ISMB proceedings'},
- {'title':'Brief. Bioinform.','name':'Briefings in Bioinformatics','issn':'1467-5463','dblp':'bib','area':'Health & Bio','pub':'Oxford','why':'bioinformatics methods and reviews'},
- {'title':'TCBB','name':'IEEE/ACM Transactions on Computational Biology and Bioinformatics','issn':'1545-5963','dblp':'tcbb','area':'Health & Bio','pub':'IEEE / ACM','why':'computational biology'},
- # Control
- {'title':'TAC','name':'IEEE Transactions on Automatic Control','issn':'0018-9286','dblp':'tac','area':'Control','pub':'IEEE CSS','why':'the field\'s flagship, theory first'},
- {'title':'Automatica','name':'Automatica','issn':'0005-1098','dblp':'automatica','area':'Control','pub':'Elsevier (IFAC)','why':'IFAC\'s flagship, level with TAC'},
- {'title':'SICON','name':'SIAM Journal on Control and Optimization','issn':'0363-0129','dblp':'siamco','area':'Control','pub':'SIAM','why':'mathematical control theory'},
- {'title':'TCST','name':'IEEE Transactions on Control Systems Technology','issn':'1063-6536','dblp':'tcst','area':'Control','pub':'IEEE CSS','why':'control applied to real systems'},
- {'title':'TCNS','name':'IEEE Transactions on Control of Network Systems','issn':'2325-5870','dblp':'tcns','area':'Control','pub':'IEEE CSS','why':'networked and multi-agent control'},
- {'title':'L-CSS','name':'IEEE Control Systems Letters','issn':'2475-1456','dblp':'lcsys','area':'Control','pub':'IEEE CSS','why':'six-page letters, presentable at CDC or ACC'},
- {'title':'SCL','name':'Systems & Control Letters','issn':'0167-6911','dblp':'scl','area':'Control','pub':'Elsevier','why':'short theory papers'},
- {'title':'ARC','name':'Annual Reviews in Control','issn':'1367-5788','dblp':'arc','area':'Control','pub':'Elsevier (IFAC)','why':'invited surveys, so citations run high'},
+ # ai
+ {'title':'TPAMI','name':'IEEE Transactions on Pattern Analysis and Machine Intelligence','issn':'0162-8828','dblp':'pami','area':'ai','pub':'IEEE','why':"vision and learning, the field's top transactions",'rank':''},
+ {'title':'JMLR','name':'Journal of Machine Learning Research','issn':'1532-4435','dblp':'jmlr','area':'ai','pub':'JMLR','why':'long-form ML theory and methods, open access','rank':''},
+ {'title':'TMLR','name':'Transactions on Machine Learning Research','issn':'2835-8856','dblp':'tmlr','area':'ai','pub':'OpenReview','why':'rolling review, judged on correctness rather than novelty','rank':''},
+ {'title':'AIJ','name':'Artificial Intelligence','issn':'0004-3702','dblp':'ai','area':'ai','pub':'Elsevier','why':'the oldest general AI journal','rank':''},
+ {'title':'JAIR','name':'Journal of Artificial Intelligence Research','issn':'1076-9757','dblp':'jair','area':'ai','pub':'AI Access Foundation','why':'general AI, open access','rank':''},
+ {'title':'IJCV','name':'International Journal of Computer Vision','issn':'0920-5691','dblp':'ijcv','area':'ai','pub':'Springer','why':'computer vision','rank':''},
+ {'title':'TKDE','name':'IEEE Transactions on Knowledge and Data Engineering','issn':'1041-4347','dblp':'tkde','area':'ai','pub':'IEEE','why':'data mining and databases','rank':''},
+ {'title':'TKDD','name':'ACM Transactions on Knowledge Discovery from Data','issn':'1556-4681','dblp':'tkdd','area':'ai','pub':'ACM','why':'data mining, the SIGKDD journal','rank':''},
+ {'title':'DMKD','name':'Data Mining and Knowledge Discovery','issn':'1384-5810','dblp':'datamine','area':'ai','pub':'Springer','why':'data mining, with an ECML PKDD journal track','rank':''},
+ {'title':'TNNLS','name':'IEEE Transactions on Neural Networks and Learning Systems','issn':'2162-237X','dblp':'tnn','area':'ai','pub':'IEEE','why':'neural networks, high volume','rank':''},
+ {'title':'TACL','name':'Transactions of the Association for Computational Linguistics','issn':'2307-387X','dblp':'tacl','area':'ai','pub':'ACL','why':'NLP, papers presented at ACL conferences','rank':''},
+ # security
+ {'title':'TDSC','name':'IEEE Transactions on Dependable and Secure Computing','issn':'1545-5971','dblp':'tdsc','area':'security','pub':'IEEE','why':'systems security and dependability','rank':'top'},
+ {'title':'TIFS','name':'IEEE Transactions on Information Forensics and Security','issn':'1556-6013','dblp':'tifs','area':'security','pub':'IEEE','why':'forensics, biometrics, privacy','rank':'top'},
+ {'title':'JoC','name':'Journal of Cryptology','issn':'0933-2790','dblp':'joc','area':'security','pub':'Springer (IACR)','why':'the cryptography journal','rank':'IACR journal'},
+ {'title':'TOPS','name':'ACM Transactions on Privacy and Security','issn':'2471-2566','dblp':'tissec','area':'security','pub':'ACM','why':"security and privacy, ACM's journal",'rank':''},
+ {'title':'Computers & Security','name':'Computers & Security','issn':'0167-4048','dblp':'compsec','area':'security','pub':'Elsevier','why':'applied security, high volume','rank':''},
+ {'title':'JCS','name':'Journal of Computer Security','issn':'0926-227X','dblp':'jcs','area':'security','pub':'IOS Press','why':'formal and systems security','rank':''},
+ # eda
+ {'title':'TCAD','name':'IEEE Transactions on Computer-Aided Design of Integrated Circuits and Systems','issn':'0278-0070','dblp':'tcad','area':'eda','pub':'IEEE','why':'long versions of DAC and ICCAD papers','rank':'journal of record'},
+ {'title':'TC','name':'IEEE Transactions on Computers','issn':'0018-9340','dblp':'tc','area':'eda','pub':'IEEE','why':'computer architecture and systems','rank':''},
+ {'title':'TODAES','name':'ACM Transactions on Design Automation of Electronic Systems','issn':'1084-4309','dblp':'todaes','area':'eda','pub':'ACM','why':"design automation, ACM's journal",'rank':''},
+ {'title':'TVLSI','name':'IEEE Transactions on Very Large Scale Integration Systems','issn':'1063-8210','dblp':'tvlsi','area':'eda','pub':'IEEE','why':'circuits and VLSI design','rank':''},
+ # audio
+ {'title':'TASLP','name':'IEEE/ACM Transactions on Audio, Speech, and Language Processing','issn':'2329-9290','dblp':'taslp','area':'audio','pub':'IEEE / ACM','why':'audio, speech and language, long form','rank':'top'},
+ {'title':'TISMIR','name':'Transactions of the International Society for Music Information Retrieval','issn':'2514-3298','dblp':'tismir','area':'audio','pub':'Ubiquity Press','why':'music information retrieval, open access','rank':'ISMIR journal'},
+ {'title':'EURASIP JASMP','name':'EURASIP Journal on Audio, Speech, and Music Processing','issn':'1687-4714','dblp':'ejasmp','area':'audio','pub':'Springer','why':'audio and music processing, open access','rank':''},
+ {'title':'JAES','name':'Journal of the Audio Engineering Society','issn':'1549-4950','dblp':'','area':'audio','pub':'AES','why':'audio engineering, the AES journal','rank':''},
+ # ts
+ {'title':'IJF','name':'International Journal of Forecasting','issn':'0169-2070','dblp':'','area':'ts','pub':'Elsevier (IIF)','why':"forecasting, the IIF's journal",'rank':'IIF journal'},
+ {'title':'JTSA','name':'Journal of Time Series Analysis','issn':'0143-9782','dblp':'','area':'ts','pub':'Wiley','why':'time-series statistics','rank':''},
+ # control
+ {'title':'TAC','name':'IEEE Transactions on Automatic Control','issn':'0018-9286','dblp':'tac','area':'control','pub':'IEEE CSS','why':'theory first','rank':'flagship'},
+ {'title':'Automatica','name':'Automatica','issn':'0005-1098','dblp':'automatica','area':'control','pub':'Elsevier (IFAC)','why':"IFAC's journal, level with TAC",'rank':'flagship'},
+ {'title':'SICON','name':'SIAM Journal on Control and Optimization','issn':'0363-0129','dblp':'siamco','area':'control','pub':'SIAM','why':'mathematical control theory','rank':''},
+ {'title':'TCST','name':'IEEE Transactions on Control Systems Technology','issn':'1063-6536','dblp':'tcst','area':'control','pub':'IEEE CSS','why':'control applied to real systems','rank':''},
+ {'title':'TCNS','name':'IEEE Transactions on Control of Network Systems','issn':'2325-5870','dblp':'tcns','area':'control','pub':'IEEE CSS','why':'networked and multi-agent control','rank':''},
+ {'title':'L-CSS','name':'IEEE Control Systems Letters','issn':'2475-1456','dblp':'lcsys','area':'control','pub':'IEEE CSS','why':'six-page letters, presentable at CDC or ACC','rank':'CDC / ACC track'},
+ {'title':'SCL','name':'Systems & Control Letters','issn':'0167-6911','dblp':'scl','area':'control','pub':'Elsevier','why':'short theory papers','rank':''},
+ {'title':'ARC','name':'Annual Reviews in Control','issn':'1367-5788','dblp':'arc','area':'control','pub':'Elsevier (IFAC)','why':'invited surveys, so citations run high','rank':''},
+ # dynsys
+ {'title':'SIADS','name':'SIAM Journal on Applied Dynamical Systems','issn':'1536-0040','dblp':'siamads','area':'dynsys','pub':'SIAM','why':'applied dynamics, the SIAM journal','rank':''},
+ {'title':'Chaos','name':'Chaos: An Interdisciplinary Journal of Nonlinear Science','issn':'1054-1500','dblp':'','area':'dynsys','pub':'AIP','why':'nonlinear science across fields','rank':''},
+ {'title':'Physica D','name':'Physica D: Nonlinear Phenomena','issn':'0167-2789','dblp':'','area':'dynsys','pub':'Elsevier','why':'nonlinear phenomena, mathematical','rank':''},
+ {'title':'Nonlinearity','name':'Nonlinearity','issn':'0951-7715','dblp':'','area':'dynsys','pub':'IOP / LMS','why':'pure and applied dynamics','rank':''},
+ {'title':'Nonlinear Dyn.','name':'Nonlinear Dynamics','issn':'0924-090X','dblp':'','area':'dynsys','pub':'Springer','why':'engineering dynamics, high volume','rank':''},
+ # complex
+ {'title':'PRE','name':'Physical Review E','issn':'1539-3755','dblp':'','area':'complex','pub':'APS','why':'statistical, nonlinear and soft-matter physics','rank':''},
+ {'title':'Physica A','name':'Physica A: Statistical Mechanics and its Applications','issn':'0378-4371','dblp':'','area':'complex','pub':'Elsevier','why':'statistical physics applied widely','rank':''},
+ {'title':'JPhys Complexity','name':'Journal of Physics: Complexity','issn':'2632-072X','dblp':'','area':'complex','pub':'IOP','why':'complex systems, open access','rank':''},
+ {'title':'Artificial Life','name':'Artificial Life','issn':'1064-5462','dblp':'','area':'complex','pub':'MIT Press','why':"ISAL's journal",'rank':'ISAL journal'},
+ {'title':'Complexity','name':'Complexity','issn':'1076-2787','dblp':'','area':'complex','pub':'Wiley','why':'broad complex systems, open access','rank':''},
+ # netsci
+ {'title':'Network Science','name':'Network Science','issn':'2050-1242','dblp':'netsci','area':'netsci','pub':'Cambridge','why':"the Network Science Society's journal",'rank':'society journal'},
+ {'title':'J. Complex Netw.','name':'Journal of Complex Networks','issn':'2051-1310','dblp':'compnet','area':'netsci','pub':'Oxford','why':'network theory and methods','rank':''},
+ {'title':'Appl. Netw. Sci.','name':'Applied Network Science','issn':'2364-8228','dblp':'ans','area':'netsci','pub':'Springer','why':'applied networks, open access','rank':''},
+ {'title':'Social Networks','name':'Social Networks','issn':'0378-8733','dblp':'socnet','area':'netsci','pub':'Elsevier','why':"social network analysis, INSNA's journal",'rank':'INSNA journal'},
+ {'title':'EPJ Data Sci.','name':'EPJ Data Science','issn':'2193-1127','dblp':'epjds','area':'netsci','pub':'Springer','why':'computational social science, open access','rank':''},
+ # uq
+ {'title':'JUQ','name':'SIAM/ASA Journal on Uncertainty Quantification','issn':'2166-2525','dblp':'juq','area':'uq','pub':'SIAM / ASA','why':'UQ, the joint SIAM and ASA journal','rank':'SIAM / ASA'},
+ {'title':'IJUQ','name':'International Journal for Uncertainty Quantification','issn':'2152-5080','dblp':'','area':'uq','pub':'Begell House','why':'UQ in engineering','rank':''},
+ {'title':'JASA','name':'Journal of the American Statistical Association','issn':'0162-1459','dblp':'','area':'uq','pub':'ASA / Taylor & Francis','why':"statistics, the ASA's flagship",'rank':'ASA flagship'},
+ {'title':'AoS','name':'The Annals of Statistics','issn':'0090-5364','dblp':'','area':'uq','pub':'IMS','why':'mathematical statistics','rank':'IMS flagship'},
+ # opt
+ {'title':'Math. Prog.','name':'Mathematical Programming','issn':'0025-5610','dblp':'mp','area':'opt','pub':'Springer (MOS)','why':"optimization theory, MOS's journal",'rank':'MOS flagship'},
+ {'title':'SIOPT','name':'SIAM Journal on Optimization','issn':'1052-6234','dblp':'siamjo','area':'opt','pub':'SIAM','why':'continuous optimization','rank':''},
+ {'title':'OR','name':'Operations Research','issn':'0030-364X','dblp':'ior','area':'opt','pub':'INFORMS','why':'operations research','rank':'INFORMS flagship'},
+ {'title':'MS','name':'Management Science','issn':'0025-1909','dblp':'mansci','area':'opt','pub':'INFORMS','why':'OR meets business and economics','rank':''},
+ {'title':'IJOC','name':'INFORMS Journal on Computing','issn':'0899-1499','dblp':'informs','area':'opt','pub':'INFORMS','why':'computation in OR','rank':''},
+ # amath
+ {'title':'SIAM Review','name':'SIAM Review','issn':'0036-1445','dblp':'siamrev','area':'amath','pub':'SIAM','why':'surveys and expository papers','rank':''},
+ {'title':'SISC','name':'SIAM Journal on Scientific Computing','issn':'1064-8275','dblp':'siamsc','area':'amath','pub':'SIAM','why':'numerical methods and computing','rank':''},
+ {'title':'SIMODS','name':'SIAM Journal on Mathematics of Data Science','issn':'2577-0187','dblp':'simods','area':'amath','pub':'SIAM','why':'mathematics of data science','rank':''},
+ {'title':'JCP','name':'Journal of Computational Physics','issn':'0021-9991','dblp':'jcphy','area':'amath','pub':'Elsevier','why':'computational physics and numerics','rank':''},
+ # neuro
+ {'title':'Neuron','name':'Neuron','issn':'0896-6273','dblp':'','area':'neuro','pub':'Cell Press','why':'neuroscience, broad and top','rank':'top'},
+ {'title':'Nat. Neurosci.','name':'Nature Neuroscience','issn':'1097-6256','dblp':'','area':'neuro','pub':'Nature Portfolio','why':'neuroscience, broad and top','rank':'top'},
+ {'title':'JOCN','name':'Journal of Cognitive Neuroscience','issn':'0898-929X','dblp':'','area':'neuro','pub':'MIT Press','why':'cognitive neuroscience itself','rank':''},
+ {'title':'NeuroImage','name':'NeuroImage','issn':'1053-8119','dblp':'','area':'neuro','pub':'Elsevier','why':'brain imaging methods and studies','rank':''},
+ {'title':'HBM','name':'Human Brain Mapping','issn':'1065-9471','dblp':'','area':'neuro','pub':'Wiley','why':'brain mapping','rank':''},
+ {'title':'PLOS Comp Bio','name':'PLOS Computational Biology','issn':'1553-734X','dblp':'ploscb','area':'neuro','pub':'PLOS','why':'computational neuroscience and biology','rank':''},
+ {'title':'eLife','name':'eLife','issn':'2050-084X','dblp':'','area':'neuro','pub':'eLife','why':'life sciences, reviewed preprints','rank':''},
+ # psych
+ {'title':'Psych. Review','name':'Psychological Review','issn':'0033-295X','dblp':'','area':'psych','pub':'APA','why':"theory, the field's top theory journal",'rank':'top'},
+ {'title':'Psych. Science','name':'Psychological Science','issn':'0956-7976','dblp':'','area':'psych','pub':'SAGE (APS)','why':"short empirical papers, APS's flagship",'rank':'APS flagship'},
+ {'title':'TiCS','name':'Trends in Cognitive Sciences','issn':'1364-6613','dblp':'','area':'psych','pub':'Cell Press','why':'reviews and opinion, so citations run high','rank':''},
+ {'title':'JEP: General','name':'Journal of Experimental Psychology: General','issn':'0096-3445','dblp':'','area':'psych','pub':'APA','why':'broad experimental psychology','rank':''},
+ {'title':'Cognition','name':'Cognition','issn':'0010-0277','dblp':'','area':'psych','pub':'Elsevier','why':'cognitive science, experimental','rank':''},
+ {'title':'Cognitive Science','name':'Cognitive Science','issn':'0364-0213','dblp':'cogsci','area':'psych','pub':'Wiley','why':"the Cognitive Science Society's journal",'rank':'society journal'},
+ {'title':'PB&R','name':'Psychonomic Bulletin & Review','issn':'1069-9384','dblp':'','area':'psych','pub':'Springer','why':"the Psychonomic Society's journal",'rank':'society journal'},
+ # sleep
+ {'title':'SLEEP','name':'SLEEP','issn':'0161-8105','dblp':'','area':'sleep','pub':'Oxford (SRS)','why':'sleep research; publishes the SLEEP meeting abstracts, which drag the citation mean down','rank':'SRS journal'},
+ {'title':'Sleep Med. Rev.','name':'Sleep Medicine Reviews','issn':'1087-0792','dblp':'','area':'sleep','pub':'Elsevier','why':'reviews, so citations run high','rank':''},
+ {'title':'JSR','name':'Journal of Sleep Research','issn':'0962-1105','dblp':'','area':'sleep','pub':'Wiley (ESRS)','why':'the ESRS journal','rank':'ESRS journal'},
+ {'title':'Dreaming','name':'Dreaming','issn':'1053-0797','dblp':'','area':'sleep','pub':'APA (IASD)','why':"dream research, IASD's journal",'rank':'IASD journal'},
+ {'title':'IJoDR','name':'International Journal of Dream Research','issn':'1866-7953','dblp':'','area':'sleep','pub':'Heidelberg University','why':'dream research, open access','rank':''},
+ # biomed
+ {'title':'JAMIA','name':'Journal of the American Medical Informatics Association','issn':'1067-5027','dblp':'jamia','area':'biomed','pub':'Oxford (AMIA)','why':'clinical informatics','rank':'AMIA journal'},
+ {'title':'Lancet Digit. Health','name':'The Lancet Digital Health','issn':'2589-7500','dblp':'','area':'biomed','pub':'Elsevier','why':'digital health for clinicians','rank':''},
+ {'title':'npj Digit. Med.','name':'npj Digital Medicine','issn':'2398-6352','dblp':'','area':'biomed','pub':'Nature Portfolio','why':'digital health and clinical AI, open access','rank':''},
+ {'title':'MedIA','name':'Medical Image Analysis','issn':'1361-8415','dblp':'mia','area':'biomed','pub':'Elsevier','why':'medical imaging methods','rank':'MICCAI journal'},
+ {'title':'TMI','name':'IEEE Transactions on Medical Imaging','issn':'0278-0062','dblp':'tmi','area':'biomed','pub':'IEEE','why':'medical imaging','rank':'top'},
+ {'title':'TBME','name':'IEEE Transactions on Biomedical Engineering','issn':'0018-9294','dblp':'tbe','area':'biomed','pub':'IEEE','why':'biomedical engineering','rank':''},
+ {'title':'JBHI','name':'IEEE Journal of Biomedical and Health Informatics','issn':'2168-2194','dblp':'titb','area':'biomed','pub':'IEEE','why':'health informatics and sensing','rank':''},
+ {'title':'JBI','name':'Journal of Biomedical Informatics','issn':'1532-0464','dblp':'jbi','area':'biomed','pub':'Elsevier','why':'biomedical informatics methods','rank':''},
+ # epi
+ {'title':'Epidemics','name':'Epidemics','issn':'1755-4365','dblp':'','area':'epi','pub':'Elsevier','why':'infectious disease dynamics','rank':'conference journal'},
+ {'title':'Lancet Inf. Dis.','name':'The Lancet Infectious Diseases','issn':'1473-3099','dblp':'','area':'epi','pub':'Elsevier','why':'infectious disease, clinical and public health','rank':'top'},
+ {'title':'Eurosurveillance','name':'Eurosurveillance','issn':'1025-496X','dblp':'','area':'epi','pub':'ECDC','why':'surveillance and outbreak reports, fast','rank':''},
+ {'title':'AJE','name':'American Journal of Epidemiology','issn':'0002-9262','dblp':'','area':'epi','pub':'Oxford','why':'epidemiological methods','rank':''},
+ {'title':'IDM','name':'Infectious Disease Modelling','issn':'2468-0427','dblp':'','area':'epi','pub':'KeAi','why':'modelling, open access','rank':''},
+ # materials
+ {'title':'Nat. Mater.','name':'Nature Materials','issn':'1476-1122','dblp':'','area':'materials','pub':'Nature Portfolio','why':'materials science, broad and top','rank':'top'},
+ {'title':'npj Comput. Mater.','name':'npj Computational Materials','issn':'2057-3960','dblp':'','area':'materials','pub':'Nature Portfolio','why':'computational and ML materials','rank':''},
+ {'title':'Digital Discovery','name':'Digital Discovery','issn':'2635-098X','dblp':'','area':'materials','pub':'RSC','why':'ML and automation for chemistry and materials','rank':''},
+ {'title':'Acta Mater.','name':'Acta Materialia','issn':'1359-6454','dblp':'','area':'materials','pub':'Elsevier','why':'structural and metallic materials','rank':''},
+ {'title':'Chem. Mater.','name':'Chemistry of Materials','issn':'0897-4756','dblp':'','area':'materials','pub':'ACS','why':'materials chemistry','rank':''},
+ # power
+ {'title':'TPWRS','name':'IEEE Transactions on Power Systems','issn':'0885-8950','dblp':'','area':'power','pub':'IEEE PES','why':'power systems','rank':'top'},
+ {'title':'TSG','name':'IEEE Transactions on Smart Grid','issn':'1949-3053','dblp':'','area':'power','pub':'IEEE PES','why':'smart grids and data','rank':'top'},
+ {'title':'TSTE','name':'IEEE Transactions on Sustainable Energy','issn':'1949-3029','dblp':'','area':'power','pub':'IEEE PES','why':'renewables and storage','rank':''},
+ {'title':'EPSR','name':'Electric Power Systems Research','issn':'0378-7796','dblp':'','area':'power','pub':'Elsevier','why':'power systems; carries PSCC papers','rank':'PSCC journal'},
+ {'title':'Applied Energy','name':'Applied Energy','issn':'0306-2619','dblp':'','area':'power','pub':'Elsevier','why':'energy systems, broad, high volume','rank':''},
 ]
 
 # Anything a fetch misses comes from the copy kept beside the script, so a
@@ -954,8 +1247,18 @@ journals=[]
 for j in JOURNALS:
     key=j['issn']
     try:
-        with urllib.request.urlopen(f'https://api.openalex.org/sources/issn:{key}?mailto=site@zhiqian.ai', timeout=60) as r:
-            src=json.load(r)
+        # Single-record lookups cost no OpenAlex credits, but a burst of a
+        # hundred still trips the per-second limit, so pace and retry.
+        src=None
+        for attempt in range(4):
+            try:
+                with urllib.request.urlopen(f'https://api.openalex.org/sources/issn:{key}?mailto=site@zhiqian.ai', timeout=60) as r:
+                    src=json.load(r)
+                break
+            except urllib.error.HTTPError as e:
+                if e.code != 429 or attempt == 3: raise
+                time.sleep(5 * (attempt + 1))
+        time.sleep(0.25)
         st=src.get('summary_stats') or {}
         # The current year is still filling in, so it is left out rather than
         # drawn as a cliff at the end of every line.
@@ -986,7 +1289,7 @@ json.dump(jcache, open(JCACHE,'w'), indent=1, sort_keys=True)
 # The hand order within a field is the editorial ranking (TAC before a survey
 # journal whose citations are high by construction), so the sort only lifts
 # CCF tiers above it and is otherwise stable.
-journals.sort(key=lambda j: CCF_ORDER.get(j['ccf'],3))
+journals.sort(key=lambda j: CCF_ORDER.get(j['ccf'],3) if j['area'] == 'ai' else 0)
 print('journals:', len(journals), dict(collections.Counter(j['area'] for j in journals)))
 
 hdr=("// Generated by scripts/build-conferences.py — do not edit by hand.\n"

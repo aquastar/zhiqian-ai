@@ -4,54 +4,12 @@ import Nav from '../components/Nav.astro';
 import { ranked, notable, journals } from '../data/conferences.js';
 import { topicRates } from '../data/topics.js';
 import { destinations } from '../data/destinations.js';
+import { DOMAINS, GROUPS } from '../data/domains.js';
 
-const SOCIETY = 'Society meetings';
-// One tab per field, each holding that field's conferences and its journals.
-// AI stays first and selected: it is what this page is mostly for.
-const AREAS = ['AI / ML / Data Mining', 'Security', 'Health & Bio', 'Control', SOCIETY];
-const AREA_SHORT = {
-  'AI / ML / Data Mining': 'AI · ML · Data Mining',
-  Security: 'Security',
-  'Health & Bio': 'Health & Bio',
-  Control: 'Control',
-  [SOCIETY]: 'Society conferences',
-};
-// How each field publishes, in three lines. Fields differ most in whether
-// the conference or the journal is the paper that counts, and a visitor from
-// another field gets that wrong first.
-const FIELD_NOTE = {
-  'AI / ML / Data Mining': [
-    'Conferences lead. A journal paper is usually the long version of one.',
-    'JMLR and TMLR review on a rolling basis, with no deadline to hit.',
-    'TACL papers are presented at ACL conferences; TMLR has a route to ICLR and NeurIPS.',
-  ],
-  Security: [
-    'The Big Four conferences outrank every security journal.',
-    'Each runs two or more cycles a year, and major revision is a formal outcome.',
-    'TDSC and TIFS are where extended conference papers usually go.',
-  ],
-  'Health & Bio': [
-    'Clinical readers read journals: JAMIA or npj Digital Medicine counts for more than a conference.',
-    'MICCAI is the imaging conference, archived in LNCS; AMIA is the informatics meeting.',
-    'ISMB proceedings appear as papers in the journal Bioinformatics.',
-  ],
-  Control: [
-    'Journals carry the weight. TAC and Automatica outrank any conference.',
-    'CDC and ACC papers are six pages, reviewed and archived, often an early form of a journal paper.',
-    'An L-CSS letter can be presented at CDC or ACC, on the joint deadline.',
-  ],
-};
+// The fields live in src/data/domains.js, each with the format that suits
+// it. AI opens first: it is what this page is mostly for.
+const DEFAULT = 'ai';
 const slug = (a) => a.toLowerCase().replace(/[^a-z]+/g, '-').replace(/^-|-$/g, '');
-// Each field gets one icon and one hue, used identically in the filter and in
-// every row, so the two can be matched at a glance instead of by reading.
-const AREA_ICON = {
-  'AI / ML / Data Mining': 'fa-brain',
-  Security: 'fa-shield-halved',
-  'Health & Bio': 'fa-heart-pulse',
-  Control: 'fa-sliders',
-  [SOCIETY]: 'fa-people-group',
-};
-const DEFAULT_AREA = 'AI / ML / Data Mining';
 // Fixed 0-45% scale: the point of the bars is to compare venues to each other,
 // which a per-row scale would destroy.
 const RATE_MAX = 45;
@@ -290,7 +248,7 @@ const topicBlocks = Object.entries(topicRates).map(([venue, eds]) => {
 // What a society meeting does with its abstracts. Three cases, because
 // "no proceedings" and "opt-in proceedings" did not cover a meeting that
 // publishes every abstract by default and nothing longer.
-const PROC_TAG = { none: 'no proceedings', optin: 'opt-in proceedings', abstracts: 'abstract proceedings' };
+const PROC_TAG = { none: 'no proceedings', optin: 'opt-in proceedings', abstracts: 'abstract proceedings', full: 'full proceedings' };
 const PROC_WHY = {
   none: 'not rankable, no archival proceedings',
   optin: 'not rankable, proceedings are opt-in and not peer reviewed',
@@ -302,13 +260,6 @@ const CSR = 'https://csrankings.org/';
 // Every slug below was opened and confirmed to resolve. Society meetings get
 // no link: they publish no papers, so Scholar Metrics does not index them.
 const GSM = 'https://scholar.google.com/citations?view_op=top_venues&hl=en&vq=';
-const SCHOLAR = {
-  'AI / ML / Data Mining': GSM + 'eng_artificialintelligence',
-  Security: GSM + 'eng_computersecuritycryptography',
-  'Health & Bio': GSM + 'med_medicalinformatics',
-  Control: GSM + 'eng_automationcontroltheory',
-  'Society meetings': '',
-};
 const TIER = { 1: 'Top', 2: 'Strong', 3: 'Listed' };
 
 const coreLabel = { 'A*': 'A*', A: 'A', B: 'B', C: 'C', TBR: 'TBR', JP: 'jrnl', N: 'n/a' };
@@ -385,14 +336,62 @@ const dated = all.filter((c) => c.live.key).sort((a, b) => a.live.key.localeComp
 const undated = all.filter((c) => !c.live.key).sort((a, b) => a.title.localeCompare(b.title));
 const rows = [...dated, ...undated].map((c) => ({ ...c, chart: chart(c.rates), vol: volume(c.subs) }));
 
-// Society meetings are no longer table rows, so their chip has to be counted
-// from the card list instead, or the field would vanish from the filter.
+// Every venue, assembled per field. A table field gets rows with charts; a
+// card field gets cards. Columns that would be empty for a whole field are
+// left out of it rather than shown blank: most fields publish no acceptance
+// rate, and only AI is ranked by CCF and CORE.
 const jrows = journals.map((j) => ({ ...j, vol: volume(j.subs) }));
-const counts = AREAS.map((a) => ({
-  area: a,
-  n: a === SOCIETY ? society.length
-    : rows.filter((c) => c.area === a).length + jrows.filter((j) => j.area === a).length,
-})).filter((x) => x.n);
+const cardsOf = (list) => list
+  .map((c) => (c.live ? c : { ...c, live: liveDate(c) }))
+  .sort((a, b) => (a.live.key || '9999').localeCompare(b.live.key || '9999') || a.title.localeCompare(b.title));
+const socAll = society.map((c) => ({ ...c, chart: null, vol: null }));
+const topicNow = Object.values(topicRates)[0]?.[0];
+const topicVenue = Object.keys(topicRates)[0];
+const domains = DOMAINS.map((d) => {
+  const mine = [...rows, ...socAll].filter((c) => c.area === d.id);
+  const tableRows = d.format === 'table' ? mine.sort((a, b) =>
+    (a.live.key || '9999').localeCompare(b.live.key || '9999')) : [];
+  const cards = d.format === 'cards' ? cardsOf(mine) : [];
+  const js = jrows.filter((x) => x.area === d.id);
+  const ranked_ = d.rank === 'ccf' || (d.rank === 'field' && tableRows.some((c) => c.frank || c.ccf !== 'N' || c.core !== 'N'));
+  // The security calendar: every round of every Big Four venue over the
+  // next twelve months, because in security the question is which cycle
+  // comes next, not which venue.
+  let cycles = null;
+  if (d.cycles) {
+    const start = new Date(); start.setUTCDate(1);
+    const months = Array.from({ length: 12 }, (_, k) => {
+      const m = new Date(Date.UTC(start.getUTCFullYear(), start.getUTCMonth() + k, 1));
+      return { key: m.toISOString().slice(0, 7), label: m.toLocaleString('en-US', { month: 'short', timeZone: 'UTC' }), yr: m.getUTCMonth() === 0 || k === 0 ? String(m.getUTCFullYear()) : '' };
+    });
+    const until = months[11].key;
+    cycles = {
+      months,
+      venues: tableRows.filter((c) => c.frank).map((c) => {
+        const fromRounds = (c.rounds || []).filter((r) => r.d >= TODAY).map((r) => ({ d: r.d, label: r.label || '', est: !!r.est }));
+        const all_ = fromRounds.length ? fromRounds : (c.live.key ? [{ d: c.live.key, label: 'next cycle', est: true }] : []);
+        return { title: c.title, dates: all_.filter((r) => r.d.slice(0, 7) <= until) };
+      }),
+    };
+  }
+  let topic = null;
+  if (d.topic && topicNow) {
+    const t = topicNow.topics.find((x) => x.area.toLowerCase().includes(d.topic));
+    if (t) topic = { venue: topicVenue, year: topicNow.year, rate: t.rate, n: t.n, area: t.area, overall: topicNow.headline };
+  }
+  return {
+    ...d,
+    tableRows, cards, journals: js,
+    hasRate: tableRows.some((c) => c.rates.length),
+    hasSubs: tableRows.some((c) => c.vol),
+    rankCol: ranked_,
+    jRank: d.rank === 'ccf' || js.some((x) => x.rank || (d.rank === 'field' && x.ccf !== 'N')),
+    n: mine.length + js.length,
+    cycles, topic,
+    scholarUrl: d.scholar ? GSM + d.scholar : '',
+  };
+});
+const groupOf = Object.fromEntries(DOMAINS.map((d) => [d.id, d.group]));
 const totalRated = rows.filter((c) => c.rates.length).length;
 const freshRated = rows.filter((c) => c.rates.length && c.rates[c.rates.length - 1].y >= FRESH_FROM).length;
 
@@ -402,21 +401,28 @@ const freshRated = rows.filter((c) => c.rates.length && c.rates[c.rates.length -
     <Nav current="conferences" />
 
     <section class="head">
-      <div class="filter" role="group" aria-label="Filter by field">
-        {counts.map((c) => (
-          <button class={`fbtn area-${slug(c.area)}${c.area === DEFAULT_AREA ? ' is-on' : ''}`} data-area={slug(c.area)} type="button" data-scholar={SCHOLAR[c.area] || ''}>
-            <i class={`fas ${AREA_ICON[c.area]}`} aria-hidden="true"></i>{AREA_SHORT[c.area]}<span class="fcount">{c.n}</span>
-          </button>
+      {/* Nineteen fields will not fit one row of chips, so they sit in four
+          groups: pick a group, then a field. */}
+      <div class="filter groups" role="tablist" aria-label="Field group">
+        {GROUPS.map((g) => (
+          <button class={`gbtn${g.id === groupOf[DEFAULT] ? ' is-on' : ''}`} data-group={g.id} type="button">{g.label}</button>
         ))}
         <button class="fbtn fbtn-dest" data-area="destinations" type="button">
           <i class="fas fa-plane-departure" aria-hidden="true"></i>By destination<span class="fcount">{destinations.items.length}</span>
         </button>
-        <a class="scholar-link" id="scholar-link" href={SCHOLAR[DEFAULT_AREA]} target="_blank" rel="noopener"
+        <a class="scholar-link" id="scholar-link" href={domains[0].scholarUrl} target="_blank" rel="noopener"
            title="This field's h5-index ranking on Google Scholar Metrics, journals and conferences together">
           h5-index <i class="fas fa-arrow-up-right-from-square" aria-hidden="true"></i>
         </a>
       </div>
-
+      <div class="filter fields" role="group" aria-label="Field">
+        {domains.map((d) => (
+          <button class={`fbtn${d.id === DEFAULT ? ' is-on' : ''}`} data-area={d.id} data-group={d.group} type="button"
+                  data-scholar={d.scholarUrl} hidden={d.group !== groupOf[DEFAULT]} style={`--hue:${d.hue}`}>
+            <i class={`fas ${d.icon}`} aria-hidden="true"></i>{d.label}<span class="fcount">{d.n}</span>
+          </button>
+        ))}
+      </div>
       {/* The legend is a reference, not a thing to read first, so it sits
           behind the button and comes out on hover or on focus. Focus matters:
           hover alone would put it out of reach of a keyboard and of a phone,
@@ -437,7 +443,7 @@ const freshRated = rows.filter((c) => c.rates.length && c.rates[c.rates.length -
     </section>
 
     {topicBlocks.map((b) => (
-      <section class="section topic-section" data-topic-area={slug(DEFAULT_AREA)}>
+      <section class="section topic-section" data-topic-area={DEFAULT}>
         <details class="rest topics lead" open>
           <summary>
             <h2>Which topics get in</h2>
@@ -588,86 +594,70 @@ ${t.rate}% accepted, ${t.n.toLocaleString()} submissions, ${t.share}% of the edi
       </p>
     </section>
 
-    <section class="section society-section" id="society" hidden>
-      <div class="society-grid">
-        {society.map((c) => (
-          <article class="soc-card">
-            <header class="soc-head">
-              <h3>
-                {c.link ? <a href={c.link} target="_blank" rel="noopener">{c.title}</a> : c.title}
-              </h3>
-              <span class={`proc proc-${c.proceedings}`}>{PROC_TAG[c.proceedings] || PROC_TAG.none}</span>
-            </header>
-            <p class="soc-desc">{c.desc}</p>
-            {/* Three labels in place of the paragraph that used to sit here:
-                the field, how often it runs and whether it leads that field,
-                and why it is on this list at all. The paragraph is still
-                written, and is the tooltip on the third one. */}
-            <ul class="soc-tags">
-              {c.field && <li class="st-field">{c.field}</li>}
-              {c.kind && <li class={`st-kind ${/flagship/.test(c.kind) ? 'is-top' : ''}`}>{c.kind}</li>}
-              {c.why && <li class="st-why" title={c.note || ''}>{c.why}</li>}
-            </ul>
-            <dl class="soc-facts">
-              <div>
-                <dt>Abstract due</dt>
-                <dd>
-                  {c.live.key
-                    ? <span class="soc-when">
-                        <span class={`dl ${c.estimated ? 'is-est' : ''}`}>{c.live.key}</span>
-                        <span class="dl-days" data-deadline={c.live.key}></span>
+    {domains.map((d) => (
+      <section class={`dom dom-${d.format}`} data-domain={d.id} hidden={d.id !== DEFAULT} style={`--hue:${d.hue}`}>
+        <div class="section field-note">
+          <h2 class="fn-head">How {d.label} publishes</h2>
+          <ul>{d.notes.map((l) => <li>{l}</li>)}</ul>
+        </div>
+
+        {d.cycles && (
+          <div class="section cycles">
+            <h2 class="kind-head">The next twelve months of cycles</h2>
+            <div class="cyc-grid" style={`--n:${d.cycles.months.length}`}>
+              <span></span>
+              {d.cycles.months.map((m) => <span class="cyc-m"><span class="m-full">{m.label}</span><span class="m-short">{m.label[0]}</span>{m.yr && <em>{m.yr}</em>}</span>)}
+              {d.cycles.venues.map((v) => (
+                <>
+                  <span class="cyc-v">{v.title}</span>
+                  {d.cycles.months.map((m) => {
+                    const hits = v.dates.filter((r) => r.d.slice(0, 7) === m.key);
+                    return (
+                      <span class="cyc-cell">
+                        {hits.map((r) => (
+                          <span class={`cyc-dot${r.est ? ' is-est' : ''}`} title={`${v.title} ${r.d}${r.label ? ', ' + r.label : ''}${r.est ? ' (estimated)' : ''}`}>{Number(r.d.slice(8, 10))}</span>
+                        ))}
                       </span>
-                    : <span class="none">not announced</span>}
-                </dd>
-              </div>
-              <div>
-                <dt>Meeting</dt>
-                <dd>{c.date || <span class="none">not scheduled</span>}</dd>
-              </div>
-              <div>
-                <dt>Where</dt>
-                <dd>{c.place
-                  ? <span class="soc-place">{c.cc && <span class={`fi fi-${c.cc}`} aria-hidden="true"></span>}{c.place}</span>
-                  : <span class="none">not announced</span>}</dd>
-              </div>
-            </dl>
-          </article>
-        ))}
-      </div>
-      <p class="area-note">
-        {society.length} meetings, chosen because a computing researcher might realistically
-        present at one. Attendance figures and review practice come from each society's own
-        pages, read at the time of writing rather than taken from a ranking table, since no
-        ranking table covers them.
-      </p>
-    </section>
+                    );
+                  })}
+                </>
+              ))}
+            </div>
+            <p class="area-note">Each mark is a paper deadline, numbered by its day. Hollow marks are estimates rolled from last year.</p>
+          </div>
+        )}
 
-    {Object.entries(FIELD_NOTE).map(([a, lines]) => (
-      <section class="section field-note" data-field={slug(a)} hidden={a !== DEFAULT_AREA}>
-        <h2 class="fn-head">How {AREA_SHORT[a]} publishes</h2>
-        <ul>{lines.map((l) => <li>{l}</li>)}</ul>
-      </section>
-    ))}
+        {d.topic && (
+          <div class="section ts-stat">
+            <h2 class="kind-head">Inside the ML conferences</h2>
+            <p class="ts-line">
+              <b>{d.topic.rate}%</b> of {d.topic.n.toLocaleString()} {d.topic.venue} {d.topic.year} submissions on
+              &ldquo;{d.topic.area}&rdquo; were accepted, against {d.topic.overall}% overall.
+              That is where most time-series methods papers go; the AI tab has the full chart.
+            </p>
+          </div>
+        )}
 
-    <section class="section">
-      <h2 class="kind-head">Conferences</h2>
-      <div class="table-wrap">
-        <table class="confs">
-          <thead>
-            <tr>
-              <th class="c-name">Conference and edition</th>
-              <th class="c-date">Next deadline</th>
-              <th class="c-rate">Acceptance</th>
-              <th class="c-subs">Submissions</th>
-              <th class="c-rank">Ranking</th>
-            </tr>
-          </thead>
-          <tbody>
-            {rows.map((c, i) => {
+        {d.format === 'table' ? (
+          <div class="section">
+            <h2 class="kind-head">Conferences</h2>
+            <div class="table-wrap">
+              <table class="confs">
+                <thead>
+                  <tr>
+                    <th class="c-name">Conference and edition</th>
+                    <th class="c-date">Next deadline</th>
+                    {d.hasRate && <th class="c-rate">Acceptance</th>}
+                    {d.hasSubs && <th class="c-subs">Submissions</th>}
+                    {d.rankCol && <th class="c-rank">{d.rank === 'ccf' ? 'Ranking' : 'Field rank'}</th>}
+                  </tr>
+                </thead>
+                <tbody>
+            {d.tableRows.map((c, i) => {
               const last = c.rates.length ? c.rates[c.rates.length - 1] : null;
               const stale = last && last.y < FRESH_FROM;
               return (
-              <tr class={`tier-${c.tier}${c.live.expired ? ' is-spent' : ''}`} data-area={slug(c.area)}>
+              <tr class={`tier-${c.tier}${c.live.expired ? ' is-spent' : ''}`}>
                 <td class="c-name">
                   {/* Four lines, not six. The tier badge used to take a row of
                       its own and so did the two archive links, which left the
@@ -749,7 +739,7 @@ ${t.rate}% accepted, ${t.n.toLocaleString()} submissions, ${t.share}% of the edi
                       </div>
                     : <span class="none">date unavailable</span>}
                 </td>
-                <td class="c-rate" data-label="Acceptance">
+                {d.hasRate && (<td class="c-rate" data-label="Acceptance">
                   {last
                     ? <div class={`rate ${stale ? 'is-stale' : ''}`}>
                         <div class="rate-side">
@@ -789,10 +779,10 @@ ${t.rate}% accepted, ${t.n.toLocaleString()} submissions, ${t.share}% of the edi
 
                       </div>
                     : <span class="none">no published rate</span>}
-                </td>
+                </td>)}
                 {/* Same hand as the rate chart, its own axis. A rate cannot
                     tell a harder bar from a bigger pile. */}
-                <td class="c-subs" data-label="Submissions">
+                {d.hasSubs && (<td class="c-subs" data-label="Submissions">
                   {c.vol
                     ? <div class="rate">
                         <div class="rate-side">
@@ -825,8 +815,8 @@ ${t.rate}% accepted, ${t.n.toLocaleString()} submissions, ${t.share}% of the edi
                         </svg>
                       </div>
                     : <span class="none">no published count</span>}
-                </td>
-                <td class="c-rank" data-label="Ranking">
+                </td>)}
+                {d.rankCol && (<td class="c-rank" data-label="Ranking">{d.rank === 'ccf' ? (<>
                   {c.society
                     ? <span class="eqv eqv-none">{PROC_WHY[c.proceedings] || PROC_WHY.none}</span>
                     : c.notable && c.area === 'Control'
@@ -840,41 +830,95 @@ ${t.rate}% accepted, ${t.n.toLocaleString()} submissions, ${t.share}% of the edi
                           ? <a class="pill csr-yes" href={CSR} target="_blank" rel="noopener" title={`Counted by CSRankings, under ${c.csr}`}>CSRanking</a>
                           : <span class="pill csr-no" title="Not on the CSRankings venue list">no CSRanking</span>}
                       </span>}
-                </td>
+                </>) : (<>
+                  <span class="ranks">
+                    {c.frank && <span class="pill frank" title="How the field itself ranks it">{c.frank}</span>}
+                    {c.ccf !== 'N' && <span class={`pill ccf-${c.ccf.toLowerCase()}`} title="CCF catalogue">CCF {c.ccf}</span>}
+                    {c.core !== 'N' && c.core !== 'TBR' && <span class={`pill ${coreClass(c.core)}`} title="CORE2023">CORE {coreLabel[c.core]}</span>}
+                    {!c.frank && c.ccf === 'N' && (c.core === 'N' || c.core === 'TBR') && <span class="none">unranked</span>}
+                  </span>
+                </>)}</td>)}
               </tr>
             );})}
-          </tbody>
-        </table>
-      </div>
-      <p class="empty-note" hidden>No conference in this field.</p>
-      <p class="area-note">
-        Acceptance rates: {totalRated} of {rows.length} venues publish one, and {freshRated} of those are {FRESH_FROM} or later.
-        The rest are labeled with the year they stop. The upstream compilation simply stopped updating them.
-        Main track only, with Findings and workshops excluded.
-      </p>
-    </section>
+                </tbody>
+              </table>
+            </div>
+            {d.id === 'ai' && (
+              <p class="area-note">
+                Acceptance rates: {totalRated} of {rows.length} venues publish one, and {freshRated} of those are {FRESH_FROM} or later.
+                The rest are labeled with the year they stop. Main track only, with Findings and workshops excluded.
+              </p>
+            )}
+          </div>
+        ) : (
+          <div class="section">
+            <h2 class="kind-head">Meetings</h2>
+            <div class="society-grid">
+              {d.cards.map((c) => (
+          <article class="soc-card">
+            <header class="soc-head">
+              <h3>
+                {c.link ? <a href={c.link} target="_blank" rel="noopener">{c.title}</a> : c.title}
+              </h3>
+              <span class={`proc proc-${c.proceedings}`}>{PROC_TAG[c.proceedings] || PROC_TAG.none}</span>
+            </header>
+            <p class="soc-desc">{c.desc}</p>
+            {/* Three labels in place of the paragraph that used to sit here:
+                the field, how often it runs and whether it leads that field,
+                and why it is on this list at all. The paragraph is still
+                written, and is the tooltip on the third one. */}
+            <ul class="soc-tags">
+              {c.field && <li class="st-field">{c.field}</li>}
+              {c.kind && <li class={`st-kind ${/flagship/.test(c.kind) ? 'is-top' : ''}`}>{c.kind}</li>}
+              {c.why && <li class="st-why" title={c.note || ''}>{c.why}</li>}
+            </ul>
+            <dl class="soc-facts">
+              <div>
+                <dt>Deadline</dt>
+                <dd>
+                  {c.live.key
+                    ? <span class="soc-when">
+                        <span class={`dl ${c.estimated ? 'is-est' : ''}`}>{c.live.key}</span>
+                        <span class="dl-days" data-deadline={c.live.key}></span>
+                      </span>
+                    : <span class="none">not announced</span>}
+                </dd>
+              </div>
+              <div>
+                <dt>Meeting</dt>
+                <dd>{c.date || <span class="none">not scheduled</span>}</dd>
+              </div>
+              <div>
+                <dt>Where</dt>
+                <dd>{c.place
+                  ? <span class="soc-place">{c.cc && <span class={`fi fi-${c.cc}`} aria-hidden="true"></span>}{c.place}</span>
+                  : <span class="none">not announced</span>}</dd>
+              </div>
+            </dl>
+          </article>
+        ))}
+            </div>
+          </div>
+        )}
 
-    {/* Journals have a different set of facts from conferences: no
-        deadline and no acceptance rate anyone publishes, but a steady output
-        and a citation rate. So they get their own table rather than blank
-        columns in the conference one. */}
-    <section class="section jrnl-section">
-      <h2 class="kind-head">Journals</h2>
-      <div class="table-wrap">
-        <table class="confs jrnl-table">
-          <thead>
-            <tr>
-              <th class="j-name">Journal</th>
-              <th class="j-why">What it is for</th>
-              <th class="j-subs">Papers per year</th>
-              <th class="j-cite" title="Mean citations in the last two years to papers from the two years before, on OpenAlex. The impact factor's formula on an open index.">Citations / paper</th>
-              <th class="j-h">h-index</th>
-              <th class="c-rank">Ranking</th>
-            </tr>
-          </thead>
-          <tbody>
-            {jrows.map((j, i) => (
-              <tr data-area={slug(j.area)}>
+        {d.journals.length > 0 && (d.format === 'table' ? (
+          <div class="section jrnl-section">
+            <h2 class="kind-head">Journals</h2>
+            <div class="table-wrap">
+              <table class="confs jrnl-table">
+                <thead>
+                  <tr>
+                    <th class="j-name">Journal</th>
+                    <th class="j-why">What it is for</th>
+                    <th class="j-subs">Papers per year</th>
+                    <th class="j-cite" title="Mean citations in the last two years to papers from the two years before, on OpenAlex. The impact factor's formula on an open index.">Citations / paper</th>
+                    <th class="j-h">h-index</th>
+                    {d.jRank && <th class="c-rank">Rank</th>}
+                  </tr>
+                </thead>
+                <tbody>
+            {d.journals.map((j, i) => (
+              <tr>
                 <td class="j-name">
                   <span class="name-line">
                     {j.link
@@ -914,22 +958,47 @@ ${t.rate}% accepted, ${t.n.toLocaleString()} submissions, ${t.share}% of the edi
                 <td class="j-h" data-label="h-index">
                   {j.h != null ? <span class="j-num j-num-soft">{j.h}</span> : <span class="none">n/a</span>}
                 </td>
-                <td class="c-rank" data-label="Ranking">
-                  {j.area === 'Control'
-                    ? <span class="none" title="CCF catalogues computing, not control">outside CCF</span>
-                    : <span class={`pill ccf-${j.ccf.toLowerCase()}`} title="CCF catalogue, journal list">CCF {j.ccf === 'N' ? 'n/a' : j.ccf}</span>}
-                </td>
+                {d.jRank && (<td class="c-rank" data-label="Ranking">
+                  <span class="ranks">
+                    {j.rank && <span class="pill frank">{j.rank}</span>}
+                    {(d.rank === 'ccf' || j.ccf !== 'N') && <span class={`pill ccf-${j.ccf.toLowerCase()}`} title="CCF catalogue, journal list">CCF {j.ccf === 'N' ? 'n/a' : j.ccf}</span>}
+                  </span>
+                </td>)}
               </tr>
             ))}
-          </tbody>
-        </table>
-      </div>
-      <p class="area-note">
-        Output and citations from OpenAlex, refreshed weekly; the current year is left off because it is still filling in.
-        Citations per paper is the impact factor's formula on an open index, so it runs close to the JCR figure without being it,
-        and survey journals score high by construction.
-      </p>
-    </section>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        ) : (
+          <div class="section jrnl-section">
+            <h2 class="kind-head">Journals</h2>
+            {/* In these fields the journal is the paper that counts, so the
+                list leads with what each one is for and how much it is cited,
+                in a compact grid rather than a wide table. */}
+            <ul class="jlist">
+              {d.journals.map((j) => (
+                <li>
+                  <div class="jl-top">
+                    {j.link ? <a class="jl-name" href={j.link} target="_blank" rel="noopener">{j.title}</a> : <span class="jl-name">{j.title}</span>}
+                    {j.rank && <span class="pill frank">{j.rank}</span>}
+                    {j.cites != null && <span class="jl-cite" title="Two-year citations per paper, OpenAlex">{j.cites.toFixed(1)}<small>cites / paper</small></span>}
+                  </div>
+                  <span class="jl-full">{j.name} &middot; {j.pub}</span>
+                  <span class="jl-why">{j.why}</span>
+                  {j.subs.length > 0 && <span class="jl-out">{j.subs[j.subs.length - 1].n.toLocaleString()} papers in {j.subs[j.subs.length - 1].y}{j.h != null && <> &middot; h-index {j.h}</>}</span>}
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))}
+      </section>
+    ))}
+    <p class="area-note jrnl-foot">
+      Journal output and citations from OpenAlex, refreshed weekly. Citations per paper is the impact factor's formula on an
+      open index, so it runs close to the JCR figure without being it; survey journals score high by construction.
+      Meeting dates are read off each venue's own site; a date marked est. is last year's rolled forward.
+    </p>
 
     <section class="section sources">
       <h2 class="area-head">Where all of this comes from</h2>
@@ -1034,6 +1103,56 @@ ${t.rate}% accepted, ${t.n.toLocaleString()} submissions, ${t.share}% of the edi
   .chip.band-far { background:#64748b; }
 
   .section { margin-top: 16px; }
+
+  /* Groups, then fields. The group row is quiet; the field chips carry the
+     field's own hue, which also tints its section. */
+  .filter.groups { margin-bottom:8px; }
+  .gbtn { flex:0 0 auto; padding:5px 12px; border-radius:8px; border:1px solid transparent; background:transparent;
+    font-family:'Montserrat',sans-serif; font-size:.8rem; font-weight:700; color:#64748b; cursor:pointer; }
+  .gbtn:hover { color:#0f172a; background:#f1f5f9; }
+  .gbtn.is-on { color:#0f172a; background:#e2e8f0; }
+  .filter.fields { margin-bottom:6px; }
+  .fields .fbtn:not(.is-on) { color:var(--hue); border-color:color-mix(in srgb, var(--hue) 30%, white); }
+  .fields .fbtn.is-on { background:var(--hue); border-color:var(--hue); color:#fff; }
+  .fbtn[hidden], .dom[hidden], .gbtn[hidden], .jrnl-foot[hidden] { display:none !important; }
+  .dom .field-note { border-left-color:var(--hue); }
+  .pill.frank { background:color-mix(in srgb, var(--hue, #334155) 14%, white); color:var(--hue, #334155);
+    border:1px solid color-mix(in srgb, var(--hue, #334155) 35%, white); min-width:0; text-transform:none; }
+
+  /* Security: a year of cycles at a glance. */
+  .cycles { margin-bottom:14px; }
+  .cyc-grid { display:grid; grid-template-columns:120px repeat(var(--n), minmax(0,1fr)); gap:3px; align-items:center; }
+  .cyc-m { font-size:.66rem; font-weight:700; color:#94a3b8; text-align:center; text-transform:uppercase; letter-spacing:.05em; }
+  .m-short { display:none; }
+  .cyc-m em { display:block; font-style:normal; font-weight:600; color:#cbd5e1; }
+  .cyc-v { font-size:.82rem; font-weight:700; color:#0f172a; }
+  .cyc-cell { min-height:28px; border-radius:6px; background:#f8fafc; display:flex; gap:3px; align-items:center; justify-content:center; }
+  .cyc-dot { min-width:22px; height:22px; border-radius:999px; background:var(--hue); color:#fff; font-size:.68rem; font-weight:800;
+    display:inline-flex; align-items:center; justify-content:center; padding:0 4px; }
+  .cyc-dot.is-est { background:#fff; color:var(--hue); border:1.5px dashed var(--hue); }
+
+  .ts-stat { margin-bottom:14px; }
+  .ts-line { margin:0; font-size:.88rem; color:#334155; line-height:1.6; text-align:left; }
+  .ts-line b { font-size:1.15rem; color:var(--hue); }
+
+  /* Journals in the journal-led fields: a compact grid of cards. */
+  .jlist { list-style:none; margin:0; padding:0; display:grid; grid-template-columns:repeat(auto-fill, minmax(280px, 1fr)); gap:10px; }
+  .jlist li { border:1px solid rgba(148,163,184,.3); border-radius:12px; padding:10px 12px; background:#fff; display:flex; flex-direction:column; gap:3px; text-align:left; }
+  .jl-top { display:flex; align-items:center; gap:7px; }
+  .jl-name { font-weight:800; color:#0f172a; text-decoration:none; font-size:.92rem; }
+  a.jl-name:hover { color:var(--accent); text-decoration:underline; }
+  .jl-cite { margin-left:auto; font-weight:800; font-size:1rem; color:#0f172a; font-variant-numeric:tabular-nums; text-align:right; line-height:1.1; }
+  .jl-cite small { display:block; font-size:.58rem; font-weight:600; color:#94a3b8; }
+  .jl-full { font-size:.7rem; color:#94a3b8; }
+  .jl-why { font-size:.8rem; color:#475569; }
+  .jl-out { font-size:.7rem; color:#64748b; }
+  .jrnl-foot { margin-top:18px; }
+  @media (max-width: 760px) {
+    .cyc-grid { grid-template-columns:80px repeat(var(--n), minmax(0,1fr)); }
+    .cyc-m em { display:none; }
+    .m-full { display:none; } .m-short { display:inline; }
+    .cyc-dot { min-width:16px; height:16px; font-size:.56rem; }
+  }
   .kind-head { font-family:'Montserrat',sans-serif; font-size:.74rem; font-weight:700; letter-spacing:.1em;
     text-transform:uppercase; color:#64748b; margin:0 0 8px; }
   .field-note { margin:0 0 14px; padding:10px 14px; border-left:3px solid #cbd5e1; background:#f8fafc; border-radius:0 10px 10px 0; }
@@ -1654,9 +1773,6 @@ ${t.rate}% accepted, ${t.n.toLocaleString()} submissions, ${t.share}% of the edi
   // Field filter. Rows carry their own area, so this is pure show/hide. The
   // date order never changes underneath the reader.
   const rows = Array.from(document.querySelectorAll('table.confs:not(.dest-table):not(.jrnl-table) tbody tr'));
-  const jrows = Array.from(document.querySelectorAll('.jrnl-table tbody tr'));
-  const jsec = document.querySelector('.jrnl-section');
-  const notes = Array.from(document.querySelectorAll('.field-note'));
   const empty = document.querySelector('.empty-note');
   // Each topic row opens to its most-cited accepted papers.
   document.querySelectorAll('.topic-list li.has-papers').forEach((row) => {
@@ -1734,70 +1850,54 @@ ${t.rate}% accepted, ${t.n.toLocaleString()} submissions, ${t.share}% of the edi
   const topicSections = Array.from(document.querySelectorAll('.topic-section'));
 
   const scholarLink = document.getElementById('scholar-link');
-  const scholar = scholarLink;
   const destSection = document.getElementById('destinations');
-  const socSection = document.getElementById('society');
-  // The legend explains the table's tier tags and countdown bands. Neither
-  // exists in the card or destination views, so it goes with the table.
+  // The legend explains the table's countdown bands and cycle tags, so it
+  // only shows with a table field.
   const legend = document.getElementById('legend');
-  const mainTable = document.querySelector('.table-wrap:not(.dest-section .table-wrap)');
+  const doms = Array.from(document.querySelectorAll('.dom'));
+  const fieldBtns = Array.from(document.querySelectorAll('.fields .fbtn'));
+  const groupBtns = Array.from(document.querySelectorAll('.gbtn'));
+  const destBtn = document.querySelector('.fbtn-dest');
+  const jfoot = document.querySelector('.jrnl-foot');
 
+  // One field at a time. The field's section carries its own columns, so
+  // switching is showing one section and hiding the rest.
   const apply = (btn) => {
     const want = btn.dataset.area;
-    // The destination view is a different question, so it replaces the table
-    // rather than filtering it: a row there is one edition in one city, not
-    // one venue and its next deadline.
     const onDest = want === 'destinations';
-    // Society meetings replace the table too, for the same reason the
-    // destination view does: the question is different, so the columns would
-    // be empty rather than merely filtered.
-    const onSoc = want === 'society-meetings';
     if (destSection) destSection.hidden = !onDest;
-    if (socSection) socSection.hidden = !onSoc;
-    if (legend) legend.hidden = onDest || onSoc;
-    notes.forEach((n) => { n.hidden = n.dataset.field !== want; });
-    document.querySelectorAll('.section').forEach((sec) => {
-      if (sec.id === 'destinations' || sec.id === 'society') return;
-      if (sec.querySelector('table.confs') || sec.querySelector('.rest') || sec.classList.contains('sources')) {
-        sec.hidden = (onDest || onSoc) && !sec.classList.contains('sources');
-      }
+    if (jfoot) jfoot.hidden = onDest;
+    let dom = null;
+    doms.forEach((d) => {
+      const on = !onDest && d.dataset.domain === want;
+      d.hidden = !on;
+      if (on) dom = d;
     });
-    if (onSoc) {
-      document.querySelectorAll('.fbtn').forEach((b) => b.classList.toggle('is-on', b === btn));
-      if (scholarLink) scholarLink.hidden = true;
-      topicSections.forEach((sec) => { sec.hidden = true; });
-      return;
+    topicSections.forEach((sec) => { sec.hidden = onDest || sec.dataset.topicArea !== want; });
+    if (legend) legend.hidden = !dom || !dom.classList.contains('dom-table');
+    [...fieldBtns, destBtn].forEach((b) => b && b.classList.toggle('is-on', b === btn));
+    if (scholarLink) {
+      const url = onDest ? '' : (btn.dataset.scholar || '');
+      scholarLink.hidden = !url;
+      if (url) scholarLink.href = url;
     }
-    if (onDest) {
-      document.querySelectorAll('.fbtn').forEach((b) => b.classList.toggle('is-on', b === btn));
-      if (scholarLink) scholarLink.hidden = true;
-      return;
-    }
-    topicSections.forEach((sec) => {
-      sec.hidden = want !== 'all' && sec.dataset.topicArea !== want;
-    });
-    if (scholar) {
-      const url = btn.dataset.scholar || '';
-      scholar.hidden = !url;
-      if (url) scholar.href = url;
-    }
-    document.querySelectorAll('.fbtn').forEach((b) => b.classList.toggle('is-on', b === btn));
-    let shown = 0;
-    rows.forEach((r) => {
-      const on = want === 'all' || r.dataset.area === want;
-      r.style.display = on ? '' : 'none';
-      if (on) shown++;
-    });
-    if (empty) empty.hidden = shown > 0;
-    let jshown = 0;
-    jrows.forEach((r) => {
-      const on = want === 'all' || r.dataset.area === want;
-      r.style.display = on ? '' : 'none';
-      if (on) jshown++;
-    });
-    if (jsec) jsec.hidden = jshown === 0;
   };
-  document.querySelectorAll('.fbtn').forEach((btn) => btn.addEventListener('click', () => apply(btn)));
+  const showGroup = (g) => {
+    groupBtns.forEach((b) => b.classList.toggle('is-on', b.dataset.group === g));
+    fieldBtns.forEach((b) => { b.hidden = b.dataset.group !== g; });
+  };
+  fieldBtns.forEach((btn) => btn.addEventListener('click', () => apply(btn)));
+  if (destBtn) destBtn.addEventListener('click', () => {
+    groupBtns.forEach((b) => b.classList.remove('is-on'));
+    fieldBtns.forEach((b) => { b.hidden = true; });
+    apply(destBtn);
+  });
+  // A group opens on its first field, so a click always shows something.
+  groupBtns.forEach((g) => g.addEventListener('click', () => {
+    showGroup(g.dataset.group);
+    const first = fieldBtns.find((b) => b.dataset.group === g.dataset.group);
+    if (first) apply(first);
+  }));
 
   // One destination list. There is no search, so the data holds only what a
   // chip can reach; anything else is dropped at build time rather than
@@ -1826,6 +1926,6 @@ ${t.rate}% accepted, ${t.n.toLocaleString()} submissions, ${t.share}% of the edi
   const firstDest = document.querySelector('.dbtn');
   if (firstDest) { pick = firstDest.dataset.dest; paintDest(); }
   // The markup marks AI as selected; run the filter so the rows agree with it.
-  const start = document.querySelector('.fbtn.is-on');
+  const start = document.querySelector('.fields .fbtn.is-on');
   if (start) apply(start);
 </script>
