@@ -404,9 +404,11 @@ const freshRated = rows.filter((c) => c.rates.length && c.rates[c.rates.length -
       {/* Nineteen fields will not fit one row of chips, so they sit in four
           groups: pick a group, then a field. */}
       <div class="filter groups" role="tablist" aria-label="Field group">
-        {GROUPS.map((g) => (
-          <button class={`gbtn${g.id === groupOf[DEFAULT] ? ' is-on' : ''}`} data-group={g.id} type="button">{g.label}</button>
-        ))}
+        <div class="gtabs">
+          {GROUPS.map((g) => (
+            <button class={`gbtn${g.id === groupOf[DEFAULT] ? ' is-on' : ''}`} data-group={g.id} type="button">{g.label}</button>
+          ))}
+        </div>
         <button class="fbtn fbtn-dest" data-area="destinations" type="button">
           <i class="fas fa-plane-departure" aria-hidden="true"></i>By destination<span class="fcount">{destinations.items.length}</span>
         </button>
@@ -1106,13 +1108,30 @@ ${t.rate}% accepted, ${t.n.toLocaleString()} submissions, ${t.share}% of the edi
 
   /* Groups, then fields. The group row is quiet; the field chips carry the
      field's own hue, which also tints its section. */
-  .filter.groups { margin-bottom:8px; }
-  .gbtn { flex:0 0 auto; padding:5px 12px; border-radius:8px; border:1px solid transparent; background:transparent;
-    font-family:'Montserrat',sans-serif; font-size:.8rem; font-weight:700; color:#64748b; cursor:pointer; }
-  .gbtn:hover { color:#0f172a; background:#f1f5f9; }
-  .gbtn.is-on { color:#0f172a; background:#e2e8f0; }
-  .filter.fields { margin-bottom:6px; }
-  .fields .fbtn:not(.is-on) { color:var(--hue); border-color:color-mix(in srgb, var(--hue) 30%, white); }
+  /* Folder tabs: the open group is a tab joined to the panel beneath it,
+     and the panel holds that group's fields. Two rows of pills of the same
+     weight read as siblings; this reads as parent and children. */
+  .filter.groups { margin-bottom:0; gap:2px; align-items:flex-end; border-bottom:1px solid #e2e8f0; }
+  .gbtn { flex:0 0 auto; padding:8px 16px 7px; border:1px solid transparent; border-bottom:0;
+    border-radius:10px 10px 0 0; background:transparent;
+    font-family:'Montserrat',sans-serif; font-size:.82rem; font-weight:700; color:#94a3b8; cursor:pointer; }
+  .gbtn:hover { color:#334155; }
+  .gbtn.is-on { color:#0f172a; background:#f1f5f9; border-color:#e2e8f0; box-shadow:0 1px 0 #f1f5f9; }
+  .gtabs { display:flex; gap:2px; align-items:flex-end; margin-bottom:-1px; }
+  .filter.groups .fbtn-dest, .filter.groups .scholar-link { margin-bottom:6px; }
+  /* On a phone the side buttons go above the tabs, so nothing ever sits
+     between the open tab and its panel; the tabs scroll rather than wrap. */
+  @media (max-width: 760px) {
+    .filter.groups { flex-wrap:wrap; }
+    .filter.groups .fbtn-dest, .filter.groups .scholar-link { order:-1; }
+    .gtabs { flex:1 0 100%; overflow-x:auto; scrollbar-width:none; }
+    .gtabs::-webkit-scrollbar { display:none; }
+    .gbtn { padding:7px 11px 6px; font-size:.76rem; }
+  }
+  .filter.fields { margin-bottom:10px; padding:10px 12px; background:#f1f5f9; border:1px solid #e2e8f0; border-top:0;
+    border-radius:0 0 12px 12px; }
+  .filter.fields[hidden] { display:none; }
+  .fields .fbtn:not(.is-on) { background:#fff; color:var(--hue); border-color:color-mix(in srgb, var(--hue) 30%, white); }
   .fields .fbtn.is-on { background:var(--hue); border-color:var(--hue); color:#fff; }
   .fbtn[hidden], .dom[hidden], .gbtn[hidden], .jrnl-foot[hidden] { display:none !important; }
   .dom .field-note { border-left-color:var(--hue); }
@@ -1883,12 +1902,16 @@ ${t.rate}% accepted, ${t.n.toLocaleString()} submissions, ${t.share}% of the edi
     }
   };
   const showGroup = (g) => {
+    const row = document.querySelector('.filter.fields');
+    if (row) row.hidden = false;
     groupBtns.forEach((b) => b.classList.toggle('is-on', b.dataset.group === g));
     fieldBtns.forEach((b) => { b.hidden = b.dataset.group !== g; });
   };
   fieldBtns.forEach((btn) => btn.addEventListener('click', () => apply(btn)));
+  const fieldRow = document.querySelector('.filter.fields');
   if (destBtn) destBtn.addEventListener('click', () => {
     groupBtns.forEach((b) => b.classList.remove('is-on'));
+    if (fieldRow) fieldRow.hidden = true;
     fieldBtns.forEach((b) => { b.hidden = true; });
     apply(destBtn);
   });
