@@ -3,7 +3,7 @@
 // Only CCF A or B, or CORE A* or A, plus the venues added by hand in
 // the script. Destinations deliberately mix cities, countries and
 // regions, because that is how people choose where to go.
-// Built 2026-10-15.
+// Built 2026-10-19.
 export const destinations = {
  "items": [
   {
@@ -1004,7 +1004,7 @@ export const destinations = {
    "icon": "torii-gate",
    "ccf": "B",
    "core": "A",
-   "deadline": "2026-10-15",
+   "deadline": "2027-01-28",
    "open": true,
    "link": "https://www.ieee-security.org/TC/CSF2027/",
    "q": "tokyo, japan tokyo japan "
@@ -2110,7 +2110,7 @@ export const destinations = {
    "ccf": "A",
    "core": "A*",
    "deadline": "2026-10-17",
-   "open": true,
+   "open": false,
    "link": "https://2027.sigmod.org/",
    "q": "huntington beach, ca, usa huntington beach united states california"
   },
