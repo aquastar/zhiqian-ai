@@ -54,12 +54,13 @@ jobs:
           fi
           git config user.name  "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add src/data/conferences.js src/data/topics.js src/data/destinations.js
+          git add src/data/conferences.js src/data/topics.js src/data/destinations.js scripts/journal-cache.json
           git commit -m "Conferences: weekly data refresh
 
           Rebuilt from ccf-deadlines, the official CORE2023 export,
           cs-conf-stats, CSRankings, the older acceptance-rate table,
-          paperlists for the per-topic acceptance rates, and the
+          paperlists for the per-topic acceptance rates, OpenAlex and
+          the CCF journal list for the journals, and the
           by-destination index.
 
           Co-Authored-By: Claude Opus 5 <noreply@anthropic.com>"

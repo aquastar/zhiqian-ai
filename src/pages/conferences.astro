@@ -1,23 +1,54 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import Nav from '../components/Nav.astro';
-import { ranked, others, notable } from '../data/conferences.js';
+import { ranked, notable, journals } from '../data/conferences.js';
 import { topicRates } from '../data/topics.js';
 import { destinations } from '../data/destinations.js';
 
 const SOCIETY = 'Society meetings';
-const AREAS = ['AI / ML / Data Mining', 'Security & Medicine', SOCIETY];
+// One tab per field, each holding that field's conferences and its journals.
+// AI stays first and selected: it is what this page is mostly for.
+const AREAS = ['AI / ML / Data Mining', 'Security', 'Health & Bio', 'Control', SOCIETY];
 const AREA_SHORT = {
   'AI / ML / Data Mining': 'AI · ML · Data Mining',
-  'Security & Medicine': 'Selected',
+  Security: 'Security',
+  'Health & Bio': 'Health & Bio',
+  Control: 'Control',
   [SOCIETY]: 'Society conferences',
+};
+// How each field publishes, in three lines. Fields differ most in whether
+// the conference or the journal is the paper that counts, and a visitor from
+// another field gets that wrong first.
+const FIELD_NOTE = {
+  'AI / ML / Data Mining': [
+    'Conferences lead. A journal paper is usually the long version of one.',
+    'JMLR and TMLR review on a rolling basis, with no deadline to hit.',
+    'TACL papers are presented at ACL conferences; TMLR has a route to ICLR and NeurIPS.',
+  ],
+  Security: [
+    'The Big Four conferences outrank every security journal.',
+    'Each runs two or more cycles a year, and major revision is a formal outcome.',
+    'TDSC and TIFS are where extended conference papers usually go.',
+  ],
+  'Health & Bio': [
+    'Clinical readers read journals: JAMIA or npj Digital Medicine counts for more than a conference.',
+    'MICCAI is the imaging conference, archived in LNCS; AMIA is the informatics meeting.',
+    'ISMB proceedings appear as papers in the journal Bioinformatics.',
+  ],
+  Control: [
+    'Journals carry the weight. TAC and Automatica outrank any conference.',
+    'CDC and ACC papers are six pages, reviewed and archived, often an early form of a journal paper.',
+    'An L-CSS letter can be presented at CDC or ACC, on the joint deadline.',
+  ],
 };
 const slug = (a) => a.toLowerCase().replace(/[^a-z]+/g, '-').replace(/^-|-$/g, '');
 // Each field gets one icon and one hue, used identically in the filter and in
 // every row, so the two can be matched at a glance instead of by reading.
 const AREA_ICON = {
   'AI / ML / Data Mining': 'fa-brain',
-  'Security & Medicine': 'fa-layer-group',
+  Security: 'fa-shield-halved',
+  'Health & Bio': 'fa-heart-pulse',
+  Control: 'fa-sliders',
   [SOCIETY]: 'fa-people-group',
 };
 const DEFAULT_AREA = 'AI / ML / Data Mining';
@@ -158,10 +189,10 @@ const roundWindow = (rounds) => {
 // arrangement the venue charts use for their annotated years. Rotated
 // labels fitted more characters, but a column of twenty-one of them asked
 // the reader to tilt their head.
-const TC = { w: 1400, base: 400, bar: 180, top: 12, left: 34, lab: 9.4 };
+const TC = { w: 1400, base: 480, bar: 180, top: 12, left: 34, lab: 12.5 };
 const TC_TOP = 50;              // the rate axis, in percent
-const LAB_ROWS = 7;             // a label and the next one on its row are
-                                // seven bars apart, which is the room each
+const LAB_ROWS = 10;            // a label and the next one on its row are
+                                // ten bars apart, which is the room each
                                 // name gets before it has to be cut
 const topicChart = (topics) => {
   const inner = TC.w - TC.left - 6;
@@ -273,7 +304,9 @@ const CSR = 'https://csrankings.org/';
 const GSM = 'https://scholar.google.com/citations?view_op=top_venues&hl=en&vq=';
 const SCHOLAR = {
   'AI / ML / Data Mining': GSM + 'eng_artificialintelligence',
-  'Security & Medicine': GSM + 'eng_computersecuritycryptography',
+  Security: GSM + 'eng_computersecuritycryptography',
+  'Health & Bio': GSM + 'med_medicalinformatics',
+  Control: GSM + 'eng_automationcontroltheory',
   'Society meetings': '',
 };
 const TIER = { 1: 'Top', 2: 'Strong', 3: 'Listed' };
@@ -354,9 +387,11 @@ const rows = [...dated, ...undated].map((c) => ({ ...c, chart: chart(c.rates), v
 
 // Society meetings are no longer table rows, so their chip has to be counted
 // from the card list instead, or the field would vanish from the filter.
+const jrows = journals.map((j) => ({ ...j, vol: volume(j.subs) }));
 const counts = AREAS.map((a) => ({
   area: a,
-  n: a === SOCIETY ? society.length : rows.filter((c) => c.area === a).length,
+  n: a === SOCIETY ? society.length
+    : rows.filter((c) => c.area === a).length + jrows.filter((j) => j.area === a).length,
 })).filter((x) => x.n);
 const totalRated = rows.filter((c) => c.rates.length).length;
 const freshRated = rows.filter((c) => c.rates.length && c.rates[c.rates.length - 1].y >= FRESH_FROM).length;
@@ -554,17 +589,6 @@ ${t.rate}% accepted, ${t.n.toLocaleString()} submissions, ${t.share}% of the edi
     </section>
 
     <section class="section society-section" id="society" hidden>
-      <p class="society-lede">
-        These are not conferences in the reviewing sense, which is why they have no acceptance
-        rate and no rank. You send a short abstract, not a paper, and the normal outcome is a
-        slot: a talk if the committee picks yours out, a poster otherwise. The selection that
-        happens is mostly between those two, not between in and out. Nothing is archived as a
-        publication for most of them, so presenting does not spend your paper, and where
-        something is published the badge on the card says what: an abstract volume, or a
-        paper track you can opt into. Each card carries three labels: the field, how often
-        the meeting runs and whether it leads that field, and why it is on this list. The
-        last one holds the longer description.
-      </p>
       <div class="society-grid">
         {society.map((c) => (
           <article class="soc-card">
@@ -618,7 +642,15 @@ ${t.rate}% accepted, ${t.n.toLocaleString()} submissions, ${t.share}% of the edi
       </p>
     </section>
 
+    {Object.entries(FIELD_NOTE).map(([a, lines]) => (
+      <section class="section field-note" data-field={slug(a)} hidden={a !== DEFAULT_AREA}>
+        <h2 class="fn-head">How {AREA_SHORT[a]} publishes</h2>
+        <ul>{lines.map((l) => <li>{l}</li>)}</ul>
+      </section>
+    ))}
+
     <section class="section">
+      <h2 class="kind-head">Conferences</h2>
       <div class="table-wrap">
         <table class="confs">
           <thead>
@@ -797,6 +829,8 @@ ${t.rate}% accepted, ${t.n.toLocaleString()} submissions, ${t.share}% of the edi
                 <td class="c-rank" data-label="Ranking">
                   {c.society
                     ? <span class="eqv eqv-none">{PROC_WHY[c.proceedings] || PROC_WHY.none}</span>
+                    : c.notable && c.area === 'Control'
+                    ? <span class="none" title="CCF and CORE catalogue computing, not control">outside<br />CCF and CORE</span>
                     : c.notable
                     ? <span class="none">not ranked</span>
                     : <span class="ranks">
@@ -820,23 +854,81 @@ ${t.rate}% accepted, ${t.n.toLocaleString()} submissions, ${t.share}% of the edi
       </p>
     </section>
 
-    <section class="section">
-      <details class="rest">
-        <summary>
-          <h2>Others</h2>
-          <span class="rest-count">{others.length}</span>
-        </summary>
-        <ul class="rest-list">
-          {others.map((c) => (
-            <li>
-              <a href={c.link} target="_blank" rel="noopener">{c.title}</a>
-              <span class={`pill ccf-${c.ccf.toLowerCase()}`}>CCF {c.ccf === 'N' ? 'n/a' : c.ccf}</span>
-              <span class={`pill ${coreClass(c.core)}`}>CORE {coreLabel[c.core]}</span>
-              <span class="rest-desc">{c.desc}</span>
-            </li>
-          ))}
-        </ul>
-      </details>
+    {/* Journals have a different set of facts from conferences: no
+        deadline and no acceptance rate anyone publishes, but a steady output
+        and a citation rate. So they get their own table rather than blank
+        columns in the conference one. */}
+    <section class="section jrnl-section">
+      <h2 class="kind-head">Journals</h2>
+      <div class="table-wrap">
+        <table class="confs jrnl-table">
+          <thead>
+            <tr>
+              <th class="j-name">Journal</th>
+              <th class="j-why">What it is for</th>
+              <th class="j-subs">Papers per year</th>
+              <th class="j-cite" title="Mean citations in the last two years to papers from the two years before, on OpenAlex. The impact factor's formula on an open index.">Citations / paper</th>
+              <th class="j-h">h-index</th>
+              <th class="c-rank">Ranking</th>
+            </tr>
+          </thead>
+          <tbody>
+            {jrows.map((j, i) => (
+              <tr data-area={slug(j.area)}>
+                <td class="j-name">
+                  <span class="name-line">
+                    {j.link
+                      ? <a class="conf-name" href={j.link} target="_blank" rel="noopener" title="Every volume, on DBLP">{j.title}</a>
+                      : <span class="conf-name">{j.title}</span>}
+                  </span>
+                  <span class="conf-desc">{j.name}</span>
+                  <span class="conf-desc j-pub">{j.pub}</span>
+                </td>
+                <td class="j-why" data-label="What it is for">{j.why}</td>
+                <td class="j-subs" data-label="Papers per year">
+                  {j.vol
+                    ? <svg class="spark spark-vol" viewBox={`-26 ${LABEL_ROWS[0] - 11} ${CHART.w + 60} ${CHART.h - LABEL_ROWS[0] + 24}`} role="img" aria-label={`Papers per year ${j.vol.span}`}>
+                        <line x1="0" x2={CHART.w} y1={CHART.h} y2={CHART.h} class="base" />
+                        {j.vol.grid.map((g) => (
+                          <>
+                            <line x1="0" x2={CHART.w} y1={g.y} y2={g.y} class="grid" />
+                            <text x="-4" y={g.y + 3} class="glab" text-anchor="end">{g.v}</text>
+                          </>
+                        ))}
+                        <path class="line" d={j.vol.d} style={`--len:${j.vol.len}; --delay:${(i % 7) * 0.45}s`} />
+                        <circle class="dot" r="2.6" style={`offset-path:path('${j.vol.d}'); --delay:${(i % 7) * 0.45}s`} />
+                        <circle class="dot-end" cx={j.vol.last.x} cy={j.vol.last.y} r="2.6" />
+                        {j.vol.marks.map((m) => (
+                          <>
+                            <path class="mlead" d={`M${m.lx.toFixed(1)},${(m.ly + 2.5).toFixed(1)} L${m.x.toFixed(1)},${(m.y - 3.5).toFixed(1)}`} />
+                            <circle class="mdot" cx={m.x} cy={m.y} r="2" />
+                            <text class="mlab" x={m.lx} y={m.ly} text-anchor="middle"><tspan class="myr">'{m.yr}</tspan> {m.v}</text>
+                          </>
+                        ))}
+                      </svg>
+                    : <span class="none">not indexed by OpenAlex</span>}
+                </td>
+                <td class="j-cite" data-label="Citations / paper">
+                  {j.cites != null ? <span class="j-num">{j.cites.toFixed(1)}</span> : <span class="none">n/a</span>}
+                </td>
+                <td class="j-h" data-label="h-index">
+                  {j.h != null ? <span class="j-num j-num-soft">{j.h}</span> : <span class="none">n/a</span>}
+                </td>
+                <td class="c-rank" data-label="Ranking">
+                  {j.area === 'Control'
+                    ? <span class="none" title="CCF catalogues computing, not control">outside CCF</span>
+                    : <span class={`pill ccf-${j.ccf.toLowerCase()}`} title="CCF catalogue, journal list">CCF {j.ccf === 'N' ? 'n/a' : j.ccf}</span>}
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+      <p class="area-note">
+        Output and citations from OpenAlex, refreshed weekly; the current year is left off because it is still filling in.
+        Citations per paper is the impact factor's formula on an open index, so it runs close to the JCR figure without being it,
+        and survey journals score high by construction.
+      </p>
     </section>
 
     <section class="section sources">
@@ -942,6 +1034,20 @@ ${t.rate}% accepted, ${t.n.toLocaleString()} submissions, ${t.share}% of the edi
   .chip.band-far { background:#64748b; }
 
   .section { margin-top: 16px; }
+  .kind-head { font-family:'Montserrat',sans-serif; font-size:.74rem; font-weight:700; letter-spacing:.1em;
+    text-transform:uppercase; color:#64748b; margin:0 0 8px; }
+  .field-note { margin:0 0 14px; padding:10px 14px; border-left:3px solid #cbd5e1; background:#f8fafc; border-radius:0 10px 10px 0; }
+  .field-note .fn-head { font-size:.82rem; font-weight:700; color:#334155; margin:0 0 4px; }
+  .field-note ul { margin:0; padding-left:18px; display:grid; gap:2px; }
+  .field-note li { text-align:left; font-size:.82rem; line-height:1.5; color:#475569; }
+  .jrnl-section { margin-top:22px; }
+  table.jrnl-table { min-width:980px; }
+  .j-name { width:24%; } .j-why { width:22%; text-align:left; color:#475569; font-size:.8rem; }
+  .j-subs { width:26%; } .j-cite, .j-h { width:9%; text-align:center; }
+  .j-pub { color:#a3adbb; }
+  .j-num { font-size:1.05rem; font-weight:800; color:#0f172a; font-variant-numeric:tabular-nums; }
+  .j-num-soft { font-weight:600; color:#475569; font-size:.92rem; }
+  .jrnl-table .spark { max-width:240px; }
   .area-head { font-size:1.02rem; margin:0 0 6px; display:flex; align-items:center; gap:9px; }
   .area-count { font-size:.72rem; font-weight:700; color:#64748b; background:#f1f5f9; border-radius:999px; padding:2px 8px; }
   .area-note { margin:6px 0 0; font-size:.8rem; color:#64748b; line-height:1.6; max-width:78ch; }
@@ -972,11 +1078,15 @@ ${t.rate}% accepted, ${t.n.toLocaleString()} submissions, ${t.share}% of the edi
   .area-tag i { font-size:.72rem; }
   /* One hue per field, shared by the tag and the filter button. */
   .area-ai-ml-data-mining        { color:#6d28d9; background:#f3f0ff; }
-  .area-security-medicine        { color:#0f766e; background:#effcfa; }
+  .area-security                 { color:#b91c1c; background:#fef2f2; }
+  .area-health-bio               { color:#0f766e; background:#effcfa; }
+  .area-control                  { color:#b45309; background:#fffbeb; }
   .area-society-meetings         { color:#475569; background:#f1f5f9; }
   .fbtn i { font-size:.8rem; }
   .fbtn.area-ai-ml-data-mining:not(.is-on)         { color:#6d28d9; border-color:#ddd6fe; }
-  .fbtn.area-security-medicine:not(.is-on)         { color:#0f766e; border-color:#99f6e4; }
+  .fbtn.area-security:not(.is-on)                  { color:#b91c1c; border-color:#fecaca; }
+  .fbtn.area-health-bio:not(.is-on)                { color:#0f766e; border-color:#99f6e4; }
+  .fbtn.area-control:not(.is-on)                   { color:#b45309; border-color:#fde68a; }
   .fbtn.area-society-meetings:not(.is-on)          { color:#475569; border-color:#cbd5e1; }
   .fbtn-dest { margin-left:auto; }
   .fbtn-dest:not(.is-on) { color:#0e7490; border-color:#a5f3fc; }
@@ -986,7 +1096,6 @@ ${t.rate}% accepted, ${t.n.toLocaleString()} submissions, ${t.share}% of the edi
 
   /* Society meetings, as cards. A table made them look like venues that had
      simply failed to report a rank. */
-  .society-lede { margin:0 0 14px; font-size:.86rem; line-height:1.65; color:#475569; max-width:92ch; }
   .society-grid { display:grid; grid-template-columns:repeat(auto-fill, minmax(330px, 1fr)); gap:12px; }
   .soc-card { display:flex; flex-direction:column; padding:14px 16px; border-radius:13px;
     border:1px solid rgba(148,163,184,.32); background:#fff; }
@@ -1228,7 +1337,7 @@ ${t.rate}% accepted, ${t.n.toLocaleString()} submissions, ${t.share}% of the edi
   .tone-c .tc-fill { fill:#7dafff; }
   .tone-d .tc-fill { fill:#b9d4fe; }
   .tc-hit { fill:transparent; cursor:pointer; }
-  .tc-lab { font-size:9.4px; fill:#475569; dominant-baseline:middle; }
+  .tc-lab { font-size:12.5px; fill:#475569; dominant-baseline:middle; }
   .tc-pct { font-weight:800; fill:#0f172a; }
   .tc-sub { fill:#b6bfcc; font-variant-numeric:tabular-nums; }
   .tc-lead { fill:none; stroke:rgba(148,163,184,.5); stroke-width:.6; }
@@ -1514,7 +1623,7 @@ ${t.rate}% accepted, ${t.n.toLocaleString()} submissions, ${t.share}% of the edi
     return { key: rollYear(pool[0].d), expired: true };
   };
 
-  document.querySelectorAll('table.confs:not(.dest-table) tbody').forEach((tbody) => {
+  document.querySelectorAll('table.confs:not(.dest-table):not(.jrnl-table) tbody').forEach((tbody) => {
     const trs = Array.from(tbody.querySelectorAll('tr'));
     trs.forEach((tr) => {
       const live = liveKey(tr);
@@ -1544,7 +1653,10 @@ ${t.rate}% accepted, ${t.n.toLocaleString()} submissions, ${t.share}% of the edi
 
   // Field filter. Rows carry their own area, so this is pure show/hide. The
   // date order never changes underneath the reader.
-  const rows = Array.from(document.querySelectorAll('table.confs:not(.dest-table) tbody tr'));
+  const rows = Array.from(document.querySelectorAll('table.confs:not(.dest-table):not(.jrnl-table) tbody tr'));
+  const jrows = Array.from(document.querySelectorAll('.jrnl-table tbody tr'));
+  const jsec = document.querySelector('.jrnl-section');
+  const notes = Array.from(document.querySelectorAll('.field-note'));
   const empty = document.querySelector('.empty-note');
   // Each topic row opens to its most-cited accepted papers.
   document.querySelectorAll('.topic-list li.has-papers').forEach((row) => {
@@ -1643,6 +1755,7 @@ ${t.rate}% accepted, ${t.n.toLocaleString()} submissions, ${t.share}% of the edi
     if (destSection) destSection.hidden = !onDest;
     if (socSection) socSection.hidden = !onSoc;
     if (legend) legend.hidden = onDest || onSoc;
+    notes.forEach((n) => { n.hidden = n.dataset.field !== want; });
     document.querySelectorAll('.section').forEach((sec) => {
       if (sec.id === 'destinations' || sec.id === 'society') return;
       if (sec.querySelector('table.confs') || sec.querySelector('.rest') || sec.classList.contains('sources')) {
@@ -1676,6 +1789,13 @@ ${t.rate}% accepted, ${t.n.toLocaleString()} submissions, ${t.share}% of the edi
       if (on) shown++;
     });
     if (empty) empty.hidden = shown > 0;
+    let jshown = 0;
+    jrows.forEach((r) => {
+      const on = want === 'all' || r.dataset.area === want;
+      r.style.display = on ? '' : 'none';
+      if (on) jshown++;
+    });
+    if (jsec) jsec.hidden = jshown === 0;
   };
   document.querySelectorAll('.fbtn').forEach((btn) => btn.addEventListener('click', () => apply(btn)));
 

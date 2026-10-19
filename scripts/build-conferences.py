@@ -296,7 +296,10 @@ def flag(place):
 
 # ---------- areas ----------
 BIO={'APBC','BIBM','ISMB','ISBRA','RECOMB','MICCAI','EMBC'}
-AREA_BY_SUB={'AI':'AI / ML / Data Mining','SC':'Security & Medicine','DB':'AI / ML / Data Mining'}
+# One tab per field. Security and medicine used to share a tab called
+# "Selected", which said nothing about either; each now has its own, with
+# its journals beside its conferences.
+AREA_BY_SUB={'AI':'AI / ML / Data Mining','SC':'Security','DB':'AI / ML / Data Mining'}
 # CCF files WWW under 交叉/综合/新兴 because of its history, but everyone
 # submitting to it treats it as a web-mining venue.
 AREA_OVERRIDE={'WWW':'AI / ML / Data Mining', 'SIGSPATIAL':'AI / ML / Data Mining'}
@@ -304,7 +307,7 @@ def area(sub, title):
     if title in EXTRA: return EXTRA[title]
     if title in AREA_OVERRIDE: return AREA_OVERRIDE[title]
     if sub in AREA_BY_SUB: return AREA_BY_SUB[sub]
-    if title in BIO: return 'Security & Medicine'
+    if title in BIO: return 'Health & Bio'
     return 'Science & Interdisciplinary'
 
 def tier_of(ccf, core):
@@ -709,7 +712,7 @@ NOTABLE=[
  # both ranks read n/a rather than being invented. Dates and both deadlines
  # read off cdc2027.ieeecss.org on 2026-10-17.
  {'title':'CDC','desc':'IEEE Conference on Decision and Control',
-  'area':'AI / ML / Data Mining','proceedings':'full','lastDeadline':'2027-03-17','period':1,
+  'area':'Control','proceedings':'full','lastDeadline':'2027-03-17','period':1,
   'date':'December 14-17, 2027','place':'Lisbon, Portugal','badge':'control',
   'dblp':'cdc','cycles':2,
   'roundLabels':['L-CSS and CDC','CDC only'],
@@ -717,6 +720,29 @@ NOTABLE=[
             {'d':'2027-03-31','label':'CDC only','est':False}],
   'note':'The main conference of the IEEE Control Systems Society and the premier venue of the field, 66th edition, with full archival proceedings. Papers may be submitted jointly to L-CSS, the society letters journal, on the earlier of the two deadlines. Neither CCF nor CORE indexes it, because both catalogue computing rather than control.',
   'link':'https://cdc2027.ieeecss.org/'},
+ # The rest of control's conference calendar. Dates read off each venue's
+ # own site on 2026-10-19.
+ {'title':'ACC','desc':'American Control Conference',
+  'area':'Control','proceedings':'full','lastDeadline':'2026-09-11','period':1,
+  'date':'July 7-9, 2027','place':'Philadelphia, Pennsylvania, USA','badge':'control',
+  'dblp':'amcc','cycles':2,
+  'roundLabels':['L-CSS and ACC','ACC only'],
+  'rounds':[{'d':'2026-09-11','label':'L-CSS and ACC','est':False},
+            {'d':'2026-10-02','label':'ACC only','est':False}],
+  'note':'The American Automatic Control Council conference, the US counterpart to CDC, with full archival proceedings on IEEE Xplore. Eight pages at submission, six in the final version. As at CDC, a paper can go to L-CSS and be presented here, on the earlier deadline. The date shown for ACC only is the firm deadline.',
+  'link':'https://acc2027.a2c2.org/'},
+ {'title':'ECC','desc':'European Control Conference',
+  'area':'Control','proceedings':'full','lastDeadline':'2026-10-31','period':1,
+  'date':'July 13-16, 2027','place':'Brussels, Belgium','badge':'control',
+  'dblp':'eucc',
+  'note':'The conference of the European Control Association, 25th edition, at the UCLouvain campus in Woluwe. Full archival proceedings on IEEE Xplore.',
+  'link':'https://ecc27.euca-ecc.org/'},
+ {'title':'L4DC','desc':'Learning for Dynamics and Control Conference',
+  'area':'Control','proceedings':'full','lastDeadline':'2026-11-13','period':1,
+  'date':'June 16-18, 2027','place':'Stockholm, Sweden','badge':'control',
+  'dblp':'l4dc',
+  'note':'Where machine learning and control meet, run since 2019, with proceedings in PMLR. Smaller and more selective than CDC or ACC. The 2027 edition is at KTH and reviews on OpenReview for the first time.',
+  'link':'https://l4dc2027.control.ee.ethz.ch/'},
 
  {'title':'CompleNet','desc':'International Conference on Complex Networks',
   'area':'Society meetings','proceedings':'optin','lastDeadline':'2026-10-17','period':1,
@@ -785,7 +811,7 @@ NOTABLE=[
  {'title':'MLSys', 'equivalent':'CCF B / CORE A','desc':'Conference on Machine Learning and Systems','area':'AI / ML / Data Mining',
   'proceedings':'full','note':'Full proceedings. Unranked by both CCF and CORE despite being the main ML-systems venue.',
   'lastDeadline':'2025-10-30','link':'https://mlsys.org/'},
- {'title':'AMIA', 'equivalent':'CCF B / CORE A','desc':'AMIA Annual Symposium','area':'Security & Medicine',
+ {'title':'AMIA', 'equivalent':'CCF B / CORE A','desc':'AMIA Annual Symposium','area':'Health & Bio',
   'proceedings':'full','note':'Full proceedings, indexed in PubMed. The central US biomedical-informatics meeting.',
   'lastDeadline':'2026-03-10','link':'https://amia.org/education-events/amia-annual-symposium'},
  {'title':'ASONAM', 'ccfManual':'C','coreManual':'B','desc':'IEEE/ACM International Conference on Advances in Social Networks Analysis and Mining','area':'AI / ML / Data Mining',
@@ -854,15 +880,114 @@ emerging=[n for n in NOTABLE if n['proceedings']=='full']
 society=[n for n in NOTABLE if n['proceedings'] in ('none','optin','abstracts')]
 # One list, ordered by date alone — the reader filters by field in the page.
 ranked=sorted([c for c in out if listed(c)] + emerging, key=dkey)
-# Venues added by hand because the upstream catalogues do not carry them.
-# They live in NOTABLE now, which gives them the same rolled deadlines and
-# the same rendering as everything else.
-MANUAL_OTHERS=[]
-others=sorted([c for c in out if not listed(c)] + MANUAL_OTHERS,
-              key=lambda c:(CORE_ORDER[c['core']], CCF_ORDER[c['ccf']], c['title'].lower()))
+# The folded "Others" list is gone: everything below the bar used to land
+# there in one alphabetical heap with no field. The fields now carry their
+# journals instead, which is the second half of how a field publishes.
 # Grouped by field rather than alphabetically: the field chip is the first
 # thing on a card, so the neighbours of a card should share it.
 notable=sorted(society, key=lambda c:(c.get('field','') or 'zz', c['title'].lower()))
+
+
+# ---------- journals ----------
+# Conferences are only half of how most fields publish, and in control and
+# medicine the smaller half. The list is chosen by hand, one handful per
+# field; everything measured about each journal is pulled at build time.
+#
+# OpenAlex gives papers per year and the two-year mean citations per paper,
+# which is the impact factor's formula on an open index, so it runs close
+# to the JCR number without being it. CCF tiers come from the CCF catalogue
+# as mirrored by CCFrank4dblp, keyed on the DBLP stream. Control journals
+# have no CCF tier because CCF catalogues computing; that reads n/a, not a
+# judgement.
+JOURNALS=[
+ # AI / ML / Data Mining
+ {'title':'TPAMI','name':'IEEE Transactions on Pattern Analysis and Machine Intelligence','issn':'0162-8828','dblp':'pami','area':'AI / ML / Data Mining','pub':'IEEE','why':'vision and learning, the field\'s top transactions'},
+ {'title':'JMLR','name':'Journal of Machine Learning Research','issn':'1532-4435','dblp':'jmlr','area':'AI / ML / Data Mining','pub':'JMLR','why':'long-form ML theory and methods, open access'},
+ {'title':'TMLR','name':'Transactions on Machine Learning Research','issn':'2835-8856','dblp':'tmlr','area':'AI / ML / Data Mining','pub':'OpenReview','why':'rolling review, judged on correctness rather than novelty'},
+ {'title':'AIJ','name':'Artificial Intelligence','issn':'0004-3702','dblp':'ai','area':'AI / ML / Data Mining','pub':'Elsevier','why':'the oldest general AI journal'},
+ {'title':'JAIR','name':'Journal of Artificial Intelligence Research','issn':'1076-9757','dblp':'jair','area':'AI / ML / Data Mining','pub':'AI Access Foundation','why':'general AI, open access'},
+ {'title':'IJCV','name':'International Journal of Computer Vision','issn':'0920-5691','dblp':'ijcv','area':'AI / ML / Data Mining','pub':'Springer','why':'computer vision'},
+ {'title':'TKDE','name':'IEEE Transactions on Knowledge and Data Engineering','issn':'1041-4347','dblp':'tkde','area':'AI / ML / Data Mining','pub':'IEEE','why':'data mining and databases'},
+ {'title':'TKDD','name':'ACM Transactions on Knowledge Discovery from Data','issn':'1556-4681','dblp':'tkdd','area':'AI / ML / Data Mining','pub':'ACM','why':'data mining, the SIGKDD journal'},
+ {'title':'DMKD','name':'Data Mining and Knowledge Discovery','issn':'1384-5810','dblp':'datamine','area':'AI / ML / Data Mining','pub':'Springer','why':'data mining, with an ECML PKDD journal track'},
+ {'title':'TNNLS','name':'IEEE Transactions on Neural Networks and Learning Systems','issn':'2162-237X','dblp':'tnn','area':'AI / ML / Data Mining','pub':'IEEE','why':'neural networks, high volume'},
+ {'title':'TACL','name':'Transactions of the Association for Computational Linguistics','issn':'2307-387X','dblp':'tacl','area':'AI / ML / Data Mining','pub':'ACL','why':'NLP, papers presented at ACL conferences'},
+ # Security
+ {'title':'TDSC','name':'IEEE Transactions on Dependable and Secure Computing','issn':'1545-5971','dblp':'tdsc','area':'Security','pub':'IEEE','why':'systems security and dependability'},
+ {'title':'TIFS','name':'IEEE Transactions on Information Forensics and Security','issn':'1556-6013','dblp':'tifs','area':'Security','pub':'IEEE','why':'forensics, biometrics, privacy'},
+ {'title':'JoC','name':'Journal of Cryptology','issn':'0933-2790','dblp':'joc','area':'Security','pub':'Springer (IACR)','why':'the IACR journal of cryptography'},
+ {'title':'TOPS','name':'ACM Transactions on Privacy and Security','issn':'2471-2566','dblp':'tissec','area':'Security','pub':'ACM','why':'security and privacy, ACM\'s journal'},
+ {'title':'Computers & Security','name':'Computers & Security','issn':'0167-4048','dblp':'compsec','area':'Security','pub':'Elsevier','why':'applied security, high volume'},
+ {'title':'JCS','name':'Journal of Computer Security','issn':'0926-227X','dblp':'jcs','area':'Security','pub':'IOS Press','why':'formal and systems security'},
+ # Health & Bio
+ {'title':'JAMIA','name':'Journal of the American Medical Informatics Association','issn':'1067-5027','dblp':'jamia','area':'Health & Bio','pub':'Oxford (AMIA)','why':'the AMIA journal, clinical informatics'},
+ {'title':'npj Digit. Med.','name':'npj Digital Medicine','issn':'2398-6352','dblp':'','area':'Health & Bio','pub':'Nature Portfolio','why':'digital health and clinical AI, open access'},
+ {'title':'MedIA','name':'Medical Image Analysis','issn':'1361-8415','dblp':'mia','area':'Health & Bio','pub':'Elsevier','why':'medical imaging methods, the MICCAI journal'},
+ {'title':'TMI','name':'IEEE Transactions on Medical Imaging','issn':'0278-0062','dblp':'tmi','area':'Health & Bio','pub':'IEEE','why':'medical imaging'},
+ {'title':'JBHI','name':'IEEE Journal of Biomedical and Health Informatics','issn':'2168-2194','dblp':'titb','area':'Health & Bio','pub':'IEEE','why':'health informatics and sensing'},
+ {'title':'JBI','name':'Journal of Biomedical Informatics','issn':'1532-0464','dblp':'jbi','area':'Health & Bio','pub':'Elsevier','why':'biomedical informatics methods'},
+ {'title':'Bioinformatics','name':'Bioinformatics','issn':'1367-4803','dblp':'bioinformatics','area':'Health & Bio','pub':'Oxford (ISCB)','why':'computational biology, carries ISMB proceedings'},
+ {'title':'Brief. Bioinform.','name':'Briefings in Bioinformatics','issn':'1467-5463','dblp':'bib','area':'Health & Bio','pub':'Oxford','why':'bioinformatics methods and reviews'},
+ {'title':'TCBB','name':'IEEE/ACM Transactions on Computational Biology and Bioinformatics','issn':'1545-5963','dblp':'tcbb','area':'Health & Bio','pub':'IEEE / ACM','why':'computational biology'},
+ # Control
+ {'title':'TAC','name':'IEEE Transactions on Automatic Control','issn':'0018-9286','dblp':'tac','area':'Control','pub':'IEEE CSS','why':'the field\'s flagship, theory first'},
+ {'title':'Automatica','name':'Automatica','issn':'0005-1098','dblp':'automatica','area':'Control','pub':'Elsevier (IFAC)','why':'IFAC\'s flagship, level with TAC'},
+ {'title':'SICON','name':'SIAM Journal on Control and Optimization','issn':'0363-0129','dblp':'siamco','area':'Control','pub':'SIAM','why':'mathematical control theory'},
+ {'title':'TCST','name':'IEEE Transactions on Control Systems Technology','issn':'1063-6536','dblp':'tcst','area':'Control','pub':'IEEE CSS','why':'control applied to real systems'},
+ {'title':'TCNS','name':'IEEE Transactions on Control of Network Systems','issn':'2325-5870','dblp':'tcns','area':'Control','pub':'IEEE CSS','why':'networked and multi-agent control'},
+ {'title':'L-CSS','name':'IEEE Control Systems Letters','issn':'2475-1456','dblp':'lcsys','area':'Control','pub':'IEEE CSS','why':'six-page letters, presentable at CDC or ACC'},
+ {'title':'SCL','name':'Systems & Control Letters','issn':'0167-6911','dblp':'scl','area':'Control','pub':'Elsevier','why':'short theory papers'},
+ {'title':'ARC','name':'Annual Reviews in Control','issn':'1367-5788','dblp':'arc','area':'Control','pub':'Elsevier (IFAC)','why':'invited surveys, so citations run high'},
+]
+
+# Anything a fetch misses comes from the copy kept beside the script, so a
+# bad week upstream degrades to last week's numbers instead of blanks.
+JCACHE='../scripts/journal-cache.json'
+jcache=json.load(open(JCACHE)) if os.path.exists(JCACHE) else {}
+try:
+    with urllib.request.urlopen('https://raw.githubusercontent.com/WenyanLiu/CCFrank4dblp/master/data/ccfRankUrl.js', timeout=60) as r:
+        _ccfj=r.read().decode('utf-8','ignore')
+    CCF_J={k: v.strip() for k, v in re.findall(r'"/journals/([^/"]+)/[^"]*":\s*"([^"]+)"', _ccfj)}
+except Exception as e:
+    print('CCF journal table unavailable:', e); CCF_J=None
+journals=[]
+for j in JOURNALS:
+    key=j['issn']
+    try:
+        with urllib.request.urlopen(f'https://api.openalex.org/sources/issn:{key}?mailto=site@zhiqian.ai', timeout=60) as r:
+            src=json.load(r)
+        st=src.get('summary_stats') or {}
+        # The current year is still filling in, so it is left out rather than
+        # drawn as a cliff at the end of every line.
+        per=sorted((c['year'], c['works_count']) for c in src.get('counts_by_year') or []
+                   if c['year'] < TODAY.year)
+        jcache[key]={'subs':[{'y':y,'n':n} for y,n in per][-10:],
+                     'cites':round(st.get('2yr_mean_citedness') or 0, 1),
+                     'h':st.get('h_index') or 0, 'oa':src.get('id','')}
+    except Exception as e:
+        print('OpenAlex miss, using cache:', j['title'], e)
+    m=jcache.get(key, {'subs':[], 'cites':0, 'h':0, 'oa':''})
+    if CCF_J is not None:
+        j['ccf']=CCF_J.get(j['dblp'], 'N') if j['dblp'] else 'N'
+        jcache.setdefault(key, {})['ccf']=j['ccf']
+    else:
+        j['ccf']=jcache.get(key, {}).get('ccf', 'N')
+    # A journal OpenAlex barely indexes (TMLR, and JMLR's citations) would
+    # otherwise show a confident zero. Zero here means "not measured".
+    # JMLR is the subtle case: OpenAlex has its early years and almost none
+    # of the recent ones, so its citation mean reads zero and its output
+    # line falls off a cliff that never happened. A zero mean is the tell.
+    indexed=sum(p['n'] for p in m['subs']) >= 50 and m['cites'] > 0
+    journals.append({**j, 'subs': m['subs'] if indexed else [],
+                     'cites': m['cites'] if indexed else None,
+                     'h': m['h'] if indexed else None, 'oa': m.get('oa',''),
+                     'link': f"https://dblp.org/db/journals/{j['dblp']}/index.html" if j['dblp'] else ''})
+json.dump(jcache, open(JCACHE,'w'), indent=1, sort_keys=True)
+# The hand order within a field is the editorial ranking (TAC before a survey
+# journal whose citations are high by construction), so the sort only lifts
+# CCF tiers above it and is otherwise stable.
+journals.sort(key=lambda j: CCF_ORDER.get(j['ccf'],3))
+print('journals:', len(journals), dict(collections.Counter(j['area'] for j in journals)))
 
 hdr=("// Generated by scripts/build-conferences.py — do not edit by hand.\n"
      "// CCF ranks mirror the CCF catalogue via github.com/ccfddl/ccf-deadlines.\n"
@@ -870,11 +995,12 @@ hdr=("// Generated by scripts/build-conferences.py — do not edit by hand.\n"
      "// portal.core.edu.au. Acceptance rates and submission counts come from\n"
      "// github.com/Xovee/cs-conf-stats (main track only).\n"
      f"// Built {TODAY.isoformat()}.\n")
-body=(hdr + "export const ranked = %s;\n\nexport const others = %s;\n\n"
-      "// Hand-maintained; the ranking tables do not reach these.\nexport const notable = %s;\n"
-      % tuple(json.dumps(x, indent=2, ensure_ascii=False) for x in (ranked, others, notable)))
+body=(hdr + "export const ranked = %s;\n\n"
+      "// Hand-maintained; the ranking tables do not reach these.\nexport const notable = %s;\n\n"
+      "// Journal list by hand; output, citations and CCF tier pulled each build.\nexport const journals = %s;\n"
+      % tuple(json.dumps(x, indent=2, ensure_ascii=False) for x in (ranked, notable, journals)))
 open('../src/data/conferences.js','w').write(body)
 import collections as _c
-print('\nwritten | listed', len(ranked), '| folded', len(others), '| society', len(notable))
+print('\nwritten | listed', len(ranked), '| journals', len(journals), '| society', len(notable))
 print('tiers:', dict(sorted(_c.Counter(c['tier'] for c in ranked).items())))
 print('areas:', dict(_c.Counter(c['area'] for c in ranked)))
