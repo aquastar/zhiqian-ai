@@ -245,7 +245,7 @@ for f in sorted(glob.glob(f'{CACHE}/*/*.yml')):
 MANUAL = [
  # Hawaii. PSB is the anchor: the same hotel on the Big Island six years
  # running, 2022 through 2027, each verified on psb.stanford.edu.
- {'title':'PSB','desc':'Pacific Symposium on Biocomputing','year':2027,
+ {'title':'PSB','honor':'PubMed-indexed proceedings','desc':'Pacific Symposium on Biocomputing','year':2027,
   'place':'Kohala Coast, Big Island, Hawaii, USA','date':'January 3-7, 2027',
   'deadline':'2026-12-01','open':True,'link':'https://psb.stanford.edu/'},
  # CDC is in neither ccfddl nor the CORE export, both of which are
@@ -253,7 +253,7 @@ MANUAL = [
  # here. The 65th is at the Hilton Hawaiian Village; its paper deadline was
  # 31 March 2026 and has long gone, so the call shows as closed. The 66th
  # has no announced venue yet, which is why only this edition is listed.
- {'title':'CDC','desc':'IEEE Conference on Decision and Control','year':2026,
+ {'title':'CDC','honor':'CSS flagship','desc':'IEEE Conference on Decision and Control','year':2026,
   'place':'Honolulu, Hawaii, USA','date':'December 15-18, 2026',
   'deadline':'2026-03-31','open':False,'link':'https://cdc2026.ieeecss.org/'},
  {'title':'AMOS','desc':'Advanced Maui Optical and Space Surveillance Technologies Conference','year':2027,
@@ -272,10 +272,10 @@ MANUAL = [
  {'title':'FLAIRS','desc':'Florida Artificial Intelligence Research Society Conference','year':2027,
   'place':'St. Pete Beach, Florida, USA','date':'May 24-27, 2027',
   'deadline':'2027-01-22','open':True,'link':'https://www.flairs-40.info/'},
- {'title':'AIAA SciTech','desc':'AIAA Science and Technology Forum and Exposition','year':2027,
+ {'title':'AIAA SciTech','honor':'AIAA flagship','desc':'AIAA Science and Technology Forum and Exposition','year':2027,
   'place':'Orlando, Florida, USA','date':'January 11-15, 2027',
   'deadline':'','open':False,'link':'https://scitech.aiaa.org/'},
- {'title':'SoutheastCon','desc':'IEEE SoutheastCon','year':2027,
+ {'title':'SoutheastCon','honor':'IEEE Region 3 flagship','desc':'IEEE SoutheastCon','year':2027,
   'place':'Daytona Beach, Florida, USA','date':'April 15-18, 2027',
   'deadline':'','open':False,'link':'https://ieeesoutheastcon.org/'},
  # Canada
@@ -287,7 +287,7 @@ MANUAL = [
   'place':'Tokyo, Japan','date':'March 2-5, 2027',
   'deadline':'','open':False,'link':'https://iscs2027.sice-ctrl.jp'},
  # South America
- {'title':'BRACIS','desc':'Brazilian Conference on Intelligent Systems','year':2026,
+ {'title':'BRACIS','honor':"Brazil's main AI conference",'desc':'Brazilian Conference on Intelligent Systems','year':2026,
   'place':'Cuiaba, Mato Grosso, Brazil','date':'October 19-22, 2026',
   'deadline':'2026-05-04','open':False,'link':'https://bracis.sbc.org.br/2026/'},
  # Southeast Asia
@@ -304,7 +304,7 @@ MANUAL = [
  {'title':'MODSIM','desc':'International Congress on Modelling and Simulation','year':2027,
   'place':'Perth, Western Australia, Australia','date':'December 5-9, 2027',
   'deadline':'','open':False,'link':'https://mssanz.org.au/modsim2027/'},
- {'title':'AJCAI','desc':'Australasian Joint Conference on Artificial Intelligence','year':2026,
+ {'title':'AJCAI','honor':"Australasia's main AI conference",'desc':'Australasian Joint Conference on Artificial Intelligence','year':2026,
   'place':'Auckland, New Zealand','date':'November 27-30, 2026',
   'deadline':'','open':False,'link':'https://ajcai26.org/'},
  {'title':'AusDM','desc':'Australasian Data Science and Machine Learning Conference','year':2026,
@@ -321,6 +321,68 @@ for m in MANUAL:
     m['q'] = f"{m['place']} {m['city']} {m['country']} {expand(m['place'])}".lower()
     m.setdefault('ccf', 'N'); m.setdefault('core', 'N')
     items.append(m)
+
+# Every hand-kept venue on the field tabs (control, neuroscience, sleep,
+# materials and the rest) is a trip too. They come from the conferences
+# data, which already carries their next meeting, city and deadline.
+_conf = open('src/data/conferences.js', encoding='utf-8').read()
+def _export(name):
+    m = re.search(r'export const ' + name + r' = (\[.*?\]);\n', _conf, re.S)
+    return json.loads(m.group(1)) if m else []
+_venues = _export('ranked') + _export('notable')
+_labels = dict(re.findall(r"id: '([a-z]+)', label: '([^']+)'", open('src/data/domains.js', encoding='utf-8').read()))
+BY_TITLE = {v['title']: v for v in _venues}
+have = {(i['title'], i['dest']) for i in items}
+for v in _venues:
+    if not v.get('notable') or not v.get('place') or not v.get('date'): continue
+    yrs = re.findall(r'\b(20\d{2})\b', v['date'])
+    if not yrs: continue
+    year = int(yrs[-1])
+    if not ends_after_today(v['date'], year): continue
+    dest, icon = destination_of(v['place'])
+    if not dest or (v['title'], dest) in have: continue
+    # An estimate rolled forward is not a call anyone can act on yet.
+    dl = '' if v.get('estimated') else (v.get('nextDeadline') or '')
+    items.append({
+        'title': v['title'], 'desc': v.get('desc', ''), 'year': year,
+        'place': v['place'], 'date': v['date'],
+        'city': city_of(v['place']), 'country': country_of(v['place']),
+        'dest': dest, 'icon': icon, 'ccf': v.get('ccf', 'N'), 'core': v.get('core', 'N'),
+        'deadline': dl, 'open': bool(dl) and dl >= TODAY.isoformat(),
+        'link': v.get('link', ''),
+        'q': f"{v['place']} {city_of(v['place'])} {country_of(v['place'])} {expand(v['place'])}".lower(),
+    })
+
+# The strongest credential each venue has, strongest first. Most venues
+# outside computing have no CCF or CORE rank at all, so the field's own
+# standing comes first: a tier the field uses (Big Four, a society's
+# flagship), then the catalogue ranks that exist, then anything noted by
+# hand. Ranks that do not exist are left out rather than shown as n/a.
+# Standing that the conferences data does not spell out as a tier.
+HONOR_EXTRA = {
+    'ICIAM': 'applied math world congress',
+    'World Sleep': 'World Sleep Society congress',
+    'TMS': 'TMS flagship',
+}
+CCF_RANK = {'A': 0, 'B': 2, 'C': 4}
+CORE_RANK = {'A*': 0, 'A': 2, 'B': 4, 'C': 5}
+for i in items:
+    v = BY_TITLE.get(i['title'], {})
+    i['field'] = _labels.get(v.get('area', ''), '')
+    hon = []
+    if v.get('frank'):
+        hon.append((0, v['frank'], 'field'))
+    elif 'flagship' in (v.get('kind') or ''):
+        hon.append((0, f"{v.get('field') or 'field'} flagship", 'field'))
+    extra = i.get('honor') or HONOR_EXTRA.get(i['title'])
+    if extra and all(extra != h[1] for h in hon):
+        hon.append((1, extra, 'field'))
+    if i['ccf'] in CCF_RANK:
+        hon.append((CCF_RANK[i['ccf']], f"CCF {i['ccf']}", 'ccf-' + i['ccf'].lower()))
+    if i['core'] in CORE_RANK:
+        c = i['core']
+        hon.append((CORE_RANK[c], f"CORE {c}", 'core-' + ('as' if c == 'A*' else c.lower())))
+    i['honors'] = [{'t': t, 'k': k} for _, t, k in sorted(hon, key=lambda h: h[0])][:3]
 
 # Editions that have already happened are gone, so a conference appears once
 # per city: its next visit there. Deduping by title alone would be wrong here,
@@ -341,8 +403,8 @@ out = {
 }
 hdr = ('// Generated by scripts/build-destinations.py, do not edit by hand.\n'
        '// Upcoming editions worth travelling for, grouped by destination.\n'
-       '// Only CCF A or B, or CORE A* or A, plus the venues added by hand in\n'
-       '// the script. Destinations deliberately mix cities, countries and\n'
+       '// CCF A or B, or CORE A* or A, every hand-kept venue on the field\n'
+       '// tabs, and the venues added by hand in the script. Destinations mix cities, countries and\n'
        '// regions, because that is how people choose where to go.\n'
        f'// Built {TODAY.isoformat()}.\n')
 with open('src/data/destinations.js', 'w') as f:

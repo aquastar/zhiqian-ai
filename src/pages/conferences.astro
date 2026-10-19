@@ -401,29 +401,32 @@ const freshRated = rows.filter((c) => c.rates.length && c.rates[c.rates.length -
     <Nav current="conferences" />
 
     <section class="head">
-      {/* Nineteen fields will not fit one row of chips, so they sit in four
-          groups: pick a group, then a field. */}
-      <div class="filter groups" role="tablist" aria-label="Field group">
-        <div class="gtabs">
+      {/* Every field at once, as a directory: a small caption per group and
+          its fields after it, groups kept whole on a line and divided by a
+          hairline. No tabs to open, and the grouping reads from the caption. */}
+      <div class="picker">
+        <nav class="dir" aria-label="Field">
           {GROUPS.map((g) => (
-            <button class={`gbtn${g.id === groupOf[DEFAULT] ? ' is-on' : ''}`} data-group={g.id} type="button">{g.label}</button>
+            <div class="dir-group">
+              <span class="dir-label">{g.label}</span>
+              {domains.filter((d) => d.group === g.id).map((d) => (
+                <button class={`dchip${d.id === DEFAULT ? ' is-on' : ''}`} data-area={d.id} type="button"
+                        data-scholar={d.scholarUrl} style={`--hue:${d.hue}`}>
+                  <i class={`fas ${d.icon}`} aria-hidden="true"></i>{d.label}<span class="fcount">{d.n}</span>
+                </button>
+              ))}
+            </div>
           ))}
-        </div>
-        <button class="fbtn fbtn-dest" data-area="destinations" type="button">
-          <i class="fas fa-plane-departure" aria-hidden="true"></i>By destination<span class="fcount">{destinations.items.length}</span>
-        </button>
-        <a class="scholar-link" id="scholar-link" href={domains[0].scholarUrl} target="_blank" rel="noopener"
-           title="This field's h5-index ranking on Google Scholar Metrics, journals and conferences together">
-          h5-index <i class="fas fa-arrow-up-right-from-square" aria-hidden="true"></i>
-        </a>
-      </div>
-      <div class="filter fields" role="group" aria-label="Field">
-        {domains.map((d) => (
-          <button class={`fbtn${d.id === DEFAULT ? ' is-on' : ''}`} data-area={d.id} data-group={d.group} type="button"
-                  data-scholar={d.scholarUrl} hidden={d.group !== groupOf[DEFAULT]} style={`--hue:${d.hue}`}>
-            <i class={`fas ${d.icon}`} aria-hidden="true"></i>{d.label}<span class="fcount">{d.n}</span>
+        </nav>
+        <div class="side">
+          <button class="fbtn fbtn-dest" data-area="destinations" type="button">
+            <i class="fas fa-plane-departure" aria-hidden="true"></i>Selected destination<span class="fcount">{destinations.items.length}</span>
           </button>
-        ))}
+          <a class="scholar-link" id="scholar-link" href={domains[0].scholarUrl} target="_blank" rel="noopener"
+             title="This field's h5-index ranking on Google Scholar Metrics, journals and conferences together">
+            h5-index <i class="fas fa-arrow-up-right-from-square" aria-hidden="true"></i>
+          </a>
+        </div>
       </div>
       {/* The legend is a reference, not a thing to read first, so it sits
           behind the button and comes out on hover or on focus. Focus matters:
@@ -557,7 +560,7 @@ ${t.rate}% accepted, ${t.n.toLocaleString()} submissions, ${t.share}% of the edi
               <th class="c-name">Conference</th>
               <th class="c-date">Deadline</th>
               <th class="c-when">When and where</th>
-              <th class="c-rank">Ranking</th>
+              <th class="c-rank" title="The strongest credential each venue has: the field's own standing first, then CCF and CORE where they exist">Standing</th>
             </tr>
           </thead>
           <tbody>
@@ -569,6 +572,7 @@ ${t.rate}% accepted, ${t.n.toLocaleString()} submissions, ${t.share}% of the edi
                     <span class="ed-ord">{it.year}</span>
                   </span>
                   <span class="conf-desc">{it.desc}</span>
+                  {it.field && it.field !== 'AI · ML · Data Mining' && <span class="dest-field">{it.field}</span>}
                 </td>
                 <td class="c-date" data-label="Deadline">
                   <span class="dl">{it.deadline || 'not published'}</span>
@@ -578,9 +582,10 @@ ${t.rate}% accepted, ${t.n.toLocaleString()} submissions, ${t.share}% of the edi
                   <span class="when">{it.date}</span>
                   <span class="where">{it.place}</span>
                 </td>
-                <td class="c-rank" data-label="Ranking">
-                  <span class={`pill ccf-${it.ccf.toLowerCase()}`}>CCF {it.ccf === 'N' ? 'n/a' : it.ccf}</span>
-                  <span class={`pill ${coreClass(it.core)}`}>CORE {coreLabel[it.core] || 'n/a'}</span>
+                <td class="c-rank" data-label="Standing">
+                  {it.honors.length
+                    ? <span class="ranks">{it.honors.map((h) => <span class={`pill ${h.k === 'field' ? 'honor' : h.k}`}>{h.t}</span>)}</span>
+                    : <span class="none">&mdash;</span>}
                 </td>
               </tr>
             ))}
@@ -590,9 +595,10 @@ ${t.rate}% accepted, ${t.n.toLocaleString()} submissions, ${t.share}% of the edi
       <p class="dest-none" hidden>Nothing announced there yet.</p>
       <p class="area-note">
         {destinations.items.length} upcoming editions across {destinations.places.length} destinations, each one a
-        place rather than a category, so cities, countries and regions sit side by side. Only venues at CCF A or B,
-        or CORE A* or A, plus a handful added by hand because they belong here whatever the tables say. A call
-        marked open still has a deadline ahead of today.
+        place rather than a category, so cities, countries and regions sit side by side. The computing venues are those at
+        CCF A or B or CORE A* or A; every hand-kept venue from the field tabs is here too, along with a few chosen for the trip.
+        Standing gives each venue's strongest credential first: the field's own (a society flagship, the Big Four), then CCF
+        and CORE where they rank it. A call marked open still has a deadline ahead of today.
       </p>
     </section>
 
@@ -1108,32 +1114,31 @@ ${t.rate}% accepted, ${t.n.toLocaleString()} submissions, ${t.share}% of the edi
 
   /* Groups, then fields. The group row is quiet; the field chips carry the
      field's own hue, which also tints its section. */
-  /* Folder tabs: the open group is a tab joined to the panel beneath it,
-     and the panel holds that group's fields. Two rows of pills of the same
-     weight read as siblings; this reads as parent and children. */
-  .filter.groups { margin-bottom:0; gap:2px; align-items:flex-end; border-bottom:1px solid #e2e8f0; }
-  .gbtn { flex:0 0 auto; padding:8px 16px 7px; border:1px solid transparent; border-bottom:0;
-    border-radius:10px 10px 0 0; background:transparent;
-    font-family:'Montserrat',sans-serif; font-size:.82rem; font-weight:700; color:#94a3b8; cursor:pointer; }
-  .gbtn:hover { color:#334155; }
-  .gbtn.is-on { color:#0f172a; background:#f1f5f9; border-color:#e2e8f0; box-shadow:0 1px 0 #f1f5f9; }
-  .gtabs { display:flex; gap:2px; align-items:flex-end; margin-bottom:-1px; }
-  .filter.groups .fbtn-dest, .filter.groups .scholar-link { margin-bottom:6px; }
-  /* On a phone the side buttons go above the tabs, so nothing ever sits
-     between the open tab and its panel; the tabs scroll rather than wrap. */
-  @media (max-width: 760px) {
-    .filter.groups { flex-wrap:wrap; }
-    .filter.groups .fbtn-dest, .filter.groups .scholar-link { order:-1; }
-    .gtabs { flex:1 0 100%; overflow-x:auto; scrollbar-width:none; }
-    .gtabs::-webkit-scrollbar { display:none; }
-    .gbtn { padding:7px 11px 6px; font-size:.76rem; }
+  /* The field directory. Captions are quiet, fields are light text buttons
+     with their hue on the icon, and only the open field is filled. */
+  .picker { position:relative; margin-bottom:12px; }
+  .dir { display:flex; flex-direction:column; gap:4px; min-width:0; }
+  .dir-group { display:flex; flex-wrap:wrap; align-items:center; gap:2px; }
+  .dir-label { flex:0 0 128px; font-family:'Montserrat',sans-serif; font-size:.6rem; font-weight:700; letter-spacing:.09em;
+    text-transform:uppercase; color:#94a3b8; white-space:nowrap; }
+  .dchip { display:inline-flex; align-items:center; gap:5px; padding:4px 9px; border:0; border-radius:999px;
+    background:transparent; color:#334155; font-size:.8rem; font-weight:600; white-space:nowrap; cursor:pointer; }
+  .dchip i { color:var(--hue); font-size:.76rem; }
+  .dchip .fcount { color:#a3adbb; font-size:.66rem; font-weight:700; }
+  .dchip:hover { background:#f1f5f9; }
+  .dchip.is-on { background:var(--hue); color:#fff; }
+  .dchip.is-on i, .dchip.is-on .fcount { color:rgba(255,255,255,.85); }
+  /* The last row is the shortest, so the two side buttons sit at its end. */
+  .side { position:absolute; right:0; bottom:0; display:flex; gap:6px; align-items:center; }
+  @media (max-width: 900px) {
+    .side { position:static; margin-top:10px; }
+    .dir-label { flex-basis:100%; margin:6px 0 1px; }
   }
-  .filter.fields { margin-bottom:10px; padding:10px 12px; background:#f1f5f9; border:1px solid #e2e8f0; border-top:0;
-    border-radius:0 0 12px 12px; }
-  .filter.fields[hidden] { display:none; }
-  .fields .fbtn:not(.is-on) { background:#fff; color:var(--hue); border-color:color-mix(in srgb, var(--hue) 30%, white); }
-  .fields .fbtn.is-on { background:var(--hue); border-color:var(--hue); color:#fff; }
-  .fbtn[hidden], .dom[hidden], .gbtn[hidden], .jrnl-foot[hidden] { display:none !important; }
+  .dom[hidden], .jrnl-foot[hidden] { display:none !important; }
+  .pill.honor { background:#fefce8; color:#854d0e; border:1px solid #fde68a; min-width:0; white-space:normal; text-align:left; }
+  .dest-field { display:inline-block; margin-top:3px; font-size:.64rem; font-weight:700; letter-spacing:.04em; color:#64748b;
+    background:#f1f5f9; border-radius:4px; padding:1px 6px; }
+  .dest-table .c-rank { white-space:normal; width:16%; }
   .dom .field-note { border-left-color:var(--hue); }
   .pill.frank { background:color-mix(in srgb, var(--hue, #334155) 14%, white); color:var(--hue, #334155);
     border:1px solid color-mix(in srgb, var(--hue, #334155) 35%, white); min-width:0; text-transform:none; }
@@ -1874,8 +1879,7 @@ ${t.rate}% accepted, ${t.n.toLocaleString()} submissions, ${t.share}% of the edi
   // only shows with a table field.
   const legend = document.getElementById('legend');
   const doms = Array.from(document.querySelectorAll('.dom'));
-  const fieldBtns = Array.from(document.querySelectorAll('.fields .fbtn'));
-  const groupBtns = Array.from(document.querySelectorAll('.gbtn'));
+  const fieldBtns = Array.from(document.querySelectorAll('.dir .dchip'));
   const destBtn = document.querySelector('.fbtn-dest');
   const jfoot = document.querySelector('.jrnl-foot');
 
@@ -1901,26 +1905,8 @@ ${t.rate}% accepted, ${t.n.toLocaleString()} submissions, ${t.share}% of the edi
       if (url) scholarLink.href = url;
     }
   };
-  const showGroup = (g) => {
-    const row = document.querySelector('.filter.fields');
-    if (row) row.hidden = false;
-    groupBtns.forEach((b) => b.classList.toggle('is-on', b.dataset.group === g));
-    fieldBtns.forEach((b) => { b.hidden = b.dataset.group !== g; });
-  };
   fieldBtns.forEach((btn) => btn.addEventListener('click', () => apply(btn)));
-  const fieldRow = document.querySelector('.filter.fields');
-  if (destBtn) destBtn.addEventListener('click', () => {
-    groupBtns.forEach((b) => b.classList.remove('is-on'));
-    if (fieldRow) fieldRow.hidden = true;
-    fieldBtns.forEach((b) => { b.hidden = true; });
-    apply(destBtn);
-  });
-  // A group opens on its first field, so a click always shows something.
-  groupBtns.forEach((g) => g.addEventListener('click', () => {
-    showGroup(g.dataset.group);
-    const first = fieldBtns.find((b) => b.dataset.group === g.dataset.group);
-    if (first) apply(first);
-  }));
+  if (destBtn) destBtn.addEventListener('click', () => apply(destBtn));
 
   // One destination list. There is no search, so the data holds only what a
   // chip can reach; anything else is dropped at build time rather than
@@ -1949,6 +1935,6 @@ ${t.rate}% accepted, ${t.n.toLocaleString()} submissions, ${t.share}% of the edi
   const firstDest = document.querySelector('.dbtn');
   if (firstDest) { pick = firstDest.dataset.dest; paintDest(); }
   // The markup marks AI as selected; run the filter so the rows agree with it.
-  const start = document.querySelector('.fields .fbtn.is-on');
+  const start = document.querySelector('.dir .dchip.is-on');
   if (start) apply(start);
 </script>
