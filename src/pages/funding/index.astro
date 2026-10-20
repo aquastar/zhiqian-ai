@@ -69,7 +69,7 @@ const unverified = data.watchlist.filter((w) => (w.url_verified || '').toUpperCa
 
 const FILTERS = [
   { key: 'all', label: 'Everything tracked', icon: 'fa-layer-group', n: counts.all },
-  { key: 'pick', label: 'This week', icon: 'fa-star', n: counts.pick },
+  { key: 'pick', label: 'Latest picks', icon: 'fa-star', n: counts.pick },
   { key: 'open', label: 'Deadline ahead', icon: 'fa-hourglass-half', n: counts.open },
   { key: 'rolling', label: 'Rolling or undated', icon: 'fa-infinity', n: counts.rolling },
 ];
@@ -86,46 +86,21 @@ const COMP_WORD = { 1: 'light', 2: 'moderate', 3: 'competitive', 4: 'hard', 5: '
 
     <section class="brief">
       <div class="brief-main">
-        <h1>AI funding, tracked weekly</h1>
+        <h1>Computing Funding</h1>
       </div>
       <div class="brief-side">
         <div class="stamp">
-          <span class="stamp-label">Latest sweep</span>
+          <span class="stamp-label">Latest sweep <em>tracked twice weekly</em></span>
           <span class="stamp-date">{data.date}</span>
         </div>
         <ul class="tally">
           <li title="Every call the sweep has ever reported, including the closed ones, which are kept so the list reads as a record rather than only a to-do."><b>{counts.all}</b><span>tracked</span></li>
-          <li title="Picked out of this week's sweep as worth a look, rather than merely logged. These are the rows carrying a budget and a competition grade."><b>{counts.pick}</b><span>this week</span></li>
+          <li title="Picked out of the latest sweep as worth a look, rather than merely logged. These are the rows carrying a budget and a competition grade."><b>{counts.pick}</b><span>latest picks</span></li>
           <li title="Calls with at least one date still ahead of today, counted in your browser rather than at build time."><b>{counts.open}</b><span>still open</span></li>
-          <li title={`Funders on the standing watchlist, checked every Friday whether or not they have announced anything. ${unverified} of their links are not yet confirmed.`}><b>{data.counts.watchlist}</b><span>on watch</span></li>
+          <li title={`Funders on the standing watchlist, checked on every sweep, Monday and Friday, whether or not they have announced anything. ${unverified} of their links are not yet confirmed.`}><b>{data.counts.watchlist}</b><span>on watch</span></li>
         </ul>
-        <div class="grabs">
-          <a href="/funding/data.json" title="Everything on this page as one JSON file: the week's opportunities, the full registry, the watchlist and the early signals, with the counts and the collection window. Written by the Friday job from the three sources below it.">data.json</a>
-          <a href="/funding/registry.csv" title={`The ledger of every call the weekly sweep has reported, ${data.counts.registry} rows so far, one line each with the date it was first seen, the funder, the programme, the deadline and the link. The sweep reads it back each week to work out what is genuinely new.`}>registry.csv</a>
-          <a href="/funding/watchlist.csv" title={`The standing scan list, ${data.counts.watchlist} funders checked every run rather than found by one: category, typical cycle, who may apply, and a note on why the funder is on the list. Hand maintained, and ${unverified} of its links are not yet confirmed.`}>watchlist.csv</a>
-        </div>
+        <a class="src-link" href="/funding/sources">Sources and data <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
       </div>
-      {/* Noun phrases, not sentences. Where the list comes from, named and
-          nothing more, each one its own chip so the line reads as a set of
-          things and not a sentence that ran together.
-
-          CSRankings belongs here even though no script fetches it. The
-          watchlist is hand-assembled, and faculty pages reached through
-          CSRankings are part of how it was built. Reading only the code
-          would miss that, because the code reads the finished sheet and
-          not the work behind it. */}
-      <p class="sources">
-        <span class="sources-label">Sources</span>
-        <span>CSRankings faculty pages</span>
-        <span>{data.counts.watchlist}-funder watchlist</span>
-        <span>weekly trawl</span>
-        <span>prior-sightings ledger</span>
-        <span><a href="https://www.grants.gov/" target="_blank" rel="noopener">grants.gov</a> award ceilings and floors</span>
-        <span>NSF solicitation pages</span>
-        {data.window.new_since && (
-          <span class="window">new since <b>{data.window.new_since}</b>, or closing before <b>{data.window.deadline_before}</b></span>
-        )}
-      </p>
     </section>
 
     <div class="filter">
@@ -162,7 +137,7 @@ const COMP_WORD = { 1: 'light', 2: 'moderate', 3: 'competitive', 4: 'hard', 5: '
                     <span class="who-line">
                       <span class="sponsor" title={r.sponsor}>{r.sponsor}</span>
                       {r.category && <span class={`kind kind-${slug(r.category)}`} title="What kind of body is paying, worked out from the funder and its own domain">{r.category}</span>}
-                      {r.pick && <span class="pick-tag" title="Picked out in this week's brief">this week</span>}
+                      {r.pick && <span class="pick-tag" title="Picked out in the latest brief">latest</span>}
                       {r.source_tier && <span class="tier-tag" title="How the call was found: L1 a primary source, L2 an aggregator, L3 a secondary mention">{r.source_tier}</span>}
                     </span>
                     {r.url
@@ -236,9 +211,9 @@ const COMP_WORD = { 1: 'light', 2: 'moderate', 3: 'competitive', 4: 'hard', 5: '
     )}
 
     <p class="foot">
-      {data.caveat} Built from the weekly sweep by
-      <a href="https://github.com/aquastar/zhiqian-ai/blob/main/.github/workflows/funding-sync.yml" target="_blank" rel="noopener">a scheduled job</a>
-      that runs every Friday, 13:37 UTC.
+      {data.caveat} Built from the Monday and Friday sweep by
+      <a href="https://github.com/aquastar/zhiqian-ai/blob/main/.github/workflows/funding-sync.yml" target="_blank" rel="noopener">a scheduled job</a>.
+      <a href="/funding/sources">Where it all comes from</a>.
     </p>
   </main>
 </Layout>
@@ -248,10 +223,8 @@ const COMP_WORD = { 1: 'light', 2: 'moderate', 3: 'competitive', 4: 'hard', 5: '
 
   /* The brief, which is the standing explanation of what this page is, with
      the week's numbers beside it rather than under it.
-     Two rows, not two columns of unequal height: the title and the counts
-     share the first, the sources run the full width of the second. The
-     earlier layout left the counts taller than the title beside them, and
-     the difference showed as a band of white under the heading. */
+     The sources and the downloadable data have a page of their own,
+     /funding/sources, linked from beside the counts. */
   .brief { display:grid; grid-template-columns:minmax(0,1fr) auto; gap:10px 26px;
     align-items:center; padding:12px 18px; margin-bottom:12px;
     border:1px solid rgba(148,163,184,.3); border-radius:14px;
@@ -263,21 +236,8 @@ const COMP_WORD = { 1: 'light', 2: 'moderate', 3: 'competitive', 4: 'hard', 5: '
   .brief h1 { font-size:1.3rem; margin:0 0 7px; letter-spacing:-.02em; text-align:left; }
   /* One row of chips. Each name is its own object with its own edge, which
      is what stops six noun phrases reading as one run-on line. */
-  .sources { grid-column:1 / -1; display:flex; flex-wrap:wrap; align-items:center; gap:6px;
-    margin:0; padding:9px 0 0; border-top:1px solid rgba(148,163,184,.25);
-    font-size:.72rem; color:#475569; text-align:left; }
-  .sources > span { background:#fff; border:1px solid rgba(148,163,184,.35);
-    border-radius:999px; padding:2px 9px; line-height:1.35; }
-  .sources-label { font-size:.58rem; font-weight:800; letter-spacing:.09em;
-    text-transform:uppercase; color:#94a3b8; background:none !important;
-    border:0 !important; padding:0 2px 0 0 !important; }
-  .sources a { color:#1d4ed8; text-decoration:none; border-bottom:1px solid rgba(29,78,216,.3); }
-  .sources a:hover { border-color:currentColor; }
   /* The collection window is a fact about the sweep, not a source, so it
      sits at the far end of the row and is drawn plainly. */
-  .window { margin-left:auto; font-size:.7rem; color:#94a3b8;
-    background:none !important; border:0 !important; padding:0 !important; }
-  .window b { color:#475569; font-variant-numeric:tabular-nums; font-weight:700; }
   /* Wrapping, not fixed. On a phone this row is the whole reason the page
      used to be 707 pixels wide in a 375 pixel viewport: a flex row with no
      wrap has a min-content width, and a grid column sized auto hands it
@@ -285,16 +245,16 @@ const COMP_WORD = { 1: 'light', 2: 'moderate', 3: 'competitive', 4: 'hard', 5: '
   .brief-side { flex:0 0 auto; display:flex; flex-wrap:wrap; align-items:center; gap:10px 12px; }
   .stamp { display:flex; flex-direction:column; align-items:flex-end; line-height:1.1; }
   .stamp-label { font-size:.6rem; font-weight:800; letter-spacing:.09em; text-transform:uppercase; color:#94a3b8; }
+  .stamp-label em { font-style:normal; font-weight:600; letter-spacing:.02em; text-transform:none; color:#64748b; margin-left:6px; }
+  .src-link { font-size:.74rem; font-weight:700; color:#1d4ed8; text-decoration:none; border:1px solid rgba(29,78,216,.3);
+    border-radius:999px; padding:3px 11px; background:#fff; white-space:nowrap; }
+  .src-link:hover { background:#eff6ff; }
   .stamp-date { font-size:1.05rem; font-weight:800; color:#0f172a; font-variant-numeric:tabular-nums; }
   .tally { list-style:none; display:flex; flex-wrap:wrap; gap:7px; margin:0; padding:0; }
   .tally li { display:flex; flex-direction:column; align-items:center; min-width:62px; cursor:help;
     padding:5px 8px; border-radius:9px; background:#fff; border:1px solid rgba(148,163,184,.3); }
   .tally b { font-size:1rem; color:#0f172a; font-variant-numeric:tabular-nums; }
   .tally span { font-size:.58rem; font-weight:700; letter-spacing:.05em; text-transform:uppercase; color:#94a3b8; }
-  .grabs { display:flex; flex-wrap:wrap; gap:5px; }
-  .grabs a { font-size:.66rem; font-weight:700; color:#475569; text-decoration:none;
-    border:1px solid rgba(148,163,184,.45); border-radius:999px; padding:2px 9px; background:#fff; }
-  .grabs a:hover { color:var(--accent); border-color:rgba(37,99,235,.5); }
 
   .filter { display:flex; flex-wrap:wrap; gap:6px; align-items:center; margin-bottom:10px; }
   .fbtn { display:inline-flex; align-items:center; gap:6px; padding:5px 11px; border-radius:999px;
@@ -480,14 +440,6 @@ const COMP_WORD = { 1: 'light', 2: 'moderate', 3: 'competitive', 4: 'hard', 5: '
     /* border-box, or the padding and border are added to the 50 percent
        basis and the second tile wraps to a line of its own. */
     .tally li { box-sizing:border-box; flex:1 1 calc(50% - 3px); min-width:0; padding:3px 6px; }
-    .grabs { width:100%; }
-    .grabs a { font-size:.62rem; padding:2px 8px; }
-    .sources { gap:4px; font-size:.64rem; padding-top:7px; }
-    .sources > span { padding:1px 6px; }
-    .sources-label { width:100%; padding:0 !important; }
-    /* The window note had been pushed to the far end of the sources row by
-       an auto margin, which on one column means its own line anyway. */
-    .window { margin-left:0; width:100%; padding-top:1px !important; }
     .filter { gap:5px; }
     .fbtn { font-size:.72rem; padding:4px 9px; }
     .fund tbody tr { padding:9px 10px; }

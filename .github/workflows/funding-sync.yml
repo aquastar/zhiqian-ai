@@ -2,7 +2,7 @@ name: Sync funding brief
 
 on:
   schedule:
-    - cron: "37 13 * * 5"   # every Friday 13:37 UTC (9:37 am New York in summer time, 8:37 am in winter)
+    - cron: "37 13 * * 1,5"   # Monday and Friday 13:37 UTC, after the sweep at 02:51 New York time
   workflow_dispatch:
 
 permissions:
