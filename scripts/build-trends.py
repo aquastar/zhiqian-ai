@@ -7,11 +7,11 @@ Acceptance rates exist for a handful of computing conferences and nowhere
 else, so this measures the one thing every field has: papers. For each
 field it counts the last full year's papers in that field's journals (the
 ones listed on its tab, plus the flagship proceedings for the fields that
-publish at conferences) by OpenAlex topic, keeps the ten largest, and
+publish at conferences) by OpenAlex keyword, keeps the ten largest, and
 compares each topic's share with two years earlier. Share rather than raw
 count, because the journals themselves grow and shrink.
 
-One grouped query per field per year, at one OpenAlex credit each: 38 a
+Three grouped queries per field, at one OpenAlex credit each: about 60 a
 week against a free budget of 1,000 a day.
 """
 import json, re, datetime, urllib.request, urllib.error, time, os
@@ -31,9 +31,10 @@ if os.path.exists(OUT):
     m = re.search(r'export const trends = (\{.*\});', open(OUT, encoding='utf-8').read(), re.S)
     if m: prev = json.loads(m.group(1)).get('fields', {})
 
-def topics(sources, year):
+def topics(sources, year, keywords=None, per_page=200):
+    extra = (',keywords.id:' + '|'.join(keywords)) if keywords else ''
     url = ('https://api.openalex.org/works?filter=primary_location.source.id:' + '|'.join(sources) +
-           f',publication_year:{year}&group_by=primary_topic.id&per_page=200&mailto=site@zhiqian.ai')
+           f',publication_year:{year}{extra}&group_by=keywords.id&per_page={per_page}&mailto=site@zhiqian.ai')
     for attempt in range(4):
         try:
             with urllib.request.urlopen(url, timeout=60) as r:
@@ -62,15 +63,45 @@ CONF_SOURCES = {
     'biomed': ([('S4363605129', 'ISBI')], ['MICCAI']),
 }
 
-# A few OpenAlex topic names have not kept up with what is filed under them.
-# "Topic Modeling" is where it puts language-model papers (its keywords are
-# pretrained language models, retrieval-augmented generation, question
-# answering), and the GAN topic is mostly diffusion and text-to-image now.
-# The page shows the clearer name and keeps OpenAlex's in the tooltip.
-RELABEL = {
-    'Topic Modeling': 'Language models and NLP',
-    'Generative Adversarial Networks and Image Synthesis': 'Image generation (diffusion, GANs)',
+# Keywords, not OpenAlex topics. A topic is a broad cluster with a generic
+# name, so a trend like large language models is split across several of
+# them and never appears under its own name. Keywords are the terms papers
+# are actually about. They also include words that describe a study rather
+# than its subject (who was studied, where, with which instrument, or a
+# virtue every paper claims), and those are dropped here.
+STOP = {
+    # virtues and generic method words
+    'benchmark', 'benchmarking', 'computational efficiency', 'generalization', 'inference efficiency',
+    'communication efficiency', 'efficiency', 'robustness', 'scalability', 'optimization', 'accuracy',
+    'performance', 'deep learning', 'machine learning', 'artificial intelligence', 'neural networks',
+    'neural network', 'attention mechanism', 'class imbalance', 'resource-constrained devices',
+    'simulation', 'numerical simulation', 'numerical simulations', 'modeling', 'stability', 'convergence',
+    'real-time', 'computational cost', 'dataset', 'datasets', 'experimental validation', 'case study',
+    'privacy', 'data privacy', 'uncertainty', 'interpretability',
+    # properties a method is shown to have, not what it is about
+    'convergence analysis', 'convergence rate', 'asymptotic normality', 'asymptotic distribution',
+    'consistency', 'confidence intervals', 'data partitioning', 'mass conservation', 'np-hardness',
+    'thermal stability', 'cycling stability', 'structure-property relationships', 'linear convergence',
+    # model organisms: what was studied, not the question
+    'escherichia coli', 'drosophila', 'caenorhabditis elegans', 'zebrafish', 'saccharomyces cerevisiae',
+    # study designs and outcomes
+    'survey', 'review', 'systematic review', 'meta-analysis', 'randomized controlled trial', 'cohort study',
+    'cross-sectional study', 'retrospective study', 'non-inferiority', 'risk factors', 'mortality',
+    'hospitalization', 'comorbidities', 'quality of life', 'prevalence', 'incidence', 'epidemiology',
+    'health disparities', 'cross-national comparison', 'body mass index', 'obesity', 'depression', 'anxiety',
+    # who was studied
+    'older adults', 'children', 'adolescents', 'young adults', 'adults', 'women', 'men', 'infants',
+    'sex differences', 'gender differences', 'age', 'immunocompromised patients', 'college students',
+    'low- and middle-income countries', 'healthy volunteers', 'patients', 'age differences', 'mice', 'rats',
+    # how sleep is measured, rather than what is studied
+    'polysomnography', 'actigraphy', 'sleep efficiency', 'sleep latency', 'sleep onset latency',
+    'total sleep time', 'wake after sleep onset', 'sleep architecture',
 }
+DROP = re.compile(r'\b(scale|index|questionnaire|inventory|score|europe|germany|china|united states|usa|'
+                  r'africa|asia|india|japan|united kingdom|england|canada|australia|brazil|korea|france|'
+                  r'italy|spain|netherlands|sweden|denmark|norway|finland|switzerland)\b', re.I)
+def keep(name):
+    return name.lower() not in STOP and not DROP.search(name)
 
 fields = {}
 by_area = {}
@@ -81,25 +112,28 @@ for area, journal_sources in by_area.items():
     sources = journal_sources + [sid for sid, _ in confs]
     try:
         total, now = topics(sources, YEAR)
-        total0, then = topics(sources, BASE)
+        now = [g for g in now if g['key'] and keep(g['key_display_name'])][:TOP]
+        ids = [g['key'].rsplit('/', 1)[-1] for g in now]
+        # The base year, asked about exactly these keywords, so a keyword
+        # outside last time's top few hundred is still counted rather than
+        # mistaken for new. One more query gives the base year's total.
+        _, then = topics(sources, BASE, keywords=ids)
+        total0, _ = topics(sources, BASE, per_page=1)
         time.sleep(0.3)
     except Exception as e:
         print('  kept last week for', area, '-', e)
         if area in prev: fields[area] = prev[area]
         continue
-    # Papers with no topic assigned come back keyed "unknown"; they say
-    # nothing about what the field works on.
-    now = [g for g in now if g['key'] and 'unknown' not in g['key'].lower()]
     before = {g['key']: g['count'] for g in then}
     rows = []
-    for g in now[:TOP]:
+    for g in now:
         share = g['count'] / total * 100 if total else 0
         share0 = before.get(g['key'], 0) / total0 * 100 if total0 else 0
         rows.append({
-            'topic': g['key_display_name'], 'label': RELABEL.get(g['key_display_name'], g['key_display_name']),
+            'topic': g['key_display_name'], 'label': g['key_display_name'],
             'id': g['key'].rsplit('/', 1)[-1],
             'n': g['count'], 'share': round(share, 1),
-            # Relative change in share. None when the topic was absent two
+            # Relative change in share. None when the keyword was absent two
             # years ago, which the page shows as "new" rather than infinity.
             'growth': round((share / share0 - 1) * 100) if share0 else None,
         })
@@ -109,7 +143,7 @@ for area, journal_sources in by_area.items():
 
 out = {'year': YEAR, 'base': BASE, 'fields': fields}
 hdr = ('// Generated by scripts/build-trends.py, do not edit by hand.\n'
-       f'// Papers per OpenAlex topic in each field\'s journals, {YEAR}, against {BASE}.\n'
+       f'// Papers per OpenAlex keyword in each field\'s journals, {YEAR}, against {BASE}.\n'
        f'// Built {TODAY.isoformat()}.\n')
 with open(OUT, 'w', encoding='utf-8') as f:
     f.write(hdr + 'export const trends = ' + json.dumps(out, indent=1, ensure_ascii=False) + ';\n')
