@@ -36,6 +36,12 @@ jobs:
       - name: Rebuild src/data/destinations.js
         run: python3 scripts/build-destinations.py
 
+      # Papers per topic in each field's journals, from OpenAlex. Needs the
+      # journal list that build-conferences.py just wrote. One credit per
+      # field per year, so about 40 a week against a free 1,000 a day.
+      - name: Rebuild src/data/trends.js
+        run: python3 scripts/build-trends.py
+
       # Reports, never rewrites. The deadlines come from ccfddl; this asks
       # each venue's own site whether ccfddl is still right, and prints the
       # disagreements. It is allowed to fail without failing the refresh,
@@ -48,13 +54,13 @@ jobs:
 
       - name: Commit if the data moved
         run: |
-          if git diff --quiet -- src/data/conferences.js src/data/topics.js src/data/destinations.js; then
+          if git diff --quiet -- src/data/conferences.js src/data/topics.js src/data/destinations.js src/data/trends.js; then
             echo "No upstream change this week."
             exit 0
           fi
           git config user.name  "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add src/data/conferences.js src/data/topics.js src/data/destinations.js scripts/journal-cache.json
+          git add src/data/conferences.js src/data/topics.js src/data/destinations.js src/data/trends.js scripts/journal-cache.json
           git commit -m "Conferences: weekly data refresh
 
           Rebuilt from ccf-deadlines, the official CORE2023 export,

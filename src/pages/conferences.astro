@@ -5,6 +5,7 @@ import { ranked, notable, journals } from '../data/conferences.js';
 import { topicRates } from '../data/topics.js';
 import { destinations } from '../data/destinations.js';
 import { DOMAINS, GROUPS } from '../data/domains.js';
+import { trends } from '../data/trends.js';
 
 // The fields live in src/data/domains.js, each with the format that suits
 // it. AI opens first: it is what this page is mostly for.
@@ -388,6 +389,12 @@ const domains = DOMAINS.map((d) => {
     jRank: d.rank === 'ccf' || js.some((x) => x.rank || (d.rank === 'field' && x.ccf !== 'N')),
     n: mine.length + js.length,
     cycles, topic,
+    trend: (() => {
+      const t = trends.fields[d.id];
+      if (!t || !t.rows.length) return null;
+      const max = Math.max(...t.rows.map((r) => r.n));
+      return { ...t, rows: t.rows.map((r) => ({ ...r, pct: (r.n / max) * 100 })) };
+    })(),
     scholarUrl: d.scholar ? GSM + d.scholar : '',
   };
 });
@@ -608,6 +615,31 @@ ${t.rate}% accepted, ${t.n.toLocaleString()} submissions, ${t.share}% of the edi
           <h2 class="fn-head">How {d.label} publishes</h2>
           <ul>{d.notes.map((l) => <li>{l}</li>)}</ul>
         </div>
+
+        {/* What the field is publishing most. Papers, not acceptance rates,
+            because every field has the first and almost none the second. */}
+        {d.trend && (
+          <div class="section trends">
+            <h2 class="kind-head">Most published topics, {trends.year}</h2>
+            <ol class="trend-list">
+              {d.trend.rows.map((r) => (
+                <li>
+                  <a class="tr-name" href={`https://openalex.org/${r.id}`} target="_blank" rel="noopener" title={`${r.topic} on OpenAlex`}>{r.topic}</a>
+                  <span class="tr-bar"><span style={`width:${r.pct.toFixed(1)}%`}></span></span>
+                  <span class="tr-n">{r.n.toLocaleString()}</span>
+                  <span class={`tr-g ${r.growth === null ? 'is-new' : r.growth >= 15 ? 'is-up' : r.growth <= -15 ? 'is-down' : ''}`}
+                        title={r.growth === null ? `Not among this field's topics in ${trends.base}` : `Share of the field's papers, ${trends.base} to ${trends.year}`}>
+                    {r.growth === null ? 'new' : `${r.growth > 0 ? '+' : ''}${r.growth}%`}
+                  </span>
+                </li>
+              ))}
+            </ol>
+            <p class="area-note">
+              {d.trend.total.toLocaleString()} papers in {trends.year} across the {d.trend.sources} journals listed below, grouped by OpenAlex topic.
+              The figure on the right is the change in each topic's share of those papers since {trends.base}.
+            </p>
+          </div>
+        )}
 
         {d.cycles && (
           <div class="section cycles">
@@ -1024,6 +1056,10 @@ ${t.rate}% accepted, ${t.n.toLocaleString()} submissions, ${t.share}% of the edi
           <span>Acceptance rates, accepted and submitted counts</span>
         </li>
         <li>
+          <a href="https://openalex.org/" target="_blank" rel="noopener">OpenAlex</a>
+          <span>Journal output and citations, and the most published topics per field</span>
+        </li>
+        <li>
           <a href="https://github.com/papercopilot/paperlists" target="_blank" rel="noopener">paperlists</a>
           <span>Per-topic acceptance, from every ICLR submission</span>
         </li>
@@ -1155,6 +1191,27 @@ ${t.rate}% accepted, ${t.n.toLocaleString()} submissions, ${t.share}% of the edi
     display:inline-flex; align-items:center; justify-content:center; padding:0 4px; }
   .cyc-dot.is-est { background:#fff; color:var(--hue); border:1.5px dashed var(--hue); }
 
+  .trends { margin-bottom:16px; }
+  .trend-list { list-style:none; margin:0; padding:0; display:grid; grid-template-columns:repeat(2, minmax(0,1fr)); column-gap:28px; row-gap:4px; counter-reset:tr;
+    grid-auto-flow:column; grid-template-rows:repeat(5, auto); }
+  .trend-list li { display:grid; grid-template-columns:18px minmax(0,1.4fr) minmax(60px,1fr) 44px 46px; align-items:center; gap:8px; counter-increment:tr; }
+  .trend-list li::before { content:counter(tr); font-size:.68rem; font-weight:800; color:#a3adbb; text-align:right; }
+  .tr-name { font-size:.8rem; color:#1e293b; text-decoration:none; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; text-align:left; }
+  .tr-name:hover { color:var(--accent); text-decoration:underline; }
+  .tr-bar { height:8px; border-radius:999px; background:#f1f5f9; overflow:hidden; }
+  .tr-bar span { display:block; height:100%; border-radius:999px; background:var(--hue); opacity:.75; }
+  .tr-n { font-size:.74rem; font-weight:700; color:#334155; text-align:right; font-variant-numeric:tabular-nums; }
+  .tr-g { font-size:.66rem; font-weight:800; text-align:center; border-radius:999px; padding:1px 0; color:#64748b; background:#f1f5f9; font-variant-numeric:tabular-nums; }
+  .tr-g.is-up { color:#166534; background:#dcfce7; }
+  .tr-g.is-down { color:#991b1b; background:#fee2e2; }
+  .tr-g.is-new { color:#1d4ed8; background:#dbeafe; }
+  @media (max-width: 900px) {
+    .trend-list { grid-template-columns:1fr; grid-auto-flow:row; grid-template-rows:none; row-gap:8px; }
+    .trend-list li { grid-template-columns:18px minmax(0,1fr) 44px 46px; grid-template-areas:'num name name name' '. bar n g'; row-gap:3px; }
+    .trend-list li::before { grid-area:num; }
+    .tr-name { grid-area:name; white-space:normal; }
+    .tr-bar { grid-area:bar; } .tr-n { grid-area:n; } .tr-g { grid-area:g; }
+  }
   .ts-stat { margin-bottom:14px; }
   .ts-line { margin:0; font-size:.88rem; color:#334155; line-height:1.6; text-align:left; }
   .ts-line b { font-size:1.15rem; color:var(--hue); }
