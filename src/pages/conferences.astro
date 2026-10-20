@@ -624,7 +624,7 @@ ${t.rate}% accepted, ${t.n.toLocaleString()} submissions, ${t.share}% of the edi
             <ol class="trend-list">
               {d.trend.rows.map((r) => (
                 <li>
-                  <a class="tr-name" href={`https://openalex.org/${r.id}`} target="_blank" rel="noopener" title={`${r.topic} on OpenAlex`}>{r.topic}</a>
+                  <a class="tr-name" href={`https://openalex.org/${r.id}`} target="_blank" rel="noopener" title={r.label !== r.topic ? `OpenAlex calls this "${r.topic}"` : `${r.topic} on OpenAlex`}>{r.label}</a>
                   <span class="tr-bar"><span style={`width:${r.pct.toFixed(1)}%`}></span></span>
                   <span class="tr-n">{r.n.toLocaleString()}</span>
                   <span class={`tr-g ${r.growth === null ? 'is-new' : r.growth >= 15 ? 'is-up' : r.growth <= -15 ? 'is-down' : ''}`}
@@ -635,7 +635,11 @@ ${t.rate}% accepted, ${t.n.toLocaleString()} submissions, ${t.share}% of the edi
               ))}
             </ol>
             <p class="area-note">
-              {d.trend.total.toLocaleString()} papers in {trends.year} across the {d.trend.sources} journals listed below, grouped by OpenAlex topic.
+              {d.trend.total.toLocaleString()} papers in {trends.year}
+              {d.trend.confs.length > 0
+                ? <>from {d.trend.confs.join(', ')} and the {d.trend.journals} journals listed below</>
+                : <>across the {d.trend.journals} journals listed below</>}, grouped by OpenAlex topic.
+              {d.trend.missing.length > 0 && <> {d.trend.missing.join(' and ')} {d.trend.missing.length > 1 ? 'are' : 'is'} not indexed there, so {d.trend.missing.length > 1 ? 'they are' : 'it is'} not counted.</>}
               The figure on the right is the change in each topic's share of those papers since {trends.base}.
             </p>
           </div>

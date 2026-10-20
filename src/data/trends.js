@@ -6,315 +6,394 @@ export const trends = {
  "base": 2023,
  "fields": {
   "ai": {
-   "total": 3076,
-   "sources": 11,
+   "total": 18074,
+   "journals": 11,
+   "confs": [
+    "NeurIPS",
+    "AAAI",
+    "KDD",
+    "CVPR",
+    "ACL"
+   ],
+   "missing": [
+    "ICML",
+    "ICLR"
+   ],
    "rows": [
     {
-     "topic": "Advanced Neural Network Applications",
-     "id": "T10036",
-     "n": 201,
-     "share": 6.5,
-     "growth": 0
-    },
-    {
-     "topic": "Advanced Graph Neural Networks",
-     "id": "T11273",
-     "n": 201,
-     "share": 6.5,
-     "growth": 6
-    },
-    {
-     "topic": "Domain Adaptation and Few-Shot Learning",
-     "id": "T11307",
-     "n": 175,
-     "share": 5.7,
-     "growth": 14
+     "topic": "Topic Modeling",
+     "label": "Language models and NLP",
+     "id": "T10028",
+     "n": 1417,
+     "share": 7.8,
+     "growth": 35
     },
     {
      "topic": "Multimodal Machine Learning Applications",
+     "label": "Multimodal Machine Learning Applications",
      "id": "T11714",
-     "n": 114,
-     "share": 3.7,
-     "growth": 61
-    },
-    {
-     "topic": "3D Shape Modeling and Analysis",
-     "id": "T10719",
-     "n": 112,
-     "share": 3.6,
-     "growth": 65
+     "n": 1341,
+     "share": 7.4,
+     "growth": 79
     },
     {
      "topic": "Generative Adversarial Networks and Image Synthesis",
+     "label": "Image generation (diffusion, GANs)",
      "id": "T10775",
-     "n": 107,
-     "share": 3.5,
-     "growth": 97
+     "n": 1101,
+     "share": 6.1,
+     "growth": 77
     },
     {
-     "topic": "Privacy-Preserving Technologies in Data",
-     "id": "T10764",
-     "n": 98,
-     "share": 3.2,
-     "growth": 34
+     "topic": "Domain Adaptation and Few-Shot Learning",
+     "label": "Domain Adaptation and Few-Shot Learning",
+     "id": "T11307",
+     "n": 848,
+     "share": 4.7,
+     "growth": -24
     },
     {
-     "topic": "Recommender Systems and Techniques",
-     "id": "T10203",
-     "n": 95,
-     "share": 3.1,
-     "growth": 16
-    },
-    {
-     "topic": "Advanced Clustering Algorithms Research",
-     "id": "T10637",
-     "n": 90,
-     "share": 2.9,
-     "growth": -14
-    },
-    {
-     "topic": "Reinforcement Learning in Robotics",
-     "id": "T10462",
-     "n": 84,
-     "share": 2.7,
-     "growth": -6
-    }
-   ]
-  },
-  "security": {
-   "total": 1945,
-   "sources": 6,
-   "rows": [
-    {
-     "topic": "Privacy-Preserving Technologies in Data",
-     "id": "T10764",
-     "n": 243,
-     "share": 12.5,
-     "growth": 37
-    },
-    {
-     "topic": "Cryptography and Data Security",
-     "id": "T10237",
-     "n": 214,
-     "share": 11.0,
-     "growth": -11
-    },
-    {
-     "topic": "Adversarial Robustness in Machine Learning",
-     "id": "T11689",
-     "n": 212,
-     "share": 10.9,
-     "growth": 16
-    },
-    {
-     "topic": "Network Security and Intrusion Detection",
-     "id": "T10400",
-     "n": 161,
-     "share": 8.3,
-     "growth": -6
-    },
-    {
-     "topic": "Security and Verification in Computing",
-     "id": "T11424",
-     "n": 77,
-     "share": 4.0,
-     "growth": -11
-    },
-    {
-     "topic": "Blockchain Technology Applications and Security",
-     "id": "T10270",
-     "n": 71,
-     "share": 3.7,
-     "growth": 40
-    },
-    {
-     "topic": "Information and Cyber Security",
-     "id": "T10734",
-     "n": 71,
-     "share": 3.7,
-     "growth": -29
-    },
-    {
-     "topic": "Advanced Malware Detection Techniques",
-     "id": "T11241",
-     "n": 66,
-     "share": 3.4,
-     "growth": -29
-    },
-    {
-     "topic": "Advanced Steganography and Watermarking Techniques",
-     "id": "T10388",
-     "n": 54,
-     "share": 2.8,
-     "growth": 44
-    },
-    {
-     "topic": "Biometric Identification and Security",
-     "id": "T10828",
-     "n": 52,
-     "share": 2.7,
-     "growth": -22
-    }
-   ]
-  },
-  "eda": {
-   "total": 1334,
-   "sources": 4,
-   "rows": [
-    {
-     "topic": "VLSI and FPGA Design Techniques",
-     "id": "T11522",
-     "n": 127,
-     "share": 9.5,
-     "growth": 24
-    },
-    {
-     "topic": "Advanced Memory and Neural Computing",
-     "id": "T10502",
-     "n": 102,
-     "share": 7.6,
-     "growth": 12
-    },
-    {
-     "topic": "Embedded Systems Design Techniques",
-     "id": "T10904",
-     "n": 92,
-     "share": 6.9,
-     "growth": 74
-    },
-    {
-     "topic": "Parallel Computing and Optimization Techniques",
-     "id": "T10054",
-     "n": 85,
-     "share": 6.4,
-     "growth": 10
-    },
-    {
-     "topic": "Physical Unclonable Functions (PUFs) and Hardware Security",
-     "id": "T12122",
-     "n": 61,
-     "share": 4.6,
-     "growth": -26
-    },
-    {
-     "topic": "Low-power high-performance VLSI design",
-     "id": "T10363",
-     "n": 60,
+     "topic": "Advanced Neural Network Applications",
+     "label": "Advanced Neural Network Applications",
+     "id": "T10036",
+     "n": 815,
      "share": 4.5,
      "growth": -29
     },
     {
+     "topic": "3D Shape Modeling and Analysis",
+     "label": "3D Shape Modeling and Analysis",
+     "id": "T10719",
+     "n": 804,
+     "share": 4.4,
+     "growth": 13
+    },
+    {
+     "topic": "Adversarial Robustness in Machine Learning",
+     "label": "Adversarial Robustness in Machine Learning",
+     "id": "T11689",
+     "n": 643,
+     "share": 3.6,
+     "growth": 8
+    },
+    {
+     "topic": "Reinforcement Learning in Robotics",
+     "label": "Reinforcement Learning in Robotics",
+     "id": "T10462",
+     "n": 624,
+     "share": 3.5,
+     "growth": -16
+    },
+    {
+     "topic": "Advanced Graph Neural Networks",
+     "label": "Advanced Graph Neural Networks",
+     "id": "T11273",
+     "n": 565,
+     "share": 3.1,
+     "growth": -16
+    },
+    {
+     "topic": "Privacy-Preserving Technologies in Data",
+     "label": "Privacy-Preserving Technologies in Data",
+     "id": "T10764",
+     "n": 480,
+     "share": 2.7,
+     "growth": 7
+    }
+   ]
+  },
+  "security": {
+   "total": 2815,
+   "journals": 6,
+   "confs": [
+    "CCS",
+    "S&P",
+    "NDSS"
+   ],
+   "missing": [
+    "USENIX Security"
+   ],
+   "rows": [
+    {
+     "topic": "Cryptography and Data Security",
+     "label": "Cryptography and Data Security",
+     "id": "T10237",
+     "n": 342,
+     "share": 12.1,
+     "growth": -10
+    },
+    {
+     "topic": "Privacy-Preserving Technologies in Data",
+     "label": "Privacy-Preserving Technologies in Data",
+     "id": "T10764",
+     "n": 317,
+     "share": 11.3,
+     "growth": 35
+    },
+    {
+     "topic": "Adversarial Robustness in Machine Learning",
+     "label": "Adversarial Robustness in Machine Learning",
+     "id": "T11689",
+     "n": 291,
+     "share": 10.3,
+     "growth": 13
+    },
+    {
+     "topic": "Security and Verification in Computing",
+     "label": "Security and Verification in Computing",
+     "id": "T11424",
+     "n": 202,
+     "share": 7.2,
+     "growth": 7
+    },
+    {
+     "topic": "Network Security and Intrusion Detection",
+     "label": "Network Security and Intrusion Detection",
+     "id": "T10400",
+     "n": 190,
+     "share": 6.7,
+     "growth": -8
+    },
+    {
+     "topic": "Blockchain Technology Applications and Security",
+     "label": "Blockchain Technology Applications and Security",
+     "id": "T10270",
+     "n": 104,
+     "share": 3.7,
+     "growth": 8
+    },
+    {
+     "topic": "Information and Cyber Security",
+     "label": "Information and Cyber Security",
+     "id": "T10734",
+     "n": 87,
+     "share": 3.1,
+     "growth": -24
+    },
+    {
+     "topic": "Advanced Malware Detection Techniques",
+     "label": "Advanced Malware Detection Techniques",
+     "id": "T11241",
+     "n": 86,
+     "share": 3.1,
+     "growth": -26
+    },
+    {
+     "topic": "Software Testing and Debugging Techniques",
+     "label": "Software Testing and Debugging Techniques",
+     "id": "T10743",
+     "n": 79,
+     "share": 2.8,
+     "growth": 10
+    },
+    {
+     "topic": "Internet Traffic Analysis and Secure E-voting",
+     "label": "Internet Traffic Analysis and Secure E-voting",
+     "id": "T11598",
+     "n": 73,
+     "share": 2.6,
+     "growth": 6
+    }
+   ]
+  },
+  "eda": {
+   "total": 2282,
+   "journals": 4,
+   "confs": [
+    "DAC",
+    "ASP-DAC",
+    "ISCA",
+    "HPCA"
+   ],
+   "missing": [
+    "ICCAD",
+    "DATE"
+   ],
+   "rows": [
+    {
+     "topic": "Parallel Computing and Optimization Techniques",
+     "label": "Parallel Computing and Optimization Techniques",
+     "id": "T10054",
+     "n": 263,
+     "share": 11.5,
+     "growth": 16
+    },
+    {
+     "topic": "VLSI and FPGA Design Techniques",
+     "label": "VLSI and FPGA Design Techniques",
+     "id": "T11522",
+     "n": 232,
+     "share": 10.2,
+     "growth": 35
+    },
+    {
+     "topic": "Advanced Memory and Neural Computing",
+     "label": "Advanced Memory and Neural Computing",
+     "id": "T10502",
+     "n": 162,
+     "share": 7.1,
+     "growth": 8
+    },
+    {
+     "topic": "Embedded Systems Design Techniques",
+     "label": "Embedded Systems Design Techniques",
+     "id": "T10904",
+     "n": 156,
+     "share": 6.8,
+     "growth": 21
+    },
+    {
      "topic": "Advanced Neural Network Applications",
+     "label": "Advanced Neural Network Applications",
      "id": "T10036",
-     "n": 54,
-     "share": 4.0,
-     "growth": -18
+     "n": 114,
+     "share": 5.0,
+     "growth": -22
     },
     {
-     "topic": "Analog and Mixed-Signal Circuit Design",
-     "id": "T10323",
-     "n": 45,
+     "topic": "Low-power high-performance VLSI design",
+     "label": "Low-power high-performance VLSI design",
+     "id": "T10363",
+     "n": 93,
+     "share": 4.1,
+     "growth": -29
+    },
+    {
+     "topic": "Quantum Computing Algorithms and Architecture",
+     "label": "Quantum Computing Algorithms and Architecture",
+     "id": "T10682",
+     "n": 77,
      "share": 3.4,
-     "growth": 5
+     "growth": 16
     },
     {
-     "topic": "VLSI and Analog Circuit Testing",
-     "id": "T11032",
-     "n": 43,
-     "share": 3.2,
-     "growth": -9
+     "topic": "Physical Unclonable Functions (PUFs) and Hardware Security",
+     "label": "Physical Unclonable Functions (PUFs) and Hardware Security",
+     "id": "T12122",
+     "n": 77,
+     "share": 3.4,
+     "growth": -28
     },
     {
      "topic": "Advanced Data Storage Technologies",
+     "label": "Advanced Data Storage Technologies",
      "id": "T11181",
-     "n": 37,
+     "n": 65,
      "share": 2.8,
-     "growth": -21
+     "growth": -17
+    },
+    {
+     "topic": "Analog and Mixed-Signal Circuit Design",
+     "label": "Analog and Mixed-Signal Circuit Design",
+     "id": "T10323",
+     "n": 59,
+     "share": 2.6,
+     "growth": 16
     }
    ]
   },
   "audio": {
-   "total": 136,
-   "sources": 4,
+   "total": 4599,
+   "journals": 4,
+   "confs": [
+    "ICASSP",
+    "Interspeech"
+   ],
+   "missing": [
+    "ISMIR"
+   ],
    "rows": [
     {
-     "topic": "Music and Audio Processing",
-     "id": "T11309",
-     "n": 44,
-     "share": 32.4,
-     "growth": 183
+     "topic": "Speech Recognition and Synthesis",
+     "label": "Speech Recognition and Synthesis",
+     "id": "T10201",
+     "n": 916,
+     "share": 19.9,
+     "growth": -21
     },
     {
      "topic": "Speech and Audio Processing",
+     "label": "Speech and Audio Processing",
      "id": "T10860",
-     "n": 41,
-     "share": 30.1,
-     "growth": 10
+     "n": 387,
+     "share": 8.4,
+     "growth": -29
     },
     {
-     "topic": "Music Technology and Sound Studies",
-     "id": "T11349",
-     "n": 19,
-     "share": 14.0,
-     "growth": 200
-    },
-    {
-     "topic": "Speech Recognition and Synthesis",
-     "id": "T10201",
-     "n": 12,
-     "share": 8.8,
-     "growth": -54
-    },
-    {
-     "topic": "Digital Filter Design and Implementation",
-     "id": "T11034",
-     "n": 3,
-     "share": 2.2,
-     "growth": 421
-    },
-    {
-     "topic": "Advanced Neural Network Applications",
-     "id": "T10036",
-     "n": 1,
-     "share": 0.7,
-     "growth": 16
-    },
-    {
-     "topic": "scientometrics and bibliometrics research",
-     "id": "T10102",
-     "n": 1,
-     "share": 0.7,
-     "growth": null
-    },
-    {
-     "topic": "Machine Fault Diagnosis Techniques",
-     "id": "T10220",
-     "n": 1,
-     "share": 0.7,
-     "growth": null
-    },
-    {
-     "topic": "Obstructive Sleep Apnea Research",
-     "id": "T10234",
-     "n": 1,
-     "share": 0.7,
-     "growth": 247
+     "topic": "Music and Audio Processing",
+     "label": "Music and Audio Processing",
+     "id": "T11309",
+     "n": 261,
+     "share": 5.7,
+     "growth": 2
     },
     {
      "topic": "Emotion and Mood Recognition",
+     "label": "Emotion and Mood Recognition",
      "id": "T10667",
-     "n": 1,
-     "share": 0.7,
-     "growth": -81
+     "n": 155,
+     "share": 3.4,
+     "growth": -7
+    },
+    {
+     "topic": "Advanced Neural Network Applications",
+     "label": "Advanced Neural Network Applications",
+     "id": "T10036",
+     "n": 138,
+     "share": 3.0,
+     "growth": 9
+    },
+    {
+     "topic": "Domain Adaptation and Few-Shot Learning",
+     "label": "Domain Adaptation and Few-Shot Learning",
+     "id": "T11307",
+     "n": 120,
+     "share": 2.6,
+     "growth": 37
+    },
+    {
+     "topic": "Generative Adversarial Networks and Image Synthesis",
+     "label": "Image generation (diffusion, GANs)",
+     "id": "T10775",
+     "n": 110,
+     "share": 2.4,
+     "growth": 128
+    },
+    {
+     "topic": "Multimodal Machine Learning Applications",
+     "label": "Multimodal Machine Learning Applications",
+     "id": "T11714",
+     "n": 110,
+     "share": 2.4,
+     "growth": 114
+    },
+    {
+     "topic": "Phonetics and Phonology Research",
+     "label": "Phonetics and Phonology Research",
+     "id": "T10403",
+     "n": 85,
+     "share": 1.8,
+     "growth": 17
+    },
+    {
+     "topic": "Adversarial Robustness in Machine Learning",
+     "label": "Adversarial Robustness in Machine Learning",
+     "id": "T11689",
+     "n": 81,
+     "share": 1.8,
+     "growth": 10
     }
    ]
   },
   "ts": {
    "total": 184,
-   "sources": 2,
+   "journals": 2,
+   "confs": [],
+   "missing": [],
    "rows": [
     {
      "topic": "Forecasting Techniques and Applications",
+     "label": "Forecasting Techniques and Applications",
      "id": "T11918",
      "n": 31,
      "share": 16.8,
@@ -322,6 +401,7 @@ export const trends = {
     },
     {
      "topic": "Financial Risk and Volatility Modeling",
+     "label": "Financial Risk and Volatility Modeling",
      "id": "T10282",
      "n": 26,
      "share": 14.1,
@@ -329,6 +409,7 @@ export const trends = {
     },
     {
      "topic": "Statistical Methods and Inference",
+     "label": "Statistical Methods and Inference",
      "id": "T10136",
      "n": 13,
      "share": 7.1,
@@ -336,6 +417,7 @@ export const trends = {
     },
     {
      "topic": "Advanced Statistical Process Monitoring",
+     "label": "Advanced Statistical Process Monitoring",
      "id": "T11443",
      "n": 10,
      "share": 5.4,
@@ -343,6 +425,7 @@ export const trends = {
     },
     {
      "topic": "Advanced Statistical Methods and Models",
+     "label": "Advanced Statistical Methods and Models",
      "id": "T11871",
      "n": 8,
      "share": 4.3,
@@ -350,6 +433,7 @@ export const trends = {
     },
     {
      "topic": "Time Series Analysis and Forecasting",
+     "label": "Time Series Analysis and Forecasting",
      "id": "T12205",
      "n": 8,
      "share": 4.3,
@@ -357,6 +441,7 @@ export const trends = {
     },
     {
      "topic": "Stock Market Forecasting Methods",
+     "label": "Stock Market Forecasting Methods",
      "id": "T11326",
      "n": 7,
      "share": 3.8,
@@ -364,6 +449,7 @@ export const trends = {
     },
     {
      "topic": "Financial Markets and Investment Strategies",
+     "label": "Financial Markets and Investment Strategies",
      "id": "T10047",
      "n": 6,
      "share": 3.3,
@@ -371,6 +457,7 @@ export const trends = {
     },
     {
      "topic": "Monetary Policy and Economic Impact",
+     "label": "Monetary Policy and Economic Impact",
      "id": "T10007",
      "n": 5,
      "share": 2.7,
@@ -378,6 +465,7 @@ export const trends = {
     },
     {
      "topic": "Electoral Systems and Political Participation",
+     "label": "Electoral Systems and Political Participation",
      "id": "T10108",
      "n": 4,
      "share": 2.2,
@@ -386,87 +474,105 @@ export const trends = {
    ]
   },
   "control": {
-   "total": 2668,
-   "sources": 8,
+   "total": 4345,
+   "journals": 8,
+   "confs": [
+    "CDC",
+    "ACC"
+   ],
+   "missing": [],
    "rows": [
     {
      "topic": "Distributed Control Multi-Agent Systems",
+     "label": "Distributed Control Multi-Agent Systems",
      "id": "T10249",
-     "n": 451,
-     "share": 16.9,
-     "growth": 5
+     "n": 570,
+     "share": 13.1,
+     "growth": -2
     },
     {
      "topic": "Stability and Control of Uncertain Systems",
+     "label": "Stability and Control of Uncertain Systems",
      "id": "T10046",
-     "n": 319,
-     "share": 12.0,
-     "growth": -9
+     "n": 410,
+     "share": 9.4,
+     "growth": -5
     },
     {
      "topic": "Advanced Control Systems Optimization",
+     "label": "Advanced Control Systems Optimization",
      "id": "T10791",
-     "n": 236,
-     "share": 8.8,
+     "n": 409,
+     "share": 9.4,
      "growth": 3
     },
     {
      "topic": "Control Systems and Identification",
+     "label": "Control Systems and Identification",
      "id": "T11236",
-     "n": 138,
-     "share": 5.2,
-     "growth": 4
+     "n": 216,
+     "share": 5.0,
+     "growth": -5
     },
     {
      "topic": "Stability and Controllability of Differential Equations",
+     "label": "Stability and Controllability of Differential Equations",
      "id": "T11110",
-     "n": 109,
-     "share": 4.1,
-     "growth": -2
+     "n": 152,
+     "share": 3.5,
+     "growth": 5
     },
     {
      "topic": "Adaptive Control of Nonlinear Systems",
+     "label": "Adaptive Control of Nonlinear Systems",
      "id": "T10040",
-     "n": 102,
-     "share": 3.8,
+     "n": 151,
+     "share": 3.5,
      "growth": -16
     },
     {
-     "topic": "Adaptive Dynamic Programming Control",
-     "id": "T12794",
-     "n": 80,
-     "share": 3.0,
-     "growth": 71
+     "topic": "Formal Methods in Verification",
+     "label": "Formal Methods in Verification",
+     "id": "T10142",
+     "n": 142,
+     "share": 3.3,
+     "growth": -5
     },
     {
-     "topic": "Stochastic processes and financial applications",
-     "id": "T10067",
-     "n": 77,
-     "share": 2.9,
-     "growth": 24
+     "topic": "Adaptive Dynamic Programming Control",
+     "label": "Adaptive Dynamic Programming Control",
+     "id": "T12794",
+     "n": 115,
+     "share": 2.6,
+     "growth": 15
     },
     {
      "topic": "Control and Stability of Dynamical Systems",
+     "label": "Control and Stability of Dynamical Systems",
      "id": "T12772",
-     "n": 70,
+     "n": 111,
      "share": 2.6,
-     "growth": -4
+     "growth": 4
     },
     {
      "topic": "Game Theory and Applications",
+     "label": "Game Theory and Applications",
      "id": "T11031",
-     "n": 63,
+     "n": 105,
      "share": 2.4,
-     "growth": 41
+     "growth": 5
     }
    ]
   },
   "dynsys": {
    "total": 2645,
-   "sources": 5,
+   "journals": 5,
+   "confs": [],
+   "missing": [],
    "rows": [
     {
      "topic": "Nonlinear Waves and Solitons",
+     "label": "Nonlinear Waves and Solitons",
      "id": "T10248",
      "n": 219,
      "share": 8.3,
@@ -474,6 +580,7 @@ export const trends = {
     },
     {
      "topic": "Nonlinear Dynamics and Pattern Formation",
+     "label": "Nonlinear Dynamics and Pattern Formation",
      "id": "T11187",
      "n": 154,
      "share": 5.8,
@@ -481,6 +588,7 @@ export const trends = {
     },
     {
      "topic": "Mathematical Dynamics and Fractals",
+     "label": "Mathematical Dynamics and Fractals",
      "id": "T10588",
      "n": 152,
      "share": 5.7,
@@ -488,6 +596,7 @@ export const trends = {
     },
     {
      "topic": "Mathematical and Theoretical Epidemiology and Ecology Models",
+     "label": "Mathematical and Theoretical Epidemiology and Ecology Models",
      "id": "T10482",
      "n": 143,
      "share": 5.4,
@@ -495,6 +604,7 @@ export const trends = {
     },
     {
      "topic": "Chaos control and synchronization",
+     "label": "Chaos control and synchronization",
      "id": "T10244",
      "n": 115,
      "share": 4.3,
@@ -502,6 +612,7 @@ export const trends = {
     },
     {
      "topic": "Model Reduction and Neural Networks",
+     "label": "Model Reduction and Neural Networks",
      "id": "T11206",
      "n": 111,
      "share": 4.2,
@@ -509,6 +620,7 @@ export const trends = {
     },
     {
      "topic": "Advanced Differential Equations and Dynamical Systems",
+     "label": "Advanced Differential Equations and Dynamical Systems",
      "id": "T12396",
      "n": 73,
      "share": 2.8,
@@ -516,6 +628,7 @@ export const trends = {
     },
     {
      "topic": "Distributed Control Multi-Agent Systems",
+     "label": "Distributed Control Multi-Agent Systems",
      "id": "T10249",
      "n": 67,
      "share": 2.5,
@@ -523,6 +636,7 @@ export const trends = {
     },
     {
      "topic": "Adaptive Control of Nonlinear Systems",
+     "label": "Adaptive Control of Nonlinear Systems",
      "id": "T10040",
      "n": 66,
      "share": 2.5,
@@ -530,6 +644,7 @@ export const trends = {
     },
     {
      "topic": "Vibration and Dynamic Analysis",
+     "label": "Vibration and Dynamic Analysis",
      "id": "T12206",
      "n": 58,
      "share": 2.2,
@@ -539,10 +654,13 @@ export const trends = {
   },
   "complex": {
    "total": 930,
-   "sources": 5,
+   "journals": 5,
+   "confs": [],
+   "missing": [],
    "rows": [
     {
      "topic": "Complex Network Analysis Techniques",
+     "label": "Complex Network Analysis Techniques",
      "id": "T10064",
      "n": 104,
      "share": 11.2,
@@ -550,6 +668,7 @@ export const trends = {
     },
     {
      "topic": "Traffic control and management",
+     "label": "Traffic control and management",
      "id": "T10524",
      "n": 87,
      "share": 9.4,
@@ -557,6 +676,7 @@ export const trends = {
     },
     {
      "topic": "Complex Systems and Time Series Analysis",
+     "label": "Complex Systems and Time Series Analysis",
      "id": "T11270",
      "n": 59,
      "share": 6.3,
@@ -564,6 +684,7 @@ export const trends = {
     },
     {
      "topic": "Theoretical and Computational Physics",
+     "label": "Theoretical and Computational Physics",
      "id": "T10591",
      "n": 57,
      "share": 6.1,
@@ -571,6 +692,7 @@ export const trends = {
     },
     {
      "topic": "Evacuation and Crowd Dynamics",
+     "label": "Evacuation and Crowd Dynamics",
      "id": "T11500",
      "n": 40,
      "share": 4.3,
@@ -578,6 +700,7 @@ export const trends = {
     },
     {
      "topic": "Advanced Thermodynamics and Statistical Mechanics",
+     "label": "Advanced Thermodynamics and Statistical Mechanics",
      "id": "T11520",
      "n": 32,
      "share": 3.4,
@@ -585,6 +708,7 @@ export const trends = {
     },
     {
      "topic": "Evolutionary Game Theory and Cooperation",
+     "label": "Evolutionary Game Theory and Cooperation",
      "id": "T11252",
      "n": 27,
      "share": 2.9,
@@ -592,6 +716,7 @@ export const trends = {
     },
     {
      "topic": "Mathematical and Theoretical Epidemiology and Ecology Models",
+     "label": "Mathematical and Theoretical Epidemiology and Ecology Models",
      "id": "T10482",
      "n": 26,
      "share": 2.8,
@@ -599,6 +724,7 @@ export const trends = {
     },
     {
      "topic": "Statistical Mechanics and Entropy",
+     "label": "Statistical Mechanics and Entropy",
      "id": "T12261",
      "n": 24,
      "share": 2.6,
@@ -606,6 +732,7 @@ export const trends = {
     },
     {
      "topic": "Opinion Dynamics and Social Influence",
+     "label": "Opinion Dynamics and Social Influence",
      "id": "T12592",
      "n": 17,
      "share": 1.8,
@@ -615,10 +742,13 @@ export const trends = {
   },
   "netsci": {
    "total": 306,
-   "sources": 5,
+   "journals": 5,
+   "confs": [],
+   "missing": [],
    "rows": [
     {
      "topic": "Complex Network Analysis Techniques",
+     "label": "Complex Network Analysis Techniques",
      "id": "T10064",
      "n": 103,
      "share": 33.7,
@@ -626,6 +756,7 @@ export const trends = {
     },
     {
      "topic": "Misinformation and Its Impacts",
+     "label": "Misinformation and Its Impacts",
      "id": "T11147",
      "n": 10,
      "share": 3.3,
@@ -633,6 +764,7 @@ export const trends = {
     },
     {
      "topic": "scientometrics and bibliometrics research",
+     "label": "scientometrics and bibliometrics research",
      "id": "T10102",
      "n": 7,
      "share": 2.3,
@@ -640,6 +772,7 @@ export const trends = {
     },
     {
      "topic": "Social Capital and Networks",
+     "label": "Social Capital and Networks",
      "id": "T11239",
      "n": 7,
      "share": 2.3,
@@ -647,6 +780,7 @@ export const trends = {
     },
     {
      "topic": "Complex Systems and Time Series Analysis",
+     "label": "Complex Systems and Time Series Analysis",
      "id": "T11270",
      "n": 6,
      "share": 2.0,
@@ -654,6 +788,7 @@ export const trends = {
     },
     {
      "topic": "Human Mobility and Location-Based Analysis",
+     "label": "Human Mobility and Location-Based Analysis",
      "id": "T11980",
      "n": 6,
      "share": 2.0,
@@ -661,6 +796,7 @@ export const trends = {
     },
     {
      "topic": "Health disparities and outcomes",
+     "label": "Health disparities and outcomes",
      "id": "T10235",
      "n": 5,
      "share": 1.6,
@@ -668,6 +804,7 @@ export const trends = {
     },
     {
      "topic": "Blockchain Technology Applications and Security",
+     "label": "Blockchain Technology Applications and Security",
      "id": "T10270",
      "n": 5,
      "share": 1.6,
@@ -675,6 +812,7 @@ export const trends = {
     },
     {
      "topic": "Social Media and Politics",
+     "label": "Social Media and Politics",
      "id": "T10557",
      "n": 5,
      "share": 1.6,
@@ -682,6 +820,7 @@ export const trends = {
     },
     {
      "topic": "Topic Modeling",
+     "label": "Language models and NLP",
      "id": "T10028",
      "n": 4,
      "share": 1.3,
@@ -691,10 +830,13 @@ export const trends = {
   },
   "uq": {
    "total": 419,
-   "sources": 4,
+   "journals": 4,
+   "confs": [],
+   "missing": [],
    "rows": [
     {
      "topic": "Statistical Methods and Inference",
+     "label": "Statistical Methods and Inference",
      "id": "T10136",
      "n": 95,
      "share": 22.7,
@@ -702,6 +844,7 @@ export const trends = {
     },
     {
      "topic": "Advanced Causal Inference Techniques",
+     "label": "Advanced Causal Inference Techniques",
      "id": "T10845",
      "n": 27,
      "share": 6.4,
@@ -709,6 +852,7 @@ export const trends = {
     },
     {
      "topic": "Probabilistic and Robust Engineering Design",
+     "label": "Probabilistic and Robust Engineering Design",
      "id": "T10928",
      "n": 24,
      "share": 5.7,
@@ -716,6 +860,7 @@ export const trends = {
     },
     {
      "topic": "Markov Chains and Monte Carlo Methods",
+     "label": "Markov Chains and Monte Carlo Methods",
      "id": "T12056",
      "n": 16,
      "share": 3.8,
@@ -723,6 +868,7 @@ export const trends = {
     },
     {
      "topic": "Gaussian Processes and Bayesian Inference",
+     "label": "Gaussian Processes and Bayesian Inference",
      "id": "T12814",
      "n": 15,
      "share": 3.6,
@@ -730,6 +876,7 @@ export const trends = {
     },
     {
      "topic": "Statistical Methods and Bayesian Inference",
+     "label": "Statistical Methods and Bayesian Inference",
      "id": "T10243",
      "n": 14,
      "share": 3.3,
@@ -737,6 +884,7 @@ export const trends = {
     },
     {
      "topic": "Optimal Experimental Design Methods",
+     "label": "Optimal Experimental Design Methods",
      "id": "T11798",
      "n": 13,
      "share": 3.1,
@@ -744,6 +892,7 @@ export const trends = {
     },
     {
      "topic": "Advanced Statistical Methods and Models",
+     "label": "Advanced Statistical Methods and Models",
      "id": "T11871",
      "n": 13,
      "share": 3.1,
@@ -751,6 +900,7 @@ export const trends = {
     },
     {
      "topic": "Statistical Methods and Applications",
+     "label": "Statistical Methods and Applications",
      "id": "T13141",
      "n": 13,
      "share": 3.1,
@@ -758,6 +908,7 @@ export const trends = {
     },
     {
      "topic": "Reinforcement Learning in Robotics",
+     "label": "Reinforcement Learning in Robotics",
      "id": "T10462",
      "n": 9,
      "share": 2.1,
@@ -767,10 +918,13 @@ export const trends = {
   },
   "opt": {
    "total": 1095,
-   "sources": 5,
+   "journals": 5,
+   "confs": [],
+   "missing": [],
    "rows": [
     {
      "topic": "Advanced Optimization Algorithms Research",
+     "label": "Advanced Optimization Algorithms Research",
      "id": "T10963",
      "n": 104,
      "share": 9.5,
@@ -778,6 +932,7 @@ export const trends = {
     },
     {
      "topic": "Supply Chain and Inventory Management",
+     "label": "Supply Chain and Inventory Management",
      "id": "T10328",
      "n": 60,
      "share": 5.5,
@@ -785,6 +940,7 @@ export const trends = {
     },
     {
      "topic": "Optimization and Variational Analysis",
+     "label": "Optimization and Variational Analysis",
      "id": "T10545",
      "n": 54,
      "share": 4.9,
@@ -792,6 +948,7 @@ export const trends = {
     },
     {
      "topic": "Risk and Portfolio Optimization",
+     "label": "Risk and Portfolio Optimization",
      "id": "T11413",
      "n": 48,
      "share": 4.4,
@@ -799,6 +956,7 @@ export const trends = {
     },
     {
      "topic": "Financial Markets and Investment Strategies",
+     "label": "Financial Markets and Investment Strategies",
      "id": "T10047",
      "n": 44,
      "share": 4.0,
@@ -806,6 +964,7 @@ export const trends = {
     },
     {
      "topic": "Complexity and Algorithms in Graphs",
+     "label": "Complexity and Algorithms in Graphs",
      "id": "T10720",
      "n": 42,
      "share": 3.8,
@@ -813,6 +972,7 @@ export const trends = {
     },
     {
      "topic": "Corporate Finance and Governance",
+     "label": "Corporate Finance and Governance",
      "id": "T10019",
      "n": 27,
      "share": 2.5,
@@ -820,6 +980,7 @@ export const trends = {
     },
     {
      "topic": "Auditing, Earnings Management, Governance",
+     "label": "Auditing, Earnings Management, Governance",
      "id": "T10081",
      "n": 24,
      "share": 2.2,
@@ -827,6 +988,7 @@ export const trends = {
     },
     {
      "topic": "Decision-Making and Behavioral Economics",
+     "label": "Decision-Making and Behavioral Economics",
      "id": "T10315",
      "n": 22,
      "share": 2.0,
@@ -834,6 +996,7 @@ export const trends = {
     },
     {
      "topic": "Game Theory and Voting Systems",
+     "label": "Game Theory and Voting Systems",
      "id": "T10991",
      "n": 22,
      "share": 2.0,
@@ -843,10 +1006,13 @@ export const trends = {
   },
   "amath": {
    "total": 1127,
-   "sources": 4,
+   "journals": 4,
+   "confs": [],
+   "missing": [],
    "rows": [
     {
      "topic": "Model Reduction and Neural Networks",
+     "label": "Model Reduction and Neural Networks",
      "id": "T11206",
      "n": 195,
      "share": 17.3,
@@ -854,6 +1020,7 @@ export const trends = {
     },
     {
      "topic": "Computational Fluid Dynamics and Aerodynamics",
+     "label": "Computational Fluid Dynamics and Aerodynamics",
      "id": "T10173",
      "n": 158,
      "share": 14.0,
@@ -861,6 +1028,7 @@ export const trends = {
     },
     {
      "topic": "Advanced Numerical Methods in Computational Mathematics",
+     "label": "Advanced Numerical Methods in Computational Mathematics",
      "id": "T10339",
      "n": 127,
      "share": 11.3,
@@ -868,6 +1036,7 @@ export const trends = {
     },
     {
      "topic": "Matrix Theory and Algorithms",
+     "label": "Matrix Theory and Algorithms",
      "id": "T10792",
      "n": 47,
      "share": 4.2,
@@ -875,6 +1044,7 @@ export const trends = {
     },
     {
      "topic": "Gas Dynamics and Kinetic Theory",
+     "label": "Gas Dynamics and Kinetic Theory",
      "id": "T11012",
      "n": 39,
      "share": 3.5,
@@ -882,6 +1052,7 @@ export const trends = {
     },
     {
      "topic": "Fluid Dynamics and Heat Transfer",
+     "label": "Fluid Dynamics and Heat Transfer",
      "id": "T11382",
      "n": 33,
      "share": 2.9,
@@ -889,6 +1060,7 @@ export const trends = {
     },
     {
      "topic": "Numerical methods for differential equations",
+     "label": "Numerical methods for differential equations",
      "id": "T11416",
      "n": 31,
      "share": 2.8,
@@ -896,6 +1068,7 @@ export const trends = {
     },
     {
      "topic": "Numerical methods in inverse problems",
+     "label": "Numerical methods in inverse problems",
      "id": "T11205",
      "n": 28,
      "share": 2.5,
@@ -903,6 +1076,7 @@ export const trends = {
     },
     {
      "topic": "Fluid Dynamics Simulations and Interactions",
+     "label": "Fluid Dynamics Simulations and Interactions",
      "id": "T11694",
      "n": 26,
      "share": 2.3,
@@ -910,6 +1084,7 @@ export const trends = {
     },
     {
      "topic": "Lattice Boltzmann Simulation Studies",
+     "label": "Lattice Boltzmann Simulation Studies",
      "id": "T11751",
      "n": 23,
      "share": 2.0,
@@ -919,10 +1094,13 @@ export const trends = {
   },
   "neuro": {
    "total": 7985,
-   "sources": 7,
+   "journals": 7,
+   "confs": [],
+   "missing": [],
    "rows": [
     {
      "topic": "Neural dynamics and brain function",
+     "label": "Neural dynamics and brain function",
      "id": "T10581",
      "n": 305,
      "share": 3.8,
@@ -930,6 +1108,7 @@ export const trends = {
     },
     {
      "topic": "Memory and Neural Mechanisms",
+     "label": "Memory and Neural Mechanisms",
      "id": "T10448",
      "n": 282,
      "share": 3.5,
@@ -937,6 +1116,7 @@ export const trends = {
     },
     {
      "topic": "Functional Brain Connectivity Studies",
+     "label": "Functional Brain Connectivity Studies",
      "id": "T10241",
      "n": 271,
      "share": 3.4,
@@ -944,6 +1124,7 @@ export const trends = {
     },
     {
      "topic": "Visual perception and processing mechanisms",
+     "label": "Visual perception and processing mechanisms",
      "id": "T10427",
      "n": 228,
      "share": 2.9,
@@ -951,6 +1132,7 @@ export const trends = {
     },
     {
      "topic": "Neurobiology and Insect Physiology Research",
+     "label": "Neurobiology and Insect Physiology Research",
      "id": "T10423",
      "n": 220,
      "share": 2.8,
@@ -958,6 +1140,7 @@ export const trends = {
     },
     {
      "topic": "Neuroscience and Neuropharmacology Research",
+     "label": "Neuroscience and Neuropharmacology Research",
      "id": "T10077",
      "n": 189,
      "share": 2.4,
@@ -965,6 +1148,7 @@ export const trends = {
     },
     {
      "topic": "Neural and Behavioral Psychology Studies",
+     "label": "Neural and Behavioral Psychology Studies",
      "id": "T10042",
      "n": 155,
      "share": 1.9,
@@ -972,6 +1156,7 @@ export const trends = {
     },
     {
      "topic": "Single-cell and spatial transcriptomics",
+     "label": "Single-cell and spatial transcriptomics",
      "id": "T11289",
      "n": 114,
      "share": 1.4,
@@ -979,6 +1164,7 @@ export const trends = {
     },
     {
      "topic": "Developmental Biology and Gene Regulation",
+     "label": "Developmental Biology and Gene Regulation",
      "id": "T10268",
      "n": 107,
      "share": 1.3,
@@ -986,6 +1172,7 @@ export const trends = {
     },
     {
      "topic": "Genomics and Chromatin Dynamics",
+     "label": "Genomics and Chromatin Dynamics",
      "id": "T10222",
      "n": 99,
      "share": 1.2,
@@ -995,10 +1182,13 @@ export const trends = {
   },
   "psych": {
    "total": 1280,
-   "sources": 7,
+   "journals": 7,
+   "confs": [],
+   "missing": [],
    "rows": [
     {
      "topic": "Memory Processes and Influences",
+     "label": "Memory Processes and Influences",
      "id": "T10918",
      "n": 92,
      "share": 7.2,
@@ -1006,6 +1196,7 @@ export const trends = {
     },
     {
      "topic": "Visual perception and processing mechanisms",
+     "label": "Visual perception and processing mechanisms",
      "id": "T10427",
      "n": 89,
      "share": 7.0,
@@ -1013,6 +1204,7 @@ export const trends = {
     },
     {
      "topic": "Decision-Making and Behavioral Economics",
+     "label": "Decision-Making and Behavioral Economics",
      "id": "T10315",
      "n": 88,
      "share": 6.9,
@@ -1020,6 +1212,7 @@ export const trends = {
     },
     {
      "topic": "Social and Intergroup Psychology",
+     "label": "Social and Intergroup Psychology",
      "id": "T10314",
      "n": 68,
      "share": 5.3,
@@ -1027,6 +1220,7 @@ export const trends = {
     },
     {
      "topic": "Neural and Behavioral Psychology Studies",
+     "label": "Neural and Behavioral Psychology Studies",
      "id": "T10042",
      "n": 61,
      "share": 4.8,
@@ -1034,6 +1228,7 @@ export const trends = {
     },
     {
      "topic": "Neurobiology of Language and Bilingualism",
+     "label": "Neurobiology of Language and Bilingualism",
      "id": "T10465",
      "n": 56,
      "share": 4.4,
@@ -1041,6 +1236,7 @@ export const trends = {
     },
     {
      "topic": "Child and Animal Learning Development",
+     "label": "Child and Animal Learning Development",
      "id": "T10656",
      "n": 45,
      "share": 3.5,
@@ -1048,6 +1244,7 @@ export const trends = {
     },
     {
      "topic": "Categorization, perception, and language",
+     "label": "Categorization, perception, and language",
      "id": "T12694",
      "n": 37,
      "share": 2.9,
@@ -1055,6 +1252,7 @@ export const trends = {
     },
     {
      "topic": "Reading and Literacy Development",
+     "label": "Reading and Literacy Development",
      "id": "T10103",
      "n": 35,
      "share": 2.7,
@@ -1062,6 +1260,7 @@ export const trends = {
     },
     {
      "topic": "Face Recognition and Perception",
+     "label": "Face Recognition and Perception",
      "id": "T11094",
      "n": 30,
      "share": 2.3,
@@ -1071,10 +1270,13 @@ export const trends = {
   },
   "sleep": {
    "total": 2445,
-   "sources": 5,
+   "journals": 5,
+   "confs": [],
+   "missing": [],
    "rows": [
     {
      "topic": "Sleep and related disorders",
+     "label": "Sleep and related disorders",
      "id": "T10316",
      "n": 894,
      "share": 36.6,
@@ -1082,6 +1284,7 @@ export const trends = {
     },
     {
      "topic": "Obstructive Sleep Apnea Research",
+     "label": "Obstructive Sleep Apnea Research",
      "id": "T10234",
      "n": 512,
      "share": 20.9,
@@ -1089,6 +1292,7 @@ export const trends = {
     },
     {
      "topic": "Sleep and Wakefulness Research",
+     "label": "Sleep and Wakefulness Research",
      "id": "T10985",
      "n": 296,
      "share": 12.1,
@@ -1096,6 +1300,7 @@ export const trends = {
     },
     {
      "topic": "Sleep and Work-Related Fatigue",
+     "label": "Sleep and Work-Related Fatigue",
      "id": "T11373",
      "n": 124,
      "share": 5.1,
@@ -1103,6 +1308,7 @@ export const trends = {
     },
     {
      "topic": "Circadian rhythm and melatonin",
+     "label": "Circadian rhythm and melatonin",
      "id": "T10342",
      "n": 87,
      "share": 3.6,
@@ -1110,6 +1316,7 @@ export const trends = {
     },
     {
      "topic": "Restless Legs Syndrome Research",
+     "label": "Restless Legs Syndrome Research",
      "id": "T12569",
      "n": 43,
      "share": 1.8,
@@ -1117,6 +1324,7 @@ export const trends = {
     },
     {
      "topic": "Parkinson's Disease Mechanisms and Treatments",
+     "label": "Parkinson's Disease Mechanisms and Treatments",
      "id": "T10085",
      "n": 31,
      "share": 1.3,
@@ -1124,6 +1332,7 @@ export const trends = {
     },
     {
      "topic": "EEG and Brain-Computer Interfaces",
+     "label": "EEG and Brain-Computer Interfaces",
      "id": "T10429",
      "n": 20,
      "share": 0.8,
@@ -1131,6 +1340,7 @@ export const trends = {
     },
     {
      "topic": "Dementia and Cognitive Impairment Research",
+     "label": "Dementia and Cognitive Impairment Research",
      "id": "T10009",
      "n": 11,
      "share": 0.4,
@@ -1138,6 +1348,7 @@ export const trends = {
     },
     {
      "topic": "Heart Rate Variability and Autonomic Control",
+     "label": "Heart Rate Variability and Autonomic Control",
      "id": "T10745",
      "n": 11,
      "share": 0.4,
@@ -1146,87 +1357,106 @@ export const trends = {
    ]
   },
   "biomed": {
-   "total": 3897,
-   "sources": 8,
+   "total": 4540,
+   "journals": 8,
+   "confs": [
+    "ISBI"
+   ],
+   "missing": [
+    "MICCAI"
+   ],
    "rows": [
     {
      "topic": "Medical Image Segmentation Techniques",
+     "label": "Medical Image Segmentation Techniques",
      "id": "T10052",
-     "n": 342,
-     "share": 8.8,
-     "growth": -5
+     "n": 478,
+     "share": 10.5,
+     "growth": -8
     },
     {
      "topic": "Artificial Intelligence in Healthcare and Education",
+     "label": "Artificial Intelligence in Healthcare and Education",
      "id": "T11636",
-     "n": 298,
-     "share": 7.6,
-     "growth": 122
+     "n": 305,
+     "share": 6.7,
+     "growth": 132
     },
     {
      "topic": "AI in cancer detection",
+     "label": "AI in cancer detection",
      "id": "T10862",
-     "n": 175,
-     "share": 4.5,
-     "growth": -6
+     "n": 240,
+     "share": 5.3,
+     "growth": -4
     },
     {
      "topic": "Machine Learning in Healthcare",
+     "label": "Machine Learning in Healthcare",
      "id": "T13702",
-     "n": 171,
-     "share": 4.4,
-     "growth": -16
+     "n": 174,
+     "share": 3.8,
+     "growth": -14
     },
     {
      "topic": "EEG and Brain-Computer Interfaces",
+     "label": "EEG and Brain-Computer Interfaces",
      "id": "T10429",
-     "n": 155,
-     "share": 4.0,
-     "growth": 58
+     "n": 168,
+     "share": 3.7,
+     "growth": 69
     },
     {
      "topic": "Advanced MRI Techniques and Applications",
+     "label": "Advanced MRI Techniques and Applications",
      "id": "T10378",
-     "n": 89,
-     "share": 2.3,
-     "growth": -5
+     "n": 127,
+     "share": 2.8,
+     "growth": -2
     },
     {
-     "topic": "Computational Drug Discovery Methods",
-     "id": "T10211",
-     "n": 83,
-     "share": 2.1,
-     "growth": 176
+     "topic": "Functional Brain Connectivity Studies",
+     "label": "Functional Brain Connectivity Studies",
+     "id": "T10241",
+     "n": 105,
+     "share": 2.3,
+     "growth": 11
     },
     {
      "topic": "Retinal Imaging and Analysis",
+     "label": "Retinal Imaging and Analysis",
      "id": "T11438",
-     "n": 83,
-     "share": 2.1,
-     "growth": 28
+     "n": 104,
+     "share": 2.3,
+     "growth": 15
     },
     {
-     "topic": "Privacy-Preserving Technologies in Data",
-     "id": "T10764",
-     "n": 74,
-     "share": 1.9,
-     "growth": 17
+     "topic": "Multimodal Machine Learning Applications",
+     "label": "Multimodal Machine Learning Applications",
+     "id": "T11714",
+     "n": 93,
+     "share": 2.0,
+     "growth": 190
     },
     {
-     "topic": "Non-Invasive Vital Sign Monitoring",
-     "id": "T11196",
-     "n": 74,
+     "topic": "Domain Adaptation and Few-Shot Learning",
+     "label": "Domain Adaptation and Few-Shot Learning",
+     "id": "T11307",
+     "n": 85,
      "share": 1.9,
-     "growth": -14
+     "growth": 6
     }
    ]
   },
   "epi": {
    "total": 1233,
-   "sources": 5,
+   "journals": 5,
+   "confs": [],
+   "missing": [],
    "rows": [
     {
      "topic": "COVID-19 epidemiological studies",
+     "label": "COVID-19 epidemiological studies",
      "id": "T10410",
      "n": 51,
      "share": 4.1,
@@ -1234,6 +1464,7 @@ export const trends = {
     },
     {
      "topic": "Tuberculosis Research and Epidemiology",
+     "label": "Tuberculosis Research and Epidemiology",
      "id": "T10038",
      "n": 49,
      "share": 4.0,
@@ -1241,6 +1472,7 @@ export const trends = {
     },
     {
      "topic": "Mosquito-borne diseases and control",
+     "label": "Mosquito-borne diseases and control",
      "id": "T10166",
      "n": 48,
      "share": 3.9,
@@ -1248,6 +1480,7 @@ export const trends = {
     },
     {
      "topic": "Malaria Research and Control",
+     "label": "Malaria Research and Control",
      "id": "T10091",
      "n": 42,
      "share": 3.4,
@@ -1255,6 +1488,7 @@ export const trends = {
     },
     {
      "topic": "Mathematical and Theoretical Epidemiology and Ecology Models",
+     "label": "Mathematical and Theoretical Epidemiology and Ecology Models",
      "id": "T10482",
      "n": 42,
      "share": 3.4,
@@ -1262,6 +1496,7 @@ export const trends = {
     },
     {
      "topic": "Respiratory viral infections research",
+     "label": "Respiratory viral infections research",
      "id": "T11243",
      "n": 36,
      "share": 2.9,
@@ -1269,6 +1504,7 @@ export const trends = {
     },
     {
      "topic": "Influenza Virus Research Studies",
+     "label": "Influenza Virus Research Studies",
      "id": "T10167",
      "n": 34,
      "share": 2.8,
@@ -1276,6 +1512,7 @@ export const trends = {
     },
     {
      "topic": "Advanced Causal Inference Techniques",
+     "label": "Advanced Causal Inference Techniques",
      "id": "T10845",
      "n": 32,
      "share": 2.6,
@@ -1283,6 +1520,7 @@ export const trends = {
     },
     {
      "topic": "SARS-CoV-2 and COVID-19 Research",
+     "label": "SARS-CoV-2 and COVID-19 Research",
      "id": "T10118",
      "n": 28,
      "share": 2.3,
@@ -1290,6 +1528,7 @@ export const trends = {
     },
     {
      "topic": "Antibiotic Use and Resistance",
+     "label": "Antibiotic Use and Resistance",
      "id": "T10897",
      "n": 27,
      "share": 2.2,
@@ -1299,10 +1538,13 @@ export const trends = {
   },
   "materials": {
    "total": 3079,
-   "sources": 5,
+   "journals": 5,
+   "confs": [],
+   "missing": [],
    "rows": [
     {
      "topic": "Machine Learning in Materials Science",
+     "label": "Machine Learning in Materials Science",
      "id": "T11948",
      "n": 417,
      "share": 13.5,
@@ -1310,6 +1552,7 @@ export const trends = {
     },
     {
      "topic": "Microstructure and mechanical properties",
+     "label": "Microstructure and mechanical properties",
      "id": "T10204",
      "n": 101,
      "share": 3.3,
@@ -1317,6 +1560,7 @@ export const trends = {
     },
     {
      "topic": "High Entropy Alloys Studies",
+     "label": "High Entropy Alloys Studies",
      "id": "T11143",
      "n": 93,
      "share": 3.0,
@@ -1324,6 +1568,7 @@ export const trends = {
     },
     {
      "topic": "Advanced Battery Materials and Technologies",
+     "label": "Advanced Battery Materials and Technologies",
      "id": "T10281",
      "n": 91,
      "share": 3.0,
@@ -1331,6 +1576,7 @@ export const trends = {
     },
     {
      "topic": "Advancements in Battery Materials",
+     "label": "Advancements in Battery Materials",
      "id": "T10018",
      "n": 83,
      "share": 2.7,
@@ -1338,6 +1584,7 @@ export const trends = {
     },
     {
      "topic": "Ferroelectric and Piezoelectric Materials",
+     "label": "Ferroelectric and Piezoelectric Materials",
      "id": "T10107",
      "n": 83,
      "share": 2.7,
@@ -1345,6 +1592,7 @@ export const trends = {
     },
     {
      "topic": "2D Materials and Applications",
+     "label": "2D Materials and Applications",
      "id": "T10275",
      "n": 69,
      "share": 2.2,
@@ -1352,6 +1600,7 @@ export const trends = {
     },
     {
      "topic": "Advanced Thermoelectric Materials and Devices",
+     "label": "Advanced Thermoelectric Materials and Devices",
      "id": "T10440",
      "n": 69,
      "share": 2.2,
@@ -1359,6 +1608,7 @@ export const trends = {
     },
     {
      "topic": "Perovskite Materials and Applications",
+     "label": "Perovskite Materials and Applications",
      "id": "T10247",
      "n": 66,
      "share": 2.1,
@@ -1366,6 +1616,7 @@ export const trends = {
     },
     {
      "topic": "Electrocatalysts for Energy Conversion",
+     "label": "Electrocatalysts for Energy Conversion",
      "id": "T10030",
      "n": 53,
      "share": 1.7,
@@ -1375,10 +1626,13 @@ export const trends = {
   },
   "power": {
    "total": 4086,
-   "sources": 5,
+   "journals": 5,
+   "confs": [],
+   "missing": [],
    "rows": [
     {
      "topic": "Microgrid Control and Optimization",
+     "label": "Microgrid Control and Optimization",
      "id": "T10223",
      "n": 279,
      "share": 6.8,
@@ -1386,6 +1640,7 @@ export const trends = {
     },
     {
      "topic": "Optimal Power Flow Distribution",
+     "label": "Optimal Power Flow Distribution",
      "id": "T10454",
      "n": 258,
      "share": 6.3,
@@ -1393,6 +1648,7 @@ export const trends = {
     },
     {
      "topic": "Integrated Energy Systems Optimization",
+     "label": "Integrated Energy Systems Optimization",
      "id": "T11185",
      "n": 239,
      "share": 5.8,
@@ -1400,6 +1656,7 @@ export const trends = {
     },
     {
      "topic": "Smart Grid Energy Management",
+     "label": "Smart Grid Energy Management",
      "id": "T10603",
      "n": 230,
      "share": 5.6,
@@ -1407,6 +1664,7 @@ export const trends = {
     },
     {
      "topic": "Electric Power System Optimization",
+     "label": "Electric Power System Optimization",
      "id": "T10424",
      "n": 220,
      "share": 5.4,
@@ -1414,6 +1672,7 @@ export const trends = {
     },
     {
      "topic": "Power System Optimization and Stability",
+     "label": "Power System Optimization and Stability",
      "id": "T10305",
      "n": 210,
      "share": 5.1,
@@ -1421,6 +1680,7 @@ export const trends = {
     },
     {
      "topic": "Electric Vehicles and Infrastructure",
+     "label": "Electric Vehicles and Infrastructure",
      "id": "T10768",
      "n": 201,
      "share": 4.9,
@@ -1428,6 +1688,7 @@ export const trends = {
     },
     {
      "topic": "Energy Load and Power Forecasting",
+     "label": "Energy Load and Power Forecasting",
      "id": "T11052",
      "n": 157,
      "share": 3.8,
@@ -1435,6 +1696,7 @@ export const trends = {
     },
     {
      "topic": "Hybrid Renewable Energy Systems",
+     "label": "Hybrid Renewable Energy Systems",
      "id": "T11007",
      "n": 134,
      "share": 3.3,
@@ -1442,6 +1704,7 @@ export const trends = {
     },
     {
      "topic": "Power Systems Fault Detection",
+     "label": "Power Systems Fault Detection",
      "id": "T10972",
      "n": 123,
      "share": 3.0,
