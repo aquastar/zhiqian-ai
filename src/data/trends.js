@@ -3931,6 +3931,175 @@ export const trends = {
     }
    ],
    "built": "2026-10-20"
+  },
+  "vis": {
+   "total": 1238,
+   "journals": 4,
+   "confs": [],
+   "missing": [],
+   "rows": [
+    {
+     "label": "virtual reality",
+     "id": "virtual-reality",
+     "n": 104,
+     "share": 8.4,
+     "growth": 17,
+     "papers": 10
+    },
+    {
+     "label": "visual analytics",
+     "id": "visual-analytics",
+     "n": 65,
+     "share": 5.3,
+     "growth": -29,
+     "papers": 10
+    },
+    {
+     "label": "large language models",
+     "id": "large-language-models",
+     "n": 59,
+     "share": 4.8,
+     "growth": 553,
+     "papers": 10
+    },
+    {
+     "label": "3D Gaussian Splatting",
+     "id": "3d-gaussian-splatting",
+     "n": 54,
+     "share": 4.4,
+     "growth": null,
+     "papers": 10
+    },
+    {
+     "label": "augmented reality",
+     "id": "augmented-reality",
+     "n": 54,
+     "share": 4.4,
+     "growth": 13,
+     "papers": 10
+    },
+    {
+     "label": "real-time rendering",
+     "id": "real-time-rendering",
+     "n": 43,
+     "share": 3.5,
+     "growth": 108,
+     "papers": 10
+    },
+    {
+     "label": "data visualization",
+     "id": "data-visualization",
+     "n": 39,
+     "share": 3.2,
+     "growth": 1,
+     "papers": 10
+    },
+    {
+     "label": "interactive visualization",
+     "id": "interactive-visualization",
+     "n": 39,
+     "share": 3.2,
+     "growth": -26,
+     "papers": 10
+    },
+    {
+     "label": "diffusion models",
+     "id": "diffusion-models",
+     "n": 28,
+     "share": 2.3,
+     "growth": 623,
+     "papers": 10
+    },
+    {
+     "label": "extended reality",
+     "id": "extended-reality",
+     "n": 25,
+     "share": 2.0,
+     "growth": 287,
+     "papers": 10
+    },
+    {
+     "label": "mixed reality",
+     "id": "mixed-reality",
+     "n": 23,
+     "share": 1.9,
+     "growth": 5,
+     "papers": 10
+    },
+    {
+     "label": "neural radiance fields",
+     "id": "neural-radiance-fields",
+     "n": 22,
+     "share": 1.8,
+     "growth": 22,
+     "papers": 10
+    },
+    {
+     "label": "novel view synthesis",
+     "id": "novel-view-synthesis",
+     "n": 20,
+     "share": 1.6,
+     "growth": 41,
+     "papers": 10
+    },
+    {
+     "label": "user experience",
+     "id": "user-experience",
+     "n": 20,
+     "share": 1.6,
+     "growth": 55,
+     "papers": 10
+    },
+    {
+     "label": "user study",
+     "id": "user-study",
+     "n": 20,
+     "share": 1.6,
+     "growth": -26,
+     "papers": 10
+    },
+    {
+     "label": "head-mounted displays",
+     "id": "head-mounted-displays",
+     "n": 18,
+     "share": 1.5,
+     "growth": -30,
+     "papers": 10
+    },
+    {
+     "label": "presence",
+     "id": "sense-of-presence",
+     "n": 18,
+     "share": 1.5,
+     "growth": 0,
+     "papers": 10
+    },
+    {
+     "label": "social presence",
+     "id": "social-presence",
+     "n": 18,
+     "share": 1.5,
+     "growth": 179,
+     "papers": 10
+    },
+    {
+     "label": "dimensionality reduction",
+     "id": "dimensionality-reduction",
+     "n": 17,
+     "share": 1.4,
+     "growth": 65,
+     "papers": 10
+    },
+    {
+     "label": "network visualization",
+     "id": "network-visualization",
+     "n": 17,
+     "share": 1.4,
+     "growth": 1,
+     "papers": 10
+    }
+   ],
+   "built": "2026-10-20"
   }
  }
 };
