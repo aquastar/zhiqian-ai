@@ -1,0 +1,65 @@
+name: Refresh topics and papers
+
+# The slow-moving half of the conference page, monthly: the per-topic
+# acceptance rates at ICLR, and for every field the twenty most published
+# keywords with ten representative papers each. Deadlines are weekly, in
+# refresh-conferences.yml.
+#
+# build-trends.py spends OpenAlex credits, about thirty per field. Without a
+# key, OpenAlex gives 1,000 a day shared by everyone on the runner's IP, so
+# a run may stop partway. It refreshes the stalest fields first and skips
+# any refreshed within the month, so the runs on the 2nd and 3rd finish
+# whatever the 1st could not, and cost nothing once everything is fresh.
+# Set an OPENALEX_API_KEY repository secret to use a key's own budget.
+on:
+  schedule:
+    - cron: '41 7 1-3 * *'   # 1st to 3rd of each month, 07:41 UTC
+  workflow_dispatch:
+    inputs:
+      force:
+        description: 'Rebuild every field, even ones refreshed this month'
+        type: boolean
+        default: false
+
+permissions:
+  contents: write
+
+concurrency: site-data
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      # Downloads a few tens of MB of public JSON from GitHub raw. No token,
+      # no account, no rate limit.
+      - name: Rebuild src/data/topics.js (ICLR per-topic acceptance)
+        run: python3 scripts/build-topics.py
+
+      # Reads the journal list from the committed src/data/conferences.js.
+      - name: Rebuild src/data/trends.js and public/trend-papers/
+        env:
+          OPENALEX_API_KEY: ${{ secrets.OPENALEX_API_KEY }}
+          TRENDS_FORCE: ${{ inputs.force && '1' || '' }}
+        run: python3 scripts/build-trends.py
+
+      - name: Commit if the data moved
+        run: |
+          git add src/data/topics.js src/data/trends.js public/trend-papers
+          if git diff --cached --quiet; then
+            echo "Nothing changed."
+            exit 0
+          fi
+          git config user.name  "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -m "Conferences: monthly topics and papers refresh
+
+          ICLR per-topic acceptance from paperlists; most published
+          keywords per field and representative papers from OpenAlex."
+          git pull --rebase
+          git push

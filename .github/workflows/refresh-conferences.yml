@@ -3,6 +3,10 @@ name: Refresh conference data
 # The upstream sources move on their own. ccf-deadlines gains editions, CORE
 # revises ranks, and acceptance rates get filled in, so a page built once
 # quietly goes stale. Rebuild weekly and only commit when something changed.
+#
+# Weekly is for deadlines. The slower data (per-topic acceptance at ICLR,
+# the most published keywords per field and their papers) is monthly, in
+# refresh-topics.yml.
 on:
   schedule:
     - cron: '17 6 * * 1'   # Mondays, 06:17 UTC
@@ -10,6 +14,10 @@ on:
 
 permissions:
   contents: write
+  issues: write     # the weekly deadline check is posted as an issue
+
+# Both data workflows push to main; never let them run at once.
+concurrency: site-data
 
 jobs:
   refresh:
@@ -26,21 +34,10 @@ jobs:
       - name: Rebuild src/data/conferences.js
         run: python3 scripts/build-conferences.py
 
-      # Downloads a few tens of MB of public JSON. No token, no account, no
-      # rate limit: the paperlists files are served straight off GitHub raw.
-      - name: Rebuild src/data/topics.js
-        run: python3 scripts/build-topics.py
-
       # Reuses the ccf-deadlines clone that build-conferences.py just pulled,
       # so this costs nothing beyond parsing it a second time.
       - name: Rebuild src/data/destinations.js
         run: python3 scripts/build-destinations.py
-
-      # Papers per topic in each field's journals, from OpenAlex. Needs the
-      # journal list that build-conferences.py just wrote. One credit per
-      # field per year, so about 40 a week against a free 1,000 a day.
-      - name: Rebuild src/data/trends.js
-        run: python3 scripts/build-trends.py
 
       # Reports, never rewrites. The deadlines come from ccfddl; this asks
       # each venue's own site whether ccfddl is still right, and prints the
@@ -52,22 +49,39 @@ jobs:
         continue-on-error: true
         run: python3 scripts/check-deadlines.py
 
+      # The hand-kept deadlines are the ones nothing upstream maintains. List
+      # the ones due soon and the estimates that have probably gone stale, in
+      # the job summary and in one standing issue that is edited each week,
+      # so a stale date reaches an inbox instead of waiting to be noticed.
+      - name: Audit the hand-kept deadlines
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          python3 scripts/audit-deadlines.py > audit.md
+          cat audit.md >> "$GITHUB_STEP_SUMMARY"
+          gh label create deadline-check --color FBCA04 --description "Weekly deadline audit" --force
+          num=$(gh issue list --label deadline-check --state open --json number --jq '.[0].number')
+          if [ -n "$num" ]; then
+            gh issue edit "$num" --title "Deadline check, $(date -u +%F)" --body-file audit.md
+          else
+            gh issue create --title "Deadline check, $(date -u +%F)" --label deadline-check --body-file audit.md
+          fi
+          rm audit.md
+
       - name: Commit if the data moved
         run: |
-          if git diff --quiet -- src/data/conferences.js src/data/topics.js src/data/destinations.js src/data/trends.js; then
+          git add src/data/conferences.js src/data/destinations.js scripts/journal-cache.json
+          if git diff --cached --quiet; then
             echo "No upstream change this week."
             exit 0
           fi
           git config user.name  "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add src/data/conferences.js src/data/topics.js src/data/destinations.js src/data/trends.js scripts/journal-cache.json
           git commit -m "Conferences: weekly data refresh
 
           Rebuilt from ccf-deadlines, the official CORE2023 export,
           cs-conf-stats, CSRankings, the older acceptance-rate table,
-          paperlists for the per-topic acceptance rates, OpenAlex and
-          the CCF journal list for the journals, and the
-          by-destination index.
-
-          Co-Authored-By: Claude Opus 5 <noreply@anthropic.com>"
+          OpenAlex and the CCF journal list for the journals, and the
+          destination index."
+          git pull --rebase
           git push

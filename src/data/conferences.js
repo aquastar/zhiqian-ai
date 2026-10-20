@@ -3,8 +3,50 @@
 // CORE ranks are cross-checked against the official CORE2023 export from
 // portal.core.edu.au. Acceptance rates and submission counts come from
 // github.com/Xovee/cs-conf-stats (main track only).
-// Built 2026-10-19.
+// Built 2026-10-20.
 export const ranked = [
+  {
+    "title": "ESA",
+    "desc": "European Symposium on Algorithms",
+    "area": "theory",
+    "sub": "CT",
+    "frank": "algorithms, Europe",
+    "ccf": "B",
+    "core": "A",
+    "coreVerified": true,
+    "nextDeadline": "2026-04-23",
+    "nextYear": 2026,
+    "nextAbstract": "",
+    "estimated": false,
+    "estFrom": "",
+    "rounds": [
+      {
+        "d": "2026-04-23",
+        "label": "",
+        "est": false,
+        "year": 2026,
+        "link": "https://algo-conference.org/2026/esa/",
+        "abs": "2026-04-21"
+      }
+    ],
+    "dblp": "esa",
+    "csr": "",
+    "edition": "",
+    "best": "",
+    "link": "https://algo-conference.org/2026/esa/",
+    "date": "August 31 - September 4, 2026",
+    "place": "L'Aquila, Italy",
+    "cc": "it",
+    "city": "",
+    "cycles": 1,
+    "roundLabels": [],
+    "proceedings": "full",
+    "rates": [],
+    "subs": [],
+    "rateSrc": "",
+    "rateSlug": "",
+    "tier": 2
+  },
   {
     "title": "CCS",
     "desc": "ACM Conference on Computer and Communications Security",
@@ -3756,6 +3798,258 @@ export const ranked = [
     "tier": 2
   },
   {
+    "title": "SODA",
+    "desc": "ACM-SIAM Symposium on Discrete Algorithms",
+    "area": "theory",
+    "sub": "CT",
+    "frank": "algorithms flagship",
+    "ccf": "A",
+    "core": "A*",
+    "coreVerified": true,
+    "nextDeadline": "2026-07-09",
+    "nextYear": 2027,
+    "nextAbstract": "",
+    "estimated": false,
+    "estFrom": "",
+    "rounds": [
+      {
+        "d": "2026-07-09",
+        "label": "",
+        "est": false,
+        "year": 2027,
+        "link": "https://www.siam.org/conferences-events/siam-conferences/soda27/",
+        "abs": ""
+      }
+    ],
+    "dblp": "soda",
+    "csr": "Theory",
+    "edition": "38th",
+    "best": "",
+    "link": "https://www.siam.org/conferences-events/siam-conferences/soda27/",
+    "date": "January 24-27, 2027",
+    "place": "Philadelphia, Pennsylvania, USA",
+    "cc": "us",
+    "city": "",
+    "cycles": 1,
+    "roundLabels": [],
+    "proceedings": "full",
+    "rates": [
+      {
+        "y": 1996,
+        "r": 28.0
+      },
+      {
+        "y": 1998,
+        "r": 33.2
+      },
+      {
+        "y": 2000,
+        "r": 36.7
+      },
+      {
+        "y": 2002,
+        "r": 38.9
+      },
+      {
+        "y": 2003,
+        "r": 27.8
+      },
+      {
+        "y": 2004,
+        "r": 32.5
+      },
+      {
+        "y": 2005,
+        "r": 32.1
+      },
+      {
+        "y": 2006,
+        "r": 32.5
+      },
+      {
+        "y": 2007,
+        "r": 36.4
+      },
+      {
+        "y": 2009,
+        "r": 29.5
+      },
+      {
+        "y": 2010,
+        "r": 30.3
+      },
+      {
+        "y": 2011,
+        "r": 30.1
+      },
+      {
+        "y": 2012,
+        "r": 26.7
+      },
+      {
+        "y": 2013,
+        "r": 29.7
+      },
+      {
+        "y": 2014,
+        "r": 28.0
+      },
+      {
+        "y": 2015,
+        "r": 27.7
+      },
+      {
+        "y": 2016,
+        "r": 28.3
+      },
+      {
+        "y": 2017,
+        "r": 34.0
+      },
+      {
+        "y": 2018,
+        "r": 33.1
+      },
+      {
+        "y": 2019,
+        "r": 31.4
+      },
+      {
+        "y": 2020,
+        "r": 30.9
+      },
+      {
+        "y": 2021,
+        "r": 28.1
+      },
+      {
+        "y": 2022,
+        "r": 30.1
+      },
+      {
+        "y": 2023,
+        "r": 29.1
+      },
+      {
+        "y": 2024,
+        "r": 29.4
+      },
+      {
+        "y": 2025,
+        "r": 29.3
+      }
+    ],
+    "subs": [
+      {
+        "y": 1996,
+        "n": 232
+      },
+      {
+        "y": 1998,
+        "n": 238
+      },
+      {
+        "y": 2000,
+        "n": 335
+      },
+      {
+        "y": 2002,
+        "n": 283
+      },
+      {
+        "y": 2003,
+        "n": 331
+      },
+      {
+        "y": 2004,
+        "n": 360
+      },
+      {
+        "y": 2005,
+        "n": 392
+      },
+      {
+        "y": 2006,
+        "n": 425
+      },
+      {
+        "y": 2007,
+        "n": 382
+      },
+      {
+        "y": 2009,
+        "n": 458
+      },
+      {
+        "y": 2010,
+        "n": 445
+      },
+      {
+        "y": 2011,
+        "n": 452
+      },
+      {
+        "y": 2012,
+        "n": 517
+      },
+      {
+        "y": 2013,
+        "n": 454
+      },
+      {
+        "y": 2014,
+        "n": 485
+      },
+      {
+        "y": 2015,
+        "n": 495
+      },
+      {
+        "y": 2016,
+        "n": 527
+      },
+      {
+        "y": 2017,
+        "n": 533
+      },
+      {
+        "y": 2018,
+        "n": 547
+      },
+      {
+        "y": 2019,
+        "n": 586
+      },
+      {
+        "y": 2020,
+        "n": 589
+      },
+      {
+        "y": 2021,
+        "n": 641
+      },
+      {
+        "y": 2022,
+        "n": 491
+      },
+      {
+        "y": 2023,
+        "n": 652
+      },
+      {
+        "y": 2024,
+        "n": 652
+      },
+      {
+        "y": 2025,
+        "n": 655
+      }
+    ],
+    "rateSrc": "csc",
+    "rateSlug": "soda",
+    "tier": 1
+  },
+  {
     "title": "SIGMOD",
     "desc": "ACM Conference on Management of Data",
     "area": "ai",
@@ -6025,6 +6319,458 @@ export const ranked = [
     "tier": 2
   },
   {
+    "title": "ICALP",
+    "desc": "EATCS International Colloquium on Automata, Languages, and Programming",
+    "area": "theory",
+    "sub": "CT",
+    "frank": "EATCS flagship",
+    "ccf": "B",
+    "core": "A",
+    "coreVerified": true,
+    "nextDeadline": "2026-09-15",
+    "nextYear": 2027,
+    "nextAbstract": "",
+    "estimated": false,
+    "estFrom": "",
+    "rounds": [
+      {
+        "d": "2026-09-15",
+        "label": "Track B first round; Track A and Track B second round TBA",
+        "est": false,
+        "year": 2027,
+        "link": "https://icalp.uj.edu.pl/",
+        "abs": ""
+      }
+    ],
+    "dblp": "icalp",
+    "csr": "",
+    "edition": "54th",
+    "best": "",
+    "link": "https://icalp.uj.edu.pl/",
+    "date": "July 5-9, 2027",
+    "place": "Kraków, Poland",
+    "cc": "pl",
+    "city": "pierogi and zapiekanka, the Wieliczka salt mine, a trumpet cut off mid-note every hour",
+    "cycles": 1,
+    "roundLabels": [],
+    "proceedings": "full",
+    "rates": [
+      {
+        "y": 1974,
+        "r": 36.2
+      },
+      {
+        "y": 1977,
+        "r": 43.0
+      },
+      {
+        "y": 1978,
+        "r": 41.1
+      },
+      {
+        "y": 1979,
+        "r": 36.0
+      },
+      {
+        "y": 1980,
+        "r": 31.4
+      },
+      {
+        "y": 1981,
+        "r": 40.4
+      },
+      {
+        "y": 1982,
+        "r": 36.7
+      },
+      {
+        "y": 1983,
+        "r": 33.1
+      },
+      {
+        "y": 1984,
+        "r": 32.6
+      },
+      {
+        "y": 1985,
+        "r": 23.9
+      },
+      {
+        "y": 1986,
+        "r": 34.3
+      },
+      {
+        "y": 1987,
+        "r": 28.8
+      },
+      {
+        "y": 1988,
+        "r": 23.6
+      },
+      {
+        "y": 1989,
+        "r": 23.9
+      },
+      {
+        "y": 1990,
+        "r": 20.8
+      },
+      {
+        "y": 1991,
+        "r": 27.3
+      },
+      {
+        "y": 1992,
+        "r": 27.4
+      },
+      {
+        "y": 1993,
+        "r": 33.8
+      },
+      {
+        "y": 1994,
+        "r": 31.2
+      },
+      {
+        "y": 1995,
+        "r": 47.7
+      },
+      {
+        "y": 1996,
+        "r": 30.2
+      },
+      {
+        "y": 1997,
+        "r": 37.1
+      },
+      {
+        "y": 1998,
+        "r": 38.5
+      },
+      {
+        "y": 1999,
+        "r": 44.4
+      },
+      {
+        "y": 2000,
+        "r": 35.2
+      },
+      {
+        "y": 2001,
+        "r": 38.5
+      },
+      {
+        "y": 2002,
+        "r": 30.9
+      },
+      {
+        "y": 2003,
+        "r": 39.6
+      },
+      {
+        "y": 2004,
+        "r": 25.6
+      },
+      {
+        "y": 2005,
+        "r": 27.8
+      },
+      {
+        "y": 2006,
+        "r": 26.8
+      },
+      {
+        "y": 2007,
+        "r": 31.4
+      },
+      {
+        "y": 2008,
+        "r": 31.0
+      },
+      {
+        "y": 2009,
+        "r": 34.1
+      },
+      {
+        "y": 2010,
+        "r": 27.2
+      },
+      {
+        "y": 2011,
+        "r": 28.6
+      },
+      {
+        "y": 2012,
+        "r": 28.5
+      },
+      {
+        "y": 2013,
+        "r": 29.4
+      },
+      {
+        "y": 2014,
+        "r": 28.1
+      },
+      {
+        "y": 2015,
+        "r": 28.2
+      },
+      {
+        "y": 2016,
+        "r": 28.3
+      },
+      {
+        "y": 2017,
+        "r": 29.8
+      },
+      {
+        "y": 2018,
+        "r": 29.3
+      },
+      {
+        "y": 2019,
+        "r": 29.8
+      },
+      {
+        "y": 2020,
+        "r": 29.4
+      },
+      {
+        "y": 2021,
+        "r": 37.8
+      },
+      {
+        "y": 2022,
+        "r": 29.3
+      },
+      {
+        "y": 2023,
+        "r": 29.8
+      },
+      {
+        "y": 2024,
+        "r": 29.5
+      },
+      {
+        "y": 2025,
+        "r": 29.3
+      },
+      {
+        "y": 2026,
+        "r": 30.3
+      }
+    ],
+    "subs": [
+      {
+        "y": 1974,
+        "n": 130
+      },
+      {
+        "y": 1977,
+        "n": 100
+      },
+      {
+        "y": 1978,
+        "n": 90
+      },
+      {
+        "y": 1979,
+        "n": 139
+      },
+      {
+        "y": 1980,
+        "n": 169
+      },
+      {
+        "y": 1981,
+        "n": 109
+      },
+      {
+        "y": 1982,
+        "n": 128
+      },
+      {
+        "y": 1983,
+        "n": 178
+      },
+      {
+        "y": 1984,
+        "n": 141
+      },
+      {
+        "y": 1985,
+        "n": 205
+      },
+      {
+        "y": 1986,
+        "n": 140
+      },
+      {
+        "y": 1987,
+        "n": 160
+      },
+      {
+        "y": 1988,
+        "n": 195
+      },
+      {
+        "y": 1989,
+        "n": 188
+      },
+      {
+        "y": 1990,
+        "n": 250
+      },
+      {
+        "y": 1991,
+        "n": 198
+      },
+      {
+        "y": 1992,
+        "n": 190
+      },
+      {
+        "y": 1993,
+        "n": 151
+      },
+      {
+        "y": 1994,
+        "n": 154
+      },
+      {
+        "y": 1995,
+        "n": 111
+      },
+      {
+        "y": 1996,
+        "n": 172
+      },
+      {
+        "y": 1997,
+        "n": 197
+      },
+      {
+        "y": 1998,
+        "n": 182
+      },
+      {
+        "y": 1999,
+        "n": 126
+      },
+      {
+        "y": 2000,
+        "n": 196
+      },
+      {
+        "y": 2001,
+        "n": 208
+      },
+      {
+        "y": 2002,
+        "n": 269
+      },
+      {
+        "y": 2003,
+        "n": 212
+      },
+      {
+        "y": 2004,
+        "n": 379
+      },
+      {
+        "y": 2005,
+        "n": 407
+      },
+      {
+        "y": 2006,
+        "n": 407
+      },
+      {
+        "y": 2007,
+        "n": 242
+      },
+      {
+        "y": 2008,
+        "n": 407
+      },
+      {
+        "y": 2009,
+        "n": 370
+      },
+      {
+        "y": 2010,
+        "n": 389
+      },
+      {
+        "y": 2011,
+        "n": 398
+      },
+      {
+        "y": 2012,
+        "n": 432
+      },
+      {
+        "y": 2013,
+        "n": 422
+      },
+      {
+        "y": 2014,
+        "n": 484
+      },
+      {
+        "y": 2015,
+        "n": 507
+      },
+      {
+        "y": 2016,
+        "n": 515
+      },
+      {
+        "y": 2017,
+        "n": 459
+      },
+      {
+        "y": 2018,
+        "n": 502
+      },
+      {
+        "y": 2019,
+        "n": 490
+      },
+      {
+        "y": 2020,
+        "n": 470
+      },
+      {
+        "y": 2021,
+        "n": 362
+      },
+      {
+        "y": 2022,
+        "n": 433
+      },
+      {
+        "y": 2023,
+        "n": 443
+      },
+      {
+        "y": 2024,
+        "n": 519
+      },
+      {
+        "y": 2025,
+        "n": 580
+      },
+      {
+        "y": 2026,
+        "n": 628
+      }
+    ],
+    "rateSrc": "csc",
+    "rateSlug": "icalp",
+    "tier": 2
+  },
+  {
     "title": "ICRA",
     "desc": "IEEE International Conference on Robotics and Automation",
     "area": "ai",
@@ -7707,6 +8453,450 @@ export const ranked = [
     "tier": 3
   },
   {
+    "title": "STOC",
+    "desc": "ACM Symposium on the Theory of Computing",
+    "area": "theory",
+    "sub": "CT",
+    "frank": "theory top two",
+    "ccf": "A",
+    "core": "A*",
+    "coreVerified": true,
+    "nextDeadline": "2026-11-02",
+    "nextYear": 2027,
+    "nextAbstract": "",
+    "estimated": false,
+    "estFrom": "",
+    "rounds": [
+      {
+        "d": "2026-11-02",
+        "label": "",
+        "est": false,
+        "year": 2027,
+        "link": "https://acm-stoc.org/stoc2027/",
+        "abs": ""
+      }
+    ],
+    "dblp": "stoc",
+    "csr": "Theory",
+    "edition": "59th",
+    "best": "",
+    "link": "https://acm-stoc.org/stoc2027/",
+    "date": "June 6-11, 2027",
+    "place": "Atlanta, Georgia, USA",
+    "cc": "us",
+    "city": "Busy Bee fried chicken, walking under the whale sharks, Ponce City Market rooftop",
+    "cycles": 1,
+    "roundLabels": [],
+    "proceedings": "full",
+    "rates": [
+      {
+        "y": 1970,
+        "r": 39.7
+      },
+      {
+        "y": 1971,
+        "r": 47.9
+      },
+      {
+        "y": 1972,
+        "r": 44.6
+      },
+      {
+        "y": 1974,
+        "r": 36.8
+      },
+      {
+        "y": 1975,
+        "r": 35.6
+      },
+      {
+        "y": 1976,
+        "r": 36.1
+      },
+      {
+        "y": 1977,
+        "r": 35.6
+      },
+      {
+        "y": 1978,
+        "r": 31.7
+      },
+      {
+        "y": 1979,
+        "r": 33.3
+      },
+      {
+        "y": 1980,
+        "r": 37.6
+      },
+      {
+        "y": 1981,
+        "r": 37.4
+      },
+      {
+        "y": 1982,
+        "r": 28.3
+      },
+      {
+        "y": 1983,
+        "r": 32.0
+      },
+      {
+        "y": 1984,
+        "r": 38.6
+      },
+      {
+        "y": 1985,
+        "r": 27.5
+      },
+      {
+        "y": 1986,
+        "r": 26.9
+      },
+      {
+        "y": 1987,
+        "r": 30.3
+      },
+      {
+        "y": 1988,
+        "r": 27.6
+      },
+      {
+        "y": 1989,
+        "r": 28.6
+      },
+      {
+        "y": 1990,
+        "r": 27.6
+      },
+      {
+        "y": 1993,
+        "r": 37.4
+      },
+      {
+        "y": 1996,
+        "r": 36.8
+      },
+      {
+        "y": 1997,
+        "r": 35.5
+      },
+      {
+        "y": 1998,
+        "r": 44.4
+      },
+      {
+        "y": 2000,
+        "r": 46.7
+      },
+      {
+        "y": 2001,
+        "r": 36.1
+      },
+      {
+        "y": 2002,
+        "r": 31.7
+      },
+      {
+        "y": 2003,
+        "r": 29.6
+      },
+      {
+        "y": 2004,
+        "r": 26.2
+      },
+      {
+        "y": 2005,
+        "r": 29.5
+      },
+      {
+        "y": 2006,
+        "r": 27.1
+      },
+      {
+        "y": 2007,
+        "r": 25.0
+      },
+      {
+        "y": 2008,
+        "r": 25.0
+      },
+      {
+        "y": 2009,
+        "r": 24.0
+      },
+      {
+        "y": 2010,
+        "r": 28.0
+      },
+      {
+        "y": 2011,
+        "r": 28.1
+      },
+      {
+        "y": 2012,
+        "r": 29.7
+      },
+      {
+        "y": 2013,
+        "r": 27.8
+      },
+      {
+        "y": 2014,
+        "r": 28.5
+      },
+      {
+        "y": 2015,
+        "r": 26.8
+      },
+      {
+        "y": 2016,
+        "r": 24.9
+      },
+      {
+        "y": 2017,
+        "r": 24.4
+      },
+      {
+        "y": 2018,
+        "r": 26.7
+      },
+      {
+        "y": 2019,
+        "r": 26.9
+      },
+      {
+        "y": 2020,
+        "r": 25.7
+      },
+      {
+        "y": 2021,
+        "r": 28.7
+      },
+      {
+        "y": 2022,
+        "r": 29.5
+      },
+      {
+        "y": 2023,
+        "r": 32.3
+      },
+      {
+        "y": 2024,
+        "r": 31.8
+      },
+      {
+        "y": 2025,
+        "r": 29.8
+      }
+    ],
+    "subs": [
+      {
+        "y": 1970,
+        "n": 68
+      },
+      {
+        "y": 1971,
+        "n": 48
+      },
+      {
+        "y": 1972,
+        "n": 65
+      },
+      {
+        "y": 1974,
+        "n": 95
+      },
+      {
+        "y": 1975,
+        "n": 87
+      },
+      {
+        "y": 1976,
+        "n": 83
+      },
+      {
+        "y": 1977,
+        "n": 87
+      },
+      {
+        "y": 1978,
+        "n": 120
+      },
+      {
+        "y": 1979,
+        "n": 111
+      },
+      {
+        "y": 1980,
+        "n": 125
+      },
+      {
+        "y": 1981,
+        "n": 115
+      },
+      {
+        "y": 1982,
+        "n": 159
+      },
+      {
+        "y": 1983,
+        "n": 169
+      },
+      {
+        "y": 1984,
+        "n": 171
+      },
+      {
+        "y": 1985,
+        "n": 193
+      },
+      {
+        "y": 1986,
+        "n": 175
+      },
+      {
+        "y": 1987,
+        "n": 165
+      },
+      {
+        "y": 1988,
+        "n": 192
+      },
+      {
+        "y": 1989,
+        "n": 196
+      },
+      {
+        "y": 1990,
+        "n": 214
+      },
+      {
+        "y": 1993,
+        "n": 227
+      },
+      {
+        "y": 1996,
+        "n": 201
+      },
+      {
+        "y": 1997,
+        "n": 211
+      },
+      {
+        "y": 1998,
+        "n": 169
+      },
+      {
+        "y": 2000,
+        "n": 182
+      },
+      {
+        "y": 2001,
+        "n": 230
+      },
+      {
+        "y": 2002,
+        "n": 287
+      },
+      {
+        "y": 2003,
+        "n": 270
+      },
+      {
+        "y": 2004,
+        "n": 271
+      },
+      {
+        "y": 2005,
+        "n": 285
+      },
+      {
+        "y": 2006,
+        "n": 288
+      },
+      {
+        "y": 2007,
+        "n": 312
+      },
+      {
+        "y": 2008,
+        "n": 320
+      },
+      {
+        "y": 2009,
+        "n": 321
+      },
+      {
+        "y": 2010,
+        "n": 279
+      },
+      {
+        "y": 2011,
+        "n": 299
+      },
+      {
+        "y": 2012,
+        "n": 303
+      },
+      {
+        "y": 2013,
+        "n": 360
+      },
+      {
+        "y": 2014,
+        "n": 319
+      },
+      {
+        "y": 2015,
+        "n": 347
+      },
+      {
+        "y": 2016,
+        "n": 370
+      },
+      {
+        "y": 2017,
+        "n": 422
+      },
+      {
+        "y": 2018,
+        "n": 416
+      },
+      {
+        "y": 2019,
+        "n": 424
+      },
+      {
+        "y": 2020,
+        "n": 440
+      },
+      {
+        "y": 2021,
+        "n": 498
+      },
+      {
+        "y": 2022,
+        "n": 457
+      },
+      {
+        "y": 2023,
+        "n": 480
+      },
+      {
+        "y": 2024,
+        "n": 592
+      },
+      {
+        "y": 2025,
+        "n": 735
+      }
+    ],
+    "rateSrc": "csc",
+    "rateSlug": "stoc",
+    "tier": 1
+  },
+  {
     "title": "PES GM",
     "desc": "IEEE Power & Energy Society General Meeting",
     "area": "power",
@@ -8925,6 +10115,47 @@ export const ranked = [
     "tier": 2
   },
   {
+    "title": "SOCG",
+    "desc": "International Symposium on Computational Geometry",
+    "area": "theory",
+    "sub": "CT",
+    "frank": "geometry flagship",
+    "ccf": "B",
+    "core": "A",
+    "coreVerified": true,
+    "nextDeadline": "2026-12-03",
+    "nextYear": 2027,
+    "nextAbstract": "",
+    "estimated": true,
+    "estFrom": "2024-12-03",
+    "rounds": [
+      {
+        "d": "2026-12-03",
+        "label": "",
+        "est": true,
+        "from": "2024-12-03",
+        "abs": "2026-11-26"
+      }
+    ],
+    "dblp": "compgeom",
+    "csr": "",
+    "edition": "",
+    "best": "",
+    "link": "https://cgweek27.computational-geometry.org/",
+    "date": "June 21-25, 2027",
+    "place": "Bengaluru, India",
+    "cc": "in",
+    "city": "masala dosa at CTR, filter coffee by the glass, Nandi Hills above the clouds at sunrise",
+    "cycles": 1,
+    "roundLabels": [],
+    "proceedings": "full",
+    "rates": [],
+    "subs": [],
+    "rateSrc": "",
+    "rateSlug": "",
+    "tier": 2
+  },
+  {
     "title": "MIDL",
     "desc": "Medical Imaging with Deep Learning",
     "area": "biomed",
@@ -9874,6 +11105,313 @@ export const ranked = [
     "tier": 1
   },
   {
+    "title": "LICS",
+    "desc": "IEEE Symposium on Logic in Computer Science",
+    "area": "theory",
+    "sub": "CT",
+    "frank": "logic flagship",
+    "ccf": "A",
+    "core": "A*",
+    "coreVerified": true,
+    "nextDeadline": "2027-01-23",
+    "nextYear": 2027,
+    "nextAbstract": "",
+    "estimated": true,
+    "estFrom": "2025-01-23",
+    "rounds": [
+      {
+        "d": "2027-01-23",
+        "label": "",
+        "est": true,
+        "from": "2025-01-23",
+        "abs": "2027-01-16"
+      }
+    ],
+    "dblp": "lics",
+    "csr": "Logic",
+    "edition": "42nd",
+    "best": "",
+    "link": "https://lics.siglog.org/lics27/",
+    "date": "June 21-24, 2027",
+    "place": "Montréal, Canada",
+    "cc": "ca",
+    "city": "smoked meat at Schwartz's, wood-fired bagels at 3am, Mount Royal lookout",
+    "cycles": 1,
+    "roundLabels": [],
+    "proceedings": "full",
+    "rates": [
+      {
+        "y": 1989,
+        "r": 27.3
+      },
+      {
+        "y": 1990,
+        "r": 24.9
+      },
+      {
+        "y": 1993,
+        "r": 25.2
+      },
+      {
+        "y": 1995,
+        "r": 32.1
+      },
+      {
+        "y": 1996,
+        "r": 26.9
+      },
+      {
+        "y": 1997,
+        "r": 36.1
+      },
+      {
+        "y": 1998,
+        "r": 35.0
+      },
+      {
+        "y": 2001,
+        "r": 34.6
+      },
+      {
+        "y": 2002,
+        "r": 26.7
+      },
+      {
+        "y": 2003,
+        "r": 27.9
+      },
+      {
+        "y": 2004,
+        "r": 23.8
+      },
+      {
+        "y": 2005,
+        "r": 34.6
+      },
+      {
+        "y": 2006,
+        "r": 25.7
+      },
+      {
+        "y": 2007,
+        "r": 29.3
+      },
+      {
+        "y": 2008,
+        "r": 33.6
+      },
+      {
+        "y": 2009,
+        "r": 30.0
+      },
+      {
+        "y": 2010,
+        "r": 26.2
+      },
+      {
+        "y": 2011,
+        "r": 32.5
+      },
+      {
+        "y": 2012,
+        "r": 35.1
+      },
+      {
+        "y": 2013,
+        "r": 34.5
+      },
+      {
+        "y": 2014,
+        "r": 34.9
+      },
+      {
+        "y": 2015,
+        "r": 34.7
+      },
+      {
+        "y": 2016,
+        "r": 44.5
+      },
+      {
+        "y": 2017,
+        "r": 39.7
+      },
+      {
+        "y": 2018,
+        "r": 42.4
+      },
+      {
+        "y": 2019,
+        "r": 39.0
+      },
+      {
+        "y": 2020,
+        "r": 39.7
+      },
+      {
+        "y": 2021,
+        "r": 40.1
+      },
+      {
+        "y": 2022,
+        "r": 34.8
+      },
+      {
+        "y": 2023,
+        "r": 32.8
+      },
+      {
+        "y": 2024,
+        "r": 30.5
+      },
+      {
+        "y": 2025,
+        "r": 30.7
+      },
+      {
+        "y": 2026,
+        "r": 28.0
+      }
+    ],
+    "subs": [
+      {
+        "y": 1989,
+        "n": 139
+      },
+      {
+        "y": 1990,
+        "n": 185
+      },
+      {
+        "y": 1993,
+        "n": 151
+      },
+      {
+        "y": 1995,
+        "n": 137
+      },
+      {
+        "y": 1996,
+        "n": 175
+      },
+      {
+        "y": 1997,
+        "n": 108
+      },
+      {
+        "y": 1998,
+        "n": 120
+      },
+      {
+        "y": 2001,
+        "n": 104
+      },
+      {
+        "y": 2002,
+        "n": 135
+      },
+      {
+        "y": 2003,
+        "n": 122
+      },
+      {
+        "y": 2004,
+        "n": 168
+      },
+      {
+        "y": 2005,
+        "n": 127
+      },
+      {
+        "y": 2006,
+        "n": 152
+      },
+      {
+        "y": 2007,
+        "n": 133
+      },
+      {
+        "y": 2008,
+        "n": 116
+      },
+      {
+        "y": 2009,
+        "n": 130
+      },
+      {
+        "y": 2010,
+        "n": 149
+      },
+      {
+        "y": 2011,
+        "n": 114
+      },
+      {
+        "y": 2012,
+        "n": 171
+      },
+      {
+        "y": 2013,
+        "n": 165
+      },
+      {
+        "y": 2014,
+        "n": 212
+      },
+      {
+        "y": 2015,
+        "n": 176
+      },
+      {
+        "y": 2016,
+        "n": 191
+      },
+      {
+        "y": 2017,
+        "n": 224
+      },
+      {
+        "y": 2018,
+        "n": 217
+      },
+      {
+        "y": 2019,
+        "n": 154
+      },
+      {
+        "y": 2020,
+        "n": 174
+      },
+      {
+        "y": 2021,
+        "n": 227
+      },
+      {
+        "y": 2022,
+        "n": 181
+      },
+      {
+        "y": 2023,
+        "n": 192
+      },
+      {
+        "y": 2024,
+        "n": 236
+      },
+      {
+        "y": 2025,
+        "n": 215
+      },
+      {
+        "y": 2026,
+        "n": 293
+      }
+    ],
+    "rateSrc": "csc",
+    "rateSlug": "lics",
+    "tier": 1
+  },
+  {
     "title": "GECCO",
     "desc": "Genetic and Evolutionary Computation Conference",
     "area": "ai",
@@ -10546,6 +12084,313 @@ export const ranked = [
     "rateSrc": "csc",
     "rateSlug": "colt",
     "tier": 1
+  },
+  {
+    "title": "CCC",
+    "desc": "Computational Complexity Conference",
+    "area": "theory",
+    "sub": "CT",
+    "frank": "complexity flagship",
+    "ccf": "B",
+    "core": "A",
+    "coreVerified": true,
+    "nextDeadline": "2027-02-07",
+    "nextYear": 2027,
+    "nextAbstract": "",
+    "estimated": true,
+    "estFrom": "2025-02-07",
+    "rounds": [
+      {
+        "d": "2027-02-07",
+        "label": "",
+        "est": true,
+        "from": "2025-02-07",
+        "abs": ""
+      }
+    ],
+    "dblp": "coco",
+    "csr": "",
+    "edition": "42nd",
+    "best": "",
+    "link": "https://computationalcomplexity.org/",
+    "date": "July 19-22, 2027",
+    "place": "Seattle, Washington, USA",
+    "cc": "us",
+    "city": "oysters at Elliott's, Pike Place and the first Starbucks, Mount Rainier on a clear day",
+    "cycles": 1,
+    "roundLabels": [],
+    "proceedings": "full",
+    "rates": [
+      {
+        "y": 1986,
+        "r": 42.4
+      },
+      {
+        "y": 1987,
+        "r": 47.9
+      },
+      {
+        "y": 1995,
+        "r": 46.4
+      },
+      {
+        "y": 1996,
+        "r": 45.6
+      },
+      {
+        "y": 1997,
+        "r": 36.0
+      },
+      {
+        "y": 1999,
+        "r": 40.0
+      },
+      {
+        "y": 2000,
+        "r": 44.4
+      },
+      {
+        "y": 2001,
+        "r": 50.0
+      },
+      {
+        "y": 2002,
+        "r": 44.6
+      },
+      {
+        "y": 2003,
+        "r": 44.6
+      },
+      {
+        "y": 2004,
+        "r": 42.3
+      },
+      {
+        "y": 2005,
+        "r": 38.0
+      },
+      {
+        "y": 2006,
+        "r": 32.2
+      },
+      {
+        "y": 2007,
+        "r": 33.3
+      },
+      {
+        "y": 2008,
+        "r": 36.8
+      },
+      {
+        "y": 2009,
+        "r": 32.7
+      },
+      {
+        "y": 2010,
+        "r": 32.9
+      },
+      {
+        "y": 2011,
+        "r": 36.1
+      },
+      {
+        "y": 2012,
+        "r": 28.6
+      },
+      {
+        "y": 2013,
+        "r": 32.2
+      },
+      {
+        "y": 2014,
+        "r": 30.9
+      },
+      {
+        "y": 2015,
+        "r": 27.3
+      },
+      {
+        "y": 2016,
+        "r": 37.4
+      },
+      {
+        "y": 2017,
+        "r": 33.7
+      },
+      {
+        "y": 2018,
+        "r": 37.8
+      },
+      {
+        "y": 2019,
+        "r": 32.3
+      },
+      {
+        "y": 2020,
+        "r": 37.6
+      },
+      {
+        "y": 2021,
+        "r": 35.3
+      },
+      {
+        "y": 2022,
+        "r": 42.7
+      },
+      {
+        "y": 2023,
+        "r": 48.6
+      },
+      {
+        "y": 2024,
+        "r": 34.3
+      },
+      {
+        "y": 2025,
+        "r": 39.6
+      },
+      {
+        "y": 2026,
+        "r": 33.9
+      }
+    ],
+    "subs": [
+      {
+        "y": 1986,
+        "n": 59
+      },
+      {
+        "y": 1987,
+        "n": 48
+      },
+      {
+        "y": 1995,
+        "n": 56
+      },
+      {
+        "y": 1996,
+        "n": 57
+      },
+      {
+        "y": 1997,
+        "n": 75
+      },
+      {
+        "y": 1999,
+        "n": 70
+      },
+      {
+        "y": 2000,
+        "n": 63
+      },
+      {
+        "y": 2001,
+        "n": 60
+      },
+      {
+        "y": 2002,
+        "n": 74
+      },
+      {
+        "y": 2003,
+        "n": 65
+      },
+      {
+        "y": 2004,
+        "n": 71
+      },
+      {
+        "y": 2005,
+        "n": 79
+      },
+      {
+        "y": 2006,
+        "n": 87
+      },
+      {
+        "y": 2007,
+        "n": 90
+      },
+      {
+        "y": 2008,
+        "n": 87
+      },
+      {
+        "y": 2009,
+        "n": 113
+      },
+      {
+        "y": 2010,
+        "n": 76
+      },
+      {
+        "y": 2011,
+        "n": 83
+      },
+      {
+        "y": 2012,
+        "n": 119
+      },
+      {
+        "y": 2013,
+        "n": 90
+      },
+      {
+        "y": 2014,
+        "n": 94
+      },
+      {
+        "y": 2015,
+        "n": 110
+      },
+      {
+        "y": 2016,
+        "n": 91
+      },
+      {
+        "y": 2017,
+        "n": 98
+      },
+      {
+        "y": 2018,
+        "n": 74
+      },
+      {
+        "y": 2019,
+        "n": 99
+      },
+      {
+        "y": 2020,
+        "n": 101
+      },
+      {
+        "y": 2021,
+        "n": 116
+      },
+      {
+        "y": 2022,
+        "n": 89
+      },
+      {
+        "y": 2023,
+        "n": 74
+      },
+      {
+        "y": 2024,
+        "n": 105
+      },
+      {
+        "y": 2025,
+        "n": 91
+      },
+      {
+        "y": 2026,
+        "n": 124
+      }
+    ],
+    "rateSrc": "csc",
+    "rateSlug": "ccc",
+    "tier": 2
   },
   {
     "title": "InterSpeech",
@@ -11734,6 +13579,369 @@ export const ranked = [
     "tier": 2
   },
   {
+    "title": "FOCS",
+    "desc": "IEEE Symposium on Foundations of Computer Science",
+    "area": "theory",
+    "sub": "CT",
+    "frank": "theory top two",
+    "ccf": "A",
+    "core": "A*",
+    "coreVerified": true,
+    "nextDeadline": "2027-04-03",
+    "nextYear": 2027,
+    "nextAbstract": "",
+    "estimated": true,
+    "estFrom": "2025-04-03",
+    "rounds": [
+      {
+        "d": "2027-04-03",
+        "label": "",
+        "est": true,
+        "from": "2025-04-03",
+        "abs": ""
+      }
+    ],
+    "dblp": "focs",
+    "csr": "Theory",
+    "edition": "68th",
+    "best": "",
+    "link": "https://sanjeevkhanna.org/FOCS2026_CFP.html",
+    "date": "",
+    "place": "",
+    "cc": "",
+    "city": "",
+    "cycles": 1,
+    "roundLabels": [],
+    "proceedings": "full",
+    "rates": [
+      {
+        "y": 1976,
+        "r": 38.7
+      },
+      {
+        "y": 1977,
+        "r": 33.7
+      },
+      {
+        "y": 1978,
+        "r": 24.8
+      },
+      {
+        "y": 1979,
+        "r": 28.7
+      },
+      {
+        "y": 1980,
+        "r": 30.8
+      },
+      {
+        "y": 1981,
+        "r": 37.8
+      },
+      {
+        "y": 1982,
+        "r": 27.2
+      },
+      {
+        "y": 1983,
+        "r": 37.5
+      },
+      {
+        "y": 1985,
+        "r": 29.9
+      },
+      {
+        "y": 1986,
+        "r": 29.3
+      },
+      {
+        "y": 1987,
+        "r": 27.2
+      },
+      {
+        "y": 1996,
+        "r": 36.2
+      },
+      {
+        "y": 1998,
+        "r": 37.3
+      },
+      {
+        "y": 1999,
+        "r": 30.7
+      },
+      {
+        "y": 2000,
+        "r": 32.0
+      },
+      {
+        "y": 2001,
+        "r": 29.4
+      },
+      {
+        "y": 2002,
+        "r": 27.6
+      },
+      {
+        "y": 2003,
+        "r": 24.4
+      },
+      {
+        "y": 2004,
+        "r": 23.5
+      },
+      {
+        "y": 2005,
+        "r": 22.5
+      },
+      {
+        "y": 2006,
+        "r": 29.6
+      },
+      {
+        "y": 2007,
+        "r": 21.9
+      },
+      {
+        "y": 2008,
+        "r": 28.6
+      },
+      {
+        "y": 2009,
+        "r": 30.1
+      },
+      {
+        "y": 2010,
+        "r": 30.0
+      },
+      {
+        "y": 2011,
+        "r": 29.1
+      },
+      {
+        "y": 2012,
+        "r": 31.9
+      },
+      {
+        "y": 2013,
+        "r": 28.1
+      },
+      {
+        "y": 2014,
+        "r": 24.9
+      },
+      {
+        "y": 2015,
+        "r": 27.4
+      },
+      {
+        "y": 2016,
+        "r": 27.7
+      },
+      {
+        "y": 2017,
+        "r": 27.9
+      },
+      {
+        "y": 2018,
+        "r": 26.9
+      },
+      {
+        "y": 2019,
+        "r": 28.9
+      },
+      {
+        "y": 2020,
+        "r": 31.8
+      },
+      {
+        "y": 2021,
+        "r": 34.4
+      },
+      {
+        "y": 2022,
+        "r": 37.2
+      },
+      {
+        "y": 2023,
+        "r": 33.5
+      },
+      {
+        "y": 2024,
+        "r": 26.2
+      },
+      {
+        "y": 2025,
+        "r": 25.1
+      }
+    ],
+    "subs": [
+      {
+        "y": 1976,
+        "n": 75
+      },
+      {
+        "y": 1977,
+        "n": 92
+      },
+      {
+        "y": 1978,
+        "n": 129
+      },
+      {
+        "y": 1979,
+        "n": 150
+      },
+      {
+        "y": 1980,
+        "n": 146
+      },
+      {
+        "y": 1981,
+        "n": 135
+      },
+      {
+        "y": 1982,
+        "n": 169
+      },
+      {
+        "y": 1983,
+        "n": 160
+      },
+      {
+        "y": 1985,
+        "n": 204
+      },
+      {
+        "y": 1986,
+        "n": 184
+      },
+      {
+        "y": 1987,
+        "n": 195
+      },
+      {
+        "y": 1996,
+        "n": 174
+      },
+      {
+        "y": 1998,
+        "n": 204
+      },
+      {
+        "y": 1999,
+        "n": 218
+      },
+      {
+        "y": 2000,
+        "n": 206
+      },
+      {
+        "y": 2001,
+        "n": 214
+      },
+      {
+        "y": 2002,
+        "n": 279
+      },
+      {
+        "y": 2003,
+        "n": 254
+      },
+      {
+        "y": 2004,
+        "n": 272
+      },
+      {
+        "y": 2005,
+        "n": 276
+      },
+      {
+        "y": 2006,
+        "n": 240
+      },
+      {
+        "y": 2007,
+        "n": 302
+      },
+      {
+        "y": 2008,
+        "n": 276
+      },
+      {
+        "y": 2009,
+        "n": 249
+      },
+      {
+        "y": 2010,
+        "n": 270
+      },
+      {
+        "y": 2011,
+        "n": 292
+      },
+      {
+        "y": 2012,
+        "n": 248
+      },
+      {
+        "y": 2013,
+        "n": 281
+      },
+      {
+        "y": 2014,
+        "n": 273
+      },
+      {
+        "y": 2015,
+        "n": 314
+      },
+      {
+        "y": 2016,
+        "n": 307
+      },
+      {
+        "y": 2017,
+        "n": 323
+      },
+      {
+        "y": 2018,
+        "n": 320
+      },
+      {
+        "y": 2019,
+        "n": 318
+      },
+      {
+        "y": 2020,
+        "n": 399
+      },
+      {
+        "y": 2021,
+        "n": 340
+      },
+      {
+        "y": 2022,
+        "n": 296
+      },
+      {
+        "y": 2023,
+        "n": 421
+      },
+      {
+        "y": 2024,
+        "n": 500
+      },
+      {
+        "y": 2025,
+        "n": 546
+      }
+    ],
+    "rateSrc": "csc",
+    "rateSlug": "focs",
+    "tier": 1
+  },
+  {
     "title": "RecSys",
     "desc": "ACM Conference on Recommender Systems",
     "area": "ai",
@@ -12501,6 +14709,48 @@ export const ranked = [
     "nextDeadline": "2027-04-27",
     "nextYear": null,
     "notable": true,
+    "cc": "",
+    "city": "",
+    "tier": 3
+  },
+  {
+    "title": "QCE",
+    "desc": "IEEE Quantum Week (International Conference on Quantum Computing and Engineering)",
+    "area": "quantum",
+    "proceedings": "full",
+    "lastDeadline": "2026-04-27",
+    "period": 1,
+    "badge": "quantum",
+    "note": "The large engineering meeting of the field: peer-reviewed technical papers in nine tracks, archived on IEEE Xplore, plus workshops and two rounds of posters. QCE27 is not announced, so the deadline shown is 2026's rolled forward.",
+    "link": "https://qce.quantum.ieee.org/",
+    "frank": "IEEE quantum flagship",
+    "equivalent": null,
+    "field": "",
+    "kind": "",
+    "why": "",
+    "estIsForDate": false,
+    "ccf": "N",
+    "core": "N",
+    "coreVerified": false,
+    "nextAbstract": "",
+    "cycles": 1,
+    "roundLabels": [],
+    "rates": [],
+    "rateSrc": "",
+    "rateSlug": "",
+    "rounds": [],
+    "dblp": "",
+    "best": "",
+    "csr": "",
+    "edition": "",
+    "sub": "",
+    "estimated": true,
+    "estFrom": "2026-04-27",
+    "nextDeadline": "2027-04-27",
+    "nextYear": null,
+    "notable": true,
+    "date": "",
+    "place": "",
     "cc": "",
     "city": "",
     "tier": 3
@@ -13351,6 +15601,48 @@ export const notable = [
     "tier": 3
   },
   {
+    "title": "DAMOP",
+    "desc": "APS Division of Atomic, Molecular and Optical Physics Annual Meeting",
+    "area": "physics",
+    "proceedings": "none",
+    "lastDeadline": "2026-01-30",
+    "period": 1,
+    "date": "May 31 - June 4, 2027",
+    "place": "Chicago, Illinois, USA",
+    "estIsForDate": true,
+    "field": "atomic and optical physics",
+    "kind": "flagship, yearly",
+    "why": "cold atoms, AMO and quantum simulation",
+    "note": "The APS meeting for atomic, molecular and optical physics, where much of the experimental quantum work is shown. Abstracts only. The 2027 call is not out; the date shown is the 2026 deadline rolled forward.",
+    "link": "https://www.aps.org/events/2027/damop-2027",
+    "frank": "",
+    "equivalent": null,
+    "badge": "emerging",
+    "ccf": "N",
+    "core": "N",
+    "coreVerified": false,
+    "nextAbstract": "",
+    "cycles": 1,
+    "roundLabels": [],
+    "rates": [],
+    "rateSrc": "",
+    "rateSlug": "",
+    "rounds": [],
+    "dblp": "",
+    "best": "",
+    "csr": "",
+    "edition": "",
+    "sub": "",
+    "estimated": true,
+    "estFrom": "2026-01-30",
+    "nextDeadline": "2027-01-30",
+    "nextYear": null,
+    "notable": true,
+    "cc": "us",
+    "city": "",
+    "tier": 3
+  },
+  {
     "title": "OHBM",
     "desc": "Organization for Human Brain Mapping Annual Meeting",
     "area": "neuro",
@@ -13990,6 +16282,48 @@ export const notable = [
     "tier": 3
   },
   {
+    "title": "APS DFD",
+    "desc": "APS Division of Fluid Dynamics Annual Meeting",
+    "area": "physics",
+    "proceedings": "none",
+    "lastDeadline": "2026-07-31",
+    "period": 1,
+    "date": "November 22-24, 2026",
+    "place": "Orlando, Florida, USA",
+    "field": "fluid dynamics",
+    "kind": "flagship, yearly",
+    "why": "the fluid-dynamics community",
+    "note": "The largest fluid-dynamics meeting. APS membership is required to submit. The 2026 abstracts have closed. The meeting shown is the next one to attend, which is a cycle ahead of the estimated deadline beside it.",
+    "link": "https://dfd-meeting.aps.org/",
+    "frank": "",
+    "equivalent": null,
+    "badge": "emerging",
+    "estIsForDate": false,
+    "ccf": "N",
+    "core": "N",
+    "coreVerified": false,
+    "nextAbstract": "",
+    "cycles": 1,
+    "roundLabels": [],
+    "rates": [],
+    "rateSrc": "",
+    "rateSlug": "",
+    "rounds": [],
+    "dblp": "",
+    "best": "",
+    "csr": "",
+    "edition": "",
+    "sub": "",
+    "estimated": true,
+    "estFrom": "2026-07-31",
+    "nextDeadline": "2027-07-31",
+    "nextYear": null,
+    "notable": true,
+    "cc": "us",
+    "city": "",
+    "tier": 3
+  },
+  {
     "title": "ISF",
     "desc": "International Symposium on Forecasting",
     "area": "ts",
@@ -14200,9 +16534,175 @@ export const notable = [
     "tier": 3
   },
   {
+    "title": "AMS Spring Eastern",
+    "desc": "AMS Spring Eastern Sectional Meeting",
+    "area": "math",
+    "proceedings": "none",
+    "lastDeadline": "2027-02-16",
+    "period": 1,
+    "date": "April 10-11, 2027",
+    "place": "Syracuse, New York, USA",
+    "field": "mathematics",
+    "kind": "twice yearly per region",
+    "why": "small, one contributed talk each",
+    "note": "A two-day regional AMS meeting at Syracuse University; one contributed talk per person. The date shown is the final deadline for all abstracts.",
+    "link": "https://meetings.ams.org/math/spring2027e/cfp.cgi",
+    "frank": "",
+    "equivalent": null,
+    "badge": "emerging",
+    "estIsForDate": false,
+    "ccf": "N",
+    "core": "N",
+    "coreVerified": false,
+    "nextAbstract": "",
+    "cycles": 1,
+    "roundLabels": [],
+    "rates": [],
+    "rateSrc": "",
+    "rateSlug": "",
+    "rounds": [],
+    "dblp": "",
+    "best": "",
+    "csr": "",
+    "edition": "",
+    "sub": "",
+    "estimated": false,
+    "estFrom": "",
+    "nextDeadline": "2027-02-16",
+    "nextYear": null,
+    "notable": true,
+    "cc": "us",
+    "city": "",
+    "tier": 3
+  },
+  {
+    "title": "AMS Spring Southeastern",
+    "desc": "AMS Spring Southeastern Sectional Meeting",
+    "area": "math",
+    "proceedings": "none",
+    "lastDeadline": "2027-01-26",
+    "period": 1,
+    "date": "March 20-21, 2027",
+    "place": "Birmingham, Alabama, USA",
+    "field": "mathematics",
+    "kind": "twice yearly per region",
+    "why": "small, one contributed talk each",
+    "note": "A two-day regional AMS meeting of special sessions and contributed talks; one contributed talk per person. The date shown is the final deadline for all abstracts.",
+    "link": "https://meetings.ams.org/math/spring2027se/cfp.cgi",
+    "frank": "",
+    "equivalent": null,
+    "badge": "emerging",
+    "estIsForDate": false,
+    "ccf": "N",
+    "core": "N",
+    "coreVerified": false,
+    "nextAbstract": "",
+    "cycles": 1,
+    "roundLabels": [],
+    "rates": [],
+    "rateSrc": "",
+    "rateSlug": "",
+    "rounds": [],
+    "dblp": "",
+    "best": "",
+    "csr": "",
+    "edition": "",
+    "sub": "",
+    "estimated": false,
+    "estFrom": "",
+    "nextDeadline": "2027-01-26",
+    "nextYear": null,
+    "notable": true,
+    "cc": "us",
+    "city": "",
+    "tier": 3
+  },
+  {
+    "title": "ECM",
+    "desc": "European Congress of Mathematics",
+    "area": "math",
+    "proceedings": "none",
+    "period": 4,
+    "place": "Bologna, Italy",
+    "field": "mathematics",
+    "kind": "every four years",
+    "why": "the European congress",
+    "note": "The European Mathematical Society's congress, every four years, with the EMS Prizes. The 10th is in Bologna in 2028; dates are not announced.",
+    "link": "https://www.euromathsoc.org/ecm",
+    "frank": "",
+    "equivalent": null,
+    "badge": "emerging",
+    "estIsForDate": false,
+    "ccf": "N",
+    "core": "N",
+    "coreVerified": false,
+    "nextAbstract": "",
+    "cycles": 1,
+    "roundLabels": [],
+    "rates": [],
+    "rateSrc": "",
+    "rateSlug": "",
+    "rounds": [],
+    "dblp": "",
+    "best": "",
+    "csr": "",
+    "edition": "",
+    "sub": "",
+    "estimated": false,
+    "estFrom": "",
+    "nextDeadline": "",
+    "nextYear": null,
+    "notable": true,
+    "date": "",
+    "cc": "it",
+    "city": "",
+    "tier": 3
+  },
+  {
+    "title": "ICM",
+    "desc": "International Congress of Mathematicians",
+    "area": "math",
+    "proceedings": "none",
+    "period": 4,
+    "date": "July 11-19, 2030",
+    "place": "Glasgow, United Kingdom",
+    "field": "mathematics",
+    "kind": "flagship, every four years",
+    "why": "Fields Medals awarded here",
+    "note": "The field's congress, every four years, where the Fields Medals are awarded. Lectures are by invitation of the IMU programme committee; there is no open call for talks. ICM 2026 was in Philadelphia.",
+    "link": "https://www.mathunion.org/icm/icm-2030",
+    "frank": "",
+    "equivalent": null,
+    "badge": "emerging",
+    "estIsForDate": false,
+    "ccf": "N",
+    "core": "N",
+    "coreVerified": false,
+    "nextAbstract": "",
+    "cycles": 1,
+    "roundLabels": [],
+    "rates": [],
+    "rateSrc": "",
+    "rateSlug": "",
+    "rounds": [],
+    "dblp": "",
+    "best": "",
+    "csr": "",
+    "edition": "",
+    "sub": "",
+    "estimated": false,
+    "estFrom": "",
+    "nextDeadline": "",
+    "nextYear": null,
+    "notable": true,
+    "cc": "gb",
+    "city": "",
+    "tier": 3
+  },
+  {
     "title": "JMM",
     "desc": "Joint Mathematics Meetings",
-    "area": "amath",
+    "area": "math",
     "proceedings": "none",
     "lastDeadline": "2026-09-15",
     "period": 1,
@@ -14580,7 +17080,7 @@ export const notable = [
   {
     "title": "APS Global Physics Summit",
     "desc": "American Physical Society Global Physics Summit",
-    "area": "complex",
+    "area": "physics",
     "proceedings": "none",
     "lastDeadline": "2026-10-22",
     "period": 1,
@@ -14914,6 +17414,47 @@ export const notable = [
     "tier": 3
   },
   {
+    "title": "StatPhys",
+    "desc": "IUPAP International Conference on Statistical Physics",
+    "area": "physics",
+    "proceedings": "none",
+    "period": 3,
+    "place": "Salvador, Brazil",
+    "field": "statistical physics",
+    "kind": "every three years",
+    "why": "Boltzmann Medal awarded here",
+    "note": "Every three years, with the Boltzmann Medal presented at the meeting. StatPhys29 was in Florence in 2025; the 2028 edition is set for Salvador, with no dates yet.",
+    "link": "https://statphys29.org/",
+    "frank": "",
+    "equivalent": null,
+    "badge": "emerging",
+    "estIsForDate": false,
+    "ccf": "N",
+    "core": "N",
+    "coreVerified": false,
+    "nextAbstract": "",
+    "cycles": 1,
+    "roundLabels": [],
+    "rates": [],
+    "rateSrc": "",
+    "rateSlug": "",
+    "rounds": [],
+    "dblp": "",
+    "best": "",
+    "csr": "",
+    "edition": "",
+    "sub": "",
+    "estimated": false,
+    "estFrom": "",
+    "nextDeadline": "",
+    "nextYear": null,
+    "notable": true,
+    "date": "",
+    "cc": "br",
+    "city": "",
+    "tier": 3
+  },
+  {
     "title": "JSM",
     "desc": "Joint Statistical Meetings",
     "area": "uq",
@@ -15047,6 +17588,144 @@ export const notable = [
     "nextYear": null,
     "notable": true,
     "cc": "gr",
+    "city": "",
+    "tier": 3
+  },
+  {
+    "title": "QCrypt",
+    "desc": "International Conference on Quantum Cryptography",
+    "area": "quantum",
+    "proceedings": "none",
+    "lastDeadline": "2026-03-13",
+    "period": 1,
+    "date": "August 23-27, 2027",
+    "place": "Vienna, Austria",
+    "estIsForDate": true,
+    "note": "Talks are chosen from 2 to 3 page abstracts and are highly competitive; most accepted work is a poster. No published proceedings. The 2027 deadline is not announced; the date shown is 2026's rolled forward.",
+    "link": "https://qcrypt.net/",
+    "frank": "quantum-crypto flagship",
+    "equivalent": null,
+    "badge": "emerging",
+    "field": "",
+    "kind": "",
+    "why": "",
+    "ccf": "N",
+    "core": "N",
+    "coreVerified": false,
+    "nextAbstract": "",
+    "cycles": 1,
+    "roundLabels": [],
+    "rates": [],
+    "rateSrc": "",
+    "rateSlug": "",
+    "rounds": [],
+    "dblp": "",
+    "best": "",
+    "csr": "",
+    "edition": "",
+    "sub": "",
+    "estimated": true,
+    "estFrom": "2026-03-13",
+    "nextDeadline": "2027-03-13",
+    "nextYear": null,
+    "notable": true,
+    "cc": "",
+    "city": "",
+    "tier": 3
+  },
+  {
+    "title": "QIP",
+    "desc": "Conference on Quantum Information Processing",
+    "area": "quantum",
+    "proceedings": "none",
+    "lastDeadline": "2026-12-04",
+    "period": 1,
+    "date": "February 20-26, 2027",
+    "place": "Singapore",
+    "rounds": [
+      {
+        "d": "2026-10-05",
+        "abs": "2026-09-28",
+        "label": "talk (3-page abstract)",
+        "est": false
+      },
+      {
+        "d": "2026-12-04",
+        "label": "poster",
+        "est": false
+      }
+    ],
+    "note": "The field's top meeting. It accepts talks, not papers: a 3-page anonymous abstract is judged, the full work must already be on arXiv, and there are no proceedings. Talk and poster submissions are separate. The talk deadline has passed; posters are open until 4 December.",
+    "link": "https://qipconference.org/2027/",
+    "frank": "quantum flagship",
+    "equivalent": null,
+    "badge": "emerging",
+    "field": "",
+    "kind": "",
+    "why": "",
+    "estIsForDate": false,
+    "ccf": "N",
+    "core": "N",
+    "coreVerified": false,
+    "nextAbstract": "",
+    "cycles": 1,
+    "roundLabels": [],
+    "rates": [],
+    "rateSrc": "",
+    "rateSlug": "",
+    "dblp": "",
+    "best": "",
+    "csr": "",
+    "edition": "",
+    "sub": "",
+    "estimated": false,
+    "estFrom": "",
+    "nextDeadline": "2026-12-04",
+    "nextYear": null,
+    "notable": true,
+    "cc": "sg",
+    "city": "chili crab, hawker chicken rice for a few dollars, the Gardens by the Bay light show",
+    "tier": 3
+  },
+  {
+    "title": "TQC",
+    "desc": "Theory of Quantum Computation, Communication and Cryptography",
+    "area": "quantum",
+    "proceedings": "optin",
+    "lastDeadline": "2026-02-01",
+    "period": 1,
+    "place": "Grenoble, France",
+    "note": "Two tracks: with proceedings, unpublished work in LIPIcs, judged on its first 15 pages; or without, a talk only, open to work published or bound for a journal. TQC 2027 is in Grenoble; its dates are not announced, so the deadline shown is 2026's rolled forward.",
+    "link": "https://tqc-conference.org/",
+    "frank": "",
+    "equivalent": null,
+    "badge": "emerging",
+    "field": "",
+    "kind": "",
+    "why": "",
+    "estIsForDate": false,
+    "ccf": "N",
+    "core": "N",
+    "coreVerified": false,
+    "nextAbstract": "",
+    "cycles": 1,
+    "roundLabels": [],
+    "rates": [],
+    "rateSrc": "",
+    "rateSlug": "",
+    "rounds": [],
+    "dblp": "",
+    "best": "",
+    "csr": "",
+    "edition": "",
+    "sub": "",
+    "estimated": true,
+    "estFrom": "2026-02-01",
+    "nextDeadline": "2027-02-01",
+    "nextYear": null,
+    "notable": true,
+    "date": "",
+    "cc": "fr",
     "city": "",
     "tier": 3
   }
@@ -15213,7 +17892,7 @@ export const journals = [
       },
       {
         "y": 2020,
-        "n": 127
+        "n": 128
       },
       {
         "y": 2021,
@@ -15293,7 +17972,7 @@ export const journals = [
         "n": 508
       }
     ],
-    "cites": 10.6,
+    "cites": 10.7,
     "h": 271,
     "oa": "https://openalex.org/S30698027",
     "link": "https://dblp.org/db/journals/tkde/index.html"
@@ -15407,7 +18086,7 @@ export const journals = [
         "n": 896
       }
     ],
-    "cites": 8.0,
+    "cites": 7.8,
     "h": 209,
     "oa": "https://openalex.org/S61310614",
     "link": "https://dblp.org/db/journals/tifs/index.html"
@@ -15742,14 +18421,14 @@ export const journals = [
       },
       {
         "y": 2024,
-        "n": 221
+        "n": 222
       },
       {
         "y": 2025,
         "n": 301
       }
     ],
-    "cites": 4.1,
+    "cites": 4.0,
     "h": 260,
     "oa": "https://openalex.org/S157670870",
     "link": "https://dblp.org/db/journals/tc/index.html"
@@ -15806,7 +18485,7 @@ export const journals = [
         "n": 168
       }
     ],
-    "cites": 3.1,
+    "cites": 3.0,
     "h": 68,
     "oa": "https://openalex.org/S105046310",
     "link": "https://dblp.org/db/journals/todaes/index.html"
@@ -15852,7 +18531,7 @@ export const journals = [
       },
       {
         "y": 2023,
-        "n": 271
+        "n": 272
       },
       {
         "y": 2024,
@@ -16247,11 +18926,11 @@ export const journals = [
       },
       {
         "y": 2024,
-        "n": 780
+        "n": 781
       },
       {
         "y": 2025,
-        "n": 770
+        "n": 771
       }
     ],
     "cites": 6.0,
@@ -16422,7 +19101,7 @@ export const journals = [
       },
       {
         "y": 2025,
-        "n": 180
+        "n": 181
       }
     ],
     "cites": 4.6,
@@ -16475,7 +19154,7 @@ export const journals = [
       },
       {
         "y": 2024,
-        "n": 179
+        "n": 180
       },
       {
         "y": 2025,
@@ -16760,7 +19439,7 @@ export const journals = [
       },
       {
         "y": 2025,
-        "n": 664
+        "n": 663
       }
     ],
     "cites": 3.9,
@@ -18071,7 +20750,7 @@ export const journals = [
       },
       {
         "y": 2025,
-        "n": 268
+        "n": 269
       }
     ],
     "cites": 3.6,
@@ -18173,7 +20852,7 @@ export const journals = [
       },
       {
         "y": 2025,
-        "n": 749
+        "n": 747
       }
     ],
     "cites": 4.2,
@@ -18450,7 +21129,7 @@ export const journals = [
       },
       {
         "y": 2023,
-        "n": 374
+        "n": 375
       },
       {
         "y": 2024,
@@ -18511,11 +21190,11 @@ export const journals = [
       },
       {
         "y": 2024,
-        "n": 754
+        "n": 755
       },
       {
         "y": 2025,
-        "n": 894
+        "n": 893
       }
     ],
     "cites": 4.7,
@@ -18564,7 +21243,7 @@ export const journals = [
       },
       {
         "y": 2023,
-        "n": 4165
+        "n": 4164
       },
       {
         "y": 2024,
@@ -18572,7 +21251,7 @@ export const journals = [
       },
       {
         "y": 2025,
-        "n": 5198
+        "n": 5191
       }
     ],
     "cites": 2.1,
@@ -19088,7 +21767,7 @@ export const journals = [
         "n": 135
       }
     ],
-    "cites": 8.6,
+    "cites": 8.7,
     "h": 227,
     "oa": "https://openalex.org/S28482811",
     "link": ""
@@ -19118,7 +21797,7 @@ export const journals = [
       },
       {
         "y": 2019,
-        "n": 396
+        "n": 397
       },
       {
         "y": 2020,
@@ -19138,7 +21817,7 @@ export const journals = [
       },
       {
         "y": 2024,
-        "n": 323
+        "n": 324
       },
       {
         "y": 2025,
@@ -19411,7 +22090,7 @@ export const journals = [
       },
       {
         "y": 2025,
-        "n": 882
+        "n": 883
       }
     ],
     "cites": 13.9,
@@ -19497,7 +22176,7 @@ export const journals = [
       },
       {
         "y": 2018,
-        "n": 337
+        "n": 338
       },
       {
         "y": 2019,
@@ -19513,7 +22192,7 @@ export const journals = [
       },
       {
         "y": 2022,
-        "n": 361
+        "n": 362
       },
       {
         "y": 2023,
@@ -19631,7 +22310,7 @@ export const journals = [
       },
       {
         "y": 2023,
-        "n": 675
+        "n": 676
       },
       {
         "y": 2024,
@@ -19639,7 +22318,7 @@ export const journals = [
       },
       {
         "y": 2025,
-        "n": 1141
+        "n": 1142
       }
     ],
     "cites": 6.0,
@@ -19688,7 +22367,7 @@ export const journals = [
       },
       {
         "y": 2023,
-        "n": 270
+        "n": 271
       },
       {
         "y": 2024,
@@ -19699,7 +22378,7 @@ export const journals = [
         "n": 201
       }
     ],
-    "cites": 7.2,
+    "cites": 7.3,
     "h": 168,
     "oa": "https://openalex.org/S11622463",
     "link": "https://dblp.org/db/journals/jbi/index.html"
@@ -20022,7 +22701,7 @@ export const journals = [
       },
       {
         "y": 2021,
-        "n": 307
+        "n": 308
       },
       {
         "y": 2022,
@@ -20038,10 +22717,10 @@ export const journals = [
       },
       {
         "y": 2025,
-        "n": 390
+        "n": 389
       }
     ],
-    "cites": 23.9,
+    "cites": 24.0,
     "h": 653,
     "oa": "https://openalex.org/S103895331",
     "link": ""
@@ -20095,7 +22774,7 @@ export const journals = [
       },
       {
         "y": 2025,
-        "n": 432
+        "n": 433
       }
     ],
     "cites": 11.2,
@@ -20238,7 +22917,7 @@ export const journals = [
       },
       {
         "y": 2023,
-        "n": 1073
+        "n": 1074
       },
       {
         "y": 2024,
@@ -20246,7 +22925,7 @@ export const journals = [
       },
       {
         "y": 2025,
-        "n": 946
+        "n": 948
       }
     ],
     "cites": 6.8,
@@ -20417,7 +23096,7 @@ export const journals = [
       },
       {
         "y": 2025,
-        "n": 314
+        "n": 315
       }
     ],
     "cites": 7.5,
@@ -20499,7 +23178,7 @@ export const journals = [
       },
       {
         "y": 2017,
-        "n": 2274
+        "n": 2276
       },
       {
         "y": 2018,
@@ -20519,11 +23198,11 @@ export const journals = [
       },
       {
         "y": 2022,
-        "n": 1733
+        "n": 1734
       },
       {
         "y": 2023,
-        "n": 1794
+        "n": 1795
       },
       {
         "y": 2024,
@@ -20537,6 +23216,1281 @@ export const journals = [
     "cites": 15.8,
     "h": 388,
     "oa": "https://openalex.org/S109565702",
+    "link": ""
+  },
+  {
+    "title": "JACM",
+    "name": "Journal of the ACM",
+    "issn": "0004-5411",
+    "dblp": "jacm",
+    "area": "theory",
+    "pub": "ACM",
+    "why": "theory across computing",
+    "rank": "theory flagship",
+    "ccf": "A",
+    "subs": [
+      {
+        "y": 2016,
+        "n": 53
+      },
+      {
+        "y": 2017,
+        "n": 61
+      },
+      {
+        "y": 2018,
+        "n": 54
+      },
+      {
+        "y": 2019,
+        "n": 43
+      },
+      {
+        "y": 2020,
+        "n": 36
+      },
+      {
+        "y": 2021,
+        "n": 48
+      },
+      {
+        "y": 2022,
+        "n": 47
+      },
+      {
+        "y": 2023,
+        "n": 38
+      },
+      {
+        "y": 2024,
+        "n": 45
+      },
+      {
+        "y": 2025,
+        "n": 34
+      }
+    ],
+    "cites": 4.8,
+    "h": 295,
+    "oa": "https://openalex.org/S118992489",
+    "link": "https://dblp.org/db/journals/jacm/index.html"
+  },
+  {
+    "title": "SICOMP",
+    "name": "SIAM Journal on Computing",
+    "issn": "0097-5397",
+    "dblp": "siamcomp",
+    "area": "theory",
+    "pub": "SIAM",
+    "why": "algorithms and complexity",
+    "rank": "theory flagship",
+    "ccf": "A",
+    "subs": [
+      {
+        "y": 2016,
+        "n": 73
+      },
+      {
+        "y": 2017,
+        "n": 61
+      },
+      {
+        "y": 2018,
+        "n": 79
+      },
+      {
+        "y": 2019,
+        "n": 69
+      },
+      {
+        "y": 2020,
+        "n": 57
+      },
+      {
+        "y": 2021,
+        "n": 62
+      },
+      {
+        "y": 2022,
+        "n": 71
+      },
+      {
+        "y": 2023,
+        "n": 54
+      },
+      {
+        "y": 2024,
+        "n": 73
+      },
+      {
+        "y": 2025,
+        "n": 65
+      }
+    ],
+    "cites": 1.2,
+    "h": 241,
+    "oa": "https://openalex.org/S153560523",
+    "link": "https://dblp.org/db/journals/siamcomp/index.html"
+  },
+  {
+    "title": "TheoretiCS",
+    "name": "TheoretiCS",
+    "issn": "2751-4838",
+    "dblp": "theoretics",
+    "area": "theory",
+    "pub": "Episciences",
+    "why": "all of theory, open access, founded 2021",
+    "rank": "",
+    "ccf": "N",
+    "subs": [
+      {
+        "y": 2022,
+        "n": 2
+      },
+      {
+        "y": 2023,
+        "n": 10
+      },
+      {
+        "y": 2024,
+        "n": 28
+      },
+      {
+        "y": 2025,
+        "n": 29
+      }
+    ],
+    "cites": 2.6,
+    "h": 8,
+    "oa": "https://openalex.org/S4387285734",
+    "link": "https://dblp.org/db/journals/theoretics/index.html"
+  },
+  {
+    "title": "ToC",
+    "name": "Theory of Computing",
+    "issn": "1557-2862",
+    "dblp": "toc",
+    "area": "theory",
+    "pub": "Univ. of Chicago",
+    "why": "theory, open access",
+    "rank": "",
+    "ccf": "N",
+    "subs": [
+      {
+        "y": 2016,
+        "n": 23
+      },
+      {
+        "y": 2017,
+        "n": 23
+      },
+      {
+        "y": 2018,
+        "n": 23
+      },
+      {
+        "y": 2019,
+        "n": 23
+      },
+      {
+        "y": 2020,
+        "n": 21
+      },
+      {
+        "y": 2021,
+        "n": 12
+      },
+      {
+        "y": 2022,
+        "n": 25
+      },
+      {
+        "y": 2023,
+        "n": 12
+      },
+      {
+        "y": 2024,
+        "n": 8
+      },
+      {
+        "y": 2025,
+        "n": 16
+      }
+    ],
+    "cites": 5.7,
+    "h": 49,
+    "oa": "https://openalex.org/S142665794",
+    "link": "https://dblp.org/db/journals/toc/index.html"
+  },
+  {
+    "title": "TALG",
+    "name": "ACM Transactions on Algorithms",
+    "issn": "1549-6325",
+    "dblp": "talg",
+    "area": "theory",
+    "pub": "ACM",
+    "why": "algorithms, SODA's journal home",
+    "rank": "",
+    "ccf": "B",
+    "subs": [
+      {
+        "y": 2016,
+        "n": 60
+      },
+      {
+        "y": 2017,
+        "n": 44
+      },
+      {
+        "y": 2018,
+        "n": 74
+      },
+      {
+        "y": 2019,
+        "n": 54
+      },
+      {
+        "y": 2020,
+        "n": 45
+      },
+      {
+        "y": 2021,
+        "n": 28
+      },
+      {
+        "y": 2022,
+        "n": 55
+      },
+      {
+        "y": 2023,
+        "n": 38
+      },
+      {
+        "y": 2024,
+        "n": 47
+      },
+      {
+        "y": 2025,
+        "n": 43
+      }
+    ],
+    "cites": 1.4,
+    "h": 78,
+    "oa": "https://openalex.org/S137348503",
+    "link": "https://dblp.org/db/journals/talg/index.html"
+  },
+  {
+    "title": "Algorithmica",
+    "name": "Algorithmica",
+    "issn": "0178-4617",
+    "dblp": "algorithmica",
+    "area": "theory",
+    "pub": "Springer",
+    "why": "algorithms",
+    "rank": "",
+    "ccf": "B",
+    "subs": [
+      {
+        "y": 2016,
+        "n": 159
+      },
+      {
+        "y": 2017,
+        "n": 129
+      },
+      {
+        "y": 2018,
+        "n": 135
+      },
+      {
+        "y": 2019,
+        "n": 118
+      },
+      {
+        "y": 2020,
+        "n": 118
+      },
+      {
+        "y": 2021,
+        "n": 106
+      },
+      {
+        "y": 2022,
+        "n": 183
+      },
+      {
+        "y": 2023,
+        "n": 109
+      },
+      {
+        "y": 2024,
+        "n": 91
+      },
+      {
+        "y": 2025,
+        "n": 66
+      }
+    ],
+    "cites": 1.4,
+    "h": 132,
+    "oa": "https://openalex.org/S89324355",
+    "link": "https://dblp.org/db/journals/algorithmica/index.html"
+  },
+  {
+    "title": "PRX Quantum",
+    "name": "PRX Quantum",
+    "issn": "2691-3399",
+    "dblp": "",
+    "area": "quantum",
+    "pub": "APS",
+    "why": "quantum information, selective, open access",
+    "rank": "top",
+    "ccf": "N",
+    "subs": [
+      {
+        "y": 2020,
+        "n": 40
+      },
+      {
+        "y": 2021,
+        "n": 238
+      },
+      {
+        "y": 2022,
+        "n": 221
+      },
+      {
+        "y": 2023,
+        "n": 195
+      },
+      {
+        "y": 2024,
+        "n": 250
+      },
+      {
+        "y": 2025,
+        "n": 319
+      }
+    ],
+    "cites": 12.0,
+    "h": 95,
+    "oa": "https://openalex.org/S4210195673",
+    "link": ""
+  },
+  {
+    "title": "Quantum",
+    "name": "Quantum",
+    "issn": "2521-327X",
+    "dblp": "quantum",
+    "area": "quantum",
+    "pub": "Verein Quantum",
+    "why": "community-run, open access, arXiv overlay",
+    "rank": "top",
+    "ccf": "N",
+    "subs": [
+      {
+        "y": 1999,
+        "n": 1
+      },
+      {
+        "y": 2017,
+        "n": 41
+      },
+      {
+        "y": 2018,
+        "n": 75
+      },
+      {
+        "y": 2019,
+        "n": 102
+      },
+      {
+        "y": 2020,
+        "n": 162
+      },
+      {
+        "y": 2021,
+        "n": 235
+      },
+      {
+        "y": 2022,
+        "n": 276
+      },
+      {
+        "y": 2023,
+        "n": 332
+      },
+      {
+        "y": 2024,
+        "n": 365
+      },
+      {
+        "y": 2025,
+        "n": 383
+      }
+    ],
+    "cites": 6.8,
+    "h": 103,
+    "oa": "https://openalex.org/S4210226432",
+    "link": "https://dblp.org/db/journals/quantum/index.html"
+  },
+  {
+    "title": "npj QI",
+    "name": "npj Quantum Information",
+    "issn": "2056-6387",
+    "dblp": "",
+    "area": "quantum",
+    "pub": "Nature Portfolio",
+    "why": "quantum information, open access",
+    "rank": "",
+    "ccf": "N",
+    "subs": [
+      {
+        "y": 2016,
+        "n": 26
+      },
+      {
+        "y": 2017,
+        "n": 50
+      },
+      {
+        "y": 2018,
+        "n": 69
+      },
+      {
+        "y": 2019,
+        "n": 112
+      },
+      {
+        "y": 2020,
+        "n": 104
+      },
+      {
+        "y": 2021,
+        "n": 173
+      },
+      {
+        "y": 2022,
+        "n": 153
+      },
+      {
+        "y": 2023,
+        "n": 126
+      },
+      {
+        "y": 2024,
+        "n": 137
+      },
+      {
+        "y": 2025,
+        "n": 220
+      }
+    ],
+    "cites": 7.5,
+    "h": 110,
+    "oa": "https://openalex.org/S2738600312",
+    "link": ""
+  },
+  {
+    "title": "PRA",
+    "name": "Physical Review A",
+    "issn": "1050-2947",
+    "dblp": "",
+    "area": "quantum",
+    "pub": "APS",
+    "why": "atomic, optical and quantum information, high volume",
+    "rank": "",
+    "ccf": "N",
+    "subs": [
+      {
+        "y": 2016,
+        "n": 2812
+      },
+      {
+        "y": 2017,
+        "n": 2731
+      },
+      {
+        "y": 2018,
+        "n": 2751
+      },
+      {
+        "y": 2019,
+        "n": 2599
+      },
+      {
+        "y": 2020,
+        "n": 2500
+      },
+      {
+        "y": 2021,
+        "n": 2339
+      },
+      {
+        "y": 2022,
+        "n": 2416
+      },
+      {
+        "y": 2023,
+        "n": 2145
+      },
+      {
+        "y": 2024,
+        "n": 2563
+      },
+      {
+        "y": 2025,
+        "n": 2948
+      }
+    ],
+    "cites": 3.0,
+    "h": 457,
+    "oa": "https://openalex.org/S164566984",
+    "link": ""
+  },
+  {
+    "title": "TQE",
+    "name": "IEEE Transactions on Quantum Engineering",
+    "issn": "2689-1808",
+    "dblp": "",
+    "area": "quantum",
+    "pub": "IEEE",
+    "why": "quantum engineering and systems",
+    "rank": "",
+    "ccf": "N",
+    "subs": [
+      {
+        "y": 2019,
+        "n": 2
+      },
+      {
+        "y": 2020,
+        "n": 32
+      },
+      {
+        "y": 2021,
+        "n": 53
+      },
+      {
+        "y": 2022,
+        "n": 61
+      },
+      {
+        "y": 2023,
+        "n": 71
+      },
+      {
+        "y": 2024,
+        "n": 71
+      },
+      {
+        "y": 2025,
+        "n": 89
+      }
+    ],
+    "cites": 4.4,
+    "h": 46,
+    "oa": "https://openalex.org/S4210182817",
+    "link": ""
+  },
+  {
+    "title": "TQC",
+    "name": "ACM Transactions on Quantum Computing",
+    "issn": "2643-6809",
+    "dblp": "",
+    "area": "quantum",
+    "pub": "ACM",
+    "why": "quantum computing in computer science",
+    "rank": "",
+    "ccf": "N",
+    "subs": [
+      {
+        "y": 2020,
+        "n": 6
+      },
+      {
+        "y": 2021,
+        "n": 19
+      },
+      {
+        "y": 2022,
+        "n": 37
+      },
+      {
+        "y": 2023,
+        "n": 20
+      },
+      {
+        "y": 2024,
+        "n": 32
+      },
+      {
+        "y": 2025,
+        "n": 32
+      }
+    ],
+    "cites": 5.6,
+    "h": 30,
+    "oa": "https://openalex.org/S4210170170",
+    "link": ""
+  },
+  {
+    "title": "PRL",
+    "name": "Physical Review Letters",
+    "issn": "0031-9007",
+    "dblp": "",
+    "area": "physics",
+    "pub": "APS",
+    "why": "short, fast, selective letters across physics",
+    "rank": "APS flagship",
+    "ccf": "N",
+    "subs": [
+      {
+        "y": 2016,
+        "n": 2535
+      },
+      {
+        "y": 2017,
+        "n": 2681
+      },
+      {
+        "y": 2018,
+        "n": 2954
+      },
+      {
+        "y": 2019,
+        "n": 2786
+      },
+      {
+        "y": 2020,
+        "n": 2890
+      },
+      {
+        "y": 2021,
+        "n": 2493
+      },
+      {
+        "y": 2022,
+        "n": 2159
+      },
+      {
+        "y": 2023,
+        "n": 2228
+      },
+      {
+        "y": 2024,
+        "n": 2579
+      },
+      {
+        "y": 2025,
+        "n": 3315
+      }
+    ],
+    "cites": 9.2,
+    "h": 978,
+    "oa": "https://openalex.org/S24807848",
+    "link": ""
+  },
+  {
+    "title": "Nat. Phys.",
+    "name": "Nature Physics",
+    "issn": "1745-2473",
+    "dblp": "",
+    "area": "physics",
+    "pub": "Nature Portfolio",
+    "why": "physics, broad and selective",
+    "rank": "top",
+    "ccf": "N",
+    "subs": [
+      {
+        "y": 2016,
+        "n": 390
+      },
+      {
+        "y": 2017,
+        "n": 355
+      },
+      {
+        "y": 2018,
+        "n": 398
+      },
+      {
+        "y": 2019,
+        "n": 351
+      },
+      {
+        "y": 2020,
+        "n": 356
+      },
+      {
+        "y": 2021,
+        "n": 366
+      },
+      {
+        "y": 2022,
+        "n": 392
+      },
+      {
+        "y": 2023,
+        "n": 437
+      },
+      {
+        "y": 2024,
+        "n": 427
+      },
+      {
+        "y": 2025,
+        "n": 417
+      }
+    ],
+    "cites": 12.0,
+    "h": 407,
+    "oa": "https://openalex.org/S156274416",
+    "link": ""
+  },
+  {
+    "title": "PRX",
+    "name": "Physical Review X",
+    "issn": "2160-3308",
+    "dblp": "",
+    "area": "physics",
+    "pub": "APS",
+    "why": "physics, selective and open access",
+    "rank": "top",
+    "ccf": "N",
+    "subs": [
+      {
+        "y": 2016,
+        "n": 208
+      },
+      {
+        "y": 2017,
+        "n": 235
+      },
+      {
+        "y": 2018,
+        "n": 286
+      },
+      {
+        "y": 2019,
+        "n": 244
+      },
+      {
+        "y": 2020,
+        "n": 294
+      },
+      {
+        "y": 2021,
+        "n": 274
+      },
+      {
+        "y": 2022,
+        "n": 225
+      },
+      {
+        "y": 2023,
+        "n": 198
+      },
+      {
+        "y": 2024,
+        "n": 245
+      },
+      {
+        "y": 2025,
+        "n": 341
+      }
+    ],
+    "cites": 11.3,
+    "h": 228,
+    "oa": "https://openalex.org/S137042341",
+    "link": ""
+  },
+  {
+    "title": "RMP",
+    "name": "Reviews of Modern Physics",
+    "issn": "0034-6861",
+    "dblp": "",
+    "area": "physics",
+    "pub": "APS",
+    "why": "invited reviews, so citations run high",
+    "rank": "",
+    "ccf": "N",
+    "subs": [
+      {
+        "y": 2016,
+        "n": 47
+      },
+      {
+        "y": 2017,
+        "n": 43
+      },
+      {
+        "y": 2018,
+        "n": 44
+      },
+      {
+        "y": 2019,
+        "n": 43
+      },
+      {
+        "y": 2020,
+        "n": 34
+      },
+      {
+        "y": 2021,
+        "n": 33
+      },
+      {
+        "y": 2022,
+        "n": 38
+      },
+      {
+        "y": 2023,
+        "n": 36
+      },
+      {
+        "y": 2024,
+        "n": 35
+      },
+      {
+        "y": 2025,
+        "n": 45
+      }
+    ],
+    "cites": 35.3,
+    "h": 618,
+    "oa": "https://openalex.org/S73260565",
+    "link": ""
+  },
+  {
+    "title": "PRB",
+    "name": "Physical Review B",
+    "issn": "1098-0121",
+    "dblp": "",
+    "area": "physics",
+    "pub": "APS",
+    "why": "condensed matter",
+    "rank": "",
+    "ccf": "N",
+    "subs": [],
+    "cites": null,
+    "h": null,
+    "oa": "https://openalex.org/S6791298",
+    "link": ""
+  },
+  {
+    "title": "PRD",
+    "name": "Physical Review D",
+    "issn": "1550-7998",
+    "dblp": "",
+    "area": "physics",
+    "pub": "APS",
+    "why": "particles, fields, gravitation, cosmology",
+    "rank": "",
+    "ccf": "N",
+    "subs": [],
+    "cites": null,
+    "h": null,
+    "oa": "https://openalex.org/S4210190737",
+    "link": ""
+  },
+  {
+    "title": "Annals",
+    "name": "Annals of Mathematics",
+    "issn": "0003-486X",
+    "dblp": "",
+    "area": "math",
+    "pub": "Princeton / IAS",
+    "why": "all of mathematics",
+    "rank": "top five",
+    "ccf": "N",
+    "subs": [
+      {
+        "y": 2016,
+        "n": 49
+      },
+      {
+        "y": 2017,
+        "n": 47
+      },
+      {
+        "y": 2018,
+        "n": 35
+      },
+      {
+        "y": 2019,
+        "n": 49
+      },
+      {
+        "y": 2020,
+        "n": 40
+      },
+      {
+        "y": 2021,
+        "n": 41
+      },
+      {
+        "y": 2022,
+        "n": 35
+      },
+      {
+        "y": 2023,
+        "n": 36
+      },
+      {
+        "y": 2024,
+        "n": 33
+      },
+      {
+        "y": 2025,
+        "n": 31
+      }
+    ],
+    "cites": 8.6,
+    "h": 325,
+    "oa": "https://openalex.org/S45918994",
+    "link": ""
+  },
+  {
+    "title": "Acta",
+    "name": "Acta Mathematica",
+    "issn": "0001-5962",
+    "dblp": "",
+    "area": "math",
+    "pub": "Institut Mittag-Leffler",
+    "why": "all of mathematics",
+    "rank": "top five",
+    "ccf": "N",
+    "subs": [
+      {
+        "y": 2016,
+        "n": 11
+      },
+      {
+        "y": 2017,
+        "n": 14
+      },
+      {
+        "y": 2018,
+        "n": 12
+      },
+      {
+        "y": 2019,
+        "n": 10
+      },
+      {
+        "y": 2020,
+        "n": 11
+      },
+      {
+        "y": 2021,
+        "n": 9
+      },
+      {
+        "y": 2022,
+        "n": 9
+      },
+      {
+        "y": 2023,
+        "n": 10
+      },
+      {
+        "y": 2024,
+        "n": 9
+      },
+      {
+        "y": 2025,
+        "n": 6
+      }
+    ],
+    "cites": 6.6,
+    "h": 202,
+    "oa": "https://openalex.org/S113542759",
+    "link": ""
+  },
+  {
+    "title": "Inventiones",
+    "name": "Inventiones mathematicae",
+    "issn": "0020-9910",
+    "dblp": "",
+    "area": "math",
+    "pub": "Springer",
+    "why": "all of mathematics",
+    "rank": "top five",
+    "ccf": "N",
+    "subs": [
+      {
+        "y": 2016,
+        "n": 73
+      },
+      {
+        "y": 2017,
+        "n": 60
+      },
+      {
+        "y": 2018,
+        "n": 63
+      },
+      {
+        "y": 2019,
+        "n": 92
+      },
+      {
+        "y": 2020,
+        "n": 74
+      },
+      {
+        "y": 2021,
+        "n": 63
+      },
+      {
+        "y": 2022,
+        "n": 89
+      },
+      {
+        "y": 2023,
+        "n": 58
+      },
+      {
+        "y": 2024,
+        "n": 72
+      },
+      {
+        "y": 2025,
+        "n": 88
+      }
+    ],
+    "cites": 4.0,
+    "h": 258,
+    "oa": "https://openalex.org/S98347115",
+    "link": ""
+  },
+  {
+    "title": "JAMS",
+    "name": "Journal of the American Mathematical Society",
+    "issn": "0894-0347",
+    "dblp": "",
+    "area": "math",
+    "pub": "AMS",
+    "why": "all of mathematics",
+    "rank": "top five",
+    "ccf": "N",
+    "subs": [
+      {
+        "y": 2016,
+        "n": 25
+      },
+      {
+        "y": 2017,
+        "n": 25
+      },
+      {
+        "y": 2018,
+        "n": 23
+      },
+      {
+        "y": 2019,
+        "n": 31
+      },
+      {
+        "y": 2020,
+        "n": 30
+      },
+      {
+        "y": 2021,
+        "n": 30
+      },
+      {
+        "y": 2022,
+        "n": 25
+      },
+      {
+        "y": 2023,
+        "n": 26
+      },
+      {
+        "y": 2024,
+        "n": 16
+      },
+      {
+        "y": 2025,
+        "n": 20
+      }
+    ],
+    "cites": 4.5,
+    "h": 173,
+    "oa": "https://openalex.org/S130224168",
+    "link": ""
+  },
+  {
+    "title": "Publ. IHÉS",
+    "name": "Publications mathématiques de l'IHÉS",
+    "issn": "0073-8301",
+    "dblp": "",
+    "area": "math",
+    "pub": "Springer / IHÉS",
+    "why": "all of mathematics",
+    "rank": "top five",
+    "ccf": "N",
+    "subs": [
+      {
+        "y": 2016,
+        "n": 8
+      },
+      {
+        "y": 2017,
+        "n": 10
+      },
+      {
+        "y": 2018,
+        "n": 5
+      },
+      {
+        "y": 2019,
+        "n": 10
+      },
+      {
+        "y": 2020,
+        "n": 9
+      },
+      {
+        "y": 2021,
+        "n": 8
+      },
+      {
+        "y": 2022,
+        "n": 8
+      },
+      {
+        "y": 2023,
+        "n": 6
+      },
+      {
+        "y": 2024,
+        "n": 10
+      },
+      {
+        "y": 2025,
+        "n": 7
+      }
+    ],
+    "cites": 6.4,
+    "h": 153,
+    "oa": "https://openalex.org/S25010850",
+    "link": ""
+  },
+  {
+    "title": "Duke",
+    "name": "Duke Mathematical Journal",
+    "issn": "0012-7094",
+    "dblp": "",
+    "area": "math",
+    "pub": "Duke Univ. Press",
+    "why": "all of mathematics",
+    "rank": "",
+    "ccf": "N",
+    "subs": [
+      {
+        "y": 2016,
+        "n": 70
+      },
+      {
+        "y": 2017,
+        "n": 59
+      },
+      {
+        "y": 2018,
+        "n": 60
+      },
+      {
+        "y": 2019,
+        "n": 69
+      },
+      {
+        "y": 2020,
+        "n": 73
+      },
+      {
+        "y": 2021,
+        "n": 64
+      },
+      {
+        "y": 2022,
+        "n": 68
+      },
+      {
+        "y": 2023,
+        "n": 60
+      },
+      {
+        "y": 2024,
+        "n": 61
+      },
+      {
+        "y": 2025,
+        "n": 65
+      }
+    ],
+    "cites": 3.2,
+    "h": 184,
+    "oa": "https://openalex.org/S171170845",
+    "link": ""
+  },
+  {
+    "title": "Adv. Math.",
+    "name": "Advances in Mathematics",
+    "issn": "0001-8708",
+    "dblp": "",
+    "area": "math",
+    "pub": "Elsevier",
+    "why": "all of mathematics, high volume",
+    "rank": "",
+    "ccf": "N",
+    "subs": [
+      {
+        "y": 2016,
+        "n": 456
+      },
+      {
+        "y": 2017,
+        "n": 451
+      },
+      {
+        "y": 2018,
+        "n": 402
+      },
+      {
+        "y": 2019,
+        "n": 440
+      },
+      {
+        "y": 2020,
+        "n": 446
+      },
+      {
+        "y": 2021,
+        "n": 490
+      },
+      {
+        "y": 2022,
+        "n": 512
+      },
+      {
+        "y": 2023,
+        "n": 435
+      },
+      {
+        "y": 2024,
+        "n": 467
+      },
+      {
+        "y": 2025,
+        "n": 472
+      }
+    ],
+    "cites": 1.6,
+    "h": 212,
+    "oa": "https://openalex.org/S122441808",
     "link": ""
   },
   {
@@ -20572,7 +24526,7 @@ export const journals = [
       },
       {
         "y": 2021,
-        "n": 100
+        "n": 101
       },
       {
         "y": 2022,

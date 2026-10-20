@@ -12,9 +12,10 @@
 // notes    how the field publishes, in three lines
 export const GROUPS = [
   { id: 'computing', label: 'Computing' },
-  { id: 'systems', label: 'Systems & math' },
+  { id: 'math', label: 'Math' },
+  { id: 'science', label: 'Science & engineering' },
   { id: 'mind', label: 'Mind & brain' },
-  { id: 'health', label: 'Health & science' },
+  { id: 'health', label: 'Health' },
 ];
 
 export const DOMAINS = [
@@ -46,6 +47,24 @@ export const DOMAINS = [
     ],
   },
   {
+    id: 'theory', label: 'Theoretical CS', group: 'computing', icon: 'fa-sitemap', hue: '#3730a3',
+    format: 'table', rank: 'field', scholar: 'eng_theoreticalcomputerscience',
+    notes: [
+      'STOC and FOCS are the top two, and SODA leads algorithms; a paper at any of them counts like a top journal paper.',
+      'Submissions are full papers with proofs, often in an appendix, refereed by a program committee.',
+      'The long version goes to JACM, SICOMP or TheoretiCS, often years after the conference paper.',
+    ],
+  },
+  {
+    id: 'quantum', label: 'Quantum computing', group: 'computing', icon: 'fa-wave-square', hue: '#0891b2',
+    format: 'table', rank: 'field', scholar: '',
+    notes: [
+      'QIP is the top meeting, and it accepts talks rather than papers: the submission is judged, and the paper goes to a journal or stays on arXiv.',
+      'TQC is the one with archival proceedings; IEEE Quantum Week is the large engineering meeting.',
+      'Quantum and PRX Quantum are the journals people aim for, and nearly everything is on arXiv first.',
+    ],
+  },
+  {
     id: 'audio', label: 'Music & Audio', group: 'computing', icon: 'fa-music', hue: '#be185d',
     format: 'table', rank: 'field', scholar: 'eng_signalprocessing',
     notes: [
@@ -64,7 +83,7 @@ export const DOMAINS = [
     ],
   },
   {
-    id: 'control', label: 'Control', group: 'systems', icon: 'fa-sliders', hue: '#b45309',
+    id: 'control', label: 'Control', group: 'science', icon: 'fa-sliders', hue: '#b45309',
     format: 'table', rank: 'field', scholar: 'eng_automationcontroltheory',
     notes: [
       'Journals carry the weight. TAC and Automatica outrank any conference.',
@@ -73,8 +92,17 @@ export const DOMAINS = [
     ],
   },
   {
-    id: 'dynsys', label: 'Dynamical systems', group: 'systems', icon: 'fa-infinity', hue: '#7c3aed',
-    format: 'cards', rank: 'none', scholar: '',
+    id: 'math', label: 'Mathematics', group: 'math', icon: 'fa-shapes', hue: '#1f2937',
+    format: 'cards', rank: 'none', scholar: 'phy_pureappliedmathematics',
+    notes: [
+      'Mathematics is a journal field. Talks are invited or short contributed ones, and a paper is judged by where it is published.',
+      'The top five (Annals, Acta, Inventiones, JAMS and Publications de l\u2019IH\u00c9S) are what hiring committees read first.',
+      'The ICM, every four years, is the field\u2019s congress, where the Fields Medals are awarded.',
+    ],
+  },
+  {
+    id: 'dynsys', label: 'Dynamical systems', group: 'math', icon: 'fa-infinity', hue: '#7c3aed',
+    format: 'cards', rank: 'none', scholar: 'phy_nonlinearscience',
     notes: [
       'A mathematics field: the paper is the journal paper, the meeting is where you talk about it.',
       'SIAM DS runs every other year and is the big one; Dynamics Days is a single-track meeting on each side of the Atlantic.',
@@ -82,7 +110,16 @@ export const DOMAINS = [
     ],
   },
   {
-    id: 'complex', label: 'Complex systems', group: 'systems', icon: 'fa-circle-nodes', hue: '#0e7490',
+    id: 'physics', label: 'Physics', group: 'science', icon: 'fa-magnet', hue: '#0c4a6e',
+    format: 'cards', rank: 'none', scholar: 'phy_phygeneral',
+    notes: [
+      'Physics publishes in journals. The APS meetings take short talks on a one-paragraph abstract, and nothing there is refereed.',
+      'PRL is the short, fast, selective letter journal; Nature Physics and PRX are the broad selective ones.',
+      'Almost everything is on arXiv before it is submitted.',
+    ],
+  },
+  {
+    id: 'complex', label: 'Complex systems', group: 'science', icon: 'fa-circle-nodes', hue: '#0e7490',
     format: 'cards', rank: 'none', scholar: '',
     notes: [
       'Overlaps network science, statistical physics and artificial life, and draws from all three.',
@@ -91,7 +128,7 @@ export const DOMAINS = [
     ],
   },
   {
-    id: 'netsci', label: 'Network science', group: 'systems', icon: 'fa-diagram-project', hue: '#1d4ed8',
+    id: 'netsci', label: 'Network science', group: 'science', icon: 'fa-diagram-project', hue: '#1d4ed8',
     format: 'cards', rank: 'none', scholar: '',
     notes: [
       'NetSci is the flagship. Talks are chosen from one-page abstracts; nothing is archived.',
@@ -100,8 +137,8 @@ export const DOMAINS = [
     ],
   },
   {
-    id: 'uq', label: 'UQ & statistics', group: 'systems', icon: 'fa-dice', hue: '#4d7c0f',
-    format: 'cards', rank: 'none', scholar: '',
+    id: 'uq', label: 'UQ & statistics', group: 'math', icon: 'fa-dice', hue: '#4d7c0f',
+    format: 'cards', rank: 'none', scholar: 'phy_probabilitystatistics',
     notes: [
       'Uncertainty quantification sits between applied mathematics, statistics and engineering, and has a meeting in each.',
       'SIAM UQ runs every other year with the ASA; UNCECOMP is the engineering side, with optional full papers.',
@@ -109,8 +146,8 @@ export const DOMAINS = [
     ],
   },
   {
-    id: 'opt', label: 'Optimization & OR', group: 'systems', icon: 'fa-route', hue: '#9a3412',
-    format: 'cards', rank: 'none', scholar: '',
+    id: 'opt', label: 'Optimization & OR', group: 'math', icon: 'fa-route', hue: '#9a3412',
+    format: 'cards', rank: 'none', scholar: 'phy_mathematicaloptimization',
     notes: [
       'Journals are the record; meetings are abstracts and one talk each.',
       'ISMP, every three years, is the whole of mathematical optimization in one place.',
@@ -118,8 +155,8 @@ export const DOMAINS = [
     ],
   },
   {
-    id: 'amath', label: 'Applied math', group: 'systems', icon: 'fa-square-root-variable', hue: '#475569',
-    format: 'cards', rank: 'none', scholar: '',
+    id: 'amath', label: 'Applied math', group: 'math', icon: 'fa-square-root-variable', hue: '#475569',
+    format: 'cards', rank: 'none', scholar: 'phy_computationalmathematics',
     notes: [
       'Minisymposia are how these meetings work: organise a session of four talks and invite the speakers.',
       'ICIAM runs every four years; in 2027 it takes the place of the SIAM Annual Meeting, which returns in 2028.',
@@ -172,7 +209,7 @@ export const DOMAINS = [
     ],
   },
   {
-    id: 'materials', label: 'Materials', group: 'health', icon: 'fa-atom', hue: '#57534e',
+    id: 'materials', label: 'Materials', group: 'science', icon: 'fa-atom', hue: '#57534e',
     format: 'cards', rank: 'none', scholar: '',
     notes: [
       'MRS and TMS are huge abstract meetings, organised as dozens of parallel symposia.',
@@ -181,7 +218,7 @@ export const DOMAINS = [
     ],
   },
   {
-    id: 'power', label: 'Power & energy', group: 'health', icon: 'fa-bolt', hue: '#a16207',
+    id: 'power', label: 'Power & energy', group: 'science', icon: 'fa-bolt', hue: '#a16207',
     format: 'table', rank: 'field', scholar: 'eng_powerengineering',
     notes: [
       'TPWRS and TSG are the journals that count; conference papers are short and fast.',

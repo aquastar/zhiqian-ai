@@ -310,6 +310,8 @@ BY_TITLE={
     'ICASSP':'audio','InterSpeech':'audio',
     'MICCAI':'biomed','BIBM':'biomed',
     'CogSci':'psych',
+    'STOC':'theory','FOCS':'theory','SODA':'theory','ICALP':'theory','CCC':'theory',
+    'SOCG':'theory','ESA':'theory','LICS':'theory',
 }
 def area(sub, title):
     if title in EXTRA: return EXTRA[title]
@@ -330,6 +332,10 @@ FIELD_RANK={
     'MICCAI':'imaging flagship','AMIA':'informatics flagship',
     'CDC':'CSS flagship','ACC':'AACC flagship','ECC':'EUCA flagship',
     'PES GM':'PES flagship','PSCC':'most selective',
+    'STOC':'theory top two','FOCS':'theory top two','SODA':'algorithms flagship',
+    'ICALP':'EATCS flagship','CCC':'complexity flagship','SOCG':'geometry flagship',
+    'LICS':'logic flagship','ESA':'algorithms, Europe',
+    'QIP':'quantum flagship','QCE':'IEEE quantum flagship','QCrypt':'quantum-crypto flagship',
 }
 
 def tier_of(ccf, core):
@@ -408,11 +414,11 @@ def apply_deadline_fix(title, rounds):
     return keep
 
 out=[]
-for sub in ['AI','SC','DB','MX','CG','HI','DS']:
+for sub in ['AI','SC','DB','MX','CG','HI','DS','CT']:
     for f in sorted(glob.glob(f'ccf-deadlines/conference/{sub}/*.yml')):
         for c in yaml.safe_load(open(f)):
             r=c.get('rank') or {}; t=c['title']; d=(c.get('description') or '').strip()
-            if sub in ('CG','HI','DS') and t not in EXTRA and t not in BY_TITLE: continue
+            if sub in ('CG','HI','DS','CT') and t not in EXTRA and t not in BY_TITLE: continue
             confs=c.get('confs') or []
             # Announced deadlines for the edition now in play, across every
             # published edition.
@@ -999,22 +1005,90 @@ NOTABLE=[
   'field':'network science','kind':'yearly','why':'papers in a Springer volume',
   'note':'Two kinds of submission: a 12-page paper in the Springer proceedings, or a 4-page extended abstract that is not archived. Accepted papers can be invited to journal special issues. The 2026 deadline has passed.',
   'link':'https://complexnetworks.org/'},
+
+ # ---- Added 2026-10-20 with Quantum computing, Physics and Mathematics.
+ # Dates read off each official site that day.
+ # Quantum computing
+ {'title':'QIP','desc':'Conference on Quantum Information Processing',
+  'area':'quantum','proceedings':'none','lastDeadline':'2026-12-04','period':1,
+  'date':'February 20-26, 2027','place':'Singapore',
+  'rounds':[{'d':'2026-10-05','abs':'2026-09-28','label':'talk (3-page abstract)','est':False},
+            {'d':'2026-12-04','label':'poster','est':False}],
+  'note':'The field\'s top meeting. It accepts talks, not papers: a 3-page anonymous abstract is judged, the full work must already be on arXiv, and there are no proceedings. Talk and poster submissions are separate. The talk deadline has passed; posters are open until 4 December.',
+  'link':'https://qipconference.org/2027/'},
+ {'title':'TQC','desc':'Theory of Quantum Computation, Communication and Cryptography',
+  'area':'quantum','proceedings':'optin','lastDeadline':'2026-02-01','period':1,
+  'place':'Grenoble, France',
+  'note':'Two tracks: with proceedings, unpublished work in LIPIcs, judged on its first 15 pages; or without, a talk only, open to work published or bound for a journal. TQC 2027 is in Grenoble; its dates are not announced, so the deadline shown is 2026\'s rolled forward.',
+  'link':'https://tqc-conference.org/'},
+ {'title':'QCE','desc':'IEEE Quantum Week (International Conference on Quantum Computing and Engineering)',
+  'area':'quantum','proceedings':'full','lastDeadline':'2026-04-27','period':1,'badge':'quantum',
+  'note':'The large engineering meeting of the field: peer-reviewed technical papers in nine tracks, archived on IEEE Xplore, plus workshops and two rounds of posters. QCE27 is not announced, so the deadline shown is 2026\'s rolled forward.',
+  'link':'https://qce.quantum.ieee.org/'},
+ {'title':'QCrypt','desc':'International Conference on Quantum Cryptography',
+  'area':'quantum','proceedings':'none','lastDeadline':'2026-03-13','period':1,
+  'date':'August 23-27, 2027','place':'Vienna, Austria','estIsForDate':True,
+  'note':'Talks are chosen from 2 to 3 page abstracts and are highly competitive; most accepted work is a poster. No published proceedings. The 2027 deadline is not announced; the date shown is 2026\'s rolled forward.',
+  'link':'https://qcrypt.net/'},
+ # Physics
+ {'title':'DAMOP','desc':'APS Division of Atomic, Molecular and Optical Physics Annual Meeting',
+  'area':'physics','proceedings':'none','lastDeadline':'2026-01-30','period':1,
+  'date':'May 31 - June 4, 2027','place':'Chicago, Illinois, USA','estIsForDate':True,
+  'field':'atomic and optical physics','kind':'flagship, yearly','why':'cold atoms, AMO and quantum simulation',
+  'note':'The APS meeting for atomic, molecular and optical physics, where much of the experimental quantum work is shown. Abstracts only. The 2027 call is not out; the date shown is the 2026 deadline rolled forward.',
+  'link':'https://www.aps.org/events/2027/damop-2027'},
+ {'title':'APS DFD','desc':'APS Division of Fluid Dynamics Annual Meeting',
+  'area':'physics','proceedings':'none','lastDeadline':'2026-07-31','period':1,
+  'date':'November 22-24, 2026','place':'Orlando, Florida, USA',
+  'field':'fluid dynamics','kind':'flagship, yearly','why':'the fluid-dynamics community',
+  'note':'The largest fluid-dynamics meeting. APS membership is required to submit. The 2026 abstracts have closed.',
+  'link':'https://dfd-meeting.aps.org/'},
+ {'title':'StatPhys','desc':'IUPAP International Conference on Statistical Physics',
+  'area':'physics','proceedings':'none','period':3,'place':'Salvador, Brazil',
+  'field':'statistical physics','kind':'every three years','why':'Boltzmann Medal awarded here',
+  'note':'Every three years, with the Boltzmann Medal presented at the meeting. StatPhys29 was in Florence in 2025; the 2028 edition is set for Salvador, with no dates yet.',
+  'link':'https://statphys29.org/'},
+ # Mathematics
+ {'title':'ICM','desc':'International Congress of Mathematicians',
+  'area':'math','proceedings':'none','period':4,
+  'date':'July 11-19, 2030','place':'Glasgow, United Kingdom',
+  'field':'mathematics','kind':'flagship, every four years','why':'Fields Medals awarded here',
+  'note':'The field\'s congress, every four years, where the Fields Medals are awarded. Lectures are by invitation of the IMU programme committee; there is no open call for talks. ICM 2026 was in Philadelphia.',
+  'link':'https://www.mathunion.org/icm/icm-2030'},
+ {'title':'ECM','desc':'European Congress of Mathematics',
+  'area':'math','proceedings':'none','period':4,'place':'Bologna, Italy',
+  'field':'mathematics','kind':'every four years','why':'the European congress',
+  'note':'The European Mathematical Society\'s congress, every four years, with the EMS Prizes. The 10th is in Bologna in 2028; dates are not announced.',
+  'link':'https://www.euromathsoc.org/ecm'},
+ {'title':'AMS Spring Southeastern','desc':'AMS Spring Southeastern Sectional Meeting',
+  'area':'math','proceedings':'none','lastDeadline':'2027-01-26','period':1,
+  'date':'March 20-21, 2027','place':'Birmingham, Alabama, USA',
+  'field':'mathematics','kind':'twice yearly per region','why':'small, one contributed talk each',
+  'note':'A two-day regional AMS meeting of special sessions and contributed talks; one contributed talk per person. The date shown is the final deadline for all abstracts.',
+  'link':'https://meetings.ams.org/math/spring2027se/cfp.cgi'},
+ {'title':'AMS Spring Eastern','desc':'AMS Spring Eastern Sectional Meeting',
+  'area':'math','proceedings':'none','lastDeadline':'2027-02-16','period':1,
+  'date':'April 10-11, 2027','place':'Syracuse, New York, USA',
+  'field':'mathematics','kind':'twice yearly per region','why':'small, one contributed talk each',
+  'note':'A two-day regional AMS meeting at Syracuse University; one contributed talk per person. The date shown is the final deadline for all abstracts.',
+  'link':'https://meetings.ams.org/math/spring2027e/cfp.cgi'},
 ]
 
 # Society meetings used to be one tab. They are spread over their fields
 # now, keyed on the field label each card already carried.
 FIELD_DOMAIN={
-    'applied mathematics':'amath','computational science':'amath','data science theory':'amath','mathematics':'amath',
+    'applied mathematics':'amath','computational science':'amath','data science theory':'amath','mathematics':'math',
     'brain imaging':'neuro','cognitive neuroscience':'neuro','computational neuroscience':'neuro','neuroscience':'neuro',
     'cognitive psychology':'psych','psychology':'psych','consciousness':'psych',
     'dream research':'sleep','sleep and circadian':'sleep',
-    'complex systems':'complex','physics':'complex','artificial life':'complex',
+    'complex systems':'complex','physics':'physics','artificial life':'complex',
     'network science':'netsci','social networks':'netsci','computational social science':'netsci',
     'epidemic modelling':'epi','public health':'epi',
     'operations research':'opt','optimization':'opt',
     'statistics':'uq','uncertainty quantification':'uq',
     'Earth and space science':'dynsys','dynamical systems':'dynsys',
     'forecasting':'ts','materials':'materials',
+    'atomic and optical physics':'physics','fluid dynamics':'physics','statistical physics':'physics',
 }
 AREA_RENAME={'AI / ML / Data Mining':'ai','Control':'control','Health & Bio':'biomed'}
 for n in NOTABLE:
@@ -1231,6 +1305,35 @@ JOURNALS=[
  {'title':'TSTE','name':'IEEE Transactions on Sustainable Energy','issn':'1949-3029','dblp':'','area':'power','pub':'IEEE PES','why':'renewables and storage','rank':''},
  {'title':'EPSR','name':'Electric Power Systems Research','issn':'0378-7796','dblp':'','area':'power','pub':'Elsevier','why':'power systems; carries PSCC papers','rank':'PSCC journal'},
  {'title':'Applied Energy','name':'Applied Energy','issn':'0306-2619','dblp':'','area':'power','pub':'Elsevier','why':'energy systems, broad, high volume','rank':''},
+ # theory
+ {'title':'JACM','name':'Journal of the ACM','issn':'0004-5411','dblp':'jacm','area':'theory','pub':'ACM','why':'theory across computing','rank':'theory flagship'},
+ {'title':'SICOMP','name':'SIAM Journal on Computing','issn':'0097-5397','dblp':'siamcomp','area':'theory','pub':'SIAM','why':'algorithms and complexity','rank':'theory flagship'},
+ {'title':'TheoretiCS','name':'TheoretiCS','issn':'2751-4838','dblp':'theoretics','area':'theory','pub':'Episciences','why':'all of theory, open access, founded 2021','rank':''},
+ {'title':'ToC','name':'Theory of Computing','issn':'1557-2862','dblp':'toc','area':'theory','pub':'Univ. of Chicago','why':'theory, open access','rank':''},
+ {'title':'TALG','name':'ACM Transactions on Algorithms','issn':'1549-6325','dblp':'talg','area':'theory','pub':'ACM','why':"algorithms, SODA's journal home",'rank':''},
+ {'title':'Algorithmica','name':'Algorithmica','issn':'0178-4617','dblp':'algorithmica','area':'theory','pub':'Springer','why':'algorithms','rank':''},
+ # quantum
+ {'title':'PRX Quantum','name':'PRX Quantum','issn':'2691-3399','dblp':'','area':'quantum','pub':'APS','why':'quantum information, selective, open access','rank':'top'},
+ {'title':'Quantum','name':'Quantum','issn':'2521-327X','dblp':'quantum','area':'quantum','pub':'Verein Quantum','why':'community-run, open access, arXiv overlay','rank':'top'},
+ {'title':'npj QI','name':'npj Quantum Information','issn':'2056-6387','dblp':'','area':'quantum','pub':'Nature Portfolio','why':'quantum information, open access','rank':''},
+ {'title':'PRA','name':'Physical Review A','issn':'1050-2947','dblp':'','area':'quantum','pub':'APS','why':'atomic, optical and quantum information, high volume','rank':''},
+ {'title':'TQE','name':'IEEE Transactions on Quantum Engineering','issn':'2689-1808','dblp':'','area':'quantum','pub':'IEEE','why':'quantum engineering and systems','rank':''},
+ {'title':'TQC','name':'ACM Transactions on Quantum Computing','issn':'2643-6809','dblp':'','area':'quantum','pub':'ACM','why':'quantum computing in computer science','rank':''},
+ # physics
+ {'title':'PRL','name':'Physical Review Letters','issn':'0031-9007','dblp':'','area':'physics','pub':'APS','why':'short, fast, selective letters across physics','rank':'APS flagship'},
+ {'title':'Nat. Phys.','name':'Nature Physics','issn':'1745-2473','dblp':'','area':'physics','pub':'Nature Portfolio','why':'physics, broad and selective','rank':'top'},
+ {'title':'PRX','name':'Physical Review X','issn':'2160-3308','dblp':'','area':'physics','pub':'APS','why':'physics, selective and open access','rank':'top'},
+ {'title':'RMP','name':'Reviews of Modern Physics','issn':'0034-6861','dblp':'','area':'physics','pub':'APS','why':'invited reviews, so citations run high','rank':''},
+ {'title':'PRB','name':'Physical Review B','issn':'1098-0121','dblp':'','area':'physics','pub':'APS','why':'condensed matter','rank':''},
+ {'title':'PRD','name':'Physical Review D','issn':'1550-7998','dblp':'','area':'physics','pub':'APS','why':'particles, fields, gravitation, cosmology','rank':''},
+ # math
+ {'title':'Annals','name':'Annals of Mathematics','issn':'0003-486X','dblp':'','area':'math','pub':'Princeton / IAS','why':'all of mathematics','rank':'top five'},
+ {'title':'Acta','name':'Acta Mathematica','issn':'0001-5962','dblp':'','area':'math','pub':'Institut Mittag-Leffler','why':'all of mathematics','rank':'top five'},
+ {'title':'Inventiones','name':'Inventiones mathematicae','issn':'0020-9910','dblp':'','area':'math','pub':'Springer','why':'all of mathematics','rank':'top five'},
+ {'title':'JAMS','name':'Journal of the American Mathematical Society','issn':'0894-0347','dblp':'','area':'math','pub':'AMS','why':'all of mathematics','rank':'top five'},
+ {'title':'Publ. IHÉS','name':"Publications mathématiques de l'IHÉS",'issn':'0073-8301','dblp':'','area':'math','pub':'Springer / IHÉS','why':'all of mathematics','rank':'top five'},
+ {'title':'Duke','name':'Duke Mathematical Journal','issn':'0012-7094','dblp':'','area':'math','pub':'Duke Univ. Press','why':'all of mathematics','rank':''},
+ {'title':'Adv. Math.','name':'Advances in Mathematics','issn':'0001-8708','dblp':'','area':'math','pub':'Elsevier','why':'all of mathematics, high volume','rank':''},
 ]
 
 # Anything a fetch misses comes from the copy kept beside the script, so a

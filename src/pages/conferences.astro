@@ -454,71 +454,6 @@ const freshRated = rows.filter((c) => c.rates.length && c.rates[c.rates.length -
       </div>
     </section>
 
-    {topicBlocks.map((b) => (
-      <section class="section topic-section" data-topic-area={DEFAULT}>
-        <details class="rest topics lead">
-          <summary>
-            <h2>Which topics get in</h2>
-            <span class="rest-count">{b.venue} {b.year}</span>
-            <span class="rest-note">
-            {b.submitted.toLocaleString()} submitted, {b.accepted.toLocaleString()} accepted, {b.headline}% overall
-          </span>
-          </summary>
-          <div class="tchart-wrap">
-            <div class="tchart-scroll">
-            <svg class="tchart" viewBox={`0 0 ${TC.w} ${TC.base + 26}`} role="img"
-                 aria-label={`Acceptance rate by topic, ${b.venue} ${b.year}`}>
-              {b.chart.grid.map((g) => (
-                <>
-                  <line x1={TC.left} x2={TC.w - 6} y1={g.y} y2={g.y} class={g.v === 0 ? 'tc-base' : 'tc-grid'} />
-                  <text x={TC.left - 6} y={g.y + 3} class="tc-glab" text-anchor="end">{g.v}%</text>
-                </>
-              ))}
-              {b.chart.bars.map((t, k) => (
-                <g class={`tc-bar tone-${t.tone}`} data-topic={k} tabindex="0" role="button"
-                   aria-label={`${t.area}, ${t.rate} percent of ${t.n} submissions accepted`}>
-                  <title>{`${t.area}
-${t.rate}% accepted, ${t.n.toLocaleString()} submissions, ${t.share}% of the edition`}</title>
-                  {/* The hit area covers the label too, so a one percent
-                      topic is still something you can point at. */}
-                  <rect class="tc-hit" x={t.x} y={TC.top} width={t.w} height={TC.base - TC.top} />
-                  <rect class="tc-fill" x={t.x} y={t.y} width={t.w} height={t.h} rx="2" />
-                  <path class="tc-lead" d={`M${(t.anchor === 'end' ? t.lx - 2 : t.lx + 2).toFixed(1)},${(t.ly + 4).toFixed(1)} L${t.cx.toFixed(1)},${(t.y - 3).toFixed(1)}`} />
-                  <text class="tc-lab" x={t.lx} y={t.ly} text-anchor={t.anchor}>
-                    <tspan class="tc-pct">{t.head}</tspan>{t.name}<tspan class="tc-sub">{t.tail}</tspan>
-                  </text>
-                </g>
-              ))}
-              <text class="tc-axis" x={TC.left} y={TC.base + 20}>bar width is the topic's share of submissions, so a bar's area is the papers it took. Each label reads rate, topic, submissions.</text>
-            </svg>
-            </div>
-            {b.rows.map((t) => (
-              t.papers && (
-                <div class="tpop" data-pop hidden>
-                  <div class="tpop-head">
-                    <b>{t.area}</b>
-                    <span>{t.rate}% of {t.n.toLocaleString()} &middot; {t.papers.length} most cited</span>
-                    <button type="button" class="tpop-x" aria-label="Close">&times;</button>
-                  </div>
-                  <ol class="t-papers tpop-list">
-                    {t.papers.map((pp) => (
-                      <li>
-                        <span class="pp-n"></span>
-                        <span class="pp-c" title="Google Scholar citations">{pp.c}</span>
-                        <span class={`pp-k pp-${pp.k.toLowerCase()}`}>{pp.k}</span>
-                        <span class="pp-y">{pp.y}</span>
-                        {pp.u ? <a href={pp.u} target="_blank" rel="noopener">{pp.t}</a> : <span>{pp.t}</span>}
-                      </li>
-                    ))}
-                  </ol>
-                </div>
-              )
-            ))}
-            <p class="tchart-note">Click a topic for its {b.rows[0] && b.rows[0].papers ? b.rows[0].papers.length : 10} most cited papers.</p>
-          </div>
-        </details>
-      </section>
-    ))}
 
     <section class="section dest-section" id="destinations" hidden>
       <div class="dest-pick">
@@ -589,10 +524,11 @@ ${t.rate}% accepted, ${t.n.toLocaleString()} submissions, ${t.share}% of the edi
         {d.trend && (
           <div class="section trends">
             <h2 class="kind-head">Most published topics, {trends.year}</h2>
-            <ol class="trend-list">
+            <ol class="trend-list" data-field={d.id}>
               {d.trend.rows.map((r) => (
-                <li>
-                  <a class="tr-name" href={`https://openalex.org/keywords/${r.id}`} target="_blank" rel="noopener" title={`${r.label} on OpenAlex`}>{r.label}</a>
+                <li data-kw={r.id} data-label={r.label}>
+                  <button type="button" class="tr-name" title={r.papers ? `The ${r.papers} most representative recent papers on ${r.label}` : r.label}
+                          disabled={!r.papers}>{r.label}</button>
                   <span class="tr-bar"><span style={`width:${r.pct.toFixed(1)}%`}></span></span>
                   <span class="tr-n">{r.n.toLocaleString()}</span>
                   <span class={`tr-g ${r.growth === null ? 'is-new' : r.growth >= 15 ? 'is-up' : r.growth <= -15 ? 'is-down' : ''}`}
@@ -604,7 +540,17 @@ ${t.rate}% accepted, ${t.n.toLocaleString()} submissions, ${t.share}% of the edi
                 </li>
               ))}
             </ol>
-            <p class="area-note">
+            <div class="tr-papers" hidden>
+              <div class="trp-head">
+                <b class="trp-title"></b>
+                <span class="trp-sub">ranked on citations, venue standing and author standing together</span>
+                <a class="trp-oa" target="_blank" rel="noopener">all on OpenAlex <i class="fas fa-arrow-up-right-from-square" aria-hidden="true"></i></a>
+                <button type="button" class="trp-x" aria-label="Close">&times;</button>
+              </div>
+              <ol class="trp-list"></ol>
+            </div>
+            <p class="area-note trends-note">
+              Click a keyword for its ten most representative papers since {trends.year - 1}.
               {d.trend.total.toLocaleString()} papers in {trends.year}
               {d.trend.confs.length > 0
                 ? <>from {d.trend.confs.join(', ')} and the {d.trend.journals} journals listed below</>
@@ -670,7 +616,7 @@ ${t.rate}% accepted, ${t.n.toLocaleString()} submissions, ${t.share}% of the edi
             {d.tableRows.map((c, i) => {
               const last = c.rates.length ? c.rates[c.rates.length - 1] : null;
               const stale = last && last.y < FRESH_FROM;
-              return (
+              return (<>
               <tr class={`tier-${c.tier}${c.live.expired ? ' is-spent' : ''}`}>
                 <td class="c-name">
                   {/* Four lines, not six. The tier badge used to take a row of
@@ -853,6 +799,74 @@ ${t.rate}% accepted, ${t.n.toLocaleString()} submissions, ${t.share}% of the edi
                   </span>
                 </>)}</td>)}
               </tr>
+              {c.title === 'ICLR' && topicBlocks.map((b) => (
+                <tr class="sub-row">
+                  <td class="sub-cell" colspan={2 + (d.hasRate ? 1 : 0) + (d.hasSubs ? 1 : 0) + (d.rankCol ? 1 : 0)}>
+                    <details class="rest topics lead">
+          <summary>
+            <h2>Which topics get in</h2>
+            <span class="rest-count">{b.venue} {b.year}</span>
+            <span class="rest-note">
+            {b.submitted.toLocaleString()} submitted, {b.accepted.toLocaleString()} accepted, {b.headline}% overall
+          </span>
+          </summary>
+          <div class="tchart-wrap">
+            <div class="tchart-scroll">
+            <svg class="tchart" viewBox={`0 0 ${TC.w} ${TC.base + 26}`} role="img"
+                 aria-label={`Acceptance rate by topic, ${b.venue} ${b.year}`}>
+              {b.chart.grid.map((g) => (
+                <>
+                  <line x1={TC.left} x2={TC.w - 6} y1={g.y} y2={g.y} class={g.v === 0 ? 'tc-base' : 'tc-grid'} />
+                  <text x={TC.left - 6} y={g.y + 3} class="tc-glab" text-anchor="end">{g.v}%</text>
+                </>
+              ))}
+              {b.chart.bars.map((t, k) => (
+                <g class={`tc-bar tone-${t.tone}`} data-topic={k} tabindex="0" role="button"
+                   aria-label={`${t.area}, ${t.rate} percent of ${t.n} submissions accepted`}>
+                  <title>{`${t.area}
+${t.rate}% accepted, ${t.n.toLocaleString()} submissions, ${t.share}% of the edition`}</title>
+                  {/* The hit area covers the label too, so a one percent
+                      topic is still something you can point at. */}
+                  <rect class="tc-hit" x={t.x} y={TC.top} width={t.w} height={TC.base - TC.top} />
+                  <rect class="tc-fill" x={t.x} y={t.y} width={t.w} height={t.h} rx="2" />
+                  <path class="tc-lead" d={`M${(t.anchor === 'end' ? t.lx - 2 : t.lx + 2).toFixed(1)},${(t.ly + 4).toFixed(1)} L${t.cx.toFixed(1)},${(t.y - 3).toFixed(1)}`} />
+                  <text class="tc-lab" x={t.lx} y={t.ly} text-anchor={t.anchor}>
+                    <tspan class="tc-pct">{t.head}</tspan>{t.name}<tspan class="tc-sub">{t.tail}</tspan>
+                  </text>
+                </g>
+              ))}
+              <text class="tc-axis" x={TC.left} y={TC.base + 20}>bar width is the topic's share of submissions, so a bar's area is the papers it took. Each label reads rate, topic, submissions.</text>
+            </svg>
+            </div>
+            {b.rows.map((t) => (
+              t.papers && (
+                <div class="tpop" data-pop hidden>
+                  <div class="tpop-head">
+                    <b>{t.area}</b>
+                    <span>{t.rate}% of {t.n.toLocaleString()} &middot; {t.papers.length} most cited</span>
+                    <button type="button" class="tpop-x" aria-label="Close">&times;</button>
+                  </div>
+                  <ol class="t-papers tpop-list">
+                    {t.papers.map((pp) => (
+                      <li>
+                        <span class="pp-n"></span>
+                        <span class="pp-c" title="Google Scholar citations">{pp.c}</span>
+                        <span class={`pp-k pp-${pp.k.toLowerCase()}`}>{pp.k}</span>
+                        <span class="pp-y">{pp.y}</span>
+                        {pp.u ? <a href={pp.u} target="_blank" rel="noopener">{pp.t}</a> : <span>{pp.t}</span>}
+                      </li>
+                    ))}
+                  </ol>
+                </div>
+              )
+            ))}
+            <p class="tchart-note">Click a topic for its {b.rows[0] && b.rows[0].papers ? b.rows[0].papers.length : 10} most cited papers.</p>
+          </div>
+        </details>
+                  </td>
+                </tr>
+              ))}
+              </>
             );})}
                 </tbody>
               </table>
@@ -1167,7 +1181,27 @@ ${t.rate}% accepted, ${t.n.toLocaleString()} submissions, ${t.share}% of the edi
 
   .trends { margin-bottom:16px; }
   .trend-list { list-style:none; margin:0; padding:0; display:grid; grid-template-columns:repeat(2, minmax(0,1fr)); column-gap:28px; row-gap:4px; counter-reset:tr;
-    grid-auto-flow:column; grid-template-rows:repeat(5, auto); }
+    grid-auto-flow:column; grid-template-rows:repeat(10, auto); }
+  .trend-list button.tr-name { border:0; background:none; padding:0; font:inherit; font-size:.8rem; cursor:pointer; }
+  .trend-list button.tr-name:disabled { cursor:default; color:#64748b; }
+  .trend-list li.is-on button.tr-name { color:var(--hue); font-weight:700; }
+  .area-note.trends-note { max-width:none; }
+  .tr-papers { margin:12px 0 4px; border:1px solid color-mix(in srgb, var(--hue) 30%, white); border-radius:12px; padding:10px 14px; background:#fff; }
+  .tr-papers[hidden] { display:none; }
+  .trp-head { display:flex; align-items:baseline; gap:10px; flex-wrap:wrap; margin-bottom:6px; }
+  .trp-title { font-size:.92rem; color:#0f172a; }
+  .trp-sub { font-size:.7rem; color:#94a3b8; }
+  .trp-oa { margin-left:auto; font-size:.72rem; color:var(--accent); text-decoration:none; }
+  .trp-x { border:0; background:none; font-size:1.2rem; line-height:1; color:#94a3b8; cursor:pointer; }
+  .trp-list { margin:0; padding:0 0 0 22px; display:grid; gap:6px; }
+  /* The list items are made by the script, so they carry no scope attribute
+     and these rules have to reach them as global. */
+  .trp-list :global(li) { font-size:.8rem; color:#334155; line-height:1.4; text-align:left; }
+  .trp-list :global(a) { color:#0f172a; font-weight:600; text-decoration:none; }
+  .trp-list :global(a:hover) { color:var(--accent); text-decoration:underline; }
+  .trp-list :global(.trp-meta) { display:block; font-size:.7rem; color:#94a3b8; }
+  .sub-row td.sub-cell { padding:0 8px 10px; }
+  .sub-row .rest.topics { margin:0; }
   .trend-list li { display:grid; grid-template-columns:18px minmax(0,1.4fr) minmax(60px,1fr) 44px 46px; align-items:center; gap:8px; counter-increment:tr; }
   .trend-list li::before { content:counter(tr); font-size:.68rem; font-weight:800; color:#a3adbb; text-align:right; }
   .tr-name { font-size:.8rem; color:#1e293b; text-decoration:none; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; text-align:left; }
@@ -1181,6 +1215,7 @@ ${t.rate}% accepted, ${t.n.toLocaleString()} submissions, ${t.share}% of the edi
   .tr-g.is-new { color:#1d4ed8; background:#dbeafe; }
   @media (max-width: 900px) {
     .trend-list { grid-template-columns:1fr; grid-auto-flow:row; grid-template-rows:none; row-gap:8px; }
+    .trp-oa { margin-left:0; }
     .trend-list li { grid-template-columns:18px minmax(0,1fr) 44px 46px; grid-template-areas:'num name name name' '. bar n g'; row-gap:3px; }
     .trend-list li::before { grid-area:num; }
     .tr-name { grid-area:name; white-space:normal; }
@@ -1602,7 +1637,6 @@ ${t.rate}% accepted, ${t.n.toLocaleString()} submissions, ${t.share}% of the edi
   .t-up { color:#15803d; } .t-down { color:#dc2626; } .t-flat { color:#cbd5e1; }
   .topics > summary { border-bottom:1px solid rgba(148,163,184,.2); }
   /* Sitting above the table, this is context for it, not a footnote. */
-  .topic-section[hidden] { display:none; }
   .topics.lead { background:#fbfcfe; }
   .topics.lead > summary h2 { font-size:1.02rem; }
   .rest-list { list-style:none; margin:0; padding:0 16px 14px; display:grid;
@@ -1781,7 +1815,10 @@ ${t.rate}% accepted, ${t.n.toLocaleString()} submissions, ${t.share}% of the edi
   };
 
   document.querySelectorAll('table.confs:not(.dest-table):not(.jrnl-table) tbody').forEach((tbody) => {
-    const trs = Array.from(tbody.querySelectorAll('tr'));
+    // A sub-row (ICLR's topic chart) travels with the row above it.
+    const subs = new Map();
+    tbody.querySelectorAll('tr.sub-row').forEach((sr) => subs.set(sr.previousElementSibling, sr));
+    const trs = Array.from(tbody.querySelectorAll('tr:not(.sub-row)'));
     trs.forEach((tr) => {
       const live = liveKey(tr);
       tr.dataset.live = live.key || '9999-12-31';
@@ -1805,7 +1842,10 @@ ${t.rate}% accepted, ${t.n.toLocaleString()} submissions, ${t.share}% of the edi
     });
     trs
       .sort((a, b) => a.dataset.live.localeCompare(b.dataset.live))
-      .forEach((tr) => tbody.appendChild(tr));
+      .forEach((tr) => {
+        tbody.appendChild(tr);
+        if (subs.has(tr)) tbody.appendChild(subs.get(tr));
+      });
   });
 
   // Field filter. Rows carry their own area, so this is pure show/hide. The
@@ -1858,6 +1898,52 @@ ${t.rate}% accepted, ${t.n.toLocaleString()} submissions, ${t.share}% of the edi
     document.addEventListener('keydown', (e) => { if (e.key === 'Escape') close(); });
   });
 
+
+  // Representative papers per keyword, fetched once per field on first use.
+  const paperCache = {};
+  document.querySelectorAll('.trends').forEach((box) => {
+    const list = box.querySelector('.trend-list');
+    const panel = box.querySelector('.tr-papers');
+    if (!list || !panel) return;
+    const field = list.dataset.field;
+    const close = () => {
+      panel.hidden = true;
+      list.querySelectorAll('li.is-on').forEach((li) => li.classList.remove('is-on'));
+    };
+    panel.querySelector('.trp-x').addEventListener('click', close);
+    list.querySelectorAll('li[data-kw] button.tr-name').forEach((btn) => {
+      btn.addEventListener('click', async () => {
+        const li = btn.closest('li');
+        if (li.classList.contains('is-on')) { close(); return; }
+        list.querySelectorAll('li.is-on').forEach((x) => x.classList.remove('is-on'));
+        li.classList.add('is-on');
+        const kw = li.dataset.kw;
+        panel.querySelector('.trp-title').textContent = li.dataset.label;
+        panel.querySelector('.trp-oa').href = `https://openalex.org/works?filter=keywords.id:${kw}`;
+        const ol = panel.querySelector('.trp-list');
+        ol.innerHTML = '<li>Loading…</li>';
+        panel.hidden = false;
+        try {
+          paperCache[field] = paperCache[field] || await fetch(`/trend-papers/${field}.json`).then((r) => r.json());
+          const ps = paperCache[field][kw] || [];
+          ol.innerHTML = '';
+          ps.forEach((p) => {
+            const item = document.createElement('li');
+            const a = document.createElement('a');
+            a.href = p.u; a.target = '_blank'; a.rel = 'noopener'; a.textContent = p.t;
+            const meta = document.createElement('span');
+            meta.className = 'trp-meta';
+            meta.textContent = [p.a, p.v && `${p.v} ${p.y}`, `${p.c.toLocaleString()} citations`].filter(Boolean).join(' · ');
+            item.append(a, meta);
+            ol.appendChild(item);
+          });
+          if (!ps.length) ol.innerHTML = '<li>No papers found.</li>';
+        } catch (e) {
+          ol.innerHTML = '<li>Could not load the papers.</li>';
+        }
+      });
+    });
+  });
   // Hover covers the mouse, focus covers the keyboard, and this covers the
   // phone, where neither exists.
   const legendWrap = document.querySelector('.legend-wrap');
@@ -1885,7 +1971,6 @@ ${t.rate}% accepted, ${t.n.toLocaleString()} submissions, ${t.share}% of the edi
   // The topic breakdown is ICLR, so it belongs to one field. There is no
   // equivalent for the others yet, and showing AI's numbers while the reader
   // has Security selected would read as if they were Security's.
-  const topicSections = Array.from(document.querySelectorAll('.topic-section'));
 
   const scholarLink = document.getElementById('scholar-link');
   const destSection = document.getElementById('destinations');
@@ -1910,7 +1995,6 @@ ${t.rate}% accepted, ${t.n.toLocaleString()} submissions, ${t.share}% of the edi
       d.hidden = !on;
       if (on) dom = d;
     });
-    topicSections.forEach((sec) => { sec.hidden = onDest || sec.dataset.topicArea !== want; });
     if (legend) legend.hidden = !dom || !dom.classList.contains('dom-table');
     [...fieldBtns, destBtn].forEach((b) => b && b.classList.toggle('is-on', b === btn));
     if (scholarLink) {
