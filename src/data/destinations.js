@@ -3,7 +3,7 @@
 // CCF A or B, or CORE A* or A, every hand-kept venue on the field
 // tabs, and the venues added by hand in the script. Destinations mix cities, countries and
 // regions, because that is how people choose where to go.
-// Built 2026-10-19.
+// Built 2026-10-20.
 export const destinations = {
  "items": [
   {
@@ -150,6 +150,30 @@ export const destinations = {
    "honors": [
     {
      "t": "Australasia's main AI conference",
+     "k": "field"
+    }
+   ]
+  },
+  {
+   "title": "APS DFD",
+   "desc": "APS Division of Fluid Dynamics Annual Meeting",
+   "year": 2026,
+   "place": "Orlando, Florida, USA",
+   "date": "November 22-24, 2026",
+   "city": "Orlando",
+   "country": "United States",
+   "dest": "Orlando",
+   "icon": "rocket",
+   "ccf": "N",
+   "core": "N",
+   "deadline": "",
+   "open": false,
+   "link": "https://dfd-meeting.aps.org/",
+   "q": "orlando, florida, usa orlando united states ",
+   "field": "Physics",
+   "honors": [
+    {
+     "t": "fluid dynamics flagship",
      "k": "field"
     }
    ]
@@ -3058,8 +3082,12 @@ export const destinations = {
    "open": false,
    "link": "https://lics.siglog.org/lics27/",
    "q": "montréal, canada montreal canada ",
-   "field": "",
+   "field": "Theoretical CS",
    "honors": [
+    {
+     "t": "logic flagship",
+     "k": "field"
+    },
     {
      "t": "CCF A",
      "k": "ccf-a"
@@ -3986,6 +4014,30 @@ export const destinations = {
      "k": "field"
     }
    ]
+  },
+  {
+   "title": "ICM",
+   "desc": "International Congress of Mathematicians",
+   "year": 2030,
+   "place": "Glasgow, United Kingdom",
+   "date": "July 11-19, 2030",
+   "city": "Glasgow",
+   "country": "United Kingdom",
+   "dest": "UK & Ireland",
+   "icon": "crown",
+   "ccf": "N",
+   "core": "N",
+   "deadline": "",
+   "open": false,
+   "link": "https://www.mathunion.org/icm/icm-2030",
+   "q": "glasgow, united kingdom glasgow united kingdom ",
+   "field": "Mathematics",
+   "honors": [
+    {
+     "t": "mathematics flagship",
+     "k": "field"
+    }
+   ]
   }
  ],
  "places": [
@@ -4012,7 +4064,7 @@ export const destinations = {
   {
    "name": "Orlando",
    "icon": "rocket",
-   "n": 2
+   "n": 3
   },
   {
    "name": "Japan",
@@ -4057,7 +4109,7 @@ export const destinations = {
   {
    "name": "UK & Ireland",
    "icon": "crown",
-   "n": 11
+   "n": 12
   },
   {
    "name": "Australia & NZ",
