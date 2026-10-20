@@ -65,6 +65,15 @@ export const DOMAINS = [
     ],
   },
   {
+    id: 'vis', label: 'Visualization', group: 'computing', icon: 'fa-chart-pie', hue: '#c026d3',
+    format: 'table', rank: 'field', scholar: 'eng_computergraphics',
+    notes: [
+      'IEEE VIS is the field\u2019s meeting, and its papers are published in the journal TVCG; EuroVis does the same with Computer Graphics Forum.',
+      'So a VIS paper counts as a journal paper, reviewed in two rounds with a revision in between.',
+      'PacificVis has both a conference track and a TVCG journal track.',
+    ],
+  },
+  {
     id: 'audio', label: 'Music & Audio', group: 'computing', icon: 'fa-music', hue: '#be185d',
     format: 'table', rank: 'field', scholar: 'eng_signalprocessing',
     notes: [

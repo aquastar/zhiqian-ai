@@ -8897,6 +8897,55 @@ export const ranked = [
     "tier": 1
   },
   {
+    "title": "PacificVis",
+    "desc": "IEEE Pacific Visualization Symposium",
+    "area": "vis",
+    "sub": "CG",
+    "frank": "Asia-Pacific flagship",
+    "ccf": "C",
+    "core": "B",
+    "coreVerified": true,
+    "nextDeadline": "2026-11-09",
+    "nextYear": 2027,
+    "nextAbstract": "",
+    "estimated": false,
+    "estFrom": "",
+    "rounds": [
+      {
+        "d": "2026-11-09",
+        "label": "Conference track",
+        "est": false,
+        "year": 2027,
+        "link": "https://pacificvis2027.github.io/",
+        "abs": "2026-11-02"
+      },
+      {
+        "d": "2027-09-07",
+        "label": "Journal track",
+        "est": true,
+        "from": "2025-09-07",
+        "abs": "2027-09-01"
+      }
+    ],
+    "dblp": "pacificvis",
+    "csr": "",
+    "edition": "",
+    "best": "",
+    "link": "https://pacificvis2027.github.io/",
+    "date": "April 19-22, 2027",
+    "place": "Busan, South Korea",
+    "cc": "kr",
+    "city": "",
+    "cycles": 1,
+    "roundLabels": [],
+    "proceedings": "full",
+    "rates": [],
+    "subs": [],
+    "rateSrc": "",
+    "rateSlug": "",
+    "tier": 3
+  },
+  {
     "title": "PES GM",
     "desc": "IEEE Power & Energy Society General Meeting",
     "area": "power",
@@ -10153,6 +10202,233 @@ export const ranked = [
     "subs": [],
     "rateSrc": "",
     "rateSlug": "",
+    "tier": 2
+  },
+  {
+    "title": "EuroVis",
+    "desc": "Eurographics Conference on Visualization",
+    "area": "vis",
+    "sub": "CG",
+    "frank": "Europe flagship",
+    "ccf": "B",
+    "core": "B",
+    "coreVerified": true,
+    "nextDeadline": "2026-12-04",
+    "nextYear": 2027,
+    "nextAbstract": "",
+    "estimated": true,
+    "estFrom": "2024-12-04",
+    "rounds": [
+      {
+        "d": "2026-12-04",
+        "label": "",
+        "est": true,
+        "from": "2024-12-04",
+        "abs": "2026-11-27"
+      }
+    ],
+    "dblp": "vissym",
+    "csr": "",
+    "edition": "29th",
+    "best": "",
+    "link": "https://eurovis27.github.io/web/",
+    "date": "May 31-June 4, 2027",
+    "place": "Stuttgart, Germany",
+    "cc": "de",
+    "city": "",
+    "cycles": 1,
+    "roundLabels": [],
+    "proceedings": "full",
+    "rates": [
+      {
+        "y": 2004,
+        "r": 47.6
+      },
+      {
+        "y": 2005,
+        "r": 35.3
+      },
+      {
+        "y": 2006,
+        "r": 43.9
+      },
+      {
+        "y": 2007,
+        "r": 37.6
+      },
+      {
+        "y": 2008,
+        "r": 31.5
+      },
+      {
+        "y": 2009,
+        "r": 28.7
+      },
+      {
+        "y": 2010,
+        "r": 29.3
+      },
+      {
+        "y": 2011,
+        "r": 27.8
+      },
+      {
+        "y": 2012,
+        "r": 25.7
+      },
+      {
+        "y": 2013,
+        "r": 27.7
+      },
+      {
+        "y": 2014,
+        "r": 26.1
+      },
+      {
+        "y": 2015,
+        "r": 18.8
+      },
+      {
+        "y": 2016,
+        "r": 27.3
+      },
+      {
+        "y": 2017,
+        "r": 27.1
+      },
+      {
+        "y": 2018,
+        "r": 29.0
+      },
+      {
+        "y": 2019,
+        "r": 31.2
+      },
+      {
+        "y": 2020,
+        "r": 28.6
+      },
+      {
+        "y": 2021,
+        "r": 25.4
+      },
+      {
+        "y": 2022,
+        "r": 24.7
+      },
+      {
+        "y": 2023,
+        "r": 27.1
+      },
+      {
+        "y": 2024,
+        "r": 26.1
+      },
+      {
+        "y": 2025,
+        "r": 27.5
+      },
+      {
+        "y": 2026,
+        "r": 26.7
+      }
+    ],
+    "subs": [
+      {
+        "y": 2004,
+        "n": 82
+      },
+      {
+        "y": 2005,
+        "n": 102
+      },
+      {
+        "y": 2006,
+        "n": 98
+      },
+      {
+        "y": 2007,
+        "n": 93
+      },
+      {
+        "y": 2008,
+        "n": 143
+      },
+      {
+        "y": 2009,
+        "n": 143
+      },
+      {
+        "y": 2010,
+        "n": 164
+      },
+      {
+        "y": 2011,
+        "n": 194
+      },
+      {
+        "y": 2012,
+        "n": 202
+      },
+      {
+        "y": 2013,
+        "n": 177
+      },
+      {
+        "y": 2014,
+        "n": 161
+      },
+      {
+        "y": 2015,
+        "n": 160
+      },
+      {
+        "y": 2016,
+        "n": 183
+      },
+      {
+        "y": 2017,
+        "n": 170
+      },
+      {
+        "y": 2018,
+        "n": 162
+      },
+      {
+        "y": 2019,
+        "n": 189
+      },
+      {
+        "y": 2020,
+        "n": 168
+      },
+      {
+        "y": 2021,
+        "n": 173
+      },
+      {
+        "y": 2022,
+        "n": 178
+      },
+      {
+        "y": 2023,
+        "n": 133
+      },
+      {
+        "y": 2024,
+        "n": 134
+      },
+      {
+        "y": 2025,
+        "n": 167
+      },
+      {
+        "y": 2026,
+        "n": 195
+      }
+    ],
+    "rateSrc": "csc",
+    "rateSlug": "eurovis",
     "tier": 2
   },
   {
@@ -13536,6 +13812,47 @@ export const ranked = [
     "cc": "",
     "city": "",
     "tier": 3
+  },
+  {
+    "title": "IEEE VIS",
+    "desc": "IEEE Visualization Conference",
+    "area": "vis",
+    "sub": "CG",
+    "frank": "vis flagship",
+    "ccf": "A",
+    "core": "A",
+    "coreVerified": true,
+    "nextDeadline": "2027-03-31",
+    "nextYear": 2027,
+    "nextAbstract": "",
+    "estimated": true,
+    "estFrom": "2025-03-31",
+    "rounds": [
+      {
+        "d": "2027-03-31",
+        "label": "",
+        "est": true,
+        "from": "2025-03-31",
+        "abs": "2027-03-21"
+      }
+    ],
+    "dblp": "visualization",
+    "csr": "",
+    "edition": "",
+    "best": "",
+    "link": "https://ieeevis.org/year/2026/welcome",
+    "date": "",
+    "place": "",
+    "cc": "",
+    "city": "",
+    "cycles": 1,
+    "roundLabels": [],
+    "proceedings": "full",
+    "rates": [],
+    "subs": [],
+    "rateSrc": "",
+    "rateSlug": "",
+    "tier": 1
   },
   {
     "title": "COLM",
@@ -24492,6 +24809,234 @@ export const journals = [
     "h": 212,
     "oa": "https://openalex.org/S122441808",
     "link": ""
+  },
+  {
+    "title": "TVCG",
+    "name": "IEEE Transactions on Visualization and Computer Graphics",
+    "issn": "1077-2626",
+    "dblp": "tvcg",
+    "area": "vis",
+    "pub": "IEEE",
+    "why": "visualization and graphics; carries the IEEE VIS papers",
+    "rank": "VIS journal",
+    "ccf": "A",
+    "subs": [
+      {
+        "y": 2016,
+        "n": 289
+      },
+      {
+        "y": 2017,
+        "n": 350
+      },
+      {
+        "y": 2018,
+        "n": 363
+      },
+      {
+        "y": 2019,
+        "n": 332
+      },
+      {
+        "y": 2020,
+        "n": 397
+      },
+      {
+        "y": 2021,
+        "n": 411
+      },
+      {
+        "y": 2022,
+        "n": 462
+      },
+      {
+        "y": 2023,
+        "n": 511
+      },
+      {
+        "y": 2024,
+        "n": 591
+      },
+      {
+        "y": 2025,
+        "n": 704
+      }
+    ],
+    "cites": 4.5,
+    "h": 206,
+    "oa": "https://openalex.org/S84775595",
+    "link": "https://dblp.org/db/journals/tvcg/index.html"
+  },
+  {
+    "title": "CGF",
+    "name": "Computer Graphics Forum",
+    "issn": "0167-7055",
+    "dblp": "cgf",
+    "area": "vis",
+    "pub": "Wiley (Eurographics)",
+    "why": "graphics and visualization; carries the EuroVis papers",
+    "rank": "EuroVis journal",
+    "ccf": "B",
+    "subs": [
+      {
+        "y": 2016,
+        "n": 312
+      },
+      {
+        "y": 2017,
+        "n": 253
+      },
+      {
+        "y": 2018,
+        "n": 274
+      },
+      {
+        "y": 2019,
+        "n": 299
+      },
+      {
+        "y": 2020,
+        "n": 309
+      },
+      {
+        "y": 2021,
+        "n": 251
+      },
+      {
+        "y": 2022,
+        "n": 291
+      },
+      {
+        "y": 2023,
+        "n": 264
+      },
+      {
+        "y": 2024,
+        "n": 282
+      },
+      {
+        "y": 2025,
+        "n": 316
+      }
+    ],
+    "cites": 2.5,
+    "h": 171,
+    "oa": "https://openalex.org/S67831204",
+    "link": "https://dblp.org/db/journals/cgf/index.html"
+  },
+  {
+    "title": "CG&A",
+    "name": "IEEE Computer Graphics and Applications",
+    "issn": "0272-1716",
+    "dblp": "cga",
+    "area": "vis",
+    "pub": "IEEE",
+    "why": "applied graphics and visualization, magazine style",
+    "rank": "",
+    "ccf": "N",
+    "subs": [
+      {
+        "y": 2016,
+        "n": 133
+      },
+      {
+        "y": 2017,
+        "n": 131
+      },
+      {
+        "y": 2018,
+        "n": 133
+      },
+      {
+        "y": 2019,
+        "n": 127
+      },
+      {
+        "y": 2020,
+        "n": 155
+      },
+      {
+        "y": 2021,
+        "n": 170
+      },
+      {
+        "y": 2022,
+        "n": 149
+      },
+      {
+        "y": 2023,
+        "n": 167
+      },
+      {
+        "y": 2024,
+        "n": 171
+      },
+      {
+        "y": 2025,
+        "n": 203
+      }
+    ],
+    "cites": 1.1,
+    "h": 162,
+    "oa": "https://openalex.org/S105380075",
+    "link": "https://dblp.org/db/journals/cga/index.html"
+  },
+  {
+    "title": "IVS",
+    "name": "Information Visualization",
+    "issn": "1473-8716",
+    "dblp": "ivs",
+    "area": "vis",
+    "pub": "SAGE",
+    "why": "information visualization",
+    "rank": "",
+    "ccf": "N",
+    "subs": [
+      {
+        "y": 2016,
+        "n": 54
+      },
+      {
+        "y": 2017,
+        "n": 27
+      },
+      {
+        "y": 2018,
+        "n": 18
+      },
+      {
+        "y": 2019,
+        "n": 29
+      },
+      {
+        "y": 2020,
+        "n": 36
+      },
+      {
+        "y": 2021,
+        "n": 23
+      },
+      {
+        "y": 2022,
+        "n": 19
+      },
+      {
+        "y": 2023,
+        "n": 18
+      },
+      {
+        "y": 2024,
+        "n": 25
+      },
+      {
+        "y": 2025,
+        "n": 26
+      }
+    ],
+    "cites": 1.7,
+    "h": 66,
+    "oa": "https://openalex.org/S55152591",
+    "link": "https://dblp.org/db/journals/ivs/index.html"
   },
   {
     "title": "JAIR",

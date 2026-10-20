@@ -312,6 +312,7 @@ BY_TITLE={
     'CogSci':'psych',
     'STOC':'theory','FOCS':'theory','SODA':'theory','ICALP':'theory','CCC':'theory',
     'SOCG':'theory','ESA':'theory','LICS':'theory',
+    'IEEE VIS':'vis','EuroVis':'vis','PacificVis':'vis',
 }
 def area(sub, title):
     if title in EXTRA: return EXTRA[title]
@@ -335,6 +336,7 @@ FIELD_RANK={
     'STOC':'theory top two','FOCS':'theory top two','SODA':'algorithms flagship',
     'ICALP':'EATCS flagship','CCC':'complexity flagship','SOCG':'geometry flagship',
     'LICS':'logic flagship','ESA':'algorithms, Europe',
+    'IEEE VIS':'vis flagship','EuroVis':'Europe flagship','PacificVis':'Asia-Pacific flagship',
     'QIP':'quantum flagship','QCE':'IEEE quantum flagship','QCrypt':'quantum-crypto flagship',
 }
 
@@ -1334,6 +1336,11 @@ JOURNALS=[
  {'title':'Publ. IHÉS','name':"Publications mathématiques de l'IHÉS",'issn':'0073-8301','dblp':'','area':'math','pub':'Springer / IHÉS','why':'all of mathematics','rank':'top five'},
  {'title':'Duke','name':'Duke Mathematical Journal','issn':'0012-7094','dblp':'','area':'math','pub':'Duke Univ. Press','why':'all of mathematics','rank':''},
  {'title':'Adv. Math.','name':'Advances in Mathematics','issn':'0001-8708','dblp':'','area':'math','pub':'Elsevier','why':'all of mathematics, high volume','rank':''},
+  # vis
+ {'title':'TVCG','name':'IEEE Transactions on Visualization and Computer Graphics','issn':'1077-2626','dblp':'tvcg','area':'vis','pub':'IEEE','why':'visualization and graphics; carries the IEEE VIS papers','rank':'VIS journal'},
+ {'title':'CGF','name':'Computer Graphics Forum','issn':'0167-7055','dblp':'cgf','area':'vis','pub':'Wiley (Eurographics)','why':'graphics and visualization; carries the EuroVis papers','rank':'EuroVis journal'},
+ {'title':'CG&A','name':'IEEE Computer Graphics and Applications','issn':'0272-1716','dblp':'cga','area':'vis','pub':'IEEE','why':'applied graphics and visualization, magazine style','rank':''},
+ {'title':'IVS','name':'Information Visualization','issn':'1473-8716','dblp':'ivs','area':'vis','pub':'SAGE','why':'information visualization','rank':''},
 ]
 
 # Anything a fetch misses comes from the copy kept beside the script, so a
