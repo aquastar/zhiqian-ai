@@ -1,23 +1,29 @@
 name: Refresh topics and papers
 
-# The slow-moving half of the conference page, monthly: the per-topic
-# acceptance rates at ICLR, and for every field the twenty most published
-# keywords with ten representative papers each. Deadlines are weekly, in
+# The slow-moving half of the conference page: the per-topic acceptance
+# rates at ICLR, and for every field the twenty most published keywords
+# with ten representative papers each. Deadlines are in
 # refresh-conferences.yml.
 #
-# build-trends.py spends OpenAlex credits, about thirty per field. Without a
-# key, OpenAlex gives 1,000 a day shared by everyone on the runner's IP, so
-# a run may stop partway. It refreshes the stalest fields first and skips
-# any refreshed within the month, so the runs on the 2nd and 3rd finish
-# whatever the 1st could not, and cost nothing once everything is fresh.
+# Spread over the month rather than done in one go. This runs daily and
+# rebuilds at most one field, the stalest past four weeks old, so the 23
+# fields settle into a rotation of one a day and each is refreshed about
+# monthly. Keep the field count under 28 or raise the cap. A field costs
+# about thirty OpenAlex credits, so a day costs about thirty, well inside the free
+# 1,000 a day that every user on the runner's IP shares. Most days nothing
+# is stale and the run ends without a commit. The ICLR file, a few tens of
+# MB from GitHub raw and no credits, is rebuilt on the 1st.
 # Set an OPENALEX_API_KEY repository secret to use a key's own budget.
 on:
   schedule:
-    - cron: '41 7 1-3 * *'   # 1st to 3rd of each month, 07:41 UTC
+    - cron: '41 7 * * *'   # every day, 07:41 UTC
   workflow_dispatch:
     inputs:
+      fields:
+        description: 'Fields to rebuild this run (0 for every stale field)'
+        default: '1'
       force:
-        description: 'Rebuild every field, even ones refreshed this month'
+        description: 'Rebuild even fields refreshed in the last four weeks'
         type: boolean
         default: false
 
@@ -36,15 +42,19 @@ jobs:
         with:
           python-version: '3.12'
 
-      # Downloads a few tens of MB of public JSON from GitHub raw. No token,
-      # no account, no rate limit.
-      - name: Rebuild src/data/topics.js (ICLR per-topic acceptance)
-        run: python3 scripts/build-topics.py
+      - name: Rebuild src/data/topics.js (ICLR per-topic acceptance), on the 1st
+        run: |
+          if [ "$(date -u +%d)" = "01" ] || [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            python3 scripts/build-topics.py
+          else
+            echo "Not the 1st; ICLR topics wait."
+          fi
 
       # Reads the journal list from the committed src/data/conferences.js.
-      - name: Rebuild src/data/trends.js and public/trend-papers/
+      - name: Rebuild the stalest fields in src/data/trends.js and public/trend-papers/
         env:
           OPENALEX_API_KEY: ${{ secrets.OPENALEX_API_KEY }}
+          TRENDS_MAX_FIELDS: ${{ inputs.fields || '1' }}
           TRENDS_FORCE: ${{ inputs.force && '1' || '' }}
         run: python3 scripts/build-trends.py
 
@@ -57,9 +67,10 @@ jobs:
           fi
           git config user.name  "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git commit -m "Conferences: monthly topics and papers refresh
+          git commit -m "Conferences: topics and papers refresh
 
-          ICLR per-topic acceptance from paperlists; most published
-          keywords per field and representative papers from OpenAlex."
+          Most published keywords and representative papers for the
+          stalest fields, from OpenAlex; ICLR per-topic acceptance on the
+          1st of the month."
           git pull --rebase
           git push

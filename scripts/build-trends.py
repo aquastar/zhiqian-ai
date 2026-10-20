@@ -21,8 +21,9 @@ standing of the authors (the larger h-index of the first and last author).
 Budget. OpenAlex gives 1,000 credits a day without a key, shared by every
 user on the same IP address, which on a GitHub runner means strangers.
 One field costs about thirty credits. The script therefore refreshes only
-fields older than a month, oldest first, stops cleanly when the remaining
-budget gets low, and leaves the rest for the next run. With
+fields older than four weeks, oldest first, at most TRENDS_MAX_FIELDS per
+run, stops cleanly when the remaining budget gets low, and leaves the rest
+for the next run. With
 OPENALEX_API_KEY set it uses that key's own, larger budget instead.
 """
 import json, re, datetime, urllib.request, urllib.error, urllib.parse, time, os, math
@@ -33,13 +34,18 @@ BASE = YEAR - 2                # what the share is compared against
 TOP = 20
 PAPERS = 10
 CANDIDATES = 15
-MAX_AGE_DAYS = 25              # refresh a field about once a month
+MAX_AGE_DAYS = 28              # refresh a field about once a month
 RESERVE = 40                   # credits left untouched for anything else
 OUT = 'src/data/trends.js'
 PAPER_DIR = 'public/trend-papers'
 KEY = os.environ.get('OPENALEX_API_KEY', '').strip()
 AUTH = f'api_key={KEY}' if KEY else 'mailto=site@zhiqian.ai'
 FORCE = os.environ.get('TRENDS_FORCE', '') == '1'
+# At most this many fields per run (0: no cap). The workflow runs daily with
+# a cap of one, so the fields spread themselves over the month: each is
+# rebuilt when it turns 28 days old, one a day, instead of all 23 in one
+# burst that a shared OpenAlex budget may not cover.
+MAX_FIELDS = int(os.environ.get('TRENDS_MAX_FIELDS', '0') or 0)
 
 conf = open('src/data/conferences.js', encoding='utf-8').read()
 journals = json.loads(re.search(r'export const journals = (\[.*?\]);\n', conf, re.S).group(1))
@@ -244,6 +250,8 @@ done, fresh_n = [], 0
 for area in order:
     if is_fresh(area) and not FORCE:
         fresh_n += 1; continue
+    if MAX_FIELDS and len(done) >= MAX_FIELDS:
+        break
     try:
         field, papers = build_field(area, by_area[area])
     except OutOfBudget:

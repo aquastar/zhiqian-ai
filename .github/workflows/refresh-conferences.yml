@@ -4,12 +4,14 @@ name: Refresh conference data
 # revises ranks, and acceptance rates get filled in, so a page built once
 # quietly goes stale. Rebuild weekly and only commit when something changed.
 #
-# Weekly is for deadlines. The slower data (per-topic acceptance at ICLR,
-# the most published keywords per field and their papers) is monthly, in
-# refresh-topics.yml.
+# Daily, because deadlines are the point of the page and a rebuild costs
+# under a minute and no API credits; a day with no upstream change commits
+# nothing. The slower checks run on Mondays only: asking every venue's own
+# site whether ccf-deadlines is right, and the audit of hand-kept dates.
+# Topics and papers are in refresh-topics.yml.
 on:
   schedule:
-    - cron: '17 6 * * 1'   # Mondays, 06:17 UTC
+    - cron: '17 6 * * *'   # every day, 06:17 UTC
   workflow_dispatch:        # and on demand from the Actions tab
 
 permissions:
@@ -31,6 +33,16 @@ jobs:
 
       - run: pip install --quiet pyyaml
 
+      # Monday, or a run started by hand, gets the weekly checks too.
+      - name: Is this the weekly run?
+        id: day
+        run: |
+          if [ "$(date -u +%u)" = "1" ] || [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            echo "weekly=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "weekly=false" >> "$GITHUB_OUTPUT"
+          fi
+
       - name: Rebuild src/data/conferences.js
         run: python3 scripts/build-conferences.py
 
@@ -46,6 +58,7 @@ jobs:
       # update. Read it in the job log: a disagreement means someone should
       # check the venue and, if confirmed, add it to DEADLINE_FIX.
       - name: Check deadlines against the venues' own sites
+        if: steps.day.outputs.weekly == 'true'
         continue-on-error: true
         run: python3 scripts/check-deadlines.py
 
@@ -54,6 +67,7 @@ jobs:
       # the job summary and in one standing issue that is edited each week,
       # so a stale date reaches an inbox instead of waiting to be noticed.
       - name: Audit the hand-kept deadlines
+        if: steps.day.outputs.weekly == 'true'
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
@@ -72,12 +86,12 @@ jobs:
         run: |
           git add src/data/conferences.js src/data/destinations.js scripts/journal-cache.json
           if git diff --cached --quiet; then
-            echo "No upstream change this week."
+            echo "No upstream change today."
             exit 0
           fi
           git config user.name  "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git commit -m "Conferences: weekly data refresh
+          git commit -m "Conferences: daily data refresh
 
           Rebuilt from ccf-deadlines, the official CORE2023 export,
           cs-conf-stats, CSRankings, the older acceptance-rate table,
