@@ -196,86 +196,167 @@ export const trends = {
    ],
    "rows": [
     {
-     "topic": "federated learning",
      "label": "federated learning",
      "id": "federated-learning",
      "n": 120,
      "share": 4.3,
-     "growth": 26
+     "growth": 26,
+     "papers": 10
     },
     {
-     "topic": "differential privacy",
      "label": "differential privacy",
      "id": "differential-privacy",
      "n": 100,
      "share": 3.6,
-     "growth": 23
+     "growth": 23,
+     "papers": 10
     },
     {
-     "topic": "privacy preservation",
      "label": "privacy preservation",
      "id": "privacy-protection",
      "n": 98,
      "share": 3.5,
-     "growth": 40
+     "growth": 40,
+     "papers": 10
     },
     {
-     "topic": "large language models",
      "label": "large language models",
      "id": "large-language-models",
      "n": 86,
      "share": 3.1,
-     "growth": 1463
+     "growth": 1463,
+     "papers": 10
     },
     {
-     "topic": "backdoor attacks",
      "label": "backdoor attacks",
      "id": "backdoor-attacks",
      "n": 80,
      "share": 2.8,
-     "growth": 45
+     "growth": 45,
+     "papers": 10
     },
     {
-     "topic": "privacy-utility trade-off",
      "label": "privacy-utility trade-off",
      "id": "privacy-utility-trade-off",
      "n": 70,
      "share": 2.5,
-     "growth": 50
+     "growth": 50,
+     "papers": 10
     },
     {
-     "topic": "adversarial attacks",
      "label": "adversarial attacks",
      "id": "adversarial-attacks",
      "n": 69,
      "share": 2.5,
-     "growth": -28
+     "growth": -28,
+     "papers": 10
     },
     {
-     "topic": "adversarial robustness",
      "label": "adversarial robustness",
      "id": "adversarial-robustness",
      "n": 69,
      "share": 2.5,
-     "growth": -2
+     "growth": -2,
+     "papers": 10
     },
     {
-     "topic": "secure multi-party computation",
      "label": "secure multi-party computation",
      "id": "secure-multi-party-computation",
      "n": 65,
      "share": 2.3,
-     "growth": -11
+     "growth": -11,
+     "papers": 10
     },
     {
-     "topic": "Internet of Things security",
      "label": "Internet of Things security",
      "id": "iot-security",
      "n": 56,
      "share": 2.0,
-     "growth": -22
+     "growth": -22,
+     "papers": 10
+    },
+    {
+     "label": "privacy-preserving machine learning",
+     "id": "privacy-preserving-machine-learning",
+     "n": 53,
+     "share": 1.9,
+     "growth": -1,
+     "papers": 10
+    },
+    {
+     "label": "privacy leakage",
+     "id": "privacy-leakage",
+     "n": 48,
+     "share": 1.7,
+     "growth": 105,
+     "papers": 10
+    },
+    {
+     "label": "anomaly detection",
+     "id": "anomaly-detection",
+     "n": 46,
+     "share": 1.6,
+     "growth": -2,
+     "papers": 10
+    },
+    {
+     "label": "side-channel attacks",
+     "id": "side-channel-attacks",
+     "n": 46,
+     "share": 1.6,
+     "growth": -4,
+     "papers": 10
+    },
+    {
+     "label": "attack detection",
+     "id": "attack-detection",
+     "n": 45,
+     "share": 1.6,
+     "growth": 26,
+     "papers": 10
+    },
+    {
+     "label": "graph neural networks",
+     "id": "graph-neural-networks",
+     "n": 45,
+     "share": 1.6,
+     "growth": 82,
+     "papers": 10
+    },
+    {
+     "label": "intrusion detection",
+     "id": "intrusion-detection",
+     "n": 43,
+     "share": 1.5,
+     "growth": 1,
+     "papers": 10
+    },
+    {
+     "label": "vulnerability detection",
+     "id": "vulnerability-detection",
+     "n": 43,
+     "share": 1.5,
+     "growth": 8,
+     "papers": 10
+    },
+    {
+     "label": "black-box attacks",
+     "id": "black-box-attacks",
+     "n": 41,
+     "share": 1.5,
+     "growth": -39,
+     "papers": 10
+    },
+    {
+     "label": "data poisoning",
+     "id": "data-poisoning-attacks",
+     "n": 41,
+     "share": 1.5,
+     "growth": 75,
+     "papers": 10
     }
-   ]
+   ],
+   "built": "2026-10-20"
   },
   "eda": {
    "total": 2282,
@@ -635,86 +716,167 @@ export const trends = {
    "missing": [],
    "rows": [
     {
-     "topic": "change point detection",
      "label": "change point detection",
      "id": "change-point-detection",
      "n": 10,
      "share": 5.4,
-     "growth": 710
+     "growth": 710,
+     "papers": 10
     },
     {
-     "topic": "forecast accuracy",
      "label": "forecast accuracy",
      "id": "forecast-accuracy",
      "n": 8,
      "share": 4.3,
-     "growth": 8
+     "growth": 8,
+     "papers": 10
     },
     {
-     "topic": "factor models",
      "label": "factor models",
      "id": "factor-models",
      "n": 7,
      "share": 3.8,
-     "growth": null
+     "growth": null,
+     "papers": 10
     },
     {
-     "topic": "non-stationary time series",
      "label": "non-stationary time series",
      "id": "nonstationary-time-series",
      "n": 7,
      "share": 3.8,
-     "growth": 467
+     "growth": 467,
+     "papers": 10
     },
     {
-     "topic": "volatility forecasting",
      "label": "volatility forecasting",
      "id": "volatility-forecasting",
      "n": 7,
      "share": 3.8,
-     "growth": 183
+     "growth": 183,
+     "papers": 10
     },
     {
-     "topic": "time series forecasting",
      "label": "time series forecasting",
      "id": "time-series-forecasting",
      "n": 6,
      "share": 3.3,
-     "growth": 21
+     "growth": 21,
+     "papers": 10
     },
     {
-     "topic": "autoregressive models",
      "label": "autoregressive models",
      "id": "autoregressive-models",
      "n": 5,
      "share": 2.7,
-     "growth": 305
+     "growth": 305,
+     "papers": 10
     },
     {
-     "topic": "GARCH models",
      "label": "GARCH models",
      "id": "garch-models",
      "n": 5,
      "share": 2.7,
-     "growth": 305
+     "growth": 305,
+     "papers": 8
     },
     {
-     "topic": "inflation forecasting",
      "label": "inflation forecasting",
      "id": "inflation-forecasting",
      "n": 5,
      "share": 2.7,
-     "growth": -19
+     "growth": -19,
+     "papers": 10
     },
     {
-     "topic": "long-range dependence",
      "label": "long-range dependence",
      "id": "long-range-dependence",
      "n": 5,
      "share": 2.7,
-     "growth": 1
+     "growth": 1,
+     "papers": 8
+    },
+    {
+     "label": "macroeconomic forecasting",
+     "id": "macroeconomic-forecasting",
+     "n": 5,
+     "share": 2.7,
+     "growth": 102,
+     "papers": 10
+    },
+    {
+     "label": "model selection",
+     "id": "model-selection",
+     "n": 5,
+     "share": 2.7,
+     "growth": 305,
+     "papers": 10
+    },
+    {
+     "label": "probabilistic forecasting",
+     "id": "probabilistic-forecasting",
+     "n": 5,
+     "share": 2.7,
+     "growth": -49,
+     "papers": 10
+    },
+    {
+     "label": "stochastic volatility",
+     "id": "stochastic-volatility",
+     "n": 5,
+     "share": 2.7,
+     "growth": 102,
+     "papers": 6
+    },
+    {
+     "label": "stock returns",
+     "id": "stock-returns",
+     "n": 5,
+     "share": 2.7,
+     "growth": null,
+     "papers": 7
+    },
+    {
+     "label": "value at risk",
+     "id": "value-at-risk",
+     "n": 5,
+     "share": 2.7,
+     "growth": null,
+     "papers": 7
+    },
+    {
+     "label": "asymptotic properties",
+     "id": "asymptotic-properties",
+     "n": 4,
+     "share": 2.2,
+     "growth": -35,
+     "papers": 9
+    },
+    {
+     "label": "bubble detection",
+     "id": "bubble-detection",
+     "n": 4,
+     "share": 2.2,
+     "growth": 224,
+     "papers": 7
+    },
+    {
+     "label": "dimensionality reduction",
+     "id": "dimensionality-reduction",
+     "n": 4,
+     "share": 2.2,
+     "growth": 62,
+     "papers": 4
+    },
+    {
+     "label": "efficient market hypothesis",
+     "id": "efficient-market-hypothesis",
+     "n": 4,
+     "share": 2.2,
+     "growth": null,
+     "papers": 8
     }
-   ]
+   ],
+   "built": "2026-10-20"
   },
   "control": {
    "total": 4347,
@@ -1402,86 +1564,167 @@ export const trends = {
    "missing": [],
    "rows": [
     {
-     "topic": "uncertainty quantification",
      "label": "uncertainty quantification",
      "id": "uncertainty-quantification",
      "n": 31,
      "share": 7.4,
-     "growth": -7
+     "growth": -7,
+     "papers": 10
     },
     {
-     "topic": "multiple comparisons",
      "label": "multiple comparisons",
      "id": "multiple-testing",
      "n": 13,
      "share": 3.1,
-     "growth": 6
+     "growth": 6,
+     "papers": 10
     },
     {
-     "topic": "statistical inference",
      "label": "statistical inference",
      "id": "statistical-inference",
      "n": 13,
      "share": 3.1,
-     "growth": 290
+     "growth": 290,
+     "papers": 10
     },
     {
-     "topic": "dimensionality reduction",
      "label": "dimensionality reduction",
      "id": "dimensionality-reduction",
      "n": 12,
      "share": 2.9,
-     "growth": 35
+     "growth": 35,
+     "papers": 10
     },
     {
-     "topic": "high-dimensional data",
      "label": "high-dimensional data",
      "id": "high-dimensional-data",
      "n": 12,
      "share": 2.9,
-     "growth": 8
+     "growth": 8,
+     "papers": 10
     },
     {
-     "topic": "surrogate models",
      "label": "surrogate models",
      "id": "surrogate-modeling",
      "n": 12,
      "share": 2.9,
-     "growth": -17
+     "growth": -17,
+     "papers": 10
     },
     {
-     "topic": "causal inference",
      "label": "causal inference",
      "id": "causal-inference",
      "n": 10,
      "share": 2.4,
-     "growth": -36
+     "growth": -36,
+     "papers": 10
     },
     {
-     "topic": "hypothesis testing",
      "label": "hypothesis testing",
      "id": "hypothesis-testing",
      "n": 10,
      "share": 2.4,
-     "growth": 29
+     "growth": 29,
+     "papers": 10
     },
     {
-     "topic": "model misspecification",
      "label": "model misspecification",
      "id": "model-misspecification",
      "n": 10,
      "share": 2.4,
-     "growth": 29
+     "growth": 29,
+     "papers": 10
     },
     {
-     "topic": "central limit theorem",
      "label": "central limit theorem",
      "id": "central-limit-theorem",
      "n": 9,
      "share": 2.1,
-     "growth": 1
+     "growth": 1,
+     "papers": 10
+    },
+    {
+     "label": "high-dimensional statistics",
+     "id": "high-dimensional-statistics",
+     "n": 9,
+     "share": 2.1,
+     "growth": 170,
+     "papers": 10
+    },
+    {
+     "label": "Bayesian nonparametrics",
+     "id": "nonparametric-bayesian-inference",
+     "n": 8,
+     "share": 1.9,
+     "growth": 140,
+     "papers": 10
+    },
+    {
+     "label": "nonparametric regression",
+     "id": "nonparametric-regression",
+     "n": 8,
+     "share": 1.9,
+     "growth": -10,
+     "papers": 10
+    },
+    {
+     "label": "asymptotic properties",
+     "id": "asymptotic-properties",
+     "n": 7,
+     "share": 1.7,
+     "growth": 26,
+     "papers": 10
+    },
+    {
+     "label": "Bayesian inference",
+     "id": "bayesian-inference",
+     "n": 7,
+     "share": 1.7,
+     "growth": -48,
+     "papers": 10
+    },
+    {
+     "label": "feature selection",
+     "id": "feature-selection",
+     "n": 7,
+     "share": 1.7,
+     "growth": -43,
+     "papers": 10
+    },
+    {
+     "label": "high-dimensional regression",
+     "id": "high-dimensional-regression",
+     "n": 7,
+     "share": 1.7,
+     "growth": 5,
+     "papers": 10
+    },
+    {
+     "label": "minimax optimality",
+     "id": "minimax-optimality",
+     "n": 7,
+     "share": 1.7,
+     "growth": null,
+     "papers": 10
+    },
+    {
+     "label": "reproducing kernel Hilbert space",
+     "id": "reproducing-kernel-hilbert-space",
+     "n": 7,
+     "share": 1.7,
+     "growth": 57,
+     "papers": 10
+    },
+    {
+     "label": "statistical power",
+     "id": "statistical-power",
+     "n": 7,
+     "share": 1.7,
+     "growth": null,
+     "papers": 10
     }
-   ]
+   ],
+   "built": "2026-10-20"
   },
   "opt": {
    "total": 1095,
@@ -1490,86 +1733,167 @@ export const trends = {
    "missing": [],
    "rows": [
     {
-     "topic": "non-convex optimization",
      "label": "non-convex optimization",
      "id": "nonconvex-optimization",
      "n": 40,
      "share": 3.7,
-     "growth": 37
+     "growth": 37,
+     "papers": 10
     },
     {
-     "topic": "combinatorial optimization",
      "label": "combinatorial optimization",
      "id": "combinatorial-optimization",
      "n": 33,
      "share": 3.0,
-     "growth": 52
+     "growth": 52,
+     "papers": 10
     },
     {
-     "topic": "approximation algorithms",
      "label": "approximation algorithms",
      "id": "approximation-algorithms",
      "n": 21,
      "share": 1.9,
-     "growth": -12
+     "growth": -12,
+     "papers": 10
     },
     {
-     "topic": "first-order methods",
      "label": "first-order methods",
      "id": "first-order-methods",
      "n": 19,
      "share": 1.7,
-     "growth": 76
+     "growth": 76,
+     "papers": 10
     },
     {
-     "topic": "stochastic optimization",
      "label": "stochastic optimization",
      "id": "stochastic-optimization",
      "n": 18,
      "share": 1.6,
-     "growth": 85
+     "growth": 85,
+     "papers": 10
     },
     {
-     "topic": "dynamic pricing",
      "label": "dynamic pricing",
      "id": "dynamic-pricing",
      "n": 16,
      "share": 1.5,
-     "growth": 34
+     "growth": 34,
+     "papers": 10
     },
     {
-     "topic": "exact algorithms",
      "label": "exact algorithms",
      "id": "exact-algorithms",
      "n": 16,
      "share": 1.5,
-     "growth": 111
+     "growth": 111,
+     "papers": 10
     },
     {
-     "topic": "information asymmetry",
      "label": "information asymmetry",
      "id": "information-asymmetry",
      "n": 16,
      "share": 1.5,
-     "growth": 23
+     "growth": 23,
+     "papers": 10
     },
     {
-     "topic": "robust optimization",
      "label": "robust optimization",
      "id": "robust-optimization",
      "n": 16,
      "share": 1.5,
-     "growth": -18
+     "growth": -18,
+     "papers": 10
     },
     {
-     "topic": "computational complexity",
      "label": "computational complexity",
      "id": "computational-complexity",
      "n": 15,
      "share": 1.4,
-     "growth": 54
+     "growth": 54,
+     "papers": 10
+    },
+    {
+     "label": "distributionally robust optimization",
+     "id": "distributionally-robust-optimization",
+     "n": 15,
+     "share": 1.4,
+     "growth": -27,
+     "papers": 10
+    },
+    {
+     "label": "column generation",
+     "id": "column-generation",
+     "n": 14,
+     "share": 1.3,
+     "growth": 116,
+     "papers": 10
+    },
+    {
+     "label": "semidefinite programming",
+     "id": "semidefinite-programming",
+     "n": 14,
+     "share": 1.3,
+     "growth": -24,
+     "papers": 10
+    },
+    {
+     "label": "vehicle routing",
+     "id": "vehicle-routing-problem",
+     "n": 14,
+     "share": 1.3,
+     "growth": 8,
+     "papers": 10
+    },
+    {
+     "label": "mixed-integer linear programming",
+     "id": "mixed-integer-linear-programming",
+     "n": 13,
+     "share": 1.2,
+     "growth": 20,
+     "papers": 10
+    },
+    {
+     "label": "mixed integer programming",
+     "id": "mixed-integer-programming",
+     "n": 13,
+     "share": 1.2,
+     "growth": -29,
+     "papers": 10
+    },
+    {
+     "label": "nonsmooth optimization",
+     "id": "nonsmooth-optimization",
+     "n": 13,
+     "share": 1.2,
+     "growth": -8,
+     "papers": 10
+    },
+    {
+     "label": "branch and bound",
+     "id": "branch-and-bound",
+     "n": 12,
+     "share": 1.1,
+     "growth": 11,
+     "papers": 10
+    },
+    {
+     "label": "facility location",
+     "id": "facility-location",
+     "n": 12,
+     "share": 1.1,
+     "growth": 23,
+     "papers": 10
+    },
+    {
+     "label": "online algorithms",
+     "id": "online-algorithms",
+     "n": 12,
+     "share": 1.1,
+     "growth": 455,
+     "papers": 10
     }
-   ]
+   ],
+   "built": "2026-10-20"
   },
   "amath": {
    "total": 1127,
@@ -1916,86 +2240,167 @@ export const trends = {
    "missing": [],
    "rows": [
     {
-     "topic": "individual differences",
      "label": "individual differences",
      "id": "individual-differences",
      "n": 62,
      "share": 4.8,
-     "growth": 48
+     "growth": 48,
+     "papers": 10
     },
     {
-     "topic": "decision-making",
      "label": "decision-making",
      "id": "decision-making",
      "n": 41,
      "share": 3.2,
-     "growth": 18
+     "growth": 18,
+     "papers": 10
     },
     {
-     "topic": "working memory",
      "label": "working memory",
      "id": "working-memory",
      "n": 37,
      "share": 2.9,
-     "growth": 13
+     "growth": 13,
+     "papers": 10
     },
     {
-     "topic": "episodic memory",
      "label": "episodic memory",
      "id": "episodic-memory",
      "n": 33,
      "share": 2.6,
-     "growth": 54
+     "growth": 54,
+     "papers": 10
     },
     {
-     "topic": "eye movements",
      "label": "eye movements",
      "id": "eye-movements",
      "n": 32,
      "share": 2.5,
-     "growth": 65
+     "growth": 65,
+     "papers": 10
     },
     {
-     "topic": "metacognition",
      "label": "metacognition",
      "id": "metacognition",
      "n": 27,
      "share": 2.1,
-     "growth": 6
+     "growth": 6,
+     "papers": 10
     },
     {
-     "topic": "cognitive control",
      "label": "cognitive control",
      "id": "cognitive-control",
      "n": 26,
      "share": 2.0,
-     "growth": 59
+     "growth": 59,
+     "papers": 10
     },
     {
-     "topic": "statistical learning",
      "label": "statistical learning",
      "id": "statistical-learning",
      "n": 24,
      "share": 1.9,
-     "growth": -9
+     "growth": -9,
+     "papers": 10
     },
     {
-     "topic": "memory retrieval",
      "label": "memory retrieval",
      "id": "memory-retrieval",
      "n": 23,
      "share": 1.8,
-     "growth": 3
+     "growth": 3,
+     "papers": 10
     },
     {
-     "topic": "recognition memory",
      "label": "recognition memory",
      "id": "recognition-memory",
      "n": 22,
      "share": 1.7,
-     "growth": 8
+     "growth": 8,
+     "papers": 10
+    },
+    {
+     "label": "social cognition",
+     "id": "social-cognition",
+     "n": 22,
+     "share": 1.7,
+     "growth": -20,
+     "papers": 10
+    },
+    {
+     "label": "reaction time (psychology)",
+     "id": "reaction-time-psychology",
+     "n": 20,
+     "share": 1.6,
+     "growth": -2,
+     "papers": 10
+    },
+    {
+     "label": "visual attention",
+     "id": "visual-attention",
+     "n": 20,
+     "share": 1.6,
+     "growth": 9,
+     "papers": 10
+    },
+    {
+     "label": "attentional control",
+     "id": "attentional-control",
+     "n": 17,
+     "share": 1.3,
+     "growth": 4,
+     "papers": 10
+    },
+    {
+     "label": "cognitive development",
+     "id": "cognitive-development",
+     "n": 17,
+     "share": 1.3,
+     "growth": 19,
+     "papers": 10
+    },
+    {
+     "label": "large language models",
+     "id": "large-language-models",
+     "n": 16,
+     "share": 1.2,
+     "growth": 124,
+     "papers": 10
+    },
+    {
+     "label": "cross-cultural comparison",
+     "id": "cross-cultural-comparison",
+     "n": 15,
+     "share": 1.2,
+     "growth": 23,
+     "papers": 10
+    },
+    {
+     "label": "language comprehension",
+     "id": "language-comprehension",
+     "n": 15,
+     "share": 1.2,
+     "growth": 64,
+     "papers": 10
+    },
+    {
+     "label": "speech perception",
+     "id": "speech-perception",
+     "n": 15,
+     "share": 1.2,
+     "growth": 64,
+     "papers": 10
+    },
+    {
+     "label": "visual perception",
+     "id": "visual-perception",
+     "n": 15,
+     "share": 1.2,
+     "growth": 5,
+     "papers": 10
     }
-   ]
+   ],
+   "built": "2026-10-20"
   },
   "sleep": {
    "total": 2445,
@@ -2004,86 +2409,167 @@ export const trends = {
    "missing": [],
    "rows": [
     {
-     "topic": "obstructive sleep apnea",
      "label": "obstructive sleep apnea",
      "id": "obstructive-sleep-apnea",
      "n": 513,
      "share": 21.0,
-     "growth": 3
+     "growth": 3,
+     "papers": 10
     },
     {
-     "topic": "sleep disorders",
      "label": "sleep disorders",
      "id": "sleep-disturbance",
      "n": 351,
      "share": 14.4,
-     "growth": 16
+     "growth": 16,
+     "papers": 10
     },
     {
-     "topic": "sleep quality",
      "label": "sleep quality",
      "id": "sleep-quality",
      "n": 324,
      "share": 13.3,
-     "growth": -10
+     "growth": -10,
+     "papers": 10
     },
     {
-     "topic": "insomnia",
      "label": "insomnia",
      "id": "insomnia",
      "n": 308,
      "share": 12.6,
-     "growth": -29
+     "growth": -29,
+     "papers": 10
     },
     {
-     "topic": "sleep duration",
      "label": "sleep duration",
      "id": "sleep-duration",
      "n": 275,
      "share": 11.2,
-     "growth": -4
+     "growth": -4,
+     "papers": 10
     },
     {
-     "topic": "sleep-disordered breathing",
      "label": "sleep-disordered breathing",
      "id": "sleep-disordered-breathing",
      "n": 149,
      "share": 6.1,
-     "growth": -16
+     "growth": -16,
+     "papers": 10
     },
     {
-     "topic": "REM sleep",
      "label": "REM sleep",
      "id": "rem-sleep",
      "n": 144,
      "share": 5.9,
-     "growth": -8
+     "growth": -8,
+     "papers": 10
     },
     {
-     "topic": "circadian rhythm",
      "label": "circadian rhythm",
      "id": "circadian-rhythm",
      "n": 138,
      "share": 5.6,
-     "growth": -2
+     "growth": -2,
+     "papers": 10
     },
     {
-     "topic": "sleep deprivation",
      "label": "sleep deprivation",
      "id": "sleep-deprivation",
      "n": 124,
      "share": 5.1,
-     "growth": 15
+     "growth": 15,
+     "papers": 10
     },
     {
-     "topic": "daytime sleepiness",
      "label": "daytime sleepiness",
      "id": "daytime-sleepiness",
      "n": 115,
      "share": 4.7,
-     "growth": -7
+     "growth": -7,
+     "papers": 10
+    },
+    {
+     "label": "sleep timing",
+     "id": "sleep-timing",
+     "n": 109,
+     "share": 4.5,
+     "growth": -10,
+     "papers": 10
+    },
+    {
+     "label": "sleep health",
+     "id": "sleep-health",
+     "n": 97,
+     "share": 4.0,
+     "growth": 24,
+     "papers": 10
+    },
+    {
+     "label": "cognitive behavioral therapy for insomnia",
+     "id": "cognitive-behavioral-therapy-for-insomnia",
+     "n": 95,
+     "share": 3.9,
+     "growth": -3,
+     "papers": 10
+    },
+    {
+     "label": "excessive daytime sleepiness",
+     "id": "excessive-daytime-sleepiness",
+     "n": 94,
+     "share": 3.8,
+     "growth": -16,
+     "papers": 10
+    },
+    {
+     "label": "NREM sleep",
+     "id": "nrem-sleep",
+     "n": 89,
+     "share": 3.6,
+     "growth": 0,
+     "papers": 10
+    },
+    {
+     "label": "slow-wave sleep",
+     "id": "slow-wave-sleep",
+     "n": 75,
+     "share": 3.1,
+     "growth": -3,
+     "papers": 10
+    },
+    {
+     "label": "chronotype",
+     "id": "chronotype",
+     "n": 74,
+     "share": 3.0,
+     "growth": -4,
+     "papers": 10
+    },
+    {
+     "label": "sleep apnea",
+     "id": "sleep-apnea",
+     "n": 74,
+     "share": 3.0,
+     "growth": -10,
+     "papers": 10
+    },
+    {
+     "label": "continuous positive airway pressure",
+     "id": "continuous-positive-airway-pressure",
+     "n": 63,
+     "share": 2.6,
+     "growth": 28,
+     "papers": 10
+    },
+    {
+     "label": "narcolepsy",
+     "id": "narcolepsy",
+     "n": 62,
+     "share": 2.5,
+     "growth": -3,
+     "papers": 10
     }
-   ]
+   ],
+   "built": "2026-10-20"
   },
   "biomed": {
    "total": 4541,
@@ -2603,86 +3089,167 @@ export const trends = {
    "missing": [],
    "rows": [
     {
-     "topic": "renewable energy integration",
      "label": "renewable energy integration",
      "id": "renewable-energy-integration",
      "n": 301,
      "share": 7.4,
-     "growth": 21
+     "growth": 21,
+     "papers": 10
     },
     {
-     "topic": "distributed energy resources",
      "label": "distributed energy resources",
      "id": "distributed-energy-resources",
      "n": 146,
      "share": 3.6,
-     "growth": -6
+     "growth": -6,
+     "papers": 10
     },
     {
-     "topic": "multi-objective optimization",
      "label": "multi-objective optimization",
      "id": "multi-objective-optimization",
      "n": 131,
      "share": 3.2,
-     "growth": 27
+     "growth": 27,
+     "papers": 10
     },
     {
-     "topic": "battery energy storage",
      "label": "battery energy storage",
      "id": "battery-energy-storage",
      "n": 116,
      "share": 2.8,
-     "growth": -15
+     "growth": -15,
+     "papers": 10
     },
     {
-     "topic": "distribution networks",
      "label": "distribution networks",
      "id": "distribution-networks",
      "n": 112,
      "share": 2.7,
-     "growth": 1
+     "growth": 1,
+     "papers": 10
     },
     {
-     "topic": "demand response",
      "label": "demand response",
      "id": "demand-response",
      "n": 103,
      "share": 2.5,
-     "growth": -4
+     "growth": -4,
+     "papers": 10
     },
     {
-     "topic": "renewable energy uncertainty",
      "label": "renewable energy uncertainty",
      "id": "renewable-energy-uncertainty",
      "n": 95,
      "share": 2.3,
-     "growth": 1
+     "growth": 1,
+     "papers": 10
     },
     {
-     "topic": "electric vehicles",
      "label": "electric vehicles",
      "id": "electric-vehicles",
      "n": 88,
      "share": 2.2,
-     "growth": 3
+     "growth": 3,
+     "papers": 10
     },
     {
-     "topic": "bi-level optimization",
      "label": "bi-level optimization",
      "id": "bi-level-optimization",
      "n": 84,
      "share": 2.1,
-     "growth": 19
+     "growth": 19,
+     "papers": 10
     },
     {
-     "topic": "lithium-ion batteries",
      "label": "lithium-ion batteries",
      "id": "lithium-ion-batteries",
      "n": 82,
      "share": 2.0,
-     "growth": 23
+     "growth": 23,
+     "papers": 10
+    },
+    {
+     "label": "inverter-based resources",
+     "id": "inverter-based-resources",
+     "n": 80,
+     "share": 2.0,
+     "growth": 65,
+     "papers": 10
+    },
+    {
+     "label": "hydrogen production",
+     "id": "hydrogen-production",
+     "n": 79,
+     "share": 1.9,
+     "growth": 63,
+     "papers": 10
+    },
+    {
+     "label": "energy efficiency",
+     "id": "energy-efficiency",
+     "n": 77,
+     "share": 1.9,
+     "growth": 109,
+     "papers": 10
+    },
+    {
+     "label": "model predictive control",
+     "id": "model-predictive-control",
+     "n": 73,
+     "share": 1.8,
+     "growth": 10,
+     "papers": 10
+    },
+    {
+     "label": "carbon emission reduction",
+     "id": "carbon-emission-reduction",
+     "n": 71,
+     "share": 1.7,
+     "growth": 53,
+     "papers": 10
+    },
+    {
+     "label": "electric vehicle charging",
+     "id": "electric-vehicle-charging",
+     "n": 69,
+     "share": 1.7,
+     "growth": 13,
+     "papers": 10
+    },
+    {
+     "label": "deep reinforcement learning",
+     "id": "deep-reinforcement-learning",
+     "n": 68,
+     "share": 1.7,
+     "growth": 4,
+     "papers": 10
+    },
+    {
+     "label": "frequency regulation",
+     "id": "frequency-regulation",
+     "n": 68,
+     "share": 1.7,
+     "growth": -15,
+     "papers": 10
+    },
+    {
+     "label": "grid-forming inverters",
+     "id": "grid-forming-inverters",
+     "n": 68,
+     "share": 1.7,
+     "growth": 115,
+     "papers": 10
+    },
+    {
+     "label": "integrated energy systems",
+     "id": "integrated-energy-systems",
+     "n": 68,
+     "share": 1.7,
+     "growth": -12,
+     "papers": 10
     }
-   ]
+   ],
+   "built": "2026-10-20"
   },
   "math": {
    "total": 667,
@@ -2848,6 +3415,518 @@ export const trends = {
      "n": 6,
      "share": 0.9,
      "growth": null,
+     "papers": 10
+    }
+   ],
+   "built": "2026-10-20"
+  },
+  "physics": {
+   "total": 4069,
+   "journals": 6,
+   "confs": [],
+   "missing": [],
+   "rows": [
+    {
+     "label": "spin-orbit coupling",
+     "id": "spin-orbit-coupling",
+     "n": 75,
+     "share": 1.8,
+     "growth": 64,
+     "papers": 10
+    },
+    {
+     "label": "quantum simulation",
+     "id": "quantum-simulation",
+     "n": 56,
+     "share": 1.4,
+     "growth": -15,
+     "papers": 10
+    },
+    {
+     "label": "spintronics",
+     "id": "spintronics",
+     "n": 56,
+     "share": 1.4,
+     "growth": 96,
+     "papers": 10
+    },
+    {
+     "label": "active matter",
+     "id": "active-matter",
+     "n": 51,
+     "share": 1.3,
+     "growth": -9,
+     "papers": 10
+    },
+    {
+     "label": "open quantum systems",
+     "id": "open-quantum-systems",
+     "n": 49,
+     "share": 1.2,
+     "growth": -2,
+     "papers": 10
+    },
+    {
+     "label": "time-reversal symmetry breaking",
+     "id": "time-reversal-symmetry-breaking",
+     "n": 49,
+     "share": 1.2,
+     "growth": 14,
+     "papers": 10
+    },
+    {
+     "label": "quantum error correction",
+     "id": "quantum-error-correction",
+     "n": 47,
+     "share": 1.2,
+     "growth": 106,
+     "papers": 10
+    },
+    {
+     "label": "quantum many-body systems",
+     "id": "quantum-many-body-systems",
+     "n": 45,
+     "share": 1.1,
+     "growth": 85,
+     "papers": 10
+    },
+    {
+     "label": "Berry curvature",
+     "id": "berry-curvature",
+     "n": 43,
+     "share": 1.1,
+     "growth": 115,
+     "papers": 10
+    },
+    {
+     "label": "strongly correlated electrons",
+     "id": "strongly-correlated-electron-systems",
+     "n": 43,
+     "share": 1.1,
+     "growth": 58,
+     "papers": 10
+    },
+    {
+     "label": "electron-phonon coupling",
+     "id": "electron-phonon-coupling",
+     "n": 42,
+     "share": 1.0,
+     "growth": 40,
+     "papers": 10
+    },
+    {
+     "label": "phase diagram",
+     "id": "phase-diagram",
+     "n": 42,
+     "share": 1.0,
+     "growth": 1,
+     "papers": 10
+    },
+    {
+     "label": "phase transitions",
+     "id": "phase-transitions",
+     "n": 41,
+     "share": 1.0,
+     "growth": -16,
+     "papers": 10
+    },
+    {
+     "label": "transition metal dichalcogenides",
+     "id": "transition-metal-dichalcogenides",
+     "n": 40,
+     "share": 1.0,
+     "growth": 22,
+     "papers": 10
+    },
+    {
+     "label": "energy dissipation",
+     "id": "energy-dissipation",
+     "n": 39,
+     "share": 1.0,
+     "growth": 36,
+     "papers": 10
+    },
+    {
+     "label": "decoherence",
+     "id": "decoherence",
+     "n": 37,
+     "share": 0.9,
+     "growth": 13,
+     "papers": 10
+    },
+    {
+     "label": "heavy-ion collisions",
+     "id": "heavy-ion-collisions",
+     "n": 37,
+     "share": 0.9,
+     "growth": 44,
+     "papers": 10
+    },
+    {
+     "label": "charge density wave",
+     "id": "charge-density-wave",
+     "n": 36,
+     "share": 0.9,
+     "growth": -7,
+     "papers": 10
+    },
+    {
+     "label": "quantum memory",
+     "id": "quantum-memory",
+     "n": 36,
+     "share": 0.9,
+     "growth": 80,
+     "papers": 10
+    },
+    {
+     "label": "flat bands",
+     "id": "flat-bands",
+     "n": 35,
+     "share": 0.9,
+     "growth": -2,
+     "papers": 10
+    }
+   ],
+   "built": "2026-10-20"
+  },
+  "quantum": {
+   "total": 3952,
+   "journals": 6,
+   "confs": [],
+   "missing": [],
+   "rows": [
+    {
+     "label": "open quantum systems",
+     "id": "open-quantum-systems",
+     "n": 177,
+     "share": 4.5,
+     "growth": 32,
+     "papers": 10
+    },
+    {
+     "label": "quantum error correction",
+     "id": "quantum-error-correction",
+     "n": 129,
+     "share": 3.3,
+     "growth": 73,
+     "papers": 10
+    },
+    {
+     "label": "quantum metrology",
+     "id": "quantum-metrology",
+     "n": 93,
+     "share": 2.4,
+     "growth": 43,
+     "papers": 10
+    },
+    {
+     "label": "quantum simulation",
+     "id": "quantum-simulation",
+     "n": 91,
+     "share": 2.3,
+     "growth": -18,
+     "papers": 10
+    },
+    {
+     "label": "quantum advantage",
+     "id": "quantum-advantage",
+     "n": 87,
+     "share": 2.2,
+     "growth": 5,
+     "papers": 10
+    },
+    {
+     "label": "fault-tolerant quantum computing",
+     "id": "fault-tolerant-quantum-computation",
+     "n": 83,
+     "share": 2.1,
+     "growth": 37,
+     "papers": 10
+    },
+    {
+     "label": "quantum networks",
+     "id": "quantum-networks",
+     "n": 78,
+     "share": 2.0,
+     "growth": 15,
+     "papers": 10
+    },
+    {
+     "label": "decoherence",
+     "id": "decoherence",
+     "n": 76,
+     "share": 1.9,
+     "growth": 2,
+     "papers": 10
+    },
+    {
+     "label": "ultracold atoms",
+     "id": "ultracold-atoms",
+     "n": 73,
+     "share": 1.8,
+     "growth": -9,
+     "papers": 10
+    },
+    {
+     "label": "quantum machine learning",
+     "id": "quantum-machine-learning",
+     "n": 68,
+     "share": 1.7,
+     "growth": 15,
+     "papers": 10
+    },
+    {
+     "label": "quantum correlations",
+     "id": "quantum-correlations",
+     "n": 63,
+     "share": 1.6,
+     "growth": -10,
+     "papers": 10
+    },
+    {
+     "label": "quantum entanglement",
+     "id": "quantum-entanglement",
+     "n": 62,
+     "share": 1.6,
+     "growth": 55,
+     "papers": 10
+    },
+    {
+     "label": "quantum memory",
+     "id": "quantum-memory",
+     "n": 62,
+     "share": 1.6,
+     "growth": 7,
+     "papers": 10
+    },
+    {
+     "label": "variational quantum algorithms",
+     "id": "variational-quantum-algorithms",
+     "n": 62,
+     "share": 1.6,
+     "growth": 12,
+     "papers": 10
+    },
+    {
+     "label": "Bose-Einstein condensate",
+     "id": "bose-einstein-condensate",
+     "n": 60,
+     "share": 1.5,
+     "growth": -3,
+     "papers": 10
+    },
+    {
+     "label": "quantum algorithms",
+     "id": "quantum-algorithms",
+     "n": 59,
+     "share": 1.5,
+     "growth": 10,
+     "papers": 10
+    },
+    {
+     "label": "superconducting qubits",
+     "id": "superconducting-qubits",
+     "n": 59,
+     "share": 1.5,
+     "growth": 7,
+     "papers": 10
+    },
+    {
+     "label": "quantum Fisher information",
+     "id": "quantum-fisher-information",
+     "n": 57,
+     "share": 1.4,
+     "growth": 33,
+     "papers": 10
+    },
+    {
+     "label": "quantum sensing",
+     "id": "quantum-sensing",
+     "n": 57,
+     "share": 1.4,
+     "growth": 25,
+     "papers": 10
+    },
+    {
+     "label": "entanglement",
+     "id": "entanglement",
+     "n": 56,
+     "share": 1.4,
+     "growth": 23,
+     "papers": 10
+    }
+   ],
+   "built": "2026-10-20"
+  },
+  "theory": {
+   "total": 613,
+   "journals": 6,
+   "confs": [
+    "STOC",
+    "FOCS"
+   ],
+   "missing": [
+    "SODA"
+   ],
+   "rows": [
+    {
+     "label": "approximation algorithms",
+     "id": "approximation-algorithms",
+     "n": 65,
+     "share": 10.6,
+     "growth": 0,
+     "papers": 10
+    },
+    {
+     "label": "computational complexity",
+     "id": "computational-complexity",
+     "n": 31,
+     "share": 5.1,
+     "growth": -18,
+     "papers": 10
+    },
+    {
+     "label": "hardness of approximation",
+     "id": "hardness-of-approximation",
+     "n": 26,
+     "share": 4.2,
+     "growth": 9,
+     "papers": 10
+    },
+    {
+     "label": "fixed-parameter tractability",
+     "id": "fixed-parameter-tractability",
+     "n": 23,
+     "share": 3.8,
+     "growth": -18,
+     "papers": 10
+    },
+    {
+     "label": "parameterized complexity",
+     "id": "parameterized-complexity",
+     "n": 21,
+     "share": 3.4,
+     "growth": 8,
+     "papers": 10
+    },
+    {
+     "label": "polynomial-time algorithms",
+     "id": "polynomial-time-algorithms",
+     "n": 20,
+     "share": 3.3,
+     "growth": -23,
+     "papers": 10
+    },
+    {
+     "label": "planar graphs",
+     "id": "planar-graphs",
+     "n": 18,
+     "share": 2.9,
+     "growth": 51,
+     "papers": 10
+    },
+    {
+     "label": "randomized algorithms",
+     "id": "randomized-algorithms",
+     "n": 18,
+     "share": 2.9,
+     "growth": -38,
+     "papers": 10
+    },
+    {
+     "label": "query complexity",
+     "id": "query-complexity",
+     "n": 15,
+     "share": 2.4,
+     "growth": -27,
+     "papers": 10
+    },
+    {
+     "label": "sample complexity",
+     "id": "sample-complexity",
+     "n": 15,
+     "share": 2.4,
+     "growth": -23,
+     "papers": 10
+    },
+    {
+     "label": "sublinear-time algorithms",
+     "id": "sublinear-algorithms",
+     "n": 15,
+     "share": 2.4,
+     "growth": 26,
+     "papers": 10
+    },
+    {
+     "label": "circuit lower bounds",
+     "id": "circuit-lower-bounds",
+     "n": 13,
+     "share": 2.1,
+     "growth": 33,
+     "papers": 10
+    },
+    {
+     "label": "deterministic algorithms",
+     "id": "deterministic-algorithms",
+     "n": 13,
+     "share": 2.1,
+     "growth": -14,
+     "papers": 10
+    },
+    {
+     "label": "graph algorithms",
+     "id": "graph-algorithms",
+     "n": 13,
+     "share": 2.1,
+     "growth": 20,
+     "papers": 10
+    },
+    {
+     "label": "computational geometry",
+     "id": "computational-geometry",
+     "n": 12,
+     "share": 2.0,
+     "growth": 38,
+     "papers": 10
+    },
+    {
+     "label": "directed graphs",
+     "id": "directed-graphs",
+     "n": 12,
+     "share": 2.0,
+     "growth": 1,
+     "papers": 10
+    },
+    {
+     "label": "graph partitioning",
+     "id": "graph-partitioning",
+     "n": 12,
+     "share": 2.0,
+     "growth": -15,
+     "papers": 10
+    },
+    {
+     "label": "Exponential Time Hypothesis",
+     "id": "exponential-time-hypothesis",
+     "n": 11,
+     "share": 1.8,
+     "growth": 13,
+     "papers": 10
+    },
+    {
+     "label": "proof complexity",
+     "id": "proof-complexity",
+     "n": 11,
+     "share": 1.8,
+     "growth": 154,
+     "papers": 10
+    },
+    {
+     "label": "treewidth",
+     "id": "treewidth",
+     "n": 11,
+     "share": 1.8,
+     "growth": -15,
      "papers": 10
     }
    ],
