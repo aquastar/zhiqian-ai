@@ -14,10 +14,8 @@
 export const GROUPS = [
   { id: 'computing', label: 'Computing' },
   { id: 'math', label: 'Math' },
-  { id: 'science', label: 'Science & engineering' },
-  { id: 'mind', label: 'Mind & brain' },
-  { id: 'health', label: 'Health' },
-  { id: 'humanities', label: 'Humanities' },
+  { id: 'science', label: 'Science & health' },
+  { id: 'mind', label: 'Mind & humanities' },
 ];
 
 export const DOMAINS = [
@@ -202,7 +200,7 @@ export const DOMAINS = [
     ],
   },
   {
-    id: 'biomed', label: 'Biomedical', group: 'health', icon: 'fa-heart-pulse', hue: '#0f766e',
+    id: 'biomed', label: 'Biomedical', group: 'science', icon: 'fa-heart-pulse', hue: '#0f766e',
     format: 'table', rank: 'field', scholar: 'med_medicalinformatics',
     notes: [
       'Clinical readers read journals: JAMIA or npj Digital Medicine counts for more than a conference.',
@@ -211,7 +209,7 @@ export const DOMAINS = [
     ],
   },
   {
-    id: 'epi', label: 'Epidemics', group: 'health', icon: 'fa-virus', hue: '#c2410c',
+    id: 'epi', label: 'Epidemics', group: 'science', icon: 'fa-virus', hue: '#c2410c',
     format: 'cards', rank: 'none', scholar: '',
     notes: [
       'Epidemic modelling is a journal field with two meetings: Epidemics for modellers, ESCAIDE for public-health practice.',
@@ -238,7 +236,7 @@ export const DOMAINS = [
     ],
   },
   {
-    id: 'philosophy', label: 'Philosophy', group: 'humanities', icon: 'fa-scroll', hue: '#9a3412',
+    id: 'philosophy', label: 'Philosophy', group: 'mind', icon: 'fa-scroll', hue: '#9a3412',
     format: 'cards', rank: 'none', scholar: '', citations: false,
     notes: [
       'Philosophy is a journal field, and its journals are slow and selective: months of review and rejection rates above ninety percent are normal.',
@@ -247,7 +245,7 @@ export const DOMAINS = [
     ],
   },
   {
-    id: 'religion', label: 'Religious studies', group: 'humanities', icon: 'fa-place-of-worship', hue: '#155e75',
+    id: 'religion', label: 'Religious studies', group: 'mind', icon: 'fa-place-of-worship', hue: '#155e75',
     format: 'cards', rank: 'none', scholar: '', citations: false,
     notes: [
       'Religious studies looks at religion from outside, with history, sociology, anthropology and cognitive science, and takes no side on whether any religion is true.',
@@ -256,7 +254,7 @@ export const DOMAINS = [
     ],
   },
   {
-    id: 'theology', label: 'Theology', group: 'humanities', icon: 'fa-book-bible', hue: '#713f12',
+    id: 'theology', label: 'Theology', group: 'mind', icon: 'fa-book-bible', hue: '#713f12',
     format: 'cards', rank: 'none', scholar: '', citations: false,
     notes: [
       'Theology works from inside a faith tradition (doctrine, systematic theology, Christian ethics), and that normative stance is what separates it from religious studies.',

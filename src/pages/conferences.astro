@@ -416,12 +416,14 @@ const freshRated = rows.filter((c) => c.rates.length && c.rates[c.rates.length -
           {GROUPS.map((g) => (
             <div class="dir-group">
               <span class="dir-label">{g.label}</span>
+              <span class="dir-chips">
               {domains.filter((d) => d.group === g.id).map((d) => (
                 <button class={`dchip${d.id === DEFAULT ? ' is-on' : ''}`} data-area={d.id} type="button"
                         data-scholar={d.scholarUrl} style={`--hue:${d.hue}`}>
                   <i class={`fas ${d.icon}`} aria-hidden="true"></i>{d.label}<span class="fcount">{d.n}</span>
                 </button>
               ))}
+              </span>
             </div>
           ))}
         </nav>
@@ -1143,7 +1145,10 @@ ${t.rate}% accepted, ${t.n.toLocaleString()} submissions, ${t.share}% of the edi
      with their hue on the icon, and only the open field is filled. */
   .picker { position:relative; margin-bottom:12px; }
   .dir { display:flex; flex-direction:column; gap:4px; min-width:0; }
-  .dir-group { display:flex; flex-wrap:wrap; align-items:center; gap:2px; }
+  .dir-group { display:flex; align-items:baseline; gap:2px; }
+  /* Wrapped fields stay in the fields column instead of running back under
+     the captions. */
+  .dir-chips { flex:1; min-width:0; display:flex; flex-wrap:wrap; gap:2px; }
   .dir-label { flex:0 0 128px; font-family:'Montserrat',sans-serif; font-size:.6rem; font-weight:700; letter-spacing:.09em;
     text-transform:uppercase; color:#94a3b8; white-space:nowrap; }
   .dchip { display:inline-flex; align-items:center; gap:5px; padding:4px 9px; border:0; border-radius:999px;
@@ -1153,10 +1158,12 @@ ${t.rate}% accepted, ${t.n.toLocaleString()} submissions, ${t.share}% of the edi
   .dchip:hover { background:#f1f5f9; }
   .dchip.is-on { background:var(--hue); color:#fff; }
   .dchip.is-on i, .dchip.is-on .fcount { color:rgba(255,255,255,.85); }
-  /* The last row is the shortest, so the two side buttons sit at its end. */
-  .side { position:absolute; right:0; bottom:0; display:flex; gap:6px; align-items:center; }
+  /* Their own line under the directory, right-aligned: no row is reliably
+     short enough to host them, and floating them over one hid a field. */
+  .side { display:flex; gap:6px; align-items:center; justify-content:flex-end; margin-top:6px; }
   @media (max-width: 900px) {
-    .side { position:static; margin-top:10px; }
+    .side { justify-content:flex-start; margin-top:10px; }
+    .dir-group { flex-wrap:wrap; }
     .dir-label { flex-basis:100%; margin:6px 0 1px; }
   }
   .dom[hidden], .jrnl-foot[hidden] { display:none !important; }
