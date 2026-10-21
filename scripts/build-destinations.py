@@ -244,6 +244,7 @@ for f in sorted(glob.glob(f'{CACHE}/*/*.yml')):
                 'year': year, 'place': simplify_place(place), 'date': ed.get('date') or '',
                 'city': city, 'country': country, 'dest': dest, 'icon': icon,
                 'ccf': rank.get('ccf', 'N'), 'core': rank.get('core', 'N'),
+                'sub': f.split('/')[-2],
                 'deadline': ahead[0] if ahead else (deadlines[-1] if deadlines else ''),
                 'open': bool(ahead), 'link': ed.get('link', '') or '',
                 # Precomputed here rather than in the template: 550 template
@@ -366,12 +367,38 @@ HONOR_EXTRA = {
     'World Sleep': 'World Sleep Society congress',
     'TMS': 'TMS flagship',
 }
+# The hand-added travel venues, each given the field it belongs to; a few
+# fields here (aerospace, linguistics, education) have no page of their own.
+MANUAL_FIELD = {
+    'PSB': ('Biomedical', 'science'), 'AMOS': ('Aerospace', 'science'), 'AIAA SciTech': ('Aerospace', 'science'),
+    'ICLDC': ('Linguistics', 'mind'), 'HARC': ('Business & education', 'other'), 'IICE': ('Business & education', 'other'),
+    'FLAIRS': ('AI · ML · Data Mining', 'computing'), 'BRACIS': ('AI · ML · Data Mining', 'computing'),
+    'ACIIDS': ('AI · ML · Data Mining', 'computing'), 'AJCAI': ('AI · ML · Data Mining', 'computing'),
+    'AusDM': ('AI · ML · Data Mining', 'computing'), 'CASCON': ('Software engineering', 'computing'),
+    'SoutheastCon': ('Electrical engineering', 'science'), 'SICE ISCS': ('Control', 'science'),
+    'IEEM': ('Optimization & OR', 'math'), 'ANZIAM': ('Applied math', 'math'), 'MODSIM': ('Applied math', 'math'),
+    'CDC': ('Control', 'science'),
+}
+CCF_AREA = {
+    'NW': 'Networking', 'SE': 'Software engineering', 'CG': 'Graphics & multimedia',
+    'HI': 'HCI', 'DS': 'Architecture & systems', 'MX': 'Interdisciplinary computing',
+    'DB': 'Databases', 'AI': 'AI, other', 'SC': 'Security, other', 'CT': 'Theory & logic',
+}
 CCF_RANK = {'A': 0, 'B': 2, 'C': 4}
 CORE_RANK = {'A*': 0, 'A': 2, 'B': 4, 'C': 5}
 for i in items:
     v = BY_TITLE.get(i['title'], {})
     i['field'] = _labels.get(v.get('area', ''), '')
-    i['group'] = _groups.get(v.get('area', ''), 'other')
+    i['group'] = _groups.get(v.get('area', ''), '')
+    # A catalogue venue with no field page of its own still has an area:
+    # the CCF one it is filed under. That replaces a single "other" bucket.
+    if not i['field']:
+        if i.get('sub'):
+            i['field'], i['group'] = CCF_AREA.get(i['sub'], 'Computing, other'), 'computing'
+        elif i['title'] in MANUAL_FIELD:
+            i['field'], i['group'] = MANUAL_FIELD[i['title']]
+        else:
+            i['field'], i['group'] = 'Other fields', 'other'
     hon = []
     if v.get('frank'):
         hon.append((0, v['frank'], 'field'))

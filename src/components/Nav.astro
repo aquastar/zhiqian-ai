@@ -23,8 +23,13 @@ const SECTIONS = [
 
 // The trackers sit apart from the site's own sections, on the right.
 const TRACKERS = [
-  { key: 'conferences', href: '/conferences', label: 'Conferences' },
-  { key: 'destinations', href: '/conferences/destinations', label: 'By destination' },
+  // Conferences opens a small menu on hover or focus: the field view and the
+  // map view are two ways into the same list, so they share one button.
+  { key: 'conferences', href: '/conferences', label: 'Conferences', also: ['destinations'],
+    menu: [
+      { key: 'conferences', href: '/conferences', label: 'By field' },
+      { key: 'destinations', href: '/conferences/destinations', label: 'By destination' },
+    ] },
   { key: 'funding', href: '/funding', label: 'Funding' },
 ];
 
@@ -43,8 +48,20 @@ const SUBSTACK = 'https://substack.com/@zhiqianchen1';
     <a href={SCHOLAR} target="_blank" rel="noopener">Paper <i class="ai ai-google-scholar-square ai-sm nav-ghost"></i> <i class="fas fa-arrow-up-right-from-square nav-ghost"></i></a>
     <a href={SUBSTACK} target="_blank" rel="noopener">Zhiqian's Note <svg class="nav-ghost nav-substack" viewBox="0 0 24 24" fill="currentColor" width="11" height="11" aria-hidden="true"><path d="M22.539 8.242H1.46V5.406h21.08v2.836zM1.46 10.812V24L12 18.11 22.54 24V10.812H1.46zM22.54 0H1.46v2.836h21.08V0z"/></svg> <i class="fas fa-arrow-up-right-from-square nav-ghost"></i></a>
     {TRACKERS.map((l, i) => (
-      <a href={l.href} class={i === 0 ? 'nav-right-start' : undefined}
-         aria-current={current === l.key ? 'page' : undefined}>{l.label}</a>
+      l.menu
+        ? <div class={`nav-menu${i === 0 ? ' nav-right-start' : ''}`}>
+            <a href={l.href} class="nav-menu-top" aria-haspopup="true"
+               aria-current={current === l.key || (l.also || []).includes(current) ? 'page' : undefined}>
+              {l.label} <i class="fas fa-angle-down nav-caret" aria-hidden="true"></i>
+            </a>
+            <div class="nav-sub" role="menu">
+              {l.menu.map((m) => (
+                <a href={m.href} role="menuitem" class={current === m.key ? 'is-here' : undefined}>{m.label}</a>
+              ))}
+            </div>
+          </div>
+        : <a href={l.href} class={i === 0 ? 'nav-right-start' : undefined}
+             aria-current={current === l.key ? 'page' : undefined}>{l.label}</a>
     ))}
   </div>
 </nav>
@@ -64,6 +81,17 @@ const SUBSTACK = 'https://substack.com/@zhiqianchen1';
   .top-nav a[aria-current="page"] { background:#e2e8f0; color:#0f172a;
     box-shadow:inset 0 1px 2px rgba(15,23,42,.10); }
   .nav-ghost { opacity:.55; font-size:.72em; }
+  .nav-menu { position:relative; display:flex; }
+  .nav-caret { font-size:.7em; opacity:.55; margin-left:2px; }
+  /* The menu hangs just under the button. A transparent band above it keeps
+     the pointer inside the hover area on its way down. */
+  .nav-sub { display:none; position:absolute; top:100%; right:0; z-index:50; min-width:150px;
+    padding:12px 6px 6px; flex-direction:column; gap:2px; }
+  .nav-sub::before { content:''; position:absolute; inset:6px 0 0 0; z-index:-1; background:#fff;
+    border:1px solid rgba(148,163,184,.35); border-radius:12px; box-shadow:0 12px 28px rgba(15,23,42,.14); }
+  .nav-menu:hover .nav-sub, .nav-menu:focus-within .nav-sub { display:flex; }
+  .top-nav .nav-sub a { font-size:.85rem; padding:6px 10px; border-radius:8px; white-space:nowrap; }
+  .top-nav .nav-sub a.is-here { background:#f1f5f9; font-weight:600; }
   .nav-substack { vertical-align:-1px; opacity:.85; }
 
   .nav-toggle { display:none; width:40px; height:40px; border:1px solid rgba(148,163,184,.18);
@@ -91,6 +119,12 @@ const SUBSTACK = 'https://substack.com/@zhiqianchen1';
     .top-nav.nav-open .nav-links a[aria-current="page"] { background:rgba(255,255,255,.72); box-shadow:none; }
     .nav-links a { width:auto; min-width:0; text-align:left; justify-content:flex-start;
       padding:10px 12px; font-size:.98rem; white-space:nowrap; }
+    /* In the phone panel the menu is simply listed, indented under its button. */
+    .nav-menu { flex-direction:column; }
+    .nav-caret { display:none; }
+    .nav-sub { display:flex; position:static; padding:0 0 0 14px; min-width:0; }
+    .nav-sub::before { display:none; }
+    .top-nav .nav-sub a { font-size:.9rem; padding:7px 12px; }
   }
 </style>
 

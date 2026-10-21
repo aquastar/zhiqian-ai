@@ -12,7 +12,7 @@ import { GROUPS } from '../../data/domains.js';
 // The map is Leaflet with clustered markers, on OpenStreetMap tiles. Coordinates come from build-destinations.py, looked up
 // once per place and cached.
 const COLORS = { computing: '#6d28d9', math: '#b45309', science: '#0f766e', mind: '#be185d', other: '#64748b' };
-const groups = [...GROUPS, { id: 'other', label: 'Other computing' }]
+const groups = [...GROUPS, { id: 'other', label: 'Other fields' }]
   .map((g) => ({ ...g, color: COLORS[g.id], n: destinations.items.filter((i) => (i.group || 'other') === g.id).length }))
   .filter((g) => g.n);
 const items = destinations.items.map((i, k) => ({
@@ -33,7 +33,7 @@ const onMap = items.filter((i) => i.pins.length).length;
 
     <section class="dhead">
       <h1>Conferences by destination</h1>
-      <p class="sub">{items.length} upcoming meetings across every field on the conference page, {onMap} placed on the map.</p>
+      <p class="sub">{items.length} upcoming meetings, from computing to theology, {onMap} placed on the map. Pick a group, then a field.</p>
     </section>
 
     <div class="controls">
@@ -48,6 +48,8 @@ const onMap = items.filter((i) => i.pins.length).length;
       <label class="opt"><input type="checkbox" id="open-only" /> Call still open</label>
       <input type="search" id="q" placeholder="Search a city, country or conference" aria-label="Search" />
     </div>
+    {/* The second level: once a group is picked, its fields, each with a count. */}
+    <div class="ffilter" id="ffilter" hidden></div>
 
     <div id="map" role="region" aria-label="World map of conference locations"></div>
 
@@ -108,10 +110,26 @@ const onMap = items.filter((i) => i.pins.length).length;
         }).bindPopup(popup(i))));
       });
 
-      const state = { g: 'all', open: false, q: '' };
+      const state = { g: 'all', f: '', open: false, q: '' };
+      const ffilter = document.getElementById('ffilter');
+      const drawFields = () => {
+        state.f = '';
+        if (state.g === 'all') { ffilter.hidden = true; ffilter.innerHTML = ''; return; }
+        const counts = {};
+        items.filter((i) => i.g === state.g).forEach((i) => { const f = i.f || 'Other'; counts[f] = (counts[f] || 0) + 1; });
+        const fields = Object.entries(counts).sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]));
+        ffilter.innerHTML = `<button type="button" class="fchip is-on" data-f="">Every field <span>${fields.reduce((a, x) => a + x[1], 0)}</span></button>`
+          + fields.map(([f, n]) => `<button type="button" class="fchip" data-f="${esc(f)}">${esc(f)} <span>${n}</span></button>`).join('');
+        ffilter.hidden = false;
+        ffilter.querySelectorAll('.fchip').forEach((b) => b.addEventListener('click', () => {
+          ffilter.querySelectorAll('.fchip').forEach((x) => x.classList.toggle('is-on', x === b));
+          state.f = b.dataset.f; draw();
+        }));
+      };
       const rows = document.getElementById('rows');
       const none = document.getElementById('none');
       const match = (i) => (state.g === 'all' || i.g === state.g)
+        && (!state.f || (i.f || 'Other') === state.f)
         && (!state.open || isOpen(i))
         && (!state.q || `${i.t} ${i.d} ${i.place} ${i.f}`.toLowerCase().includes(state.q));
 
@@ -141,7 +159,7 @@ const onMap = items.filter((i) => i.pins.length).length;
       });
       document.querySelectorAll('.gchip').forEach((b) => b.addEventListener('click', () => {
         document.querySelectorAll('.gchip').forEach((x) => x.classList.toggle('is-on', x === b));
-        state.g = b.dataset.g; draw();
+        state.g = b.dataset.g; drawFields(); draw();
       }));
       document.getElementById('open-only').addEventListener('change', (e) => { state.open = e.target.checked; draw(); });
       document.getElementById('q').addEventListener('input', (e) => { state.q = e.target.value.trim().toLowerCase(); draw(); });
@@ -162,6 +180,13 @@ const onMap = items.filter((i) => i.pins.length).length;
   .gchip .dot { width: 9px; height: 9px; border-radius: 50%; display: inline-block; }
   .gchip.is-on { background: #1e293b; border-color: #1e293b; color: #fff; }
   .gchip.is-on span { color: rgba(255,255,255,.7); }
+  .ffilter { display:flex; flex-wrap:wrap; gap:5px; margin:-2px 0 10px; padding-left:2px; }
+  .ffilter[hidden] { display:none; }
+  .ffilter :global(.fchip) { padding:3px 10px; border-radius:999px; border:1px solid rgba(148,163,184,.4); background:#fff;
+    font:inherit; font-size:.74rem; font-weight:600; color:#475569; cursor:pointer; }
+  .ffilter :global(.fchip span) { color:#a3adbb; font-size:.68rem; font-weight:700; }
+  .ffilter :global(.fchip.is-on) { background:#334155; border-color:#334155; color:#fff; }
+  .ffilter :global(.fchip.is-on span) { color:rgba(255,255,255,.7); }
   .opt { font-size: .8rem; color: #475569; display: inline-flex; align-items: center; gap: 5px; cursor: pointer; }
   #q { margin-left: auto; min-width: 240px; padding: 5px 11px; border: 1px solid rgba(148,163,184,.5); border-radius: 999px; font: inherit; font-size: .8rem; }
   #map { height: min(62vh, 560px); border-radius: 14px; border: 1px solid rgba(148,163,184,.35); z-index: 0; }
