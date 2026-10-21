@@ -3,7 +3,6 @@ import Layout from '../layouts/Layout.astro';
 import Nav from '../components/Nav.astro';
 import { ranked, notable, journals } from '../data/conferences.js';
 import { topicRates } from '../data/topics.js';
-import { destinations } from '../data/destinations.js';
 import { DOMAINS, GROUPS } from '../data/domains.js';
 import { trends } from '../data/trends.js';
 
@@ -423,19 +422,6 @@ const freshRated = rows.filter((c) => c.rates.length && c.rates[c.rates.length -
                   <i class={`fas ${d.icon}`} aria-hidden="true"></i>{d.label}<span class="fcount">{d.n}</span>
                 </button>
               ))}
-              {/* The two side buttons ride at the end of the shortest row,
-                  so they never need a line of their own. */}
-              {g.id === 'math' && (
-                <span class="side">
-          <button class="fbtn fbtn-dest" data-area="destinations" type="button">
-            <i class="fas fa-plane-departure" aria-hidden="true"></i>Selected destination<span class="fcount">{destinations.items.length}</span>
-          </button>
-          <a class="scholar-link" id="scholar-link" href={domains[0].scholarUrl} target="_blank" rel="noopener"
-             title="This field's h5-index ranking on Google Scholar Metrics, journals and conferences together">
-            h5-index <i class="fas fa-arrow-up-right-from-square" aria-hidden="true"></i>
-          </a>
-                </span>
-              )}
               </span>
             </div>
           ))}
@@ -444,62 +430,6 @@ const freshRated = rows.filter((c) => c.rates.length && c.rates[c.rates.length -
     </section>
 
 
-    <section class="section dest-section" id="destinations" hidden>
-      <div class="dest-pick">
-        {destinations.places.map((d, i) => (
-          <button class={`dbtn${i === 0 ? ' is-on' : ''}`} data-dest={d.name} type="button">
-            <i class={`fas fa-${d.icon}`} aria-hidden="true"></i>{d.name}<span class="fcount">{d.n}</span>
-          </button>
-        ))}
-      </div>
-      <div class="table-wrap">
-        <table class="confs dest-table">
-          <thead>
-            <tr>
-              <th class="c-name">Conference</th>
-              <th class="c-date">Deadline</th>
-              <th class="c-when">When and where</th>
-              <th class="c-rank" title="The strongest credential each venue has: the field's own standing first, then CCF and CORE where they exist">Standing</th>
-            </tr>
-          </thead>
-          <tbody>
-            {destinations.items.map((it) => (
-              <tr data-dest={it.dest} data-place={it.q} hidden>
-                <td class="c-name">
-                  <span class="name-line">
-                    <a class="conf-name" href={it.link} target="_blank" rel="noopener">{it.title}</a>
-                    <span class="ed-ord">{it.year}</span>
-                  </span>
-                  <span class="conf-desc">{it.desc}</span>
-                  {it.field && it.field !== 'AI · ML · Data Mining' && <span class="dest-field">{it.field}</span>}
-                </td>
-                <td class="c-date" data-label="Deadline">
-                  <span class="dl">{it.deadline || 'not published'}</span>
-                  {it.deadline && <span class={it.open ? 'dl-days' : 'dl-days band-past'} data-deadline={it.open ? it.deadline : ''}>{it.open ? '' : 'closed'}</span>}
-                </td>
-                <td class="c-when" data-label="When and where">
-                  <span class="when">{it.date}</span>
-                  <span class="where">{it.place}</span>
-                </td>
-                <td class="c-rank" data-label="Standing">
-                  {it.honors.length
-                    ? <span class="ranks">{it.honors.map((h) => <span class={`pill ${h.k === 'field' ? 'honor' : h.k}`}>{h.t}</span>)}</span>
-                    : <span class="none">&mdash;</span>}
-                </td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      </div>
-      <p class="dest-none" hidden>Nothing announced there yet.</p>
-      <p class="area-note">
-        {destinations.items.length} upcoming editions across {destinations.places.length} destinations, each one a
-        place rather than a category, so cities, countries and regions sit side by side. The computing venues are those at
-        CCF A or B or CORE A* or A; every hand-kept venue from the field tabs is here too, along with a few chosen for the trip.
-        Standing gives each venue's strongest credential first: the field's own (a society flagship, the Big Four), then CCF
-        and CORE where they rank it. A call marked open still has a deadline ahead of today.
-      </p>
-    </section>
 
     {domains.map((d) => (
       <section class={`dom dom-${d.format}`} data-domain={d.id} hidden={d.id !== DEFAULT} style={`--hue:${d.hue}`}>
@@ -512,7 +442,14 @@ const freshRated = rows.filter((c) => c.rates.length && c.rates[c.rates.length -
             because every field has the first and almost none the second. */}
         {d.trend && (
           <div class="section trends">
-            <h2 class="kind-head">Most published topics, {trends.year}<span class="kh-note">counted from the keywords on each paper</span></h2>
+            <h2 class="kind-head kh-row">Most published topics, {trends.year}<span class="kh-note">counted from the keywords on each paper</span>
+              {d.scholarUrl && (
+                <a class="kh-h5" href={d.scholarUrl} target="_blank" rel="noopener"
+                   title={`${d.label}: the h5-index ranking of its venues on Google Scholar Metrics, journals and conferences together`}>
+                  h5-index <i class="fas fa-arrow-up-right-from-square" aria-hidden="true"></i>
+                </a>
+              )}
+            </h2>
             <ol class="trend-list" data-field={d.id}>
               {d.trend.rows.map((r) => (
                 <li data-kw={r.id} data-label={r.label}>
@@ -1090,11 +1027,6 @@ ${t.rate}% accepted, ${t.n.toLocaleString()} submissions, ${t.share}% of the edi
   .filter { display:flex; flex-wrap:nowrap; gap:6px; align-items:center;
     justify-content:flex-start; overflow-x:auto; scrollbar-width:none; }
   .filter::-webkit-scrollbar { display:none; }
-  .scholar-link[hidden] { display:none; }
-  .scholar-link { flex:0 0 auto; display:inline-flex; align-items:center; gap:5px;
-    font-size:.72rem; font-weight:700; color:#475569; text-decoration:none; white-space:nowrap;
-    border:1px solid rgba(148,163,184,.45); border-radius:999px; padding:5px 11px; background:#fff; }
-  .scholar-link:hover { color:var(--accent); border-color:rgba(37,99,235,.5); }
   .fbtn { flex:0 0 auto; display:inline-flex; white-space:nowrap; align-items:center; gap:6px; padding:5px 11px; border-radius:999px; cursor:pointer;
     border:1px solid rgba(148,163,184,.4); background:#fff; color:#475569; font:inherit; font-size:.76rem; font-weight:600;
     transition:background .15s ease, border-color .15s ease, color .15s ease; }
@@ -1130,17 +1062,12 @@ ${t.rate}% accepted, ${t.n.toLocaleString()} submissions, ${t.share}% of the edi
   .dchip.is-on i, .dchip.is-on .fcount { color:rgba(255,255,255,.85); }
   /* Their own line under the directory, right-aligned: no row is reliably
      short enough to host them, and floating them over one hid a field. */
-  .side { display:inline-flex; gap:6px; align-items:center; margin-left:auto; padding-left:12px; }
   @media (max-width: 900px) {
-    .side { margin-left:0; padding-left:0; margin-top:6px; }
     .dir-group { flex-wrap:wrap; }
     .dir-label { flex-basis:100%; margin:6px 0 1px; }
   }
   .dom[hidden], .jrnl-foot[hidden] { display:none !important; }
   .pill.honor { background:#fefce8; color:#854d0e; border:1px solid #fde68a; min-width:0; white-space:normal; text-align:left; }
-  .dest-field { display:inline-block; margin-top:3px; font-size:.64rem; font-weight:700; letter-spacing:.04em; color:#64748b;
-    background:#f1f5f9; border-radius:4px; padding:1px 6px; }
-  .dest-table .c-rank { white-space:normal; width:16%; }
   .dom .field-note { border-left-color:var(--hue); }
   .dom > .field-note:first-child { margin-top:0; }
   .pill.frank { background:color-mix(in srgb, var(--hue, #334155) 14%, white); color:var(--hue, #334155);
@@ -1159,6 +1086,10 @@ ${t.rate}% accepted, ${t.n.toLocaleString()} submissions, ${t.share}% of the edi
   .cyc-dot.is-est { background:#fff; color:var(--hue); border:1.5px dashed var(--hue); }
 
   .trends { margin-bottom:16px; }
+  .kh-row { display:flex; align-items:baseline; flex-wrap:wrap; }
+  .kh-h5 { margin-left:auto; font-family:inherit; font-size:.7rem; font-weight:700; letter-spacing:0; text-transform:none;
+    color:#475569; text-decoration:none; border:1px solid rgba(148,163,184,.45); border-radius:999px; padding:1px 9px; background:#fff; }
+  .kh-h5:hover { color:var(--accent); border-color:rgba(37,99,235,.5); }
   .kh-note { margin-left:10px; font-family:inherit; font-size:.68rem; font-weight:500; letter-spacing:0; text-transform:none; color:#a3adbb; }
   .trend-list { list-style:none; margin:0; padding:0; display:grid; grid-template-columns:repeat(2, minmax(0,1fr)); column-gap:28px; row-gap:4px; counter-reset:tr;
     grid-auto-flow:column; grid-template-rows:repeat(10, auto); }
@@ -1277,10 +1208,6 @@ ${t.rate}% accepted, ${t.n.toLocaleString()} submissions, ${t.share}% of the edi
   .fbtn.area-health-bio:not(.is-on)                { color:#0f766e; border-color:#99f6e4; }
   .fbtn.area-control:not(.is-on)                   { color:#b45309; border-color:#fde68a; }
   .fbtn.area-society-meetings:not(.is-on)          { color:#475569; border-color:#cbd5e1; }
-  .fbtn-dest { margin-left:auto; }
-  .fbtn-dest:not(.is-on) { color:#0e7490; border-color:#a5f3fc; }
-  .fbtn-dest.is-on { background:#0e7490; border-color:#0e7490; }
-  .dest-section[hidden], .section[hidden] { display:none; }
 
   /* Society meetings, as cards. A table made them look like venues that had
      simply failed to report a rank. */
@@ -1304,16 +1231,6 @@ ${t.rate}% accepted, ${t.n.toLocaleString()} submissions, ${t.share}% of the edi
   @media (max-width: 1150px) {
     .society-grid { grid-template-columns:1fr; }
   }
-  .dest-pick[hidden] { display:none; }
-  .dest-pick { display:flex; flex-wrap:wrap; gap:6px; margin-bottom:10px; }
-  .dbtn { display:inline-flex; align-items:center; gap:6px; padding:5px 11px; border-radius:999px; cursor:pointer;
-    border:1px solid rgba(148,163,184,.4); background:#fff; color:#475569; font:inherit; font-size:.76rem;
-    font-weight:600; white-space:nowrap; }
-  .dbtn:hover { border-color:rgba(14,116,144,.5); color:#0e7490; }
-  .dbtn.is-on { background:#0e7490; border-color:#0e7490; color:#fff; }
-  .dbtn i { font-size:.8rem; }
-  .dest-table .c-name { width:34%; }
-  .dest-table .c-when { width:30%; }
   .open-tag { font-size:.62rem; font-weight:800; letter-spacing:.04em; text-transform:uppercase;
     color:#15803d; background:#dcfce7; border:1px solid #bbf7d0; border-radius:4px; padding:1px 6px; }
   .rounds-tag { font-size:.64rem; font-weight:800; color:#0369a1; background:#e0f2fe; border-radius:4px; padding:1px 5px; }
@@ -1649,7 +1566,6 @@ ${t.rate}% accepted, ${t.n.toLocaleString()} submissions, ${t.share}% of the edi
     .table-wrap { overflow-x:visible; border:0; }
     /* The filter row wraps instead of hiding its tail behind a sideways scroll. */
     .filter { flex-wrap:wrap; overflow-x:visible; row-gap:6px; }
-    .fbtn-dest { margin-left:0; }
     table.confs { min-width:0; table-layout:auto; display:block; }
     .confs thead { display:none; }
     .confs tbody { display:block; }
@@ -1930,62 +1846,18 @@ ${t.rate}% accepted, ${t.n.toLocaleString()} submissions, ${t.share}% of the edi
   // equivalent for the others yet, and showing AI's numbers while the reader
   // has Security selected would read as if they were Security's.
 
-  const scholarLink = document.getElementById('scholar-link');
-  const destSection = document.getElementById('destinations');
   const doms = Array.from(document.querySelectorAll('.dom'));
   const fieldBtns = Array.from(document.querySelectorAll('.dir .dchip'));
-  const destBtn = document.querySelector('.fbtn-dest');
-  const jfoot = document.querySelector('.jrnl-foot');
 
   // One field at a time. The field's section carries its own columns, so
   // switching is showing one section and hiding the rest.
   const apply = (btn) => {
     const want = btn.dataset.area;
-    const onDest = want === 'destinations';
-    if (destSection) destSection.hidden = !onDest;
-    if (jfoot) jfoot.hidden = onDest;
-    let dom = null;
-    doms.forEach((d) => {
-      const on = !onDest && d.dataset.domain === want;
-      d.hidden = !on;
-      if (on) dom = d;
-    });
-    [...fieldBtns, destBtn].forEach((b) => b && b.classList.toggle('is-on', b === btn));
-    if (scholarLink) {
-      const url = onDest ? '' : (btn.dataset.scholar || '');
-      scholarLink.hidden = !url;
-      if (url) scholarLink.href = url;
-    }
+    doms.forEach((d) => { d.hidden = d.dataset.domain !== want; });
+    fieldBtns.forEach((b) => b.classList.toggle('is-on', b === btn));
   };
   fieldBtns.forEach((btn) => btn.addEventListener('click', () => apply(btn)));
-  if (destBtn) destBtn.addEventListener('click', () => apply(destBtn));
 
-  // One destination list. There is no search, so the data holds only what a
-  // chip can reach; anything else is dropped at build time rather than
-  // shipped with no way in.
-  const destRows = Array.from(document.querySelectorAll('.dest-table tbody tr'));
-  const destNone = document.querySelector('.dest-none');
-  let pick = '';
-
-  const paintDest = () => {
-    let shown = 0;
-    destRows.forEach((r) => {
-      const on = r.dataset.dest === pick;
-      r.hidden = !on;
-      if (on) shown++;
-    });
-    if (destNone) destNone.hidden = shown > 0;
-  };
-
-  document.querySelectorAll('.dbtn').forEach((btn) => {
-    btn.addEventListener('click', () => {
-      document.querySelectorAll('.dbtn').forEach((b) => b.classList.toggle('is-on', b === btn));
-      pick = btn.dataset.dest;
-      paintDest();
-    });
-  });
-  const firstDest = document.querySelector('.dbtn');
-  if (firstDest) { pick = firstDest.dataset.dest; paintDest(); }
   // The markup marks AI as selected; run the filter so the rows agree with it.
   const start = document.querySelector('.dir .dchip.is-on');
   if (start) apply(start);

@@ -210,6 +210,17 @@ def dstr(s):
     m = re.match(r'(\d{4}-\d{2}-\d{2})', str(s or ''))
     return m.group(1) if m else ''
 
+# The conference page's own venues, every field: anything on it belongs on
+# the map, whatever the catalogues rank it.
+_conf = open('src/data/conferences.js', encoding='utf-8').read()
+def _export(name):
+    m = re.search(r'export const ' + name + r' = (\[.*?\]);\n', _conf, re.S)
+    return json.loads(m.group(1)) if m else []
+_venues = _export('ranked') + _export('notable')
+_labels = dict(re.findall(r"id: '([a-z]+)', label: '([^']+)'", open('src/data/domains.js', encoding='utf-8').read()))
+BY_TITLE = {v['title']: v for v in _venues}
+_groups = dict(re.findall(r"id: '([a-z]+)', label: '[^']+', group: '([a-z]+)'", open('src/data/domains.js', encoding='utf-8').read()))
+
 items = []
 for f in sorted(glob.glob(f'{CACHE}/*/*.yml')):
     if f.endswith('types.yml'): continue
@@ -220,9 +231,10 @@ for f in sorted(glob.glob(f'{CACHE}/*/*.yml')):
             if not year or year < TODAY.year or not place: continue
             if not ends_after_today(ed.get('date') or '', year): continue
             if NOWHERE.match(key(place)): continue
-            if not worth_listing(rank.get('ccf', 'N'), rank.get('core', 'N')): continue
+            if not worth_listing(rank.get('ccf', 'N'), rank.get('core', 'N')) and c['title'] not in BY_TITLE: continue
+            # Every place now, not only the named destinations: the map is
+            # the way in, so nothing needs a chip to be reachable.
             dest, icon = destination_of(place)
-            if not dest: continue   # no chip, and no search box, so no way in
             city, country = city_of(place), country_of(place)
             deadlines = sorted({dstr(t.get('deadline')) for t in (ed.get('timeline') or [])
                                 if dstr(t.get('deadline'))})
@@ -315,9 +327,6 @@ for m in MANUAL:
     if not ends_after_today(m.get('date', ''), m['year']): continue
     m['city'], m['country'] = city_of(m['place']), country_of(m['place'])
     m['dest'], m['icon'] = destination_of(m['place'])
-    if not m['dest']:
-        print('  DROPPED, hand-added venue matches no destination:', m['title'], m['place'])
-        continue
     m['q'] = f"{m['place']} {m['city']} {m['country']} {expand(m['place'])}".lower()
     m.setdefault('ccf', 'N'); m.setdefault('core', 'N')
     items.append(m)
@@ -325,14 +334,7 @@ for m in MANUAL:
 # Every hand-kept venue on the field tabs (control, neuroscience, sleep,
 # materials and the rest) is a trip too. They come from the conferences
 # data, which already carries their next meeting, city and deadline.
-_conf = open('src/data/conferences.js', encoding='utf-8').read()
-def _export(name):
-    m = re.search(r'export const ' + name + r' = (\[.*?\]);\n', _conf, re.S)
-    return json.loads(m.group(1)) if m else []
-_venues = _export('ranked') + _export('notable')
-_labels = dict(re.findall(r"id: '([a-z]+)', label: '([^']+)'", open('src/data/domains.js', encoding='utf-8').read()))
-BY_TITLE = {v['title']: v for v in _venues}
-have = {(i['title'], i['dest']) for i in items}
+have = {(i['title'], i['year']) for i in items}
 for v in _venues:
     if not v.get('notable') or not v.get('place') or not v.get('date'): continue
     yrs = re.findall(r'\b(20\d{2})\b', v['date'])
@@ -340,7 +342,7 @@ for v in _venues:
     year = int(yrs[-1])
     if not ends_after_today(v['date'], year): continue
     dest, icon = destination_of(v['place'])
-    if not dest or (v['title'], dest) in have: continue
+    if (v['title'], year) in have: continue
     # An estimate rolled forward is not a call anyone can act on yet.
     dl = '' if v.get('estimated') else (v.get('nextDeadline') or '')
     items.append({
@@ -369,6 +371,7 @@ CORE_RANK = {'A*': 0, 'A': 2, 'B': 4, 'C': 5}
 for i in items:
     v = BY_TITLE.get(i['title'], {})
     i['field'] = _labels.get(v.get('area', ''), '')
+    i['group'] = _groups.get(v.get('area', ''), 'other')
     hon = []
     if v.get('frank'):
         hon.append((0, v['frank'], 'field'))
@@ -391,7 +394,55 @@ for i in items:
 items.sort(key=lambda x: (x['year'], x['date'], x['title'].lower()))
 seen = set()
 items = [i for i in items
-         if not ((i['title'], i['dest']) in seen or seen.add((i['title'], i['dest'])))]
+         if not ((i['title'], i['place']) in seen or seen.add((i['title'], i['place'])))]
+
+# Coordinates for the map, from OpenStreetMap's Nominatim, one request a
+# second as its usage policy asks, and cached beside the script so a place
+# is looked up once ever. A place it cannot find stays off the map but
+# stays in the list.
+import time, urllib.request, urllib.parse, os
+GEO = 'scripts/geocode-cache.json'
+geo = json.load(open(GEO)) if os.path.exists(GEO) else {}
+def locate(q):
+    url = 'https://nominatim.openstreetmap.org/search?' + urllib.parse.urlencode({'q': q, 'format': 'json', 'limit': 1})
+    req = urllib.request.Request(url, headers={'User-Agent': 'zhiqian.ai conference map (site@zhiqian.ai)'})
+    try:
+        with urllib.request.urlopen(req, timeout=30) as r:
+            hits = json.load(r)
+        return [round(float(hits[0]['lat']), 4), round(float(hits[0]['lon']), 4)] if hits else None
+    except Exception as e:
+        print('  geocode failed:', q, e)
+        return 'retry'
+looked = 0
+for i in items:
+    key_ = i['place']
+    if key_ not in geo:
+        ll = locate(key_); time.sleep(1.1); looked += 1
+        if ll is None and i.get('city') and i.get('country'):
+            ll = locate(f"{i['city']}, {i['country']}"); time.sleep(1.1); looked += 1
+        # A venue name or a resort coast it does not know: drop the leading
+        # parts one at a time until the rest is a place it does.
+        parts = [x.strip() for x in key_.split(',')]
+        for k in range(1, len(parts) - 1):
+            if ll is not None: break
+            ll = locate(', '.join(parts[k:])); time.sleep(1.1); looked += 1
+        if ll != 'retry':
+            geo[key_] = ll
+    ll = geo.get(key_)
+    if isinstance(ll, list):
+        i['lat'], i['lon'] = ll
+    # One meeting in several cities ("Sydney, Australia; Atlanta, USA;
+    # Paris, France") gets a pin in each.
+    if ';' in key_:
+        pins = []
+        for part in [x.strip() for x in key_.split(';') if x.strip()]:
+            if part not in geo:
+                r = locate(part); time.sleep(1.1); looked += 1
+                if r != 'retry': geo[part] = r
+            if isinstance(geo.get(part), list): pins.append(geo[part])
+        if pins: i['pins'] = pins
+json.dump(geo, open(GEO, 'w'), indent=0, sort_keys=True, ensure_ascii=False)
+print('geocoded', looked, 'new places; on the map', sum(1 for i in items if 'lat' in i), 'of', len(items))
 items.sort(key=lambda x: (x['year'], x['title'].lower()))
 
 counts = collections.Counter(i['dest'] for i in items)
@@ -402,7 +453,7 @@ out = {
     'places': [{'name': n, 'icon': icons[n], 'n': counts[n]} for n in order],
 }
 hdr = ('// Generated by scripts/build-destinations.py, do not edit by hand.\n'
-       '// Upcoming editions worth travelling for, grouped by destination.\n'
+       '// Every upcoming edition of the conferences the site tracks, with coordinates.\n'
        '// CCF A or B, or CORE A* or A, every hand-kept venue on the field\n'
        '// tabs, and the venues added by hand in the script. Destinations mix cities, countries and\n'
        '// regions, because that is how people choose where to go.\n'

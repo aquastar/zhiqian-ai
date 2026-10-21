@@ -46,8 +46,10 @@ jobs:
       - name: Rebuild src/data/conferences.js
         run: python3 scripts/build-conferences.py
 
-      # Reuses the ccf-deadlines clone that build-conferences.py just pulled,
-      # so this costs nothing beyond parsing it a second time.
+      # Reuses the ccf-deadlines clone that build-conferences.py just pulled.
+      # A city it has never seen is looked up on OpenStreetMap's Nominatim
+      # (one a second, cached in scripts/geocode-cache.json), so most days
+      # this makes no requests at all.
       - name: Rebuild src/data/destinations.js
         run: python3 scripts/build-destinations.py
 
@@ -84,7 +86,7 @@ jobs:
 
       - name: Commit if the data moved
         run: |
-          git add src/data/conferences.js src/data/destinations.js scripts/journal-cache.json
+          git add src/data/conferences.js src/data/destinations.js scripts/journal-cache.json scripts/geocode-cache.json
           if git diff --cached --quiet; then
             echo "No upstream change today."
             exit 0

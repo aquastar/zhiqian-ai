@@ -1,0 +1,205 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Nav from '../../components/Nav.astro';
+import { destinations } from '../../data/destinations.js';
+import { GROUPS } from '../../data/domains.js';
+
+// Every upcoming edition of every conference the site tracks, on a world
+// map. The old view was a table filtered by seventeen hand-picked
+// destinations, which hid every conference anywhere else; the map is the
+// way in now, so every place is reachable.
+//
+// The map is Leaflet with clustered markers, on OpenStreetMap tiles. Coordinates come from build-destinations.py, looked up
+// once per place and cached.
+const COLORS = { computing: '#6d28d9', math: '#b45309', science: '#0f766e', mind: '#be185d', other: '#64748b' };
+const groups = [...GROUPS, { id: 'other', label: 'Other computing' }]
+  .map((g) => ({ ...g, color: COLORS[g.id], n: destinations.items.filter((i) => (i.group || 'other') === g.id).length }))
+  .filter((g) => g.n);
+const items = destinations.items.map((i, k) => ({
+  k, t: i.title, d: i.desc, y: i.year, date: i.date, place: i.place, f: i.field || '',
+  g: i.group || 'other', dl: i.deadline || '', open: !!i.open, link: i.link || '',
+  lat: i.lat ?? null, lon: i.lon ?? null, pins: i.pins || (i.lat != null ? [[i.lat, i.lon]] : []),
+  h: (i.honors || []).map((x) => x.t),
+}));
+const onMap = items.filter((i) => i.pins.length).length;
+---
+
+<Layout title="Conferences by destination | Zhiqian Chen">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.5.3/MarkerCluster.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.5.3/MarkerCluster.Default.min.css" />
+  <main class="container">
+    <Nav current="destinations" />
+
+    <section class="dhead">
+      <h1>Conferences by destination</h1>
+      <p class="sub">{items.length} upcoming meetings across every field on the conference page, {onMap} placed on the map.</p>
+    </section>
+
+    <div class="controls">
+      <div class="gfilter" role="group" aria-label="Field group">
+        <button type="button" class="gchip is-on" data-g="all">All <span>{items.length}</span></button>
+        {groups.map((g) => (
+          <button type="button" class="gchip" data-g={g.id} style={`--c:${g.color}`}>
+            <i class="dot" style={`background:${g.color}`}></i>{g.label} <span>{g.n}</span>
+          </button>
+        ))}
+      </div>
+      <label class="opt"><input type="checkbox" id="open-only" /> Call still open</label>
+      <input type="search" id="q" placeholder="Search a city, country or conference" aria-label="Search" />
+    </div>
+
+    <div id="map" role="region" aria-label="World map of conference locations"></div>
+
+    <div class="list-wrap">
+      <table class="dlist">
+        <thead>
+          <tr><th>Conference</th><th>When and where</th><th>Deadline</th><th>Standing</th></tr>
+        </thead>
+        <tbody id="rows"></tbody>
+      </table>
+      <p class="none" id="none" hidden>Nothing matches.</p>
+    </div>
+
+    <p class="foot">
+      Locations and dates from <a href="https://github.com/ccfddl/ccf-deadlines" target="_blank" rel="noopener">ccf-deadlines</a>
+      and each venue's own site; map data &copy; <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">OpenStreetMap</a>
+      contributors. A call marked open still has a deadline
+      ahead of today. Standing gives each conference's strongest credential first: the field's own, then CCF and CORE where they rank it.
+    </p>
+  </main>
+
+  <script is:inline type="application/json" id="dest-data" set:html={JSON.stringify({ items, colors: COLORS })}></script>
+  <script is:inline src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+  <script is:inline src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.5.3/leaflet.markercluster.min.js"></script>
+  <script is:inline>
+    (function () {
+      const { items, colors } = JSON.parse(document.getElementById('dest-data').textContent);
+      const today = new Date().toISOString().slice(0, 10);
+      const esc = (s) => String(s || '').replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+      const days = (d) => Math.round((Date.parse(d) - Date.parse(today)) / 86400000);
+      const isOpen = (i) => i.dl && i.dl >= today;
+
+      const map = L.map('map', { worldCopyJump: true, minZoom: 2 }).setView([30, 10], 2);
+      // OpenStreetMap's own tiles: free for a light-traffic site with the
+      // attribution shown. CARTO's free basemap now asks for an API key.
+      L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors', maxZoom: 19,
+      }).addTo(map);
+      const cluster = L.markerClusterGroup({ showCoverageOnHover: false, maxClusterRadius: 40 });
+      map.addLayer(cluster);
+
+      const popup = (i) => `
+        <div class="pop">
+          <b>${i.link ? `<a href="${esc(i.link)}" target="_blank" rel="noopener">${esc(i.t)}</a>` : esc(i.t)}</b>
+          <span class="pop-d">${esc(i.d)}</span>
+          ${i.f ? `<span class="pop-f">${esc(i.f)}</span>` : ''}
+          <span class="pop-w">${esc(i.date)} &middot; ${esc(i.place)}</span>
+          <span class="pop-dl">${i.dl ? (isOpen(i) ? `Deadline ${esc(i.dl)}, ${days(i.dl)} days` : `Deadline ${esc(i.dl)}, closed`) : 'Deadline not published'}</span>
+          ${i.h.length ? `<span class="pop-h">${i.h.map(esc).join(' &middot; ')}</span>` : ''}
+        </div>`;
+      // A meeting held in several cities has a pin in each; the list row
+      // flies to the first.
+      const markers = new Map();
+      items.forEach((i) => {
+        if (!i.pins.length) return;
+        markers.set(i.k, i.pins.map((p) => L.circleMarker(p, {
+          radius: 7, color: '#fff', weight: 1.5, fillColor: colors[i.g] || colors.other, fillOpacity: 0.9,
+        }).bindPopup(popup(i))));
+      });
+
+      const state = { g: 'all', open: false, q: '' };
+      const rows = document.getElementById('rows');
+      const none = document.getElementById('none');
+      const match = (i) => (state.g === 'all' || i.g === state.g)
+        && (!state.open || isOpen(i))
+        && (!state.q || `${i.t} ${i.d} ${i.place} ${i.f}`.toLowerCase().includes(state.q));
+
+      const draw = () => {
+        const shown = items.filter(match);   // already in year, then name, order
+        cluster.clearLayers();
+        cluster.addLayers(shown.flatMap((i) => markers.get(i.k) || []));
+        rows.innerHTML = shown.map((i) => `
+          <tr data-k="${i.k}" class="${markers.has(i.k) ? 'has-pin' : ''}">
+            <td><span class="r-t">${esc(i.t)}</span><span class="r-y">${i.y}</span>
+                <span class="r-d">${esc(i.d)}</span>${i.f ? `<span class="r-f" style="--c:${colors[i.g]}">${esc(i.f)}</span>` : ''}</td>
+            <td><span class="r-date">${esc(i.date)}</span><span class="r-place">${esc(i.place)}</span></td>
+            <td>${i.dl ? `<span class="r-dl">${esc(i.dl)}</span><span class="r-st ${isOpen(i) ? 'is-open' : ''}">${isOpen(i) ? days(i.dl) + 'd' : 'closed'}</span>` : '<span class="r-none">not published</span>'}</td>
+            <td>${i.h.map((h) => `<span class="r-h">${esc(h)}</span>`).join('') || '<span class="r-none">&mdash;</span>'}</td>
+          </tr>`).join('');
+        none.hidden = shown.length > 0;
+      };
+
+      rows.addEventListener('click', (e) => {
+        const tr = e.target.closest('tr[data-k]');
+        if (!tr) return;
+        const ms = markers.get(Number(tr.dataset.k));
+        if (!ms) return;
+        const m = ms[0];
+        document.getElementById('map').scrollIntoView({ behavior: 'smooth', block: 'center' });
+        cluster.zoomToShowLayer(m, () => m.openPopup());
+      });
+      document.querySelectorAll('.gchip').forEach((b) => b.addEventListener('click', () => {
+        document.querySelectorAll('.gchip').forEach((x) => x.classList.toggle('is-on', x === b));
+        state.g = b.dataset.g; draw();
+      }));
+      document.getElementById('open-only').addEventListener('change', (e) => { state.open = e.target.checked; draw(); });
+      document.getElementById('q').addEventListener('input', (e) => { state.q = e.target.value.trim().toLowerCase(); draw(); });
+      draw();
+    })();
+  </script>
+</Layout>
+
+<style>
+  .container { max-width: min(95vw, 1600px); margin: 0 auto; padding: 20px; box-sizing: border-box; }
+  .dhead h1 { font-size: 1.3rem; margin: 0 0 2px; letter-spacing: -.02em; text-align: left; }
+  .sub { margin: 0 0 12px; font-size: .84rem; color: #64748b; text-align: left; }
+  .controls { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 14px; margin-bottom: 10px; }
+  .gfilter { display: flex; flex-wrap: wrap; gap: 6px; }
+  .gchip { display: inline-flex; align-items: center; gap: 6px; padding: 4px 11px; border-radius: 999px; cursor: pointer;
+    border: 1px solid rgba(148,163,184,.45); background: #fff; font: inherit; font-size: .78rem; font-weight: 600; color: #334155; }
+  .gchip span { color: #a3adbb; font-size: .7rem; font-weight: 700; }
+  .gchip .dot { width: 9px; height: 9px; border-radius: 50%; display: inline-block; }
+  .gchip.is-on { background: #1e293b; border-color: #1e293b; color: #fff; }
+  .gchip.is-on span { color: rgba(255,255,255,.7); }
+  .opt { font-size: .8rem; color: #475569; display: inline-flex; align-items: center; gap: 5px; cursor: pointer; }
+  #q { margin-left: auto; min-width: 240px; padding: 5px 11px; border: 1px solid rgba(148,163,184,.5); border-radius: 999px; font: inherit; font-size: .8rem; }
+  #map { height: min(62vh, 560px); border-radius: 14px; border: 1px solid rgba(148,163,184,.35); z-index: 0; }
+
+  .list-wrap { margin-top: 14px; }
+  .dlist { width: 100%; border-collapse: collapse; font-size: .84rem; }
+  .dlist th { text-align: left; font-family: 'Montserrat', sans-serif; font-size: .66rem; letter-spacing: .08em; text-transform: uppercase;
+    color: #64748b; padding: 8px 10px; border-bottom: 1px solid rgba(148,163,184,.35); }
+  .dlist :global(td) { padding: 8px 10px; border-bottom: 1px solid rgba(148,163,184,.18); vertical-align: top; text-align: left; }
+  .dlist :global(tr.has-pin) { cursor: pointer; }
+  .dlist :global(tr.has-pin:hover) { background: #f8fafc; }
+  .dlist :global(.r-t) { font-weight: 700; color: #0f172a; }
+  .dlist :global(.r-y) { margin-left: 6px; font-size: .66rem; font-weight: 800; color: #fff; background: #334155; border-radius: 4px; padding: 0 5px; }
+  .dlist :global(.r-d) { display: block; font-size: .72rem; color: #8a95a5; }
+  .dlist :global(.r-f) { display: inline-block; margin-top: 3px; font-size: .64rem; font-weight: 700; color: var(--c); background: color-mix(in srgb, var(--c) 10%, white); border-radius: 4px; padding: 1px 6px; }
+  .dlist :global(.r-date) { display: block; color: #0f172a; }
+  .dlist :global(.r-place) { display: block; font-size: .76rem; color: #64748b; }
+  .dlist :global(.r-dl) { font-weight: 700; color: #0f172a; margin-right: 6px; font-variant-numeric: tabular-nums; white-space: nowrap; }
+  .dlist :global(td:nth-child(3)) { white-space: nowrap; }
+  .dlist :global(.r-st) { font-size: .68rem; font-weight: 800; border-radius: 999px; padding: 1px 7px; color: #94a3b8; background: #f1f5f9; }
+  .dlist :global(.r-st.is-open) { color: #fff; background: #0f766e; }
+  .dlist :global(.r-h) { display: inline-block; margin: 0 4px 3px 0; font-size: .68rem; font-weight: 700; color: #854d0e; background: #fefce8; border: 1px solid #fde68a; border-radius: 5px; padding: 1px 6px; }
+  .dlist :global(.r-none) { color: #a3adbb; font-size: .76rem; }
+  .none { color: #64748b; font-size: .84rem; }
+  .foot { margin-top: 16px; font-size: .76rem; color: #94a3b8; line-height: 1.6; text-align: left; }
+  .foot a { color: #64748b; }
+
+  :global(.pop) { display: flex; flex-direction: column; gap: 2px; font-size: .8rem; min-width: 200px; }
+  :global(.pop b a) { color: #0f172a; }
+  :global(.pop-d) { color: #64748b; font-size: .74rem; }
+  :global(.pop-f) { font-size: .68rem; font-weight: 700; color: #475569; }
+  :global(.pop-w), :global(.pop-dl) { color: #334155; font-size: .76rem; }
+  :global(.pop-h) { color: #854d0e; font-size: .72rem; font-weight: 700; }
+
+  @media (max-width: 760px) {
+    #q { margin-left: 0; min-width: 0; width: 100%; }
+    .dlist thead { display: none; }
+    .dlist :global(tr) { display: block; padding: 8px 0; border-bottom: 1px solid rgba(148,163,184,.25); }
+    .dlist :global(td) { display: block; border: 0; padding: 2px 4px; }
+  }
+</style>

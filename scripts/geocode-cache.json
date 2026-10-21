@@ -1,0 +1,782 @@
+{
+"Abu Dhabi, United Arab Emirates": [
+24.4538,
+54.3774
+],
+"Amsterdam, Netherlands": [
+52.3731,
+4.8925
+],
+"Amsterdam, The Netherlands": [
+52.3731,
+4.8925
+],
+"Anaheim, California": [
+33.8348,
+-117.9117
+],
+"Ann Arbor, Michigan, USA": [
+42.2814,
+-83.7485
+],
+"Antalya, Türkiye": [
+36.8866,
+30.703
+],
+"Athens, Greece": [
+37.9756,
+23.7348
+],
+"Atlanta, GA, USA": [
+33.7545,
+-84.3898
+],
+"Atlanta, Georgia, USA": [
+33.7545,
+-84.3898
+],
+"Atlanta, USA": [
+33.7545,
+-84.3898
+],
+"Auckland, New Zealand": [
+-36.8521,
+174.7632
+],
+"Austin, Texas, USA": [
+30.2649,
+-97.7474
+],
+"Bali, Indonesia": [
+-8.2271,
+115.1919
+],
+"Baltimore, MD, USA": [
+39.2909,
+-76.6108
+],
+"Bangkok, Thailand": [
+13.7525,
+100.4935
+],
+"Barbados": [
+13.15,
+-59.525
+],
+"Barcelona, Spain": [
+41.3826,
+2.1771
+],
+"Bari, Italy": [
+41.1258,
+16.862
+],
+"Beijing, China": [
+39.9057,
+116.3913
+],
+"Bellevue, Washington, USA": [
+47.6144,
+-122.1923
+],
+"Bengaluru, India": [
+12.9768,
+77.5901
+],
+"Berlin, Germany": [
+52.5174,
+13.3951
+],
+"Big Island, Hawaii, USA": [
+19.5896,
+-155.4487
+],
+"Birmingham, Alabama, USA": [
+33.5207,
+-86.8024
+],
+"Bordeaux, France": [
+44.8412,
+-0.58
+],
+"Boston, Massachusetts, USA": [
+42.3588,
+-71.0578
+],
+"Boulder, CO, USA": [
+40.015,
+-105.2705
+],
+"Boulder, Colorado": [
+40.015,
+-105.2705
+],
+"Boulder, Colorado, USA": [
+40.015,
+-105.2705
+],
+"Brisbane, Australia": [
+-27.469,
+153.0235
+],
+"Brussels, Belgium": [
+50.8467,
+4.3525
+],
+"Budapest, Hungary (Hybrid)": [
+47.4979,
+19.0402
+],
+"Buenos Aires, Argentina": [
+-34.6096,
+-58.3888
+],
+"Burghausen, Bavaria, Germany": [
+48.1589,
+12.8329
+],
+"Busan, South Korea": [
+35.18,
+129.0752
+],
+"Cancún, Mexico": [
+21.1527,
+-86.8426
+],
+"Chicago, Illinois, USA": [
+41.8756,
+-87.6244
+],
+"Clarion Congress Hotel Prague, Prague, Czechia": [
+50.1094,
+14.5011
+],
+"College Station, Texas, USA": [
+30.6184,
+-96.3456
+],
+"Columbia, SC, USA": [
+34.0008,
+-81.0352
+],
+"Copenhagen, Denmark": [
+55.6867,
+12.5701
+],
+"Cordis, Hong Kong SAR, China": [
+22.3181,
+114.1681
+],
+"Crete, Greece": [
+35.3085,
+24.4633
+],
+"Cuiaba, Mato Grosso, Brazil": [
+-15.5987,
+-56.0991
+],
+"Dallas, USA": [
+32.7763,
+-96.7969
+],
+"David L. Lawrence Convention Center, Pittsburgh, USA": [
+40.4458,
+-79.9965
+],
+"Daytona Beach, Florida, USA": [
+29.2108,
+-81.0228
+],
+"Delft, Netherlands": [
+51.9995,
+4.3627
+],
+"Delft, The Netherlands": [
+52.0114,
+4.3584
+],
+"Denver, CO, USA": [
+39.7392,
+-104.9849
+],
+"Denver, Colorado, USA": [
+39.7392,
+-104.9849
+],
+"Disney Springs, Buena Vista, FL, USA": [
+28.3712,
+-81.5184
+],
+"Dresden, Germany": [
+51.0493,
+13.7381
+],
+"Dublin, Ireland": [
+53.3494,
+-6.2606
+],
+"Edinburgh, Scotland": [
+55.9533,
+-3.1884
+],
+"Edinburgh, United Kingdom": [
+55.9533,
+-3.1884
+],
+"Eindhoven, Netherlands": [
+51.4393,
+5.4786
+],
+"Eindhoven, The Netherlands": [
+51.4393,
+5.4786
+],
+"Florence, Italy": [
+43.7698,
+11.2556
+],
+"GM Renaissance Center, Detroit, MI, USA": [
+42.3289,
+-83.0397
+],
+"Ghent, Belgium": [
+51.0538,
+3.725
+],
+"Glasgow, Scotland, UK": [
+55.8612,
+-4.2502
+],
+"Glasgow, United Kingdom": [
+55.8612,
+-4.2502
+],
+"Goa, India": [
+15.3005,
+74.0855
+],
+"Granada, Spain": [
+37.1735,
+-3.5995
+],
+"Grand Hyatt San Antonio Riverwalk, TX, USA": [
+31.2639,
+-98.5456
+],
+"Hanoi, Vietnam": [
+21.0283,
+105.854
+],
+"Helsinki, Finland": [
+60.1666,
+24.9435
+],
+"Hersonissos, Crete, Greece": [
+35.3057,
+25.4103
+],
+"High Leigh, Hertfordshire, United Kingdom": [
+51.7638,
+-0.0271
+],
+"Hilton Union Square, San Francisco, USA": [
+37.7857,
+-122.4104
+],
+"Hitotsubashi Hall, Tokyo, Japan": [
+35.6924,
+139.7584
+],
+"Ho Chi Minh City, Vietnam": [
+10.7737,
+106.7166
+],
+"Hong Kong SAR, China": [
+22.3492,
+114.1858
+],
+"Hong Kong, China": [
+22.2818,
+114.1583
+],
+"Honolulu, HI, USA": [
+21.3045,
+-157.8557
+],
+"Honolulu, Hawaii, USA": [
+21.3045,
+-157.8557
+],
+"Honolulu, O‘ahu, Hawaii, USA": [
+21.3045,
+-157.8557
+],
+"Huntington Beach, CA, USA": [
+33.6783,
+-118.0
+],
+"Huntington Beach, California, USA": [
+33.6783,
+-118.0
+],
+"Hyatt Hotel, Shatin, Hong Kong, China": [
+22.3816,
+114.1905
+],
+"KIT, Amsterdam, The Netherlands": [
+52.3625,
+4.9222
+],
+"KLCC, Kuala Lumpur, Malaysia": [
+3.1592,
+101.7134
+],
+"Karlsruhe, Germany": [
+49.0069,
+8.4034
+],
+"Kohala Coast, Big Island, Hawaii, USA": [
+19.5896,
+-155.4487
+],
+"Kraków, Poland": [
+50.0469,
+19.9972
+],
+"Kuala Lumpur, Malaysia": [
+3.1517,
+101.6942
+],
+"Kyoto, Japan": [
+35.0116,
+135.7681
+],
+"Lancaster, UK": [
+54.0488,
+-2.8013
+],
+"Latrobe, Pennsylvania, USA": [
+40.3173,
+-79.384
+],
+"Lausanne, Switzerland": [
+46.5218,
+6.6327
+],
+"Levi, Finland": [
+67.7844,
+24.8557
+],
+"Lille, France": [
+50.6366,
+3.0635
+],
+"Limassol, Cyprus": [
+34.6853,
+33.0333
+],
+"Lisbon, Portugal": [
+38.7078,
+-9.1366
+],
+"Lodz, Poland": [
+51.7728,
+19.4785
+],
+"London, UK": [
+51.5074,
+-0.1278
+],
+"Los Angeles, California, USA": [
+34.0537,
+-118.2428
+],
+"Louisville, Kentucky, USA": [
+38.2542,
+-85.7594
+],
+"Lucca, Italy": [
+44.0178,
+10.4544
+],
+"MONTREAL, CANADA": [
+45.5032,
+-73.5698
+],
+"Maastricht, Netherlands": [
+50.8512,
+5.691
+],
+"Macau SAR, China": [
+22.3211,
+113.9498
+],
+"Macau, China": [
+22.1758,
+113.5514
+],
+"Madrid, Spain": [
+40.4168,
+-3.7035
+],
+"Maui, Hawaii, USA": [
+20.803,
+-156.3107
+],
+"McCormick Place, Chicago, Illinois, USA": [
+41.8517,
+-87.6165
+],
+"Medford, Massachusetts, USA": [
+42.4184,
+-71.1062
+],
+"Melbourne, Australia": [
+-37.8142,
+144.9632
+],
+"Mexico City": [
+19.3208,
+-99.1515
+],
+"Mexico City, Mexico": [
+19.3208,
+-99.1515
+],
+"Milan, Italy": [
+45.4642,
+9.1896
+],
+"Minneapolis, Minnesota, USA": [
+44.9773,
+-93.2655
+],
+"Monterey, California, USA": [
+36.2231,
+-121.3877
+],
+"Montreal, Quebec, Canada": [
+45.5032,
+-73.5698
+],
+"Montréal, Canada": [
+45.5032,
+-73.5698
+],
+"Montréal, Québec, Canada": [
+45.5032,
+-73.5698
+],
+"Munich, Germany": [
+48.1371,
+11.5754
+],
+"Málaga, Spain": [
+36.7648,
+-4.4422
+],
+"München, Germany": [
+48.1371,
+11.5754
+],
+"New Orleans, Louisiana, USA": [
+29.9575,
+-90.0629
+],
+"New York City, NY, USA": [
+40.7127,
+-74.006
+],
+"New York City, USA": [
+40.7127,
+-74.006
+],
+"Nijmegen, Netherlands": [
+51.8426,
+5.839
+],
+"Oakland, California, USA": [
+37.8045,
+-122.2714
+],
+"Oakland, California, United States": [
+37.8045,
+-122.2714
+],
+"Orlando, Florida, USA": [
+28.5421,
+-81.379
+],
+"Paphos, Cyprus": [
+34.7744,
+32.4232
+],
+"Paris, France": [
+48.8535,
+2.3484
+],
+"Perth, Western Australia, Australia": [
+-31.9559,
+115.8606
+],
+"Philadelphia, Pennsylvania, USA": [
+39.9527,
+-75.1635
+],
+"Pittsburgh, PA, USA": [
+40.4407,
+-80.0026
+],
+"Pittsburgh, Pennsylvania, USA": [
+40.4407,
+-80.0026
+],
+"Portland, Oregon, USA": [
+45.5202,
+-122.6742
+],
+"Porto, Portugal": [
+41.1502,
+-8.6103
+],
+"Prague, Czech Republic": [
+50.0875,
+14.4213
+],
+"Prague, Czechia": [
+50.0875,
+14.4213
+],
+"Providence, RI, USA": [
+41.824,
+-71.4128
+],
+"Rabat, Morocco": [
+34.0218,
+-6.8409
+],
+"Renton, WA, USA": [
+47.4799,
+-122.2034
+],
+"Richmond, Virginia, United States": [
+37.5385,
+-77.4343
+],
+"Rio de Janeiro, Brazil": [
+-22.911,
+-43.2094
+],
+"Riverside, CA, USA": [
+33.9825,
+-117.3742
+],
+"Rochester, New York, USA": [
+43.1573,
+-77.6152
+],
+"Rome, Italy": [
+41.8933,
+12.4829
+],
+"Sacramento, California, USA": [
+38.5811,
+-121.4939
+],
+"Salt Lake City, Utah": [
+40.7596,
+-111.8868
+],
+"Salt Lake City, Utah, USA": [
+40.7596,
+-111.8868
+],
+"San Diego, California, USA": [
+32.7157,
+-117.1638
+],
+"San Francisco, CA, USA": [
+37.7879,
+-122.4075
+],
+"San Francisco, California, USA": [
+37.7879,
+-122.4075
+],
+"San Jose, CA": [
+37.3362,
+-121.8906
+],
+"San Jose, California, USA": [
+37.3362,
+-121.8906
+],
+"San Sebastian, Spain": [
+43.3224,
+-1.9839
+],
+"Seattle, USA": [
+47.6038,
+-122.3301
+],
+"Seattle, WA, United States": [
+47.6038,
+-122.3301
+],
+"Seattle, Washington, USA": [
+47.6038,
+-122.3301
+],
+"Seoul, Republic of Korea": [
+37.5667,
+126.9783
+],
+"Seville, Spain": [
+37.3886,
+-5.9953
+],
+"Shanghai, China": [
+31.2313,
+121.47
+],
+"Shenyang, China": [
+41.8026,
+123.4279
+],
+"Shenzhen, China": [
+22.5446,
+114.0545
+],
+"Singapore": [
+1.3571,
+103.8195
+],
+"Singapore Management University, Singapore": [
+1.2961,
+103.8499
+],
+"Snowbird, Utah, United States": [
+40.5808,
+-111.6573
+],
+"Southampton, UK": [
+50.9025,
+-1.4042
+],
+"St Simons Island, Georgia, USA": [
+31.2183,
+-81.3612
+],
+"St. John's, NL, Canada": [
+47.5647,
+-52.7067
+],
+"St. Louis, Missouri, USA": [
+38.6254,
+-90.19
+],
+"St. Pete Beach, Florida, USA": [
+27.7253,
+-82.7412
+],
+"Stockholm, Sweden": [
+59.3251,
+18.0711
+],
+"Stuttgart, Germany": [
+48.7784,
+9.18
+],
+"Sydney, Australia": [
+-33.8698,
+151.2083
+],
+"Sydney, Australia; Atlanta, USA; Paris, France": [
+-33.8698,
+151.2083
+],
+"Sydney, New South Wales, Australia": [
+-33.8698,
+151.2083
+],
+"Syracuse, New York, USA": [
+43.0481,
+-76.1474
+],
+"São Paulo, Brazil": [
+-23.5507,
+-46.6334
+],
+"Taipa, Macao SAR, China": [
+22.1527,
+113.5584
+],
+"Taipei": [
+25.0375,
+121.5637
+],
+"Tempe, Arizona, USA": [
+33.4255,
+-111.94
+],
+"The Hague, Netherlands": [
+52.0749,
+4.2697
+],
+"Tokyo International Forum, Tokyo, Japan": [
+35.6768,
+139.7635
+],
+"Tokyo, Japan": [
+35.6769,
+139.7639
+],
+"Toronto, Canada": [
+43.6535,
+-79.3839
+],
+"Toronto, Ontario, Canada": [
+43.6535,
+-79.3839
+],
+"Turin, Italy": [
+45.0678,
+7.6825
+],
+"Universitat Rovira i Virgili, Tarragona, Spain": [
+41.1227,
+1.2502
+],
+"Utrecht, The Netherlands": [
+52.0907,
+5.1216
+],
+"Venice, Italy": [
+45.4372,
+12.3346
+],
+"Vienna, Austria": [
+48.2084,
+16.3725
+],
+"Washington, DC, USA": [
+38.8951,
+-77.0364
+],
+"World Forum, Hague, Netherlands": [
+52.0926,
+4.2828
+],
+"Wroclaw, Poland": [
+51.1263,
+16.9782
+],
+"Xiamen, China": [
+24.4801,
+118.0853
+],
+"Yokohama, Japan": [
+35.4503,
+139.6344
+]
+}
