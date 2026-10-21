@@ -49,6 +49,15 @@ const items = destinations.items.map((i, k) => ({
         <label class="opt"><input type="checkbox" id="open-only" /> Call still open</label>
         <input type="search" id="q" placeholder="Search a city or conference" aria-label="Search" />
       </div>
+      {/* Where to look. World also closes an open city, so it is the way
+          back from anywhere. */}
+      <div class="regions" role="group" aria-label="Jump to a region">
+        <button type="button" class="rbtn rbtn-world" data-r="world"><i class="fas fa-earth-americas" aria-hidden="true"></i>World</button>
+        {[['us', 'US'], ['europe', 'Europe'], ['mideast', 'Middle East'], ['eastasia', 'East Asia'],
+          ['seasia', 'Southeast Asia'], ['oceania', 'Australia & NZ'], ['samerica', 'South America'], ['africa', 'Africa']].map(([k, l]) => (
+          <button type="button" class="rbtn" data-r={k}>{l} <span></span></button>
+        ))}
+      </div>
       <p class="hint">Click a city for its meetings.</p>
     </section>
 
@@ -102,6 +111,32 @@ const items = destinations.items.map((i, k) => ({
       map.addLayer(cluster);
 
       const state = { g: 'all', f: '', open: false, q: '', city: null };
+      const WORLD = { center: [28, 10], zoom: 3 };
+      const REGIONS = {
+        us: [[24, -125], [50, -66]],
+        europe: [[35, -11], [61, 31]],
+        mideast: [[12, 25], [42, 63]],
+        eastasia: [[20, 100], [46, 146]],
+        seasia: [[-11, 92], [23, 128]],
+        oceania: [[-47, 112], [-9, 179]],
+        samerica: [[-56, -82], [13, -34]],
+        africa: [[-35, -18], [37, 52]],
+      };
+      const inRegion = (ll, b) => ll[0] >= b[0][0] && ll[0] <= b[1][0] && ll[1] >= b[0][1] && ll[1] <= b[1][1];
+      const rbtns = Array.from(document.querySelectorAll('.rbtn'));
+      const markRegion = (r) => rbtns.forEach((b) => b.classList.toggle('is-on', b.dataset.r === r));
+      rbtns.forEach((b) => b.addEventListener('click', () => {
+        const r = b.dataset.r;
+        if (r === 'world') {
+          showCity(null);
+          map.flyTo(WORLD.center, WORLD.zoom, { duration: 0.6 });
+        } else {
+          map.flyToBounds(REGIONS[r], { duration: 0.6, padding: [20, 20] });
+        }
+        markRegion(r);
+      }));
+      // A drag or zoom by hand means the view is no longer a preset.
+      map.on('dragstart', () => markRegion(''));
       const match = (i) => (state.g === 'all' || i.g === state.g)
         && (!state.f || i.f === state.f)
         && (!state.open || isOpen(i))
@@ -160,6 +195,14 @@ const items = destinations.items.map((i, k) => ({
           return m;
         }));
         document.getElementById('count').textContent = items.filter(match).length;
+        // How many meetings each region holds under the current filters.
+        rbtns.forEach((b) => {
+          const r = REGIONS[b.dataset.r];
+          if (!r) return;
+          const n = cs.filter((c) => inRegion(c.ll, r)).reduce((a, c) => a + c.items.length, 0);
+          b.querySelector('span').textContent = n || '';
+          b.disabled = !n;
+        });
         if (state.city) showCity(cs.find((c) => c.key === state.city) || null);
       };
 
@@ -211,6 +254,16 @@ const items = destinations.items.map((i, k) => ({
   .row { display: flex; align-items: center; gap: 10px; margin-top: 9px; }
   .opt { font-size: .76rem; color: #475569; display: inline-flex; align-items: center; gap: 5px; cursor: pointer; white-space: nowrap; }
   #q { flex: 1; min-width: 0; padding: 4px 10px; border: 1px solid rgba(148,163,184,.5); border-radius: 999px; font: inherit; font-size: .76rem; }
+  .regions { display: flex; flex-wrap: wrap; gap: 4px; margin-top: 9px; padding-top: 8px; border-top: 1px solid rgba(148,163,184,.25); }
+  .rbtn { display: inline-flex; align-items: center; gap: 4px; padding: 2px 9px; border-radius: 7px; border: 1px solid rgba(148,163,184,.35);
+    background: #f8fafc; font: inherit; font-size: .72rem; font-weight: 600; color: #334155; cursor: pointer; }
+  .rbtn span { color: #a3adbb; font-size: .64rem; font-weight: 700; }
+  .rbtn:hover:not(:disabled) { border-color: rgba(37,99,235,.5); color: #1d4ed8; }
+  .rbtn:disabled { opacity: .45; cursor: default; }
+  .rbtn.is-on { background: #1d4ed8; border-color: #1d4ed8; color: #fff; }
+  .rbtn.is-on span { color: rgba(255,255,255,.75); }
+  .rbtn-world { background: #fff; font-weight: 700; }
+  .rbtn-world i { font-size: .72rem; }
   .hint { margin: 7px 0 0; font-size: .7rem; color: #94a3b8; }
 
   .city { top: 14px; right: 14px; bottom: 14px; width: min(380px, calc(100vw - 28px)); display: flex; flex-direction: column; }
