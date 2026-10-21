@@ -4100,6 +4100,513 @@ export const trends = {
     }
    ],
    "built": "2026-10-20"
+  },
+  "philosophy": {
+   "total": 740,
+   "journals": 9,
+   "confs": [],
+   "missing": [],
+   "rows": [
+    {
+     "label": "large language models",
+     "id": "large-language-models",
+     "n": 28,
+     "share": 3.8,
+     "growth": 552,
+     "papers": 10
+    },
+    {
+     "label": "AI ethics",
+     "id": "ai-ethics",
+     "n": 24,
+     "share": 3.2,
+     "growth": 103,
+     "papers": 10
+    },
+    {
+     "label": "generative AI",
+     "id": "generative-ai",
+     "n": 21,
+     "share": 2.8,
+     "growth": null,
+     "papers": 10
+    },
+    {
+     "label": "moral responsibility",
+     "id": "moral-responsibility",
+     "n": 21,
+     "share": 2.8,
+     "growth": 15,
+     "papers": 10
+    },
+    {
+     "label": "epistemic justification",
+     "id": "epistemic-justification",
+     "n": 15,
+     "share": 2.0,
+     "growth": -44,
+     "papers": 10
+    },
+    {
+     "label": "philosophy of technology",
+     "id": "philosophy-of-technology",
+     "n": 14,
+     "share": 1.9,
+     "growth": 63,
+     "papers": 10
+    },
+    {
+     "label": "ChatGPT",
+     "id": "chatgpt",
+     "n": 13,
+     "share": 1.8,
+     "growth": 203,
+     "papers": 10
+    },
+    {
+     "label": "autonomy",
+     "id": "autonomy",
+     "n": 12,
+     "share": 1.6,
+     "growth": 86,
+     "papers": 10
+    },
+    {
+     "label": "philosophy of mind",
+     "id": "philosophy-of-mind",
+     "n": 12,
+     "share": 1.6,
+     "growth": -14,
+     "papers": 10
+    },
+    {
+     "label": "artificial intelligence in healthcare",
+     "id": "artificial-intelligence-in-healthcare",
+     "n": 11,
+     "share": 1.5,
+     "growth": null,
+     "papers": 10
+    },
+    {
+     "label": "explainable AI",
+     "id": "explainable-ai",
+     "n": 10,
+     "share": 1.4,
+     "growth": 366,
+     "papers": 10
+    },
+    {
+     "label": "virtue ethics",
+     "id": "virtue-ethics",
+     "n": 10,
+     "share": 1.4,
+     "growth": 133,
+     "papers": 10
+    },
+    {
+     "label": "algorithmic decision-making",
+     "id": "algorithmic-decision-making",
+     "n": 9,
+     "share": 1.2,
+     "growth": 319,
+     "papers": 10
+    },
+    {
+     "label": "decision theory",
+     "id": "decision-theory",
+     "n": 9,
+     "share": 1.2,
+     "growth": -44,
+     "papers": 10
+    },
+    {
+     "label": "moral obligation",
+     "id": "moral-obligation",
+     "n": 9,
+     "share": 1.2,
+     "growth": -7,
+     "papers": 10
+    },
+    {
+     "label": "philosophy of physics",
+     "id": "philosophy-of-physics",
+     "n": 9,
+     "share": 1.2,
+     "growth": -51,
+     "papers": 10
+    },
+    {
+     "label": "philosophy of science",
+     "id": "philosophy-of-science",
+     "n": 9,
+     "share": 1.2,
+     "growth": -16,
+     "papers": 10
+    },
+    {
+     "label": "scientific realism",
+     "id": "scientific-realism",
+     "n": 9,
+     "share": 1.2,
+     "growth": -7,
+     "papers": 10
+    },
+    {
+     "label": "trust in AI",
+     "id": "trust-in-ai",
+     "n": 9,
+     "share": 1.2,
+     "growth": 319,
+     "papers": 10
+    },
+    {
+     "label": "animal ethics",
+     "id": "animal-ethics",
+     "n": 8,
+     "share": 1.1,
+     "growth": 645,
+     "papers": 10
+    }
+   ],
+   "built": "2026-10-21"
+  },
+  "religion": {
+   "total": 311,
+   "journals": 7,
+   "confs": [],
+   "missing": [],
+   "rows": [
+    {
+     "label": "religious beliefs",
+     "id": "religious-beliefs",
+     "n": 19,
+     "share": 6.1,
+     "growth": 49,
+     "papers": 10
+    },
+    {
+     "label": "cognitive science of religion",
+     "id": "cognitive-science-of-religion",
+     "n": 11,
+     "share": 3.5,
+     "growth": 159,
+     "papers": 10
+    },
+    {
+     "label": "religious experience",
+     "id": "religious-experience",
+     "n": 10,
+     "share": 3.2,
+     "growth": 9,
+     "papers": 10
+    },
+    {
+     "label": "religiosity",
+     "id": "religiosity",
+     "n": 9,
+     "share": 2.9,
+     "growth": -29,
+     "papers": 10
+    },
+    {
+     "label": "religious identity",
+     "id": "religious-identity",
+     "n": 9,
+     "share": 2.9,
+     "growth": 27,
+     "papers": 10
+    },
+    {
+     "label": "secularization",
+     "id": "secularization",
+     "n": 9,
+     "share": 2.9,
+     "growth": -47,
+     "papers": 10
+    },
+    {
+     "label": "religious practice",
+     "id": "religious-practice",
+     "n": 8,
+     "share": 2.6,
+     "growth": 88,
+     "papers": 10
+    },
+    {
+     "label": "ritual",
+     "id": "ritual",
+     "n": 8,
+     "share": 2.6,
+     "growth": -13,
+     "papers": 10
+    },
+    {
+     "label": "alternative rationality",
+     "id": "alternative-rationality",
+     "n": 7,
+     "share": 2.3,
+     "growth": null,
+     "papers": 7
+    },
+    {
+     "label": "atheism",
+     "id": "atheism",
+     "n": 7,
+     "share": 2.3,
+     "growth": null,
+     "papers": 10
+    },
+    {
+     "label": "cultural evolution",
+     "id": "cultural-evolution",
+     "n": 7,
+     "share": 2.3,
+     "growth": 98,
+     "papers": 9
+    },
+    {
+     "label": "religious studies",
+     "id": "religious-studies",
+     "n": 7,
+     "share": 2.3,
+     "growth": -18,
+     "papers": 10
+    },
+    {
+     "label": "science and religion",
+     "id": "science-and-religion",
+     "n": 7,
+     "share": 2.3,
+     "growth": 10,
+     "papers": 10
+    },
+    {
+     "label": "early Christianity",
+     "id": "early-christianity",
+     "n": 6,
+     "share": 1.9,
+     "growth": 323,
+     "papers": 9
+    },
+    {
+     "label": "embodiment",
+     "id": "embodiment",
+     "n": 6,
+     "share": 1.9,
+     "growth": 182,
+     "papers": 10
+    },
+    {
+     "label": "esoteric practices",
+     "id": "esoteric-practices",
+     "n": 6,
+     "share": 1.9,
+     "growth": null,
+     "papers": 6
+    },
+    {
+     "label": "philosophy of religion",
+     "id": "philosophy-of-religion",
+     "n": 6,
+     "share": 1.9,
+     "growth": 112,
+     "papers": 10
+    },
+    {
+     "label": "Buddhism",
+     "id": "buddhism",
+     "n": 5,
+     "share": 1.6,
+     "growth": 76,
+     "papers": 10
+    },
+    {
+     "label": "Christianity",
+     "id": "christianity",
+     "n": 5,
+     "share": 1.6,
+     "growth": -22,
+     "papers": 10
+    },
+    {
+     "label": "Daoism",
+     "id": "daoism",
+     "n": 5,
+     "share": 1.6,
+     "growth": 135,
+     "papers": 9
+    }
+   ],
+   "built": "2026-10-21"
+  },
+  "theology": {
+   "total": 503,
+   "journals": 6,
+   "confs": [],
+   "missing": [],
+   "rows": [
+    {
+     "label": "Christology",
+     "id": "christology",
+     "n": 37,
+     "share": 7.4,
+     "growth": 14,
+     "papers": 10
+    },
+    {
+     "label": "biblical exegesis",
+     "id": "biblical-exegesis",
+     "n": 23,
+     "share": 4.6,
+     "growth": 16,
+     "papers": 10
+    },
+    {
+     "label": "Thomas Aquinas",
+     "id": "thomas-aquinas",
+     "n": 21,
+     "share": 4.2,
+     "growth": 68,
+     "papers": 10
+    },
+    {
+     "label": "Catholic theology",
+     "id": "catholic-theology",
+     "n": 20,
+     "share": 4.0,
+     "growth": 6,
+     "papers": 10
+    },
+    {
+     "label": "eschatology",
+     "id": "eschatology",
+     "n": 17,
+     "share": 3.4,
+     "growth": 133,
+     "papers": 10
+    },
+    {
+     "label": "Christian theology",
+     "id": "christian-theology",
+     "n": 16,
+     "share": 3.2,
+     "growth": -19,
+     "papers": 10
+    },
+    {
+     "label": "ecclesiology",
+     "id": "ecclesiology",
+     "n": 16,
+     "share": 3.2,
+     "growth": 92,
+     "papers": 10
+    },
+    {
+     "label": "incarnation",
+     "id": "incarnation",
+     "n": 16,
+     "share": 3.2,
+     "growth": -19,
+     "papers": 10
+    },
+    {
+     "label": "Thomism",
+     "id": "thomism",
+     "n": 16,
+     "share": 3.2,
+     "growth": 207,
+     "papers": 10
+    },
+    {
+     "label": "Christian ethics",
+     "id": "christian-ethics",
+     "n": 15,
+     "share": 3.0,
+     "growth": 44,
+     "papers": 10
+    },
+    {
+     "label": "Karl Barth",
+     "id": "karl-barth",
+     "n": 15,
+     "share": 3.0,
+     "growth": 3,
+     "papers": 10
+    },
+    {
+     "label": "patristic theology",
+     "id": "patristic-theology",
+     "n": 15,
+     "share": 3.0,
+     "growth": -15,
+     "papers": 10
+    },
+    {
+     "label": "Reformed theology",
+     "id": "reformed-theology",
+     "n": 15,
+     "share": 3.0,
+     "growth": -15,
+     "papers": 10
+    },
+    {
+     "label": "science and religion",
+     "id": "science-and-religion",
+     "n": 15,
+     "share": 3.0,
+     "growth": -35,
+     "papers": 10
+    },
+    {
+     "label": "Hebrew Bible",
+     "id": "hebrew-bible",
+     "n": 14,
+     "share": 2.8,
+     "growth": 49,
+     "papers": 10
+    },
+    {
+     "label": "transcendence",
+     "id": "transcendence",
+     "n": 14,
+     "share": 2.8,
+     "growth": null,
+     "papers": 10
+    },
+    {
+     "label": "Catholic Church",
+     "id": "catholic-church",
+     "n": 12,
+     "share": 2.4,
+     "growth": -23,
+     "papers": 10
+    },
+    {
+     "label": "hermeneutics",
+     "id": "hermeneutics",
+     "n": 12,
+     "share": 2.4,
+     "growth": 44,
+     "papers": 10
+    },
+    {
+     "label": "Trinity",
+     "id": "trinity",
+     "n": 12,
+     "share": 2.4,
+     "growth": -43,
+     "papers": 10
+    },
+    {
+     "label": "liturgy",
+     "id": "liturgy",
+     "n": 11,
+     "share": 2.2,
+     "growth": 251,
+     "papers": 10
+    }
+   ],
+   "built": "2026-10-21"
   }
  }
 };

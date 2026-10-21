@@ -1010,11 +1010,11 @@ ${t.rate}% accepted, ${t.n.toLocaleString()} submissions, ${t.share}% of the edi
                   <div class="jl-top">
                     {j.link ? <a class="jl-name" href={j.link} target="_blank" rel="noopener">{j.title}</a> : <span class="jl-name">{j.title}</span>}
                     {j.rank && <span class="pill frank">{j.rank}</span>}
-                    {j.cites != null && <span class="jl-cite" title="Two-year citations per paper, OpenAlex">{j.cites.toFixed(1)}<small>cites / paper</small></span>}
+                    {d.citations !== false && j.cites != null && <span class="jl-cite" title="Two-year citations per paper, OpenAlex">{j.cites.toFixed(1)}<small>cites / paper</small></span>}
                   </div>
                   <span class="jl-full">{j.name} &middot; {j.pub}</span>
                   <span class="jl-why">{j.why}</span>
-                  {j.subs.length > 0 && <span class="jl-out">{j.subs[j.subs.length - 1].n.toLocaleString()} papers in {j.subs[j.subs.length - 1].y}{j.h != null && <> &middot; h-index {j.h}</>}</span>}
+                  {j.subs.length > 0 && <span class="jl-out">{j.subs[j.subs.length - 1].n.toLocaleString()} papers in {j.subs[j.subs.length - 1].y}{d.citations !== false && j.h != null && <> &middot; h-index {j.h}</>}</span>}
                 </li>
               ))}
             </ul>
@@ -1073,10 +1073,11 @@ ${t.rate}% accepted, ${t.n.toLocaleString()} submissions, ${t.share}% of the edi
         </li>
       </ul>
       <p class="src-note">
-        <b>Updated automatically every Monday at 06:17 UTC.</b> A GitHub Action re-fetches all of the above,
-        rebuilds the ranks, deadlines, rounds, acceptance rates and per-topic numbers from scratch, and commits
-        only when something actually changed, which redeploys the site. Nothing on this page is typed in by hand
-        except the society meetings and the venues neither ranking table covers.
+        <b>Updated automatically every day.</b> At 06:17 UTC a GitHub Action re-fetches all of the above and
+        rebuilds the ranks, deadlines, rounds and acceptance rates, committing only when something changed; on
+        Mondays it also checks each venue's own site and audits the hand-kept dates. The most published topics and
+        their papers rotate, one field a day, so each is refreshed about monthly. The venues neither ranking table
+        covers, the journal lists and the field notes are kept by hand.
       </p>
     </section>
   </main>

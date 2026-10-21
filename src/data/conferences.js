@@ -15199,6 +15199,48 @@ export const ranked = [
     "tier": 3
   },
   {
+    "title": "AIES",
+    "desc": "AAAI/ACM Conference on AI, Ethics, and Society",
+    "area": "philosophy",
+    "proceedings": "full",
+    "lastDeadline": "2026-05-21",
+    "period": 1,
+    "field": "AI ethics",
+    "kind": "yearly",
+    "why": "where philosophy meets AI, archival",
+    "note": "Ten-page double-blind papers written for a mixed audience, with chairs from computing, law, social science and philosophy; proceedings in the AAAI digital library. The 2026 meeting was in Malmo; 2027 is not announced, so the date shown is 2026's rolled forward.",
+    "link": "https://www.aies-conference.com/",
+    "frank": "",
+    "equivalent": null,
+    "badge": "emerging",
+    "estIsForDate": false,
+    "ccf": "N",
+    "core": "N",
+    "coreVerified": false,
+    "nextAbstract": "",
+    "cycles": 1,
+    "roundLabels": [],
+    "rates": [],
+    "rateSrc": "",
+    "rateSlug": "",
+    "rounds": [],
+    "dblp": "",
+    "best": "",
+    "csr": "",
+    "edition": "",
+    "sub": "",
+    "estimated": true,
+    "estFrom": "2026-05-21",
+    "nextDeadline": "2027-05-21",
+    "nextYear": null,
+    "notable": true,
+    "date": "",
+    "place": "",
+    "cc": "",
+    "city": "",
+    "tier": 3
+  },
+  {
     "title": "PSCC",
     "desc": "Power Systems Computation Conference",
     "area": "power",
@@ -15747,6 +15789,48 @@ export const ranked = [
     "tier": 1
   },
   {
+    "title": "PSA",
+    "desc": "Philosophy of Science Association Biennial Meeting",
+    "area": "philosophy",
+    "proceedings": "full",
+    "lastDeadline": "2026-03-15",
+    "period": 2,
+    "date": "November 19-22, 2026",
+    "place": "San Diego, California, USA",
+    "field": "philosophy of science",
+    "kind": "flagship, even years",
+    "why": "accepted papers appear in Philosophy of Science",
+    "note": "Every two years. Contributed papers of up to 4,500 words, and every accepted one is published in the proceedings issue of Philosophy of Science, unusual for philosophy. Symposium proposals come earlier and posters later. PSA 2028 is not announced. The meeting shown is the next one to attend, which is a cycle ahead of the estimated deadline beside it.",
+    "link": "https://psa26.oa-event.com/",
+    "frank": "",
+    "equivalent": null,
+    "badge": "emerging",
+    "estIsForDate": false,
+    "ccf": "N",
+    "core": "N",
+    "coreVerified": false,
+    "nextAbstract": "",
+    "cycles": 1,
+    "roundLabels": [],
+    "rates": [],
+    "rateSrc": "",
+    "rateSlug": "",
+    "rounds": [],
+    "dblp": "",
+    "best": "",
+    "csr": "",
+    "edition": "",
+    "sub": "",
+    "estimated": true,
+    "estFrom": "2026-03-15",
+    "nextDeadline": "2028-03-15",
+    "nextYear": null,
+    "notable": true,
+    "cc": "us",
+    "city": "fish tacos in Old Town, La Jolla sea lions, Balboa Park",
+    "tier": 3
+  },
+  {
     "title": "PPSN",
     "desc": "International Conference on Parallel Problem Solving From Nature",
     "area": "ai",
@@ -15791,6 +15875,90 @@ export const ranked = [
 
 // Hand-maintained; the ranking tables do not reach these.
 export const notable = [
+  {
+    "title": "CTSA",
+    "desc": "Catholic Theological Society of America Annual Convention",
+    "area": "theology",
+    "proceedings": "abstracts",
+    "lastDeadline": "2026-09-01",
+    "period": 1,
+    "date": "June 10-13, 2027",
+    "place": "Louisville, Kentucky, USA",
+    "field": "Catholic theology",
+    "kind": "flagship, yearly",
+    "why": "the Catholic theological guild",
+    "note": "Paper proposals go to the convener of a topic session, 250 words plus a short precis; proposers are ordinarily CTSA members. The Proceedings print reports on each session rather than full papers. The 2027 call has closed, so the date shown is the next one, estimated. The meeting shown is the next one to attend, which is a cycle ahead of the estimated deadline beside it.",
+    "link": "https://www.ctsa-online.org/CFP",
+    "frank": "",
+    "equivalent": null,
+    "badge": "emerging",
+    "estIsForDate": false,
+    "ccf": "N",
+    "core": "N",
+    "coreVerified": false,
+    "nextAbstract": "",
+    "cycles": 1,
+    "roundLabels": [],
+    "rates": [],
+    "rateSrc": "",
+    "rateSlug": "",
+    "rounds": [],
+    "dblp": "",
+    "best": "",
+    "csr": "",
+    "edition": "",
+    "sub": "",
+    "estimated": true,
+    "estFrom": "2026-09-01",
+    "nextDeadline": "2027-09-01",
+    "nextYear": null,
+    "notable": true,
+    "cc": "us",
+    "city": "",
+    "tier": 3
+  },
+  {
+    "title": "SCE",
+    "desc": "Society of Christian Ethics Annual Meeting",
+    "area": "theology",
+    "proceedings": "none",
+    "lastDeadline": "2026-03-20",
+    "period": 1,
+    "date": "January 7-10, 2027",
+    "place": "St. Louis, Missouri, USA",
+    "field": "Christian ethics",
+    "kind": "flagship, yearly",
+    "why": "2027 theme: Christian ethics and AI",
+    "note": "Proposals from paid-up members only, one deadline in March for both the summer virtual meeting and the January meeting. Papers may be considered for the Journal of the Society of Christian Ethics. The meeting shown is the next one to attend, which is a cycle ahead of the estimated deadline beside it.",
+    "link": "https://www.scethics.org/2027-call-for-proposals-february-2026",
+    "frank": "",
+    "equivalent": null,
+    "badge": "emerging",
+    "estIsForDate": false,
+    "ccf": "N",
+    "core": "N",
+    "coreVerified": false,
+    "nextAbstract": "",
+    "cycles": 1,
+    "roundLabels": [],
+    "rates": [],
+    "rateSrc": "",
+    "rateSlug": "",
+    "rounds": [],
+    "dblp": "",
+    "best": "",
+    "csr": "",
+    "edition": "",
+    "sub": "",
+    "estimated": true,
+    "estFrom": "2026-03-20",
+    "nextDeadline": "2027-03-20",
+    "nextYear": null,
+    "notable": true,
+    "cc": "us",
+    "city": "",
+    "tier": 3
+  },
   {
     "title": "AGU",
     "desc": "American Geophysical Union Annual Meeting",
@@ -15959,6 +16127,48 @@ export const notable = [
     "tier": 3
   },
   {
+    "title": "SBL",
+    "desc": "Society of Biblical Literature Annual Meeting",
+    "area": "theology",
+    "proceedings": "none",
+    "lastDeadline": "2026-03-09",
+    "period": 1,
+    "date": "November 20-23, 2027",
+    "place": "Washington, DC, USA",
+    "estIsForDate": true,
+    "field": "biblical studies",
+    "kind": "flagship, yearly",
+    "why": "biblical studies, beside AAR",
+    "note": "The biblical-studies meeting, held alongside the AAR. Members only, up to two proposals, a 150-word abstract each, no presenting in absentia. The 2026 meeting is in Denver on 21-24 November; the 2027 call is not out, so the date shown is 2026's rolled forward.",
+    "link": "https://www.sbl-site.org/meetings/annual-meeting/",
+    "frank": "",
+    "equivalent": null,
+    "badge": "emerging",
+    "ccf": "N",
+    "core": "N",
+    "coreVerified": false,
+    "nextAbstract": "",
+    "cycles": 1,
+    "roundLabels": [],
+    "rates": [],
+    "rateSrc": "",
+    "rateSlug": "",
+    "rounds": [],
+    "dblp": "",
+    "best": "",
+    "csr": "",
+    "edition": "",
+    "sub": "",
+    "estimated": true,
+    "estFrom": "2026-03-09",
+    "nextDeadline": "2027-03-09",
+    "nextYear": null,
+    "notable": true,
+    "cc": "us",
+    "city": "",
+    "tier": 3
+  },
+  {
     "title": "OHBM",
     "desc": "Organization for Human Brain Mapping Annual Meeting",
     "area": "neuro",
@@ -16080,6 +16290,48 @@ export const notable = [
     "nextYear": null,
     "notable": true,
     "cc": "us",
+    "city": "",
+    "tier": 3
+  },
+  {
+    "title": "IACESR",
+    "desc": "International Association for the Cognitive and Evolutionary Sciences of Religion",
+    "area": "religion",
+    "proceedings": "none",
+    "lastDeadline": "2026-02-06",
+    "period": 2,
+    "field": "cognitive science of religion",
+    "kind": "every two years",
+    "why": "cognitive and evolutionary science of religion",
+    "note": "Formerly IACSR. Every two years, from 150 to 200 word abstracts; the McGraw Award gives early-career researchers a featured talk. 2026 was in Brno; the next meeting is not announced.",
+    "link": "https://iacesr.com/conferences/",
+    "frank": "",
+    "equivalent": null,
+    "badge": "emerging",
+    "estIsForDate": false,
+    "ccf": "N",
+    "core": "N",
+    "coreVerified": false,
+    "nextAbstract": "",
+    "cycles": 1,
+    "roundLabels": [],
+    "rates": [],
+    "rateSrc": "",
+    "rateSlug": "",
+    "rounds": [],
+    "dblp": "",
+    "best": "",
+    "csr": "",
+    "edition": "",
+    "sub": "",
+    "estimated": true,
+    "estFrom": "2026-02-06",
+    "nextDeadline": "2028-02-06",
+    "nextYear": null,
+    "notable": true,
+    "date": "",
+    "place": "",
+    "cc": "",
     "city": "",
     "tier": 3
   },
@@ -16595,6 +16847,48 @@ export const notable = [
     "notable": true,
     "cc": "sg",
     "city": "chili crab, hawker chicken rice for a few dollars, the Gardens by the Bay light show",
+    "tier": 3
+  },
+  {
+    "title": "ETS",
+    "desc": "Evangelical Theological Society Annual Meeting",
+    "area": "theology",
+    "proceedings": "none",
+    "lastDeadline": "2026-03-31",
+    "period": 1,
+    "date": "November 16-18, 2027",
+    "place": "Washington, DC, USA",
+    "estIsForDate": true,
+    "field": "evangelical theology",
+    "kind": "yearly",
+    "why": "2027 theme: technology and the future",
+    "note": "Full members and research doctoral students only may propose papers, 25 to 30 minutes each. The 2026 meeting is in Denver on 17-19 November. The 2027 call is not out; the date shown is 2026's rolled forward.",
+    "link": "https://etsjets.org/annual-meeting/",
+    "frank": "",
+    "equivalent": null,
+    "badge": "emerging",
+    "ccf": "N",
+    "core": "N",
+    "coreVerified": false,
+    "nextAbstract": "",
+    "cycles": 1,
+    "roundLabels": [],
+    "rates": [],
+    "rateSrc": "",
+    "rateSlug": "",
+    "rounds": [],
+    "dblp": "",
+    "best": "",
+    "csr": "",
+    "edition": "",
+    "sub": "",
+    "estimated": true,
+    "estFrom": "2026-03-31",
+    "nextDeadline": "2027-03-31",
+    "nextYear": null,
+    "notable": true,
+    "cc": "us",
+    "city": "",
     "tier": 3
   },
   {
@@ -17394,6 +17688,215 @@ export const notable = [
     "tier": 3
   },
   {
+    "title": "APA Central",
+    "desc": "American Philosophical Association, Central Division Meeting",
+    "area": "philosophy",
+    "proceedings": "none",
+    "lastDeadline": "2026-06-01",
+    "period": 1,
+    "date": "February 24-27, 2027",
+    "place": "Denver, Colorado, USA",
+    "field": "philosophy",
+    "kind": "flagship, yearly",
+    "why": "refereed papers, colloquium or symposium",
+    "note": "Colloquium, symposium and poster submissions, refereed in full; a symposium paper may be accepted as a colloquium instead. The deadline is 1 June before the meeting. The meeting shown is the next one to attend, which is a cycle ahead of the estimated deadline beside it.",
+    "link": "https://www.apaonline.org/page/papersubmission",
+    "frank": "",
+    "equivalent": null,
+    "badge": "emerging",
+    "estIsForDate": false,
+    "ccf": "N",
+    "core": "N",
+    "coreVerified": false,
+    "nextAbstract": "",
+    "cycles": 1,
+    "roundLabels": [],
+    "rates": [],
+    "rateSrc": "",
+    "rateSlug": "",
+    "rounds": [],
+    "dblp": "",
+    "best": "",
+    "csr": "",
+    "edition": "",
+    "sub": "",
+    "estimated": true,
+    "estFrom": "2026-06-01",
+    "nextDeadline": "2027-06-01",
+    "nextYear": null,
+    "notable": true,
+    "cc": "us",
+    "city": "a show at Red Rocks, green chile smothered burritos, skiing two hours west",
+    "tier": 3
+  },
+  {
+    "title": "APA Eastern",
+    "desc": "American Philosophical Association, Eastern Division Meeting",
+    "area": "philosophy",
+    "proceedings": "none",
+    "lastDeadline": "2026-02-15",
+    "period": 1,
+    "date": "January 13-16, 2027",
+    "place": "Boston, Massachusetts, USA",
+    "field": "philosophy",
+    "kind": "flagship, yearly",
+    "why": "refereed papers, 3,000 or 5,000 words",
+    "note": "Submitted papers are refereed anonymously in full: colloquium papers up to 3,000 words, symposium papers up to 5,000, one submission per author, APA membership required. Nothing is published; abstracts and preprints go on the APA site. The deadline is 15 February before the meeting. The meeting shown is the next one to attend, which is a cycle ahead of the estimated deadline beside it.",
+    "link": "https://www.apaonline.org/page/importantdates",
+    "frank": "",
+    "equivalent": null,
+    "badge": "emerging",
+    "estIsForDate": false,
+    "ccf": "N",
+    "core": "N",
+    "coreVerified": false,
+    "nextAbstract": "",
+    "cycles": 1,
+    "roundLabels": [],
+    "rates": [],
+    "rateSrc": "",
+    "rateSlug": "",
+    "rounds": [],
+    "dblp": "",
+    "best": "",
+    "csr": "",
+    "edition": "",
+    "sub": "",
+    "estimated": true,
+    "estFrom": "2026-02-15",
+    "nextDeadline": "2027-02-15",
+    "nextYear": null,
+    "notable": true,
+    "cc": "us",
+    "city": "",
+    "tier": 3
+  },
+  {
+    "title": "APA Pacific",
+    "desc": "American Philosophical Association, Pacific Division Meeting",
+    "area": "philosophy",
+    "proceedings": "none",
+    "lastDeadline": "2026-09-01",
+    "period": 1,
+    "date": "March 24-27, 2027",
+    "place": "Portland, Oregon, USA",
+    "field": "philosophy",
+    "kind": "flagship, yearly",
+    "why": "papers, workshops and lightning talks",
+    "note": "Every submission opens with a 750-word synopsis; with about 700 submissions, referees may decline on the synopsis alone, but accepted papers are always read in full. Also takes workshop and lightning-session proposals. The deadline is 1 September before the meeting. The meeting shown is the next one to attend, which is a cycle ahead of the estimated deadline beside it.",
+    "link": "https://www.apaonline.org/page/papersubmission",
+    "frank": "",
+    "equivalent": null,
+    "badge": "emerging",
+    "estIsForDate": false,
+    "ccf": "N",
+    "core": "N",
+    "coreVerified": false,
+    "nextAbstract": "",
+    "cycles": 1,
+    "roundLabels": [],
+    "rates": [],
+    "rateSrc": "",
+    "rateSlug": "",
+    "rounds": [],
+    "dblp": "",
+    "best": "",
+    "csr": "",
+    "edition": "",
+    "sub": "",
+    "estimated": true,
+    "estFrom": "2026-09-01",
+    "nextDeadline": "2027-09-01",
+    "nextYear": null,
+    "notable": true,
+    "cc": "us",
+    "city": "",
+    "tier": 3
+  },
+  {
+    "title": "SPP",
+    "desc": "Society for Philosophy and Psychology Annual Meeting",
+    "area": "philosophy",
+    "proceedings": "none",
+    "period": 1,
+    "date": "June 24-26, 2027",
+    "place": "Ann Arbor, Michigan, USA",
+    "field": "philosophy of mind",
+    "kind": "yearly",
+    "why": "philosophers and cognitive scientists together",
+    "note": "Small and selective, with its committees balanced between philosophers and scientists. The 53rd meeting is at the University of Michigan; its call for papers is not out yet.",
+    "link": "https://www.socphilpsych.org/meetings.html",
+    "frank": "",
+    "equivalent": null,
+    "badge": "emerging",
+    "estIsForDate": false,
+    "ccf": "N",
+    "core": "N",
+    "coreVerified": false,
+    "nextAbstract": "",
+    "cycles": 1,
+    "roundLabels": [],
+    "rates": [],
+    "rateSrc": "",
+    "rateSlug": "",
+    "rounds": [],
+    "dblp": "",
+    "best": "",
+    "csr": "",
+    "edition": "",
+    "sub": "",
+    "estimated": false,
+    "estFrom": "",
+    "nextDeadline": "",
+    "nextYear": null,
+    "notable": true,
+    "cc": "us",
+    "city": "",
+    "tier": 3
+  },
+  {
+    "title": "BSPS",
+    "desc": "British Society for the Philosophy of Science Annual Conference",
+    "area": "philosophy",
+    "proceedings": "none",
+    "lastDeadline": "2026-02-11",
+    "period": 1,
+    "field": "philosophy of science",
+    "kind": "yearly",
+    "why": "British philosophy of science",
+    "note": "Talks from abstracts, BSPS membership required. The 2026 conference was in Leeds; 2027 is not announced, so the date shown is the 2026 abstract deadline rolled forward.",
+    "link": "https://www.thebsps.org/annual-conference/",
+    "frank": "",
+    "equivalent": null,
+    "badge": "emerging",
+    "estIsForDate": false,
+    "ccf": "N",
+    "core": "N",
+    "coreVerified": false,
+    "nextAbstract": "",
+    "cycles": 1,
+    "roundLabels": [],
+    "rates": [],
+    "rateSrc": "",
+    "rateSlug": "",
+    "rounds": [],
+    "dblp": "",
+    "best": "",
+    "csr": "",
+    "edition": "",
+    "sub": "",
+    "estimated": true,
+    "estFrom": "2026-02-11",
+    "nextDeadline": "2027-02-11",
+    "nextYear": null,
+    "notable": true,
+    "date": "",
+    "place": "",
+    "cc": "",
+    "city": "",
+    "tier": 3
+  },
+  {
     "title": "APS Global Physics Summit",
     "desc": "American Physical Society Global Physics Summit",
     "area": "physics",
@@ -17558,6 +18061,173 @@ export const notable = [
     "nextYear": null,
     "notable": true,
     "cc": "se",
+    "city": "",
+    "tier": 3
+  },
+  {
+    "title": "AAR",
+    "desc": "American Academy of Religion Annual Meeting",
+    "area": "religion",
+    "proceedings": "none",
+    "lastDeadline": "2026-03-09",
+    "period": 1,
+    "date": "November 20-23, 2027",
+    "place": "Washington, DC, USA",
+    "estIsForDate": true,
+    "field": "religious studies",
+    "kind": "flagship, yearly",
+    "why": "the field's main meeting, beside SBL",
+    "note": "Proposals go to individual program units through the PAPERS system; anyone may propose, presenters must be members. Online June sessions plus the November meeting, held alongside SBL. The 2026 meeting is in Denver on 21-24 November. The 2027 call is not out; the date shown is 2026's rolled forward.",
+    "link": "https://aarweb.org/events/annual-meetings/",
+    "frank": "",
+    "equivalent": null,
+    "badge": "emerging",
+    "ccf": "N",
+    "core": "N",
+    "coreVerified": false,
+    "nextAbstract": "",
+    "cycles": 1,
+    "roundLabels": [],
+    "rates": [],
+    "rateSrc": "",
+    "rateSlug": "",
+    "rounds": [],
+    "dblp": "",
+    "best": "",
+    "csr": "",
+    "edition": "",
+    "sub": "",
+    "estimated": true,
+    "estFrom": "2026-03-09",
+    "nextDeadline": "2027-03-09",
+    "nextYear": null,
+    "notable": true,
+    "cc": "us",
+    "city": "",
+    "tier": 3
+  },
+  {
+    "title": "EASR",
+    "desc": "European Association for the Study of Religions Annual Conference",
+    "area": "religion",
+    "proceedings": "none",
+    "lastDeadline": "2026-03-31",
+    "period": 1,
+    "place": "Amsterdam, Netherlands",
+    "field": "religious studies",
+    "kind": "yearly",
+    "why": "European study of religion",
+    "note": "Open and closed panels, individual papers and early-career workshops, with bursaries for younger scholars. 2026 was in Bucharest; 2027 is in Amsterdam with dates not announced, so the date shown is 2026's rolled forward.",
+    "link": "https://www.easr.eu/conferences/future-conferences/",
+    "frank": "",
+    "equivalent": null,
+    "badge": "emerging",
+    "estIsForDate": false,
+    "ccf": "N",
+    "core": "N",
+    "coreVerified": false,
+    "nextAbstract": "",
+    "cycles": 1,
+    "roundLabels": [],
+    "rates": [],
+    "rateSrc": "",
+    "rateSlug": "",
+    "rounds": [],
+    "dblp": "",
+    "best": "",
+    "csr": "",
+    "edition": "",
+    "sub": "",
+    "estimated": true,
+    "estFrom": "2026-03-31",
+    "nextDeadline": "2027-03-31",
+    "nextYear": null,
+    "notable": true,
+    "date": "",
+    "cc": "nl",
+    "city": "herring from a street cart, genever in a brown cafe, Van Gogh's own bedroom",
+    "tier": 3
+  },
+  {
+    "title": "IAHR",
+    "desc": "International Association for the History of Religions World Congress",
+    "area": "religion",
+    "proceedings": "none",
+    "period": 5,
+    "field": "religious studies",
+    "kind": "every five years",
+    "why": "the world congress",
+    "note": "The field's world congress, every five years; the 23rd was in Krakow in 2025. The 2030 host is still to be announced. Between congresses IAHR gives regional status to member conferences such as EASR.",
+    "link": "https://www.iahrweb.org/conference-congress.php",
+    "frank": "",
+    "equivalent": null,
+    "badge": "emerging",
+    "estIsForDate": false,
+    "ccf": "N",
+    "core": "N",
+    "coreVerified": false,
+    "nextAbstract": "",
+    "cycles": 1,
+    "roundLabels": [],
+    "rates": [],
+    "rateSrc": "",
+    "rateSlug": "",
+    "rounds": [],
+    "dblp": "",
+    "best": "",
+    "csr": "",
+    "edition": "",
+    "sub": "",
+    "estimated": false,
+    "estFrom": "",
+    "nextDeadline": "",
+    "nextYear": null,
+    "notable": true,
+    "date": "",
+    "place": "",
+    "cc": "",
+    "city": "",
+    "tier": 3
+  },
+  {
+    "title": "ECST",
+    "desc": "European Conference on Science and Theology (ESSSAT)",
+    "area": "theology",
+    "proceedings": "optin",
+    "lastDeadline": "2026-01-31",
+    "period": 2,
+    "field": "science and theology",
+    "kind": "even years",
+    "why": "science and religion in dialogue",
+    "note": "ESSSAT's conference every other year, open to non-members, with short papers from a 300 to 500 word outline; many papers later appear in its Studies in Science and Theology. The 2026 conference was in Leeds; the 2028 one is not announced.",
+    "link": "https://www.esssat.net/next-conference",
+    "frank": "",
+    "equivalent": null,
+    "badge": "emerging",
+    "estIsForDate": false,
+    "ccf": "N",
+    "core": "N",
+    "coreVerified": false,
+    "nextAbstract": "",
+    "cycles": 1,
+    "roundLabels": [],
+    "rates": [],
+    "rateSrc": "",
+    "rateSlug": "",
+    "rounds": [],
+    "dblp": "",
+    "best": "",
+    "csr": "",
+    "edition": "",
+    "sub": "",
+    "estimated": true,
+    "estFrom": "2026-01-31",
+    "nextDeadline": "2028-01-31",
+    "nextYear": null,
+    "notable": true,
+    "date": "",
+    "place": "",
+    "cc": "",
     "city": "",
     "tier": 3
   },
@@ -17730,6 +18400,48 @@ export const notable = [
     "tier": 3
   },
   {
+    "title": "SSSR",
+    "desc": "Society for the Scientific Study of Religion Annual Meeting (with RRA)",
+    "area": "religion",
+    "proceedings": "none",
+    "lastDeadline": "2026-03-31",
+    "period": 1,
+    "date": "October 30 - November 1, 2026",
+    "place": "Denver, Colorado, USA",
+    "field": "social science of religion",
+    "kind": "flagship, yearly",
+    "why": "sociology and psychology of religion",
+    "note": "Always joint with the Religious Research Association, about 450 papers, all in person; program chairs build sessions from individual proposals. The 2027 meeting is not announced. The meeting shown is the next one to attend, which is a cycle ahead of the estimated deadline beside it.",
+    "link": "https://sssreligion.org/annual-meeting/",
+    "frank": "",
+    "equivalent": null,
+    "badge": "emerging",
+    "estIsForDate": false,
+    "ccf": "N",
+    "core": "N",
+    "coreVerified": false,
+    "nextAbstract": "",
+    "cycles": 1,
+    "roundLabels": [],
+    "rates": [],
+    "rateSrc": "",
+    "rateSlug": "",
+    "rounds": [],
+    "dblp": "",
+    "best": "",
+    "csr": "",
+    "edition": "",
+    "sub": "",
+    "estimated": true,
+    "estFrom": "2026-03-31",
+    "nextDeadline": "2027-03-31",
+    "nextYear": null,
+    "notable": true,
+    "cc": "us",
+    "city": "a show at Red Rocks, green chile smothered burritos, skiing two hours west",
+    "tier": 3
+  },
+  {
     "title": "StatPhys",
     "desc": "IUPAP International Conference on Statistical Physics",
     "area": "physics",
@@ -17809,6 +18521,90 @@ export const notable = [
     "date": "",
     "place": "",
     "cc": "",
+    "city": "",
+    "tier": 3
+  },
+  {
+    "title": "CTS",
+    "desc": "College Theology Society Annual Convention",
+    "area": "theology",
+    "proceedings": "optin",
+    "lastDeadline": "2026-12-15",
+    "period": 1,
+    "date": "June 3-6, 2027",
+    "place": "Latrobe, Pennsylvania, USA",
+    "field": "theology",
+    "kind": "yearly",
+    "why": "theology as taught in colleges",
+    "note": "One 250 to 500 word proposal per person, to one section only, stating your membership status; presenters must be members by April. At Saint Vincent College. An annual volume accompanies the convention.",
+    "link": "https://collegetheology.org/Call-for-Papers",
+    "frank": "",
+    "equivalent": null,
+    "badge": "emerging",
+    "estIsForDate": false,
+    "ccf": "N",
+    "core": "N",
+    "coreVerified": false,
+    "nextAbstract": "",
+    "cycles": 1,
+    "roundLabels": [],
+    "rates": [],
+    "rateSrc": "",
+    "rateSlug": "",
+    "rounds": [],
+    "dblp": "",
+    "best": "",
+    "csr": "",
+    "edition": "",
+    "sub": "",
+    "estimated": false,
+    "estFrom": "",
+    "nextDeadline": "2026-12-15",
+    "nextYear": null,
+    "notable": true,
+    "cc": "us",
+    "city": "",
+    "tier": 3
+  },
+  {
+    "title": "SST",
+    "desc": "Society for the Study of Theology Annual Conference",
+    "area": "theology",
+    "proceedings": "none",
+    "lastDeadline": "2026-12-14",
+    "period": 1,
+    "date": "April 5-8, 2027",
+    "place": "High Leigh, Hertfordshire, United Kingdom",
+    "field": "theology",
+    "kind": "flagship, yearly",
+    "why": "British and Irish theology",
+    "note": "Short papers on the conference theme or in a seminar stream, from a 250-word abstract; one paper per delegate, seminar proposals reviewed anonymously. The 2027 theme is \"What is Theology?\". The society's pages disagree on the venue (High Leigh or Warwick); the main conference page says High Leigh.",
+    "link": "https://www.theologysociety.org.uk/information/",
+    "frank": "",
+    "equivalent": null,
+    "badge": "emerging",
+    "estIsForDate": false,
+    "ccf": "N",
+    "core": "N",
+    "coreVerified": false,
+    "nextAbstract": "",
+    "cycles": 1,
+    "roundLabels": [],
+    "rates": [],
+    "rateSrc": "",
+    "rateSlug": "",
+    "rounds": [],
+    "dblp": "",
+    "best": "",
+    "csr": "",
+    "edition": "",
+    "sub": "",
+    "estimated": false,
+    "estFrom": "",
+    "nextDeadline": "2026-12-14",
+    "nextYear": null,
+    "notable": true,
+    "cc": "gb",
     "city": "",
     "tier": 3
   },
@@ -25036,6 +25832,1260 @@ export const journals = [
     "h": 66,
     "oa": "https://openalex.org/S55152591",
     "link": "https://dblp.org/db/journals/ivs/index.html"
+  },
+  {
+    "title": "Phil. Review",
+    "name": "The Philosophical Review",
+    "issn": "0031-8108",
+    "dblp": "",
+    "area": "philosophy",
+    "pub": "Duke Univ. Press",
+    "why": "all of philosophy",
+    "rank": "top five",
+    "ccf": "N",
+    "subs": [
+      {
+        "y": 2016,
+        "n": 38
+      },
+      {
+        "y": 2017,
+        "n": 29
+      },
+      {
+        "y": 2018,
+        "n": 48
+      },
+      {
+        "y": 2019,
+        "n": 42
+      },
+      {
+        "y": 2020,
+        "n": 38
+      },
+      {
+        "y": 2021,
+        "n": 49
+      },
+      {
+        "y": 2022,
+        "n": 42
+      },
+      {
+        "y": 2023,
+        "n": 42
+      },
+      {
+        "y": 2024,
+        "n": 34
+      },
+      {
+        "y": 2025,
+        "n": 42
+      }
+    ],
+    "cites": 1.4,
+    "h": 305,
+    "oa": "https://openalex.org/S35579339",
+    "link": ""
+  },
+  {
+    "title": "J. Phil.",
+    "name": "The Journal of Philosophy",
+    "issn": "0022-362X",
+    "dblp": "",
+    "area": "philosophy",
+    "pub": "Journal of Philosophy, Inc.",
+    "why": "all of philosophy",
+    "rank": "top five",
+    "ccf": "N",
+    "subs": [
+      {
+        "y": 2016,
+        "n": 44
+      },
+      {
+        "y": 2017,
+        "n": 47
+      },
+      {
+        "y": 2018,
+        "n": 42
+      },
+      {
+        "y": 2019,
+        "n": 45
+      },
+      {
+        "y": 2020,
+        "n": 46
+      },
+      {
+        "y": 2021,
+        "n": 43
+      },
+      {
+        "y": 2022,
+        "n": 44
+      },
+      {
+        "y": 2023,
+        "n": 38
+      },
+      {
+        "y": 2024,
+        "n": 48
+      },
+      {
+        "y": 2025,
+        "n": 36
+      }
+    ],
+    "cites": 2.3,
+    "h": 293,
+    "oa": "https://openalex.org/S41650241",
+    "link": ""
+  },
+  {
+    "title": "Noûs",
+    "name": "Noûs",
+    "issn": "0029-4624",
+    "dblp": "",
+    "area": "philosophy",
+    "pub": "Wiley",
+    "why": "all of philosophy",
+    "rank": "top five",
+    "ccf": "N",
+    "subs": [
+      {
+        "y": 2016,
+        "n": 62
+      },
+      {
+        "y": 2017,
+        "n": 55
+      },
+      {
+        "y": 2018,
+        "n": 35
+      },
+      {
+        "y": 2019,
+        "n": 55
+      },
+      {
+        "y": 2020,
+        "n": 42
+      },
+      {
+        "y": 2021,
+        "n": 50
+      },
+      {
+        "y": 2022,
+        "n": 43
+      },
+      {
+        "y": 2023,
+        "n": 46
+      },
+      {
+        "y": 2024,
+        "n": 58
+      },
+      {
+        "y": 2025,
+        "n": 49
+      }
+    ],
+    "cites": 2.0,
+    "h": 170,
+    "oa": "https://openalex.org/S170801797",
+    "link": ""
+  },
+  {
+    "title": "Mind",
+    "name": "Mind",
+    "issn": "0026-4423",
+    "dblp": "",
+    "area": "philosophy",
+    "pub": "Oxford",
+    "why": "all of philosophy",
+    "rank": "top five",
+    "ccf": "N",
+    "subs": [
+      {
+        "y": 2016,
+        "n": 146
+      },
+      {
+        "y": 2017,
+        "n": 82
+      },
+      {
+        "y": 2018,
+        "n": 85
+      },
+      {
+        "y": 2019,
+        "n": 87
+      },
+      {
+        "y": 2020,
+        "n": 103
+      },
+      {
+        "y": 2021,
+        "n": 99
+      },
+      {
+        "y": 2022,
+        "n": 50
+      },
+      {
+        "y": 2023,
+        "n": 89
+      },
+      {
+        "y": 2024,
+        "n": 83
+      },
+      {
+        "y": 2025,
+        "n": 91
+      }
+    ],
+    "cites": 1.5,
+    "h": 165,
+    "oa": "https://openalex.org/S37480348",
+    "link": ""
+  },
+  {
+    "title": "PPR",
+    "name": "Philosophy and Phenomenological Research",
+    "issn": "0031-8205",
+    "dblp": "",
+    "area": "philosophy",
+    "pub": "Wiley",
+    "why": "all of philosophy",
+    "rank": "top five",
+    "ccf": "N",
+    "subs": [
+      {
+        "y": 2016,
+        "n": 99
+      },
+      {
+        "y": 2017,
+        "n": 122
+      },
+      {
+        "y": 2018,
+        "n": 96
+      },
+      {
+        "y": 2019,
+        "n": 102
+      },
+      {
+        "y": 2020,
+        "n": 96
+      },
+      {
+        "y": 2021,
+        "n": 113
+      },
+      {
+        "y": 2022,
+        "n": 87
+      },
+      {
+        "y": 2023,
+        "n": 103
+      },
+      {
+        "y": 2024,
+        "n": 99
+      },
+      {
+        "y": 2025,
+        "n": 104
+      }
+    ],
+    "cites": 2.1,
+    "h": 202,
+    "oa": "https://openalex.org/S204374153",
+    "link": ""
+  },
+  {
+    "title": "Ethics",
+    "name": "Ethics",
+    "issn": "0014-1704",
+    "dblp": "",
+    "area": "philosophy",
+    "pub": "Univ. of Chicago Press",
+    "why": "moral, political and legal philosophy",
+    "rank": "top in ethics",
+    "ccf": "N",
+    "subs": [
+      {
+        "y": 2016,
+        "n": 89
+      },
+      {
+        "y": 2017,
+        "n": 103
+      },
+      {
+        "y": 2018,
+        "n": 91
+      },
+      {
+        "y": 2019,
+        "n": 73
+      },
+      {
+        "y": 2020,
+        "n": 74
+      },
+      {
+        "y": 2021,
+        "n": 91
+      },
+      {
+        "y": 2022,
+        "n": 67
+      },
+      {
+        "y": 2023,
+        "n": 74
+      },
+      {
+        "y": 2024,
+        "n": 75
+      },
+      {
+        "y": 2025,
+        "n": 79
+      }
+    ],
+    "cites": 0.9,
+    "h": 183,
+    "oa": "https://openalex.org/S184849641",
+    "link": ""
+  },
+  {
+    "title": "Phil. Sci.",
+    "name": "Philosophy of Science",
+    "issn": "0031-8248",
+    "dblp": "",
+    "area": "philosophy",
+    "pub": "Cambridge (PSA)",
+    "why": "philosophy of science, the PSA's journal",
+    "rank": "PSA journal",
+    "ccf": "N",
+    "subs": [
+      {
+        "y": 2016,
+        "n": 122
+      },
+      {
+        "y": 2017,
+        "n": 86
+      },
+      {
+        "y": 2018,
+        "n": 99
+      },
+      {
+        "y": 2019,
+        "n": 113
+      },
+      {
+        "y": 2020,
+        "n": 111
+      },
+      {
+        "y": 2021,
+        "n": 72
+      },
+      {
+        "y": 2022,
+        "n": 150
+      },
+      {
+        "y": 2023,
+        "n": 176
+      },
+      {
+        "y": 2024,
+        "n": 68
+      },
+      {
+        "y": 2025,
+        "n": 130
+      }
+    ],
+    "cites": 1.1,
+    "h": 164,
+    "oa": "https://openalex.org/S147691735",
+    "link": ""
+  },
+  {
+    "title": "Minds & Machines",
+    "name": "Minds and Machines",
+    "issn": "0924-6495",
+    "dblp": "",
+    "area": "philosophy",
+    "pub": "Springer",
+    "why": "philosophy of AI and cognitive science",
+    "rank": "",
+    "ccf": "N",
+    "subs": [
+      {
+        "y": 2016,
+        "n": 27
+      },
+      {
+        "y": 2017,
+        "n": 40
+      },
+      {
+        "y": 2018,
+        "n": 33
+      },
+      {
+        "y": 2019,
+        "n": 27
+      },
+      {
+        "y": 2020,
+        "n": 56
+      },
+      {
+        "y": 2021,
+        "n": 31
+      },
+      {
+        "y": 2022,
+        "n": 34
+      },
+      {
+        "y": 2023,
+        "n": 36
+      },
+      {
+        "y": 2024,
+        "n": 51
+      },
+      {
+        "y": 2025,
+        "n": 51
+      }
+    ],
+    "cites": 9.4,
+    "h": 80,
+    "oa": "https://openalex.org/S160466889",
+    "link": ""
+  },
+  {
+    "title": "Phil. & Tech.",
+    "name": "Philosophy & Technology",
+    "issn": "2210-5433",
+    "dblp": "",
+    "area": "philosophy",
+    "pub": "Springer",
+    "why": "philosophy and ethics of technology and AI",
+    "rank": "",
+    "ccf": "N",
+    "subs": [
+      {
+        "y": 2016,
+        "n": 35
+      },
+      {
+        "y": 2017,
+        "n": 48
+      },
+      {
+        "y": 2018,
+        "n": 39
+      },
+      {
+        "y": 2019,
+        "n": 47
+      },
+      {
+        "y": 2020,
+        "n": 52
+      },
+      {
+        "y": 2021,
+        "n": 53
+      },
+      {
+        "y": 2022,
+        "n": 112
+      },
+      {
+        "y": 2023,
+        "n": 86
+      },
+      {
+        "y": 2024,
+        "n": 143
+      },
+      {
+        "y": 2025,
+        "n": 182
+      }
+    ],
+    "cites": 5.2,
+    "h": 85,
+    "oa": "https://openalex.org/S23735784",
+    "link": ""
+  },
+  {
+    "title": "JAAR",
+    "name": "Journal of the American Academy of Religion",
+    "issn": "0002-7189",
+    "dblp": "",
+    "area": "religion",
+    "pub": "Oxford (AAR)",
+    "why": "religious studies, the AAR's journal",
+    "rank": "AAR journal",
+    "ccf": "N",
+    "subs": [
+      {
+        "y": 2016,
+        "n": 118
+      },
+      {
+        "y": 2017,
+        "n": 106
+      },
+      {
+        "y": 2018,
+        "n": 61
+      },
+      {
+        "y": 2019,
+        "n": 101
+      },
+      {
+        "y": 2020,
+        "n": 79
+      },
+      {
+        "y": 2021,
+        "n": 111
+      },
+      {
+        "y": 2022,
+        "n": 101
+      },
+      {
+        "y": 2023,
+        "n": 84
+      },
+      {
+        "y": 2024,
+        "n": 72
+      },
+      {
+        "y": 2025,
+        "n": 74
+      }
+    ],
+    "cites": 0.5,
+    "h": 62,
+    "oa": "https://openalex.org/S173718193",
+    "link": ""
+  },
+  {
+    "title": "JSSR",
+    "name": "Journal for the Scientific Study of Religion",
+    "issn": "0021-8294",
+    "dblp": "",
+    "area": "religion",
+    "pub": "Wiley (SSSR)",
+    "why": "social science of religion, the SSSR's journal",
+    "rank": "SSSR journal",
+    "ccf": "N",
+    "subs": [
+      {
+        "y": 2016,
+        "n": 78
+      },
+      {
+        "y": 2017,
+        "n": 84
+      },
+      {
+        "y": 2018,
+        "n": 90
+      },
+      {
+        "y": 2019,
+        "n": 62
+      },
+      {
+        "y": 2020,
+        "n": 70
+      },
+      {
+        "y": 2021,
+        "n": 74
+      },
+      {
+        "y": 2022,
+        "n": 48
+      },
+      {
+        "y": 2023,
+        "n": 86
+      },
+      {
+        "y": 2024,
+        "n": 49
+      },
+      {
+        "y": 2025,
+        "n": 44
+      }
+    ],
+    "cites": 1.3,
+    "h": 207,
+    "oa": "https://openalex.org/S207420867",
+    "link": ""
+  },
+  {
+    "title": "Numen",
+    "name": "Numen",
+    "issn": "0029-5973",
+    "dblp": "",
+    "area": "religion",
+    "pub": "Brill (IAHR)",
+    "why": "history of religions, the IAHR's journal",
+    "rank": "IAHR journal",
+    "ccf": "N",
+    "subs": [
+      {
+        "y": 2016,
+        "n": 43
+      },
+      {
+        "y": 2017,
+        "n": 36
+      },
+      {
+        "y": 2018,
+        "n": 39
+      },
+      {
+        "y": 2019,
+        "n": 46
+      },
+      {
+        "y": 2020,
+        "n": 47
+      },
+      {
+        "y": 2021,
+        "n": 32
+      },
+      {
+        "y": 2022,
+        "n": 26
+      },
+      {
+        "y": 2023,
+        "n": 37
+      },
+      {
+        "y": 2024,
+        "n": 23
+      },
+      {
+        "y": 2025,
+        "n": 36
+      }
+    ],
+    "cites": 0.3,
+    "h": 55,
+    "oa": "https://openalex.org/S16595306",
+    "link": ""
+  },
+  {
+    "title": "Religion",
+    "name": "Religion",
+    "issn": "0048-721X",
+    "dblp": "",
+    "area": "religion",
+    "pub": "Taylor & Francis",
+    "why": "religious studies, broad",
+    "rank": "",
+    "ccf": "N",
+    "subs": [
+      {
+        "y": 2016,
+        "n": 105
+      },
+      {
+        "y": 2017,
+        "n": 115
+      },
+      {
+        "y": 2018,
+        "n": 88
+      },
+      {
+        "y": 2019,
+        "n": 128
+      },
+      {
+        "y": 2020,
+        "n": 67
+      },
+      {
+        "y": 2021,
+        "n": 70
+      },
+      {
+        "y": 2022,
+        "n": 87
+      },
+      {
+        "y": 2023,
+        "n": 86
+      },
+      {
+        "y": 2024,
+        "n": 86
+      },
+      {
+        "y": 2025,
+        "n": 65
+      }
+    ],
+    "cites": 0.8,
+    "h": 61,
+    "oa": "https://openalex.org/S71826845",
+    "link": ""
+  },
+  {
+    "title": "HR",
+    "name": "History of Religions",
+    "issn": "0018-2710",
+    "dblp": "",
+    "area": "religion",
+    "pub": "Univ. of Chicago Press",
+    "why": "comparative history of religions",
+    "rank": "",
+    "ccf": "N",
+    "subs": [
+      {
+        "y": 2016,
+        "n": 29
+      },
+      {
+        "y": 2017,
+        "n": 34
+      },
+      {
+        "y": 2018,
+        "n": 38
+      },
+      {
+        "y": 2019,
+        "n": 31
+      },
+      {
+        "y": 2020,
+        "n": 31
+      },
+      {
+        "y": 2021,
+        "n": 31
+      },
+      {
+        "y": 2022,
+        "n": 23
+      },
+      {
+        "y": 2023,
+        "n": 23
+      },
+      {
+        "y": 2024,
+        "n": 20
+      },
+      {
+        "y": 2025,
+        "n": 23
+      }
+    ],
+    "cites": 0.2,
+    "h": 53,
+    "oa": "https://openalex.org/S99675065",
+    "link": ""
+  },
+  {
+    "title": "MTSR",
+    "name": "Method & Theory in the Study of Religion",
+    "issn": "0943-3058",
+    "dblp": "",
+    "area": "religion",
+    "pub": "Brill (NAASR)",
+    "why": "theory and method of the field",
+    "rank": "",
+    "ccf": "N",
+    "subs": [
+      {
+        "y": 2016,
+        "n": 13
+      },
+      {
+        "y": 2017,
+        "n": 48
+      },
+      {
+        "y": 2018,
+        "n": 22
+      },
+      {
+        "y": 2019,
+        "n": 18
+      },
+      {
+        "y": 2020,
+        "n": 42
+      },
+      {
+        "y": 2021,
+        "n": 29
+      },
+      {
+        "y": 2022,
+        "n": 24
+      },
+      {
+        "y": 2023,
+        "n": 33
+      },
+      {
+        "y": 2024,
+        "n": 14
+      },
+      {
+        "y": 2025,
+        "n": 31
+      }
+    ],
+    "cites": 0.8,
+    "h": 42,
+    "oa": "https://openalex.org/S178989728",
+    "link": ""
+  },
+  {
+    "title": "RBB",
+    "name": "Religion, Brain & Behavior",
+    "issn": "2153-599X",
+    "dblp": "",
+    "area": "religion",
+    "pub": "Taylor & Francis",
+    "why": "cognitive and evolutionary science of religion",
+    "rank": "",
+    "ccf": "N",
+    "subs": [
+      {
+        "y": 2016,
+        "n": 48
+      },
+      {
+        "y": 2017,
+        "n": 86
+      },
+      {
+        "y": 2018,
+        "n": 48
+      },
+      {
+        "y": 2019,
+        "n": 30
+      },
+      {
+        "y": 2020,
+        "n": 19
+      },
+      {
+        "y": 2021,
+        "n": 31
+      },
+      {
+        "y": 2022,
+        "n": 95
+      },
+      {
+        "y": 2023,
+        "n": 90
+      },
+      {
+        "y": 2024,
+        "n": 38
+      },
+      {
+        "y": 2025,
+        "n": 46
+      }
+    ],
+    "cites": 1.4,
+    "h": 45,
+    "oa": "https://openalex.org/S2764439977",
+    "link": ""
+  },
+  {
+    "title": "Theol. Studies",
+    "name": "Theological Studies",
+    "issn": "0040-5639",
+    "dblp": "",
+    "area": "theology",
+    "pub": "SAGE",
+    "why": "Catholic theology",
+    "rank": "",
+    "ccf": "N",
+    "subs": [
+      {
+        "y": 2016,
+        "n": 262
+      },
+      {
+        "y": 2017,
+        "n": 233
+      },
+      {
+        "y": 2018,
+        "n": 173
+      },
+      {
+        "y": 2019,
+        "n": 152
+      },
+      {
+        "y": 2020,
+        "n": 148
+      },
+      {
+        "y": 2021,
+        "n": 99
+      },
+      {
+        "y": 2022,
+        "n": 134
+      },
+      {
+        "y": 2023,
+        "n": 122
+      },
+      {
+        "y": 2024,
+        "n": 130
+      },
+      {
+        "y": 2025,
+        "n": 115
+      }
+    ],
+    "cites": 0.1,
+    "h": 46,
+    "oa": "https://openalex.org/S27349033",
+    "link": ""
+  },
+  {
+    "title": "Modern Theology",
+    "name": "Modern Theology",
+    "issn": "0266-7177",
+    "dblp": "",
+    "area": "theology",
+    "pub": "Wiley",
+    "why": "systematic and philosophical theology",
+    "rank": "",
+    "ccf": "N",
+    "subs": [
+      {
+        "y": 2016,
+        "n": 78
+      },
+      {
+        "y": 2017,
+        "n": 91
+      },
+      {
+        "y": 2018,
+        "n": 71
+      },
+      {
+        "y": 2019,
+        "n": 127
+      },
+      {
+        "y": 2020,
+        "n": 79
+      },
+      {
+        "y": 2021,
+        "n": 100
+      },
+      {
+        "y": 2022,
+        "n": 79
+      },
+      {
+        "y": 2023,
+        "n": 78
+      },
+      {
+        "y": 2024,
+        "n": 63
+      },
+      {
+        "y": 2025,
+        "n": 101
+      }
+    ],
+    "cites": 0.1,
+    "h": 39,
+    "oa": "https://openalex.org/S185278035",
+    "link": ""
+  },
+  {
+    "title": "IJST",
+    "name": "International Journal of Systematic Theology",
+    "issn": "1463-1652",
+    "dblp": "",
+    "area": "theology",
+    "pub": "Wiley",
+    "why": "systematic theology",
+    "rank": "",
+    "ccf": "N",
+    "subs": [
+      {
+        "y": 2016,
+        "n": 78
+      },
+      {
+        "y": 2017,
+        "n": 73
+      },
+      {
+        "y": 2018,
+        "n": 64
+      },
+      {
+        "y": 2019,
+        "n": 56
+      },
+      {
+        "y": 2020,
+        "n": 81
+      },
+      {
+        "y": 2021,
+        "n": 77
+      },
+      {
+        "y": 2022,
+        "n": 103
+      },
+      {
+        "y": 2023,
+        "n": 58
+      },
+      {
+        "y": 2024,
+        "n": 49
+      },
+      {
+        "y": 2025,
+        "n": 82
+      }
+    ],
+    "cites": 0.0,
+    "h": 24,
+    "oa": "https://openalex.org/S126848956",
+    "link": ""
+  },
+  {
+    "title": "SJT",
+    "name": "Scottish Journal of Theology",
+    "issn": "0036-9306",
+    "dblp": "",
+    "area": "theology",
+    "pub": "Cambridge",
+    "why": "theology, broad",
+    "rank": "",
+    "ccf": "N",
+    "subs": [
+      {
+        "y": 2016,
+        "n": 94
+      },
+      {
+        "y": 2017,
+        "n": 80
+      },
+      {
+        "y": 2018,
+        "n": 76
+      },
+      {
+        "y": 2019,
+        "n": 80
+      },
+      {
+        "y": 2020,
+        "n": 80
+      },
+      {
+        "y": 2021,
+        "n": 79
+      },
+      {
+        "y": 2022,
+        "n": 79
+      },
+      {
+        "y": 2023,
+        "n": 107
+      },
+      {
+        "y": 2024,
+        "n": 64
+      },
+      {
+        "y": 2025,
+        "n": 95
+      }
+    ],
+    "cites": 0.0,
+    "h": 37,
+    "oa": "https://openalex.org/S70443789",
+    "link": ""
+  },
+  {
+    "title": "JBL",
+    "name": "Journal of Biblical Literature",
+    "issn": "0021-9231",
+    "dblp": "",
+    "area": "theology",
+    "pub": "SBL",
+    "why": "biblical studies, the SBL's journal",
+    "rank": "SBL journal",
+    "ccf": "N",
+    "subs": [
+      {
+        "y": 2016,
+        "n": 97
+      },
+      {
+        "y": 2017,
+        "n": 77
+      },
+      {
+        "y": 2018,
+        "n": 75
+      },
+      {
+        "y": 2019,
+        "n": 107
+      },
+      {
+        "y": 2020,
+        "n": 105
+      },
+      {
+        "y": 2021,
+        "n": 95
+      },
+      {
+        "y": 2022,
+        "n": 40
+      },
+      {
+        "y": 2023,
+        "n": 37
+      },
+      {
+        "y": 2024,
+        "n": 38
+      },
+      {
+        "y": 2025,
+        "n": 38
+      }
+    ],
+    "cites": 0.3,
+    "h": 141,
+    "oa": "https://openalex.org/S55827047",
+    "link": ""
+  },
+  {
+    "title": "Zygon",
+    "name": "Zygon: Journal of Religion and Science",
+    "issn": "0591-2385",
+    "dblp": "",
+    "area": "theology",
+    "pub": "Open Library of Humanities",
+    "why": "science and religion",
+    "rank": "",
+    "ccf": "N",
+    "subs": [
+      {
+        "y": 2016,
+        "n": 88
+      },
+      {
+        "y": 2017,
+        "n": 82
+      },
+      {
+        "y": 2018,
+        "n": 90
+      },
+      {
+        "y": 2019,
+        "n": 94
+      },
+      {
+        "y": 2020,
+        "n": 99
+      },
+      {
+        "y": 2021,
+        "n": 95
+      },
+      {
+        "y": 2022,
+        "n": 93
+      },
+      {
+        "y": 2023,
+        "n": 80
+      },
+      {
+        "y": 2024,
+        "n": 92
+      },
+      {
+        "y": 2025,
+        "n": 75
+      }
+    ],
+    "cites": 0.5,
+    "h": 50,
+    "oa": "https://openalex.org/S128470386",
+    "link": ""
   },
   {
     "title": "JAIR",

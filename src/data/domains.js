@@ -10,12 +10,14 @@
 //                   where they exist
 //          'none'   the field has no ranking worth a column
 // notes    how the field publishes, in three lines
+// citations false where citation counts say nothing (book-based humanities)
 export const GROUPS = [
   { id: 'computing', label: 'Computing' },
   { id: 'math', label: 'Math' },
   { id: 'science', label: 'Science & engineering' },
   { id: 'mind', label: 'Mind & brain' },
   { id: 'health', label: 'Health' },
+  { id: 'humanities', label: 'Humanities' },
 ];
 
 export const DOMAINS = [
@@ -233,6 +235,33 @@ export const DOMAINS = [
       'TPWRS and TSG are the journals that count; conference papers are short and fast.',
       'PSCC, every two years, is the selective conference, with full papers published in a journal.',
       'The PES General Meeting is the large annual gathering.',
+    ],
+  },
+  {
+    id: 'philosophy', label: 'Philosophy', group: 'humanities', icon: 'fa-scroll', hue: '#9a3412',
+    format: 'cards', rank: 'none', scholar: '', citations: false,
+    notes: [
+      'Philosophy is a journal field, and its journals are slow and selective: months of review and rejection rates above ninety percent are normal.',
+      'The APA divisional meetings take refereed papers, but presenting does not publish them; the paper still goes to a journal.',
+      'The informal top five general journals (Philosophical Review, Journal of Philosophy, No\u00fbs, Mind, PPR) weigh most in hiring.',
+    ],
+  },
+  {
+    id: 'religion', label: 'Religious studies', group: 'humanities', icon: 'fa-place-of-worship', hue: '#155e75',
+    format: 'cards', rank: 'none', scholar: '', citations: false,
+    notes: [
+      'Religious studies looks at religion from outside, with history, sociology, anthropology and cognitive science, and takes no side on whether any religion is true.',
+      'The AAR Annual Meeting, held alongside SBL each November, is the main gathering; the social-science side meets at SSSR, and the world congress is IAHR.',
+      'Books count as much as articles and citations come slowly, so citation numbers are not shown here.',
+    ],
+  },
+  {
+    id: 'theology', label: 'Theology', group: 'humanities', icon: 'fa-book-bible', hue: '#713f12',
+    format: 'cards', rank: 'none', scholar: '', citations: false,
+    notes: [
+      'Theology works from inside a faith tradition (doctrine, systematic theology, Christian ethics), and that normative stance is what separates it from religious studies.',
+      'Its societies are largely confessional, Catholic, evangelical or ecumenical; biblical studies sits between theology and religious studies, at SBL.',
+      'Monographs carry the most weight and journal citations are close to zero, so citation numbers are not shown.',
     ],
   },
 ];
