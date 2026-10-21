@@ -5,71 +5,65 @@ import { destinations } from '../../data/destinations.js';
 import { GROUPS } from '../../data/domains.js';
 
 // Every upcoming edition of every conference the site tracks, on a world
-// map. The old view was a table filtered by seventeen hand-picked
-// destinations, which hid every conference anywhere else; the map is the
-// way in now, so every place is reachable.
+// map that fills the screen. One pin per city, sized by how many meetings
+// it holds; clicking a city lists them in a panel. The filters float over
+// the map and apply to the pins and the panel alike.
 //
-// The map is Leaflet with clustered markers, on OpenStreetMap tiles. Coordinates come from build-destinations.py, looked up
-// once per place and cached.
+// Leaflet with clustered markers on OpenStreetMap tiles. Coordinates come
+// from build-destinations.py, looked up once per place and cached.
 const COLORS = { computing: '#6d28d9', math: '#b45309', science: '#0f766e', mind: '#be185d', other: '#64748b' };
 const groups = [...GROUPS, { id: 'other', label: 'Other fields' }]
   .map((g) => ({ ...g, color: COLORS[g.id], n: destinations.items.filter((i) => (i.group || 'other') === g.id).length }))
   .filter((g) => g.n);
 const items = destinations.items.map((i, k) => ({
   k, t: i.title, d: i.desc, y: i.year, date: i.date, place: i.place, f: i.field || '',
-  g: i.group || 'other', dl: i.deadline || '', open: !!i.open, link: i.link || '',
-  lat: i.lat ?? null, lon: i.lon ?? null, pins: i.pins || (i.lat != null ? [[i.lat, i.lon]] : []),
+  g: i.group || 'other', dl: i.deadline || '', link: i.link || '',
+  pins: i.pins || (i.lat != null ? [[i.lat, i.lon]] : []),
   h: (i.honors || []).map((x) => x.t),
 }));
-const onMap = items.filter((i) => i.pins.length).length;
 ---
 
 <Layout title="Conferences by destination | Zhiqian Chen">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.5.3/MarkerCluster.min.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.5.3/MarkerCluster.Default.min.css" />
   <main class="container">
     <Nav current="destinations" />
+  </main>
 
-    <section class="dhead">
-      <h1>Conferences by destination</h1>
-      <p class="sub">{items.length} upcoming meetings, from computing to theology, {onMap} placed on the map. Pick a group, then a field.</p>
-    </section>
+  <div class="stage">
+    <div id="map" role="region" aria-label="World map of conference locations"></div>
 
-    <div class="controls">
+    {/* Filters, floating over the map. */}
+    <section class="panel controls" aria-label="Filters">
+      <h1>Conferences by destination <span id="count">{items.length}</span></h1>
       <div class="gfilter" role="group" aria-label="Field group">
-        <button type="button" class="gchip is-on" data-g="all">All <span>{items.length}</span></button>
+        <button type="button" class="gchip is-on" data-g="all">All</button>
         {groups.map((g) => (
-          <button type="button" class="gchip" data-g={g.id} style={`--c:${g.color}`}>
-            <i class="dot" style={`background:${g.color}`}></i>{g.label} <span>{g.n}</span>
+          <button type="button" class="gchip" data-g={g.id}>
+            <i class="dot" style={`background:${g.color}`}></i>{g.label}
           </button>
         ))}
       </div>
-      <label class="opt"><input type="checkbox" id="open-only" /> Call still open</label>
-      <input type="search" id="q" placeholder="Search a city, country or conference" aria-label="Search" />
-    </div>
-    {/* The second level: once a group is picked, its fields, each with a count. */}
-    <div class="ffilter" id="ffilter" hidden></div>
+      <div class="ffilter" id="ffilter" hidden></div>
+      <div class="row">
+        <label class="opt"><input type="checkbox" id="open-only" /> Call still open</label>
+        <input type="search" id="q" placeholder="Search a city or conference" aria-label="Search" />
+      </div>
+      <p class="hint">Click a city for its meetings.</p>
+    </section>
 
-    <div id="map" role="region" aria-label="World map of conference locations"></div>
-
-    <div class="list-wrap">
-      <table class="dlist">
-        <thead>
-          <tr><th>Conference</th><th>When and where</th><th>Deadline</th><th>Standing</th></tr>
-        </thead>
-        <tbody id="rows"></tbody>
-      </table>
-      <p class="none" id="none" hidden>Nothing matches.</p>
-    </div>
-
-    <p class="foot">
-      Locations and dates from <a href="https://github.com/ccfddl/ccf-deadlines" target="_blank" rel="noopener">ccf-deadlines</a>
-      and each venue's own site; map data &copy; <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">OpenStreetMap</a>
-      contributors. A call marked open still has a deadline
-      ahead of today. Standing gives each conference's strongest credential first: the field's own, then CCF and CORE where they rank it.
-    </p>
-  </main>
+    {/* The city's meetings, opened by a click on its pin. */}
+    <aside class="panel city" id="city" hidden aria-live="polite">
+      <header>
+        <div>
+          <h2 id="city-name"></h2>
+          <span id="city-sub"></span>
+        </div>
+        <button type="button" id="city-x" aria-label="Close">&times;</button>
+      </header>
+      <ol id="city-list"></ol>
+    </aside>
+  </div>
 
   <script is:inline type="application/json" id="dest-data" set:html={JSON.stringify({ items, colors: COLORS })}></script>
   <script is:inline src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
@@ -81,44 +75,102 @@ const onMap = items.filter((i) => i.pins.length).length;
       const esc = (s) => String(s || '').replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
       const days = (d) => Math.round((Date.parse(d) - Date.parse(today)) / 86400000);
       const isOpen = (i) => i.dl && i.dl >= today;
+      // A city's label: the place string without venue or street, so
+      // "World Forum, Hague, Netherlands" reads as "Hague, Netherlands".
+      const cityOf = (place) => {
+        const parts = place.split(';')[0].split(',').map((x) => x.trim()).filter(Boolean);
+        return parts.length > 2 ? parts.slice(-2).join(', ') : parts.join(', ');
+      };
 
-      const map = L.map('map', { worldCopyJump: true, minZoom: 2 }).setView([30, 10], 2);
-      // OpenStreetMap's own tiles: free for a light-traffic site with the
-      // attribution shown. CARTO's free basemap now asks for an API key.
+      const map = L.map('map', { worldCopyJump: true, minZoom: 2, zoomControl: false }).setView([28, 10], 3);
+      L.control.zoom({ position: 'bottomleft' }).addTo(map);
+      // OpenStreetMap's own tiles, free for a light-traffic site with the
+      // attribution shown.
       L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
         attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors', maxZoom: 19,
       }).addTo(map);
-      const cluster = L.markerClusterGroup({ showCoverageOnHover: false, maxClusterRadius: 40 });
+      // Clusters count meetings, not cities, so a number means the same
+      // thing on a cluster as on a city pin.
+      const cluster = L.markerClusterGroup({
+        showCoverageOnHover: false, maxClusterRadius: 45,
+        iconCreateFunction: (c) => {
+          const n = c.getAllChildMarkers().reduce((a, m) => a + m.options.n, 0);
+          const size = Math.round(30 + Math.min(26, Math.sqrt(n) * 3));
+          return L.divIcon({ html: `<span>${n}</span>`, className: 'clu', iconSize: [size, size] });
+        },
+      });
       map.addLayer(cluster);
 
-      const popup = (i) => `
-        <div class="pop">
-          <b>${i.link ? `<a href="${esc(i.link)}" target="_blank" rel="noopener">${esc(i.t)}</a>` : esc(i.t)}</b>
-          <span class="pop-d">${esc(i.d)}</span>
-          ${i.f ? `<span class="pop-f">${esc(i.f)}</span>` : ''}
-          <span class="pop-w">${esc(i.date)} &middot; ${esc(i.place)}</span>
-          <span class="pop-dl">${i.dl ? (isOpen(i) ? `Deadline ${esc(i.dl)}, ${days(i.dl)} days` : `Deadline ${esc(i.dl)}, closed`) : 'Deadline not published'}</span>
-          ${i.h.length ? `<span class="pop-h">${i.h.map(esc).join(' &middot; ')}</span>` : ''}
-        </div>`;
-      // A meeting held in several cities has a pin in each; the list row
-      // flies to the first.
-      const markers = new Map();
-      items.forEach((i) => {
-        if (!i.pins.length) return;
-        markers.set(i.k, i.pins.map((p) => L.circleMarker(p, {
-          radius: 7, color: '#fff', weight: 1.5, fillColor: colors[i.g] || colors.other, fillOpacity: 0.9,
-        }).bindPopup(popup(i))));
-      });
+      const state = { g: 'all', f: '', open: false, q: '', city: null };
+      const match = (i) => (state.g === 'all' || i.g === state.g)
+        && (!state.f || i.f === state.f)
+        && (!state.open || isOpen(i))
+        && (!state.q || `${i.t} ${i.d} ${i.place} ${i.f}`.toLowerCase().includes(state.q));
 
-      const state = { g: 'all', f: '', open: false, q: '' };
+      // One pin per city. A meeting held in several cities is listed in each.
+      const cities = () => {
+        const by = new Map();
+        items.filter(match).forEach((i) => i.pins.forEach((p, n) => {
+          const key = p[0].toFixed(2) + ',' + p[1].toFixed(2);
+          if (!by.has(key)) by.set(key, { key, ll: p, name: cityOf(i.place.split(';')[n] || i.place), items: [] });
+          by.get(key).items.push(i);
+        }));
+        return [...by.values()];
+      };
+      const colorOf = (c) => {
+        const tally = {};
+        c.items.forEach((i) => { tally[i.g] = (tally[i.g] || 0) + 1; });
+        return colors[Object.entries(tally).sort((a, b) => b[1] - a[1])[0][0]] || colors.other;
+      };
+
+      const panel = document.getElementById('city');
+      const showCity = (c) => {
+        state.city = c ? c.key : null;
+        if (!c) { panel.hidden = true; return; }
+        document.getElementById('city-name').textContent = c.name;
+        document.getElementById('city-sub').textContent = `${c.items.length} meeting${c.items.length > 1 ? 's' : ''}`;
+        const list = c.items.slice().sort((a, b) => a.y - b.y || a.t.localeCompare(b.t));
+        document.getElementById('city-list').innerHTML = list.map((i) => `
+          <li>
+            <div class="c-top">
+              ${i.link ? `<a href="${esc(i.link)}" target="_blank" rel="noopener">${esc(i.t)}</a>` : `<b>${esc(i.t)}</b>`}
+              <span class="c-y">${i.y}</span>
+              ${i.f ? `<span class="c-f" style="--c:${colors[i.g] || colors.other}">${esc(i.f)}</span>` : ''}
+            </div>
+            <span class="c-d">${esc(i.d)}</span>
+            <span class="c-w">${esc(i.date)}</span>
+            <span class="c-dl">${i.dl ? (isOpen(i) ? `<b class="open">deadline ${esc(i.dl)} &middot; ${days(i.dl)}d</b>` : `deadline ${esc(i.dl)}, closed`) : 'deadline not published'}</span>
+            ${i.h.length ? `<span class="c-h">${i.h.map((h) => `<i>${esc(h)}</i>`).join('')}</span>` : ''}
+          </li>`).join('');
+        panel.hidden = false;
+      };
+      document.getElementById('city-x').addEventListener('click', () => showCity(null));
+
+      const draw = () => {
+        const cs = cities();
+        cluster.clearLayers();
+        cluster.addLayers(cs.map((c) => {
+          const n = c.items.length;
+          const m = L.circleMarker(c.ll, {
+            n, radius: 6 + Math.min(10, Math.sqrt(n) * 2.2), color: '#fff', weight: 1.5,
+            fillColor: colorOf(c), fillOpacity: 0.92,
+          });
+          m.bindTooltip(`${esc(c.name)} &middot; ${n}`, { direction: 'top', offset: [0, -6] });
+          m.on('click', () => showCity(c));
+          return m;
+        }));
+        document.getElementById('count').textContent = items.filter(match).length;
+        if (state.city) showCity(cs.find((c) => c.key === state.city) || null);
+      };
+
       const ffilter = document.getElementById('ffilter');
       const drawFields = () => {
         state.f = '';
         if (state.g === 'all') { ffilter.hidden = true; ffilter.innerHTML = ''; return; }
         const counts = {};
-        items.filter((i) => i.g === state.g).forEach((i) => { const f = i.f || 'Other'; counts[f] = (counts[f] || 0) + 1; });
+        items.filter((i) => i.g === state.g).forEach((i) => { counts[i.f] = (counts[i.f] || 0) + 1; });
         const fields = Object.entries(counts).sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]));
-        ffilter.innerHTML = `<button type="button" class="fchip is-on" data-f="">Every field <span>${fields.reduce((a, x) => a + x[1], 0)}</span></button>`
+        ffilter.innerHTML = `<button type="button" class="fchip is-on" data-f="">Every field</button>`
           + fields.map(([f, n]) => `<button type="button" class="fchip" data-f="${esc(f)}">${esc(f)} <span>${n}</span></button>`).join('');
         ffilter.hidden = false;
         ffilter.querySelectorAll('.fchip').forEach((b) => b.addEventListener('click', () => {
@@ -126,37 +178,6 @@ const onMap = items.filter((i) => i.pins.length).length;
           state.f = b.dataset.f; draw();
         }));
       };
-      const rows = document.getElementById('rows');
-      const none = document.getElementById('none');
-      const match = (i) => (state.g === 'all' || i.g === state.g)
-        && (!state.f || (i.f || 'Other') === state.f)
-        && (!state.open || isOpen(i))
-        && (!state.q || `${i.t} ${i.d} ${i.place} ${i.f}`.toLowerCase().includes(state.q));
-
-      const draw = () => {
-        const shown = items.filter(match);   // already in year, then name, order
-        cluster.clearLayers();
-        cluster.addLayers(shown.flatMap((i) => markers.get(i.k) || []));
-        rows.innerHTML = shown.map((i) => `
-          <tr data-k="${i.k}" class="${markers.has(i.k) ? 'has-pin' : ''}">
-            <td><span class="r-t">${esc(i.t)}</span><span class="r-y">${i.y}</span>
-                <span class="r-d">${esc(i.d)}</span>${i.f ? `<span class="r-f" style="--c:${colors[i.g]}">${esc(i.f)}</span>` : ''}</td>
-            <td><span class="r-date">${esc(i.date)}</span><span class="r-place">${esc(i.place)}</span></td>
-            <td>${i.dl ? `<span class="r-dl">${esc(i.dl)}</span><span class="r-st ${isOpen(i) ? 'is-open' : ''}">${isOpen(i) ? days(i.dl) + 'd' : 'closed'}</span>` : '<span class="r-none">not published</span>'}</td>
-            <td>${i.h.map((h) => `<span class="r-h">${esc(h)}</span>`).join('') || '<span class="r-none">&mdash;</span>'}</td>
-          </tr>`).join('');
-        none.hidden = shown.length > 0;
-      };
-
-      rows.addEventListener('click', (e) => {
-        const tr = e.target.closest('tr[data-k]');
-        if (!tr) return;
-        const ms = markers.get(Number(tr.dataset.k));
-        if (!ms) return;
-        const m = ms[0];
-        document.getElementById('map').scrollIntoView({ behavior: 'smooth', block: 'center' });
-        cluster.zoomToShowLayer(m, () => m.openPopup());
-      });
       document.querySelectorAll('.gchip').forEach((b) => b.addEventListener('click', () => {
         document.querySelectorAll('.gchip').forEach((x) => x.classList.toggle('is-on', x === b));
         state.g = b.dataset.g; drawFields(); draw();
@@ -169,62 +190,61 @@ const onMap = items.filter((i) => i.pins.length).length;
 </Layout>
 
 <style>
-  .container { max-width: min(95vw, 1600px); margin: 0 auto; padding: 20px; box-sizing: border-box; }
-  .dhead h1 { font-size: 1.3rem; margin: 0 0 2px; letter-spacing: -.02em; text-align: left; }
-  .sub { margin: 0 0 12px; font-size: .84rem; color: #64748b; text-align: left; }
-  .controls { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 14px; margin-bottom: 10px; }
-  .gfilter { display: flex; flex-wrap: wrap; gap: 6px; }
-  .gchip { display: inline-flex; align-items: center; gap: 6px; padding: 4px 11px; border-radius: 999px; cursor: pointer;
-    border: 1px solid rgba(148,163,184,.45); background: #fff; font: inherit; font-size: .78rem; font-weight: 600; color: #334155; }
-  .gchip span { color: #a3adbb; font-size: .7rem; font-weight: 700; }
-  .gchip .dot { width: 9px; height: 9px; border-radius: 50%; display: inline-block; }
-  .gchip.is-on { background: #1e293b; border-color: #1e293b; color: #fff; }
-  .gchip.is-on span { color: rgba(255,255,255,.7); }
-  .ffilter { display:flex; flex-wrap:wrap; gap:5px; margin:-2px 0 10px; padding-left:2px; }
-  .ffilter[hidden] { display:none; }
-  .ffilter :global(.fchip) { padding:3px 10px; border-radius:999px; border:1px solid rgba(148,163,184,.4); background:#fff;
-    font:inherit; font-size:.74rem; font-weight:600; color:#475569; cursor:pointer; }
-  .ffilter :global(.fchip span) { color:#a3adbb; font-size:.68rem; font-weight:700; }
-  .ffilter :global(.fchip.is-on) { background:#334155; border-color:#334155; color:#fff; }
-  .ffilter :global(.fchip.is-on span) { color:rgba(255,255,255,.7); }
-  .opt { font-size: .8rem; color: #475569; display: inline-flex; align-items: center; gap: 5px; cursor: pointer; }
-  #q { margin-left: auto; min-width: 240px; padding: 5px 11px; border: 1px solid rgba(148,163,184,.5); border-radius: 999px; font: inherit; font-size: .8rem; }
-  #map { height: min(62vh, 560px); border-radius: 14px; border: 1px solid rgba(148,163,184,.35); z-index: 0; }
+  .container { max-width: min(95vw, 1600px); margin: 0 auto; padding: 20px 20px 0; box-sizing: border-box; }
+  /* The map takes the whole screen under the nav, edge to edge. */
+  .stage { position: relative; height: calc(100vh - 86px); min-height: 480px; }
+  #map { position: absolute; inset: 0; z-index: 0; }
+  .panel { position: absolute; z-index: 500; background: rgba(255,255,255,.96); border: 1px solid rgba(148,163,184,.35);
+    border-radius: 14px; box-shadow: 0 12px 30px rgba(15,23,42,.16); backdrop-filter: blur(6px); }
+  .controls { top: 14px; left: 14px; width: min(440px, calc(100vw - 28px)); padding: 12px 14px; }
+  .controls h1 { font-size: 1.05rem; margin: 0 0 8px; letter-spacing: -.01em; text-align: left; }
+  .controls h1 span { font-size: .72rem; font-weight: 700; color: #64748b; background: #f1f5f9; border-radius: 999px; padding: 1px 8px; margin-left: 4px; vertical-align: 2px; }
+  .gfilter, .ffilter { display: flex; flex-wrap: wrap; gap: 5px; }
+  .ffilter { margin-top: 7px; padding-top: 7px; border-top: 1px dashed rgba(148,163,184,.4); }
+  .ffilter[hidden] { display: none; }
+  .gchip, .ffilter :global(.fchip) { display: inline-flex; align-items: center; gap: 5px; padding: 3px 10px; border-radius: 999px;
+    border: 1px solid rgba(148,163,184,.45); background: #fff; font: inherit; font-size: .74rem; font-weight: 600; color: #334155; cursor: pointer; }
+  .gchip .dot { width: 8px; height: 8px; border-radius: 50%; display: inline-block; }
+  .ffilter :global(.fchip span) { color: #a3adbb; font-size: .66rem; font-weight: 700; }
+  .gchip.is-on, .ffilter :global(.fchip.is-on) { background: #1e293b; border-color: #1e293b; color: #fff; }
+  .ffilter :global(.fchip.is-on span) { color: rgba(255,255,255,.7); }
+  .row { display: flex; align-items: center; gap: 10px; margin-top: 9px; }
+  .opt { font-size: .76rem; color: #475569; display: inline-flex; align-items: center; gap: 5px; cursor: pointer; white-space: nowrap; }
+  #q { flex: 1; min-width: 0; padding: 4px 10px; border: 1px solid rgba(148,163,184,.5); border-radius: 999px; font: inherit; font-size: .76rem; }
+  .hint { margin: 7px 0 0; font-size: .7rem; color: #94a3b8; }
 
-  .list-wrap { margin-top: 14px; }
-  .dlist { width: 100%; border-collapse: collapse; font-size: .84rem; }
-  .dlist th { text-align: left; font-family: 'Montserrat', sans-serif; font-size: .66rem; letter-spacing: .08em; text-transform: uppercase;
-    color: #64748b; padding: 8px 10px; border-bottom: 1px solid rgba(148,163,184,.35); }
-  .dlist :global(td) { padding: 8px 10px; border-bottom: 1px solid rgba(148,163,184,.18); vertical-align: top; text-align: left; }
-  .dlist :global(tr.has-pin) { cursor: pointer; }
-  .dlist :global(tr.has-pin:hover) { background: #f8fafc; }
-  .dlist :global(.r-t) { font-weight: 700; color: #0f172a; }
-  .dlist :global(.r-y) { margin-left: 6px; font-size: .66rem; font-weight: 800; color: #fff; background: #334155; border-radius: 4px; padding: 0 5px; }
-  .dlist :global(.r-d) { display: block; font-size: .72rem; color: #8a95a5; }
-  .dlist :global(.r-f) { display: inline-block; margin-top: 3px; font-size: .64rem; font-weight: 700; color: var(--c); background: color-mix(in srgb, var(--c) 10%, white); border-radius: 4px; padding: 1px 6px; }
-  .dlist :global(.r-date) { display: block; color: #0f172a; }
-  .dlist :global(.r-place) { display: block; font-size: .76rem; color: #64748b; }
-  .dlist :global(.r-dl) { font-weight: 700; color: #0f172a; margin-right: 6px; font-variant-numeric: tabular-nums; white-space: nowrap; }
-  .dlist :global(td:nth-child(3)) { white-space: nowrap; }
-  .dlist :global(.r-st) { font-size: .68rem; font-weight: 800; border-radius: 999px; padding: 1px 7px; color: #94a3b8; background: #f1f5f9; }
-  .dlist :global(.r-st.is-open) { color: #fff; background: #0f766e; }
-  .dlist :global(.r-h) { display: inline-block; margin: 0 4px 3px 0; font-size: .68rem; font-weight: 700; color: #854d0e; background: #fefce8; border: 1px solid #fde68a; border-radius: 5px; padding: 1px 6px; }
-  .dlist :global(.r-none) { color: #a3adbb; font-size: .76rem; }
-  .none { color: #64748b; font-size: .84rem; }
-  .foot { margin-top: 16px; font-size: .76rem; color: #94a3b8; line-height: 1.6; text-align: left; }
-  .foot a { color: #64748b; }
+  .city { top: 14px; right: 14px; bottom: 14px; width: min(380px, calc(100vw - 28px)); display: flex; flex-direction: column; }
+  .city[hidden] { display: none; }
+  .city header { display: flex; align-items: flex-start; justify-content: space-between; gap: 10px; padding: 12px 14px 8px;
+    border-bottom: 1px solid rgba(148,163,184,.25); }
+  .city h2 { font-size: 1rem; margin: 0; text-align: left; }
+  #city-sub { font-size: .72rem; color: #64748b; }
+  #city-x { border: 0; background: none; font-size: 1.4rem; line-height: 1; color: #94a3b8; cursor: pointer; }
+  #city-list { list-style: none; margin: 0; padding: 6px 14px 12px; overflow-y: auto; display: grid; gap: 2px; }
+  #city-list :global(li) { padding: 8px 0; border-bottom: 1px solid rgba(148,163,184,.18); display: flex; flex-direction: column; gap: 2px; text-align: left; }
+  #city-list :global(.c-top) { display: flex; align-items: baseline; gap: 6px; flex-wrap: wrap; }
+  #city-list :global(.c-top a), #city-list :global(.c-top b) { font-weight: 700; color: #0f172a; text-decoration: none; font-size: .88rem; }
+  #city-list :global(.c-top a:hover) { color: var(--accent); text-decoration: underline; }
+  #city-list :global(.c-y) { font-size: .62rem; font-weight: 800; color: #fff; background: #334155; border-radius: 4px; padding: 0 5px; }
+  #city-list :global(.c-f) { font-size: .62rem; font-weight: 700; color: var(--c); background: color-mix(in srgb, var(--c) 10%, white); border-radius: 4px; padding: 1px 6px; }
+  #city-list :global(.c-d) { font-size: .72rem; color: #8a95a5; }
+  #city-list :global(.c-w) { font-size: .78rem; color: #334155; }
+  #city-list :global(.c-dl) { font-size: .74rem; color: #94a3b8; }
+  #city-list :global(.c-dl .open) { color: #0f766e; }
+  #city-list :global(.c-h) { display: flex; flex-wrap: wrap; gap: 4px; margin-top: 2px; }
+  #city-list :global(.c-h i) { font-style: normal; font-size: .64rem; font-weight: 700; color: #854d0e; background: #fefce8; border: 1px solid #fde68a; border-radius: 5px; padding: 0 6px; }
 
-  :global(.pop) { display: flex; flex-direction: column; gap: 2px; font-size: .8rem; min-width: 200px; }
-  :global(.pop b a) { color: #0f172a; }
-  :global(.pop-d) { color: #64748b; font-size: .74rem; }
-  :global(.pop-f) { font-size: .68rem; font-weight: 700; color: #475569; }
-  :global(.pop-w), :global(.pop-dl) { color: #334155; font-size: .76rem; }
-  :global(.pop-h) { color: #854d0e; font-size: .72rem; font-weight: 700; }
+  /* Leaflet's own stylesheet loads after this one, so the rule needs its
+     class to win. */
+  :global(.leaflet-marker-icon.clu) { display: flex; align-items: center; justify-content: center; border-radius: 50%;
+    background: rgba(30,41,59,.82); color: #fff; font-weight: 800; font-size: .78rem; border: 2px solid #fff; box-shadow: 0 2px 8px rgba(15,23,42,.3); }
 
   @media (max-width: 760px) {
-    #q { margin-left: 0; min-width: 0; width: 100%; }
-    .dlist thead { display: none; }
-    .dlist :global(tr) { display: block; padding: 8px 0; border-bottom: 1px solid rgba(148,163,184,.25); }
-    .dlist :global(td) { display: block; border: 0; padding: 2px 4px; }
+    .container { padding: 10px 14px 0; }
+    .stage { height: calc(100vh - 62px); }
+    .controls { top: 10px; left: 10px; right: 10px; width: auto; padding: 10px 12px; }
+    .hint { display: none; }
+    /* On a phone the city list is a sheet from the bottom. */
+    .city { top: auto; left: 10px; right: 10px; bottom: 10px; width: auto; max-height: 55%; }
   }
 </style>
