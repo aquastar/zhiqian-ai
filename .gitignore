@@ -30,3 +30,4 @@ pnpm-debug.log*
 # its presence makes Vercel skip the build and deploy stale artifacts)
 .vercel/
 .conf-cache/
+.taste-skill/
