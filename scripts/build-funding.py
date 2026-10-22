@@ -977,9 +977,11 @@ def parse_brief(text):
         rows.append(row)
 
     signals = []
-    tail = text.split('## 3. 早期信号', 1)
-    if len(tail) == 2:
-        for line in tail[1].split('\n'):
+    # The section number moves between brief layouts (3 in the short one, 6 in
+    # the full routine report), so match the title and stop at the next heading.
+    m = re.search(r'^## \d+\. 早期信号[^\n]*\n(.*?)(?=^## |\Z)', text, re.M | re.S)
+    if m:
+        for line in m.group(1).split('\n'):
             line = line.strip()
             if not line.startswith('- '):
                 continue
