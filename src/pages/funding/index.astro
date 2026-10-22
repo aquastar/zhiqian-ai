@@ -27,7 +27,9 @@ const readDeadline = (text) => {
     qualifier,
     // Three states, same idea as the conferences table: something ahead of
     // you, nothing on record, or a door that has shut.
-    status: next ? 'open' : dates.length ? 'closed' : 'rolling',
+    // A deadline that just says "closed" or "not accepting" is shut too,
+    // even with no date in it.
+    status: next ? 'open' : dates.length || /\bclosed\b|not accepting/i.test(raw) ? 'closed' : 'rolling',
   };
 };
 
@@ -109,7 +111,13 @@ const COMP_WORD = { 1: 'light', 2: 'moderate', 3: 'competitive', 4: 'hard', 5: '
           <i class={`fas ${f.icon}`} aria-hidden="true"></i>{f.label}<span class="fcount">{f.n}</span>
         </button>
       ))}
-      <span class="closed-note">{counts.closed} closed, kept for the record</span>
+      {/* Closed calls stay folded away unless asked for: the table is a
+          to-do list first and a record second. The count is redone in the
+          browser, since a row can close between the build and the visit. */}
+      <button type="button" class="closed-toggle" aria-expanded="false">
+        <i class="fas fa-chevron-right" aria-hidden="true"></i>
+        <span class="ct-label">Show closed</span><span class="fcount ct-n">{counts.closed}</span>
+      </button>
     </div>
 
     <div class="table-wrap">
@@ -266,7 +274,12 @@ const COMP_WORD = { 1: 'light', 2: 'moderate', 3: 'competitive', 4: 'hard', 5: '
   .fcount { font-size:.68rem; font-weight:700; opacity:.6; }
   .fbtn.f-pick:not(.is-on) { color:#a16207; border-color:#fde68a; }
   .fbtn.f-open:not(.is-on) { color:#b91c1c; border-color:#fecaca; }
-  .closed-note { margin-left:auto; font-size:.68rem; color:#94a3b8; }
+  .closed-toggle { margin-left:auto; display:inline-flex; align-items:center; gap:6px; padding:4px 10px;
+    border:1px dashed rgba(148,163,184,.6); border-radius:999px; background:none; cursor:pointer;
+    font:inherit; font-size:.72rem; font-weight:600; color:#64748b; white-space:nowrap; }
+  .closed-toggle:hover { color:var(--accent); border-color:rgba(37,99,235,.45); }
+  .closed-toggle i { font-size:.62rem; transition:transform .15s; }
+  .closed-toggle[aria-expanded="true"] i { transform:rotate(90deg); }
 
   .table-wrap { overflow-x:auto; border:1px solid rgba(148,163,184,.3); border-radius:12px; background:#fff; }
   table.fund { width:100%; min-width:1000px; table-layout:fixed; border-collapse:collapse; font-size:.84rem; }
@@ -423,7 +436,7 @@ const COMP_WORD = { 1: 'light', 2: 'moderate', 3: 'competitive', 4: 'hard', 5: '
        bullets to zero width and pushed the card past the viewport. */
     .brief { grid-template-columns:1fr; }
     .brief-side { align-items:center; }
-    .closed-note { margin-left:0; flex:0 0 100%; }
+    .closed-toggle { margin-left:0; }
   }
 
   /* Phones. Everything above is a desktop table folded into cards, which
@@ -472,13 +485,24 @@ const COMP_WORD = { 1: 'light', 2: 'moderate', 3: 'competitive', 4: 'hard', 5: '
   const rows = Array.from(document.querySelectorAll('table.fund tbody tr'));
   const empty = document.querySelector('.empty-note');
 
+  const toggle = document.querySelector('.closed-toggle');
+  let showClosed = false;
+  let current = 'all';
+  const closedCount = rows.filter((tr) => tr.dataset.status === 'closed').length;
+  if (toggle) {
+    toggle.querySelector('.ct-n').textContent = String(closedCount);
+    toggle.hidden = closedCount === 0;
+  }
+
   const apply = (key) => {
+    current = key;
     let shown = 0;
     rows.forEach((tr) => {
       const ok =
-        key === 'all' ? true :
+        (showClosed || tr.dataset.status !== 'closed') &&
+        (key === 'all' ? true :
         key === 'pick' ? tr.dataset.pick === '1' :
-        tr.dataset.status === key;
+        tr.dataset.status === key);
       tr.style.display = ok ? '' : 'none';
       if (ok) shown += 1;
     });
@@ -491,4 +515,14 @@ const COMP_WORD = { 1: 'light', 2: 'moderate', 3: 'competitive', 4: 'hard', 5: '
       apply(btn.dataset.filter);
     });
   });
+
+  if (toggle) {
+    toggle.addEventListener('click', () => {
+      showClosed = !showClosed;
+      toggle.setAttribute('aria-expanded', String(showClosed));
+      toggle.querySelector('.ct-label').textContent = showClosed ? 'Hide closed' : 'Show closed';
+      apply(current);
+    });
+  }
+  apply(current);
 </script>
