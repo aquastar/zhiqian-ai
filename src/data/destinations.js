@@ -3,7 +3,7 @@
 // CCF A or B, or CORE A* or A, every hand-kept venue on the field
 // tabs, and the venues added by hand in the script. Destinations mix cities, countries and
 // regions, because that is how people choose where to go.
-// Built 2026-10-22.
+// Built 2026-10-23.
 export const destinations = {
  "items": [
   {
@@ -2995,8 +2995,8 @@ export const destinations = {
    "icon": "",
    "ccf": "N",
    "core": "N",
-   "deadline": "2026-10-22",
-   "open": true,
+   "deadline": "",
+   "open": false,
    "link": "https://summit.aps.org/attend/abstracts",
    "q": "atlanta, georgia, usa atlanta united states ",
    "field": "Physics",
@@ -5447,7 +5447,7 @@ export const destinations = {
    "sub": "CG",
    "deadline": "2026-12-30",
    "open": true,
-   "link": "https://ieee-cas.org/event/conference/2027-ieee-international-conference-multimedia-expo-icme",
+   "link": "https://2027.ieeeicme.org/",
    "q": "xiamen, china xiamen china ",
    "field": "Graphics & multimedia",
    "group": "computing",
@@ -6100,7 +6100,7 @@ export const destinations = {
    "ccf": "B",
    "core": "C",
    "sub": "DS",
-   "deadline": "2026-10-22",
+   "deadline": "2026-10-26",
    "open": true,
    "link": "https://2027.ieee-iscas.org/",
    "q": "bordeaux, france bordeaux france ",

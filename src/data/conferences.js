@@ -3,7 +3,7 @@
 // CORE ranks are cross-checked against the official CORE2023 export from
 // portal.core.edu.au. Acceptance rates and submission counts come from
 // github.com/Xovee/cs-conf-stats (main track only).
-// Built 2026-10-22.
+// Built 2026-10-23.
 export const ranked = [
   {
     "title": "CCS",
@@ -703,6 +703,10 @@ export const ranked = [
     "proceedings": "full",
     "rates": [
       {
+        "y": 2000,
+        "r": 29.4
+      },
+      {
         "y": 2007,
         "r": 14.4
       },
@@ -780,6 +784,10 @@ export const ranked = [
       }
     ],
     "subs": [
+      {
+        "y": 2000,
+        "n": 51
+      },
       {
         "y": 2007,
         "n": 125
@@ -7609,6 +7617,10 @@ export const ranked = [
         "r": 35.1
       },
       {
+        "y": 2001,
+        "r": 28.2
+      },
+      {
         "y": 2003,
         "r": 32.2
       },
@@ -7677,6 +7689,10 @@ export const ranked = [
       {
         "y": 2000,
         "n": 131
+      },
+      {
+        "y": 2001,
+        "n": 110
       },
       {
         "y": 2003,
@@ -10199,6 +10215,18 @@ export const ranked = [
     "proceedings": "full",
     "rates": [
       {
+        "y": 1999,
+        "r": 46.9
+      },
+      {
+        "y": 2000,
+        "r": 40.9
+      },
+      {
+        "y": 2001,
+        "r": 48.5
+      },
+      {
         "y": 2004,
         "r": 47.6
       },
@@ -10292,6 +10320,18 @@ export const ranked = [
       }
     ],
     "subs": [
+      {
+        "y": 1999,
+        "n": 64
+      },
+      {
+        "y": 2000,
+        "n": 66
+      },
+      {
+        "y": 2001,
+        "n": 68
+      },
       {
         "y": 2004,
         "n": 82
@@ -17905,7 +17945,7 @@ export const notable = [
     "period": 1,
     "date": "April 11-16, 2027",
     "place": "Atlanta, Georgia, USA",
-    "note": "The largest physics meeting in the world, around 14,000 attendees and over 10,000 abstracts a year. Formed by merging the March and April meetings, so the name March Meeting is retired. The date shown is the contributed abstract deadline.",
+    "note": "The largest physics meeting in the world, around 14,000 attendees and over 10,000 abstracts a year. Formed by merging the March and April meetings, so the name March Meeting is retired. The date shown is the contributed abstract deadline. The meeting shown is the next one to attend, which is a cycle ahead of the estimated deadline beside it.",
     "field": "physics",
     "kind": "flagship, yearly",
     "why": "physics-informed modelling",
@@ -17929,9 +17969,9 @@ export const notable = [
     "csr": "",
     "edition": "",
     "sub": "",
-    "estimated": false,
-    "estFrom": "",
-    "nextDeadline": "2026-10-22",
+    "estimated": true,
+    "estFrom": "2026-10-22",
+    "nextDeadline": "2027-10-22",
     "nextYear": null,
     "notable": true,
     "cc": "us",
@@ -19312,7 +19352,7 @@ export const journals = [
         "n": 50
       }
     ],
-    "cites": 4.4,
+    "cites": 4.5,
     "h": 41,
     "oa": "https://openalex.org/S4210174050",
     "link": "https://dblp.org/db/journals/tissec/index.html"
@@ -19369,7 +19409,7 @@ export const journals = [
         "n": 416
       }
     ],
-    "cites": 9.3,
+    "cites": 9.4,
     "h": 168,
     "oa": "https://openalex.org/S12529635",
     "link": "https://dblp.org/db/journals/compsec/index.html"
@@ -19711,7 +19751,7 @@ export const journals = [
         "n": 304
       }
     ],
-    "cites": 12.6,
+    "cites": 12.7,
     "h": 119,
     "oa": "https://openalex.org/S4210169297",
     "link": "https://dblp.org/db/journals/taslp/index.html"
@@ -21637,7 +21677,7 @@ export const journals = [
         "n": 160
       }
     ],
-    "cites": 3.8,
+    "cites": 3.9,
     "h": 304,
     "oa": "https://openalex.org/S125775545",
     "link": "https://dblp.org/db/journals/ior/index.html"
@@ -22359,7 +22399,7 @@ export const journals = [
       },
       {
         "y": 2024,
-        "n": 6484
+        "n": 6483
       },
       {
         "y": 2025,
@@ -23152,7 +23192,7 @@ export const journals = [
         "n": 107
       }
     ],
-    "cites": 16.8,
+    "cites": 16.7,
     "h": 132,
     "oa": "https://openalex.org/S4210237014",
     "link": ""
@@ -23262,7 +23302,7 @@ export const journals = [
         "n": 420
       }
     ],
-    "cites": 12.4,
+    "cites": 12.5,
     "h": 221,
     "oa": "https://openalex.org/S116571295",
     "link": "https://dblp.org/db/journals/mia/index.html"
@@ -23604,7 +23644,7 @@ export const journals = [
         "n": 520
       }
     ],
-    "cites": 12.1,
+    "cites": 12.2,
     "h": 374,
     "oa": "https://openalex.org/S23772524",
     "link": ""
@@ -23661,7 +23701,7 @@ export const journals = [
         "n": 243
       }
     ],
-    "cites": 8.1,
+    "cites": 8.2,
     "h": 173,
     "oa": "https://openalex.org/S50690046",
     "link": ""
@@ -26113,7 +26153,7 @@ export const journals = [
         "n": 104
       }
     ],
-    "cites": 2.1,
+    "cites": 2.2,
     "h": 202,
     "oa": "https://openalex.org/S204374153",
     "link": ""
@@ -26284,7 +26324,7 @@ export const journals = [
         "n": 51
       }
     ],
-    "cites": 9.4,
+    "cites": 9.5,
     "h": 80,
     "oa": "https://openalex.org/S160466889",
     "link": ""
@@ -27367,7 +27407,7 @@ export const journals = [
         "n": 80
       }
     ],
-    "cites": 14.9,
+    "cites": 15.0,
     "h": 117,
     "oa": "https://openalex.org/S2729999759",
     "link": "https://dblp.org/db/journals/tacl/index.html"
