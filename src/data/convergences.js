@@ -10,9 +10,11 @@ export const convergences = {
    "id": "tnd-phish",
    "fa": "epi",
    "fb": "security",
-   "title": "Test-negative design for measuring security-awareness training",
-   "gap": "Estimate how much phishing training cuts compromise using the test-negative design that vaccine-effectiveness studies use, with reported-suspicious emails as the 'tested' population.",
-   "bridge": "Both problems estimate how well a protection works from people who come forward, not from a random sample. The test-negative design compares positives and negatives among those who sought a test, which cancels out who chooses to seek one. Reported emails carry the same bias, so the design carries over almost unchanged.",
+   "title": "Does phishing training work? Measure it the way flu-vaccine studies do",
+   "problem": "Companies spend heavily on anti-phishing training but cannot tell whether it helps. Comparing trained with untrained staff misleads, because the people who report suspicious emails are already the careful ones.",
+   "idea": "Flu-vaccine studies face the same trap: people who get tested differ from people who do not. Their fix, the test-negative design, compares only people who came in for a test: among those who tested positive and those who tested negative, how many were vaccinated? Do the same with the emails staff report: among reported emails that were real attacks and those that were harmless, how many reporters had been trained?",
+   "payoff": "A cheap, routine estimate of how much training cuts successful attacks, from data security teams already collect.",
+   "status": "Not done. Studies of phishing training use randomised trials or click rates on fake phishing emails; none uses this design.",
    "nearest": [
     {
      "t": "Are You at Risk? Profiling Organizations and Individuals Subject to Targeted Attacks (Thonnard et al.)",
@@ -25,10 +27,6 @@ export const convergences = {
      "note": "Large field RCT of training efficacy; randomized, not test-negative design."
     }
    ],
-   "verdict": "OPEN",
-   "joint": 1,
-   "qa": "test-negative design",
-   "qb": "phishing",
    "score": 8.5,
    "parts": {
     "gap": 9,
@@ -42,9 +40,11 @@ export const convergences = {
    "id": "qec-fault",
    "fa": "quantum",
    "fb": "power",
-   "title": "Syndrome decoding for fault location from sparse grid alarms",
-   "gap": "Locate distribution-grid faults from sparse relay and PMU alarms with the graph decoders used in quantum error correction.",
-   "bridge": "A fault trips a pattern of protection alarms, and the task is to infer the most likely set of faults that explains it. That is the syndrome decoding problem on a graph. Matching and union-find decoders solve it in near-linear time with known optimality conditions.",
+   "title": "Find power-grid faults with the error-finding algorithms of quantum computers",
+   "problem": "When a line in a local power grid fails, only a few sensors and protection switches raise alarms. Operators must work out from this sparse, sometimes misleading pattern where the fault is, and in large networks that is slow.",
+   "idea": "Quantum computers face the same puzzle. Their errors are invisible and only some check points light up, so engineers built decoders that find the most likely errors from those lights, on graphs with millions of nodes, in a fraction of a second.",
+   "payoff": "Faster, more reliable fault location from the alarms grids already have, with known conditions under which the answer is the best possible.",
+   "status": "Not done. Grid fault location uses state estimation and machine learning; nobody has tried quantum decoders.",
    "nearest": [
     {
      "t": "Sparse Blossom: correcting a million errors per core second with minimum-weight matching (2023)",
@@ -52,10 +52,6 @@ export const convergences = {
      "note": "QEC matching decoder side only; no grid application."
     }
    ],
-   "verdict": "OPEN",
-   "joint": 0,
-   "qa": "syndrome decoding",
-   "qb": "fault location",
    "score": 8.0,
    "parts": {
     "gap": 9,
@@ -69,9 +65,11 @@ export const convergences = {
    "id": "cbf-sleep",
    "fa": "control",
    "fb": "sleep",
-   "title": "Control barrier functions for closed-loop acoustic sleep stimulation",
-   "gap": "Keep closed-loop auditory stimulation of slow oscillations inside a no-arousal safe set with a control barrier function, rather than fixed volume rules.",
-   "bridge": "Closed-loop stimulation already reads the EEG in real time, and its failure mode is a hard constraint: waking the sleeper. A control barrier function turns 'never cross into arousal' into a filter on every stimulus, which is what CBFs do for robots near obstacles.",
+   "title": "Sound pulses that deepen sleep, with a guarantee against waking the sleeper",
+   "problem": "Soft clicks timed to the brain's slow waves during deep sleep can strengthen it and improve memory; the technique is being tested in older adults and patients. The main risk is waking the person, and devices handle it with fixed volume rules.",
+   "idea": "Robots and self-driving cars use control barrier functions: a mathematical filter that checks every action and blocks any that would push the system into a forbidden zone, such as hitting an obstacle. Here the forbidden zone is waking up, read from the live brain signal.",
+   "payoff": "Stimulation as strong as each person tolerates, which may give more benefit, backed by a guarantee instead of a rule of thumb.",
+   "status": "Not done. Current systems use fixed or simple adaptive volume rules.",
    "nearest": [
     {
      "t": "Driving Sleep Slow Oscillations by Auditory Closed-Loop Stimulation - A Self-Limiting Process (2015)",
@@ -84,10 +82,6 @@ export const convergences = {
      "note": "CLAS review; fixed rule-based volume/timing, no barrier functions."
     }
    ],
-   "verdict": "OPEN",
-   "joint": 0,
-   "qa": "control barrier function",
-   "qb": "slow oscillation",
    "score": 8.0,
    "parts": {
     "gap": 9,
@@ -101,9 +95,11 @@ export const convergences = {
    "id": "qec-contact",
    "fa": "quantum",
    "fb": "epi",
-   "title": "Surface-code decoders for inferring hidden infection chains",
-   "gap": "Read positive tests as syndromes and infection chains as error strings, and use minimum-weight perfect matching decoders to reconstruct unobserved transmission.",
-   "bridge": "A surface-code decoder sees only the endpoints of error chains and infers the chains between them. Testing sees only positive cases and must infer the hidden transmission that links them. Minimum-weight matching on a contact graph is a direct, fast counterpart to the slow Bayesian tree samplers in use now.",
+   "title": "Reconstruct hidden chains of infection with quantum error-correction decoders",
+   "problem": "In an outbreak, health officials see only the people who test positive. Who infected whom, through which unseen people, stays hidden, and the tools that infer it are accurate but slow.",
+   "idea": "Quantum decoders solve a look-alike problem: they see only the two ends of each chain of errors and must infer the chain in between, fast. Positive tests play the visible ends; the contact network plays the chip's layout.",
+   "payoff": "Near-instant estimates of likely transmission routes on large contact networks, to decide whom to trace first.",
+   "status": "Not done. Transmission-tree inference uses slow Bayesian sampling; nobody has tried quantum decoders.",
    "nearest": [
     {
      "t": "Experimentally Informed Decoding of Stabilizer Codes Based on Syndrome Correlations (2025)",
@@ -116,10 +112,6 @@ export const convergences = {
      "note": "Closest epidemiology-side decoding: infers positives from pooled tests, not transmission chains or matching."
     }
    ],
-   "verdict": "OPEN",
-   "joint": 0,
-   "qa": "minimum weight perfect matching",
-   "qb": "contact tracing",
    "score": 7.75,
    "parts": {
     "gap": 9,
@@ -133,9 +125,11 @@ export const convergences = {
    "id": "mpc-cbti",
    "fa": "control",
    "fb": "sleep",
-   "title": "Model predictive control of sleep-restriction therapy",
-   "gap": "Titrate the time-in-bed window in CBT-I with MPC over a two-process sleep model fitted to each patient's diary, instead of the fixed 15-minute rule.",
-   "bridge": "Sleep-restriction therapy is already a feedback loop: diary in, time-in-bed window out, adjusted weekly by a fixed rule. MPC replaces the rule with a model-based optimiser that respects constraints, for example a minimum of five hours in bed, and personalises the pace.",
+   "title": "Personalise the bedtime schedule in insomnia therapy with the controller that runs chemical plants",
+   "problem": "The most effective insomnia treatment first limits time in bed, then extends it by a fixed 15 minutes a week if sleep improves. Everyone gets the same schedule, so some patients progress too slowly and others give up.",
+   "idea": "Model predictive control, used in chemical plants and building climate systems, looks a few steps ahead with a model of the system and picks the best next move within set limits. The model here is the standard one of sleep pressure and body clock, fitted to each patient's sleep diary; a limit is, for example, at least five hours in bed.",
+   "payoff": "A schedule tuned to each patient's response, which could shorten treatment and cut dropouts.",
+   "status": "Not done. A patent and a few studies personalise the schedule with rules, not with a predictive controller.",
    "nearest": [
     {
      "t": "SYSTEM AND METHOD FOR PERSONALIZATION OF SLEEP RESTRICTION THERAPY (patent application US20220110582)",
@@ -148,10 +142,6 @@ export const convergences = {
      "note": "Optimal control of sleep schedule over two-process model, for jet lag not insomnia."
     }
    ],
-   "verdict": "OPEN",
-   "joint": 14,
-   "qa": "model predictive control",
-   "qb": "insomnia",
    "score": 7.75,
    "parts": {
     "gap": 8,
@@ -165,9 +155,11 @@ export const convergences = {
    "id": "serosurvey-contam",
    "fa": "epi",
    "fb": "ai",
-   "title": "Serosurvey statistics for benchmark contamination prevalence",
-   "gap": "A 2026 audit paper notes in passing that Rogan-Gladen correction is the population version of its estimator, but no study measures detector sensitivity and specificity and reports corrected contamination prevalence with intervals, as serosurveys do.",
-   "bridge": "Contamination detectors misfire in both directions, just as antibody assays do. Serosurveys solved exactly this: correct raw positive rates for known sensitivity and specificity, with honest intervals. Benchmark audits currently report raw detector rates.",
+   "title": "Estimate how many AI test questions leaked into training data, the way antibody surveys do",
+   "problem": "An AI benchmark means something only if the model never saw the test questions in training. The tools that detect such leaks err in both directions, so reported leak rates are biased and come without honest error bars.",
+   "idea": "Antibody surveys have the same issue: blood tests miss some past infections and flag some people who were never infected. Epidemiologists correct the raw positive rate with the test's known error rates, using a standard formula, and report a confidence interval.",
+   "payoff": "Corrected, comparable leak estimates for each benchmark, so readers know how far a score can be trusted.",
+   "status": "One 2026 paper mentions the formula in passing; nobody has measured the detectors' error rates and applied the correction.",
    "nearest": [
     {
      "t": "When Is Benchmark Contamination Detectable? Information Limits and Power-Calibrated Audits (2026)",
@@ -180,10 +172,6 @@ export const convergences = {
      "note": "Calibrates MIA/memorization predictors via spiked data to correct inflated scores, not prevalence."
     }
    ],
-   "verdict": "PARTIAL",
-   "joint": 0,
-   "qa": "Rogan-Gladen",
-   "qb": "data contamination",
    "score": 7.75,
    "parts": {
     "gap": 6,
@@ -197,9 +185,11 @@ export const convergences = {
    "id": "chrono-dr",
    "fa": "sleep",
    "fb": "power",
-   "title": "Chronotype-aware residential demand response",
-   "gap": "Schedule demand-response events using household chronotype and sleep timing to cut comfort loss and opt-outs.",
-   "bridge": "Demand response asks households to shift load at set hours, and people opt out when those hours clash with their sleep. Chronotype is measurable with short questionnaires or from meter data. Scheduling around it targets the comfort cost that drives opt-outs.",
+   "title": "Ask night owls and early birds differently when the grid needs people to use less power",
+   "problem": "Utilities pay households to use less power at peak hours. Many households opt out because the requested hours clash with their routine, especially their sleep.",
+   "idea": "Sleep science measures chronotype, whether someone is a morning or an evening person, with a short questionnaire, and it may also show in meter data. Schedule each household's requests around its chronotype.",
+   "payoff": "Fewer opt-outs and less discomfort for the same relief to the grid.",
+   "status": "Not done. Studies look at comfort and daily routines in general, not at chronotype.",
    "nearest": [
     {
      "t": "Assessing thermal comfort and participation in residential demand flexibility programs (PNNL, 2026)",
@@ -212,10 +202,6 @@ export const convergences = {
      "note": "Residential DR comfort/opt-out case studies; no chronotype"
     }
    ],
-   "verdict": "OPEN",
-   "joint": 0,
-   "qa": "chronotype",
-   "qb": "demand response",
    "score": 7.5,
    "parts": {
     "gap": 9,
@@ -229,9 +215,11 @@ export const convergences = {
    "id": "smartmeter-flu",
    "fa": "power",
    "fb": "epi",
-   "title": "Smart-meter load as an influenza surveillance signal",
-   "gap": "A 2016 trade column floated the idea and COVID-era studies tied load to lockdown behaviour, but no study validates household load as an influenza signal against ILINet.",
-   "bridge": "Sick people stay home, and homes draw more power on weekdays when they do. Meter data is near-real-time and covers whole communities, unlike clinic visits. It could give influenza surveillance a lead of days.",
+   "title": "Spot flu waves early from household electricity use",
+   "problem": "Flu surveillance relies on doctor visits and lab tests, which lag the real spread by one to two weeks.",
+   "idea": "Sick people stay home on weekdays, so daytime electricity use rises. Smart meters record this every 15 minutes for whole towns.",
+   "payoff": "A free, near-real-time signal that could warn of flu waves days before clinics do.",
+   "status": "Floated in a 2016 trade column and linked to COVID lockdowns, but never checked against official flu data.",
    "nearest": [
     {
      "t": "Tracking the Bugs with Smart Meter Data (Public Utilities Fortnightly column, 2016)",
@@ -244,10 +232,6 @@ export const convergences = {
      "note": "Household smart-meter load tracks pandemic behaviour, not illness incidence"
     }
    ],
-   "verdict": "PARTIAL",
-   "joint": 0,
-   "qa": "smart meter",
-   "qb": "influenza surveillance",
    "score": 7.5,
    "parts": {
     "gap": 7,
@@ -261,9 +245,11 @@ export const convergences = {
    "id": "gsadf-hype",
    "fa": "ts",
    "fb": "netsci",
-   "title": "Explosive-root bubble tests for research-hype detection",
-   "gap": "Apply the Phillips GSADF bubble test, built for asset prices, to keyword publication counts to date the start and collapse of research fads.",
-   "bridge": "The GSADF test detects when a series grows faster than any stable process would, and dates when the episode starts and ends. Publication counts in a hot topic look like asset prices in a bubble. The test would give research hype a formal start date and collapse date.",
+   "title": "Date the rise and burst of research hype with the test economists use for stock bubbles",
+   "problem": "Research topics go in and out of fashion, but hype is called by gut feeling, usually after the fact.",
+   "idea": "Economists have a statistical test (GSADF) that tells when a price grows faster than any normal process would, and dates when the bubble began and when it burst. Apply it to the yearly number of papers on a topic.",
+   "payoff": "An objective, early flag for overheated topics, useful to funders, editors and young researchers choosing a direction.",
+   "status": "Not done. The test has been applied to AI stocks, not to publication counts.",
    "nearest": [
     {
      "t": "Examining the Relationship between Scientific Publishing Activity and Hype-Driven Financial Bubbles: A Comparison of the Dot-Com and AI Eras (2025)",
@@ -276,10 +262,6 @@ export const convergences = {
      "note": "Predicts collapse of scientific bubbles from diffusion, not GSADF."
     }
    ],
-   "verdict": "OPEN",
-   "joint": 1,
-   "qa": "explosive behavior",
-   "qb": "research topics",
    "score": 7.25,
    "parts": {
     "gap": 9,
@@ -293,9 +275,11 @@ export const convergences = {
    "id": "sample-infant",
    "fa": "theory",
    "fb": "psych",
-   "title": "Sample-complexity bounds as a yardstick for infant statistical learning",
-   "gap": "Compare how many exposures infants need to segment words with PAC sample-complexity lower bounds for the same task.",
-   "bridge": "Learning theory gives the minimum number of examples any learner needs for a task. Infant studies measure how many exposures babies actually need. Putting the two side by side says whether infants are near-optimal learners or rely on priors the task does not supply.",
+   "title": "Are babies near-perfect learners? Compare them with the theoretical minimum",
+   "problem": "Psychologists measure how many repetitions infants need to pick words out of a stream of speech, but have no yardstick for whether that number is impressive.",
+   "idea": "Learning theory in computer science proves the minimum number of examples any learner, human or machine, needs for a given task. Work out that minimum for the same word-finding tasks used in infant experiments.",
+   "payoff": "If babies come close to the minimum, they learn near-optimally; if they need fewer examples than it allows, they must bring built-in knowledge. That puts numbers on a long nature-versus-nurture argument.",
+   "status": "Not done.",
    "nearest": [
     {
      "t": "Grammatical inference and first language acquisition (Clark, 2004)",
@@ -308,10 +292,6 @@ export const convergences = {
      "note": "Infant segmentation experiment side only; no sample-complexity bound."
     }
    ],
-   "verdict": "OPEN",
-   "joint": 0,
-   "qa": "sample complexity",
-   "qb": "statistical learning infants",
    "score": 7.25,
    "parts": {
     "gap": 8,
@@ -325,9 +305,11 @@ export const convergences = {
    "id": "amr-malware",
    "fa": "epi",
    "fb": "security",
-   "title": "Antimicrobial-resistance evolution models for malware-classifier evasion",
-   "gap": "Model how heavy deployment of one detector selects for evasive malware with the selection-pressure and stewardship models used for antimicrobial resistance.",
-   "bridge": "Overusing one antibiotic breeds resistance, and overusing one detector breeds evasion. AMR science has quantitative models of selection pressure and of stewardship policies that rotate or restrict drugs. Detector deployment has no such models yet.",
+   "title": "Manage malware detectors the way hospitals manage antibiotics",
+   "problem": "When one malware detector is used everywhere, attackers learn to slip past it and it loses power over time. Security teams have no model of how fast this happens or how to slow it.",
+   "idea": "Overusing an antibiotic breeds resistant bacteria in the same way. Medicine has numerical models of how fast resistance grows with use, and of stewardship policies, such as rotating or restricting drugs, that slow it.",
+   "payoff": "A way to plan how detectors are deployed so they stay effective for longer.",
+   "status": "The analogy is made informally; nobody has fitted resistance models to malware data.",
    "nearest": [
     {
      "t": "MalTree: Tracing Malware Evolution from Embeddings at Scale (2026)",
@@ -340,10 +322,6 @@ export const convergences = {
      "note": "Measures malware adaptation rate under detector pressure; no resistance/stewardship modelling."
     }
    ],
-   "verdict": "OPEN",
-   "joint": 1,
-   "qa": "antimicrobial resistance",
-   "qb": "malware detection",
    "score": 7.25,
    "parts": {
     "gap": 8,
@@ -357,9 +335,11 @@ export const convergences = {
    "id": "hadd-llm",
    "fa": "religion",
    "fb": "ai",
-   "title": "Hyperactive agency detection in language models",
-   "gap": "Only an unpublished thesis tests a neighbouring bias (teleology) in LLMs; no study gives LLMs agency-detection vignettes to test intent over-attribution.",
-   "bridge": "The cognitive science of religion explains belief in unseen agents by an agency detector tuned to over-fire. LLMs trained on human text are a new kind of subject for that claim: if they over-attribute intent in the same vignettes, the bias may live in language itself.",
+   "title": "Do AI language models see intention where there is none, as people do?",
+   "problem": "A leading theory of why people believe in unseen spirits says our minds over-detect agents: we hear a rustle and assume someone is there. It is hard to test, because every person's upbringing and culture are mixed in.",
+   "idea": "Give large language models the standard story-based tests psychologists use for this bias. The models learned only from human text, with no body and no survival instinct.",
+   "payoff": "If models show the same bias, the bias may travel in language itself rather than in evolved instinct, a new test of a major theory. AI builders also learn whether their models read intent into accidents.",
+   "status": "Only an unpublished thesis tests a related bias; this test has not been run.",
    "nearest": [
     {
      "t": "Praca licencjacka [Univ. Warsaw bachelor thesis on teleological bias in Gemini models]",
@@ -372,10 +352,6 @@ export const convergences = {
      "note": "Applies HADD to humans anthropomorphizing chatbots; LLMs not subjects."
     }
    ],
-   "verdict": "PARTIAL",
-   "joint": 2,
-   "qa": "agency detection",
-   "qb": "large language model",
    "score": 7.25,
    "parts": {
     "gap": 7,
@@ -389,9 +365,11 @@ export const convergences = {
    "id": "farrington-drift",
    "fa": "epi",
    "fb": "ai",
-   "title": "Syndromic-surveillance outbreak detectors for model drift",
-   "gap": "Deployed models are monitored with CUSUM and thresholds, but nobody has run Farrington or EARS outbreak detectors, built for seasonal weekly counts, on model error counts.",
-   "bridge": "Public-health agencies have decades of tested algorithms that flag unusual weekly counts while allowing for seasonality and trend. Error counts from a deployed model are the same kind of data. Today they are monitored with ad-hoc thresholds or CUSUM.",
+   "title": "Watch AI models in use with the alarm systems built for disease outbreaks",
+   "problem": "AI models in use slowly get worse as the world changes. Companies watch error counts with simple thresholds, which either raise false alarms over normal weekly and seasonal ups and downs or react late.",
+   "idea": "Public-health agencies have algorithms, tested for decades, that flag unusual weekly case counts while allowing for seasons and trends. A model's error counts are the same kind of data.",
+   "payoff": "Fewer false alarms and earlier real ones, using methods agencies already trust.",
+   "status": "Monitoring uses simpler tools; nobody has applied these outbreak detectors.",
    "nearest": [
     {
      "t": "Detecting and Monitoring Bias for Subgroups in Breast Cancer Detection AI (2025)",
@@ -404,10 +382,6 @@ export const convergences = {
      "note": "Sequential CUSUM-style monitoring of deployed ML error; no seasonal count-surveillance methods."
     }
    ],
-   "verdict": "PARTIAL",
-   "joint": 0,
-   "qa": "Farrington algorithm",
-   "qb": "concept drift",
    "score": 7.25,
    "parts": {
     "gap": 6,
@@ -421,9 +395,11 @@ export const convergences = {
    "id": "rna-velocity",
    "fa": "neuro",
    "fb": "ai",
-   "title": "RNA velocity for predicting neuron fate during model training",
-   "gap": "Borrow RNA-velocity estimation from single-cell biology to predict which units of a network are about to specialise or die, from checkpoint pairs.",
-   "bridge": "RNA velocity infers where a cell is heading from two snapshots of its state, the spliced and unspliced transcripts. Pairs of nearby checkpoints offer a similar two-state reading for each unit of a network. It could predict which units will specialise or die before it happens.",
+   "title": "Predict which parts of a neural network will specialise or go dead during training, with a tool from cell biology",
+   "problem": "During training, some units of a network become specialised and others go dead. Usually we see this only afterwards.",
+   "idea": "Biologists can tell what a cell is turning into from a single snapshot, by comparing its newly made and its mature RNA (RNA velocity). Two nearby training checkpoints give the same kind of before-and-after reading for each unit.",
+   "payoff": "Early warning of dead units and a map of how features form, useful for cheaper training and for understanding models.",
+   "status": "Not done.",
    "nearest": [
     {
      "t": "The Early Phase of Neural Network Training (2020)",
@@ -431,10 +407,6 @@ export const convergences = {
      "note": "Early training weight dynamics carry structure; no per-unit fate prediction via velocity."
     }
    ],
-   "verdict": "OPEN",
-   "joint": 8,
-   "qa": "RNA velocity",
-   "qb": "neural network training",
    "score": 7.0,
    "parts": {
     "gap": 9,
@@ -448,9 +420,11 @@ export const convergences = {
    "id": "pathfm-metal",
    "fa": "biomed",
    "fb": "materials",
-   "title": "Pathology foundation models for metallographic micrographs",
-   "gap": "Transfer whole-slide-image foundation models (UNI, Virchow) to optical and SEM micrographs of alloys for phase and defect segmentation.",
-   "bridge": "Pathology foundation models are trained on millions of stained tissue images whose texture statistics, grains, boundaries and inclusions, resemble etched metal micrographs. Materials science has few labelled micrographs, so borrowing a strong visual prior is cheap to test.",
+   "title": "Reuse AI models trained on cancer slides to analyse metal under the microscope",
+   "problem": "Engineers judge metal quality from microscope images of grains, boundaries and defects, but labelled images are scarce, so AI tools for them are weak.",
+   "idea": "Very large AI models have been trained on millions of stained tissue slides, and tissue and etched metal look surprisingly alike under a microscope: grains, boundaries, inclusions.",
+   "payoff": "A strong starting model for materials images, and almost free to try.",
+   "status": "Not done. Materials AI starts from everyday photos or its own small datasets.",
    "nearest": [
     {
      "t": "Machine Learning Models Pre-trained on MicroNet Show Improved Segmentation and Microstructure Quantification (IMAT 2023)",
@@ -463,10 +437,6 @@ export const convergences = {
      "note": "Domain adaptation for steel SEM segmentation; no histopathology transfer"
     }
    ],
-   "verdict": "OPEN",
-   "joint": 3,
-   "qa": "pathology foundation model",
-   "qb": "microstructure",
    "score": 7.0,
    "parts": {
     "gap": 9,
@@ -480,9 +450,11 @@ export const convergences = {
    "id": "sublinear-sleep",
    "fa": "theory",
    "fb": "sleep",
-   "title": "Sublinear-time sampling for overnight EEG screening",
-   "gap": "Decide sleep-apnea severity from property-testing style samples of a night without reading the whole record.",
-   "bridge": "Property testing decides whether data has a property by reading only a small random sample, with guaranteed error rates. Apnea severity is a threshold on an event rate over a night. A tester could cut scoring time with a stated bound on misclassification.",
+   "title": "Diagnose sleep apnea from a sample of the night, with a guaranteed error rate",
+   "problem": "Diagnosing sleep apnea needs a technician to score a whole night of recordings. It takes hours and causes long waiting lists.",
+   "idea": "A branch of computer science, property testing, decides whether data has a property by reading only a small random sample, with a proven bound on the chance of being wrong.",
+   "payoff": "Faster screening with a stated error guarantee, rather than a hope that the sample is typical.",
+   "status": "Scoring only part of the night has been tried, but without any guarantee.",
    "nearest": [
     {
      "t": "Polysomnography scoring for sleep apnea: use of a sampling method",
@@ -495,10 +467,6 @@ export const convergences = {
      "note": "Statistical uncertainty of sleep-disordered-breathing metrics; relevant framework, not sublinear sampling."
     }
    ],
-   "verdict": "PARTIAL",
-   "joint": 0,
-   "qa": "property testing",
-   "qb": "sleep apnea",
    "score": 7.0,
    "parts": {
     "gap": 7,
@@ -512,9 +480,11 @@ export const convergences = {
    "id": "flatband-net",
    "fa": "physics",
    "fb": "netsci",
-   "title": "Flat-band compact localised states in social networks",
-   "gap": "Find compact localised eigenstates of network Laplacians, known from flat-band lattices, and test whether they trap information spread.",
-   "bridge": "Flat-band lattices host eigenstates confined to a few sites by destructive interference. Some network Laplacians may hold the same compact states. If so, diffusion started there stays trapped, a structural explanation for messages that never spread.",
+   "title": "Find the spots in a social network where information gets trapped, with a trick from physics",
+   "problem": "Some messages never spread beyond a small group, even in a well-connected network. This is usually blamed on the content or on people's interests.",
+   "idea": "In certain crystal lattices physicists found waves trapped on a handful of sites, because they cancel out everywhere else. The same mathematics may apply to the shape of a social network.",
+   "payoff": "An explanation for stuck information that comes from the network's structure, not its content, and a way to find those spots in advance.",
+   "status": "Not done.",
    "nearest": [
     {
      "t": "Localization Phenomena in Large-Scale Networked Systems: Robustness and Fragility of Dynamics (2024)",
@@ -527,10 +497,6 @@ export const convergences = {
      "note": "Flat-band CLS theory for lattices only."
     }
    ],
-   "verdict": "OPEN",
-   "joint": 0,
-   "qa": "compact localized states",
-   "qb": "social network",
    "score": 6.75,
    "parts": {
     "gap": 9,
@@ -544,9 +510,11 @@ export const convergences = {
    "id": "conformal-reliab",
    "fa": "philosophy",
    "fb": "uq",
-   "title": "Reliabilist epistemology of conformal prediction",
-   "gap": "Argue whether coverage-guaranteed prediction sets meet process-reliabilist criteria for justified belief, and where they fail.",
-   "bridge": "Process reliabilism says a belief is justified if it comes from a reliable process. Conformal prediction is a process with a proven reliability guarantee, but only on average, not for each case. That marginal-versus-conditional gap maps onto reliabilism's generality problem.",
+   "title": "When does an AI prediction with a guarantee count as justified belief?",
+   "problem": "A popular AI method, conformal prediction, promises that its answers are right, say, 90% of the time. Users read this as trustworthiness for each case, but the promise holds only on average.",
+   "idea": "Philosophers hold that a belief is justified if it comes from a reliable process, and they know the theory's weak spot: what counts as reliable depends on how cases are grouped. That weak spot is exactly the gap between an on-average and a per-case guarantee.",
+   "payoff": "A clear account of what such guarantees do and do not license, for philosophers and for people using them in medicine or law.",
+   "status": "Not done.",
    "nearest": [
     {
      "t": "Beyond Accuracy: Epistemic Justification in Trustworthy Machine Learning (2026, ICML)",
@@ -559,10 +527,6 @@ export const convergences = {
      "note": "Gettier-style analysis of ML predictions; no conformal coverage."
     }
    ],
-   "verdict": "OPEN",
-   "joint": 0,
-   "qa": "conformal prediction",
-   "qb": "reliabilism",
    "score": 6.75,
    "parts": {
     "gap": 8,
@@ -576,9 +540,11 @@ export const convergences = {
    "id": "pinn-sleep",
    "fa": "amath",
    "fb": "sleep",
-   "title": "Physics-informed neural networks for the two-process sleep model",
-   "gap": "Fit personal circadian and homeostatic parameters from wearable data with a PINN that embeds the Borbely two-process equations.",
-   "bridge": "The two-process model is a pair of simple differential equations. Wearables give noisy, gappy sleep-wake and activity data. A physics-informed network fits the personal parameters while honouring the equations, where current fits use least squares on clean diaries.",
+   "title": "Read your body clock from a smartwatch with an AI that obeys the sleep equations",
+   "problem": "Sleep science has a classic model: sleep pressure builds while you are awake, and a body clock opens and closes the gate to sleep. Fitting it to one person needs clean sleep diaries; smartwatch data is noisy and full of gaps.",
+   "idea": "Physics-informed neural networks learn from data while being forced to obey known equations, which lets them cope with noisy, patchy measurements.",
+   "payoff": "Personal estimates of sleep pressure and body-clock timing from everyday wearables, for shift planning or jet-lag advice.",
+   "status": "Not done. Current fits use classical statistics.",
    "nearest": [
     {
      "t": "Sleep timing estimation from smartphone context information (Wahl & Amft)",
@@ -591,10 +557,6 @@ export const convergences = {
      "note": "Fits personal circadian parameters from wearable heart rate statistically, no PINN or Process S."
     }
    ],
-   "verdict": "OPEN",
-   "joint": 0,
-   "qa": "physics-informed neural network",
-   "qb": "two-process model",
    "score": 6.75,
    "parts": {
     "gap": 8,
@@ -608,9 +570,11 @@ export const convergences = {
    "id": "colgen-kv",
    "fa": "opt",
    "fb": "eda",
-   "title": "Column generation for KV-cache packing in LLM serving",
-   "gap": "Formulate KV-cache memory packing across batched requests as a cutting-stock problem solved by column generation.",
-   "bridge": "Packing variable-length KV caches into fixed GPU memory blocks is a cutting-stock problem, the classic home of column generation. Column generation handles the huge number of packing patterns implicitly and gives a lower bound on waste to compare heuristics against.",
+   "title": "Pack chatbot memory on GPUs with the method paper mills use to cut rolls",
+   "problem": "AI chat services keep a working memory for every conversation on the GPU. Conversations differ in length, so memory fragments and goes to waste, which limits how many users one GPU can serve.",
+   "idea": "Paper mills cut big rolls into orders of different widths with as little waste as possible. The classic method, column generation, copes with astronomically many cutting patterns and says how far a plan is from the best possible.",
+   "payoff": "Less wasted memory, more users per GPU, and a benchmark for judging the rules of thumb in use today.",
+   "status": "Not done. Current systems use rules of thumb and simple integer programs.",
    "nearest": [
     {
      "t": "Online Scheduling for LLM Inference with KV Cache Constraints (2025)",
@@ -623,10 +587,6 @@ export const convergences = {
      "note": "Mixed-integer DRO KV reservation solved by block coordinate descent, not cutting stock."
     }
    ],
-   "verdict": "OPEN",
-   "joint": 0,
-   "qa": "column generation",
-   "qb": "KV cache",
    "score": 6.75,
    "parts": {
     "gap": 8,
@@ -638,938 +598,757 @@ export const convergences = {
  ],
  "pool": [
   {
-   "id": "tnd-phish",
-   "fa": "epi",
-   "fb": "security",
-   "title": "Test-negative design for measuring security-awareness training",
-   "joint": 1,
-   "outcome": "top",
-   "note": ""
-  },
-  {
-   "id": "serosurvey-contam",
-   "fa": "epi",
-   "fb": "ai",
-   "title": "Serosurvey statistics for benchmark contamination prevalence",
-   "joint": 0,
-   "outcome": "top",
-   "note": ""
-  },
-  {
-   "id": "farrington-drift",
-   "fa": "epi",
-   "fb": "ai",
-   "title": "Syndromic-surveillance outbreak detectors for model drift",
-   "joint": 0,
-   "outcome": "top",
-   "note": ""
-  },
-  {
-   "id": "amr-malware",
-   "fa": "epi",
-   "fb": "security",
-   "title": "Antimicrobial-resistance evolution models for malware-classifier evasion",
-   "joint": 1,
-   "outcome": "top",
-   "note": ""
-  },
-  {
-   "id": "smartmeter-flu",
-   "fa": "power",
-   "fb": "epi",
-   "title": "Smart-meter load as an influenza surveillance signal",
-   "joint": 0,
-   "outcome": "top",
-   "note": ""
-  },
-  {
-   "id": "qec-contact",
-   "fa": "quantum",
-   "fb": "epi",
-   "title": "Surface-code decoders for inferring hidden infection chains",
-   "joint": 0,
-   "outcome": "top",
-   "note": ""
-  },
-  {
-   "id": "qec-fault",
-   "fa": "quantum",
-   "fb": "power",
-   "title": "Syndrome decoding for fault location from sparse grid alarms",
-   "joint": 0,
-   "outcome": "top",
-   "note": ""
-  },
-  {
-   "id": "cbf-sleep",
-   "fa": "control",
-   "fb": "sleep",
-   "title": "Control barrier functions for closed-loop acoustic sleep stimulation",
-   "joint": 0,
-   "outcome": "top",
-   "note": ""
-  },
-  {
-   "id": "mpc-cbti",
-   "fa": "control",
-   "fb": "sleep",
-   "title": "Model predictive control of sleep-restriction therapy",
-   "joint": 14,
-   "outcome": "top",
-   "note": ""
-  },
-  {
    "id": "string-agents",
    "fa": "complex",
    "fb": "ai",
-   "title": "String stability of LLM agent pipelines",
-   "joint": 1,
+   "text": "Stop errors growing along a chain of AI agents with the rule that keeps a convoy of self-driving trucks from amplifying each other's braking.",
+   "status": "Error growth is measured; this rule is not applied.",
    "outcome": "open",
-   "note": "partly done: Error growth along LLM agent chains is measured and some system-theoretic stability analysis exists, but nobody applies the platoon string-stability criterion or designs gains to bound it."
+   "score": 6.75
   },
   {
    "id": "cascade-agents",
    "fa": "power",
    "fb": "ai",
-   "title": "Power-grid cascade models for failure propagation in multi-agent LLM systems",
-   "joint": 0,
+   "text": "Predict how one failing AI agent can bring down a team of agents, with the models used for blackouts spreading across a grid.",
+   "status": "Error cascades are studied with other models.",
    "outcome": "open",
-   "note": "partly done: Failure cascades in multi-agent LLM systems are actively modeled (contagion, topology, hubs), but nobody imports OPA or load-redistribution overload cascade models from grid reliability."
+   "score": 5.75
   },
   {
    "id": "csd-spikes",
    "fa": "dynsys",
    "fb": "ai",
-   "title": "Critical slowing down as an early warning for LLM loss spikes",
-   "joint": 0,
+   "text": "Predict sudden failures when training large AI models from the warning signs that come before ecosystem tipping points: slower recovery, bigger wobbles.",
+   "status": "Other early-warning signals are already studied.",
    "outcome": "open",
-   "note": "partly done: Loss-spike early warning exists (TIC, mechanism-driven monitors) and CSD early warnings exist for training phase transitions, but no study tests classic rising-variance/lag-1 autocorrelation indicators before LLM pretraining loss spikes."
+   "score": 6.25
   },
   {
    "id": "csd-grok",
    "fa": "dynsys",
    "fb": "ai",
-   "title": "Tipping-point indicators before grokking",
-   "joint": 2,
+   "text": "Look for tipping-point warning signs before an AI suddenly 'gets' a task after long training.",
+   "status": "Mostly done.",
    "outcome": "done",
-   "note": "CSD framing and CSD-based early warnings for grokking exist, plus other precursors (commutator defect, oscillations); a direct test of classic variance/autocorrelation indicators of a saddle-node transition before grokking is not clearly done."
+   "score": null
   },
   {
    "id": "hopf-repeat",
    "fa": "dynsys",
    "fb": "ai",
-   "title": "Hopf bifurcation account of repetition loops in LLM decoding",
-   "joint": 1,
+   "text": "Explain why AI text generators get stuck repeating themselves with the mathematics of how steady systems start to oscillate.",
+   "status": "Other dynamical explanations exist.",
    "outcome": "open",
-   "note": "partly done: Attractor/critical-temperature accounts of LLM repetition exist, but no work models decoding loops as limit cycles born at a Hopf bifurcation in temperature or penalty parameters."
+   "score": 5.75
   },
   {
    "id": "multistab-persona",
    "fa": "dynsys",
    "fb": "ai",
-   "title": "Multistability and hysteresis in LLM persona switching",
-   "joint": 4,
+   "text": "Check whether an AI stays stuck in a persona once pushed into it, a sign of hidden stable states.",
+   "status": "Analogy, not a method",
    "outcome": "dropped",
-   "note": "link judged too loose to pursue"
+   "score": null
   },
   {
    "id": "kuramoto-debate",
    "fa": "dynsys",
    "fb": "ai",
-   "title": "Kuramoto synchronisation model of multi-agent LLM debate",
-   "joint": 0,
+   "text": "Use the mathematics of fireflies flashing in sync to predict when AI agents debating a question will agree or split.",
+   "status": "Related ideas exist; never fitted to real debates.",
    "outcome": "open",
-   "note": "partly done: Kuramoto framing of agents and physics models of debate consensus both exist; fitting coupled-oscillator models to actual debate answer trajectories to predict lock-in vs split is not found."
-  },
-  {
-   "id": "rna-velocity",
-   "fa": "neuro",
-   "fb": "ai",
-   "title": "RNA velocity for predicting neuron fate during model training",
-   "joint": 8,
-   "outcome": "top",
-   "note": ""
+   "score": 5.5
   },
   {
    "id": "pseudotime-ckpt",
    "fa": "neuro",
    "fb": "ai",
-   "title": "Pseudotime trajectory inference across training checkpoints",
-   "joint": 0,
+   "text": "Use the tools biologists use to order cells along a development path to trace how features form inside a language model during training.",
+   "status": "Features are tracked, but not with these tools.",
    "outcome": "open",
-   "note": "partly done: Feature-lineage tracking across checkpoints exists, but nobody uses single-cell pseudotime/trajectory tools (Monocle, PAGA) to order neurons or features."
+   "score": 6.5
   },
   {
    "id": "microglia-prune",
    "fa": "neuro",
    "fb": "ai",
-   "title": "Microglial complement-tagging rules as a pruning algorithm",
-   "joint": 29,
+   "text": "Trim neural networks with the rules brain immune cells use to prune unused connections.",
+   "status": "Already studied",
    "outcome": "dropped",
-   "note": "29 papers already join the two"
-  },
-  {
-   "id": "hadd-llm",
-   "fa": "religion",
-   "fb": "ai",
-   "title": "Hyperactive agency detection in language models",
-   "joint": 2,
-   "outcome": "top",
-   "note": ""
+   "score": null
   },
   {
    "id": "csr-transmission",
    "fa": "religion",
    "fb": "ai",
-   "title": "Minimally counterintuitive concepts in LLM transmission chains",
-   "joint": 0,
+   "text": "Test whether AI, like people, best remembers stories that are only slightly supernatural.",
+   "status": "Done: PNAS 2023 (Acerbi and Stubbersfield).",
    "outcome": "done",
-   "note": "Acerbi and Stubbersfield already tested counterintuitive-content bias in LLM transmission chains; only extensions remain (MCI vs maximally-counterintuitive curve, newer models, LLM-to-LLM chains)."
-  },
-  {
-   "id": "pathfm-metal",
-   "fa": "biomed",
-   "fb": "materials",
-   "title": "Pathology foundation models for metallographic micrographs",
-   "joint": 3,
-   "outcome": "top",
-   "note": ""
+   "score": null
   },
   {
    "id": "xvector-nilm",
    "fa": "audio",
    "fb": "power",
-   "title": "Speaker-verification embeddings for appliance and inverter identification",
-   "joint": 0,
+   "text": "Recognise each appliance or solar inverter by its electrical 'voice', with the AI that recognises a speaker's voice.",
+   "status": "Similar methods exist.",
    "outcome": "open",
-   "note": "partly done: Verification-style embedding/enrollment for appliances exists via Siamese networks, but no work transfers x-vector/ECAPA-TDNN speaker-verification recipes to current waveforms or to identifying individual inverters."
+   "score": 6.5
   },
   {
    "id": "wav2vec-ae",
    "fa": "audio",
    "fb": "materials",
-   "title": "Self-supervised speech models for acoustic-emission crack monitoring",
-   "joint": 1,
+   "text": "Pretrain a speech-style AI on hours of unlabelled crackling sounds from stressed metal and concrete, then use it to detect growing cracks.",
+   "status": "Smaller versions exist.",
    "outcome": "open",
-   "note": "partly done: Self-supervised and contrastive AE methods exist, but large-scale wav2vec-style pretraining on raw unlabeled AE streams with crack-growth fine-tuning was not found."
-  },
-  {
-   "id": "gsadf-hype",
-   "fa": "ts",
-   "fb": "netsci",
-   "title": "Explosive-root bubble tests for research-hype detection",
-   "joint": 1,
-   "outcome": "top",
-   "note": ""
-  },
-  {
-   "id": "sample-infant",
-   "fa": "theory",
-   "fb": "psych",
-   "title": "Sample-complexity bounds as a yardstick for infant statistical learning",
-   "joint": 0,
-   "outcome": "top",
-   "note": ""
+   "score": 5.5
   },
   {
    "id": "query-search",
    "fa": "theory",
    "fb": "psych",
-   "title": "Query-complexity lower bounds for human visual search",
-   "joint": 1,
+   "text": "Compare how many glances people need to find an object with the theoretical minimum number of yes-or-no questions.",
+   "status": "Already compared with other ideal models.",
    "outcome": "open",
-   "note": "partly done: Human fixation counts are routinely benchmarked against Bayesian ideal-searcher and information-gain models, but not against formal query-complexity (noisy 20-questions) lower bounds per display."
-  },
-  {
-   "id": "colgen-kv",
-   "fa": "opt",
-   "fb": "eda",
-   "title": "Column generation for KV-cache packing in LLM serving",
-   "joint": 0,
-   "outcome": "top",
-   "note": ""
+   "score": 6.25
   },
   {
    "id": "bnb-reason",
    "fa": "opt",
    "fb": "ai",
-   "title": "Branch-and-bound with LLM-generated bounds for reasoning search",
-   "joint": 1,
+   "text": "Search AI reasoning steps with a classic optimisation method that safely skips hopeless branches.",
+   "status": "Analogy, not a method",
    "outcome": "dropped",
-   "note": "link judged too loose to pursue"
+   "score": null
   },
   {
    "id": "pod-kv",
    "fa": "amath",
    "fb": "ai",
-   "title": "Proper orthogonal decomposition with DEIM for KV-cache compression",
-   "joint": 19,
+   "text": "Compress a chatbot's working memory with the data-reduction method engineers use to speed up simulations.",
+   "status": "Already studied",
    "outcome": "dropped",
-   "note": "19 papers already join the two"
+   "score": null
   },
   {
    "id": "amr-context",
    "fa": "amath",
    "fb": "ai",
-   "title": "Adaptive mesh refinement for long-context token budgets",
-   "joint": 0,
+   "text": "Let an AI read long documents in detail only where it matters, as simulations refine their grid only where things happen.",
+   "status": "A close method appeared in 2026.",
    "outcome": "open",
-   "note": "partly done: Error-bound-driven coarse-to-fine refinement of long-context attention exists (CEDAR), so what remains is a genuine AMR formulation with a posteriori estimators, nested refinement levels and conservation-style guarantees."
+   "score": 5.5
   },
   {
    "id": "ch-opinion",
    "fa": "amath",
    "fb": "netsci",
-   "title": "Cahn-Hilliard coarsening of opinion domains on social networks",
-   "joint": 2,
+   "text": "Model how opinion groups online slowly merge with the equation for oil and water separating.",
+   "status": "Analogy, not a method",
    "outcome": "dropped",
-   "note": "link judged too loose to pursue"
-  },
-  {
-   "id": "pinn-sleep",
-   "fa": "amath",
-   "fb": "sleep",
-   "title": "Physics-informed neural networks for the two-process sleep model",
-   "joint": 0,
-   "outcome": "top",
-   "note": ""
-  },
-  {
-   "id": "flatband-net",
-   "fa": "physics",
-   "fb": "netsci",
-   "title": "Flat-band compact localised states in social networks",
-   "joint": 0,
-   "outcome": "top",
-   "note": ""
+   "score": null
   },
   {
    "id": "berry-train",
    "fa": "physics",
    "fb": "ai",
-   "title": "Berry phase of training trajectories under cyclic learning rates",
-   "joint": 3,
+   "text": "Measure a geometric 'twist' that network weights pick up when the learning rate is cycled up and down.",
+   "status": "Analogy, not a method",
    "outcome": "dropped",
-   "note": "link judged too loose to pursue"
+   "score": null
   },
   {
    "id": "mips-traffic",
    "fa": "physics",
    "fb": "complex",
-   "title": "Motility-induced phase separation theory for mixed-autonomy traffic jams",
-   "joint": 11,
+   "text": "Explain jams in mixed self-driving and human traffic with the physics of self-propelled particles clumping.",
+   "status": "Already studied",
    "outcome": "dropped",
-   "note": "11 papers already join the two"
+   "score": null
   },
   {
    "id": "tmr-agent",
    "fa": "eda",
    "fb": "ai",
-   "title": "Triple modular redundancy with voters for LLM agent actions",
-   "joint": 2,
+   "text": "Have three AI agents vote on each action, as spacecraft computers do, and measure the gain in reliability.",
+   "status": "Analogy, not a method",
    "outcome": "dropped",
-   "note": "link judged too loose to pursue"
+   "score": null
   },
   {
    "id": "dse-connectome",
    "fa": "eda",
    "fb": "neuro",
-   "title": "Design-space exploration of connectome wiring trade-offs",
-   "joint": 1,
+   "text": "Use chip-design trade-off tools to ask whether brain wiring balances cost against performance.",
+   "status": "Analogy, not a method",
    "outcome": "dropped",
-   "note": "link judged too loose to pursue"
+   "score": null
   },
   {
    "id": "iss-llmloop",
    "fa": "control",
    "fb": "ai",
-   "title": "Input-to-state stability of LLM-in-the-loop controllers",
-   "joint": 2,
+   "text": "Prove that a control system stays stable even when a language model that sometimes errs proposes its actions.",
+   "status": "Sketched in a survey; no proofs yet.",
    "outcome": "open",
-   "note": "partly done: The ISS-with-bounded-LLM-error framing is sketched in a survey, but no paper gives actual ISS certificates for an LLM proposing control actions."
+   "score": 6.25
   },
   {
    "id": "cbf-dp",
    "fa": "control",
    "fb": "security",
-   "title": "Control barrier functions for privacy-budget spending",
-   "joint": 0,
+   "text": "Use a safety filter from robotics to stop a dataset's privacy budget being overspent as queries arrive.",
+   "status": "Existing privacy filters already do most of this.",
    "outcome": "open",
-   "note": "partly done: Privacy filters already enforce cumulative-loss budgets adaptively; a CBF formulation that adapts noise online to keep loss in a safe set is not published."
-  },
-  {
-   "id": "chrono-dr",
-   "fa": "sleep",
-   "fb": "power",
-   "title": "Chronotype-aware residential demand response",
-   "joint": 0,
-   "outcome": "top",
-   "note": ""
+   "score": 5.5
   },
   {
    "id": "sleep-replay-llm",
    "fa": "sleep",
    "fb": "ai",
-   "title": "NREM/REM alternation schedules for continual LLM fine-tuning",
-   "joint": 0,
+   "text": "Train AI on new material in cycles that copy human sleep: more review early in the night, more 'dreaming' later.",
+   "status": "Sleep-like phases tried; not the human schedule.",
    "outcome": "open",
-   "note": "partly done: Consolidation-plus-dreaming sleep phases for continual LLM learning exist; what is missing is alternating them in human-sleep-cycle ratio/order (multiple cycles, NREM-heavy early, REM-heavy late) and testing that schedule."
+   "score": 5.5
   },
   {
    "id": "bo-tes",
    "fa": "uq",
    "fb": "sleep",
-   "title": "Bayesian optimisation of closed-loop auditory stimulation parameters",
-   "joint": 0,
+   "text": "Tune sleep-deepening sound pulses to each person over a few nights with the search method used to tune AI models.",
+   "status": "Only a master's thesis so far.",
    "outcome": "open",
-   "note": "partly done: BO has been applied to sleep-stimulation detector settings (thesis) and auditory timing in BCIs, but no peer-reviewed work optimizes CLAS volume and phase timing per person across nights for slow-wave enhancement."
-  },
-  {
-   "id": "conformal-reliab",
-   "fa": "philosophy",
-   "fb": "uq",
-   "title": "Reliabilist epistemology of conformal prediction",
-   "joint": 0,
-   "outcome": "top",
-   "note": ""
+   "score": 5.75
   },
   {
    "id": "fdr-leader",
    "fa": "uq",
    "fb": "ai",
-   "title": "False-discovery-rate control for leaderboard rank claims",
-   "joint": 52,
+   "text": "Correct AI leaderboards for the many 'A beats B' claims they make at once, so the lucky ones are not taken as real.",
+   "status": "Already studied",
    "outcome": "dropped",
-   "note": "52 papers already join the two"
+   "score": null
   },
   {
    "id": "rr-fl",
    "fa": "epi",
    "fb": "security",
-   "title": "Ring vaccination strategy for patch rollout in federated fleets",
-   "joint": 0,
+   "text": "Patch the devices next to a hacked one first, as ring vaccination does around a smallpox case, and compare with patching everyone in turn.",
+   "status": "Close variants exist.",
    "outcome": "open",
-   "note": "partly done: Ring vaccination on networks and epidemic patch-control for malware both exist (plus an 'I-ring' P2P immunization strategy), but no head-to-head neighbour-first vs blanket patch rollout for fleets."
+   "score": 6.25
   },
   {
    "id": "r0-promptworm",
    "fa": "epi",
    "fb": "security",
-   "title": "Reproduction number of prompt-injection worms among LLM agents",
-   "joint": 0,
+   "text": "Estimate how fast self-copying malicious prompts would spread among AI email assistants, and what share must be protected to stop them, like an epidemic's R number.",
+   "status": "Partly done.",
    "outcome": "open",
-   "note": "partly done: Simple R0 / branching definitions appear in worm papers and Mind Viruses (2026) studies spread factors, but systematic R0 estimation and herd-immunity thresholds across email/RAG agent networks are not done."
+   "score": 6.75
   },
   {
    "id": "tte-copilot",
    "fa": "epi",
    "fb": "ai",
-   "title": "Target-trial emulation for AI coding-assistant effects",
-   "joint": 3,
+   "text": "Estimate whether AI coding assistants cause more or fewer bugs by imitating a randomised trial from project histories.",
+   "status": "Analogy, not a method",
    "outcome": "dropped",
-   "note": "link judged too loose to pursue"
+   "score": null
   },
   {
    "id": "seasonal-bench",
    "fa": "epi",
    "fb": "ai",
-   "title": "Nowcasting reporting delays for benchmark result streams",
-   "joint": 410,
+   "text": "Correct recent AI benchmark trends for results not yet published, as epidemiologists correct for late case reports.",
+   "status": "Already studied",
    "outcome": "dropped",
-   "note": "410 papers already join the two"
+   "score": null
   },
   {
    "id": "ddm-llm",
    "fa": "psych",
    "fb": "ai",
-   "title": "Drift-diffusion modelling of LLM token decisions",
-   "joint": 8,
+   "text": "Model an AI's choice of word as evidence piling up to a threshold, the standard model of human decisions.",
+   "status": "Already studied",
    "outcome": "dropped",
-   "note": "8 papers already join the two"
+   "score": null
   },
   {
    "id": "metacog-sleep",
    "fa": "psych",
    "fb": "sleep",
-   "title": "Metacognitive accuracy after sleep deprivation in human-AI teaming",
-   "joint": 7,
+   "text": "Test whether sleep-deprived people misjudge when to trust an AI's advice.",
+   "status": "Already studied",
    "outcome": "dropped",
-   "note": "7 papers already join the two"
+   "score": null
   },
   {
    "id": "presence-dream",
    "fa": "vis",
    "fb": "sleep",
-   "title": "VR presence measures for lucid-dream realism",
-   "joint": 0,
+   "text": "Measure how real lucid dreams feel with the questionnaires that measure 'being there' in virtual reality.",
+   "status": "Proposed in theory only.",
    "outcome": "open",
-   "note": "partly done: Dreaming is framed theoretically as a presence analogue and lucidity scales rate realism, but no study administers validated VR presence questionnaires or behavioural presence probes to lucid dreamers."
+   "score": 6.0
   },
   {
    "id": "3dgs-micro",
    "fa": "vis",
    "fb": "materials",
-   "title": "Gaussian splatting for 3D microstructure reconstruction from sparse tomography",
-   "joint": 0,
+   "text": "Rebuild the 3D inside of a material from a few X-ray shots with the new graphics technique behind photo-real 3D scenes.",
+   "status": "Used for X-rays already, not tested on materials.",
    "outcome": "open",
-   "note": "partly done: Gaussian splatting for sparse-view X-ray tomography is established (R2-Gaussian, GR-Gaussian, LamiGauss, DenZa-Gaussian for electron tomography); application and evaluation on grain/pore microstructure quantification from few projections is not found."
+   "score": 5.75
   },
   {
    "id": "netvis-patristic",
    "fa": "vis",
    "fb": "theology",
-   "title": "Visual analytics of patristic citation networks",
-   "joint": 0,
+   "text": "Map which Bible verses each early Church Father quoted, and how the map shifted during the debates over the nature of Christ.",
+   "status": "Done for one author, Origen.",
    "outcome": "open",
-   "note": "partly done: Scripture-citation networks exist for single Fathers (Origen), but a multi-Father network mapped onto Christological controversies over time was not found."
+   "score": 6.25
   },
   {
    "id": "align-theology",
    "fa": "theology",
    "fb": "ai",
-   "title": "Analogia entis as a formal account of LLM analogical reasoning",
-   "joint": 0,
+   "text": "Grade the analogies AI models make with Thomas Aquinas's types of analogy.",
+   "status": "Analogy, not a method",
    "outcome": "dropped",
-   "note": "link judged too loose to pursue"
+   "score": null
   },
   {
    "id": "hermeneutic-rag",
    "fa": "theology",
    "fb": "ai",
-   "title": "Hermeneutic-circle retrieval for long-document question answering",
-   "joint": 0,
+   "text": "Let AI read long documents by moving back and forth between the parts and the whole, as interpreters of texts do.",
+   "status": "Analogy, not a method",
    "outcome": "dropped",
-   "note": "link judged too loose to pursue"
+   "score": null
   },
   {
    "id": "ritual-kuramoto",
    "fa": "religion",
    "fb": "complex",
-   "title": "Coupled-oscillator models of synchrony in collective ritual",
-   "joint": 14,
+   "text": "Measure whether people who move in sync during rituals bond more, with the mathematics of synchronising oscillators.",
+   "status": "Already studied",
    "outcome": "dropped",
-   "note": "14 papers already join the two"
+   "score": null
   },
   {
    "id": "secular-perc",
    "fa": "religion",
    "fb": "netsci",
-   "title": "Complex-contagion models of secularisation on friendship networks",
-   "joint": 0,
+   "text": "Test whether people leave religion the way they take up a habit only after several friends have, using surveys that follow friendships over years.",
+   "status": "Simulated, not tested on real data.",
    "outcome": "open",
-   "note": "partly done: Simulations and longitudinal peer-influence studies exist, but no empirical test of disaffiliation as threshold complex contagion on longitudinal network surveys was found."
+   "score": 6.5
   },
   {
    "id": "costly-fl",
    "fa": "religion",
    "fb": "security",
-   "title": "Costly-signalling theory for Sybil resistance in federated learning",
-   "joint": 0,
+   "text": "Keep fake participants out of shared AI training by demanding costly contributions, as costly rituals prove religious commitment.",
+   "status": "Analogy, not a method",
    "outcome": "dropped",
-   "note": "link judged too loose to pursue"
+   "score": null
   },
   {
    "id": "evo-game-review",
    "fa": "complex",
    "fb": "ai",
-   "title": "Evolutionary game model of reviewer effort at AI conferences",
-   "joint": 230,
+   "text": "Model reviewer effort and AI-written reviews at AI conferences as strategies competing over time.",
+   "status": "Already studied",
    "outcome": "dropped",
-   "note": "230 papers already join the two"
+   "score": null
   },
   {
    "id": "percolation-supply",
    "fa": "netsci",
    "fb": "eda",
-   "title": "Percolation analysis of the chip-design IP supply network",
-   "joint": 1,
+   "text": "Work out how many failures it takes to break the chip-design supply chain.",
+   "status": "Analogy, not a method",
    "outcome": "dropped",
-   "note": "link judged too loose to pursue"
+   "score": null
   },
   {
    "id": "homophily-moe",
    "fa": "netsci",
    "fb": "ai",
-   "title": "Homophily measures for expert routing in mixture-of-experts",
-   "joint": 5,
+   "text": "Check whether similar words are sent to the same 'expert' inside mixture-of-experts AI models, and what that does to the load balance.",
+   "status": "Already studied",
    "outcome": "dropped",
-   "note": "5 papers already join the two"
+   "score": null
   },
   {
    "id": "bipartite-review",
    "fa": "netsci",
    "fb": "ai",
-   "title": "Bipartite nestedness of reviewer-paper assignments",
-   "joint": 1,
+   "text": "Test whether reviewer-paper assignments have the nested shape of ecosystems, which would make them robust to reviewers dropping out.",
+   "status": "Analogy, not a method",
    "outcome": "dropped",
-   "note": "link judged too loose to pursue"
+   "score": null
   },
   {
    "id": "hoi-lora",
    "fa": "complex",
    "fb": "ai",
-   "title": "Higher-order interaction measures for LoRA adapter merging",
-   "joint": 2,
+   "text": "Predict which add-on modules for AI models combine well by looking at groups of them, not pairs.",
+   "status": "Analogy, not a method",
    "outcome": "dropped",
-   "note": "link judged too loose to pursue"
+   "score": null
   },
   {
    "id": "evac-dc",
    "fa": "complex",
    "fb": "power",
-   "title": "Crowd-evacuation models for datacenter load shedding",
-   "joint": 0,
+   "text": "Plan moving jobs out of a failing data centre with crowd-evacuation models.",
+   "status": "Analogy, not a method",
    "outcome": "dropped",
-   "note": "link judged too loose to pursue"
+   "score": null
   },
   {
    "id": "traffic-tokens",
    "fa": "complex",
    "fb": "eda",
-   "title": "LWR traffic-flow model for on-chip network congestion under LLM inference",
-   "joint": 0,
+   "text": "Model congestion in the wiring inside AI chips with the equations for highway traffic.",
+   "status": "Analogy, not a method",
    "outcome": "dropped",
-   "note": "link judged too loose to pursue"
+   "score": null
   },
   {
    "id": "garch-gpu",
    "fa": "ts",
    "fb": "power",
-   "title": "GARCH volatility forecasting of AI-training power swings",
-   "joint": 0,
+   "text": "Forecast the swings in power use of AI training clusters with the volatility models used for stock prices, to size backup batteries.",
+   "status": "Not done, but a routine transfer.",
    "outcome": "open",
-   "note": "GARCH is used for general electricity load and AI-training power swings are studied for storage sizing, but no work fits GARCH-type volatility models to GPU-cluster power."
+   "score": 6.5
   },
   {
    "id": "emh-openreview",
    "fa": "ts",
    "fb": "ai",
-   "title": "Market-efficiency tests on OpenReview score revisions",
-   "joint": 33,
+   "text": "Test whether reviewers' score changes after author rebuttals can be predicted, as markets are tested for efficiency.",
+   "status": "Already studied",
    "outcome": "dropped",
-   "note": "33 papers already join the two"
+   "score": null
   },
   {
    "id": "var-bench",
    "fa": "ts",
    "fb": "ai",
-   "title": "Value-at-risk for tail failures of LLM deployments",
-   "joint": 0,
+   "text": "Choose AI models by how badly they fail in the worst cases, with financial risk measures, rather than by average score.",
+   "status": "Done: ICML 2024 (Nitsure et al.).",
    "outcome": "done",
-   "note": "Nitsure et al. already propose tail-risk (TVaR/expected shortfall) metrics instead of mean scores for choosing LLMs under risk; only the exact per-query accuracy-loss framing for deployment differs."
+   "score": null
   },
   {
    "id": "factor-sleep",
    "fa": "ts",
    "fb": "sleep",
-   "title": "Dynamic factor models for multi-night wearable sleep data",
-   "joint": 8,
+   "text": "Pull a few common sleep patterns out of many nights of wearable data with the models economists use for many indicators.",
+   "status": "Already studied",
    "outcome": "dropped",
-   "note": "8 papers already join the two"
+   "score": null
   },
   {
    "id": "changepoint-theology",
    "fa": "ts",
    "fb": "theology",
-   "title": "Change-point detection in doctrinal vocabulary across councils",
-   "joint": 0,
+   "text": "Find the moments when theological vocabulary changed sharply across church councils.",
+   "status": "Analogy, not a method",
    "outcome": "dropped",
-   "note": "link judged too loose to pursue"
+   "score": null
   },
   {
    "id": "dro-epi",
    "fa": "opt",
    "fb": "epi",
-   "title": "Wasserstein DRO for antiviral stockpile allocation",
-   "joint": 9,
+   "text": "Allocate antiviral stockpiles so they hold up under the worst plausible epidemic curves.",
+   "status": "Already studied",
    "outcome": "dropped",
-   "note": "9 papers already join the two"
+   "score": null
   },
   {
    "id": "online-lockdown",
    "fa": "opt",
    "fb": "epi",
-   "title": "Competitive-ratio guarantees for intervention timing",
-   "joint": 0,
+   "text": "Decide when to start and end lockdowns with guarantees that hold however the epidemic unfolds.",
+   "status": "Analogy, not a method",
    "outcome": "dropped",
-   "note": "link judged too loose to pursue"
+   "score": null
   },
   {
    "id": "vrp-cbti",
    "fa": "opt",
    "fb": "sleep",
-   "title": "Shift scheduling with circadian-phase constraints from wearables",
-   "joint": 1,
+   "text": "Schedule nurses' shifts around each nurse's body-clock timing, measured by a wearable.",
+   "status": "Analogy, not a method",
    "outcome": "dropped",
-   "note": "link judged too loose to pursue"
+   "score": null
   },
   {
    "id": "facility-conf",
    "fa": "opt",
    "fb": "netsci",
-   "title": "Facility location for carbon-minimal conference siting",
-   "joint": 0,
+   "text": "Pick conference cities that minimise total flight emissions.",
+   "status": "Analogy, not a method",
    "outcome": "dropped",
-   "note": "link judged too loose to pursue"
+   "score": null
   },
   {
    "id": "mlip-ree",
    "fa": "materials",
    "fb": "ai",
-   "title": "Interatomic-potential uncertainty methods for LLM hallucination detection",
-   "joint": 0,
+   "text": "Detect AI hallucinations with the tricks chemists use to tell when an atom-level simulation is out of its depth.",
+   "status": "Similar detectors already exist in AI.",
    "outcome": "open",
-   "note": "partly done: Ensemble-disagreement and latent-distance hallucination detectors already exist in NLP; an explicit transfer of MLIP machinery (LLPR, calibrated committees, active-learning loops) is not published."
+   "score": 6.0
   },
   {
    "id": "hardening-plast",
    "fa": "materials",
    "fb": "ai",
-   "title": "Strain-hardening laws for loss of plasticity in continual learning",
-   "joint": 14,
+   "text": "Describe how AI models lose the ability to learn new things with the laws for metal hardening as it is bent.",
+   "status": "Already studied",
    "outcome": "dropped",
-   "note": "14 papers already join the two"
+   "score": null
   },
   {
    "id": "gb-merge",
    "fa": "materials",
    "fb": "ai",
-   "title": "Grain-boundary energy models for model-merging interference",
-   "joint": 0,
+   "text": "Model clashes when merging AI models with the energy at boundaries between grains in a metal.",
+   "status": "Analogy, not a method",
    "outcome": "dropped",
-   "note": "link judged too loose to pursue"
+   "score": null
   },
   {
    "id": "phasefield-tumor",
    "fa": "materials",
    "fb": "biomed",
-   "title": "Phase-field fracture models for tumour invasion fronts",
-   "joint": 0,
+   "text": "Model a tumour's invading edge as a crack running through tissue, with the mathematics of fracture in materials.",
+   "status": "Related tumour models exist.",
    "outcome": "open",
-   "note": "partly done: Phase-field tumour models with damage and phase-field fracture of soft tissue exist separately, but no work uses a phase-field fracture (crack) formulation for invasion fronts fitted to histology."
+   "score": 6.25
   },
   {
    "id": "battery-sleep",
    "fa": "power",
    "fb": "sleep",
-   "title": "Battery state-of-health estimators for sleep-pressure tracking",
-   "joint": 0,
+   "text": "Track sleep pressure like a battery's charge, with the estimators in electric-car battery systems.",
+   "status": "Analogy, not a method",
    "outcome": "dropped",
-   "note": "link judged too loose to pursue"
+   "score": null
   },
   {
    "id": "inverter-brain",
    "fa": "power",
    "fb": "neuro",
-   "title": "Grid-forming inverter control as a model of thalamic pacemaking",
-   "joint": 2,
+   "text": "Compare how solar inverters keep the grid in rhythm with how the brain's thalamus sets its rhythms.",
+   "status": "Analogy, not a method",
    "outcome": "dropped",
-   "note": "link judged too loose to pursue"
+   "score": null
   },
   {
    "id": "bilevel-review",
    "fa": "power",
    "fb": "ai",
-   "title": "Bilevel optimisation of conference reviewer incentives",
-   "joint": 19,
+   "text": "Design conference reviewer incentives as a leader-and-follower optimisation.",
+   "status": "Already studied",
    "outcome": "dropped",
-   "note": "19 papers already join the two"
+   "score": null
   },
   {
    "id": "qfi-psych",
    "fa": "quantum",
    "fb": "psych",
-   "title": "Quantum Fisher information as a bound on perceptual precision",
-   "joint": 3,
+   "text": "Compare how well people detect very dim light with the quantum limit for the same light.",
+   "status": "Analogy, not a method",
    "outcome": "dropped",
-   "note": "link judged too loose to pursue"
+   "score": null
   },
   {
    "id": "qnet-epi",
    "fa": "quantum",
    "fb": "epi",
-   "title": "Entanglement-routing algorithms for vaccine cold-chain logistics",
-   "joint": 0,
+   "text": "Route vaccine deliveries that spoil over time with algorithms for routing fragile quantum links.",
+   "status": "Analogy, not a method",
    "outcome": "dropped",
-   "note": "link judged too loose to pursue"
+   "score": null
   },
   {
    "id": "decoh-llm",
    "fa": "quantum",
    "fb": "ai",
-   "title": "Decoherence models for context decay in long LLM conversations",
-   "joint": 0,
+   "text": "Model how chatbots forget instructions in long chats as quantum states losing coherence.",
+   "status": "Analogy, not a method",
    "outcome": "dropped",
-   "note": "link judged too loose to pursue"
+   "score": null
   },
   {
    "id": "treewidth-theo",
    "fa": "theory",
    "fb": "theology",
-   "title": "Treewidth of argument graphs in scholastic disputations",
-   "joint": 5,
+   "text": "Measure how tangled the arguments in Aquinas's Summa are with a graph measure from computer science.",
+   "status": "Already studied",
    "outcome": "dropped",
-   "note": "5 papers already join the two"
+   "score": null
   },
   {
    "id": "proof-justif",
    "fa": "theory",
    "fb": "philosophy",
-   "title": "Proof complexity as a measure of epistemic justification cost",
-   "joint": 0,
+   "text": "Use the length of the shortest proof as a measure of how costly a belief is to justify.",
+   "status": "Analogy, not a method",
    "outcome": "dropped",
-   "note": "link judged too loose to pursue"
-  },
-  {
-   "id": "sublinear-sleep",
-   "fa": "theory",
-   "fb": "sleep",
-   "title": "Sublinear-time sampling for overnight EEG screening",
-   "joint": 0,
-   "outcome": "top",
-   "note": ""
+   "score": null
   },
   {
    "id": "hausdorff-dream",
    "fa": "math",
    "fb": "sleep",
-   "title": "Fractal dimension of dream-report semantic trajectories",
-   "joint": 4,
+   "text": "Measure how jagged dream stories are compared with waking stories, using fractal dimension.",
+   "status": "Analogy, not a method",
    "outcome": "dropped",
-   "note": "link judged too loose to pursue"
+   "score": null
   },
   {
    "id": "cluster-merge",
    "fa": "math",
    "fb": "ai",
-   "title": "Cluster-algebra mutation as a model of weight-space symmetry moves",
-   "joint": 0,
+   "text": "Describe the ways to rearrange a network without changing what it computes with a branch of algebra, to help merge models.",
+   "status": "Analogy, not a method",
    "outcome": "dropped",
-   "note": "link judged too loose to pursue"
+   "score": null
   },
   {
    "id": "ricci-gene",
    "fa": "math",
    "fb": "neuro",
-   "title": "Discrete Ricci flow on single-cell similarity graphs for cell-state transitions",
-   "joint": 4,
+   "text": "Find bottlenecks in how brain cells develop with a geometric flow from mathematics.",
+   "status": "Analogy, not a method",
    "outcome": "dropped",
-   "note": "link judged too loose to pursue"
+   "score": null
   },
   {
    "id": "dg-theology",
    "fa": "amath",
    "fb": "theology",
-   "title": "Inverse-problem methods for dating biblical manuscript layers",
-   "joint": 0,
+   "text": "Date the editing layers of biblical manuscripts as an inverse problem, like sharpening a blurred image.",
+   "status": "Analogy, not a method",
    "outcome": "dropped",
-   "note": "link judged too loose to pursue"
+   "score": null
   },
   {
    "id": "cons-misinfo",
    "fa": "amath",
    "fb": "netsci",
-   "title": "Hyperbolic conservation laws for misinformation shock fronts",
-   "joint": 2,
+   "text": "Model sudden surges of misinformation as shock waves travelling through a network.",
+   "status": "Analogy, not a method",
    "outcome": "dropped",
-   "note": "link judged too loose to pursue"
+   "score": null
   },
   {
    "id": "vit-theology",
    "fa": "biomed",
    "fb": "theology",
-   "title": "Medical-image segmentation models for palimpsest recovery",
-   "joint": 0,
+   "text": "Use medical-image AI to read erased text under rewritten medieval manuscripts.",
+   "status": "Mostly done with similar networks.",
    "outcome": "done",
-   "note": "Deep segmentation and U-Net-based (biomedical-origin) networks are already used for palimpsest undertext; only explicit transfer of medical segmentation models/weights (e.g. nnU-Net) on multispectral stacks is unreported, so this is close to done."
+   "score": null
   },
   {
    "id": "ehr-religion",
    "fa": "biomed",
    "fb": "religion",
-   "title": "Religious-practice signals in EHR for end-of-life care prediction",
-   "joint": 56,
+   "text": "Use religious preference and chaplains' notes in medical records to predict end-of-life care choices.",
+   "status": "Already studied",
    "outcome": "dropped",
-   "note": "56 papers already join the two"
+   "score": null
   },
   {
    "id": "fl-sleep",
    "fa": "security",
    "fb": "sleep",
-   "title": "Federated learning across sleep clinics with polysomnography heterogeneity",
-   "joint": 94,
+   "text": "Train sleep-scoring AI across clinics without sharing patient data, despite their different equipment.",
+   "status": "Already studied",
    "outcome": "dropped",
-   "note": "94 papers already join the two"
+   "score": null
   },
   {
    "id": "sidechannel-sleep",
    "fa": "security",
    "fb": "sleep",
-   "title": "Smart-speaker side channels revealing sleep disorders",
-   "joint": 11,
+   "text": "Show that encrypted traffic from bedroom smart devices can reveal sleep disorders.",
+   "status": "Already studied",
    "outcome": "dropped",
-   "note": "11 papers already join the two"
+   "score": null
   },
   {
    "id": "backdoor-ptsd",
    "fa": "security",
    "fb": "psych",
-   "title": "Backdoor-trigger models of intrusive memory",
-   "joint": 0,
+   "text": "Use hidden-trigger attacks on AI as a model of traumatic memories set off by cues.",
+   "status": "Analogy, not a method",
    "outcome": "dropped",
-   "note": "link judged too loose to pursue"
+   "score": null
   },
   {
    "id": "dp-census-relig",
    "fa": "security",
    "fb": "religion",
-   "title": "Differential privacy impact on religious-minority statistics",
-   "joint": 2,
+   "text": "Measure how privacy noise in census data distorts counts of small religious groups.",
+   "status": "Analogy, not a method",
    "outcome": "dropped",
-   "note": "link judged too loose to pursue"
+   "score": null
   },
   {
    "id": "cultural-oss",
    "fa": "religion",
    "fb": "ai",
-   "title": "Cultural-evolution models of open-weight model lineages",
-   "joint": 0,
+   "text": "Treat the family tree of open AI models, copied and fine-tuned by others, like cultural traits passed between people, and test what makes some spread.",
+   "status": "Family trees exist; the cultural-evolution test does not.",
    "outcome": "open",
-   "note": "partly done: Model phylogenies with evolutionary analysis exist (Laufer et al.), but fitting cultural-transmission models (neutral drift, conformity, prestige bias) to their spread is undone."
+   "score": 6.75
   },
   {
    "id": "dmn-idle",
    "fa": "neuro",
    "fb": "ai",
-   "title": "Default-mode-network analogues in idle LLM agents",
-   "joint": 136,
+   "text": "Look for the brain's daydreaming-network pattern in AI agents left with nothing to do.",
+   "status": "Already studied",
    "outcome": "dropped",
-   "note": "136 papers already join the two"
+   "score": null
   },
   {
    "id": "gut-brain-graph",
    "fa": "neuro",
    "fb": "netsci",
-   "title": "Multilayer network of the gut-brain axis",
-   "joint": 10,
+   "text": "Build a layered network linking gut microbes, the chemicals they make and brain regions.",
+   "status": "Already studied",
    "outcome": "dropped",
-   "note": "10 papers already join the two"
+   "score": null
   },
   {
    "id": "aging-reservoir",
    "fa": "neuro",
    "fb": "dynsys",
-   "title": "Reservoir-computing capacity of the aging connectome",
-   "joint": 0,
+   "text": "Compare the memory capacity of young and old brains' wiring when each is used as a simple computer.",
+   "status": "Analogy, not a method",
    "outcome": "dropped",
-   "note": "link judged too loose to pursue"
+   "score": null
   }
  ],
  "method": [
-  "103 pairs were proposed by joining a top topic, method or object of one field with a specific problem in another, drawn from the 27 fields on the conference pages and their most published topics.",
-  "Each pair was screened by counting papers whose title or abstract contains both of its key phrases, in Semantic Scholar and Europe PMC.",
-  "48 pairs with almost no such papers, and a link that works as a mechanism rather than a metaphor, were checked by hand: two to five web and arXiv searches each, with different wordings, looking for the closest prior work.",
-  "Each surviving pair was scored 0 to 10 on four parts: gap (how empty the search came back), distance (how far apart the fields are), depth (a method or mechanism carried across, not 'apply ML to X') and payoff (what it would give either field). The novelty score is their mean.",
-  "Being undone is not the same as being new. A pair can be empty because nobody cares; the depth and payoff parts are there to push those down."
+  "I paired a method, tool or finding from one field with a concrete problem in another, 103 pairs in all, drawn from the 27 fields on the conference pages.",
+  "For each pair I counted papers whose title or abstract names both sides, in Semantic Scholar and Europe PMC. Pairs that were already well studied, or where the link was only a loose analogy, stopped here.",
+  "The 48 that remained were searched by hand, two to five searches each in different wordings, to find the closest existing work.",
+  "Each surviving idea got four marks out of 10: how untouched it is, how far apart the two fields are, whether a real method carries over (not just a metaphor), and how much it would give. The score is their average. An idea can be untouched because it is pointless; the last two marks push those down."
  ]
 };
