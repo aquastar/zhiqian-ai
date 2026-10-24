@@ -35,7 +35,14 @@ const items = destinations.items.map((i, k) => ({
 
     {/* Filters, floating over the map. */}
     <section class="panel controls" aria-label="Filters">
-      <h1>Conferences by destination <span id="count">{items.length}</span></h1>
+      <div class="ctl-head">
+        <h1>Conferences by destination <span id="count">{items.length}</span></h1>
+        {/* Phones only: the filters fold away so the map stays usable. */}
+        <button type="button" class="ctl-toggle" id="ctl-toggle" aria-expanded="false" aria-controls="ctl-body">
+          <i class="fas fa-sliders" aria-hidden="true"></i><span>Filters</span>
+        </button>
+      </div>
+      <div class="ctl-body" id="ctl-body">
       <div class="gfilter" role="group" aria-label="Field group">
         <button type="button" class="gchip is-on" data-g="all">All</button>
         {groups.map((g) => (
@@ -59,6 +66,7 @@ const items = destinations.items.map((i, k) => ({
         ))}
       </div>
       <p class="hint">Click a city for its meetings.</p>
+      </div>
     </section>
 
     {/* The city's meetings, opened by a click on its pin. */}
@@ -84,6 +92,11 @@ const items = destinations.items.map((i, k) => ({
       const esc = (s) => String(s || '').replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
       const days = (d) => Math.round((Date.parse(d) - Date.parse(today)) / 86400000);
       const isOpen = (i) => i.dl && i.dl >= today;
+      // Phones: the filter panel folds behind a button, and folds again when a city opens.
+      const controls = document.querySelector('.controls');
+      const ctlToggle = document.getElementById('ctl-toggle');
+      const fold = (open) => { controls.classList.toggle('is-open', open); ctlToggle.setAttribute('aria-expanded', String(open)); };
+      ctlToggle.addEventListener('click', () => fold(!controls.classList.contains('is-open')));
       // A city's label: the place string without venue or street, so
       // "World Forum, Hague, Netherlands" reads as "Hague, Netherlands".
       const cityOf = (place) => {
@@ -178,6 +191,7 @@ const items = destinations.items.map((i, k) => ({
             ${i.h.length ? `<span class="c-h">${i.h.map((h) => `<i>${esc(h)}</i>`).join('')}</span>` : ''}
           </li>`).join('');
         panel.hidden = false;
+        fold(false);
       };
       document.getElementById('city-x').addEventListener('click', () => showCity(null));
 
@@ -240,6 +254,10 @@ const items = destinations.items.map((i, k) => ({
   .panel { position: absolute; z-index: 500; background: rgba(255,255,255,.96); border: 1px solid rgba(148,163,184,.35);
     border-radius: 14px; box-shadow: 0 12px 30px rgba(15,23,42,.16); backdrop-filter: blur(6px); }
   .controls { top: 14px; left: 14px; width: min(440px, calc(100vw - 28px)); padding: 12px 14px; }
+  .ctl-head { display: flex; align-items: center; justify-content: space-between; gap: 8px; }
+  .ctl-toggle { display: none; align-items: center; gap: 6px; flex: none; padding: 4px 11px; border-radius: 999px;
+    border: 1px solid rgba(148,163,184,.45); background: #fff; font: inherit; font-size: .76rem; font-weight: 700; color: #334155; cursor: pointer; }
+  .ctl-toggle[aria-expanded="true"] { background: #1e293b; border-color: #1e293b; color: #fff; }
   .controls h1 { font-size: 1.05rem; margin: 0 0 8px; letter-spacing: -.01em; text-align: left; }
   .controls h1 span { font-size: .72rem; font-weight: 700; color: #64748b; background: #f1f5f9; border-radius: 999px; padding: 1px 8px; margin-left: 4px; vertical-align: 2px; }
   .gfilter, .ffilter { display: flex; flex-wrap: wrap; gap: 5px; }
@@ -295,7 +313,12 @@ const items = destinations.items.map((i, k) => ({
   @media (max-width: 760px) {
     .container { padding: 10px 14px 0; }
     .stage { height: calc(100vh - 62px); }
-    .controls { top: 10px; left: 10px; right: 10px; width: auto; padding: 10px 12px; }
+    .controls { top: 10px; left: 10px; right: 10px; width: auto; padding: 8px 10px 8px 12px; max-height: calc(100% - 20px); overflow-y: auto; }
+    .controls h1 { font-size: .92rem; margin: 0; }
+    .ctl-toggle { display: inline-flex; }
+    /* Folded by default on a phone; the button opens the filters. */
+    .controls:not(.is-open) .ctl-body { display: none; }
+    .controls.is-open .ctl-body { margin-top: 8px; }
     .hint { display: none; }
     /* On a phone the city list is a sheet from the bottom. */
     .city { top: auto; left: 10px; right: 10px; bottom: 10px; width: auto; max-height: 55%; }

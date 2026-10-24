@@ -29,7 +29,7 @@ const TRACKERS = [
     menu: [
       { key: 'conferences', href: '/conferences', label: 'By field' },
       { key: 'destinations', href: '/conferences/destinations', label: 'By map' },
-      { key: 'convergences', href: '/conferences/convergences', label: 'Convergences' },
+      { key: 'convergences', href: '/conferences/convergences', label: 'Convergences', beta: true },
     ] },
   { key: 'funding', href: '/funding', label: 'Funding' },
 ];
@@ -57,7 +57,7 @@ const SUBSTACK = 'https://substack.com/@zhiqianchen1';
             </a>
             <div class="nav-sub" role="menu">
               {l.menu.map((m) => (
-                <a href={m.href} role="menuitem" class={current === m.key ? 'is-here' : undefined}>{m.label}</a>
+                <a href={m.href} role="menuitem" class={current === m.key ? 'is-here' : undefined}>{m.label}{m.beta && <sup class="nav-beta">beta</sup>}</a>
               ))}
             </div>
           </div>
@@ -92,6 +92,10 @@ const SUBSTACK = 'https://substack.com/@zhiqianchen1';
     border:1px solid rgba(148,163,184,.35); border-radius:12px; box-shadow:0 12px 28px rgba(15,23,42,.14); }
   .nav-menu:hover .nav-sub, .nav-menu:focus-within .nav-sub { display:flex; }
   .top-nav .nav-sub a { font-size:.85rem; padding:6px 10px; border-radius:8px; white-space:nowrap; }
+  .top-nav .nav-sub a { position:relative; }
+  .nav-beta { position:absolute; top:0; right:2px; font-size:.56rem; font-weight:700; line-height:1; letter-spacing:.04em;
+    text-transform:uppercase; color:#1d4ed8; background:#eff6ff; border:1px solid #bfdbfe; border-radius:4px; padding:1px 3px; }
+  .top-nav .nav-sub a:has(.nav-beta) { padding-right:38px; }
   .top-nav .nav-sub a.is-here { background:#f1f5f9; font-weight:600; }
   .nav-substack { vertical-align:-1px; opacity:.85; }
 
