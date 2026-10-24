@@ -1859,6 +1859,10 @@ ${t.rate}% accepted, ${t.n.toLocaleString()} submissions, ${t.share}% of the edi
   fieldBtns.forEach((btn) => btn.addEventListener('click', () => apply(btn)));
 
   // The markup marks AI as selected; run the filter so the rows agree with it.
-  const start = document.querySelector('.dir .dchip.is-on');
+  // A field id in the URL hash (/conferences#sleep, as Convergences links)
+  // opens that field instead.
+  const fromHash = () => fieldBtns.find((b) => b.dataset.area === location.hash.slice(1));
+  const start = fromHash() || document.querySelector('.dir .dchip.is-on');
   if (start) apply(start);
+  window.addEventListener('hashchange', () => { const b = fromHash(); if (b) apply(b); });
 </script>

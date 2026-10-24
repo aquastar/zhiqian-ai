@@ -25,10 +25,11 @@ const SECTIONS = [
 const TRACKERS = [
   // Conferences opens a small menu on hover or focus: the field view and the
   // map view, two ways into the same list. The button itself is the field view.
-  { key: 'conferences', href: '/conferences', label: 'Conferences', also: ['destinations'],
+  { key: 'conferences', href: '/conferences', label: 'Conferences', also: ['destinations', 'convergences'],
     menu: [
       { key: 'conferences', href: '/conferences', label: 'By field' },
       { key: 'destinations', href: '/conferences/destinations', label: 'By map' },
+      { key: 'convergences', href: '/conferences/convergences', label: 'Convergences' },
     ] },
   { key: 'funding', href: '/funding', label: 'Funding' },
 ];
