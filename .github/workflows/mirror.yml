@@ -9,8 +9,8 @@ name: Sync public data repos
 # It runs after every data change. A push from a person triggers it through
 # the paths below; the scheduled refreshes push with the workflow token,
 # which does not start other workflows, so they trigger it on completion.
-# A run whose data did not change commits nothing, so the repos only move
-# when something real does.
+# A run where only the sync date would change commits nothing, so the repos
+# only move when something real does.
 on:
   push:
     branches: [main]
@@ -61,11 +61,13 @@ jobs:
             rsync -a --delete --exclude .git "out/$src/" "repo_$src/"
             cd "repo_$src"
             # README and CITATION carry the sync date, so they change every
-            # day; only commit when the data itself did, or on the first sync.
-            if [ -z "$(git status --porcelain -- data)" ] && git rev-parse -q --verify HEAD >/dev/null; then
-              echo "$repo: data unchanged"; cd ..; continue
-            fi
+            # day. Commit only when something else changed too: the data, the
+            # README's tables, the licence. Always on the first sync.
             git add -A
+            if git rev-parse -q --verify HEAD >/dev/null && \
+               git diff --cached --quiet -I 'Last synced' -I '^date-released:'; then
+              echo "$repo: unchanged"; cd ..; continue
+            fi
             git commit -q -m "Sync from zhiqian.ai $(date -u +%F)"
             git branch -M main
             git push -q origin main

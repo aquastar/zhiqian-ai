@@ -31,15 +31,9 @@ const csv = (rows, cols) => [cols.join(','), ...rows.map((r) => cols.map((c) => 
   return /[",\n]/.test(v) ? `"${v.replace(/"/g, '""')}"` : v;
 }).join(','))].join('\n');
 
-const licence = (what) => `${what} by Zhiqian Chen (${SITE}) is licensed under the Creative Commons
-Attribution 4.0 International licence (CC BY 4.0).
-
-You may share and adapt it for any purpose, including commercially, as long as
-you give appropriate credit, link to the licence and say whether you made
-changes. Full text: https://creativecommons.org/licenses/by/4.0/legalcode
-
-Suggested credit: "${what}, Zhiqian Chen, ${SITE}".
-`;
+// The licence file is the official CC BY 4.0 text, so GitHub recognises it;
+// the attribution line goes in the README.
+const LEGALCODE = readFileSync(new URL('./cc-by-4.0.txt', import.meta.url), 'utf8');
 
 const citation = (title, repo, abstract, keywords) => `cff-version: 1.2.0
 message: "If you use this data, please cite it as below."
@@ -174,9 +168,9 @@ If this saves you time, a star helps others find it. To cite the data, use the
 
 > Zhiqian Chen. *Cross-field conference deadlines*. https://github.com/aquastar/${REPOS.conferences}, ${TODAY.slice(0, 4)}.
 
-Data licensed [CC BY 4.0](LICENSE).
+Data licensed [CC BY 4.0](LICENSE): reuse it freely, crediting "Cross-field conference deadlines, Zhiqian Chen, ${SITE}".
 `);
-  write(join(dir, 'LICENSE'), licence('Cross-field conference deadlines'));
+  write(join(dir, 'LICENSE'), LEGALCODE);
   write(join(dir, 'CITATION.cff'), citation('Cross-field conference deadlines', REPOS.conferences,
     `Submission deadlines, dates and places for conferences and journals across ${DOMAINS.length} fields.`,
     ['conference deadlines', 'call for papers', 'academic conferences', 'interdisciplinary research']));
@@ -256,9 +250,9 @@ button on the right, or:
 
 > Zhiqian Chen. *Computing research funding*. https://github.com/aquastar/${REPOS.funding}, ${TODAY.slice(0, 4)}.
 
-Data licensed [CC BY 4.0](LICENSE).
+Data licensed [CC BY 4.0](LICENSE): reuse it freely, crediting "Computing research funding, Zhiqian Chen, ${SITE}".
 `);
-  write(join(dir, 'LICENSE'), licence('Computing research funding'));
+  write(join(dir, 'LICENSE'), LEGALCODE);
   write(join(dir, 'CITATION.cff'), citation('Computing research funding', REPOS.funding,
     'Open research funding calls in AI and computing, and a watchlist of funders, swept twice a week.',
     ['research funding', 'grants', 'artificial intelligence', 'computer science']));
