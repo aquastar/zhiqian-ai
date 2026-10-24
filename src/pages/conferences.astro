@@ -427,6 +427,8 @@ const freshRated = rows.filter((c) => c.rates.length && c.rates[c.rates.length -
           ))}
         </nav>
       </div>
+      <a class="gh-data" href="https://github.com/aquastar/cross-field-conferences" target="_blank" rel="noopener">
+        <i class="fab fa-github" aria-hidden="true"></i>All of this as open data on GitHub <span>Star · cite · correct</span></a>
     </section>
 
 
@@ -1016,6 +1018,10 @@ ${t.rate}% accepted, ${t.n.toLocaleString()} submissions, ${t.share}% of the edi
   /* Only this item moves. margin-left:auto pushes it to the far right
      and leaves every other nav link exactly where it was. */
   .head { margin-bottom: 0; }
+  .gh-data { display:inline-flex; align-items:center; gap:7px; margin:8px 0 2px; font-size:.8rem; font-weight:600; color:#334155; text-decoration:none; }
+  .gh-data i { font-size:.95rem; color:#0f172a; }
+  .gh-data span { font-weight:500; color:#94a3b8; }
+  .gh-data:hover { color:#1d4ed8; }
   .head-row { display:flex; align-items:flex-start; justify-content:space-between; gap:28px; flex-wrap:wrap; }
   .head-text { flex:1 1 440px; min-width:0; }
   h1 { font-size: 1.9rem; margin: 0 0 6px; letter-spacing: -.02em; }

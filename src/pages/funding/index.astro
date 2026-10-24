@@ -89,6 +89,8 @@ const COMP_WORD = { 1: 'light', 2: 'moderate', 3: 'competitive', 4: 'hard', 5: '
     <section class="brief">
       <div class="brief-main">
         <h1>Computing Funding</h1>
+        <a class="gh-data" href="https://github.com/aquastar/computing-research-funding" target="_blank" rel="noopener">
+          <i class="fab fa-github" aria-hidden="true"></i>Open data on GitHub <span>Star · cite · correct</span></a>
       </div>
       <div class="brief-side">
         <div class="stamp">
@@ -238,6 +240,10 @@ const COMP_WORD = { 1: 'light', 2: 'moderate', 3: 'competitive', 4: 'hard', 5: '
     border:1px solid rgba(148,163,184,.3); border-radius:14px;
     background:linear-gradient(180deg,#fbfdff,#f8fafc); }
   .brief-main { min-width:0; }
+  .gh-data { display:inline-flex; align-items:center; gap:7px; margin-top:4px; font-size:.8rem; font-weight:600; color:#334155; text-decoration:none; }
+  .gh-data i { font-size:.95rem; color:#0f172a; }
+  .gh-data span { font-weight:500; color:#94a3b8; }
+  .gh-data:hover { color:#1d4ed8; }
   /* The site justifies body text. That is fine for a paragraph and wrong for
      a heading or a table cell, where it opens rivers between two or three
      words. Both are set back to left here. */

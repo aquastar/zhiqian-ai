@@ -1,0 +1,74 @@
+name: Sync public data repos
+
+# The conference and funding data are also published as two GitHub repos,
+# aquastar/cross-field-conferences and aquastar/computing-research-funding, so the
+# community can star, cite and correct them. This repo stays the only place
+# the data is edited: scripts/export-mirrors.mjs writes the repos' contents
+# and this job pushes them.
+#
+# It runs after every data change. A push from a person triggers it through
+# the paths below; the scheduled refreshes push with the workflow token,
+# which does not start other workflows, so they trigger it on completion.
+# A run whose data did not change commits nothing, so the repos only move
+# when something real does.
+on:
+  push:
+    branches: [main]
+    paths:
+      - src/data/conferences.js
+      - src/data/destinations.js
+      - src/data/domains.js
+      - src/data/funding.json
+      - scripts/export-mirrors.mjs
+  workflow_run:
+    workflows: [Refresh conference data, Sync funding brief]
+    types: [completed]
+  workflow_dispatch:
+
+concurrency: mirror
+
+jobs:
+  mirror:
+    if: github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Write the repos' contents
+        run: node scripts/export-mirrors.mjs out
+
+      - name: Push to each repo when its data moved
+        env:
+          KEY_conferences: ${{ secrets.MIRROR_KEY_CONFERENCES }}
+          KEY_funding: ${{ secrets.MIRROR_KEY_FUNDING }}
+        run: |
+          set -euo pipefail
+          git config --global user.name "zhiqian-ai sync"
+          git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          mkdir -p ~/.ssh && ssh-keyscan github.com >> ~/.ssh/known_hosts 2>/dev/null
+          for pair in conferences:cross-field-conferences funding:computing-research-funding; do
+            src=${pair%%:*}; repo=${pair#*:}
+            key=~/.ssh/key_$src; var=KEY_$src
+            printf '%s\n' "${!var}" > "$key"; chmod 600 "$key"
+            export GIT_SSH_COMMAND="ssh -i $key -o IdentitiesOnly=yes"
+            git clone -q "git@github.com:aquastar/$repo.git" "repo_$src"
+            rsync -a --delete --exclude .git "out/$src/" "repo_$src/"
+            cd "repo_$src"
+            # README and CITATION carry the sync date, so they change every
+            # day; only commit when the data itself did, or on the first sync.
+            if [ -z "$(git status --porcelain -- data)" ] && git rev-parse -q --verify HEAD >/dev/null; then
+              echo "$repo: data unchanged"; cd ..; continue
+            fi
+            git add -A
+            git commit -q -m "Sync from zhiqian.ai $(date -u +%F)"
+            git branch -M main
+            git push -q origin main
+            echo "$repo: pushed"
+            cd ..
+          done
