@@ -4,22 +4,20 @@ import Nav from '../../components/Nav.astro';
 import { DOMAINS } from '../../data/domains.js';
 import { convergences as C } from '../../data/convergences.js';
 
-// Two lists for research across fields: the methods that travel best between
-// fields, ranked from an OpenAlex count, and topics that need three or more
-// of the fields the conference pages track. The text is written for a reader
-// outside each field. The data and reasoning live in src/data/convergences.js.
+// Research across fields, told through papers. First, ten landmark cases of
+// one idea carried from one field into another, each with the paper that did
+// it and how. Second, ten topics not yet done that join three or more fields,
+// each built from named papers with the steps spelled out. The data and the
+// reasoning live in src/data/convergences.js.
 const FIELD = Object.fromEntries(DOMAINS.map((d) => [d.id, d]));
 const field = (id) => FIELD[id] || { label: id, icon: 'fa-circle', hue: '#64748b' };
-
 const MARKS = [
   ['Untouched', 'How empty the searches came back.'],
   ['Reach', 'How many fields it needs, how far apart they are, and whether each is really needed.'],
   ['Real method', 'A working method carried across, not a metaphor.'],
   ['Payoff', 'What it would give if it worked.'],
 ];
-const topics = C.topics.map((t) => ({ ...t, score: t.marks.reduce((a, b) => a + b, 0) / t.marks.length }))
-  .sort((a, b) => b.score - a.score);
-const fmt = (n) => (n >= 10 ? Math.round(n) : n.toFixed(1));
+const num = (n) => n.toLocaleString('en-US');
 ---
 
 <Layout title="Convergences | Zhiqian Chen">
@@ -29,55 +27,82 @@ const fmt = (n) => (n >= 10 ? Math.round(n) : n.toFixed(1));
     <section class="head">
       <h1>Convergences</h1>
       <p class="lede">
-        Research across fields, in two lists. First, the ten methods that travel best between fields, measured
-        from millions of papers, with where each could go next. Second, ten research topics that each need three
-        or more fields at once, checked so that nobody has done them yet.
+        One idea, one paper. First, ten landmark cases where an idea was carried from one field into another,
+        with the paper that did it and exactly how. Second, ten research topics nobody has done yet, each joining
+        three or more fields through named papers, with the steps to carry it out.
       </p>
       <nav class="jump" aria-label="On this page">
-        <a href="#methods">10 methods that cross fields</a>
-        <a href="#topics">10 topics that join three or more fields</a>
+        <a href="#cases">10 ideas that crossed fields</a>
+        <a href="#topics">10 topics not yet done</a>
       </nav>
     </section>
 
-    <section id="methods" class="block">
-      <h2 class="block-h">Methods that cross fields</h2>
+    <section id="cases" class="block">
+      <h2 class="block-h">Ideas that crossed fields</h2>
       <p class="block-sub">
-        Ranked by how many fields use each method, allowing for field size, and how fast it is growing. Counted in
-        OpenAlex over {C.candidates} candidate methods, papers from 2021 to 2025. For scale, research as a whole grew
-        ×{C.baseGrowth} over the same period.
+        The ten most cited of {C.cases.length + C.more.length} documented transfers, by citations per year since
+        publication (Crossref, October 2026). Each says what the idea was at home, what the paper did with it, and
+        what came of it.
       </p>
-      <ol class="mlist">
-        {C.methods.map((m, i) => (
-          <li class="mcard">
-            <div class="mhead">
-              <span class="mrank">{i + 1}</span>
-              <h3>{m.name}</h3>
-              <span class="mstats">
-                <span title="Effective number of OpenAlex's 26 fields using the method, after allowing for field size"><b>~{Math.round(m.fields)}</b> of 26 fields</span>
-                <span title="Papers in 2024-25 against 2019-20"><b>×{fmt(m.growth)}</b> in five years</span>
-              </span>
+      <ol class="list">
+        {C.cases.map((c, i) => (
+          <li class="card case" id={c.id}>
+            <div class="rank">
+              <span class="rank-n">#{i + 1}</span>
+              <span class="cites" title="Citations per year since publication">{num(c.perYear)}<small>cites / yr</small></span>
             </div>
-            <p class="mwhat">{m.what}</p>
-            <dl class="mgrid">
-              <dt>Already big in</dt><dd>{m.big.join(', ')}</dd>
-              <dt>Still rare in</dt><dd>{m.rare.join(', ')}</dd>
-              <dt>Where next</dt><dd>{m.next}</dd>
-              <dt>Why it travels</dt><dd>{m.why}</dd>
-            </dl>
+            <div class="body">
+              <div class="route">
+                <span class="from">{c.src}</span>
+                <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                <span class="to">{c.dst}</span>
+              </div>
+              <h3>{c.idea}</h3>
+              <p class="cite">
+                <a href={c.paper.url} target="_blank" rel="noopener">{c.paper.authors} ({c.paper.year}). {c.paper.title}.</a>
+                <span> {c.paper.venue} · {num(c.paper.cites)} citations</span>
+              </p>
+              <dl class="grid">
+                <dt>At home</dt><dd>{c.home}</dd>
+                <dt>What the paper did</dt><dd>{c.how}</dd>
+                <dt>What became what</dt>
+                <dd>
+                  <ul class="map">
+                    {c.map.map(([a, b]) => <li><span>{a}</span><i class="fas fa-arrow-right" aria-hidden="true"></i><span>{b}</span></li>)}
+                  </ul>
+                </dd>
+                <dt>What came of it</dt><dd>{c.result}</dd>
+              </dl>
+            </div>
           </li>
         ))}
       </ol>
-      <p class="note">{C.leftOut}</p>
+
+      <details class="fold">
+        <summary>
+          <span class="fold-t">{C.more.length} more cases</span>
+          <span class="fold-s">The rest of the list, one line each, most cited per year first.</span>
+        </summary>
+        <ul class="rows">
+          {C.more.map((m) => (
+            <li>
+              <span class="r-route"><b>{m.idea}</b><br />{m.src} → {m.dst}</span>
+              <span class="r-text">{m.text}
+                <a href={m.paper.url} target="_blank" rel="noopener">{m.paper.authors}, {m.paper.venue} {m.paper.year}</a></span>
+            </li>
+          ))}
+        </ul>
+      </details>
     </section>
 
     <section id="topics" class="block">
-      <h2 class="block-h">Topics that join three or more fields</h2>
+      <h2 class="block-h">Topics not yet done, joining three or more fields</h2>
       <p class="block-sub">
-        Each needs every field listed: take one away and the idea falls apart. Ranked by a novelty score out of 10,
-        the average of four marks at the foot of each card.
+        Each starts from a setting described in one paper and brings in ideas from papers in other fields. Ranked by
+        a novelty score out of 10, the average of four marks at the foot of each card.
       </p>
       <ol class="list">
-        {topics.map((t, i) => (
+        {C.topics.map((t, i) => (
           <li class="card" id={t.id}>
             <div class="rank">
               <span class="rank-n">#{i + 1}</span>
@@ -92,14 +117,23 @@ const fmt = (n) => (n >= 10 ? Math.round(n) : n.toFixed(1));
                 <span class="nf">{t.fields.length} fields</span>
               </div>
               <h3>{t.title}</h3>
-              <p class="q">{t.question}</p>
-              <div class="roles">
-                <span class="lbl">What each field brings</span>
-                <ul>
-                  {t.roles.map(([f, r]) => <li><b style={`color:${field(f).hue}`}>{field(f).label}</b> {r}</li>)}
-                </ul>
+              <div class="src setting">
+                <span class="lbl">The setting <em style={`color:${field(t.setting.field).hue}`}>{field(t.setting.field).label}</em></span>
+                <p>{t.setting.text}</p>
+                <a class="pcite" href={t.setting.paper.url} target="_blank" rel="noopener">{t.setting.paper.authors} ({t.setting.paper.year}). {t.setting.paper.title}. {t.setting.paper.venue}.</a>
               </div>
-              <p class="gives"><span class="lbl">What it gives</span> {t.gives}</p>
+              {t.ideas.map((s) => (
+                <div class="src">
+                  <span class="lbl">The idea to bring <em style={`color:${field(s.field).hue}`}>{field(s.field).label}</em></span>
+                  <p>{s.text}</p>
+                  {s.paper && <a class="pcite" href={s.paper.url} target="_blank" rel="noopener">{s.paper.authors} ({s.paper.year}). {s.paper.title}. {s.paper.venue}.</a>}
+                </div>
+              ))}
+              <div class="steps">
+                <span class="lbl">How to do it</span>
+                <ol>{t.steps.map((s) => <li>{s}</li>)}</ol>
+              </div>
+              <p class="gives"><span class="lbl in">What it gives</span> {t.gives}</p>
               <p class="status"><b>Status.</b> {t.status}</p>
               <p class="marks">
                 {MARKS.map(([label, tip], k) => <span title={tip}>{label} <b>{t.marks[k]}</b></span>)}
@@ -113,8 +147,8 @@ const fmt = (n) => (n >= 10 ? Math.round(n) : n.toFixed(1));
     <section class="method">
       <h2>How this was made</h2>
       <ul>
-        <li>Methods: for each of {C.candidates} candidate methods, I counted papers from 2021 to 2025 whose title or abstract names it, in each of OpenAlex's 26 research fields. "Fields" is the effective number of fields using it once field size is allowed for; growth compares 2024–25 with 2019–20. The rank weighs breadth 60% and growth 40%.</li>
-        <li>Topics: each one joins methods and problems whose pairs were searched by hand earlier, two to five searches each, and the full combination was searched again in OpenAlex.</li>
+        <li>Cases: {C.cases.length + C.more.length} well-known transfers of an idea between fields, each checked against Crossref for title, venue, DOI and citation count, then ranked by citations per year since publication. AlphaFold was left out: it combines many ideas, and no single one of them moved.</li>
+        <li>Topics: built from method–problem pairs that came back empty in Semantic Scholar, Europe PMC and OpenAlex, then searched again as a whole. Every paper cited on a card was checked against Crossref or arXiv.</li>
       </ul>
       <p class="built">Built {C.built}. Not finding a paper is evidence, not proof: someone may have done it under other words.</p>
     </section>
@@ -134,26 +168,43 @@ const fmt = (n) => (n >= 10 ? Math.round(n) : n.toFixed(1));
   .block-h { font-size: 1.25rem; margin: 0 0 4px; text-align: left; color: #0f172a; letter-spacing: -.01em; }
   .block-sub { margin: 0 0 14px; font-size: .88rem; line-height: 1.6; color: #475569; max-width: 80ch; text-align: left; }
 
-  .mlist { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 12px; }
-  .mcard { padding: 14px 16px; border: 1px solid rgba(148,163,184,.3); border-radius: 12px; background: #fff; text-align: left; }
-  .mhead { display: flex; align-items: baseline; flex-wrap: wrap; gap: 4px 10px; }
-  .mrank { font-size: .8rem; font-weight: 800; color: #94a3b8; min-width: 16px; }
-  .mcard h3 { font-size: 1.02rem; margin: 0; color: #0f172a; }
-  .mstats { margin-left: auto; display: flex; gap: 10px; font-size: .74rem; color: #64748b; }
-  .mstats span { cursor: help; }
-  .mstats b { color: #0f172a; }
-  .mwhat { margin: 6px 0 8px; font-size: .9rem; line-height: 1.55; color: #1e293b; }
-  .mgrid { display: grid; grid-template-columns: 102px minmax(0,1fr); gap: 4px 12px; margin: 0; }
-  .mgrid dt { font-size: .72rem; font-weight: 700; color: #64748b; padding-top: 2px; }
-  .mgrid dd { margin: 0; font-size: .85rem; line-height: 1.5; color: #334155; }
-  .note { margin: 12px 0 0; font-size: .8rem; line-height: 1.55; color: #64748b; max-width: 90ch; text-align: left; }
-
   .list { list-style: none; margin: 0; padding: 0; display: grid; gap: 14px; }
-  .card { display: grid; grid-template-columns: 56px minmax(0,1fr); gap: 14px; padding: 16px 18px;
-    border: 1px solid rgba(148,163,184,.3); border-radius: 12px; background: #fff; }
+  .card { display: grid; grid-template-columns: 64px minmax(0,1fr); gap: 14px; padding: 16px 18px;
+    border: 1px solid rgba(148,163,184,.3); border-radius: 12px; background: #fff; text-align: left; }
   .rank { display: flex; flex-direction: column; align-items: center; gap: 4px; }
   .rank-n { font-size: .78rem; font-weight: 700; color: #94a3b8; }
   .score { font-size: 1.3rem; font-weight: 800; color: #0f172a; font-variant-numeric: tabular-nums; cursor: help; }
+  .cites { display: flex; flex-direction: column; align-items: center; font-size: 1.05rem; font-weight: 800; color: #0f172a; cursor: help; }
+  .cites small { font-size: .6rem; font-weight: 600; color: #94a3b8; }
+  .route { display: flex; align-items: center; flex-wrap: wrap; gap: 8px; font-size: .78rem; font-weight: 700; margin-bottom: 4px; }
+  .route .from { color: #64748b; }
+  .route .to { color: #1d4ed8; }
+  .route i { color: #94a3b8; font-size: .7rem; }
+  .card h3 { font-size: 1.12rem; margin: 2px 0 6px; line-height: 1.35; color: #0f172a; }
+  .cite { margin: 0 0 10px; font-size: .84rem; line-height: 1.5; color: #64748b; }
+  .cite a, .pcite, .r-text a { color: #1d4ed8; text-decoration: none; }
+  .cite a:hover, .pcite:hover, .r-text a:hover { text-decoration: underline; }
+  .grid { display: grid; grid-template-columns: 128px minmax(0,1fr); gap: 7px 14px; margin: 0; }
+  .grid dt { font-size: .74rem; font-weight: 700; color: #64748b; padding-top: 2px; }
+  .grid dd { margin: 0; font-size: .9rem; line-height: 1.6; color: #1e293b; }
+  .map { list-style: none; margin: 0; padding: 0; display: grid; gap: 3px; }
+  .map li { display: grid; grid-template-columns: minmax(0,1fr) 16px minmax(0,1fr); gap: 8px; align-items: baseline; }
+  .map li span:first-child { color: #64748b; }
+  .map i { color: #94a3b8; font-size: .7rem; }
+
+  .fold { margin-top: 12px; border: 1px solid rgba(148,163,184,.3); border-radius: 12px; background: #fff; }
+  .fold summary { cursor: pointer; padding: 11px 16px; display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 12px; }
+  .fold-t { font-weight: 700; font-size: .95rem; color: #0f172a; }
+  .fold-s { font-size: .85rem; color: #475569; }
+  .rows { list-style: none; margin: 0; padding: 0; border-top: 1px solid rgba(148,163,184,.25); }
+  .rows li { display: grid; grid-template-columns: 230px minmax(0,1fr); gap: 4px 16px; padding: 9px 16px;
+    border-top: 1px solid rgba(148,163,184,.12); font-size: .86rem; line-height: 1.5; text-align: left; }
+  .rows li:first-child { border-top: 0; }
+  .r-route { color: #64748b; font-size: .8rem; }
+  .r-route b { color: #0f172a; }
+  .r-text { color: #1e293b; }
+  .r-text a { margin-left: 4px; font-size: .8rem; overflow-wrap: anywhere; }
+
   .pair { display: flex; align-items: center; flex-wrap: wrap; gap: 6px; margin-bottom: 6px; }
   .fchip { display: inline-flex; align-items: center; gap: 5px; padding: 2px 9px; border-radius: 999px; text-decoration: none;
     font-size: .74rem; font-weight: 700; color: var(--hue); background: color-mix(in srgb, var(--hue) 10%, white);
@@ -161,15 +212,17 @@ const fmt = (n) => (n >= 10 ? Math.round(n) : n.toFixed(1));
   .fchip i { font-size: .7rem; }
   .x { color: #94a3b8; font-weight: 700; }
   .nf { font-size: .72rem; color: #94a3b8; margin-left: 4px; }
-  .card h3 { font-size: 1.12rem; margin: 2px 0 8px; line-height: 1.35; text-align: left; color: #0f172a; }
-  .q { margin: 0 0 10px; font-size: .92rem; line-height: 1.6; color: #1e293b; text-align: left; }
-  .lbl { display: block; font-size: .72rem; font-weight: 700; color: #64748b; margin-bottom: 3px; }
-  .gives .lbl { display: inline; margin-right: 6px; }
-  .roles ul { margin: 0 0 10px; padding-left: 18px; }
-  .roles li { font-size: .88rem; line-height: 1.55; color: #334155; text-align: left; margin-bottom: 2px; }
-  .roles b { font-weight: 700; margin-right: 4px; }
-  .gives { margin: 0 0 6px; font-size: .9rem; line-height: 1.55; color: #1e293b; text-align: left; }
-  .status { margin: 0; font-size: .84rem; line-height: 1.55; color: #475569; text-align: left; }
+  .lbl { display: block; font-size: .72rem; font-weight: 700; color: #64748b; margin-bottom: 2px; }
+  .lbl em { font-style: normal; margin-left: 4px; }
+  .lbl.in { display: inline; margin-right: 6px; }
+  .src { margin: 0 0 10px; padding-left: 10px; border-left: 2px solid rgba(148,163,184,.35); }
+  .src.setting { border-left-color: #1e293b; }
+  .src p { margin: 0 0 2px; font-size: .9rem; line-height: 1.55; color: #1e293b; }
+  .pcite { font-size: .78rem; line-height: 1.45; }
+  .steps ol { margin: 0 0 10px; padding-left: 20px; }
+  .steps li { font-size: .9rem; line-height: 1.55; color: #1e293b; margin-bottom: 3px; }
+  .gives { margin: 0 0 6px; font-size: .9rem; line-height: 1.55; color: #1e293b; }
+  .status { margin: 0; font-size: .84rem; line-height: 1.55; color: #475569; }
   .status b { color: #0f172a; }
   .marks { display: flex; flex-wrap: wrap; gap: 4px 16px; margin: 8px 0 0; padding-top: 8px; border-top: 1px solid rgba(148,163,184,.2);
     font-size: .74rem; color: #64748b; }
@@ -182,14 +235,15 @@ const fmt = (n) => (n >= 10 ? Math.round(n) : n.toFixed(1));
   .method li, .built { font-size: .86rem; line-height: 1.6; color: #334155; text-align: left; }
   .built { color: #64748b; font-size: .8rem; }
 
-  @media (max-width: 860px) {
-    .mlist { grid-template-columns: 1fr; }
-  }
   @media (max-width: 760px) {
     .card { grid-template-columns: 1fr; gap: 6px; padding: 14px; }
     .rank { flex-direction: row; justify-content: flex-start; align-items: baseline; gap: 10px; }
-    .mstats { margin-left: 26px; width: 100%; }
-    .mgrid { grid-template-columns: 1fr; gap: 1px; }
-    .mgrid dd { margin-bottom: 5px; }
+    .cites { flex-direction: row; gap: 4px; align-items: baseline; }
+    .grid { grid-template-columns: 1fr; gap: 1px; }
+    .grid dd { margin-bottom: 7px; }
+    .map li { grid-template-columns: 1fr; gap: 0; }
+    .map li { padding: 4px 0; border-bottom: 1px dashed rgba(148,163,184,.3); }
+    .map i { transform: rotate(90deg); justify-self: start; margin: 2px 0; }
+    .rows li { grid-template-columns: 1fr; }
   }
 </style>
