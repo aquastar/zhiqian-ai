@@ -3,7 +3,7 @@
 // CORE ranks are cross-checked against the official CORE2023 export from
 // portal.core.edu.au. Acceptance rates and submission counts come from
 // github.com/Xovee/cs-conf-stats (main track only).
-// Built 2026-10-25.
+// Built 2026-10-26.
 export const ranked = [
   {
     "title": "CCS",
@@ -5942,6 +5942,59 @@ export const ranked = [
     "tier": 1
   },
   {
+    "title": "PacificVis",
+    "desc": "IEEE Pacific Visualization Symposium",
+    "area": "vis",
+    "sub": "CG",
+    "frank": "Asia-Pacific flagship",
+    "ccf": "C",
+    "core": "B",
+    "coreVerified": true,
+    "nextDeadline": "2026-09-08",
+    "nextYear": 2027,
+    "nextAbstract": "",
+    "estimated": false,
+    "estFrom": "",
+    "rounds": [
+      {
+        "d": "2026-09-08",
+        "label": "Journal track",
+        "est": false,
+        "year": 2027,
+        "link": "https://pacificvis2027.github.io/",
+        "abs": "2026-09-01"
+      },
+      {
+        "d": "2026-11-09",
+        "label": "Conference track",
+        "est": false,
+        "year": 2027,
+        "link": "https://pacificvis2027.github.io/",
+        "abs": "2026-11-02"
+      }
+    ],
+    "dblp": "pacificvis",
+    "csr": "",
+    "edition": "",
+    "best": "",
+    "link": "https://pacificvis2027.github.io/",
+    "date": "April 19-22, 2027",
+    "place": "Busan, South Korea",
+    "cc": "kr",
+    "city": "",
+    "cycles": 2,
+    "roundLabels": [
+      "Journal track",
+      "Conference track"
+    ],
+    "proceedings": "full",
+    "rates": [],
+    "subs": [],
+    "rateSrc": "",
+    "rateSlug": "",
+    "tier": 3
+  },
+  {
     "title": "ASPLOS",
     "desc": "International Conference on Architectural Support for Programming Languages and Operating Systems",
     "area": "eda",
@@ -8869,55 +8922,6 @@ export const ranked = [
     "rateSrc": "csc",
     "rateSlug": "stoc",
     "tier": 1
-  },
-  {
-    "title": "PacificVis",
-    "desc": "IEEE Pacific Visualization Symposium",
-    "area": "vis",
-    "sub": "CG",
-    "frank": "Asia-Pacific flagship",
-    "ccf": "C",
-    "core": "B",
-    "coreVerified": true,
-    "nextDeadline": "2026-11-09",
-    "nextYear": 2027,
-    "nextAbstract": "",
-    "estimated": false,
-    "estFrom": "",
-    "rounds": [
-      {
-        "d": "2026-11-09",
-        "label": "Conference track",
-        "est": false,
-        "year": 2027,
-        "link": "https://pacificvis2027.github.io/",
-        "abs": "2026-11-02"
-      },
-      {
-        "d": "2027-09-07",
-        "label": "Journal track",
-        "est": true,
-        "from": "2025-09-07",
-        "abs": "2027-09-01"
-      }
-    ],
-    "dblp": "pacificvis",
-    "csr": "",
-    "edition": "",
-    "best": "",
-    "link": "https://pacificvis2027.github.io/",
-    "date": "April 19-22, 2027",
-    "place": "Busan, South Korea",
-    "cc": "kr",
-    "city": "",
-    "cycles": 1,
-    "roundLabels": [],
-    "proceedings": "full",
-    "rates": [],
-    "subs": [],
-    "rateSrc": "",
-    "rateSlug": "",
-    "tier": 3
   },
   {
     "title": "PES GM",

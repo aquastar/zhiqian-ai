@@ -3,7 +3,7 @@
 // CCF A or B, or CORE A* or A, every hand-kept venue on the field
 // tabs, and the venues added by hand in the script. Destinations mix cities, countries and
 // regions, because that is how people choose where to go.
-// Built 2026-10-25.
+// Built 2026-10-26.
 export const destinations = {
  "items": [
   {
@@ -3498,8 +3498,8 @@ export const destinations = {
    "title": "COLING",
    "desc": "International Conference on Computational Linguistics",
    "year": 2027,
-   "place": "Macau SAR, China",
-   "date": "May 9-14, 2027",
+   "place": "Macau SAR, China / Online",
+   "date": "May 9-14 (in-person) and 6-7 (virtual), 2027",
    "city": "Macau",
    "country": "Macau",
    "dest": "",
@@ -3510,7 +3510,7 @@ export const destinations = {
    "deadline": "2026-12-23",
    "open": true,
    "link": "https://2027.coling-iccl.org/",
-   "q": "macau sar, china macau macau ",
+   "q": "macau sar, china / online macau macau ",
    "field": "AI · ML · Data Mining",
    "group": "computing",
    "honors": [
@@ -3523,8 +3523,8 @@ export const destinations = {
      "k": "core-b"
     }
    ],
-   "lat": 22.3211,
-   "lon": 113.9498
+   "lat": 22.1899,
+   "lon": 113.538
   },
   {
    "title": "COLT",
@@ -8596,7 +8596,7 @@ export const destinations = {
    "core": "A*",
    "sub": "MX",
    "deadline": "2026-10-25",
-   "open": true,
+   "open": false,
    "link": "https://www2027.thewebconf.org/",
    "q": "dublin, ireland dublin ireland ",
    "field": "AI · ML · Data Mining",
