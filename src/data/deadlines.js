@@ -24,10 +24,9 @@ export const deadlines = [
     { d: 29, name: 'NSF CIRC final + outcomes report', kind: 'review' },
     { d: 30, name: 'RIT Global Seed', kind: 'other', star: true },
     { d: 30, name: 'ARPA-H EHI Solution Summary (required, 2:00 PM ET)', kind: 'other', href: 'https://sam.gov/workspace/contract/opp/97049f3d1bb44fa292b998d15ce99c6a/view' },
+    { d: 30, name: 'Arena Academic Partnerships Program (Fall 2026)', kind: 'other', href: 'https://docs.google.com/forms/d/e/1FAIpQLSdKwhGge-qb8MFvpwk93GBgU0XKkqbGpb6Q3-l9oilRcD7JXg/viewform' },
   ]},
   { month: 'Nov 2026', y: 2026, m: 10, items: [
-    { d: 4, name: 'NSF AI Datasets', kind: 'nsf', star: true },
-    { d: 4, name: 'NSF SBIR/STTR', kind: 'nsf' },
     { d: 7, name: 'CVPR 2027 abstract', kind: 'paper', est: true },
     { d: 10, name: 'IEEE S&P 2027 Cycle 2 abstract registration', kind: 'paper', href: 'https://sp2027.ieee-security.org/cfpapers.html' },
     { d: 9, name: 'WebConf short abstract', kind: 'paper', star: true },
@@ -37,11 +36,10 @@ export const deadlines = [
     { d: 16, name: 'Web4Good full paper', kind: 'paper' },
     { d: 16, name: 'WebConf demo paper', kind: 'paper', star: true },
     { d: 17, name: 'WSDM 2027 short paper', kind: 'paper', star: true },
+    { d: 20, name: 'NIH U24 Music Networks Pilot: AD/ADRD (MDRN, 5 PM PT)', kind: 'nih', href: 'https://mdrn.ucsf.edu/funding-opportunities' },
   ]},
   { month: 'Dec 2026', y: 2026, m: 11, items: [
     { d: 1, name: 'Simons Empire AI (noon ET)', kind: 'other', star: true },
-    { d: 1, name: 'NSF TTP-E', kind: 'nsf', anytime: true, star: true },
-    { d: 1, name: 'NSF CMMI / IIDS (NSF 26-515)', kind: 'nsf', anytime: true },
     { d: 3, name: 'ACM CCS 2027', kind: 'paper', est: true, href: 'https://www.sigsac.org/ccs/CCS2027/' },
     { d: 2, name: 'NSF Expeditions preliminary proposal', kind: 'nsf' },
   ]},
@@ -54,6 +52,7 @@ export const deadlines = [
     { d: 26, name: 'USENIX Security 2027 Cycle 2', kind: 'paper', href: 'https://www.usenix.org/conference/usenixsecurity27/call-for-papers' },
     { d: 20, name: 'NSF CICI', kind: 'nsf' },
     { d: 31, name: 'NSF CISE Core eligible again', kind: 'nsf', star: true },
+    { d: 15, name: 'NIH Temporal Knowledge Graph Challenge submission', kind: 'nih', href: 'https://work.crowdplat.com/challenge/nih-temporal-knowledge-graph-challenge' },
   ]},
   { month: 'Feb 2027', y: 2027, m: 1, items: [
     { d: 7, name: 'KDD 2027 Cycle 2 abstract', kind: 'paper', est: true, href: 'https://kdd2027.kdd.org/research-track-call-for-papers/', star: true },
@@ -97,7 +96,5 @@ export const kindLabels = {
 };
 
 export const openCalls = [
-  { heading: 'Submit anytime (no fixed deadline)', items: ['NSF BIO Core', 'NSF CMMI / EME'] },
   { heading: 'Date not announced', items: ['ACL 2027 commitment deadline (follows the Jan 4 ARR cycle)', 'CVPR 2027 demo (historically spring)', 'NeuroArts Fleming (mid Feb 2027)'] },
-  { heading: 'NIH due dates (new applications)', items: ['R35 MIRA for ESIs: Feb 3, 2027 (Feb and Oct cycles)', 'R21: Feb 16 / Jun 16 / Oct 16', 'R15 AREA: Feb 25 / Jun 25 / Oct 25'] },
 ];
