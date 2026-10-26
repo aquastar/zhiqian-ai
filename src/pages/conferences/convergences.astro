@@ -4,25 +4,22 @@ import Nav from '../../components/Nav.astro';
 import { DOMAINS } from '../../data/domains.js';
 import { convergences as C } from '../../data/convergences.js';
 
-// Research directions made by joining two fields the conference pages
-// already track: a method from one put to work on a problem in another.
-// The text is written for a reader outside both fields. The data and the
-// reasoning live in src/data/convergences.js; this page only lays them out.
+// Two lists for research across fields: the methods that travel best between
+// fields, ranked from an OpenAlex count, and topics that need three or more
+// of the fields the conference pages track. The text is written for a reader
+// outside each field. The data and reasoning live in src/data/convergences.js.
 const FIELD = Object.fromEntries(DOMAINS.map((d) => [d.id, d]));
 const field = (id) => FIELD[id] || { label: id, icon: 'fa-circle', hue: '#64748b' };
 
-const PARTS = [
-  ['gap', 'Untouched', 'How empty the search came back: nothing at all, or a few near misses.'],
-  ['distance', 'Fields apart', 'How far apart the two fields are. Two corners of computing score low; computing and theology score high.'],
-  ['depth', 'Real method', 'Whether a working method carries over, rather than a metaphor or "use AI on X".'],
-  ['payoff', 'Payoff', 'What either field would gain if it worked.'],
+const MARKS = [
+  ['Untouched', 'How empty the searches came back.'],
+  ['Reach', 'How many fields it needs, how far apart they are, and whether each is really needed.'],
+  ['Real method', 'A working method carried across, not a metaphor.'],
+  ['Payoff', 'What it would give if it worked.'],
 ];
-
-const of = (k) => C.pool.filter((p) => p.outcome === k);
-const open = of('open').sort((a, b) => b.score - a.score);
-const done = of('done');
-const dropped = of('dropped').sort((a, b) => a.status.localeCompare(b.status));
-const studied = dropped.filter((p) => p.status === 'Already studied').length;
+const topics = C.topics.map((t) => ({ ...t, score: t.marks.reduce((a, b) => a + b, 0) / t.marks.length }))
+  .sort((a, b) => b.score - a.score);
+const fmt = (n) => (n >= 10 ? Math.round(n) : n.toFixed(1));
 ---
 
 <Layout title="Convergences | Zhiqian Chen">
@@ -32,93 +29,92 @@ const studied = dropped.filter((p) => p.status === 'Already studied').length;
     <section class="head">
       <h1>Convergences</h1>
       <p class="lede">
-        New research often comes from joining two things nobody has joined before. Here are 20 such ideas,
-        each taking a method that already works in one field and applying it to a concrete problem in another,
-        and each checked to make sure nobody has done it yet. Every idea says what the problem is, what gets
-        borrowed, and what it would give.
+        Research across fields, in two lists. First, the ten methods that travel best between fields, measured
+        from millions of papers, with where each could go next. Second, ten research topics that each need three
+        or more fields at once, checked so that nobody has done them yet.
       </p>
-      <ol class="funnel" aria-label="How the list was made">
-        <li><b>{C.pool.length + C.top.length}</b><span>pairings of two fields' methods and problems</span></li>
-        <li><b>{C.verified}</b><span>left after a first count of papers, searched by hand</span></li>
-        <li><b>20</b><span>untouched and most promising, shown below</span></li>
-      </ol>
+      <nav class="jump" aria-label="On this page">
+        <a href="#methods">10 methods that cross fields</a>
+        <a href="#topics">10 topics that join three or more fields</a>
+      </nav>
     </section>
 
-    <ol class="list">
-      {C.top.map((t) => {
-        const a = field(t.fa), b = field(t.fb);
-        return (
+    <section id="methods" class="block">
+      <h2 class="block-h">Methods that cross fields</h2>
+      <p class="block-sub">
+        Ranked by how many fields use each method, allowing for field size, and how fast it is growing. Counted in
+        OpenAlex over {C.candidates} candidate methods, papers from 2021 to 2025. For scale, research as a whole grew
+        ×{C.baseGrowth} over the same period.
+      </p>
+      <ol class="mlist">
+        {C.methods.map((m, i) => (
+          <li class="mcard">
+            <div class="mhead">
+              <span class="mrank">{i + 1}</span>
+              <h3>{m.name}</h3>
+              <span class="mstats">
+                <span title="Effective number of OpenAlex's 26 fields using the method, after allowing for field size"><b>~{Math.round(m.fields)}</b> of 26 fields</span>
+                <span title="Papers in 2024-25 against 2019-20"><b>×{fmt(m.growth)}</b> in five years</span>
+              </span>
+            </div>
+            <p class="mwhat">{m.what}</p>
+            <dl class="mgrid">
+              <dt>Already big in</dt><dd>{m.big.join(', ')}</dd>
+              <dt>Still rare in</dt><dd>{m.rare.join(', ')}</dd>
+              <dt>Where next</dt><dd>{m.next}</dd>
+              <dt>Why it travels</dt><dd>{m.why}</dd>
+            </dl>
+          </li>
+        ))}
+      </ol>
+      <p class="note">{C.leftOut}</p>
+    </section>
+
+    <section id="topics" class="block">
+      <h2 class="block-h">Topics that join three or more fields</h2>
+      <p class="block-sub">
+        Each needs every field listed: take one away and the idea falls apart. Ranked by a novelty score out of 10,
+        the average of four marks at the foot of each card.
+      </p>
+      <ol class="list">
+        {topics.map((t, i) => (
           <li class="card" id={t.id}>
             <div class="rank">
-              <span class="rank-n">#{t.rank}</span>
-              <span class="score" title="Novelty score out of 10, the average of the four marks at the foot of the card">{t.score.toFixed(1)}</span>
+              <span class="rank-n">#{i + 1}</span>
+              <span class="score" title="Novelty score out of 10">{t.score.toFixed(1)}</span>
             </div>
             <div class="body">
               <div class="pair">
-                <a class="fchip" href={`/conferences#${t.fa}`} style={`--hue:${a.hue}`}><i class={`fas ${a.icon}`} aria-hidden="true"></i>{a.label}</a>
-                <span class="x" aria-hidden="true">+</span>
-                <a class="fchip" href={`/conferences#${t.fb}`} style={`--hue:${b.hue}`}><i class={`fas ${b.icon}`} aria-hidden="true"></i>{b.label}</a>
+                {t.fields.map((f, j) => {
+                  const d = field(f);
+                  return <>{j > 0 && <span class="x" aria-hidden="true">+</span>}<a class="fchip" href={`/conferences#${f}`} style={`--hue:${d.hue}`}><i class={`fas ${d.icon}`} aria-hidden="true"></i>{d.label}</a></>;
+                })}
+                <span class="nf">{t.fields.length} fields</span>
               </div>
-              <h2>{t.title}</h2>
-              <dl class="parts3">
-                <dt>The problem</dt><dd>{t.problem}</dd>
-                <dt>What to borrow</dt><dd>{t.idea}</dd>
-                <dt>What it gives</dt><dd>{t.payoff}</dd>
-              </dl>
-              <p class="status"><b>Status.</b> {t.status}
-                {t.nearest.length > 0 && <span class="near"> Closest work: {t.nearest.map((p, i) => <>{i > 0 && ' · '}{p.u ? <a href={p.u} target="_blank" rel="noopener">{p.t}</a> : p.t}</>)}</span>}
-              </p>
+              <h3>{t.title}</h3>
+              <p class="q">{t.question}</p>
+              <div class="roles">
+                <span class="lbl">What each field brings</span>
+                <ul>
+                  {t.roles.map(([f, r]) => <li><b style={`color:${field(f).hue}`}>{field(f).label}</b> {r}</li>)}
+                </ul>
+              </div>
+              <p class="gives"><span class="lbl">What it gives</span> {t.gives}</p>
+              <p class="status"><b>Status.</b> {t.status}</p>
               <p class="marks">
-                {PARTS.map(([k, label, tip]) => <span title={tip}>{label} <b>{t.parts[k]}</b></span>)}
+                {MARKS.map(([label, tip], k) => <span title={tip}>{label} <b>{t.marks[k]}</b></span>)}
               </p>
             </div>
           </li>
-        );
-      })}
-    </ol>
-
-    <h2 class="rest-h">The other {C.pool.length} pairings</h2>
-
-    <details class="fold">
-      <summary>
-        <span class="fold-t">{open.length} more untouched ideas, ranked lower</span>
-        <span class="fold-s">Nobody has done them, but a close cousin exists or the payoff is smaller.</span>
-      </summary>
-      <ul class="rows">
-        {open.map((p) => (
-          <li><span class="rf">{field(p.fa).label} + {field(p.fb).label}</span><span class="rt">{p.text}</span><span class="rs">{p.status} <b>{p.score.toFixed(1)}</b></span></li>
         ))}
-      </ul>
-    </details>
-
-    <details class="fold">
-      <summary>
-        <span class="fold-t">{done.length} already done</span>
-        <span class="fold-s">The search found someone had got there first.</span>
-      </summary>
-      <ul class="rows">
-        {done.map((p) => (
-          <li><span class="rf">{field(p.fa).label} + {field(p.fb).label}</span><span class="rt">{p.text}</span><span class="rs">{p.status}</span></li>
-        ))}
-      </ul>
-    </details>
-
-    <details class="fold">
-      <summary>
-        <span class="fold-t">{dropped.length} dropped early</span>
-        <span class="fold-s">{studied} already have papers joining the two fields; {dropped.length - studied} were a loose analogy rather than a method that carries over.</span>
-      </summary>
-      <ul class="rows">
-        {dropped.map((p) => (
-          <li><span class="rf">{field(p.fa).label} + {field(p.fb).label}</span><span class="rt">{p.text}</span><span class="rs">{p.status}</span></li>
-        ))}
-      </ul>
-    </details>
+      </ol>
+    </section>
 
     <section class="method">
       <h2>How this was made</h2>
       <ul>
-        {C.method.map((m) => <li>{m}</li>)}
+        <li>Methods: for each of {C.candidates} candidate methods, I counted papers from 2021 to 2025 whose title or abstract names it, in each of OpenAlex's 26 research fields. "Fields" is the effective number of fields using it once field size is allowed for; growth compares 2024–25 with 2019–20. The rank weighs breadth 60% and growth 40%.</li>
+        <li>Topics: each one joins methods and problems whose pairs were searched by hand earlier, two to five searches each, and the full combination was searched again in OpenAlex.</li>
       </ul>
       <p class="built">Built {C.built}. Not finding a paper is evidence, not proof: someone may have done it under other words.</p>
     </section>
@@ -128,12 +124,29 @@ const studied = dropped.filter((p) => p.status === 'Already studied').length;
 <style>
   .container { max-width: min(95vw, 1080px); margin: 0 auto; padding: 20px; box-sizing: border-box; }
   .head h1 { font-size: 1.6rem; margin: 4px 0 6px; letter-spacing: -.02em; text-align: left; }
-  .lede { margin: 0 0 14px; color: #1e293b; font-size: 1rem; line-height: 1.65; max-width: 76ch; text-align: left; }
-  .funnel { list-style: none; display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 8px; margin: 0 0 18px; padding: 0; max-width: 760px; }
-  .funnel li { display: flex; gap: 10px; align-items: baseline; padding: 9px 12px; border: 1px solid rgba(148,163,184,.3);
-    border-radius: 10px; background: #fff; }
-  .funnel b { font-size: 1.25rem; color: #0f172a; font-variant-numeric: tabular-nums; }
-  .funnel span { font-size: .8rem; line-height: 1.35; color: #475569; text-align: left; }
+  .lede { margin: 0 0 12px; color: #1e293b; font-size: 1rem; line-height: 1.65; max-width: 76ch; text-align: left; }
+  .jump { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 8px; }
+  .jump a { font-size: .84rem; font-weight: 600; color: #1d4ed8; text-decoration: none; padding: 5px 12px;
+    border: 1px solid rgba(29,78,216,.25); border-radius: 999px; background: #fff; }
+  .jump a:hover { background: #eff6ff; }
+
+  .block { margin-top: 26px; scroll-margin-top: 16px; }
+  .block-h { font-size: 1.25rem; margin: 0 0 4px; text-align: left; color: #0f172a; letter-spacing: -.01em; }
+  .block-sub { margin: 0 0 14px; font-size: .88rem; line-height: 1.6; color: #475569; max-width: 80ch; text-align: left; }
+
+  .mlist { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 12px; }
+  .mcard { padding: 14px 16px; border: 1px solid rgba(148,163,184,.3); border-radius: 12px; background: #fff; text-align: left; }
+  .mhead { display: flex; align-items: baseline; flex-wrap: wrap; gap: 4px 10px; }
+  .mrank { font-size: .8rem; font-weight: 800; color: #94a3b8; min-width: 16px; }
+  .mcard h3 { font-size: 1.02rem; margin: 0; color: #0f172a; }
+  .mstats { margin-left: auto; display: flex; gap: 10px; font-size: .74rem; color: #64748b; }
+  .mstats span { cursor: help; }
+  .mstats b { color: #0f172a; }
+  .mwhat { margin: 6px 0 8px; font-size: .9rem; line-height: 1.55; color: #1e293b; }
+  .mgrid { display: grid; grid-template-columns: 102px minmax(0,1fr); gap: 4px 12px; margin: 0; }
+  .mgrid dt { font-size: .72rem; font-weight: 700; color: #64748b; padding-top: 2px; }
+  .mgrid dd { margin: 0; font-size: .85rem; line-height: 1.5; color: #334155; }
+  .note { margin: 12px 0 0; font-size: .8rem; line-height: 1.55; color: #64748b; max-width: 90ch; text-align: left; }
 
   .list { list-style: none; margin: 0; padding: 0; display: grid; gap: 14px; }
   .card { display: grid; grid-template-columns: 56px minmax(0,1fr); gap: 14px; padding: 16px 18px;
@@ -147,46 +160,36 @@ const studied = dropped.filter((p) => p.status === 'Already studied').length;
     border: 1px solid color-mix(in srgb, var(--hue) 25%, white); }
   .fchip i { font-size: .7rem; }
   .x { color: #94a3b8; font-weight: 700; }
-  .card h2 { font-size: 1.12rem; margin: 2px 0 10px; line-height: 1.35; text-align: left; color: #0f172a; }
-  .parts3 { display: grid; grid-template-columns: 118px minmax(0,1fr); gap: 6px 14px; margin: 0 0 8px; }
-  .parts3 dt { font-size: .74rem; font-weight: 700; letter-spacing: .02em; color: #64748b; padding-top: 2px; text-align: left; }
-  .parts3 dd { margin: 0; font-size: .92rem; line-height: 1.6; color: #1e293b; text-align: left; }
-  .status { margin: 0 0 6px; font-size: .84rem; line-height: 1.55; color: #334155; text-align: left; }
+  .nf { font-size: .72rem; color: #94a3b8; margin-left: 4px; }
+  .card h3 { font-size: 1.12rem; margin: 2px 0 8px; line-height: 1.35; text-align: left; color: #0f172a; }
+  .q { margin: 0 0 10px; font-size: .92rem; line-height: 1.6; color: #1e293b; text-align: left; }
+  .lbl { display: block; font-size: .72rem; font-weight: 700; color: #64748b; margin-bottom: 3px; }
+  .gives .lbl { display: inline; margin-right: 6px; }
+  .roles ul { margin: 0 0 10px; padding-left: 18px; }
+  .roles li { font-size: .88rem; line-height: 1.55; color: #334155; text-align: left; margin-bottom: 2px; }
+  .roles b { font-weight: 700; margin-right: 4px; }
+  .gives { margin: 0 0 6px; font-size: .9rem; line-height: 1.55; color: #1e293b; text-align: left; }
+  .status { margin: 0; font-size: .84rem; line-height: 1.55; color: #475569; text-align: left; }
   .status b { color: #0f172a; }
-  .near { color: #64748b; }
-  .near a { color: #1d4ed8; text-decoration: none; }
-  .near a:hover { text-decoration: underline; }
   .marks { display: flex; flex-wrap: wrap; gap: 4px 16px; margin: 8px 0 0; padding-top: 8px; border-top: 1px solid rgba(148,163,184,.2);
     font-size: .74rem; color: #64748b; }
   .marks span { cursor: help; }
   .marks b { color: #0f172a; font-variant-numeric: tabular-nums; }
 
-  .rest-h { font-size: 1.05rem; margin: 28px 0 10px; text-align: left; color: #0f172a; }
-  .fold { margin-top: 10px; border: 1px solid rgba(148,163,184,.3); border-radius: 12px; background: #fff; }
-  .fold summary { cursor: pointer; padding: 11px 16px; display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 12px; }
-  .fold-t { font-weight: 700; font-size: .95rem; color: #0f172a; }
-  .fold-s { font-size: .85rem; color: #475569; }
-  .rows { list-style: none; margin: 0; padding: 0; border-top: 1px solid rgba(148,163,184,.25); }
-  .rows li { display: grid; grid-template-columns: 190px minmax(0,1fr) 230px; gap: 4px 14px; padding: 8px 16px;
-    border-top: 1px solid rgba(148,163,184,.12); font-size: .86rem; line-height: 1.5; text-align: left; }
-  .rows li:first-child { border-top: 0; }
-  .rf { color: #64748b; font-size: .78rem; font-weight: 600; padding-top: 1px; }
-  .rt { color: #1e293b; }
-  .rs { color: #64748b; font-size: .8rem; }
-  .rs b { color: #0f172a; margin-left: 4px; font-variant-numeric: tabular-nums; }
-
-  .method { margin-top: 26px; }
+  .method { margin-top: 28px; }
   .method h2 { font-size: .8rem; font-weight: 700; letter-spacing: .08em;
     text-transform: uppercase; color: #64748b; margin: 0 0 6px; text-align: left; }
-  .method li, .built { font-size: .88rem; line-height: 1.6; color: #334155; text-align: left; }
+  .method li, .built { font-size: .86rem; line-height: 1.6; color: #334155; text-align: left; }
   .built { color: #64748b; font-size: .8rem; }
 
+  @media (max-width: 860px) {
+    .mlist { grid-template-columns: 1fr; }
+  }
   @media (max-width: 760px) {
-    .funnel { grid-template-columns: 1fr; }
     .card { grid-template-columns: 1fr; gap: 6px; padding: 14px; }
     .rank { flex-direction: row; justify-content: flex-start; align-items: baseline; gap: 10px; }
-    .parts3 { grid-template-columns: 1fr; gap: 2px; }
-    .parts3 dd { margin-bottom: 6px; }
-    .rows li { grid-template-columns: 1fr; gap: 2px; }
+    .mstats { margin-left: 26px; width: 100%; }
+    .mgrid { grid-template-columns: 1fr; gap: 1px; }
+    .mgrid dd { margin-bottom: 5px; }
   }
 </style>
