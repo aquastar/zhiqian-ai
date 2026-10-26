@@ -24,120 +24,127 @@ const num = (n) => n.toLocaleString('en-US');
   <main class="container">
     <Nav current="convergences" />
 
-    <section class="head">
-      <h1>Convergences</h1>
-      <p class="lede">
-        One idea, one paper. First, ten landmark cases where an idea was carried from one field into another,
-        with the paper that did it and exactly how. Second, ten research topics nobody has done yet, each joining
-        three or more fields through named papers, with the steps to carry it out.
-      </p>
-      <nav class="jump" aria-label="On this page">
-        <a href="#cases">10 ideas that crossed fields</a>
-        <a href="#topics">10 topics not yet done</a>
-      </nav>
+    {/* The same brief panel as Funding: what the page is on the left, its
+        numbers on the right. */}
+    <section class="brief">
+      <div class="brief-main">
+        <h1>Convergences</h1>
+        <p class="sub">One idea, one paper: an idea carried from one field into another, the paper that did it, and exactly how.</p>
+      </div>
+      <ul class="tally">
+        <li title="Documented transfers, each checked against Crossref"><b>{C.cases.length + C.more.length}</b><span>cases</span></li>
+        <li title="Untried topics joining three or more fields"><b>{C.topics.length}</b><span>new topics</span></li>
+        <li title="Date the list was built"><b>{C.built}</b><span>built</span></li>
+      </ul>
     </section>
 
-    <section id="cases" class="block">
-      <h2 class="block-h">Ideas that crossed fields</h2>
-      <p class="block-sub">
-        The ten most cited of {C.cases.length + C.more.length} documented transfers, by citations per year since
-        publication (Crossref, October 2026). Each says what the idea was at home, what the paper did with it, and
-        what came of it.
-      </p>
+    <div class="filter" role="tablist">
+      <button type="button" class="fbtn is-on" data-tab="cases" role="tab"><i class="fas fa-right-left" aria-hidden="true"></i>Ideas that crossed fields<span class="fcount">{C.cases.length + C.more.length}</span></button>
+      <button type="button" class="fbtn" data-tab="topics" role="tab"><i class="fas fa-lightbulb" aria-hidden="true"></i>Topics not yet done<span class="fcount">{C.topics.length}</span></button>
+      <span class="filter-note" data-note="cases">Top 10 by citations per year, then the rest in a table.</span>
+      <span class="filter-note" data-note="topics" hidden>Each joins three or more fields. Ranked by a novelty score out of 10.</span>
+    </div>
+
+    <section id="cases" class="pane" data-pane="cases">
       <ol class="list">
         {C.cases.map((c, i) => (
           <li class="card case" id={c.id}>
-            <div class="rank">
-              <span class="rank-n">#{i + 1}</span>
-              <span class="cites" title="Citations per year since publication">{num(c.perYear)}<small>cites / yr</small></span>
-            </div>
-            <div class="body">
+            <div class="lead">
+              <div class="rank">
+                <span class="rank-n">{i + 1}</span>
+                <span class="cites" title="Citations per year since publication">{num(c.perYear)} cites / yr</span>
+              </div>
               <div class="route">
                 <span class="from">{c.src}</span>
                 <i class="fas fa-arrow-right" aria-hidden="true"></i>
                 <span class="to">{c.dst}</span>
               </div>
               <h3>{c.idea}</h3>
-              <p class="cite">
-                <a href={c.paper.url} target="_blank" rel="noopener">{c.paper.authors} ({c.paper.year}). {c.paper.title}.</a>
-                <span> {c.paper.venue} · {num(c.paper.cites)} citations</span>
-              </p>
-              <dl class="grid">
-                <dt>At home</dt><dd>{c.home}</dd>
-                <dt>What the paper did</dt><dd>{c.how}</dd>
-                <dt>What became what</dt>
-                <dd>
-                  <ul class="map">
-                    {c.map.map(([a, b]) => <li><span>{a}</span><i class="fas fa-arrow-right" aria-hidden="true"></i><span>{b}</span></li>)}
-                  </ul>
-                </dd>
-                <dt>What came of it</dt><dd>{c.result}</dd>
-              </dl>
+              <a class="paper" href={c.paper.url} target="_blank" rel="noopener">
+                <b>{c.paper.authors} {c.paper.year}</b>
+                <span class="pt">{c.paper.title}</span>
+                <span class="pv">{c.paper.venue} · {num(c.paper.cites)} citations</span>
+              </a>
+            </div>
+            <div class="col">
+              <span class="lbl">At home</span>
+              <p>{c.home}</p>
+            </div>
+            <div class="col wide">
+              <span class="lbl">What the paper did</span>
+              <p>{c.how}</p>
+            </div>
+            <div class="col">
+              <span class="lbl">What came of it</span>
+              <p>{c.result}</p>
+            </div>
+            <div class="moved">
+              <span class="lbl">What became what</span>
+              <ul>
+                {c.map.map(([a, b]) => <li><span class="a">{a}</span><i class="fas fa-arrow-right" aria-hidden="true"></i><span class="b">{b}</span></li>)}
+              </ul>
             </div>
           </li>
         ))}
       </ol>
 
-      <details class="fold">
-        <summary>
-          <span class="fold-t">{C.more.length} more cases</span>
-          <span class="fold-s">The rest of the list, one line each, most cited per year first.</span>
-        </summary>
-        <ul class="rows">
-          {C.more.map((m) => (
-            <li>
-              <span class="r-route"><b>{m.idea}</b><br />{m.src} → {m.dst}</span>
-              <span class="r-text">{m.text}
-                <a href={m.paper.url} target="_blank" rel="noopener">{m.paper.authors}, {m.paper.venue} {m.paper.year}</a></span>
-            </li>
-          ))}
-        </ul>
-      </details>
+      <h2 class="more-h">{C.more.length} more cases <span>one line each, most cited per year first</span></h2>
+      <div class="table-wrap">
+        <table class="more">
+          <thead><tr><th>Idea</th><th>From → to</th><th>What happened</th><th>Paper</th></tr></thead>
+          <tbody>
+            {C.more.map((m) => (
+              <tr id={m.id}>
+                <td class="m-idea">{m.idea}</td>
+                <td class="m-route">{m.src} <i class="fas fa-arrow-right" aria-hidden="true"></i> <b>{m.dst}</b></td>
+                <td class="m-text">{m.text}</td>
+                <td class="m-paper"><a href={m.paper.url} target="_blank" rel="noopener">{m.paper.authors} {m.paper.year}</a><span>{m.paper.venue}</span></td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
     </section>
 
-    <section id="topics" class="block">
-      <h2 class="block-h">Topics not yet done, joining three or more fields</h2>
-      <p class="block-sub">
-        Each starts from a setting described in one paper and brings in ideas from papers in other fields. Ranked by
-        a novelty score out of 10, the average of four marks at the foot of each card.
-      </p>
+    <section id="topics" class="pane" data-pane="topics">
       <ol class="list">
         {C.topics.map((t, i) => (
-          <li class="card" id={t.id}>
-            <div class="rank">
-              <span class="rank-n">#{i + 1}</span>
-              <span class="score" title="Novelty score out of 10">{t.score.toFixed(1)}</span>
-            </div>
-            <div class="body">
+          <li class="card topic" id={t.id}>
+            <div class="lead">
+              <div class="rank">
+                <span class="rank-n">{i + 1}</span>
+                <span class="score" title="Novelty score out of 10, the average of the four marks below">{t.score.toFixed(1)} / 10</span>
+              </div>
               <div class="pair">
-                {t.fields.map((f, j) => {
+                {t.fields.map((f) => {
                   const d = field(f);
-                  return <>{j > 0 && <span class="x" aria-hidden="true">+</span>}<a class="fchip" href={`/conferences#${f}`} style={`--hue:${d.hue}`}><i class={`fas ${d.icon}`} aria-hidden="true"></i>{d.label}</a></>;
+                  return <a class="fchip" href={`/conferences#${f}`} style={`--hue:${d.hue}`}><i class={`fas ${d.icon}`} aria-hidden="true"></i>{d.label}</a>;
                 })}
-                <span class="nf">{t.fields.length} fields</span>
               </div>
               <h3>{t.title}</h3>
-              <div class="src setting">
-                <span class="lbl">The setting <em style={`color:${field(t.setting.field).hue}`}>{field(t.setting.field).label}</em></span>
-                <p>{t.setting.text}</p>
-                <a class="pcite" href={t.setting.paper.url} target="_blank" rel="noopener">{t.setting.paper.authors} ({t.setting.paper.year}). {t.setting.paper.title}. {t.setting.paper.venue}.</a>
-              </div>
-              {t.ideas.map((s) => (
-                <div class="src">
-                  <span class="lbl">The idea to bring <em style={`color:${field(s.field).hue}`}>{field(s.field).label}</em></span>
-                  <p>{s.text}</p>
-                  {s.paper && <a class="pcite" href={s.paper.url} target="_blank" rel="noopener">{s.paper.authors} ({s.paper.year}). {s.paper.title}. {s.paper.venue}.</a>}
-                </div>
-              ))}
-              <div class="steps">
-                <span class="lbl">How to do it</span>
-                <ol>{t.steps.map((s) => <li>{s}</li>)}</ol>
-              </div>
-              <p class="gives"><span class="lbl in">What it gives</span> {t.gives}</p>
-              <p class="status"><b>Status.</b> {t.status}</p>
+              <p class="gives"><span class="lbl">What it gives</span>{t.gives}</p>
               <p class="marks">
                 {MARKS.map(([label, tip], k) => <span title={tip}>{label} <b>{t.marks[k]}</b></span>)}
               </p>
+            </div>
+            <div class="col wide">
+              <div class="src setting">
+                <span class="lbl">The setting · <em style={`color:${field(t.setting.field).hue}`}>{field(t.setting.field).label}</em></span>
+                <p>{t.setting.text}</p>
+                <a class="pcite" href={t.setting.paper.url} target="_blank" rel="noopener">{t.setting.paper.authors} {t.setting.paper.year}, {t.setting.paper.venue}</a>
+              </div>
+              {t.ideas.map((s) => (
+                <div class="src">
+                  <span class="lbl">The idea to bring · <em style={`color:${field(s.field).hue}`}>{field(s.field).label}</em></span>
+                  <p>{s.text}</p>
+                  {s.paper && <a class="pcite" href={s.paper.url} target="_blank" rel="noopener">{s.paper.authors} {s.paper.year}, {s.paper.venue}</a>}
+                </div>
+              ))}
+            </div>
+            <div class="col wide">
+              <span class="lbl">How to do it</span>
+              <ol class="steps">{t.steps.map((s) => <li>{s}</li>)}</ol>
+              <p class="status"><span class="lbl">Status</span>{t.status}</p>
             </div>
           </li>
         ))}
@@ -148,102 +155,145 @@ const num = (n) => n.toLocaleString('en-US');
       <h2>How this was made</h2>
       <ul>
         <li>Cases: {C.cases.length + C.more.length} well-known transfers of an idea between fields, each checked against Crossref for title, venue, DOI and citation count, then ranked by citations per year since publication. AlphaFold was left out: it combines many ideas, and no single one of them moved.</li>
-        <li>Topics: built from method–problem pairs that came back empty in Semantic Scholar, Europe PMC and OpenAlex, then searched again as a whole. Every paper cited on a card was checked against Crossref or arXiv.</li>
+        <li>Topics: built from method–problem pairs that came back empty in Semantic Scholar, Europe PMC and OpenAlex, then searched again as a whole. Every paper cited on a card was checked against Crossref or arXiv. Not finding a paper is evidence, not proof: someone may have done it under other words.</li>
       </ul>
-      <p class="built">Built {C.built}. Not finding a paper is evidence, not proof: someone may have done it under other words.</p>
     </section>
   </main>
 </Layout>
 
+<script>
+  // Two panes, one at a time, like the filters on Funding. The hash picks the
+  // pane, so /conferences/convergences#topics and a card id both land right.
+  const btns = [...document.querySelectorAll('[data-tab]')];
+  const show = (key) => {
+    btns.forEach((b) => b.classList.toggle('is-on', b.dataset.tab === key));
+    document.querySelectorAll('[data-pane]').forEach((p) => { p.hidden = p.dataset.pane !== key; });
+    document.querySelectorAll('[data-note]').forEach((n) => { n.hidden = n.dataset.note !== key; });
+  };
+  const fromHash = () => {
+    const el = location.hash && document.getElementById(location.hash.slice(1));
+    const pane = el && (el.closest('[data-pane]') || el);
+    show(pane?.dataset?.pane || 'cases');
+    if (el && el.dataset.pane === undefined) el.scrollIntoView();
+  };
+  btns.forEach((b) => b.addEventListener('click', () => { history.replaceState(null, '', '#' + b.dataset.tab); show(b.dataset.tab); }));
+  addEventListener('hashchange', fromHash);
+  fromHash();
+</script>
+
 <style>
-  .container { max-width: min(95vw, 1080px); margin: 0 auto; padding: 20px; box-sizing: border-box; }
-  .head h1 { font-size: 1.6rem; margin: 4px 0 6px; letter-spacing: -.02em; text-align: left; }
-  .lede { margin: 0 0 12px; color: #1e293b; font-size: 1rem; line-height: 1.65; max-width: 76ch; text-align: left; }
-  .jump { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 8px; }
-  .jump a { font-size: .84rem; font-weight: 600; color: #1d4ed8; text-decoration: none; padding: 5px 12px;
-    border: 1px solid rgba(29,78,216,.25); border-radius: 999px; background: #fff; }
-  .jump a:hover { background: #eff6ff; }
+  .container { max-width: min(95vw, 1600px); margin: 0 auto; padding: 20px; box-sizing: border-box; }
+  .container :is(h1, h2, h3, p, li, td, th, dd) { text-align: left; }
 
-  .block { margin-top: 26px; scroll-margin-top: 16px; }
-  .block-h { font-size: 1.25rem; margin: 0 0 4px; text-align: left; color: #0f172a; letter-spacing: -.01em; }
-  .block-sub { margin: 0 0 14px; font-size: .88rem; line-height: 1.6; color: #475569; max-width: 80ch; text-align: left; }
+  .brief { display: grid; grid-template-columns: minmax(0,1fr) auto; gap: 10px 26px; align-items: center;
+    padding: 12px 18px; margin-bottom: 12px; border: 1px solid rgba(148,163,184,.3); border-radius: 14px;
+    background: linear-gradient(180deg,#fbfdff,#f8fafc); }
+  .brief h1 { font-size: 1.3rem; margin: 0 0 4px; letter-spacing: -.02em; }
+  .sub { margin: 0; font-size: .92rem; line-height: 1.55; color: #334155; }
+  .tally { list-style: none; display: flex; flex-wrap: wrap; gap: 7px; margin: 0; padding: 0; }
+  .tally li { display: flex; flex-direction: column; align-items: center; min-width: 62px; cursor: help;
+    padding: 5px 10px; border-radius: 9px; background: #fff; border: 1px solid rgba(148,163,184,.3); }
+  .tally b { font-size: 1rem; color: #0f172a; font-variant-numeric: tabular-nums; }
+  .tally span { font-size: .58rem; font-weight: 700; letter-spacing: .05em; text-transform: uppercase; color: #94a3b8; }
 
-  .list { list-style: none; margin: 0; padding: 0; display: grid; gap: 14px; }
-  .card { display: grid; grid-template-columns: 64px minmax(0,1fr); gap: 14px; padding: 16px 18px;
-    border: 1px solid rgba(148,163,184,.3); border-radius: 12px; background: #fff; text-align: left; }
-  .rank { display: flex; flex-direction: column; align-items: center; gap: 4px; }
-  .rank-n { font-size: .78rem; font-weight: 700; color: #94a3b8; }
-  .score { font-size: 1.3rem; font-weight: 800; color: #0f172a; font-variant-numeric: tabular-nums; cursor: help; }
-  .cites { display: flex; flex-direction: column; align-items: center; font-size: 1.05rem; font-weight: 800; color: #0f172a; cursor: help; }
-  .cites small { font-size: .6rem; font-weight: 600; color: #94a3b8; }
-  .route { display: flex; align-items: center; flex-wrap: wrap; gap: 8px; font-size: .78rem; font-weight: 700; margin-bottom: 4px; }
+  .filter { display: flex; flex-wrap: wrap; gap: 6px 10px; align-items: center; margin-bottom: 12px; }
+  .fbtn { display: inline-flex; align-items: center; gap: 6px; padding: 5px 12px; border-radius: 999px; cursor: pointer;
+    border: 1px solid rgba(148,163,184,.4); background: #fff; color: #475569; font: inherit; font-size: .8rem; font-weight: 600; white-space: nowrap; }
+  .fbtn:hover { border-color: rgba(37,99,235,.45); color: #1d4ed8; }
+  .fbtn.is-on { background: #1e293b; border-color: #1e293b; color: #fff; }
+  .fcount { font-size: .7rem; font-weight: 700; opacity: .6; }
+  .filter-note { font-size: .8rem; color: #64748b; margin-left: 6px; }
+
+  .lbl { display: block; font-size: .64rem; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; color: #94a3b8; margin-bottom: 5px; }
+  .lbl em { font-style: normal; }
+
+  .list { list-style: none; margin: 0; padding: 0; display: grid; gap: 12px; }
+  /* One card is one row: the idea and its paper on the left, then the story
+     in short columns, so no line runs the width of the screen. */
+  .card { display: grid; grid-template-columns: 300px minmax(0,1fr) minmax(0,1.5fr) minmax(0,1fr); gap: 14px 26px;
+    padding: 18px 20px; border: 1px solid rgba(148,163,184,.3); border-radius: 12px; background: #fff; scroll-margin-top: 16px; }
+  .card.topic { grid-template-columns: 300px minmax(0,1.2fr) minmax(0,1fr); }
+  .lead { grid-row: span 2; padding-right: 22px; border-right: 1px solid rgba(148,163,184,.2); }
+  .card.topic .lead { grid-row: auto; }
+  .rank { display: flex; align-items: baseline; gap: 10px; margin-bottom: 8px; }
+  .rank-n { font-size: 1.5rem; font-weight: 800; color: #cbd5e1; line-height: 1; font-variant-numeric: tabular-nums; }
+  .cites, .score { font-size: .74rem; font-weight: 700; color: #0f172a; background: #f1f5f9; padding: 2px 8px; border-radius: 999px; cursor: help; }
+  .route { display: flex; align-items: center; flex-wrap: wrap; gap: 6px; font-size: .8rem; font-weight: 700; margin-bottom: 2px; }
   .route .from { color: #64748b; }
   .route .to { color: #1d4ed8; }
-  .route i { color: #94a3b8; font-size: .7rem; }
-  .card h3 { font-size: 1.12rem; margin: 2px 0 6px; line-height: 1.35; color: #0f172a; }
-  .cite { margin: 0 0 10px; font-size: .84rem; line-height: 1.5; color: #64748b; }
-  .cite a, .pcite, .r-text a { color: #1d4ed8; text-decoration: none; }
-  .cite a:hover, .pcite:hover, .r-text a:hover { text-decoration: underline; }
-  .grid { display: grid; grid-template-columns: 128px minmax(0,1fr); gap: 7px 14px; margin: 0; }
-  .grid dt { font-size: .74rem; font-weight: 700; color: #64748b; padding-top: 2px; }
-  .grid dd { margin: 0; font-size: .9rem; line-height: 1.6; color: #1e293b; }
-  .map { list-style: none; margin: 0; padding: 0; display: grid; gap: 3px; }
-  .map li { display: grid; grid-template-columns: minmax(0,1fr) 16px minmax(0,1fr); gap: 8px; align-items: baseline; }
-  .map li span:first-child { color: #64748b; }
-  .map i { color: #94a3b8; font-size: .7rem; }
+  .route i { color: #94a3b8; font-size: .68rem; }
+  .card h3 { font-size: 1.2rem; margin: 2px 0 10px; line-height: 1.3; color: #0f172a; letter-spacing: -.01em; }
+  .paper { display: flex; flex-direction: column; gap: 2px; padding: 9px 11px; border-radius: 9px; background: #f8fafc;
+    border: 1px solid rgba(148,163,184,.25); text-decoration: none; font-size: .8rem; line-height: 1.4; }
+  .paper b { color: #1d4ed8; }
+  .paper .pt { color: #1e293b; }
+  .paper .pv { color: #64748b; font-size: .74rem; }
+  .paper:hover { border-color: rgba(29,78,216,.4); background: #eff6ff; }
+  .col p, .src p { margin: 0; font-size: .95rem; line-height: 1.65; color: #1e293b; }
 
-  .fold { margin-top: 12px; border: 1px solid rgba(148,163,184,.3); border-radius: 12px; background: #fff; }
-  .fold summary { cursor: pointer; padding: 11px 16px; display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 12px; }
-  .fold-t { font-weight: 700; font-size: .95rem; color: #0f172a; }
-  .fold-s { font-size: .85rem; color: #475569; }
-  .rows { list-style: none; margin: 0; padding: 0; border-top: 1px solid rgba(148,163,184,.25); }
-  .rows li { display: grid; grid-template-columns: 230px minmax(0,1fr); gap: 4px 16px; padding: 9px 16px;
-    border-top: 1px solid rgba(148,163,184,.12); font-size: .86rem; line-height: 1.5; text-align: left; }
-  .rows li:first-child { border-top: 0; }
-  .r-route { color: #64748b; font-size: .8rem; }
-  .r-route b { color: #0f172a; }
-  .r-text { color: #1e293b; }
-  .r-text a { margin-left: 4px; font-size: .8rem; overflow-wrap: anywhere; }
+  .moved { grid-column: 2 / -1; padding-top: 12px; border-top: 1px dashed rgba(148,163,184,.35); }
+  .moved ul { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 8px; }
+  .moved li { display: inline-flex; align-items: center; gap: 8px; padding: 5px 11px; border-radius: 8px; background: #f8fafc;
+    border: 1px solid rgba(148,163,184,.25); font-size: .88rem; line-height: 1.4; }
+  .moved .a { color: #64748b; }
+  .moved .b { color: #0f172a; font-weight: 600; }
+  .moved i { color: #1d4ed8; font-size: .7rem; flex: none; }
 
-  .pair { display: flex; align-items: center; flex-wrap: wrap; gap: 6px; margin-bottom: 6px; }
+  .more-h { font-size: 1rem; margin: 26px 0 8px; color: #0f172a; }
+  .more-h span { font-size: .8rem; font-weight: 500; color: #64748b; margin-left: 8px; }
+  .table-wrap { border: 1px solid rgba(148,163,184,.3); border-radius: 12px; background: #fff; overflow: hidden; }
+  .more { width: 100%; border-collapse: collapse; font-size: .9rem; line-height: 1.55; }
+  .more th { font-size: .66rem; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; color: #64748b;
+    padding: 10px 14px; border-bottom: 1px solid rgba(148,163,184,.3); background: #fafbfc; }
+  .more td { padding: 10px 14px; border-top: 1px solid rgba(148,163,184,.15); vertical-align: top; color: #1e293b; }
+  .more tbody tr:hover { background: #f8fafc; }
+  .m-idea { font-weight: 700; color: #0f172a; width: 220px; }
+  .m-route { width: 260px; color: #64748b; font-size: .84rem; }
+  .m-route b { color: #1d4ed8; }
+  .m-route i { font-size: .62rem; color: #94a3b8; margin: 0 2px; }
+  .m-paper { width: 230px; font-size: .82rem; }
+  .m-paper a { display: block; font-weight: 700; color: #1d4ed8; text-decoration: none; }
+  .m-paper a:hover { text-decoration: underline; }
+  .m-paper span { color: #64748b; font-size: .76rem; }
+
+  .pair { display: flex; flex-wrap: wrap; gap: 5px; margin-bottom: 6px; }
   .fchip { display: inline-flex; align-items: center; gap: 5px; padding: 2px 9px; border-radius: 999px; text-decoration: none;
     font-size: .74rem; font-weight: 700; color: var(--hue); background: color-mix(in srgb, var(--hue) 10%, white);
     border: 1px solid color-mix(in srgb, var(--hue) 25%, white); }
   .fchip i { font-size: .7rem; }
-  .x { color: #94a3b8; font-weight: 700; }
-  .nf { font-size: .72rem; color: #94a3b8; margin-left: 4px; }
-  .lbl { display: block; font-size: .72rem; font-weight: 700; color: #64748b; margin-bottom: 2px; }
-  .lbl em { font-style: normal; margin-left: 4px; }
-  .lbl.in { display: inline; margin-right: 6px; }
-  .src { margin: 0 0 10px; padding-left: 10px; border-left: 2px solid rgba(148,163,184,.35); }
+  .gives, .status { margin: 0 0 10px; font-size: .9rem; line-height: 1.6; color: #1e293b; }
+  .status { margin: 12px 0 0; color: #334155; }
+  .src { margin: 0 0 14px; padding-left: 12px; border-left: 3px solid rgba(148,163,184,.35); }
+  .src:last-child { margin-bottom: 0; }
   .src.setting { border-left-color: #1e293b; }
-  .src p { margin: 0 0 2px; font-size: .9rem; line-height: 1.55; color: #1e293b; }
-  .pcite { font-size: .78rem; line-height: 1.45; }
-  .steps ol { margin: 0 0 10px; padding-left: 20px; }
-  .steps li { font-size: .9rem; line-height: 1.55; color: #1e293b; margin-bottom: 3px; }
-  .gives { margin: 0 0 6px; font-size: .9rem; line-height: 1.55; color: #1e293b; }
-  .status { margin: 0; font-size: .84rem; line-height: 1.55; color: #475569; }
-  .status b { color: #0f172a; }
-  .marks { display: flex; flex-wrap: wrap; gap: 4px 16px; margin: 8px 0 0; padding-top: 8px; border-top: 1px solid rgba(148,163,184,.2);
+  .pcite { display: inline-block; margin-top: 4px; font-size: .8rem; font-weight: 600; color: #1d4ed8; text-decoration: none; }
+  .pcite:hover { text-decoration: underline; }
+  .steps { margin: 0; padding-left: 20px; }
+  .steps li { font-size: .95rem; line-height: 1.65; color: #1e293b; margin-bottom: 8px; }
+  .marks { display: flex; flex-wrap: wrap; gap: 4px 12px; margin: 0; padding-top: 8px; border-top: 1px solid rgba(148,163,184,.2);
     font-size: .74rem; color: #64748b; }
   .marks span { cursor: help; }
-  .marks b { color: #0f172a; font-variant-numeric: tabular-nums; }
+  .marks b { color: #0f172a; }
 
   .method { margin-top: 28px; }
-  .method h2 { font-size: .8rem; font-weight: 700; letter-spacing: .08em;
-    text-transform: uppercase; color: #64748b; margin: 0 0 6px; text-align: left; }
-  .method li, .built { font-size: .86rem; line-height: 1.6; color: #334155; text-align: left; }
-  .built { color: #64748b; font-size: .8rem; }
+  .method h2 { font-size: .8rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: #64748b; margin: 0 0 6px; }
+  .method li { font-size: .86rem; line-height: 1.6; color: #334155; }
 
+  /* Mid widths: the idea on top, the story in columns under it. */
+  @media (max-width: 1150px) {
+    .card, .card.topic { grid-template-columns: repeat(3, minmax(0,1fr)); }
+    .card.topic { grid-template-columns: repeat(2, minmax(0,1fr)); }
+    .lead { grid-column: 1 / -1; grid-row: auto; padding: 0 0 12px; border-right: 0; border-bottom: 1px solid rgba(148,163,184,.2); }
+    .moved { grid-column: 1 / -1; }
+  }
   @media (max-width: 760px) {
-    .card { grid-template-columns: 1fr; gap: 6px; padding: 14px; }
-    .rank { flex-direction: row; justify-content: flex-start; align-items: baseline; gap: 10px; }
-    .cites { flex-direction: row; gap: 4px; align-items: baseline; }
-    .grid { grid-template-columns: 1fr; gap: 1px; }
-    .grid dd { margin-bottom: 7px; }
-    .map li { grid-template-columns: 1fr; gap: 0; }
-    .map li { padding: 4px 0; border-bottom: 1px dashed rgba(148,163,184,.3); }
-    .map i { transform: rotate(90deg); justify-self: start; margin: 2px 0; }
-    .rows li { grid-template-columns: 1fr; }
+    .container { padding: 14px 12px 20px; }
+    .brief { grid-template-columns: 1fr; }
+    .card, .card.topic { grid-template-columns: 1fr; padding: 14px; gap: 12px; }
+    .moved li { flex-wrap: wrap; }
+    .filter-note { display: none; }
+    .more thead { display: none; }
+    .more tr { display: block; padding: 10px 12px; border-top: 1px solid rgba(148,163,184,.15); }
+    .more td { display: block; width: auto; padding: 2px 0; border: 0; }
   }
 </style>
