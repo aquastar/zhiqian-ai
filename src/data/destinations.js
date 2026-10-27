@@ -3,7 +3,7 @@
 // CCF A or B, or CORE A* or A, every hand-kept venue on the field
 // tabs, and the venues added by hand in the script. Destinations mix cities, countries and
 // regions, because that is how people choose where to go.
-// Built 2026-10-26.
+// Built 2026-10-27.
 export const destinations = {
  "items": [
   {
@@ -3539,8 +3539,8 @@ export const destinations = {
    "ccf": "B",
    "core": "A*",
    "sub": "AI",
-   "deadline": "",
-   "open": false,
+   "deadline": "2027-01-29",
+   "open": true,
    "link": "https://learningtheory.org/colt2027/",
    "q": "tokyo, japan tokyo japan ",
    "field": "AI · ML · Data Mining",
@@ -6041,8 +6041,8 @@ export const destinations = {
    "icon": "",
    "ccf": "N",
    "core": "N",
-   "deadline": "2026-10-26",
-   "open": true,
+   "deadline": "",
+   "open": false,
    "link": "https://biomedicalimaging.org/2027/",
    "q": "lausanne, switzerland lausanne switzerland ",
    "field": "Biomedical",
@@ -6101,7 +6101,7 @@ export const destinations = {
    "core": "C",
    "sub": "DS",
    "deadline": "2026-10-26",
-   "open": true,
+   "open": false,
    "link": "https://2027.ieee-iscas.org/",
    "q": "bordeaux, france bordeaux france ",
    "field": "Architecture & systems",
@@ -8685,6 +8685,34 @@ export const destinations = {
    ],
    "lat": -23.5507,
    "lon": -46.6334
+  },
+  {
+   "title": "NSDI",
+   "desc": "USENIX Symposium on Networked Systems Design and Implementation",
+   "year": 2028,
+   "place": "Santa Clara, CA, USA",
+   "date": "May 9-11, 2028",
+   "city": "Santa Clara",
+   "country": "United States",
+   "dest": "",
+   "icon": "",
+   "ccf": "A",
+   "core": "N",
+   "sub": "NW",
+   "deadline": "",
+   "open": false,
+   "link": "https://www.usenix.org/conferences/byname/178",
+   "q": "santa clara, ca, usa santa clara united states california",
+   "field": "Networking",
+   "group": "computing",
+   "honors": [
+    {
+     "t": "CCF A",
+     "k": "ccf-a"
+    }
+   ],
+   "lat": 37.2333,
+   "lon": -121.6846
   },
   {
    "title": "PSCC",

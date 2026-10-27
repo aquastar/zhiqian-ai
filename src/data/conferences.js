@@ -3,318 +3,8 @@
 // CORE ranks are cross-checked against the official CORE2023 export from
 // portal.core.edu.au. Acceptance rates and submission counts come from
 // github.com/Xovee/cs-conf-stats (main track only).
-// Built 2026-10-26.
+// Built 2026-10-27.
 export const ranked = [
-  {
-    "title": "CCS",
-    "desc": "ACM Conference on Computer and Communications Security",
-    "area": "security",
-    "sub": "SC",
-    "frank": "Big Four",
-    "ccf": "A",
-    "core": "A*",
-    "coreVerified": true,
-    "nextDeadline": "2026-04-29",
-    "nextYear": 2026,
-    "nextAbstract": "",
-    "estimated": false,
-    "estFrom": "",
-    "rounds": [
-      {
-        "d": "2026-04-29",
-        "label": "Cycle 2",
-        "est": false,
-        "year": 2026,
-        "link": "https://www.sigsac.org/ccs/CCS2026/",
-        "abs": "2026-04-22"
-      },
-      {
-        "d": "2027-01-09",
-        "label": "Cycle 1",
-        "est": true,
-        "from": "2025-01-09",
-        "abs": "2027-01-02"
-      }
-    ],
-    "dblp": "ccs",
-    "csr": "Security",
-    "edition": "33rd",
-    "best": "",
-    "link": "https://www.sigsac.org/ccs/CCS2026/",
-    "date": "November 16-18, 2026",
-    "place": "World Forum, Hague, Netherlands",
-    "cc": "nl",
-    "city": "",
-    "cycles": 2,
-    "roundLabels": [
-      "Cycle 1",
-      "Cycle 2"
-    ],
-    "proceedings": "full",
-    "rates": [
-      {
-        "y": 1993,
-        "r": 45.0
-      },
-      {
-        "y": 1994,
-        "r": 44.3
-      },
-      {
-        "y": 1996,
-        "r": 32.2
-      },
-      {
-        "y": 1997,
-        "r": 26.6
-      },
-      {
-        "y": 1998,
-        "r": 20.0
-      },
-      {
-        "y": 1999,
-        "r": 19.3
-      },
-      {
-        "y": 2000,
-        "r": 21.2
-      },
-      {
-        "y": 2001,
-        "r": 17.6
-      },
-      {
-        "y": 2002,
-        "r": 17.6
-      },
-      {
-        "y": 2003,
-        "r": 13.8
-      },
-      {
-        "y": 2004,
-        "r": 13.9
-      },
-      {
-        "y": 2005,
-        "r": 15.2
-      },
-      {
-        "y": 2006,
-        "r": 14.8
-      },
-      {
-        "y": 2007,
-        "r": 18.2
-      },
-      {
-        "y": 2008,
-        "r": 18.2
-      },
-      {
-        "y": 2009,
-        "r": 18.4
-      },
-      {
-        "y": 2010,
-        "r": 16.9
-      },
-      {
-        "y": 2011,
-        "r": 14.0
-      },
-      {
-        "y": 2012,
-        "r": 19.1
-      },
-      {
-        "y": 2013,
-        "r": 19.8
-      },
-      {
-        "y": 2014,
-        "r": 19.5
-      },
-      {
-        "y": 2015,
-        "r": 19.4
-      },
-      {
-        "y": 2016,
-        "r": 16.5
-      },
-      {
-        "y": 2017,
-        "r": 18.1
-      },
-      {
-        "y": 2018,
-        "r": 16.6
-      },
-      {
-        "y": 2019,
-        "r": 16.0
-      },
-      {
-        "y": 2020,
-        "r": 16.9
-      },
-      {
-        "y": 2021,
-        "r": 22.3
-      },
-      {
-        "y": 2022,
-        "r": 22.5
-      },
-      {
-        "y": 2023,
-        "r": 19.2
-      },
-      {
-        "y": 2024,
-        "r": 16.7
-      },
-      {
-        "y": 2025,
-        "r": 14.5
-      }
-    ],
-    "subs": [
-      {
-        "y": 1993,
-        "n": 60
-      },
-      {
-        "y": 1994,
-        "n": 70
-      },
-      {
-        "y": 1996,
-        "n": 59
-      },
-      {
-        "y": 1997,
-        "n": 64
-      },
-      {
-        "y": 1998,
-        "n": 85
-      },
-      {
-        "y": 1999,
-        "n": 83
-      },
-      {
-        "y": 2000,
-        "n": 132
-      },
-      {
-        "y": 2001,
-        "n": 153
-      },
-      {
-        "y": 2002,
-        "n": 153
-      },
-      {
-        "y": 2003,
-        "n": 253
-      },
-      {
-        "y": 2004,
-        "n": 251
-      },
-      {
-        "y": 2005,
-        "n": 250
-      },
-      {
-        "y": 2006,
-        "n": 256
-      },
-      {
-        "y": 2007,
-        "n": 302
-      },
-      {
-        "y": 2008,
-        "n": 280
-      },
-      {
-        "y": 2009,
-        "n": 315
-      },
-      {
-        "y": 2010,
-        "n": 325
-      },
-      {
-        "y": 2011,
-        "n": 429
-      },
-      {
-        "y": 2012,
-        "n": 423
-      },
-      {
-        "y": 2013,
-        "n": 530
-      },
-      {
-        "y": 2014,
-        "n": 585
-      },
-      {
-        "y": 2015,
-        "n": 660
-      },
-      {
-        "y": 2016,
-        "n": 831
-      },
-      {
-        "y": 2017,
-        "n": 836
-      },
-      {
-        "y": 2018,
-        "n": 809
-      },
-      {
-        "y": 2019,
-        "n": 934
-      },
-      {
-        "y": 2020,
-        "n": 715
-      },
-      {
-        "y": 2021,
-        "n": 879
-      },
-      {
-        "y": 2022,
-        "n": 971
-      },
-      {
-        "y": 2023,
-        "n": 1222
-      },
-      {
-        "y": 2024,
-        "n": 1964
-      },
-      {
-        "y": 2025,
-        "n": 2186
-      }
-    ],
-    "rateSrc": "csc",
-    "rateSlug": "ccs",
-    "tier": 1
-  },
   {
     "title": "VLDB",
     "desc": "International Conference on Very Large Data Bases",
@@ -8344,59 +8034,6 @@ export const ranked = [
     "tier": 1
   },
   {
-    "title": "ISBI",
-    "desc": "IEEE International Symposium on Biomedical Imaging",
-    "area": "biomed",
-    "proceedings": "full",
-    "lastDeadline": "2026-10-26",
-    "period": 1,
-    "date": "May 25-28, 2027",
-    "place": "Lausanne, Switzerland",
-    "badge": "imaging",
-    "dblp": "isbi",
-    "rounds": [
-      {
-        "d": "2026-10-26",
-        "label": "4-page paper",
-        "est": false
-      },
-      {
-        "d": "2027-02-01",
-        "label": "1-page abstract, poster only",
-        "est": false
-      }
-    ],
-    "note": "Four-page papers, single-blind, presented in person or withdrawn. Deadlines are 11:59pm US Eastern, not Anywhere on Earth. One-page abstracts are posters and are not in the proceedings.",
-    "link": "https://biomedicalimaging.org/2027/",
-    "frank": "",
-    "equivalent": null,
-    "field": "",
-    "kind": "",
-    "why": "",
-    "estIsForDate": false,
-    "ccf": "N",
-    "core": "N",
-    "coreVerified": false,
-    "nextAbstract": "",
-    "cycles": 1,
-    "roundLabels": [],
-    "rates": [],
-    "rateSrc": "",
-    "rateSlug": "",
-    "best": "",
-    "csr": "",
-    "edition": "",
-    "sub": "",
-    "estimated": false,
-    "estFrom": "",
-    "nextDeadline": "2026-10-26",
-    "nextYear": null,
-    "notable": true,
-    "cc": "",
-    "city": "",
-    "tier": 3
-  },
-  {
     "title": "MLSys",
     "equivalent": "CCF B / CORE A",
     "desc": "Conference on Machine Learning and Systems",
@@ -10894,6 +10531,312 @@ export const ranked = [
     "tier": 1
   },
   {
+    "title": "CCS",
+    "desc": "ACM Conference on Computer and Communications Security",
+    "area": "security",
+    "sub": "SC",
+    "frank": "Big Four",
+    "ccf": "A",
+    "core": "A*",
+    "coreVerified": true,
+    "nextDeadline": "2027-01-09",
+    "nextYear": 2027,
+    "nextAbstract": "",
+    "estimated": true,
+    "estFrom": "2025-01-09",
+    "rounds": [
+      {
+        "d": "2027-01-09",
+        "label": "Cycle 1",
+        "est": true,
+        "from": "2025-01-09",
+        "abs": "2027-01-02"
+      },
+      {
+        "d": "2027-04-14",
+        "label": "Cycle 2",
+        "est": true,
+        "from": "2025-04-14",
+        "abs": "2027-04-07"
+      }
+    ],
+    "dblp": "ccs",
+    "csr": "Security",
+    "edition": "34th",
+    "best": "",
+    "link": "https://www.sigsac.org/ccs/CCS2027/",
+    "date": "October 11-15, 2027",
+    "place": "Atlanta, USA",
+    "cc": "us",
+    "city": "Busy Bee fried chicken, walking under the whale sharks, Ponce City Market rooftop",
+    "cycles": 1,
+    "roundLabels": [],
+    "proceedings": "full",
+    "rates": [
+      {
+        "y": 1993,
+        "r": 45.0
+      },
+      {
+        "y": 1994,
+        "r": 44.3
+      },
+      {
+        "y": 1996,
+        "r": 32.2
+      },
+      {
+        "y": 1997,
+        "r": 26.6
+      },
+      {
+        "y": 1998,
+        "r": 20.0
+      },
+      {
+        "y": 1999,
+        "r": 19.3
+      },
+      {
+        "y": 2000,
+        "r": 21.2
+      },
+      {
+        "y": 2001,
+        "r": 17.6
+      },
+      {
+        "y": 2002,
+        "r": 17.6
+      },
+      {
+        "y": 2003,
+        "r": 13.8
+      },
+      {
+        "y": 2004,
+        "r": 13.9
+      },
+      {
+        "y": 2005,
+        "r": 15.2
+      },
+      {
+        "y": 2006,
+        "r": 14.8
+      },
+      {
+        "y": 2007,
+        "r": 18.2
+      },
+      {
+        "y": 2008,
+        "r": 18.2
+      },
+      {
+        "y": 2009,
+        "r": 18.4
+      },
+      {
+        "y": 2010,
+        "r": 16.9
+      },
+      {
+        "y": 2011,
+        "r": 14.0
+      },
+      {
+        "y": 2012,
+        "r": 19.1
+      },
+      {
+        "y": 2013,
+        "r": 19.8
+      },
+      {
+        "y": 2014,
+        "r": 19.5
+      },
+      {
+        "y": 2015,
+        "r": 19.4
+      },
+      {
+        "y": 2016,
+        "r": 16.5
+      },
+      {
+        "y": 2017,
+        "r": 18.1
+      },
+      {
+        "y": 2018,
+        "r": 16.6
+      },
+      {
+        "y": 2019,
+        "r": 16.0
+      },
+      {
+        "y": 2020,
+        "r": 16.9
+      },
+      {
+        "y": 2021,
+        "r": 22.3
+      },
+      {
+        "y": 2022,
+        "r": 22.5
+      },
+      {
+        "y": 2023,
+        "r": 19.2
+      },
+      {
+        "y": 2024,
+        "r": 16.7
+      },
+      {
+        "y": 2025,
+        "r": 14.5
+      }
+    ],
+    "subs": [
+      {
+        "y": 1993,
+        "n": 60
+      },
+      {
+        "y": 1994,
+        "n": 70
+      },
+      {
+        "y": 1996,
+        "n": 59
+      },
+      {
+        "y": 1997,
+        "n": 64
+      },
+      {
+        "y": 1998,
+        "n": 85
+      },
+      {
+        "y": 1999,
+        "n": 83
+      },
+      {
+        "y": 2000,
+        "n": 132
+      },
+      {
+        "y": 2001,
+        "n": 153
+      },
+      {
+        "y": 2002,
+        "n": 153
+      },
+      {
+        "y": 2003,
+        "n": 253
+      },
+      {
+        "y": 2004,
+        "n": 251
+      },
+      {
+        "y": 2005,
+        "n": 250
+      },
+      {
+        "y": 2006,
+        "n": 256
+      },
+      {
+        "y": 2007,
+        "n": 302
+      },
+      {
+        "y": 2008,
+        "n": 280
+      },
+      {
+        "y": 2009,
+        "n": 315
+      },
+      {
+        "y": 2010,
+        "n": 325
+      },
+      {
+        "y": 2011,
+        "n": 429
+      },
+      {
+        "y": 2012,
+        "n": 423
+      },
+      {
+        "y": 2013,
+        "n": 530
+      },
+      {
+        "y": 2014,
+        "n": 585
+      },
+      {
+        "y": 2015,
+        "n": 660
+      },
+      {
+        "y": 2016,
+        "n": 831
+      },
+      {
+        "y": 2017,
+        "n": 836
+      },
+      {
+        "y": 2018,
+        "n": 809
+      },
+      {
+        "y": 2019,
+        "n": 934
+      },
+      {
+        "y": 2020,
+        "n": 715
+      },
+      {
+        "y": 2021,
+        "n": 879
+      },
+      {
+        "y": 2022,
+        "n": 971
+      },
+      {
+        "y": 2023,
+        "n": 1222
+      },
+      {
+        "y": 2024,
+        "n": 1964
+      },
+      {
+        "y": 2025,
+        "n": 2186
+      }
+    ],
+    "rateSrc": "csc",
+    "rateSlug": "ccs",
+    "tier": 1
+  },
+  {
     "title": "IJCAI",
     "desc": "International Joint Conference on Artificial Intelligence",
     "area": "ai",
@@ -11690,6 +11633,282 @@ export const ranked = [
     "tier": 1
   },
   {
+    "title": "COLT",
+    "desc": "Annual Conference on Learning Theory",
+    "area": "ai",
+    "sub": "AI",
+    "frank": "",
+    "ccf": "B",
+    "core": "A*",
+    "coreVerified": true,
+    "nextDeadline": "2027-01-29",
+    "nextYear": 2027,
+    "nextAbstract": "",
+    "estimated": false,
+    "estFrom": "",
+    "rounds": [
+      {
+        "d": "2027-01-29",
+        "label": "Expected rebuttal March 29 - April 2; author notification on or before May 3.",
+        "est": false,
+        "year": 2027,
+        "link": "https://learningtheory.org/colt2027/",
+        "abs": ""
+      }
+    ],
+    "dblp": "colt",
+    "csr": "",
+    "edition": "40th",
+    "best": "",
+    "link": "https://learningtheory.org/colt2027/",
+    "date": "June 28 - July 2, 2027",
+    "place": "Tokyo, Japan",
+    "cc": "jp",
+    "city": "breakfast at the Tsukiji outer market, teamLab, standing sushi bars",
+    "cycles": 1,
+    "roundLabels": [],
+    "proceedings": "full",
+    "rates": [
+      {
+        "y": 1989,
+        "r": 47.0
+      },
+      {
+        "y": 1990,
+        "r": 61.0
+      },
+      {
+        "y": 1991,
+        "r": 41.6
+      },
+      {
+        "y": 1999,
+        "r": 49.3
+      },
+      {
+        "y": 2000,
+        "r": 54.7
+      },
+      {
+        "y": 2001,
+        "r": 58.0
+      },
+      {
+        "y": 2002,
+        "r": 47.3
+      },
+      {
+        "y": 2003,
+        "r": 51.1
+      },
+      {
+        "y": 2004,
+        "r": 40.2
+      },
+      {
+        "y": 2005,
+        "r": 37.5
+      },
+      {
+        "y": 2006,
+        "r": 42.2
+      },
+      {
+        "y": 2007,
+        "r": 44.6
+      },
+      {
+        "y": 2008,
+        "r": 34.9
+      },
+      {
+        "y": 2009,
+        "r": 28.1
+      },
+      {
+        "y": 2010,
+        "r": 31.8
+      },
+      {
+        "y": 2012,
+        "r": 29.5
+      },
+      {
+        "y": 2013,
+        "r": 48.0
+      },
+      {
+        "y": 2014,
+        "r": 37.1
+      },
+      {
+        "y": 2015,
+        "r": 38.9
+      },
+      {
+        "y": 2016,
+        "r": 31.7
+      },
+      {
+        "y": 2017,
+        "r": 32.0
+      },
+      {
+        "y": 2018,
+        "r": 27.2
+      },
+      {
+        "y": 2019,
+        "r": 30.0
+      },
+      {
+        "y": 2020,
+        "r": 30.9
+      },
+      {
+        "y": 2021,
+        "r": 35.1
+      },
+      {
+        "y": 2022,
+        "r": 33.0
+      },
+      {
+        "y": 2023,
+        "r": 34.6
+      },
+      {
+        "y": 2024,
+        "r": 35.7
+      },
+      {
+        "y": 2025,
+        "r": 29.9
+      }
+    ],
+    "subs": [
+      {
+        "y": 1989,
+        "n": 66
+      },
+      {
+        "y": 1990,
+        "n": 59
+      },
+      {
+        "y": 1991,
+        "n": 77
+      },
+      {
+        "y": 1999,
+        "n": 71
+      },
+      {
+        "y": 2000,
+        "n": 64
+      },
+      {
+        "y": 2001,
+        "n": 69
+      },
+      {
+        "y": 2002,
+        "n": 55
+      },
+      {
+        "y": 2003,
+        "n": 92
+      },
+      {
+        "y": 2004,
+        "n": 107
+      },
+      {
+        "y": 2005,
+        "n": 120
+      },
+      {
+        "y": 2006,
+        "n": 102
+      },
+      {
+        "y": 2007,
+        "n": 92
+      },
+      {
+        "y": 2008,
+        "n": 126
+      },
+      {
+        "y": 2009,
+        "n": 135
+      },
+      {
+        "y": 2010,
+        "n": 129
+      },
+      {
+        "y": 2012,
+        "n": 139
+      },
+      {
+        "y": 2013,
+        "n": 98
+      },
+      {
+        "y": 2014,
+        "n": 140
+      },
+      {
+        "y": 2015,
+        "n": 180
+      },
+      {
+        "y": 2016,
+        "n": 199
+      },
+      {
+        "y": 2017,
+        "n": 228
+      },
+      {
+        "y": 2018,
+        "n": 335
+      },
+      {
+        "y": 2019,
+        "n": 393
+      },
+      {
+        "y": 2020,
+        "n": 388
+      },
+      {
+        "y": 2021,
+        "n": 387
+      },
+      {
+        "y": 2022,
+        "n": 470
+      },
+      {
+        "y": 2023,
+        "n": 474
+      },
+      {
+        "y": 2024,
+        "n": 448
+      },
+      {
+        "y": 2025,
+        "n": 556
+      }
+    ],
+    "rateSrc": "csc",
+    "rateSlug": "colt",
+    "tier": 1
+  },
+  {
     "title": "GECCO",
     "desc": "Genetic and Evolutionary Computation Conference",
     "area": "ai",
@@ -12087,281 +12306,6 @@ export const ranked = [
     "cc": "us",
     "city": "",
     "tier": 3
-  },
-  {
-    "title": "COLT",
-    "desc": "Annual Conference on Learning Theory",
-    "area": "ai",
-    "sub": "AI",
-    "frank": "",
-    "ccf": "B",
-    "core": "A*",
-    "coreVerified": true,
-    "nextDeadline": "2027-02-06",
-    "nextYear": 2027,
-    "nextAbstract": "",
-    "estimated": true,
-    "estFrom": "2025-02-06",
-    "rounds": [
-      {
-        "d": "2027-02-06",
-        "label": "",
-        "est": true,
-        "from": "2025-02-06",
-        "abs": ""
-      }
-    ],
-    "dblp": "colt",
-    "csr": "",
-    "edition": "40th",
-    "best": "",
-    "link": "https://learningtheory.org/colt2027/",
-    "date": "June 28 - July 2, 2027",
-    "place": "Tokyo, Japan",
-    "cc": "jp",
-    "city": "breakfast at the Tsukiji outer market, teamLab, standing sushi bars",
-    "cycles": 1,
-    "roundLabels": [],
-    "proceedings": "full",
-    "rates": [
-      {
-        "y": 1989,
-        "r": 47.0
-      },
-      {
-        "y": 1990,
-        "r": 61.0
-      },
-      {
-        "y": 1991,
-        "r": 41.6
-      },
-      {
-        "y": 1999,
-        "r": 49.3
-      },
-      {
-        "y": 2000,
-        "r": 54.7
-      },
-      {
-        "y": 2001,
-        "r": 58.0
-      },
-      {
-        "y": 2002,
-        "r": 47.3
-      },
-      {
-        "y": 2003,
-        "r": 51.1
-      },
-      {
-        "y": 2004,
-        "r": 40.2
-      },
-      {
-        "y": 2005,
-        "r": 37.5
-      },
-      {
-        "y": 2006,
-        "r": 42.2
-      },
-      {
-        "y": 2007,
-        "r": 44.6
-      },
-      {
-        "y": 2008,
-        "r": 34.9
-      },
-      {
-        "y": 2009,
-        "r": 28.1
-      },
-      {
-        "y": 2010,
-        "r": 31.8
-      },
-      {
-        "y": 2012,
-        "r": 29.5
-      },
-      {
-        "y": 2013,
-        "r": 48.0
-      },
-      {
-        "y": 2014,
-        "r": 37.1
-      },
-      {
-        "y": 2015,
-        "r": 38.9
-      },
-      {
-        "y": 2016,
-        "r": 31.7
-      },
-      {
-        "y": 2017,
-        "r": 32.0
-      },
-      {
-        "y": 2018,
-        "r": 27.2
-      },
-      {
-        "y": 2019,
-        "r": 30.0
-      },
-      {
-        "y": 2020,
-        "r": 30.9
-      },
-      {
-        "y": 2021,
-        "r": 35.1
-      },
-      {
-        "y": 2022,
-        "r": 33.0
-      },
-      {
-        "y": 2023,
-        "r": 34.6
-      },
-      {
-        "y": 2024,
-        "r": 35.7
-      },
-      {
-        "y": 2025,
-        "r": 29.9
-      }
-    ],
-    "subs": [
-      {
-        "y": 1989,
-        "n": 66
-      },
-      {
-        "y": 1990,
-        "n": 59
-      },
-      {
-        "y": 1991,
-        "n": 77
-      },
-      {
-        "y": 1999,
-        "n": 71
-      },
-      {
-        "y": 2000,
-        "n": 64
-      },
-      {
-        "y": 2001,
-        "n": 69
-      },
-      {
-        "y": 2002,
-        "n": 55
-      },
-      {
-        "y": 2003,
-        "n": 92
-      },
-      {
-        "y": 2004,
-        "n": 107
-      },
-      {
-        "y": 2005,
-        "n": 120
-      },
-      {
-        "y": 2006,
-        "n": 102
-      },
-      {
-        "y": 2007,
-        "n": 92
-      },
-      {
-        "y": 2008,
-        "n": 126
-      },
-      {
-        "y": 2009,
-        "n": 135
-      },
-      {
-        "y": 2010,
-        "n": 129
-      },
-      {
-        "y": 2012,
-        "n": 139
-      },
-      {
-        "y": 2013,
-        "n": 98
-      },
-      {
-        "y": 2014,
-        "n": 140
-      },
-      {
-        "y": 2015,
-        "n": 180
-      },
-      {
-        "y": 2016,
-        "n": 199
-      },
-      {
-        "y": 2017,
-        "n": 228
-      },
-      {
-        "y": 2018,
-        "n": 335
-      },
-      {
-        "y": 2019,
-        "n": 393
-      },
-      {
-        "y": 2020,
-        "n": 388
-      },
-      {
-        "y": 2021,
-        "n": 387
-      },
-      {
-        "y": 2022,
-        "n": 470
-      },
-      {
-        "y": 2023,
-        "n": 474
-      },
-      {
-        "y": 2024,
-        "n": 448
-      },
-      {
-        "y": 2025,
-        "n": 556
-      }
-    ],
-    "rateSrc": "csc",
-    "rateSlug": "colt",
-    "tier": 1
   },
   {
     "title": "CCC",
@@ -15636,6 +15580,59 @@ export const ranked = [
     "rateSrc": "csc",
     "rateSlug": "sdm",
     "tier": 2
+  },
+  {
+    "title": "ISBI",
+    "desc": "IEEE International Symposium on Biomedical Imaging",
+    "area": "biomed",
+    "proceedings": "full",
+    "lastDeadline": "2026-10-26",
+    "period": 1,
+    "date": "May 25-28, 2027",
+    "place": "Lausanne, Switzerland",
+    "badge": "imaging",
+    "dblp": "isbi",
+    "rounds": [
+      {
+        "d": "2026-10-26",
+        "label": "4-page paper",
+        "est": false
+      },
+      {
+        "d": "2027-02-01",
+        "label": "1-page abstract, poster only",
+        "est": false
+      }
+    ],
+    "note": "Four-page papers, single-blind, presented in person or withdrawn. Deadlines are 11:59pm US Eastern, not Anywhere on Earth. One-page abstracts are posters and are not in the proceedings. The meeting shown is the next one to attend, which is a cycle ahead of the estimated deadline beside it.",
+    "link": "https://biomedicalimaging.org/2027/",
+    "frank": "",
+    "equivalent": null,
+    "field": "",
+    "kind": "",
+    "why": "",
+    "estIsForDate": false,
+    "ccf": "N",
+    "core": "N",
+    "coreVerified": false,
+    "nextAbstract": "",
+    "cycles": 1,
+    "roundLabels": [],
+    "rates": [],
+    "rateSrc": "",
+    "rateSlug": "",
+    "best": "",
+    "csr": "",
+    "edition": "",
+    "sub": "",
+    "estimated": true,
+    "estFrom": "2026-10-26",
+    "nextDeadline": "2027-10-26",
+    "nextYear": null,
+    "notable": true,
+    "cc": "",
+    "city": "",
+    "tier": 3
   },
   {
     "title": "ECCV",
@@ -19048,7 +19045,7 @@ export const journals = [
       },
       {
         "y": 2020,
-        "n": 128
+        "n": 127
       },
       {
         "y": 2021,
@@ -19577,14 +19574,14 @@ export const journals = [
       },
       {
         "y": 2024,
-        "n": 222
+        "n": 221
       },
       {
         "y": 2025,
         "n": 301
       }
     ],
-    "cites": 4.0,
+    "cites": 4.1,
     "h": 260,
     "oa": "https://openalex.org/S157670870",
     "link": "https://dblp.org/db/journals/tc/index.html"
@@ -19687,7 +19684,7 @@ export const journals = [
       },
       {
         "y": 2023,
-        "n": 272
+        "n": 271
       },
       {
         "y": 2024,
@@ -19714,10 +19711,6 @@ export const journals = [
     "rank": "top",
     "ccf": "B",
     "subs": [
-      {
-        "y": 2015,
-        "n": 325
-      },
       {
         "y": 2016,
         "n": 312
@@ -19753,6 +19746,10 @@ export const journals = [
       {
         "y": 2024,
         "n": 304
+      },
+      {
+        "y": 2025,
+        "n": 0
       }
     ],
     "cites": 12.7,
@@ -19771,6 +19768,14 @@ export const journals = [
     "rank": "ISMIR journal",
     "ccf": "N",
     "subs": [
+      {
+        "y": 2016,
+        "n": 0
+      },
+      {
+        "y": 2017,
+        "n": 0
+      },
       {
         "y": 2018,
         "n": 8
@@ -20082,11 +20087,11 @@ export const journals = [
       },
       {
         "y": 2024,
-        "n": 781
+        "n": 780
       },
       {
         "y": 2025,
-        "n": 771
+        "n": 770
       }
     ],
     "cites": 6.0,
@@ -20257,7 +20262,7 @@ export const journals = [
       },
       {
         "y": 2025,
-        "n": 181
+        "n": 180
       }
     ],
     "cites": 4.7,
@@ -20310,7 +20315,7 @@ export const journals = [
       },
       {
         "y": 2024,
-        "n": 180
+        "n": 179
       },
       {
         "y": 2025,
@@ -20333,6 +20338,10 @@ export const journals = [
     "rank": "CDC / ACC track",
     "ccf": "N",
     "subs": [
+      {
+        "y": 2016,
+        "n": 0
+      },
       {
         "y": 2017,
         "n": 118
@@ -20595,7 +20604,7 @@ export const journals = [
       },
       {
         "y": 2025,
-        "n": 663
+        "n": 664
       }
     ],
     "cites": 3.9,
@@ -20858,6 +20867,18 @@ export const journals = [
     "rank": "",
     "ccf": "N",
     "subs": [
+      {
+        "y": 2016,
+        "n": 0
+      },
+      {
+        "y": 2018,
+        "n": 0
+      },
+      {
+        "y": 2019,
+        "n": 0
+      },
       {
         "y": 2020,
         "n": 46
@@ -21906,7 +21927,7 @@ export const journals = [
       },
       {
         "y": 2025,
-        "n": 269
+        "n": 268
       }
     ],
     "cites": 3.6,
@@ -21925,6 +21946,18 @@ export const journals = [
     "rank": "",
     "ccf": "N",
     "subs": [
+      {
+        "y": 2016,
+        "n": 0
+      },
+      {
+        "y": 2017,
+        "n": 0
+      },
+      {
+        "y": 2018,
+        "n": 0
+      },
       {
         "y": 2019,
         "n": 33
@@ -22008,7 +22041,7 @@ export const journals = [
       },
       {
         "y": 2025,
-        "n": 747
+        "n": 749
       }
     ],
     "cites": 4.3,
@@ -22285,7 +22318,7 @@ export const journals = [
       },
       {
         "y": 2023,
-        "n": 375
+        "n": 374
       },
       {
         "y": 2024,
@@ -22346,11 +22379,11 @@ export const journals = [
       },
       {
         "y": 2024,
-        "n": 755
+        "n": 754
       },
       {
         "y": 2025,
-        "n": 893
+        "n": 894
       }
     ],
     "cites": 4.7,
@@ -22399,7 +22432,7 @@ export const journals = [
       },
       {
         "y": 2023,
-        "n": 4164
+        "n": 4165
       },
       {
         "y": 2024,
@@ -22407,7 +22440,7 @@ export const journals = [
       },
       {
         "y": 2025,
-        "n": 5187
+        "n": 5193
       }
     ],
     "cites": 2.1,
@@ -22953,7 +22986,7 @@ export const journals = [
       },
       {
         "y": 2019,
-        "n": 397
+        "n": 396
       },
       {
         "y": 2020,
@@ -22973,7 +23006,7 @@ export const journals = [
       },
       {
         "y": 2024,
-        "n": 324
+        "n": 323
       },
       {
         "y": 2025,
@@ -23168,6 +23201,18 @@ export const journals = [
     "ccf": "N",
     "subs": [
       {
+        "y": 2016,
+        "n": 0
+      },
+      {
+        "y": 2017,
+        "n": 0
+      },
+      {
+        "y": 2018,
+        "n": 0
+      },
+      {
         "y": 2019,
         "n": 111
       },
@@ -23213,6 +23258,10 @@ export const journals = [
     "ccf": "N",
     "subs": [
       {
+        "y": 2016,
+        "n": 0
+      },
+      {
         "y": 2017,
         "n": 7
       },
@@ -23246,10 +23295,10 @@ export const journals = [
       },
       {
         "y": 2025,
-        "n": 883
+        "n": 882
       }
     ],
-    "cites": 14.0,
+    "cites": 14.1,
     "h": 166,
     "oa": "https://openalex.org/S4210195431",
     "link": ""
@@ -23332,7 +23381,7 @@ export const journals = [
       },
       {
         "y": 2018,
-        "n": 338
+        "n": 337
       },
       {
         "y": 2019,
@@ -23348,7 +23397,7 @@ export const journals = [
       },
       {
         "y": 2022,
-        "n": 362
+        "n": 361
       },
       {
         "y": 2023,
@@ -23466,7 +23515,7 @@ export const journals = [
       },
       {
         "y": 2023,
-        "n": 676
+        "n": 675
       },
       {
         "y": 2024,
@@ -23474,7 +23523,7 @@ export const journals = [
       },
       {
         "y": 2025,
-        "n": 1142
+        "n": 1141
       }
     ],
     "cites": 6.1,
@@ -23523,7 +23572,7 @@ export const journals = [
       },
       {
         "y": 2023,
-        "n": 271
+        "n": 270
       },
       {
         "y": 2024,
@@ -23857,7 +23906,7 @@ export const journals = [
       },
       {
         "y": 2021,
-        "n": 308
+        "n": 307
       },
       {
         "y": 2022,
@@ -23873,10 +23922,10 @@ export const journals = [
       },
       {
         "y": 2025,
-        "n": 389
+        "n": 390
       }
     ],
-    "cites": 24.2,
+    "cites": 24.1,
     "h": 653,
     "oa": "https://openalex.org/S103895331",
     "link": ""
@@ -23930,7 +23979,7 @@ export const journals = [
       },
       {
         "y": 2025,
-        "n": 433
+        "n": 432
       }
     ],
     "cites": 11.2,
@@ -23949,6 +23998,14 @@ export const journals = [
     "rank": "",
     "ccf": "N",
     "subs": [
+      {
+        "y": 2012,
+        "n": 0
+      },
+      {
+        "y": 2020,
+        "n": 0
+      },
       {
         "y": 2021,
         "n": 4
@@ -24073,7 +24130,7 @@ export const journals = [
       },
       {
         "y": 2023,
-        "n": 1074
+        "n": 1073
       },
       {
         "y": 2024,
@@ -24081,7 +24138,7 @@ export const journals = [
       },
       {
         "y": 2025,
-        "n": 948
+        "n": 946
       }
     ],
     "cites": 6.9,
@@ -24252,7 +24309,7 @@ export const journals = [
       },
       {
         "y": 2025,
-        "n": 315
+        "n": 314
       }
     ],
     "cites": 7.6,
@@ -24334,7 +24391,7 @@ export const journals = [
       },
       {
         "y": 2017,
-        "n": 2276
+        "n": 2274
       },
       {
         "y": 2018,
@@ -24354,11 +24411,11 @@ export const journals = [
       },
       {
         "y": 2022,
-        "n": 1734
+        "n": 1733
       },
       {
         "y": 2023,
-        "n": 1795
+        "n": 1794
       },
       {
         "y": 2024,
@@ -24500,6 +24557,26 @@ export const journals = [
     "ccf": "N",
     "subs": [
       {
+        "y": 2017,
+        "n": 0
+      },
+      {
+        "y": 2018,
+        "n": 0
+      },
+      {
+        "y": 2019,
+        "n": 0
+      },
+      {
+        "y": 2020,
+        "n": 0
+      },
+      {
+        "y": 2021,
+        "n": 0
+      },
+      {
         "y": 2022,
         "n": 2
       },
@@ -24623,7 +24700,7 @@ export const journals = [
       },
       {
         "y": 2024,
-        "n": 47
+        "n": 46
       },
       {
         "y": 2025,
@@ -24704,6 +24781,22 @@ export const journals = [
     "ccf": "N",
     "subs": [
       {
+        "y": 2016,
+        "n": 0
+      },
+      {
+        "y": 2017,
+        "n": 0
+      },
+      {
+        "y": 2018,
+        "n": 0
+      },
+      {
+        "y": 2019,
+        "n": 0
+      },
+      {
         "y": 2020,
         "n": 40
       },
@@ -24728,7 +24821,7 @@ export const journals = [
         "n": 319
       }
     ],
-    "cites": 12.1,
+    "cites": 12.0,
     "h": 95,
     "oa": "https://openalex.org/S4210195673",
     "link": ""
@@ -24745,8 +24838,8 @@ export const journals = [
     "ccf": "N",
     "subs": [
       {
-        "y": 1999,
-        "n": 1
+        "y": 2016,
+        "n": 0
       },
       {
         "y": 2017,
@@ -24782,7 +24875,7 @@ export const journals = [
       },
       {
         "y": 2025,
-        "n": 383
+        "n": 380
       }
     ],
     "cites": 6.8,
@@ -24839,7 +24932,7 @@ export const journals = [
       },
       {
         "y": 2025,
-        "n": 220
+        "n": 219
       }
     ],
     "cites": 7.5,
@@ -24896,7 +24989,7 @@ export const journals = [
       },
       {
         "y": 2025,
-        "n": 2948
+        "n": 2947
       }
     ],
     "cites": 3.0,
@@ -24915,6 +25008,10 @@ export const journals = [
     "rank": "",
     "ccf": "N",
     "subs": [
+      {
+        "y": 2018,
+        "n": 0
+      },
       {
         "y": 2019,
         "n": 2
@@ -24960,6 +25057,14 @@ export const journals = [
     "rank": "",
     "ccf": "N",
     "subs": [
+      {
+        "y": 2018,
+        "n": 0
+      },
+      {
+        "y": 2019,
+        "n": 0
+      },
       {
         "y": 2020,
         "n": 6
@@ -25019,19 +25124,19 @@ export const journals = [
       },
       {
         "y": 2020,
-        "n": 2890
+        "n": 2889
       },
       {
         "y": 2021,
-        "n": 2493
+        "n": 2492
       },
       {
         "y": 2022,
-        "n": 2159
+        "n": 2160
       },
       {
         "y": 2023,
-        "n": 2228
+        "n": 2227
       },
       {
         "y": 2024,
@@ -25080,7 +25185,7 @@ export const journals = [
       },
       {
         "y": 2021,
-        "n": 366
+        "n": 365
       },
       {
         "y": 2022,
@@ -25092,7 +25197,7 @@ export const journals = [
       },
       {
         "y": 2024,
-        "n": 427
+        "n": 428
       },
       {
         "y": 2025,
@@ -25629,7 +25734,7 @@ export const journals = [
       },
       {
         "y": 2022,
-        "n": 512
+        "n": 513
       },
       {
         "y": 2023,
@@ -26328,7 +26433,7 @@ export const journals = [
         "n": 51
       }
     ],
-    "cites": 9.5,
+    "cites": 9.6,
     "h": 80,
     "oa": "https://openalex.org/S160466889",
     "link": ""
@@ -27164,7 +27269,7 @@ export const journals = [
       },
       {
         "y": 2021,
-        "n": 101
+        "n": 100
       },
       {
         "y": 2022,
@@ -27183,7 +27288,7 @@ export const journals = [
         "n": 135
       }
     ],
-    "cites": 5.2,
+    "cites": 5.3,
     "h": 162,
     "oa": "https://openalex.org/S139930977",
     "link": "https://dblp.org/db/journals/jair/index.html"
@@ -27240,7 +27345,7 @@ export const journals = [
         "n": 153
       }
     ],
-    "cites": 6.6,
+    "cites": 6.7,
     "h": 88,
     "oa": "https://openalex.org/S41523882",
     "link": "https://dblp.org/db/journals/tkdd/index.html"
