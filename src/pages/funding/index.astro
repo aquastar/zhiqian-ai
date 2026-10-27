@@ -79,6 +79,15 @@ const FILTERS = [
 // Five steps, worst at the top of the scale. The build script decides the
 // number and carries its reasoning in comp_basis, which is what the tooltip
 // shows, so a published success rate never passes for a guess or the reverse.
+// What form the money takes, when that is not an ordinary grant. Read from
+// the programme name and the synopsis, which say it plainly when it applies.
+const FORMATS = [
+  ['Competition', /challenge|prize|competition|hackathon/i],
+  ['RFI', /request for (comment|information)|\bRFI\b/i],
+  ['Gift', /\bgift\b/i],
+];
+const formats = (r) => FORMATS.filter(([, re]) => re.test(`${r.program} ${r.tldr}`)).map(([k]) => k);
+
 const COMP_WORD = { 1: 'light', 2: 'moderate', 3: 'competitive', 4: 'hard', 5: 'very hard' };
 ---
 
@@ -116,7 +125,13 @@ const COMP_WORD = { 1: 'light', 2: 'moderate', 3: 'competitive', 4: 'hard', 5: '
       {/* Closed calls stay folded away unless asked for: the table is a
           to-do list first and a record second. The count is redone in the
           browser, since a row can close between the build and the visit. */}
-      <button type="button" class="closed-toggle" aria-expanded="false">
+      {/* Calls with no date to work towards fold away the same way. They
+          stay one click off, and the Rolling filter shows them directly. */}
+      <button type="button" class="closed-toggle rolling-toggle" aria-expanded="false">
+        <i class="fas fa-chevron-right" aria-hidden="true"></i>
+        <span class="ct-label">Show no deadline</span><span class="fcount ct-n">{counts.rolling}</span>
+      </button>
+      <button type="button" class="closed-toggle closed-only" aria-expanded="false">
         <i class="fas fa-chevron-right" aria-hidden="true"></i>
         <span class="ct-label">Show closed</span><span class="fcount ct-n">{counts.closed}</span>
       </button>
@@ -128,7 +143,6 @@ const COMP_WORD = { 1: 'light', 2: 'moderate', 3: 'competitive', 4: 'hard', 5: '
           <tr>
             <th class="c-who">Funder and program</th>
             <th class="c-terms">Terms</th>
-            <th class="c-size" title="What one project receives, not what the programme has to spend in total">Per project</th>
             <th class="c-hard">Difficulty</th>
             <th class="c-when">Next date</th>
           </tr>
@@ -146,7 +160,6 @@ const COMP_WORD = { 1: 'light', 2: 'moderate', 3: 'competitive', 4: 'hard', 5: '
                   <div class="who-body">
                     <span class="who-line">
                       <span class="sponsor" title={r.sponsor}>{r.sponsor}</span>
-                      {r.category && <span class={`kind kind-${slug(r.category)}`} title="What kind of body is paying, worked out from the funder and its own domain">{r.category}</span>}
                       {r.pick && <span class="pick-tag" title="Picked out in the latest brief">latest</span>}
                       {r.source_tier && <span class="tier-tag" title="How the call was found: L1 a primary source, L2 an aggregator, L3 a secondary mention">{r.source_tier}</span>}
                     </span>
@@ -157,22 +170,20 @@ const COMP_WORD = { 1: 'light', 2: 'moderate', 3: 'competitive', 4: 'hard', 5: '
                 </div>
               </td>
               <td class="c-terms" data-label="Terms">
-                {/* The summary carries the money, the restriction worth knowing
-                    and the timing, so the separate budget and eligibility
-                    lines it was assembled from would only repeat it. The full
-                    eligibility text is in data.json. */}
+                {/* One row of chips first: who is paying, what form the money
+                    takes when it is not a plain grant, and what one project
+                    receives. The size is per award, never the programme's
+                    whole pot, which stays in the tooltip. */}
+                <span class="terms-tags">
+                  {r.category && <span class={`kind kind-${slug(r.category)}`} title="What kind of body is paying, worked out from the funder and its own domain">{r.category}</span>}
+                  {formats(r).map((f) => <span class={`kind kind-fmt kind-${slug(f)}`}>{f}</span>)}
+                  {r.award
+                    ? <span class={`size${/^~/.test(r.award) ? ' is-avg' : ''}`} title={r.award_note || 'Per award, as the call states it'}>{r.award}</span>
+                    : r.award_note
+                    ? <span class="size is-note" title={r.award_note}>size: see note</span>
+                    : <span class="size is-none" title="The call does not state what one project receives.">size not stated</span>}
+                </span>
                 <span class="tldr" title={r.eligibility ? `Eligibility as written: ${r.eligibility}` : undefined}>{r.tldr}</span>
-              </td>
-              <td class="c-size" data-label="Per project">
-                {/* The note explains where the figure came from, and for an
-                    NSF row that it is an average rather than a stated award
-                    size. It was only rendered when there was no figure, which
-                    is exactly when it is least needed. */}
-                {r.award
-                  ? <span class={`award${/^~/.test(r.award) ? ' is-avg' : ''}`} title={r.award_note || undefined}>{r.award}</span>
-                  : r.award_note
-                  ? <span class="award-note" title={r.award_note}>see note</span>
-                  : <span class="none" title="The call does not state what one project receives.">not stated</span>}
               </td>
               <td class="c-hard" data-label="Difficulty">
                 <span class={`comp comp-${r.comp_score}`} title={r.comp_basis}>
@@ -280,6 +291,8 @@ const COMP_WORD = { 1: 'light', 2: 'moderate', 3: 'competitive', 4: 'hard', 5: '
   .fcount { font-size:.68rem; font-weight:700; opacity:.6; }
   .fbtn.f-pick:not(.is-on) { color:#a16207; border-color:#fde68a; }
   .fbtn.f-open:not(.is-on) { color:#b91c1c; border-color:#fecaca; }
+  .rolling-toggle { margin-left:auto; }
+  .closed-toggle.closed-only { margin-left:0; }
   .closed-toggle { margin-left:auto; display:inline-flex; align-items:center; gap:6px; padding:4px 10px;
     border:1px dashed rgba(148,163,184,.6); border-radius:999px; background:none; cursor:pointer;
     font:inherit; font-size:.72rem; font-weight:600; color:#64748b; white-space:nowrap; }
@@ -300,18 +313,14 @@ const COMP_WORD = { 1: 'light', 2: 'moderate', 3: 'competitive', 4: 'hard', 5: '
   .fund tbody tr[data-pick="1"] { background:#fffdf5; }
   .fund tbody tr[data-pick="1"]:hover { background:#fef9e7; }
 
-  .c-who { width:29%; }
-  .c-terms { width:25%; }
-  .c-size { width:15%; }
-  .c-hard { width:12%; }
-  .c-when { width:19%; }
-  .award { display:block; font-size:.78rem; font-weight:700; color:#0f172a; line-height:1.35; }
-  /* A tilde figure is an average worked out from the programme total, not a
-     number the funder printed. It is drawn as the softer claim it is. */
-  .award.is-avg { font-weight:600; color:#475569; cursor:help;
-    border-bottom:1px dotted rgba(148,163,184,.7); display:inline-block; }
-  .award-note { font-size:.72rem; color:#64748b; cursor:help;
-    border-bottom:1px dotted rgba(148,163,184,.7); }
+  .c-who { width:30%; }
+  .c-terms { width:37%; }
+  .c-hard { width:13%; }
+  .c-when { width:20%; }
+  .terms-tags { display:flex; flex-wrap:wrap; align-items:center; gap:4px 6px; margin-bottom:4px; }
+  .size { font-size:.76rem; font-weight:700; color:#0f172a; line-height:1.3; }
+  .size.is-avg, .size.is-note { font-weight:600; color:#475569; cursor:help; border-bottom:1px dotted rgba(148,163,184,.7); }
+  .size.is-none { font-size:.68rem; font-weight:500; color:#cbd5e1; }
 
 
   /* Funder and programme were two bold lines a shade apart, which is not a
@@ -365,6 +374,8 @@ const COMP_WORD = { 1: 'light', 2: 'moderate', 3: 'competitive', 4: 'hard', 5: '
   .kind-industry { color:#6d28d9; background:#f4f0ff; border-color:#ddd6fe; }
   .kind-nonprofit { color:#be185d; background:#fdf0f6; border-color:#fbcfe8; }
   .kind-university { color:#0369a1; background:#e6f5fd; border-color:#bae6fd; }
+  .kind-fmt { color:#334155; background:#fff; border-color:rgba(100,116,139,.45); }
+  .kind-competition { color:#b45309; border-color:#fcd34d; }
 
   /* The date reads from the left, the countdown is pinned to the right edge
      so the badges line up into a column the eye can run down. */
@@ -430,7 +441,7 @@ const COMP_WORD = { 1: 'light', 2: 'moderate', 3: 'competitive', 4: 'hard', 5: '
     .fund tbody td + td { margin-top:8px; padding-top:8px; border-top:1px dashed rgba(148,163,184,.3); }
     .fund tbody td[data-label]::before { content:attr(data-label); display:block; margin-bottom:3px;
       font-size:.6rem; font-weight:700; letter-spacing:.07em; text-transform:uppercase; color:#94a3b8; }
-    .c-hard, .c-size { white-space:normal; }
+    .c-hard { white-space:normal; }
     .when-main { margin-left:0; }
     /* A card has the width to show the whole name, so stop cutting it. */
     .program { flex-wrap:wrap; }
@@ -491,8 +502,10 @@ const COMP_WORD = { 1: 'light', 2: 'moderate', 3: 'competitive', 4: 'hard', 5: '
   const rows = Array.from(document.querySelectorAll('table.fund tbody tr'));
   const empty = document.querySelector('.empty-note');
 
-  const toggle = document.querySelector('.closed-toggle');
+  const toggle = document.querySelector('.closed-only');
+  const rollToggle = document.querySelector('.rolling-toggle');
   let showClosed = false;
+  let showRolling = false;
   let current = 'all';
   const closedCount = rows.filter((tr) => tr.dataset.status === 'closed').length;
   if (toggle) {
@@ -506,6 +519,7 @@ const COMP_WORD = { 1: 'light', 2: 'moderate', 3: 'competitive', 4: 'hard', 5: '
     rows.forEach((tr) => {
       const ok =
         (showClosed || tr.dataset.status !== 'closed') &&
+        (showRolling || key === 'rolling' || tr.dataset.status !== 'rolling') &&
         (key === 'all' ? true :
         key === 'pick' ? tr.dataset.pick === '1' :
         tr.dataset.status === key);
@@ -527,6 +541,15 @@ const COMP_WORD = { 1: 'light', 2: 'moderate', 3: 'competitive', 4: 'hard', 5: '
       showClosed = !showClosed;
       toggle.setAttribute('aria-expanded', String(showClosed));
       toggle.querySelector('.ct-label').textContent = showClosed ? 'Hide closed' : 'Show closed';
+      apply(current);
+    });
+  }
+  if (rollToggle) {
+    rollToggle.hidden = !rows.some((tr) => tr.dataset.status === 'rolling');
+    rollToggle.addEventListener('click', () => {
+      showRolling = !showRolling;
+      rollToggle.setAttribute('aria-expanded', String(showRolling));
+      rollToggle.querySelector('.ct-label').textContent = showRolling ? 'Hide no deadline' : 'Show no deadline';
       apply(current);
     });
   }
