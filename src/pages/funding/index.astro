@@ -127,6 +127,14 @@ const COMP_WORD = { 1: 'light', 2: 'moderate', 3: 'competitive', 4: 'hard', 5: '
           browser, since a row can close between the build and the visit. */}
       {/* Calls with no date to work towards fold away the same way. They
           stay one click off, and the Rolling filter shows them directly. */}
+      {/* Sorting sits in the filter row too, because on a phone the table
+          header is folded away with the rest of the table. */}
+      <span class="sort-bar" role="group" aria-label="Sort by">
+        <span class="sort-label">Sort</span>
+        <button type="button" class="sort-btn is-on" data-sort="date">Next date</button>
+        <button type="button" class="sort-btn" data-sort="kind">Funding type</button>
+        <button type="button" class="sort-btn" data-sort="hard">Difficulty</button>
+      </span>
       <button type="button" class="closed-toggle rolling-toggle" aria-expanded="false">
         <i class="fas fa-chevron-right" aria-hidden="true"></i>
         <span class="ct-label">Show no deadline</span><span class="fcount ct-n">{counts.rolling}</span>
@@ -142,14 +150,14 @@ const COMP_WORD = { 1: 'light', 2: 'moderate', 3: 'competitive', 4: 'hard', 5: '
         <thead>
           <tr>
             <th class="c-who">Funder and program</th>
-            <th class="c-terms">Terms</th>
-            <th class="c-hard">Difficulty</th>
-            <th class="c-when">Next date</th>
+            <th class="c-terms"><button type="button" class="sort-th" data-sort="kind">Terms<i class="fas fa-sort" aria-hidden="true"></i></button></th>
+            <th class="c-hard"><button type="button" class="sort-th" data-sort="hard">Difficulty<i class="fas fa-sort" aria-hidden="true"></i></button></th>
+            <th class="c-when"><button type="button" class="sort-th is-on" data-sort="date">Next date<i class="fas fa-sort" aria-hidden="true"></i></button></th>
           </tr>
         </thead>
         <tbody>
           {rows.map((r) => (
-            <tr data-status={r.dl.status} data-pick={r.pick ? '1' : '0'}>
+            <tr data-status={r.dl.status} data-pick={r.pick ? '1' : '0'} data-kind={r.category || ''} data-hard={r.comp_score || 0}>
               <td class="c-who">
                 <div class="who">
                   <span class="mark" aria-hidden="true">
@@ -292,6 +300,20 @@ const COMP_WORD = { 1: 'light', 2: 'moderate', 3: 'competitive', 4: 'hard', 5: '
   .fbtn.f-pick:not(.is-on) { color:#a16207; border-color:#fde68a; }
   .fbtn.f-open:not(.is-on) { color:#b91c1c; border-color:#fecaca; }
   .rolling-toggle { margin-left:auto; }
+  .sort-bar { display:inline-flex; align-items:center; gap:2px; margin-left:8px; padding:2px; border-radius:999px;
+    border:1px solid rgba(148,163,184,.4); background:#fff; }
+  .sort-label { font-size:.66rem; font-weight:800; letter-spacing:.06em; text-transform:uppercase; color:#94a3b8; padding:0 6px 0 8px; }
+  .sort-btn { border:0; background:none; cursor:pointer; font:inherit; font-size:.72rem; font-weight:600; color:#475569;
+    padding:3px 9px; border-radius:999px; white-space:nowrap; }
+  .sort-btn:hover { color:var(--accent); }
+  .sort-btn.is-on { background:#e2e8f0; color:#0f172a; }
+  .sort-btn.is-on::after { content:' ↑'; }
+  .sort-btn.is-on.is-desc::after { content:' ↓'; }
+  .sort-th { border:0; background:none; padding:0; cursor:pointer; font:inherit; color:inherit; letter-spacing:inherit;
+    text-transform:inherit; display:inline-flex; align-items:center; gap:5px; }
+  .sort-th i { font-size:.62rem; opacity:.35; }
+  .sort-th:hover, .sort-th.is-on { color:#0f172a; }
+  .sort-th.is-on i { opacity:.9; }
   .closed-toggle.closed-only { margin-left:0; }
   .closed-toggle { margin-left:auto; display:inline-flex; align-items:center; gap:6px; padding:4px 10px;
     border:1px dashed rgba(148,163,184,.6); border-radius:999px; background:none; cursor:pointer;
@@ -544,6 +566,34 @@ const COMP_WORD = { 1: 'light', 2: 'moderate', 3: 'competitive', 4: 'hard', 5: '
       apply(current);
     });
   }
+  // Sorting. Next date keeps the order the page was built in (open soonest
+  // first, then rolling, then closed). Funding type groups by who pays and
+  // Difficulty runs easiest first; both keep date order inside a group.
+  // Clicking the active sort again flips it.
+  const tbody = document.querySelector('table.fund tbody');
+  rows.forEach((tr, i) => { tr.dataset.i = String(i); });
+  const KIND_ORDER = ['Federal', 'State', 'Foundation', 'Nonprofit', 'Industry', 'University', 'Public (non-US)', ''];
+  const kindRank = (tr) => { const k = KIND_ORDER.indexOf(tr.dataset.kind); return k < 0 ? KIND_ORDER.length : k; };
+  const KEYS = {
+    date: () => 0,
+    kind: (tr) => kindRank(tr),
+    hard: (tr) => Number(tr.dataset.hard) || 9,
+  };
+  let sortKey = 'date', sortDesc = false;
+  const sortBy = (key) => {
+    sortDesc = key === sortKey ? !sortDesc : false;
+    sortKey = key;
+    const f = KEYS[key], dir = sortDesc ? -1 : 1;
+    const sorted = [...rows].sort((a, b) =>
+      (key === 'date' ? dir * (a.dataset.i - b.dataset.i) : dir * (f(a) - f(b)) || a.dataset.i - b.dataset.i));
+    sorted.forEach((tr) => tbody.appendChild(tr));
+    document.querySelectorAll('[data-sort]').forEach((b) => {
+      b.classList.toggle('is-on', b.dataset.sort === key);
+      b.classList.toggle('is-desc', b.dataset.sort === key && sortDesc);
+    });
+  };
+  document.querySelectorAll('[data-sort]').forEach((b) => b.addEventListener('click', () => sortBy(b.dataset.sort)));
+
   if (rollToggle) {
     rollToggle.hidden = !rows.some((tr) => tr.dataset.status === 'rolling');
     rollToggle.addEventListener('click', () => {
