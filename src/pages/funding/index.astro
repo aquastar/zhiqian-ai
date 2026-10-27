@@ -19,7 +19,9 @@ const readDeadline = (text) => {
     .replace(ISO, '')
     .replace(/[,，]+/g, ' ')
     .replace(/\s+/g, ' ')
-    .trim();
+    .trim()
+    // A bare connector left over from "open to 2029-11-05" is not a label.
+    .replace(/^(open )?(to|until|by|through)$/i, '');
   return {
     raw,
     dates,

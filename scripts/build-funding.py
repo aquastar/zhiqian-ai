@@ -148,6 +148,15 @@ GLOSSARY = [
 ]
 
 
+# Free-form phrases the phrasebook above cannot cover are translated once by
+# scripts/translate-funding.py (Claude API, run locally) and kept here, so the
+# scheduled sync reuses them without calling anything. Phrases not yet in the
+# cache are listed in scripts/untranslated.json for the next local run.
+TRANSLATIONS_P = ROOT / 'scripts' / 'translation-cache.json'
+TRANSLATIONS = (json.loads(TRANSLATIONS_P.read_text(encoding='utf-8'))
+                if TRANSLATIONS_P.exists() else {})
+
+
 def to_english(value):
     """Return English, or '' when a Chinese term survives translation."""
     v = (value or '').strip()
@@ -155,6 +164,8 @@ def to_english(value):
         return v
     if v in EXACT:
         return EXACT[v]
+    if v in TRANSLATIONS and not CJK.search(TRANSLATIONS[v]):
+        return TRANSLATIONS[v]
     for zh, en in GLOSSARY:
         v = v.replace(zh, en)
     v = re.sub(r'\s+', ' ', v).replace(' ,', ',').strip()
@@ -996,6 +1007,11 @@ def parse_brief(text):
     for r in rows:
         for k, v in list(r.items()):
             if k == 'url':
+                # The link cell sometimes carries a note after the address,
+                # "(未核实, SAM 原页未打开)", meaning not yet verified. Keep the
+                # address alone, so the note never reaches a public file.
+                u = re.search(r'https?://[^\s()（）]+', v or '')
+                r[k] = u.group(0).rstrip('.,;，') if u else ''
                 continue
             en = to_english(v)
             if not en and v:
@@ -1147,9 +1163,11 @@ def main():
             sys.exit(f'{p}: untranslated Chinese reached a public file: '
                      f'{"".join(zh)[:40]} ... e.g. {sample}')
 
+    (ROOT / 'scripts' / 'untranslated.json').write_text(
+        json.dumps(sorted(set(dropped)), ensure_ascii=False, indent=1) + '\n', encoding='utf-8')
     if dropped:
-        print(f'  dropped {len(dropped)} field(s) with no translation, add them '
-              f'to EXACT or GLOSSARY in this script:')
+        print(f'  dropped {len(dropped)} field(s) with no translation. Run '
+              f'scripts/translate-funding.py locally, or add them to EXACT or GLOSSARY:')
         for v in sorted(set(dropped)):
             print(f'    {v}')
 
