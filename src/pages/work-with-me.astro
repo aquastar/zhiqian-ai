@@ -5,29 +5,17 @@ import Nav from '../components/Nav.astro';
 const tracks = [
   {
     title: 'Ph.D.',
-    body: 'Apply to the Department of Computer Science, Golisano College of Computing and Information Sciences at Rochester Institute of Technology, if you wish to work with me. Send me an email, schedule a meeting, or visit my office if you are currently enrolled at RIT.',
-  },
-  {
-    title: 'Online Ph.D.',
-    body: 'Since online program students do not have as much time as full-time PhD students, to ensure your future success, I would expect you to justify your interest in my research, such as demonstrating past experience that may overlap with mine. Additionally, I would anticipate regular meetings if you select me as your primary advisor.',
-  },
-  {
-    title: 'Student Worker',
-    body: 'There are dynamic opportunities available, even at month-level. I frequently share these opportunities via the mailing list for graduate and undergraduate students in the Department of Computer Science. You are welcome to send your CV if you wish to be placed on my waiting list for consideration for the next project.',
+    body: [
+      'Apply to the Department of Computer Science, Golisano College of Computing and Information Sciences at Rochester Institute of Technology, if you wish to work with me. If you are already at RIT, feel free to email me, schedule a meeting, or stop by my office.',
+      'It helps a great deal if you have at least one solid research experience behind you, ideally a first-author paper at a top AI venue, or an equivalent publication in your own field. I receive many inquiries, so I may not be able to reply to each one individually, and I appreciate your understanding.',
+    ],
   },
   {
     title: 'Research Intern',
-    body: 'If you are interested in joining our team as a research intern, I kindly invite you to submit your CV along with a brief introductory email. We also welcome high school research applicants, including those engaged in Advanced Placement (AP) courses or research with Rochester Institute of Technology. There are openings on a case-by-case basis.',
+    body: [
+      'Unpaid research internships are open both in person at RIT and remotely. Openings come up throughout the year, sometimes on a monthly basis, and are filled case by case. Send your CV with a short note on what you would like to work on, and I will keep you in mind for the next suitable project. High school students are welcome to apply as well.',
+    ],
   },
-];
-
-const msExamPoints = [
-  'The exam typically lasts one hour, with 40 minutes for presentation and the remaining 15–20 minutes for Q&A.',
-  'Invite the professors who previously taught you as instructors to the committee and select their courses to present as your main content. Additionally, inform the committee members about the specific courses and topics you plan to present.',
-  'A good way to organize content is to aim for about 10 slides per course, making it 30 slides in total, with an additional 3 slides for the intro and one slide to wrap things up. It is more effective if you highlight your own grasp of the course using specific details.',
-  'Request feedback on slides from all committee members 1–2 weeks prior to the exam.',
-  'Schedule a meeting with the committee members one to two months prior to the exam, and allow approximately two weeks for selection using Doodle or when2meet.',
-  'Kindly request that the department prepare and send the necessary documentation report file to the committee prior to the examination day.',
 ];
 ---
 <Layout title="Work With Me | Zhiqian Chen">
@@ -36,13 +24,13 @@ const msExamPoints = [
 
     <section class="hero">
       <h1>For Prospective Students</h1>
-      <p class="lead">Please check the ways you may work with me below.</p>
-      <p class="contact">
-        Please send CV / transcripts to
+      <p class="lead">
+        Please send your CV and transcript to
         <a href="mailto:zhiqian.chen@rit.edu">zhiqian DOT chen AT rit DOT edu</a>
         or
         <a href="mailto:chen.zhiqian.work@gmail.com">chen DOT zhiqian DOT work AT gmail DOT com</a>.
       </p>
+      <p class="contact">I currently take Ph.D. students and research interns.</p>
     </section>
 
     <section class="section">
@@ -51,23 +39,10 @@ const msExamPoints = [
         {tracks.map((t) => (
           <article class="track">
             <h3>{t.title}</h3>
-            <p>{t.body}</p>
+            {t.body.map((para) => <p>{para}</p>)}
           </article>
         ))}
       </div>
-    </section>
-
-    <section class="section">
-      <h2>Course-Track M.S.</h2>
-      <p>If you are doing a course-track MS degree and want to include me as a major professor, follow the general suggestion on the slides / presentation:</p>
-      <ul class="ms-list">
-        {msExamPoints.map((pt) => <li>{pt}</li>)}
-      </ul>
-    </section>
-
-    <section class="section">
-      <h2>Project-Track M.S.</h2>
-      <p>Replace the course-related content above with your project content.</p>
     </section>
   </main>
 </Layout>
@@ -79,7 +54,7 @@ const msExamPoints = [
   .hero h1 { font-family:'Montserrat',sans-serif; font-size:2rem; margin:0 0 8px; color:var(--ink); }
   .hero .lead { margin: 0 0 6px; color:#334155; font-size:1rem; }
   .hero .contact { margin: 0; color:var(--muted); font-size:.92rem; }
-  .hero .contact a { color: var(--accent); text-decoration: none; }
+  .hero .lead a, .hero .contact a { color: var(--accent); text-decoration: none; }
   .hero .contact a:hover { text-decoration: underline; }
 
   .section { padding-top: 6px; margin-top: 22px; }
@@ -89,10 +64,9 @@ const msExamPoints = [
   .tracks { display:grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 14px; }
   .track { background:#fafbfc; padding:16px 18px; }
   .track h3 { font-family:'Montserrat',sans-serif; font-size:1.02rem; margin:0 0 8px; color:var(--ink); }
-  .track p { margin:0; color:#334155; font-size:.92rem; line-height:1.55; }
+  .track p:last-child { margin-bottom:0; }
+  .track p { text-align:left; margin:0 0 8px; color:#334155; font-size:.92rem; line-height:1.55; }
 
-  .ms-list { padding-left:22px; margin:6px 0 0; }
-  .ms-list li { color:#334155; font-size:.94rem; line-height:1.55; margin-bottom:6px; max-width: 82ch; }
 
   @media (max-width: 720px) {
     .tracks { grid-template-columns: 1fr; }
