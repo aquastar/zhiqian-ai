@@ -21,7 +21,7 @@ TODO = ROOT / 'scripts' / 'untranslated.json'
 CACHE = ROOT / 'scripts' / 'translation-cache.json'
 LEDGER = pathlib.Path.home() / '.config' / 'harness' / 'ledger.csv'
 MODEL = 'claude-sonnet-5-5'
-PRICE = (3, 15)                     # USD per million tokens, input and output
+PRICE = (2, 10)                     # USD per million tokens, input and output (Sonnet 5.5)
 CJK = re.compile(r'[㐀-鿿豈-﫿]')
 
 RULES = """You translate short fields from a Chinese research-funding brief into English for a public web page.
