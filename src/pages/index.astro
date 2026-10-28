@@ -8,6 +8,7 @@ const updates = [
   { type: 'grant', date: '07/2026', venue: '<strong class="funder">NSF EDU/ITEST</strong>', text: 'A <a href="https://www.nsf.gov/awardsearch/show-award/?AWD_ID=2342574" target="_blank" rel="noopener">supplemental award</a> extending our project on AI-career pathways for high-school students.' },
   { type: 'paper', date: '05/2026', venue: '<strong class="venue">IJCAI 2026</strong>', text: '<strong>LLM-to-Map</strong>: transparent conversational tool orchestration for real-time multi-domain simulation.' },
   { type: 'paper', date: '01/2026', venue: '<strong class="venue">WebConf (WWW) 2026</strong>', text: 'Co-simulation of a power network and a transportation network.' },
+  { type: 'tutorial', date: '12/2026', venue: '<strong class="venue">IEEE BigData 2026</strong> <a class="ext" href="https://bigdataieee.org/BigData2026/program/tutorials/" target="_blank" rel="noopener" aria-label="Tutorial list"><i class="fas fa-arrow-up-right-from-square"></i></a>', text: 'Tutorial on uncertainty quantification for dynamical networks, Phoenix, with Marouane Benbrahim and Tamanna Rashme.' },
   { type: 'tutorial', date: '01/2026', venue: '<strong class="venue">WSDM 2026</strong>', text: 'Tutorial on uncertainty quantification for graph dynamics.' },
   { type: 'honor', date: '11/2025', venue: 'Social Science Research Center, Mississippi State University', text: 'Recognized as a <strong>Research Fellow</strong>.' },
   { type: 'grant', date: '08/2025', venue: '<strong class="funder">Turing AI Gift</strong>', text: 'Gift funding for large language model research.' },
@@ -89,6 +90,19 @@ const domainPills = [
   { label: 'Supply Chain', tone: 'core' },
   { label: 'LLM as a dynamical system', tone: 'new' },
 ];
+
+// Figure data for interest 2: a tiny three-layer activation graph. Edge indexes
+// in llmChanged are drawn red in the "after edit" copy, llmLost dashed.
+const llmNodes = [[0, 70], [0, 112], [0, 154], [40, 70], [40, 112], [40, 154], [80, 70], [80, 112], [80, 154]];
+const llmEdges = [[0, 3], [0, 4], [1, 4], [1, 5], [2, 5], [3, 6], [4, 6], [4, 7], [5, 8], [3, 7]];
+const llmChanged = [2, 7];
+const llmLost = [9];
+// Figure data for interest 3: note positions as [x offset, staff step].
+const musicNotes = {
+  a: [[14, 2], [34, 4], [54, 3], [74, 5], [92, 4]],
+  b: [[14, 6], [34, 3], [54, 7], [74, 2], [92, 5]],
+  f: [[14, 3], [34, 5], [54, 4], [74, 6], [92, 3]],
+};
 
 const researchMethods = [
   { key: 'spectral', label: 'Spectral', sub: 'operators · theory', x: 130, y: 60, filter: 'unified-graph' },
@@ -244,12 +258,14 @@ const selectedWorks = [
     keywords: ['Sobol', 'global sensitivity analysis', 'influence maximization'],
     related: [
       { label: 'SDM 2023 paper page', href: 'https://epubs.siam.org/doi/abs/10.1137/1.9781611977653.ch86' },
-      { label: 'WSDM 2026 tutorial on UQ for graph dynamics', href: 'https://wsdm-conference.org/2026/index.php/tutorials/' }
+      { label: 'WSDM 2026 tutorial on UQ for graph dynamics', href: 'https://wsdm-conference.org/2026/index.php/tutorials/' },
+      { label: 'IEEE BigData 2026 tutorial on UQ for dynamical networks', href: 'https://bigdataieee.org/BigData2026/program/tutorials/' }
     ],
     tutorial: {
       title: 'Uncertainty Quantification for Dynamical Networks',
       venues: [
-        { label: "WSDM 26'", href: 'https://wsdm-conference.org/2026/index.php/tutorials/' }
+        { label: "WSDM 26'", href: 'https://wsdm-conference.org/2026/index.php/tutorials/' },
+        { label: "BigData 26'", href: 'https://bigdataieee.org/BigData2026/program/tutorials/' }
       ]
     },
     support: { label: 'Why influence analysis needs interaction-aware reasoning', href: 'https://epubs.siam.org/doi/abs/10.1137/1.9781611977653.ch86' },
@@ -469,7 +485,8 @@ const selectedWorks = [
     keywords: ['Sobol', 'feature exclusion', 'uncertainty quantification'],
     related: [
       { label: 'Higher-order decomposition', href: 'https://epubs.siam.org/doi/abs/10.1137/1.9781611977653.ch86' },
-      { label: 'WSDM 2026 tutorial on UQ for graph dynamics', href: 'https://wsdm-conference.org/2026/index.php/tutorials/' }
+      { label: 'WSDM 2026 tutorial on UQ for graph dynamics', href: 'https://wsdm-conference.org/2026/index.php/tutorials/' },
+      { label: 'IEEE BigData 2026 tutorial on UQ for dynamical networks', href: 'https://bigdataieee.org/BigData2026/program/tutorials/' }
     ],
     support: { label: 'Why sensitivity analysis matters', href: 'https://www.nist.gov/publications/global-sensitivity-analysis-primer' },
     href: 'https://scholar.google.com/citations?view_op=view_citation&citation_for_view=NC3-O6UAAAAJ:roLk4NBRz8UC',
@@ -702,8 +719,11 @@ const selectedGroups = selectedFilters
         </article>
 
         <article class="card module rich hero-module narrative" id="research">
-          <h2 class="module-title">Research Interest</h2>
-          <p class="narr-statement">I received my Ph.D. from <strong>Virginia Tech</strong> in 2020, advised by <a href="https://people.cs.vt.edu/ctlu/" target="_blank" rel="noopener">Prof. Chang-Tien Lu</a>. I previously served as an Assistant Professor at Mississippi State University before joining RIT. I study <strong>behaviors in dynamical and structural systems</strong> (graph-structured, dynamic, uncertain, and knowledge-rich) and how to <strong>estimate</strong> and <strong>control</strong> them. Recently I focus on <strong>cross-system behaviors</strong> and <strong>generalized patterns</strong> across very different real-world systems, including traffic grids<span class="ref-links"><a class="ref" href="https://scholar.google.com/citations?view_op=view_citation&citation_for_view=NC3-O6UAAAAJ:9yKSN-GCB0IC" target="_blank" rel="noopener" title="Graph convolution + Kalman filtering for traffic forecasting (SIGSPATIAL 2020)" aria-label="Graph convolution + Kalman filtering for traffic forecasting (SIGSPATIAL 2020)"><i class="fas fa-arrow-up-right-from-square"></i></a></span>, power networks<span class="ref-links"><a class="ref" href="https://dl.acm.org/doi/10.1145/3774905.3793131" target="_blank" rel="noopener" title="Real-time urban power-traffic co-simulation (WWW 2026)" aria-label="Real-time urban power-traffic co-simulation (WWW 2026)"><i class="fas fa-arrow-up-right-from-square"></i></a></span>, epidemics<span class="ref-links"><a class="ref" href="https://scholar.google.com/citations?view_op=view_citation&citation_for_view=NC3-O6UAAAAJ:u-x6o8ySG0sC" target="_blank" rel="noopener" title="Graph symbolic regression for animal disease propagation (SIGSPATIAL 2025)" aria-label="Graph symbolic regression for animal disease propagation (SIGSPATIAL 2025)"><i class="fas fa-arrow-up-right-from-square"></i></a></span>, social networks<span class="ref-links"><a class="ref" href="https://ojs.aaai.org/index.php/AAAI/article/view/30255" target="_blank" rel="noopener" title="Graph Bayesian optimization for multiplex influence maximization (AAAI 2024)" aria-label="Graph Bayesian optimization for multiplex influence maximization (AAAI 2024)"><i class="fas fa-arrow-up-right-from-square"></i></a></span>, banking, supply chains, and most recently large language models viewed as dynamical systems with structural representations. Techniques I've been working on include spectral / functional analysis and uncertainty quantification (UQ).</p>
+          <h2 class="module-title">Research Interests</h2>
+          <p class="narr-statement">I received my Ph.D. from <strong>Virginia Tech</strong> in 2020, advised by <a href="https://people.cs.vt.edu/ctlu/" target="_blank" rel="noopener">Prof. Chang-Tien Lu</a>. I previously served as an Assistant Professor at Mississippi State University before joining RIT. My work runs along three lines, in order of weight.</p>
+
+          <h3 class="interest-head"><span class="interest-num">1</span>Network science, graph machine learning and dynamical systems</h3>
+          <p class="narr-statement">How do behaviors spread, settle and break in connected systems, and how can we <strong>estimate</strong> and <strong>control</strong> them? I look for <strong>generalized patterns</strong> that hold across very different networks and for <strong>cross-system behaviors</strong> that pass from one network to another, in traffic grids<span class="ref-links"><a class="ref" href="https://scholar.google.com/citations?view_op=view_citation&citation_for_view=NC3-O6UAAAAJ:9yKSN-GCB0IC" target="_blank" rel="noopener" title="Graph convolution + Kalman filtering for traffic forecasting (SIGSPATIAL 2020)" aria-label="Graph convolution + Kalman filtering for traffic forecasting (SIGSPATIAL 2020)"><i class="fas fa-arrow-up-right-from-square"></i></a></span>, power networks<span class="ref-links"><a class="ref" href="https://dl.acm.org/doi/10.1145/3774905.3793131" target="_blank" rel="noopener" title="Real-time urban power-traffic co-simulation (WWW 2026)" aria-label="Real-time urban power-traffic co-simulation (WWW 2026)"><i class="fas fa-arrow-up-right-from-square"></i></a></span>, epidemics<span class="ref-links"><a class="ref" href="https://scholar.google.com/citations?view_op=view_citation&citation_for_view=NC3-O6UAAAAJ:u-x6o8ySG0sC" target="_blank" rel="noopener" title="Graph symbolic regression for animal disease propagation (SIGSPATIAL 2025)" aria-label="Graph symbolic regression for animal disease propagation (SIGSPATIAL 2025)"><i class="fas fa-arrow-up-right-from-square"></i></a></span>, social networks<span class="ref-links"><a class="ref" href="https://ojs.aaai.org/index.php/AAAI/article/view/30255" target="_blank" rel="noopener" title="Graph Bayesian optimization for multiplex influence maximization (AAAI 2024)" aria-label="Graph Bayesian optimization for multiplex influence maximization (AAAI 2024)"><i class="fas fa-arrow-up-right-from-square"></i></a></span>, banking and supply chains. My tools are spectral and functional analysis and uncertainty quantification (UQ).</p>
           <p class="narr-fund">Relevant support: <a href="https://www.nsf.gov/awardsearch/showAward?AWD_ID=2443266" target="_blank" rel="noopener">NSF CAREER #2443266</a> · <a href="https://www.nsf.gov/awardsearch/showAward?AWD_ID=2345921" target="_blank" rel="noopener">NSF CIRC #2345921</a> · <a href="/research">all grants →</a></p>
 
           <div class="thrust-pair">
@@ -727,6 +747,90 @@ const selectedGroups = selectedFilters
                 </p>
               </div>
             ))}
+          </div>
+
+          <h3 class="interest-head"><span class="interest-num">2</span>Mechanistic understanding of large language models</h3>
+          <div class="interest-split">
+            <figure class="interest-fig">
+              <svg viewBox="0 0 660 230" role="img" aria-labelledby="llm-fig-title">
+                <title id="llm-fig-title">Three ways to look inside a language model: delta graphs, steering and stitching</title>
+                <defs>
+                  <marker id="arrowhead" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#64748b" /></marker>
+                  <marker id="arrowhead-hot" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#dc2626" /></marker>
+                </defs>
+                <g>
+                  <text x="135" y="22" class="fig-title">Delta graph</text>
+                  {[[30, 0], [150, 1]].map(([x0, after]) => (
+                    <g>
+                      {llmEdges.map(([a, b], i) => {
+                        const p = llmNodes[a], q = llmNodes[b];
+                        const kind = after ? (llmChanged.includes(i) ? 'hot' : llmLost.includes(i) ? 'lost' : '') : '';
+                        return <line x1={x0 + p[0]} y1={p[1]} x2={x0 + q[0]} y2={q[1]} class={`fig-edge ${kind}`} />;
+                      })}
+                      {llmNodes.map(([x, y]) => <circle cx={x0 + x} cy={y} r="6" class="fig-node" />)}
+                      <text x={x0 + 40} y="184" class="fig-cap">{after ? 'after edit' : 'before edit'}</text>
+                    </g>
+                  ))}
+                  <path d="M117 112 h22" class="fig-arrow" marker-end="url(#arrowhead)" />
+                  <text x="135" y="212" class="fig-note">red: changed beyond the target</text>
+                </g>
+                <g>
+                  <text x="355" y="22" class="fig-title">Steering</text>
+                  {[60, 100, 140].map((y) => <rect x="302" y={y} width="106" height="22" rx="4" class="fig-layer" />)}
+                  <text x="355" y="52" class="fig-cap">output</text>
+                  <path d="M452 111 h-40" class="fig-arrow hot" marker-end="url(#arrowhead-hot)" />
+                  <text x="456" y="107" class="fig-cap hot start">push</text>
+                  <text x="456" y="123" class="fig-cap hot start">along v</text>
+                  <text x="355" y="184" class="fig-cap">one model</text>
+                  <text x="355" y="212" class="fig-note">nudge it, watch it shift</text>
+                </g>
+                <g>
+                  <text x="585" y="22" class="fig-title">Stitching</text>
+                  <rect x="550" y="60" width="70" height="22" rx="4" class="fig-layer b" />
+                  <rect x="550" y="86" width="70" height="22" rx="4" class="fig-layer b" />
+                  <rect x="560" y="113" width="50" height="10" rx="2" class="fig-stitch" />
+                  <rect x="550" y="128" width="70" height="22" rx="4" class="fig-layer" />
+                  <rect x="550" y="154" width="70" height="22" rx="4" class="fig-layer" />
+                  <text x="626" y="88" class="fig-cap start">B</text>
+                  <text x="626" y="156" class="fig-cap start">A</text>
+                  <text x="585" y="194" class="fig-cap">A below, B above</text>
+                  <text x="585" y="212" class="fig-note">same language?</text>
+                </g>
+              </svg>
+            </figure>
+            <p class="thrust-line">What does a language model actually know, and where is it kept? I bring the network view to this question: read a model's internal activity as a graph and ask how that structure holds knowledge. In our SDM 2026 paper, <strong><em>Delta-Graph Signatures</em></strong>, we compare the activation graph before and after a knowledge edit. The difference catches edits that pass the usual tests but quietly damage other things the model knew. A CIKM 2026 paper asks the same question of knowledge graphs: does the graph's structure support a query before an LLM answers from it? Next I am working on <strong>steering</strong>, pushing a model's activity in one direction to change its behavior, and <strong>stitching</strong>, joining parts of two models to test whether they store knowledge the same way.</p>
+          </div>
+
+          <h3 class="interest-head"><span class="interest-num">3</span>Computational musicology</h3>
+          <div class="interest-split">
+            <figure class="interest-fig">
+              <svg viewBox="0 0 660 230" role="img" aria-labelledby="music-fig-title">
+                <title id="music-fig-title">From genre fusion to looking inside music generation models</title>
+                <g>
+                  <text x="150" y="22" class="fig-title">Genre fusion (ICDM 2017)</text>
+                  {[[20, 50, 'a', 'Genre A'], [20, 130, 'b', 'Genre B'], [180, 90, 'f', 'Fused']].map(([x, y, tone, label]) => (
+                    <g>
+                      {[0, 1, 2, 3, 4].map((k) => <line x1={x} y1={y + k * 7} x2={x + 100} y2={y + k * 7} class="fig-staff" />)}
+                      {musicNotes[tone].map(([dx, step]) => <ellipse cx={x + dx} cy={y + 28 - step * 3.5} rx="5" ry="3.6" class={`fig-note-head ${tone}`} />)}
+                      <text x={x + 50} y={y + 46} class="fig-cap">{label}</text>
+                    </g>
+                  ))}
+                  <path d="M126 64 C150 64 152 96 174 100" class="fig-arrow" marker-end="url(#arrowhead)" />
+                  <path d="M126 144 C150 144 152 120 174 116" class="fig-arrow" marker-end="url(#arrowhead)" />
+                  <text x="150" y="212" class="fig-note">two models learn to blend styles</text>
+                </g>
+                <g>
+                  <text x="500" y="22" class="fig-title">Now: inside the models</text>
+                  {[50, 82, 114, 146].map((y, i) => <rect x="380" y={y} width="110" height="24" rx="4" class={`fig-layer ${i === 2 ? 'hot' : ''}`} />)}
+                  <text x="435" y="190" class="fig-cap">music generator</text>
+                  <path d="M494 126 h28" class="fig-arrow" marker-end="url(#arrowhead)" />
+                  <text x="528" y="112" class="fig-cap start">where style lives</text>
+                  <text x="528" y="146" class="fig-cap start">how far it steers</text>
+                  <text x="500" y="212" class="fig-note">toward health and hearing</text>
+                </g>
+              </svg>
+            </figure>
+            <p class="thrust-line">Music is structured, unfolds in time and is judged by every listener, which makes it one of the best tests of whether we really understand a generative model. My entry point was <a href="https://scholar.google.com/citations?view_op=view_citation&citation_for_view=NC3-O6UAAAAJ:d1gkVwhDpl0C" target="_blank" rel="noopener"><strong><em>Learning to Fuse Music Genres</em></strong></a> (ICDM 2017, with Alexander Lerch), where two adversarial models learn to blend genres. I am now building this into a full research line: opening up today's music generation models to see how they represent style and how far they can be steered, and carrying that toward music for health and hearing care. Musicians, audio researchers and clinicians who want to work on this are welcome to <a href="mailto:zhiqian.chen@rit.edu">get in touch</a>.</p>
           </div>
 
         </article>
@@ -1463,6 +1567,33 @@ const selectedGroups = selectedFilters
   @media (max-width: 720px) {
     .right-col-main #github-projects .repo-row { grid-template-columns: 1fr; }
   }
+
+  /* Research interests: numbered heads, figure beside text for lines 2 and 3 */
+  .interest-head { display: flex; align-items: baseline; gap: 8px; text-align: left; font-family: Montserrat, sans-serif; font-size: 1rem; font-weight: 700; color: #0f172a; margin: 22px 0 8px; }
+  .interest-num { color: #2563eb; font-size: .95rem; }
+  .interest-split { display: grid; grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr); gap: 22px; align-items: center; }
+  .interest-fig { margin: 0; }
+  .interest-fig svg { width: 100%; height: auto; display: block; font-family: Inter, system-ui, sans-serif; }
+  .fig-title { font-size: 16px; font-weight: 700; fill: #0f172a; text-anchor: middle; }
+  .fig-cap { font-size: 14px; fill: #475569; text-anchor: middle; }
+  .fig-cap.hot { fill: #dc2626; font-weight: 600; }
+  .fig-cap.start { text-anchor: start; }
+  .fig-note { font-size: 14px; fill: #64748b; font-style: italic; text-anchor: middle; }
+  .fig-node { fill: #fff; stroke: #2563eb; stroke-width: 2; }
+  .fig-edge { stroke: #94a3b8; stroke-width: 1.5; }
+  .fig-edge.hot { stroke: #dc2626; stroke-width: 3; }
+  .fig-edge.lost { stroke-dasharray: 3 3; opacity: .5; }
+  .fig-arrow { fill: none; stroke: #64748b; stroke-width: 1.6; }
+  .fig-arrow.hot { stroke: #dc2626; stroke-width: 2.2; }
+  .fig-layer { fill: #dbeafe; stroke: #2563eb; stroke-width: 1.2; }
+  .fig-layer.b { fill: #fef3c7; stroke: #d97706; }
+  .fig-layer.hot { fill: #fee2e2; stroke: #dc2626; }
+  .fig-stitch { fill: #0f172a; }
+  .fig-staff { stroke: #cbd5e1; stroke-width: 1; }
+  .fig-note-head.a { fill: #2563eb; }
+  .fig-note-head.b { fill: #d97706; }
+  .fig-note-head.f { fill: #9333ea; }
+  @media (max-width: 900px) { .interest-split { grid-template-columns: 1fr; } }
 
   /* Combined thrust column: figure + text in one block per thrust */
   .thrust-pair { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; margin: 0; }
