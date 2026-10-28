@@ -28,19 +28,13 @@ export const deadlines = [
   ]},
   { month: 'Nov 2026', y: 2026, m: 10, items: [
     { d: 7, name: 'CVPR 2027 abstract', kind: 'paper', est: true },
-    { d: 10, name: 'IEEE S&P 2027 Cycle 2 abstract registration', kind: 'paper', href: 'https://sp2027.ieee-security.org/cfpapers.html' },
-    { d: 9, name: 'WebConf short abstract', kind: 'paper', star: true },
-    { d: 9, name: 'Web4Good abstract', kind: 'paper' },
     { d: 13, name: 'CVPR 2027 main paper', kind: 'paper', est: true },
-    { d: 16, name: 'WebConf short paper', kind: 'paper', star: true },
-    { d: 16, name: 'Web4Good full paper', kind: 'paper' },
-    { d: 16, name: 'WebConf demo paper', kind: 'paper', star: true },
-    { d: 17, name: 'WSDM 2027 short paper', kind: 'paper', star: true },
     { d: 20, name: 'NIH U24 Music Networks Pilot: AD/ADRD (MDRN, 5 PM PT)', kind: 'nih', href: 'https://mdrn.ucsf.edu/funding-opportunities' },
   ]},
   { month: 'Dec 2026', y: 2026, m: 11, items: [
     { d: 1, name: 'Simons Empire AI (noon ET)', kind: 'other', star: true },
-    { d: 3, name: 'ACM CCS 2027', kind: 'paper', est: true, href: 'https://www.sigsac.org/ccs/CCS2027/' },
+    { d: 1, name: 'NSF TTP-E', kind: 'nsf', anytime: true, star: true },
+    { d: 1, name: 'NSF CMMI / IIDS (NSF 26-515)', kind: 'nsf', anytime: true },
     { d: 2, name: 'NSF Expeditions preliminary proposal', kind: 'nsf' },
   ]},
   { month: 'Jan 2027', y: 2027, m: 0, items: [
@@ -49,7 +43,6 @@ export const deadlines = [
     { d: 4, name: 'ACL 2027 ARR submission', kind: 'paper', href: 'https://2027.aclweb.org/', star: true },
     { d: 22, name: 'ICML 2027 abstract', kind: 'paper', est: true, star: true },
     { d: 27, name: 'ICML 2027 full paper', kind: 'paper', est: true, star: true },
-    { d: 26, name: 'USENIX Security 2027 Cycle 2', kind: 'paper', href: 'https://www.usenix.org/conference/usenixsecurity27/call-for-papers' },
     { d: 20, name: 'NSF CICI', kind: 'nsf' },
     { d: 31, name: 'NSF CISE Core eligible again', kind: 'nsf', star: true },
     { d: 15, name: 'NIH Temporal Knowledge Graph Challenge submission', kind: 'nih', href: 'https://work.crowdplat.com/challenge/nih-temporal-knowledge-graph-challenge' },
@@ -96,5 +89,6 @@ export const kindLabels = {
 };
 
 export const openCalls = [
+  { heading: 'Submit anytime (no fixed deadline)', items: ['NSF BIO Core', 'NSF CMMI / EME'] },
   { heading: 'Date not announced', items: ['ACL 2027 commitment deadline (follows the Jan 4 ARR cycle)', 'CVPR 2027 demo (historically spring)', 'NeuroArts Fleming (mid Feb 2027)'] },
 ];
