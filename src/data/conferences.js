@@ -3,7 +3,7 @@
 // CORE ranks are cross-checked against the official CORE2023 export from
 // portal.core.edu.au. Acceptance rates and submission counts come from
 // github.com/Xovee/cs-conf-stats (main track only).
-// Built 2026-10-27.
+// Built 2026-10-28.
 export const ranked = [
   {
     "title": "VLDB",
@@ -2974,7 +2974,7 @@ export const ranked = [
     "rounds": [
       {
         "d": "2026-06-11",
-        "label": "first round",
+        "label": "first round; notification date is approximate",
         "est": false,
         "year": 2027,
         "link": "https://icde2027.github.io/",
@@ -2982,7 +2982,7 @@ export const ranked = [
       },
       {
         "d": "2026-11-11",
-        "label": "second round",
+        "label": "second round; notification date is approximate",
         "est": false,
         "year": 2027,
         "link": "https://icde2027.github.io/",
@@ -3000,8 +3000,8 @@ export const ranked = [
     "city": "smorrebrod, Reffen street food on the water, Tivoli lit up after dark",
     "cycles": 2,
     "roundLabels": [
-      "first round",
-      "second round"
+      "first round; notification date is approximate",
+      "second round; notification date is approximate"
     ],
     "proceedings": "full",
     "rates": [
@@ -5178,6 +5178,14 @@ export const ranked = [
         "year": 2027,
         "link": "https://wsdm-conference.org/2027/",
         "abs": "2026-08-17"
+      },
+      {
+        "d": "2026-11-17",
+        "label": "Short Paper",
+        "est": false,
+        "year": 2027,
+        "link": "https://wsdm-conference.org/2027/",
+        "abs": ""
       }
     ],
     "dblp": "wsdm",
@@ -5189,8 +5197,11 @@ export const ranked = [
     "place": "Cordis, Hong Kong SAR, China",
     "cc": "cn",
     "city": "dim sum off a trolley, the Peak tram after dark, Tai O stilt houses and shrimp paste",
-    "cycles": 1,
-    "roundLabels": [],
+    "cycles": 2,
+    "roundLabels": [
+      "Full Paper",
+      "Short Paper"
+    ],
     "proceedings": "full",
     "rates": [
       {
@@ -7277,14 +7288,6 @@ export const ranked = [
         "est": false,
         "abs": "",
         "fixed": "https://2027.coling-iccl.org/"
-      },
-      {
-        "d": "2026-12-23",
-        "label": "COLING commitment after ARR meta-reviews; reviewed papers only",
-        "est": false,
-        "year": 2027,
-        "link": "https://2027.coling-iccl.org/",
-        "abs": ""
       }
     ],
     "dblp": "coling",
@@ -7296,11 +7299,8 @@ export const ranked = [
     "place": "",
     "cc": "",
     "city": "",
-    "cycles": 2,
-    "roundLabels": [
-      "ARR Submission",
-      "COLING commitment after ARR meta-reviews; reviewed papers only"
-    ],
+    "cycles": 1,
+    "roundLabels": [],
     "proceedings": "full",
     "rates": [],
     "subs": [],
@@ -9022,6 +9022,14 @@ export const ranked = [
         "year": 2027,
         "link": "https://iscaconf.org/isca2027/",
         "abs": "2026-11-09"
+      },
+      {
+        "d": "2026-12-13",
+        "label": "Industry Track; rebuttal period: February 15-26, 2027",
+        "est": false,
+        "year": 2027,
+        "link": "https://iscaconf.org/isca2027/",
+        "abs": "2026-12-06"
       }
     ],
     "dblp": "isca",
@@ -9033,8 +9041,11 @@ export const ranked = [
     "place": "Atlanta, Georgia, USA",
     "cc": "us",
     "city": "Busy Bee fried chicken, walking under the whale sharks, Ponce City Market rooftop",
-    "cycles": 1,
-    "roundLabels": [],
+    "cycles": 2,
+    "roundLabels": [
+      "Main Track; rebuttal/revision period: February 16-March 8, 2027",
+      "Industry Track; rebuttal period: February 15-26, 2027"
+    ],
     "proceedings": "full",
     "rates": [
       {
@@ -11633,6 +11644,48 @@ export const ranked = [
     "tier": 1
   },
   {
+    "title": "GECCO",
+    "desc": "Genetic and Evolutionary Computation Conference",
+    "area": "ai",
+    "sub": "AI",
+    "frank": "",
+    "ccf": "C",
+    "core": "A",
+    "coreVerified": true,
+    "nextDeadline": "2027-01-25",
+    "nextYear": 2027,
+    "nextAbstract": "",
+    "estimated": false,
+    "estFrom": "",
+    "rounds": [
+      {
+        "d": "2027-01-25",
+        "label": "",
+        "est": false,
+        "year": 2027,
+        "link": "https://gecco-2027.sigevo.org/HomePage",
+        "abs": "2027-01-18"
+      }
+    ],
+    "dblp": "gecco",
+    "csr": "",
+    "edition": "",
+    "best": "",
+    "link": "https://gecco-2027.sigevo.org/HomePage",
+    "date": "July 12-16, 2027",
+    "place": "Kraków, Poland",
+    "cc": "pl",
+    "city": "pierogi and zapiekanka, the Wieliczka salt mine, a trumpet cut off mid-note every hour",
+    "cycles": 1,
+    "roundLabels": [],
+    "proceedings": "full",
+    "rates": [],
+    "subs": [],
+    "rateSrc": "",
+    "rateSlug": "",
+    "tier": 2
+  },
+  {
     "title": "COLT",
     "desc": "Annual Conference on Learning Theory",
     "area": "ai",
@@ -11907,47 +11960,6 @@ export const ranked = [
     "rateSrc": "csc",
     "rateSlug": "colt",
     "tier": 1
-  },
-  {
-    "title": "GECCO",
-    "desc": "Genetic and Evolutionary Computation Conference",
-    "area": "ai",
-    "sub": "AI",
-    "frank": "",
-    "ccf": "C",
-    "core": "A",
-    "coreVerified": true,
-    "nextDeadline": "2027-01-29",
-    "nextYear": 2027,
-    "nextAbstract": "",
-    "estimated": true,
-    "estFrom": "2025-01-29",
-    "rounds": [
-      {
-        "d": "2027-01-29",
-        "label": "",
-        "est": true,
-        "from": "2025-01-29",
-        "abs": "2027-01-22"
-      }
-    ],
-    "dblp": "gecco",
-    "csr": "",
-    "edition": "",
-    "best": "",
-    "link": "https://gecco-2027.sigevo.org/HomePage",
-    "date": "July 12-16, 2027",
-    "place": "Kraków, Poland",
-    "cc": "pl",
-    "city": "pierogi and zapiekanka, the Wieliczka salt mine, a trumpet cut off mid-note every hour",
-    "cycles": 1,
-    "roundLabels": [],
-    "proceedings": "full",
-    "rates": [],
-    "subs": [],
-    "rateSrc": "",
-    "rateSlug": "",
-    "tier": 2
   },
   {
     "title": "ICML",
@@ -19045,7 +19057,7 @@ export const journals = [
       },
       {
         "y": 2020,
-        "n": 127
+        "n": 128
       },
       {
         "y": 2021,
@@ -19239,7 +19251,7 @@ export const journals = [
         "n": 896
       }
     ],
-    "cites": 8.0,
+    "cites": 7.9,
     "h": 209,
     "oa": "https://openalex.org/S61310614",
     "link": "https://dblp.org/db/journals/tifs/index.html"
@@ -19353,7 +19365,7 @@ export const journals = [
         "n": 50
       }
     ],
-    "cites": 4.5,
+    "cites": 4.4,
     "h": 41,
     "oa": "https://openalex.org/S4210174050",
     "link": "https://dblp.org/db/journals/tissec/index.html"
@@ -19574,14 +19586,14 @@ export const journals = [
       },
       {
         "y": 2024,
-        "n": 221
+        "n": 222
       },
       {
         "y": 2025,
         "n": 301
       }
     ],
-    "cites": 4.1,
+    "cites": 4.0,
     "h": 260,
     "oa": "https://openalex.org/S157670870",
     "link": "https://dblp.org/db/journals/tc/index.html"
@@ -19684,7 +19696,7 @@ export const journals = [
       },
       {
         "y": 2023,
-        "n": 271
+        "n": 272
       },
       {
         "y": 2024,
@@ -19888,7 +19900,7 @@ export const journals = [
       },
       {
         "y": 2017,
-        "n": 302
+        "n": 301
       },
       {
         "y": 2018,
@@ -20087,11 +20099,11 @@ export const journals = [
       },
       {
         "y": 2024,
-        "n": 780
+        "n": 781
       },
       {
         "y": 2025,
-        "n": 770
+        "n": 771
       }
     ],
     "cites": 6.0,
@@ -20262,7 +20274,7 @@ export const journals = [
       },
       {
         "y": 2025,
-        "n": 180
+        "n": 181
       }
     ],
     "cites": 4.7,
@@ -20315,7 +20327,7 @@ export const journals = [
       },
       {
         "y": 2024,
-        "n": 179
+        "n": 180
       },
       {
         "y": 2025,
@@ -20436,7 +20448,7 @@ export const journals = [
         "n": 239
       }
     ],
-    "cites": 3.0,
+    "cites": 3.1,
     "h": 194,
     "oa": "https://openalex.org/S56603566",
     "link": "https://dblp.org/db/journals/scl/index.html"
@@ -20604,7 +20616,7 @@ export const journals = [
       },
       {
         "y": 2025,
-        "n": 664
+        "n": 663
       }
     ],
     "cites": 3.9,
@@ -20739,7 +20751,7 @@ export const journals = [
     "subs": [
       {
         "y": 2016,
-        "n": 740
+        "n": 729
       },
       {
         "y": 2017,
@@ -20751,7 +20763,7 @@ export const journals = [
       },
       {
         "y": 2019,
-        "n": 733
+        "n": 704
       },
       {
         "y": 2020,
@@ -20767,7 +20779,7 @@ export const journals = [
       },
       {
         "y": 2023,
-        "n": 987
+        "n": 975
       },
       {
         "y": 2024,
@@ -20995,11 +21007,11 @@ export const journals = [
       },
       {
         "y": 2020,
-        "n": 1494
+        "n": 1483
       },
       {
         "y": 2021,
-        "n": 1626
+        "n": 1617
       },
       {
         "y": 2022,
@@ -21048,7 +21060,7 @@ export const journals = [
       },
       {
         "y": 2019,
-        "n": 52
+        "n": 45
       },
       {
         "y": 2020,
@@ -21076,7 +21088,7 @@ export const journals = [
       }
     ],
     "cites": 1.3,
-    "h": 37,
+    "h": 36,
     "oa": "https://openalex.org/S2530642067",
     "link": "https://dblp.org/db/journals/netsci/index.html"
   },
@@ -21231,7 +21243,7 @@ export const journals = [
       },
       {
         "y": 2022,
-        "n": 94
+        "n": 82
       },
       {
         "y": 2023,
@@ -21247,7 +21259,7 @@ export const journals = [
       }
     ],
     "cites": 2.0,
-    "h": 176,
+    "h": 175,
     "oa": "https://openalex.org/S26186134",
     "link": "https://dblp.org/db/journals/socnet/index.html"
   },
@@ -21531,7 +21543,7 @@ export const journals = [
         "n": 104
       }
     ],
-    "cites": 3.7,
+    "cites": 3.8,
     "h": 326,
     "oa": "https://openalex.org/S119757635",
     "link": ""
@@ -21557,7 +21569,7 @@ export const journals = [
       },
       {
         "y": 2018,
-        "n": 148
+        "n": 138
       },
       {
         "y": 2019,
@@ -21667,15 +21679,15 @@ export const journals = [
       },
       {
         "y": 2017,
-        "n": 133
+        "n": 116
       },
       {
         "y": 2018,
-        "n": 109
+        "n": 99
       },
       {
         "y": 2019,
-        "n": 120
+        "n": 103
       },
       {
         "y": 2020,
@@ -21683,15 +21695,15 @@ export const journals = [
       },
       {
         "y": 2021,
-        "n": 194
+        "n": 182
       },
       {
         "y": 2022,
-        "n": 243
+        "n": 211
       },
       {
         "y": 2023,
-        "n": 175
+        "n": 169
       },
       {
         "y": 2024,
@@ -21699,10 +21711,10 @@ export const journals = [
       },
       {
         "y": 2025,
-        "n": 160
+        "n": 147
       }
     ],
-    "cites": 3.8,
+    "cites": 4.1,
     "h": 304,
     "oa": "https://openalex.org/S125775545",
     "link": "https://dblp.org/db/journals/ior/index.html"
@@ -21927,7 +21939,7 @@ export const journals = [
       },
       {
         "y": 2025,
-        "n": 268
+        "n": 269
       }
     ],
     "cites": 3.6,
@@ -22041,7 +22053,7 @@ export const journals = [
       },
       {
         "y": 2025,
-        "n": 749
+        "n": 747
       }
     ],
     "cites": 4.3,
@@ -22102,7 +22114,7 @@ export const journals = [
       }
     ],
     "cites": 14.5,
-    "h": 690,
+    "h": 689,
     "oa": "https://openalex.org/S45757444",
     "link": ""
   },
@@ -22131,7 +22143,7 @@ export const journals = [
       },
       {
         "y": 2019,
-        "n": 262
+        "n": 261
       },
       {
         "y": 2020,
@@ -22158,7 +22170,7 @@ export const journals = [
         "n": 343
       }
     ],
-    "cites": 18.3,
+    "cites": 18.4,
     "h": 593,
     "oa": "https://openalex.org/S2298632",
     "link": ""
@@ -22318,7 +22330,7 @@ export const journals = [
       },
       {
         "y": 2023,
-        "n": 374
+        "n": 375
       },
       {
         "y": 2024,
@@ -22379,11 +22391,11 @@ export const journals = [
       },
       {
         "y": 2024,
-        "n": 754
+        "n": 755
       },
       {
         "y": 2025,
-        "n": 894
+        "n": 893
       }
     ],
     "cites": 4.7,
@@ -22432,7 +22444,7 @@ export const journals = [
       },
       {
         "y": 2023,
-        "n": 4165
+        "n": 4164
       },
       {
         "y": 2024,
@@ -22440,7 +22452,7 @@ export const journals = [
       },
       {
         "y": 2025,
-        "n": 5193
+        "n": 5185
       }
     ],
     "cites": 2.1,
@@ -22500,7 +22512,7 @@ export const journals = [
         "n": 100
       }
     ],
-    "cites": 6.5,
+    "cites": 6.6,
     "h": 505,
     "oa": "https://openalex.org/S35223124",
     "link": ""
@@ -22644,7 +22656,7 @@ export const journals = [
       },
       {
         "y": 2019,
-        "n": 281
+        "n": 280
       },
       {
         "y": 2020,
@@ -22746,31 +22758,31 @@ export const journals = [
     "subs": [
       {
         "y": 2016,
-        "n": 257
+        "n": 253
       },
       {
         "y": 2017,
-        "n": 259
+        "n": 248
       },
       {
         "y": 2018,
-        "n": 258
+        "n": 229
       },
       {
         "y": 2019,
-        "n": 300
+        "n": 275
       },
       {
         "y": 2020,
-        "n": 278
+        "n": 277
       },
       {
         "y": 2021,
-        "n": 173
+        "n": 162
       },
       {
         "y": 2022,
-        "n": 194
+        "n": 161
       },
       {
         "y": 2023,
@@ -22782,7 +22794,7 @@ export const journals = [
       },
       {
         "y": 2025,
-        "n": 173
+        "n": 155
       }
     ],
     "cites": 1.9,
@@ -22956,7 +22968,7 @@ export const journals = [
         "n": 135
       }
     ],
-    "cites": 8.7,
+    "cites": 8.8,
     "h": 227,
     "oa": "https://openalex.org/S28482811",
     "link": ""
@@ -22986,7 +22998,7 @@ export const journals = [
       },
       {
         "y": 2019,
-        "n": 396
+        "n": 397
       },
       {
         "y": 2020,
@@ -23006,7 +23018,7 @@ export const journals = [
       },
       {
         "y": 2024,
-        "n": 323
+        "n": 324
       },
       {
         "y": 2025,
@@ -23035,7 +23047,7 @@ export const journals = [
       },
       {
         "y": 2017,
-        "n": 46
+        "n": 28
       },
       {
         "y": 2018,
@@ -23295,11 +23307,11 @@ export const journals = [
       },
       {
         "y": 2025,
-        "n": 882
+        "n": 883
       }
     ],
     "cites": 14.1,
-    "h": 166,
+    "h": 167,
     "oa": "https://openalex.org/S4210195431",
     "link": ""
   },
@@ -23344,7 +23356,7 @@ export const journals = [
       },
       {
         "y": 2023,
-        "n": 309
+        "n": 274
       },
       {
         "y": 2024,
@@ -23381,7 +23393,7 @@ export const journals = [
       },
       {
         "y": 2018,
-        "n": 337
+        "n": 338
       },
       {
         "y": 2019,
@@ -23397,7 +23409,7 @@ export const journals = [
       },
       {
         "y": 2022,
-        "n": 361
+        "n": 362
       },
       {
         "y": 2023,
@@ -23515,7 +23527,7 @@ export const journals = [
       },
       {
         "y": 2023,
-        "n": 675
+        "n": 676
       },
       {
         "y": 2024,
@@ -23523,7 +23535,7 @@ export const journals = [
       },
       {
         "y": 2025,
-        "n": 1141
+        "n": 1142
       }
     ],
     "cites": 6.1,
@@ -23572,7 +23584,7 @@ export const journals = [
       },
       {
         "y": 2023,
-        "n": 270
+        "n": 271
       },
       {
         "y": 2024,
@@ -23601,11 +23613,11 @@ export const journals = [
     "subs": [
       {
         "y": 2016,
-        "n": 42
+        "n": 31
       },
       {
         "y": 2017,
-        "n": 67
+        "n": 55
       },
       {
         "y": 2018,
@@ -23697,8 +23709,8 @@ export const journals = [
         "n": 520
       }
     ],
-    "cites": 12.2,
-    "h": 374,
+    "cites": 12.3,
+    "h": 373,
     "oa": "https://openalex.org/S23772524",
     "link": ""
   },
@@ -23715,7 +23727,7 @@ export const journals = [
     "subs": [
       {
         "y": 2016,
-        "n": 303
+        "n": 302
       },
       {
         "y": 2017,
@@ -23727,7 +23739,7 @@ export const journals = [
       },
       {
         "y": 2019,
-        "n": 275
+        "n": 274
       },
       {
         "y": 2020,
@@ -23906,7 +23918,7 @@ export const journals = [
       },
       {
         "y": 2021,
-        "n": 307
+        "n": 308
       },
       {
         "y": 2022,
@@ -23922,10 +23934,10 @@ export const journals = [
       },
       {
         "y": 2025,
-        "n": 390
+        "n": 389
       }
     ],
-    "cites": 24.1,
+    "cites": 24.2,
     "h": 653,
     "oa": "https://openalex.org/S103895331",
     "link": ""
@@ -23979,10 +23991,10 @@ export const journals = [
       },
       {
         "y": 2025,
-        "n": 432
+        "n": 433
       }
     ],
-    "cites": 11.2,
+    "cites": 11.3,
     "h": 139,
     "oa": "https://openalex.org/S4210232664",
     "link": ""
@@ -24027,7 +24039,7 @@ export const journals = [
         "n": 357
       }
     ],
-    "cites": 5.8,
+    "cites": 5.9,
     "h": 45,
     "oa": "https://openalex.org/S4210202120",
     "link": ""
@@ -24130,7 +24142,7 @@ export const journals = [
       },
       {
         "y": 2023,
-        "n": 1073
+        "n": 1074
       },
       {
         "y": 2024,
@@ -24138,7 +24150,7 @@ export const journals = [
       },
       {
         "y": 2025,
-        "n": 946
+        "n": 948
       }
     ],
     "cites": 6.9,
@@ -24198,7 +24210,7 @@ export const journals = [
         "n": 408
       }
     ],
-    "cites": 7.8,
+    "cites": 7.9,
     "h": 372,
     "oa": "https://openalex.org/S201921491",
     "link": ""
@@ -24309,7 +24321,7 @@ export const journals = [
       },
       {
         "y": 2025,
-        "n": 314
+        "n": 315
       }
     ],
     "cites": 7.6,
@@ -24391,7 +24403,7 @@ export const journals = [
       },
       {
         "y": 2017,
-        "n": 2274
+        "n": 2276
       },
       {
         "y": 2018,
@@ -24411,11 +24423,11 @@ export const journals = [
       },
       {
         "y": 2022,
-        "n": 1733
+        "n": 1734
       },
       {
         "y": 2023,
-        "n": 1794
+        "n": 1795
       },
       {
         "y": 2024,
@@ -24483,7 +24495,7 @@ export const journals = [
         "n": 34
       }
     ],
-    "cites": 4.8,
+    "cites": 4.7,
     "h": 295,
     "oa": "https://openalex.org/S118992489",
     "link": "https://dblp.org/db/journals/jacm/index.html"
@@ -24541,7 +24553,7 @@ export const journals = [
       }
     ],
     "cites": 1.2,
-    "h": 241,
+    "h": 240,
     "oa": "https://openalex.org/S153560523",
     "link": "https://dblp.org/db/journals/siamcomp/index.html"
   },
@@ -24650,7 +24662,7 @@ export const journals = [
         "n": 16
       }
     ],
-    "cites": 5.7,
+    "cites": 5.8,
     "h": 49,
     "oa": "https://openalex.org/S142665794",
     "link": "https://dblp.org/db/journals/toc/index.html"
@@ -24700,14 +24712,14 @@ export const journals = [
       },
       {
         "y": 2024,
-        "n": 46
+        "n": 47
       },
       {
         "y": 2025,
         "n": 43
       }
     ],
-    "cites": 1.4,
+    "cites": 1.3,
     "h": 78,
     "oa": "https://openalex.org/S137348503",
     "link": "https://dblp.org/db/journals/talg/index.html"
@@ -24821,7 +24833,7 @@ export const journals = [
         "n": 319
       }
     ],
-    "cites": 12.0,
+    "cites": 12.1,
     "h": 95,
     "oa": "https://openalex.org/S4210195673",
     "link": ""
@@ -24875,7 +24887,7 @@ export const journals = [
       },
       {
         "y": 2025,
-        "n": 380
+        "n": 383
       }
     ],
     "cites": 6.8,
@@ -24932,7 +24944,7 @@ export const journals = [
       },
       {
         "y": 2025,
-        "n": 219
+        "n": 220
       }
     ],
     "cites": 7.5,
@@ -24989,7 +25001,7 @@ export const journals = [
       },
       {
         "y": 2025,
-        "n": 2947
+        "n": 2948
       }
     ],
     "cites": 3.0,
@@ -25041,7 +25053,7 @@ export const journals = [
         "n": 89
       }
     ],
-    "cites": 4.4,
+    "cites": 4.3,
     "h": 46,
     "oa": "https://openalex.org/S4210182817",
     "link": ""
@@ -25124,19 +25136,19 @@ export const journals = [
       },
       {
         "y": 2020,
-        "n": 2889
+        "n": 2890
       },
       {
         "y": 2021,
-        "n": 2492
+        "n": 2493
       },
       {
         "y": 2022,
-        "n": 2160
+        "n": 2159
       },
       {
         "y": 2023,
-        "n": 2227
+        "n": 2228
       },
       {
         "y": 2024,
@@ -25185,7 +25197,7 @@ export const journals = [
       },
       {
         "y": 2021,
-        "n": 365
+        "n": 366
       },
       {
         "y": 2022,
@@ -25197,7 +25209,7 @@ export const journals = [
       },
       {
         "y": 2024,
-        "n": 428
+        "n": 427
       },
       {
         "y": 2025,
@@ -25318,7 +25330,7 @@ export const journals = [
         "n": 45
       }
     ],
-    "cites": 35.5,
+    "cites": 35.7,
     "h": 618,
     "oa": "https://openalex.org/S73260565",
     "link": ""
@@ -25579,7 +25591,7 @@ export const journals = [
       }
     ],
     "cites": 4.5,
-    "h": 173,
+    "h": 172,
     "oa": "https://openalex.org/S130224168",
     "link": ""
   },
@@ -25734,7 +25746,7 @@ export const journals = [
       },
       {
         "y": 2022,
-        "n": 513
+        "n": 512
       },
       {
         "y": 2023,
@@ -25749,7 +25761,7 @@ export const journals = [
         "n": 472
       }
     ],
-    "cites": 1.6,
+    "cites": 1.5,
     "h": 212,
     "oa": "https://openalex.org/S122441808",
     "link": ""
@@ -25938,7 +25950,7 @@ export const journals = [
     "subs": [
       {
         "y": 2016,
-        "n": 54
+        "n": 53
       },
       {
         "y": 2017,
@@ -25954,7 +25966,7 @@ export const journals = [
       },
       {
         "y": 2020,
-        "n": 36
+        "n": 14
       },
       {
         "y": 2021,
@@ -26091,7 +26103,7 @@ export const journals = [
         "n": 36
       }
     ],
-    "cites": 2.3,
+    "cites": 2.4,
     "h": 293,
     "oa": "https://openalex.org/S41650241",
     "link": ""
@@ -26284,11 +26296,11 @@ export const journals = [
       },
       {
         "y": 2017,
-        "n": 103
+        "n": 90
       },
       {
         "y": 2018,
-        "n": 91
+        "n": 66
       },
       {
         "y": 2019,
@@ -26296,7 +26308,7 @@ export const journals = [
       },
       {
         "y": 2020,
-        "n": 74
+        "n": 64
       },
       {
         "y": 2021,
@@ -26304,7 +26316,7 @@ export const journals = [
       },
       {
         "y": 2022,
-        "n": 67
+        "n": 51
       },
       {
         "y": 2023,
@@ -26337,7 +26349,7 @@ export const journals = [
     "subs": [
       {
         "y": 2016,
-        "n": 122
+        "n": 115
       },
       {
         "y": 2017,
@@ -26349,11 +26361,11 @@ export const journals = [
       },
       {
         "y": 2019,
-        "n": 113
+        "n": 98
       },
       {
         "y": 2020,
-        "n": 111
+        "n": 99
       },
       {
         "y": 2021,
@@ -26361,7 +26373,7 @@ export const journals = [
       },
       {
         "y": 2022,
-        "n": 150
+        "n": 139
       },
       {
         "y": 2023,
@@ -26410,7 +26422,7 @@ export const journals = [
       },
       {
         "y": 2020,
-        "n": 56
+        "n": 41
       },
       {
         "y": 2021,
@@ -26679,19 +26691,19 @@ export const journals = [
     "subs": [
       {
         "y": 2016,
-        "n": 105
+        "n": 91
       },
       {
         "y": 2017,
-        "n": 115
+        "n": 80
       },
       {
         "y": 2018,
-        "n": 88
+        "n": 71
       },
       {
         "y": 2019,
-        "n": 128
+        "n": 82
       },
       {
         "y": 2020,
@@ -26703,7 +26715,7 @@ export const journals = [
       },
       {
         "y": 2022,
-        "n": 87
+        "n": 79
       },
       {
         "y": 2023,
@@ -27269,7 +27281,7 @@ export const journals = [
       },
       {
         "y": 2021,
-        "n": 100
+        "n": 101
       },
       {
         "y": 2022,
@@ -27345,7 +27357,7 @@ export const journals = [
         "n": 153
       }
     ],
-    "cites": 6.7,
+    "cites": 6.6,
     "h": 88,
     "oa": "https://openalex.org/S41523882",
     "link": "https://dblp.org/db/journals/tkdd/index.html"
