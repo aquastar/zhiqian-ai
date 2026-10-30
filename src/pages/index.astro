@@ -104,6 +104,60 @@ const musicNotes = {
   f: [[10, 3], [26, 5], [42, 4], [58, 6], [72, 3]],
 };
 
+// The Markov chain beside interest 3, learned from the right hand of the
+// opening of Für Elise. Edges and spinner wedges are counted here from the
+// melody, so the picture cannot disagree with the tune it claims to learn.
+const feNotes = {
+  'D#5': { x: 72, y: 30, color: '#be185d', key: 15 },
+  E5: { x: 116, y: 30, color: '#7c3aed', key: 16 },
+  'G#4': { x: 86, y: 58, color: '#65a30d', key: 8 },
+  B4: { x: 144, y: 58, color: '#ca8a04', key: 11 },
+  D5: { x: 150, y: 88, color: '#ea580c', key: 14 },
+  C5: { x: 98, y: 90, color: '#d97706', key: 12 },
+  A4: { x: 206, y: 82, color: '#16a34a', key: 9 },
+  E4: { x: 34, y: 96, color: '#0d9488', key: 4 },
+  C4: { x: 130, y: 112, color: '#1d4ed8', key: 0 },
+};
+const feMelody = ['E5', 'D#5', 'E5', 'D#5', 'E5', 'B4', 'D5', 'C5', 'A4', 'C4', 'E4', 'A4', 'B4', 'E4', 'G#4', 'B4', 'C5', 'E4',
+  'E5', 'D#5', 'E5', 'D#5', 'E5', 'B4', 'D5', 'C5', 'A4', 'C4', 'E4', 'A4', 'B4', 'E4', 'C5', 'B4', 'A4'];
+const FE_R = 8.5;
+const feCounts = new Map();
+feMelody.forEach((n, i) => {
+  const next = feMelody[(i + 1) % feMelody.length];
+  const k = `${n}>${next}`;
+  feCounts.set(k, (feCounts.get(k) ?? 0) + 1);
+});
+const feEdges = [...feCounts].map(([k, count]) => {
+  const [from, to] = k.split('>');
+  const a = feNotes[from], b = feNotes[to];
+  const dx = b.x - a.x, dy = b.y - a.y, len = Math.hypot(dx, dy);
+  const ux = dx / len, uy = dy / len;
+  // Bow every edge to its own left, so A to B and B to A never overlap.
+  const bend = Math.min(10, len * 0.18);
+  const cx = (a.x + b.x) / 2 + uy * bend, cy = (a.y + b.y) / 2 - ux * bend;
+  const sx = a.x + ux * FE_R, sy = a.y + uy * FE_R;
+  const ex = b.x - ux * (FE_R + 2.5), ey = b.y - uy * (FE_R + 2.5);
+  return { key: k, from, to, count, d: `M${sx.toFixed(1)} ${sy.toFixed(1)} Q${cx.toFixed(1)} ${cy.toFixed(1)} ${ex.toFixed(1)} ${ey.toFixed(1)}` };
+});
+// Spinner wedges: each note's outgoing probabilities, clockwise from twelve.
+const feWedges = Object.fromEntries(Object.entries(feNotes).map(([name, n]) => {
+  const out = feEdges.filter((e) => e.from === name);
+  const total = out.reduce((t, e) => t + e.count, 0);
+  const r = FE_R - 1.6;
+  let a0 = 0;
+  return [name, out.map((e) => {
+    const a1 = a0 + (e.count / total) * 360;
+    const pt = (deg) => [n.x + r * Math.sin(deg * Math.PI / 180), n.y - r * Math.cos(deg * Math.PI / 180)];
+    const [x0, y0] = pt(a0), [x1, y1] = pt(a1);
+    const d = a1 - a0 >= 359.9
+      ? `M${n.x} ${n.y - r} A${r} ${r} 0 1 1 ${n.x - 0.01} ${n.y - r} Z`
+      : `M${n.x} ${n.y} L${x0.toFixed(2)} ${y0.toFixed(2)} A${r} ${r} 0 ${a1 - a0 > 180 ? 1 : 0} 1 ${x1.toFixed(2)} ${y1.toFixed(2)} Z`;
+    const w = { to: e.to, from: a0, span: a1 - a0, count: e.count, total, d, color: feNotes[e.to].color };
+    a0 = a1;
+    return w;
+  })];
+}));
+
 const researchMethods = [
   { key: 'spectral', label: 'Spectral', sub: 'operators · theory', x: 130, y: 60, filter: 'unified-graph' },
   { key: 'structure', label: 'Structure', sub: 'representations', x: 90,  y: 140, filter: 'unified-graph' },
@@ -796,7 +850,7 @@ const selectedGroups = selectedFilters
           </div>
 
           <h3 class="interest-head"><span class="interest-num">3</span>Computational musicology</h3>
-          <div class="interest-split">
+          <div class="interest-split trio">
             <figure class="interest-fig">
               <svg viewBox="0 0 530 124" role="img" aria-labelledby="music-fig-title">
                 <title id="music-fig-title">Genre fusion, and looking inside music generation models</title>
@@ -822,6 +876,42 @@ const selectedGroups = selectedFilters
             <div class="interest-text">
               <p>My first music paper fused genres with adversarial dual learning (<a href="https://scholar.google.com/citations?view_op=view_citation&citation_for_view=NC3-O6UAAAAJ:d1gkVwhDpl0C" target="_blank" rel="noopener"><em>ICDM 2017</em></a>, with Alexander Lerch). I am now making music a main line: how generation models encode style, how far that style can be steered, and how this can serve music for health and hearing.</p>
             </div>
+            <figure class="interest-anim">
+              <button type="button" class="fe-open" aria-label="Open the Für Elise Markov chain with sound">
+              <svg viewBox="0 0 240 190" role="img" aria-labelledby="fe-title" class="fe-chain" data-melody={JSON.stringify(feMelody)} data-wedges={JSON.stringify(Object.fromEntries(Object.entries(feWedges).map(([k, ws]) => [k, ws.map((w) => [w.to, w.from, w.span, w.count, w.total])])))}>
+                <title id="fe-title">A Markov chain learns which note follows which in Für Elise, then composes a new tune by spinning at each note</title>
+                <defs>
+                  <marker id="fe-arrow" viewBox="0 0 6 6" refX="3" refY="3" markerWidth="5" markerHeight="5" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M0 0 L6 3 L0 6 Z" fill="#94a3b8" /></marker>
+                  <marker id="fe-arrow-hot" viewBox="0 0 6 6" refX="3" refY="3" markerWidth="5" markerHeight="5" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M0 0 L6 3 L0 6 Z" fill="#d97706" /></marker>
+                </defs>
+                <text x="120" y="10" class="fig-head">MARKOV CHAIN FROM FÜR ELISE</text>
+                {feEdges.map((e) => <path d={e.d} class="fe-edge" data-edge={e.key} style={`--w:${0.6 + e.count * 0.35}`} marker-end="url(#fe-arrow)" />)}
+                {Object.entries(feNotes).map(([name, n]) => (
+                  <g class="fe-node" data-note={name}>
+                    <circle cx={n.x} cy={n.y} r={FE_R} class="fe-ring" style={`stroke:${n.color}`} />
+                    <g class="fe-pie">
+                      {feWedges[name].map((w) => <path d={w.d} fill={w.color} />)}
+                      <line x1={n.x} y1={n.y} x2={n.x} y2={n.y - FE_R + 2} class="fe-needle" style={`transform-origin:${n.x}px ${n.y}px`} />
+                    </g>
+                    <text x={n.x} y={n.y + FE_R + 8} class="fe-label" style={`fill:${n.color}`}>{name.replace('#', '♯')}</text>
+                  </g>
+                ))}
+                <circle r="3" class="fe-ball" cx="-10" cy="-10" />
+                <text x="120" y="0" class="fe-prob" />
+                <text x="12" y="140" class="fe-composer">composer: Beethoven</text>
+                {[0, 1, 2, 3, 4].map((k) => <line x1="10" y1={146 + k * 4} x2="230" y2={146 + k * 4} class="fe-staff" />)}
+                <g class="fe-score"></g>
+                <text x="120" y="184" class="fe-status">learning from Beethoven</text>
+              </svg>
+              <span class="fe-hint"><i class="fas fa-volume-high" aria-hidden="true"></i> click to watch with sound</span>
+              </button>
+              <dialog class="fe-dialog" aria-label="Für Elise Markov chain">
+                <button type="button" class="fe-close" aria-label="Close"><i class="fas fa-xmark" aria-hidden="true"></i></button>
+                <div class="fe-stage"></div>
+                <p class="fe-dialog-note">A first-order Markov chain counts which note follows which in the opening of Für Elise. Each spinner holds one note's transition probabilities, and spinning them writes a new tune.</p>
+              </dialog>
+              <script type="application/json" class="fe-notes" set:html={JSON.stringify(Object.fromEntries(Object.entries(feNotes).map(([k, n]) => [k, [n.x, n.y, n.color, n.key]])))} />
+            </figure>
           </div>
 
         </article>
@@ -1090,6 +1180,198 @@ const selectedGroups = selectedFilters
       });
     });
   </script>
+
+  <script>
+    // The Für Elise chain beside interest 3 plays in two acts. First it learns:
+    // the ball walks the melody and every move it makes draws (or thickens) an
+    // arrow. Then it composes: each note shows a spinner whose wedges are its
+    // outgoing probabilities, and the needle picks where the ball goes next.
+    const chain = document.querySelector('.fe-chain');
+    if (chain) {
+      const notes = JSON.parse(chain.closest('.interest-anim').querySelector('.fe-notes').textContent);
+      const melody = JSON.parse(chain.dataset.melody);
+      const wedges = JSON.parse(chain.dataset.wedges);
+      const ball = chain.querySelector('.fe-ball');
+      const status = chain.querySelector('.fe-status');
+      const nodeEl = (n) => chain.querySelector(`[data-note="${n}"]`);
+      const edgeEl = (a, b) => chain.querySelector(`[data-edge="${a}>${b}"]`);
+      const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
+
+      if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        chain.querySelectorAll('.fe-edge').forEach((e) => e.classList.add('is-on'));
+        chain.classList.add('is-composing');
+        status.textContent = 'learned from Für Elise';
+      } else {
+        // Hold still while the figure is off screen or the tab is hidden.
+        let visible = false;
+        new IntersectionObserver(([en]) => { visible = en.isIntersecting; }).observe(chain);
+        const waitVisible = () => new Promise((r) => {
+          const check = () => (visible && !document.hidden ? r() : setTimeout(check, 300));
+          check();
+        });
+
+        // Sound only plays inside the dialog, which the viewer opened by clicking.
+        let audio = null;
+        const sound = (n) => {
+          if (!audio) return;
+          const t = audio.currentTime;
+          const osc = audio.createOscillator();
+          const gain = audio.createGain();
+          osc.type = 'triangle';
+          osc.frequency.value = 440 * 2 ** ((60 + notes[n][3] - 69) / 12);
+          gain.gain.setValueAtTime(0.0001, t);
+          gain.gain.exponentialRampToValueAtTime(0.22, t + 0.01);
+          gain.gain.exponentialRampToValueAtTime(0.0001, t + 0.6);
+          osc.connect(gain).connect(audio.destination);
+          osc.start(t);
+          osc.stop(t + 0.65);
+        };
+        // The staff keeps the last fifteen notes, the newest on the right.
+        const score = chain.querySelector('.fe-score');
+        const SVGNS = 'http://www.w3.org/2000/svg';
+        const svgEl = (tag, attrs) => {
+          const el = document.createElementNS(SVGNS, tag);
+          Object.entries(attrs).forEach(([k, v]) => el.setAttribute(k, v));
+          return el;
+        };
+        const staffStep = (n) => (Number(n.at(-1)) - 4) * 7 + 'CDEFGAB'.indexOf(n[0]) - 2;
+        const write = (n) => {
+          const step = staffStep(n);
+          const y = 162 - step * 2;
+          const g = svgEl('g', { class: 'fe-score-note' });
+          const color = notes[n][2];
+          if (step <= -2) g.append(svgEl('line', { x1: -5, y1: 166, x2: 5, y2: 166, stroke: '#94a3b8', 'stroke-width': .6 }));
+          if (n.includes('#')) {
+            const sharp = svgEl('text', { x: -7.5, y: y + 2.5, 'font-size': 7, fill: color });
+            sharp.textContent = '♯';
+            g.append(sharp);
+          }
+          g.append(svgEl('ellipse', { cx: 0, cy: y, rx: 2.9, ry: 2.1, fill: color, transform: `rotate(-20 0 ${y})` }));
+          g.append(step >= 4
+            ? svgEl('line', { x1: -2.6, y1: y + 1, x2: -2.6, y2: y + 11, stroke: color, 'stroke-width': .8 })
+            : svgEl('line', { x1: 2.6, y1: y - 1, x2: 2.6, y2: y - 11, stroke: color, 'stroke-width': .8 }));
+          score.append(g);
+          while (score.children.length > 15) score.firstChild.remove();
+          [...score.children].forEach((c, i, all) => c.setAttribute('transform', `translate(${226 - (all.length - 1 - i) * 14} 0)`));
+        };
+        const press = (n) => { sound(n); write(n); };
+        const land = (n) => {
+          ball.setAttribute('cx', notes[n][0]);
+          ball.setAttribute('cy', notes[n][1]);
+          chain.querySelectorAll('.fe-node.is-now').forEach((e) => e.classList.remove('is-now'));
+          nodeEl(n).classList.add('is-now');
+          press(n);
+        };
+        // Transition probability shown beside the edge in play. While learning
+        // it is the share counted so far, so the fractions settle as it reads.
+        const prob = chain.querySelector('.fe-prob');
+        const seen = new Map();
+        const fraction = (k, total) => (k === total ? '100%' : `${k}/${total}`);
+        const label = (path, text) => {
+          const pt = path.getPointAtLength(path.getTotalLength() / 2);
+          prob.setAttribute('x', pt.x);
+          prob.setAttribute('y', pt.y - 3);
+          prob.textContent = text;
+        };
+        const hop = (a, b, ms, text) => new Promise((done) => {
+          const path = edgeEl(a, b);
+          path.classList.add('is-on', 'is-hot');
+          label(path, text);
+          const length = path.getTotalLength();
+          const t0 = performance.now();
+          const step = (t) => {
+            const f = Math.min(1, (t - t0) / ms);
+            const eased = f < 0.5 ? 2 * f * f : 1 - (-2 * f + 2) ** 2 / 2;
+            const pt = path.getPointAtLength(eased * length);
+            ball.setAttribute('cx', pt.x);
+            ball.setAttribute('cy', pt.y);
+            if (f < 1) { requestAnimationFrame(step); return; }
+            path.classList.remove('is-hot');
+            prob.textContent = '';
+            land(b);
+            done();
+          };
+          requestAnimationFrame(step);
+        });
+        // A uniform landing angle picks each wedge with its own probability.
+        const spin = async (n) => {
+          const angle = Math.random() * 360;
+          const ws = wedges[n];
+          const pick = ws.find(([, from, span]) => angle >= from && angle < from + span) ?? ws[ws.length - 1];
+          const needle = nodeEl(n).querySelector('.fe-needle');
+          const turned = Number(needle.dataset.turned ?? 0) + 720;
+          needle.dataset.turned = turned;
+          needle.style.transition = 'transform .9s cubic-bezier(.2,.7,.2,1)';
+          needle.style.transform = `rotate(${turned + angle}deg)`;
+          await sleep(950);
+          return [pick[0], fraction(pick[3], pick[4])];
+        };
+        const reset = () => {
+          chain.querySelectorAll('.fe-edge').forEach((e) => e.classList.remove('is-on', 'is-hot'));
+          chain.querySelectorAll('.fe-needle').forEach((nd) => {
+            nd.style.transition = 'none';
+            nd.style.transform = '';
+            nd.dataset.turned = 0;
+          });
+          chain.classList.remove('is-composing');
+          score.replaceChildren();
+          seen.clear();
+          chain.querySelector('.fe-composer').textContent = 'composer: Beethoven';
+        };
+
+        // Clicking opens the same live figure in a dialog, with sound. The svg
+        // moves there and back, so the animation never restarts.
+        const figure = chain.closest('.interest-anim');
+        const opener = figure.querySelector('.fe-open');
+        const dialog = figure.querySelector('.fe-dialog');
+        opener.addEventListener('click', () => {
+          audio ??= new (window.AudioContext || window.webkitAudioContext)();
+          audio.resume();
+          dialog.querySelector('.fe-stage').append(chain);
+          dialog.showModal();
+        });
+        dialog.querySelector('.fe-close').addEventListener('click', () => dialog.close());
+        dialog.addEventListener('click', (e) => { if (e.target === dialog) dialog.close(); });
+        dialog.addEventListener('close', () => {
+          audio?.suspend();
+          opener.prepend(chain);
+        });
+
+        (async () => {
+          for (;;) {
+            await waitVisible();
+            reset();
+            status.textContent = 'learning: every move draws an arrow';
+            land(melody[0]);
+            for (let i = 0; i < melody.length; i += 1) {
+              await waitVisible();
+              const [a, b] = [melody[i], melody[(i + 1) % melody.length]];
+              seen.set(`${a}>${b}`, (seen.get(`${a}>${b}`) ?? 0) + 1);
+              const fromA = [...seen].filter(([k]) => k.startsWith(`${a}>`)).reduce((t, [, c]) => t + c, 0);
+              await hop(a, b, 360, fraction(seen.get(`${a}>${b}`), fromA));
+              await sleep(60);
+            }
+            await sleep(700);
+            chain.classList.add('is-composing');
+            status.textContent = 'composing: a spinner at every note';
+            chain.querySelector('.fe-composer').textContent = 'composer: the Markov chain';
+            score.replaceChildren();
+            await sleep(900);
+            let now = melody[0];
+            for (let i = 0; i < 18; i += 1) {
+              await waitVisible();
+              const [next, text] = await spin(now);
+              await hop(now, next, 380, text);
+              now = next;
+              await sleep(150);
+            }
+            status.textContent = 'a tune Beethoven never wrote';
+            await sleep(2600);
+          }
+        })();
+      }
+    }
+  </script>
 </Layout>
 
 <style>
@@ -1159,7 +1441,7 @@ const selectedGroups = selectedFilters
   h3 { font-size: 1rem; margin: 0 0 6px; }
   /* Type / date / venue on their own line, the content below it, and a zebra
      wash so a run of entries reads as separate rows without any rules. */
-  .updates { list-style: none; padding-left: 0; display: grid; gap: 0; text-align: left; }
+  .updates { font-size: .82rem; list-style: none; padding-left: 0; display: grid; gap: 0; text-align: left; }
   .updates li { display: block; line-height: 1.35; text-align: left; padding: 7px 9px; border-radius: 7px; }
   .updates li:nth-child(2n) { background: rgba(148, 163, 184, 0.11); }
   .update-head { display: block; margin-bottom: 2px; }
@@ -1589,7 +1871,34 @@ const selectedGroups = selectedFilters
   .fig-note-head.a { fill: #334155; }
   .fig-note-head.b { fill: #94a3b8; }
   .fig-note-head.f { fill: #dc2626; }
-  @media (max-width: 900px) { .interest-split { grid-template-columns: 1fr; gap: 10px; } }
+  .interest-split.trio { grid-template-columns: minmax(0, .95fr) minmax(0, .6fr) minmax(0, .6fr); gap: 16px; }
+  .interest-split.trio .interest-text p { font-size: .76rem; }
+  .interest-anim { margin: 0; }
+  .interest-anim svg { width: 100%; max-width: 320px; height: auto; display: block; margin: 0 auto; font-family: Inter, system-ui, sans-serif; }
+  .fe-edge { fill: none; stroke: #cbd5e1; stroke-width: var(--w); opacity: 0; transition: opacity .4s ease, stroke .3s ease; }
+  .fe-edge.is-on { opacity: 1; }
+  .fe-edge.is-hot { stroke: #d97706; opacity: 1; marker-end: url(#fe-arrow-hot); }
+  .fe-ring { fill: #fff; stroke-width: 1.8; transition: stroke-width .2s ease; }
+  .fe-node.is-now .fe-ring { stroke-width: 3; }
+  .fe-pie { opacity: 0; transition: opacity .5s ease; }
+  .fe-chain.is-composing .fe-pie { opacity: .9; }
+  .fe-needle { stroke: #0f172a; stroke-width: 1.3; stroke-linecap: round; transform-box: view-box; }
+  .fe-label { font-size: 7.5px; font-weight: 700; text-anchor: middle; }
+  .fe-ball { fill: #d97706; stroke: #fff; stroke-width: 1; }
+  .fe-staff { stroke: #94a3b8; stroke-width: .6; }
+  .fe-composer { font-size: 7.5px; fill: #64748b; font-weight: 600; }
+  .fe-chain.is-composing .fe-composer { fill: #b45309; }
+  .fe-prob { font-size: 8px; font-weight: 700; fill: #b45309; text-anchor: middle; paint-order: stroke; stroke: #fff; stroke-width: 2.5px; }
+  .fe-open { display: block; width: 100%; padding: 0; border: 0; background: none; cursor: zoom-in; font: inherit; }
+  .fe-hint { display: block; margin-top: 2px; font-size: .68rem; color: #64748b; text-align: center; }
+  .fe-open:hover .fe-hint { color: #2563eb; }
+  .fe-dialog { width: min(92vw, 760px); max-height: 94vh; padding: 18px 20px 14px; border: 0; border-radius: 14px; box-shadow: 0 24px 60px rgba(15,23,42,.35); }
+  .fe-dialog::backdrop { background: rgba(15,23,42,.55); }
+  .fe-dialog .fe-stage svg { width: 100%; max-width: none; max-height: 78vh; }
+  .fe-close { position: absolute; top: 8px; right: 10px; border: 0; background: none; font-size: 1.1rem; color: #475569; cursor: pointer; }
+  .fe-dialog-note { margin: 8px 0 0; font-size: .76rem; color: #64748b; text-align: left; }
+  .fe-status { font-size: 8.5px; fill: #64748b; text-anchor: middle; font-style: italic; }
+  @media (max-width: 900px) { .interest-split, .interest-split.trio { grid-template-columns: 1fr; gap: 10px; } }
 
   /* Combined thrust column: figure + text in one block per thrust */
   .thrust-pair { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; margin: 0; }
