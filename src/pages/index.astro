@@ -1189,7 +1189,11 @@ const selectedGroups = selectedFilters
       const status = chain.querySelector('.fe-status');
       const nodeEl = (n) => chain.querySelector(`[data-note="${n}"]`);
       const edgeEl = (a, b) => chain.querySelector(`[data-edge="${a}>${b}"]`);
-      const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
+      let run = 0;
+      const sleep = (ms) => {
+        const tk = run;
+        return new Promise((r) => setTimeout(() => { if (tk === run) r(); }, ms));
+      };
 
       if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
         chain.querySelectorAll('.fe-edge').forEach((e) => e.classList.add('is-on'));
@@ -1200,7 +1204,11 @@ const selectedGroups = selectedFilters
         let visible = false;
         new IntersectionObserver(([en]) => { visible = en.isIntersecting; }).observe(chain);
         const waitVisible = () => new Promise((r) => {
-          const check = () => (visible && !document.hidden ? r() : setTimeout(check, 300));
+          const tk = run;
+          const check = () => {
+            if (tk !== run) return;
+            if (visible && !document.hidden) r(); else setTimeout(check, 300);
+          };
           check();
         });
 
@@ -1300,7 +1308,9 @@ const selectedGroups = selectedFilters
           const staffMark = write(b);
           const length = path.getTotalLength();
           const t0 = performance.now();
+          const tk = run;
           const step = (t) => {
+            if (tk !== run) return;
             const f = Math.min(1, (t - t0) / ms);
             const eased = f < 0.5 ? 2 * f * f : 1 - (-2 * f + 2) ** 2 / 2;
             const pt = path.getPointAtLength(eased * length);
@@ -1340,11 +1350,12 @@ const selectedGroups = selectedFilters
           score.replaceChildren();
           lastY = null;
           seen.clear();
+          prob.textContent = '';
           chain.querySelector('.fe-composer').textContent = 'composer: Beethoven';
         };
 
-        // Clicking opens the same live figure in a dialog, with sound. The svg
-        // moves there and back, so the animation never restarts.
+        // Clicking opens the same live figure in a dialog, with sound, and
+        // restarts it so the listener hears Für Elise from its first note.
         const figure = chain.closest('.interest-anim');
         const opener = figure.querySelector('.fe-open');
         const dialog = figure.querySelector('.fe-dialog');
@@ -1353,6 +1364,8 @@ const selectedGroups = selectedFilters
           audio.resume();
           dialog.querySelector('.fe-stage').append(chain);
           dialog.showModal();
+          run += 1;
+          play();
         });
         dialog.querySelector('.fe-close').addEventListener('click', () => dialog.close());
         dialog.addEventListener('click', (e) => { if (e.target === dialog) dialog.close(); });
@@ -1361,7 +1374,7 @@ const selectedGroups = selectedFilters
           opener.prepend(chain);
         });
 
-        (async () => {
+        const play = async () => {
           for (;;) {
             await waitVisible();
             reset();
@@ -1398,7 +1411,8 @@ const selectedGroups = selectedFilters
             status.textContent = 'a tune Beethoven never wrote';
             await sleep(2600);
           }
-        })();
+        };
+        play();
       }
     }
   </script>
