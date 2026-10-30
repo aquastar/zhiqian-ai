@@ -808,8 +808,8 @@ const selectedGroups = selectedFilters
           <div class="interest-row">
             <h3 class="interest-head row-head-a"><span class="interest-num">2</span>Mechanistic understanding of large language models</h3>
             <figure class="interest-fig cell-a1">
-              <svg viewBox="0 0 530 124" role="img" aria-labelledby="llm-fig-title">
-                <title id="llm-fig-title">Delta graphs, steering and stitching</title>
+              <svg viewBox="0 0 180 124" role="img" aria-labelledby="delta-fig-title">
+                <title id="delta-fig-title">A model’s activation graph before and after a knowledge edit, with changed and lost edges marked</title>
                 <defs>
                   <marker id="arrowhead" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#475569" /></marker>
                   <marker id="arrowhead-hot" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#dc2626" /></marker>
@@ -827,7 +827,13 @@ const selectedGroups = selectedFilters
                   </g>
                 ))}
                 <path d="M77 58 h26" class="fig-arrow" marker-end="url(#arrowhead)" />
+              </svg>
+              <figcaption class="interest-cap"><strong>Delta-graph signatures</strong> (<a href="https://www.siam.org/conferences-events/siam-conferences/sdm26/" target="_blank" rel="noopener"><em>SDM 2026</em></a>) compare a model’s graph before and after a knowledge edit, and flag edits that pass standard checks but damage unrelated facts.</figcaption>
+            </figure>
 
+            <figure class="interest-fig cell-a2">
+              <svg viewBox="225 0 312 124" role="img" aria-labelledby="steer-fig-title">
+                <title id="steer-fig-title">Steering a model by adding a direction to its layers, and stitching two models together at a shared layer</title>
                 <text x="275" y="11" class="fig-head">STEERING</text>
                 {[30, 52, 74].map((y) => <rect x="235" y={y} width="80" height="12" class="fig-layer" />)}
                 <path d="M352 58 h-33" class="fig-arrow hot" marker-end="url(#arrowhead-hot)" />
@@ -844,7 +850,7 @@ const selectedGroups = selectedFilters
                 <text x="486" y="86" class="fig-cap start">model A</text>
                 <text x="450" y="114" class="fig-cap">join two models</text>
               </svg>
-              <figcaption class="interest-cap"><strong>Delta-graph signatures</strong> (<a href="https://www.siam.org/conferences-events/siam-conferences/sdm26/" target="_blank" rel="noopener"><em>SDM 2026</em></a>) read a trained model as a graph and flag knowledge edits that pass standard checks but damage unrelated facts; current work extends the view to steering and model stitching. <span class="cap-link"><i class="fas fa-person-chalkboard" aria-hidden="true"></i> <a href="https://aquastar.github.io/neural-networks-to-networks/" target="_blank" rel="noopener">slides</a></span></figcaption>
+              <figcaption class="interest-cap">Current work reads <strong>steering</strong> and <strong>model stitching</strong> through the same graph. <span class="cap-link"><i class="fas fa-person-chalkboard" aria-hidden="true"></i> <a href="https://aquastar.github.io/neural-networks-to-networks/" target="_blank" rel="noopener">slides</a></span></figcaption>
             </figure>
 
             <h3 class="interest-head row-head-b"><span class="interest-num">3</span>Computational musicology</h3>
@@ -1919,13 +1925,31 @@ const selectedGroups = selectedFilters
   /* Interests 2 and 3 share one row of three figures: the LLM delta graph under
      heading 2, the two music figures under heading 3. Figures are flex columns so
      the captions line up along the bottom despite different figure heights. */
-  .interest-row { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); column-gap: 20px; row-gap: 2px; }
+  /* Four figures in one row, two per interest: the published paper on the left of
+     each pair, the current experiments on the right. The music pair gets slightly
+     more width because its figures carry the most detail. */
+  .interest-row { display: grid; grid-template-columns: minmax(0, .9fr) minmax(0, .9fr) minmax(0, 1fr) minmax(0, 1.1fr); column-gap: 18px; row-gap: 2px; }
   .interest-row > figure { display: flex; flex-direction: column; margin: 0; }
-  .interest-row .row-head-a { grid-column: 1; grid-row: 1; }
+  /* The four drawings have different aspect ratios, so at equal column width the
+     squarest one renders much larger. Cap the height and let each letterbox inside
+     its column so all four read at the same scale. */
+  .interest-row .interest-fig svg { max-height: 128px; }
+  .interest-row .row-head-a { grid-column: 1 / span 2; grid-row: 1; }
   .interest-row .cell-a1 { grid-column: 1; grid-row: 2; }
-  .interest-row .row-head-b { grid-column: 2 / span 2; grid-row: 1; }
-  .interest-row .cell-b1 { grid-column: 2; grid-row: 2; }
-  .interest-row .cell-b2 { grid-column: 3; grid-row: 2; }
+  .interest-row .cell-a2 { grid-column: 2; grid-row: 2; }
+  .interest-row .row-head-b { grid-column: 3 / span 2; grid-row: 1; }
+  .interest-row .cell-b1 { grid-column: 3; grid-row: 2; }
+  .interest-row .cell-b2 { grid-column: 4; grid-row: 2; }
+  /* Between 900 and 1240 the four would be too narrow to read: stack the pairs. */
+  @media (max-width: 1240px) {
+    .interest-row { grid-template-columns: repeat(2, minmax(0, 1fr)); row-gap: 4px; }
+    .interest-row .row-head-a { grid-column: 1 / span 2; grid-row: 1; }
+    .interest-row .cell-a1 { grid-column: 1; grid-row: 2; }
+    .interest-row .cell-a2 { grid-column: 2; grid-row: 2; }
+    .interest-row .row-head-b { grid-column: 1 / span 2; grid-row: 3; }
+    .interest-row .cell-b1 { grid-column: 1; grid-row: 4; }
+    .interest-row .cell-b2 { grid-column: 2; grid-row: 4; }
+  }
   .interest-cap { margin-top: auto; padding-top: 9px; font-size: .76rem; line-height: 1.5; color: #475569; text-align: left; }
   .interest-cap strong { color: #0f172a; font-weight: 600; }
   .interest-cap a { color: #334155; text-decoration: underline; text-underline-offset: 2px; text-decoration-color: rgba(148,163,184,0.5); }
@@ -1962,8 +1986,8 @@ const selectedGroups = selectedFilters
   @media (max-width: 900px) { .interest-split, .interest-split.trio { grid-template-columns: 1fr; gap: 10px; } }
   @media (max-width: 900px) {
     .interest-row { grid-template-columns: 1fr; row-gap: 10px; }
-    .interest-row .row-head-a, .interest-row .row-head-b,
-    .interest-row .cell-a1, .interest-row .cell-b1, .interest-row .cell-b2 { grid-column: 1; grid-row: auto; }
+    .interest-row .row-head-a, .interest-row .row-head-b, .interest-row .cell-a1,
+    .interest-row .cell-a2, .interest-row .cell-b1, .interest-row .cell-b2 { grid-column: 1; grid-row: auto; }
     .interest-cap { margin-top: 0; }
   }
 
