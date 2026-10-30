@@ -1,0 +1,123 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Nav from '../../components/Nav.astro';
+
+// Five-fold cross-validated confusion, row-normalised, from
+// public/music-markov/first-order-fingerprint.py. Rows are the true style.
+const styles = ['Bach chorale', 'Essen folk song', 'Monteverdi', 'Palestrina', "Ryan's fiddle", 'Trecento'];
+const confusion = [
+  [66, 9, 2, 20, 2, 2],
+  [16, 62, 2, 4, 13, 4],
+  [1, 4, 80, 11, 0, 3],
+  [20, 4, 0, 71, 2, 3],
+  [4, 8, 0, 2, 82, 2],
+  [5, 4, 0, 19, 5, 67],
+];
+---
+
+<Layout title="Musical style as a first-order graph | Zhiqian Chen">
+  <main class="container">
+    <Nav />
+
+    <section class="hero">
+      <h1>Musical style as a first-order graph</h1>
+      <p class="lede">One piece, 144 numbers, no music theory. A first-order graph identifies its style 70.9% of the time across six corpora.</p>
+    </section>
+
+    <section class="section">
+      <h2>The construction</h2>
+      <p>Take a melody and throw away almost everything. Keep only which scale degree follows which. Twelve nodes, one per degree relative to the piece's own tonic; a weighted edge for every note-to-note move; rows normalised so each node's outgoing weights sum to one.</p>
+      <p>One piece becomes one 12&times;12 table. That is 144 numbers, and it is the whole representation: no key analysis, no phrase segmentation, no contour or interval features, no hand-designed musicology of any kind. Rhythm is discarded. Register is discarded. Everything but the local step is discarded.</p>
+      <p>The question is how much style survives that.</p>
+    </section>
+
+    <section class="section">
+      <h2>144 numbers name the composer</h2>
+      <p>Across 1,000 monophonic pieces in six corpora, a plain multinomial logistic regression reading only the transition table places an unseen piece in the right corpus <strong>70.9%</strong> of the time under five-fold cross-validation. The majority-class baseline is 20%.</p>
+      <p>The errors carry as much information as the hits. Read the rows:</p>
+      <figure class="cm">
+        <table>
+          <thead>
+            <tr><th scope="col"><span class="cm-corner">true \ predicted</span></th>{styles.map((s) => <th scope="col">{s}</th>)}</tr>
+          </thead>
+          <tbody>
+            {confusion.map((row, i) => (
+              <tr>
+                <th scope="row">{styles[i]}</th>
+                {row.map((v, j) => (
+                  <td class={i === j ? 'hit' : v >= 10 ? 'warm' : undefined}>{v}%</td>
+                ))}
+              </tr>
+            ))}
+          </tbody>
+        </table>
+        <figcaption>Five-fold cross-validated confusion, row-normalised. Diagonal shaded; off-diagonal confusions of 10% or more shaded lightly.</figcaption>
+      </figure>
+      <p>Bach and Palestrina trade places 20% of the time in each direction &mdash; two chorale-writing traditions two centuries apart, separated by voice-leading conventions that a memoryless graph is not equipped to see. Folk song and fiddle tune confuse at 13&ndash;16%. Trecento song leaks 19% into Palestrina. Monteverdi and fiddle tune never confuse at all, in either direction.</p>
+      <p>Nobody drew that map. It is a picture of stylistic kinship that falls out of 144 transition probabilities per piece.</p>
+    </section>
+
+    <section class="section">
+      <h2>Why first order, specifically</h2>
+      <p>Not as a simplification for presentation. In this data it is the only order at which the object is a graph at all.</p>
+      <p>An 89-note Bach chorale visits <strong>10</strong> distinct first-order nodes and spends <strong>89%</strong> of its steps revisiting ones it has already been to. Give each node a memory of three preceding notes instead of none, and the same chorale visits <strong>81</strong> nodes with a <strong>6%</strong> revisit rate &mdash; a path, not a graph, and very nearly a transcription of the piece itself.</p>
+      <p>Revisiting is the precondition for every tool worth bringing: a stationary distribution, a mean return time, a spectrum, a symmetry group, a community structure. First order is where graph theory still has purchase on the object, and that is an argument for studying it rather than an apology for it.</p>
+    </section>
+
+    <section class="section">
+      <h2>What a memoryless graph cannot do</h2>
+      <p>It carries a style's vocabulary but not its syntax. In a blind A/B test &mdash; one real excerpt against one first-order generation sharing its exact rhythm, pitch content the only cue &mdash; an LLM judge picked out the real excerpt <strong>96&ndash;100%</strong> of the time, against <strong>60%</strong> on a real-versus-real control. The note-to-note statistics are right. The sentences are not.</p>
+      <p>The failure is specific and it is the interesting part: what the first-order graph is missing is everything that depends on where you are in the piece rather than which note you just played.</p>
+    </section>
+
+    <section class="section">
+      <h2>What memory buys, and what it costs</h2>
+      <p>Let a node remember two notes instead of one and structure appears that the memoryless graph provably cannot represent. Running community detection on the resulting network recovers partitions that align with human analysts' key-region annotations at an adjusted mutual information of <strong>0.16&ndash;0.32</strong>, against roughly zero at first order. Modulation &mdash; a piece changing key underneath itself &mdash; is invisible to a graph without memory and legible to one with it.</p>
+      <p>The cost is the degeneration above: push the order up uniformly and the graph stops being a graph. So the question I am working on is not what order to use but <em>which contexts earn their memory</em> &mdash; a variable-order construction in which a node is promoted to remember an extra note only when that note changes what follows.</p>
+      <p>That promotion rule turns out to have two defensible and non-equivalent forms. Promote where the longer context <em>disagrees</em> with the shorter one, and you maximise information: this predicts better, measurably so. Promote where both are <em>confident</em>, and you isolate the style's fixed idioms: the figures a tradition repeats verbatim, which the first rule discards precisely because they are predictable. A graph labelled by both &mdash; where memory buys information, and where it marks formula &mdash; is, I think, the object worth having.</p>
+      <p class="aside">A related line asks what a smaller alphabet buys. On pentatonic repertoire the first-order graph separates structural from ornamental tones by an order of magnitude in mean return time, with no scale knowledge supplied; and the modes of that repertoire turn out to be approximately one graph acted on by a rotation, which would let five sparse graphs be pooled into one dense one. Write-up to follow.</p>
+    </section>
+
+    <section class="section">
+      <h2>Reproduce it</h2>
+      <p>The classification result above is 40 lines. It is published here in full so the claim can be checked rather than taken:</p>
+      <p class="links"><a href="/music-markov/first-order-fingerprint.py">first-order-fingerprint.py</a></p>
+      <p>It expects <code>seqs_v2.json</code>, a <code>{'{'}style: [{'{'}"tonic", "mel"{'}'}]{'}'}</code> dump produced with <a href="https://www.music21.org/" target="_blank" rel="noopener">music21</a> from six public symbolic corpora: the Bach chorales, Palestrina, Monteverdi, the Trecento repertoire, the <a href="https://kern.humdrum.org/cgi-bin/browse?l=essen" target="_blank" rel="noopener">Essen Folksong Collection</a>, and Ryan's Mammoth Collection of fiddle tunes. No tuning was done and no held-out set was touched twice; the number above is what the script prints on a first run.</p>
+      <p class="note">Written with AI assistance and checked by hand. Computation used the Rochester Institute of Technology Research Computing cluster, DOI <a href="https://doi.org/10.34788/0S3G-QD15" target="_blank" rel="noopener">10.34788/0S3G-QD15</a>.</p>
+    </section>
+  </main>
+</Layout>
+
+<style>
+  :root { --accent:#2563eb; --ink:#0f172a; --muted:#475569; }
+  .container { max-width: min(94vw, 880px); margin: 0 auto; padding: 20px; box-sizing: border-box; }
+  .hero { margin: 10px 0 28px; }
+  .hero h1 { font-family:'Montserrat',sans-serif; font-size:2rem; margin:0 0 10px; }
+  .lede { margin:0; max-width:820px; font-size:1.05rem; color:#1e293b; text-align:left; }
+  .section { padding-top:18px; margin-top:26px; border-top:none; max-width:820px; }
+  .section h2 { font-family:'Montserrat',sans-serif; font-size:1.1rem; margin:0 0 14px; }
+  .section p { margin:0 0 12px; color:#334155; font-size:.95rem; }
+  .section p:last-child { margin-bottom:0; }
+  .section strong { color:#0f172a; }
+  .aside { border-left:3px solid rgba(37,99,235,.28); padding-left:14px; color:#475569 !important; font-size:.9rem !important; }
+  .note { font-size:.82rem !important; color:#64748b !important; }
+  .links a, .note a, .section p a { color:#1d4ed8; text-decoration:none; }
+  .links a:hover, .note a:hover, .section p a:hover { text-decoration:underline; }
+  .links { font-size:.95rem; }
+  code { font-family:ui-monospace, SFMono-Regular, Menlo, monospace; font-size:.85em; background:#f1f5f9; padding:1px 5px; border-radius:4px; }
+
+  /* Confusion matrix. Scrolls sideways rather than squeezing on a phone. */
+  .cm { margin:0 0 14px; overflow-x:auto; }
+  .cm table { border-collapse:collapse; font-size:.8rem; min-width:620px; }
+  .cm th, .cm td { padding:7px 10px; border:1px solid #e2e8f0; text-align:right; white-space:nowrap; }
+  .cm thead th { font-family:'Montserrat',sans-serif; font-weight:600; color:#475569; background:#f8fafc; font-size:.72rem; }
+  .cm tbody th { text-align:left; font-weight:600; color:#0f172a; background:#f8fafc; font-size:.78rem; }
+  .cm-corner { font-weight:400; color:#94a3b8; font-size:.68rem; }
+  .cm td.hit { background:#dbeafe; color:#1e3a8a; font-weight:700; }
+  .cm td.warm { background:#fef3c7; color:#92400e; }
+  .cm figcaption { margin-top:8px; font-size:.78rem; color:#64748b; text-align:left; }
+
+  @media (max-width: 720px) {
+    .hero h1 { font-size:1.55rem; }
+  }
+</style>
