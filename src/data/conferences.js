@@ -3,7 +3,7 @@
 // CORE ranks are cross-checked against the official CORE2023 export from
 // portal.core.edu.au. Acceptance rates and submission counts come from
 // github.com/Xovee/cs-conf-stats (main track only).
-// Built 2026-10-29.
+// Built 2026-10-30.
 export const ranked = [
   {
     "title": "NDSS",

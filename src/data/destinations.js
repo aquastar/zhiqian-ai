@@ -3,7 +3,7 @@
 // CCF A or B, or CORE A* or A, every hand-kept venue on the field
 // tabs, and the venues added by hand in the script. Destinations mix cities, countries and
 // regions, because that is how people choose where to go.
-// Built 2026-10-29.
+// Built 2026-10-30.
 export const destinations = {
  "items": [
   {
@@ -3665,6 +3665,38 @@ export const destinations = {
    ],
    "lat": 45.5032,
    "lon": -73.5698
+  },
+  {
+   "title": "CSCW",
+   "desc": "ACM Conference on Computer Supported Cooperative Work and Social Computing",
+   "year": 2027,
+   "place": "Philadelphia, USA",
+   "date": "October 16-20, 2027",
+   "city": "Philadelphia",
+   "country": "United States",
+   "dest": "",
+   "icon": "",
+   "ccf": "A",
+   "core": "A",
+   "sub": "HI",
+   "deadline": "",
+   "open": false,
+   "link": "https://cscw.acm.org/2027/",
+   "q": "philadelphia, usa philadelphia united states ",
+   "field": "HCI",
+   "group": "computing",
+   "honors": [
+    {
+     "t": "CCF A",
+     "k": "ccf-a"
+    },
+    {
+     "t": "CORE A",
+     "k": "core-a"
+    }
+   ],
+   "lat": 39.9527,
+   "lon": -75.1635
   },
   {
    "title": "CSFW",
