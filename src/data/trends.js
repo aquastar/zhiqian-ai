@@ -4607,6 +4607,127 @@ export const trends = {
     }
    ],
    "built": "2026-10-21"
+  },
+  "divination": {
+   "total": 40,
+   "journals": 3,
+   "confs": [],
+   "missing": [],
+   "rows": [
+    {
+     "label": "esotericism",
+     "id": "esotericism",
+     "n": 7,
+     "share": 17.5,
+     "growth": 28,
+     "papers": 10
+    },
+    {
+     "label": "divination",
+     "id": "divination",
+     "n": 6,
+     "share": 15.0,
+     "growth": 98,
+     "papers": 10
+    },
+    {
+     "label": "archaeoastronomy",
+     "id": "archaeoastronomy",
+     "n": 4,
+     "share": 10.0,
+     "growth": 10,
+     "papers": 8
+    },
+    {
+     "label": "Julius Evola",
+     "id": "julius-evola",
+     "n": 4,
+     "share": 10.0,
+     "growth": null,
+     "papers": 4
+    },
+    {
+     "label": "Ernst Bloch",
+     "id": "ernst-bloch",
+     "n": 2,
+     "share": 5.0,
+     "growth": null,
+     "papers": 2
+    },
+    {
+     "label": "eschatology",
+     "id": "eschatology",
+     "n": 2,
+     "share": 5.0,
+     "growth": null,
+     "papers": 2
+    },
+    {
+     "label": "fascism",
+     "id": "fascism",
+     "n": 2,
+     "share": 5.0,
+     "growth": null,
+     "papers": 2
+    },
+    {
+     "label": "interwar period",
+     "id": "interwar-period",
+     "n": 2,
+     "share": 5.0,
+     "growth": 230,
+     "papers": 2
+    },
+    {
+     "label": "Kabbalah",
+     "id": "kabbalah",
+     "n": 2,
+     "share": 5.0,
+     "growth": null,
+     "papers": 3
+    },
+    {
+     "label": "occultism",
+     "id": "occultism",
+     "n": 2,
+     "share": 5.0,
+     "growth": 65,
+     "papers": 7
+    },
+    {
+     "label": "prophecy",
+     "id": "prophecy",
+     "n": 2,
+     "share": 5.0,
+     "growth": 230,
+     "papers": 3
+    },
+    {
+     "label": "reception history",
+     "id": "reception-history",
+     "n": 2,
+     "share": 5.0,
+     "growth": null,
+     "papers": 3
+    },
+    {
+     "label": "stone circles",
+     "id": "stone-circles",
+     "n": 2,
+     "share": 5.0,
+     "growth": 230,
+     "papers": 2
+    },
+    {
+     "label": "symbolic interpretation",
+     "id": "symbolic-interpretation",
+     "n": 2,
+     "share": 5.0,
+     "growth": null,
+     "papers": 2
+    }
+   ],
+   "built": "2026-10-31"
   }
  }
 };

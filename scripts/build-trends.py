@@ -32,6 +32,7 @@ TODAY = datetime.date.today()
 YEAR = TODAY.year - 1          # the last full year
 BASE = YEAR - 2                # what the share is compared against
 TOP = 20
+MIN_PAPERS = 2               # a keyword on one paper is not a topic
 PAPERS = 10
 CANDIDATES = 15
 MAX_AGE_DAYS = 28              # refresh a field about once a month
@@ -190,7 +191,9 @@ def build_field(area, journal_sources):
     confs, missing = CONF_SOURCES.get(area, ([], []))
     sources = journal_sources + [sid for sid, _ in confs]
     total, now = keyword_groups(sources, YEAR)
-    now = [g for g in now if g['key'] and keep(g['key_display_name'])][:TOP]
+    # A small field runs out of real topics before twenty, and its tail is
+    # keywords from a single paper. Those say nothing about the field.
+    now = [g for g in now if g['key'] and keep(g['key_display_name']) and g['count'] >= MIN_PAPERS][:TOP]
     ids = [g['key'].rsplit('/', 1)[-1] for g in now]
     # The base year, asked about exactly these keywords, so a keyword
     # outside last time's top few hundred is still counted rather than
@@ -241,7 +244,7 @@ os.makedirs(PAPER_DIR, exist_ok=True)
 fields = dict(prev)
 def is_fresh(area):
     f = prev.get(area) or {}
-    if not f.get('built') or len(f.get('rows', [])) < TOP: return False
+    if not f.get('built') or (len(f.get('rows', [])) < TOP and f.get('total', 0) >= 1000): return False
     if not os.path.exists(f'{PAPER_DIR}/{area}.json'): return False
     return (TODAY - datetime.date.fromisoformat(f['built'])).days < MAX_AGE_DAYS
 # Oldest first, so a run that runs out of budget still moves the stalest on.
