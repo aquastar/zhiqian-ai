@@ -33,8 +33,6 @@ export const deadlines = [
   ]},
   { month: 'Dec 2026', y: 2026, m: 11, items: [
     { d: 1, name: 'Simons Empire AI (noon ET)', kind: 'other', star: true },
-    { d: 1, name: 'NSF TTP-E', kind: 'nsf', anytime: true, star: true },
-    { d: 1, name: 'NSF CMMI / IIDS (NSF 26-515)', kind: 'nsf', anytime: true },
     { d: 2, name: 'NSF Expeditions preliminary proposal', kind: 'nsf' },
   ]},
   { month: 'Jan 2027', y: 2027, m: 0, items: [
@@ -59,6 +57,19 @@ export const deadlines = [
     { d: 26, name: 'MICCAI 2027 submission', kind: 'paper', est: true, href: 'https://miccai.org/2026/02/18/announcing-miccai-2027-and-miccai-2028-locations/' },
     { d: 25, name: 'NIH R15 AREA new (standing date)', kind: 'nih', star: true },
   ]},
+  { month: 'Mar 2027', y: 2027, m: 2, items: [
+    { d: 15, name: 'ACL 2027 commitment (follows the Jan 4 ARR cycle)', kind: 'paper', est: true, href: 'https://2027.aclweb.org/' },
+    { d: 31, name: 'CVPR 2027 demo (historically spring)', kind: 'paper', est: true },
+  ]},
+];
+
+// Rolling calls have no date of their own. The board pins them to the last day
+// it shows, so they sit in the calendar like everything else.
+export const anytime = [
+  { name: 'NSF TTP-E', kind: 'nsf', star: true },
+  { name: 'NSF CMMI / IIDS (NSF 26-515)', kind: 'nsf' },
+  { name: 'NSF CMMI / EME', kind: 'nsf' },
+  { name: 'NSF BIO Core', kind: 'nsf' },
 ];
 
 // Sort on the way out, so an item dropped anywhere in a month still lands in
@@ -88,7 +99,3 @@ export const kindLabels = {
   review: 'Review / report',
 };
 
-export const openCalls = [
-  { heading: 'Submit anytime (no fixed deadline)', items: ['NSF BIO Core', 'NSF CMMI / EME'] },
-  { heading: 'Date not announced', items: ['ACL 2027 commitment deadline (follows the Jan 4 ARR cycle)', 'CVPR 2027 demo (historically spring)', 'NeuroArts Fleming (mid Feb 2027)'] },
-];

@@ -1,7 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import Nav from '../components/Nav.astro';
-import { kindLabels, openCalls, monthWindow } from '../data/deadlines.js';
+import { kindLabels, anytime, monthWindow } from '../data/deadlines.js';
 
 const DOW = ['S', 'M', 'T', 'W', 'T', 'F', 'S'];
 const SHORT_MONTH = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
@@ -27,6 +27,12 @@ const BOARD_MONTHS = 8;
 const BUILD_SPARE = 4;
 const built = new Date();
 const months = monthWindow(built.getUTCFullYear(), built.getUTCMonth(), BOARD_MONTHS + BUILD_SPARE);
+const lastMonth = months[BOARD_MONTHS - 1];
+const lastDay = new Date(Date.UTC(lastMonth.y, lastMonth.m + 1, 0)).getUTCDate();
+months[BOARD_MONTHS - 1] = {
+  ...lastMonth,
+  items: [...lastMonth.items, ...anytime.map((i) => ({ ...i, d: lastDay, anytime: true }))],
+};
 
 const labelFor = (mo, item) => `${SHORT_MONTH[mo.m]} ${item.d}`;
 const dayName = (mo, d) => ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'][new Date(Date.UTC(mo.y, mo.m, d)).getUTCDay()];
@@ -49,20 +55,20 @@ const dayName = (mo, d) => ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'][new
                   cell === null
                     ? <span class="cal-cell is-blank"></span>
                     : <span
-                        class={`cal-cell${cell.items.some((i) => !i.anytime) ? ' is-due' : ''}`}
+                        class={`cal-cell${cell.items.length > 0 ? ' is-due' : ''}`}
                         data-today={`${mo.y}-${mo.m}-${cell.d}`}
-                        data-key={cell.items.some((i) => !i.anytime) ? `${mo.y}-${mo.m}-${cell.d}` : undefined}
+                        data-key={cell.items.length > 0 ? `${mo.y}-${mo.m}-${cell.d}` : undefined}
                       >
                         <span class="cal-num">{cell.d}</span>
-                        {cell.items.some((i) => !i.anytime) && (
+                        {cell.items.length > 0 && (
                           <span class="cal-dots">
-                            {cell.items.filter((i) => !i.anytime).map((i) => <span class={`dot${i.est ? ' is-est' : ''}${i.star ? ' is-star' : ''}`}></span>)}
+                            {cell.items.map((i) => <span class={`dot${i.est ? ' is-est' : ''}${i.star ? ' is-star' : ''}`}></span>)}
                           </span>
                         )}
-                        {cell.items.some((i) => !i.anytime) && (
+                        {cell.items.length > 0 && (
                           <span class="cal-pop" role="tooltip">
                             <span class="cal-pop-head">{labelFor(mo, cell)} · {dayName(mo, cell.d)}</span>
-                            {cell.items.filter((i) => !i.anytime).map((i) => (
+                            {cell.items.map((i) => (
                               <span class="cal-pop-item">
                                 <span>
                                   {i.star && <i class="fas fa-star star-mark" aria-hidden="true"></i>}
@@ -70,6 +76,7 @@ const dayName = (mo, d) => ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'][new
                                     ? <a class="cal-pop-link" href={i.href} target="_blank" rel="noopener">{i.name}</a>
                                     : i.name}
                                   {i.est && <span class="est-flag">est.</span>}
+                                  {i.anytime && <span class="est-flag">anytime</span>}
                                 </span>
                               </span>
                             ))}
@@ -89,7 +96,7 @@ const dayName = (mo, d) => ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'][new
             <h3>{mo.month}</h3>
             <ul class="deadline-list">
               {mo.items.map((d) => (
-                <li class={`deadline kind-${d.kind}${d.est ? ' is-est' : ''}${d.star ? ' is-star' : ''}`} data-key={d.anytime ? undefined : `${mo.y}-${mo.m}-${d.d}`}>
+                <li class={`deadline kind-${d.kind}${d.est ? ' is-est' : ''}${d.star ? ' is-star' : ''}`} data-key={`${mo.y}-${mo.m}-${d.d}`}>
                   <span class="deadline-date">{labelFor(mo, d)}</span>
                   <span class="deadline-name">
                     {d.star && <i class="fas fa-star star-mark" aria-label="Targeting this one"></i>}
@@ -108,25 +115,6 @@ const dayName = (mo, d) => ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'][new
         ))}
       </div>
 
-      <div class="cards three open-calls" id="open-calls">
-        {openCalls.map((c) => (
-          <article class="card">
-            <h3>{c.heading}</h3>
-            <ul class="topics">
-              {c.items.map((i) => <li>{i}</li>)}
-            </ul>
-          </article>
-        ))}
-        <article class="card past-card" id="past-card" hidden>
-          <details>
-            <summary>
-              <h3>Already passed</h3>
-              <span class="past-count" id="past-count"></span>
-            </summary>
-            <ul class="topics" id="past-list"></ul>
-          </details>
-        </article>
-      </div>
       <p class="fineprint">Verify each against its own solicitation. A date on a weekend or federal holiday shifts to the next business day; NIH resubmissions run one month later (Mar / Jul / Nov).</p>
     </section>
   </main>
@@ -161,7 +149,6 @@ const dayName = (mo, d) => ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'][new
       if (idx < firstMonth || idx >= firstMonth + BOARD_MONTHS) el.hidden = true;
     });
 
-    const pastItems = [];
     document.querySelectorAll('.deadline[data-key]').forEach((row) => {
       const slot = row.querySelector('[data-countdown]');
       if (!slot) return;
@@ -169,13 +156,7 @@ const dayName = (mo, d) => ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'][new
       const days = Math.round((Date.UTC(y, m, d) - today) / 86400000);
 
       if (days < 0) {
-        // Gone by: out of the month lists and off the grid, into one box at the
-        // foot of the page, so the board only ever shows what is still ahead.
-        pastItems.push({
-          label: row.querySelector('.deadline-date').textContent.trim(),
-          name: row.querySelector('.deadline-name').textContent.trim(),
-          days: -days,
-        });
+        // Gone by: off the board, so it only ever shows what is still ahead.
         row.hidden = true;
         return;
       }
@@ -209,19 +190,6 @@ const dayName = (mo, d) => ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'][new
       if (!visible) month.hidden = true;
     });
 
-
-    if (pastItems.length) {
-      const list = document.getElementById('past-list');
-      pastItems.forEach((item) => {
-        const li = document.createElement('li');
-        li.className = 'past-item';
-        li.innerHTML = `<span class="past-when">${item.label}</span><span>${item.name}</span>`;
-        list.appendChild(li);
-      });
-      document.getElementById('past-count').textContent = String(pastItems.length);
-      document.getElementById('past-card').hidden = false;
-      document.getElementById('open-calls').classList.add('has-past');
-    }
   </script>
 </Layout>
 <style>
@@ -315,27 +283,6 @@ const dayName = (mo, d) => ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'][new
   .deadline.is-linked { background:#dbeafe; }
   .deadline.is-linked .deadline-name, .deadline.is-linked .deadline-date { color:#1d4ed8; }
 
-  .cards { display:grid; gap:14px; }
-  .cards.three { grid-template-columns:repeat(3, minmax(0,1fr)); }
-  .card { border:1px solid rgba(148,163,184,.16); border-radius:16px; background:#fff; padding:16px; }
-  .card h3 { font-family:'Montserrat',sans-serif; font-size:.95rem; margin:0 0 8px; text-align:left; }
-  .topics li { text-align:left; }
-  .topics { list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:5px; align-items:flex-start; }
-  .topics li { font-size:.84rem; color:#475569; line-height:1.45; }
-  .open-calls { margin-top:20px; }
-  .open-calls.has-past { grid-template-columns:repeat(4, minmax(0,1fr)); }
-  /* Folded by default: what has gone by is reference, not the working list. */
-  .past-card { border-style:dashed; }
-  .past-card details > summary { display:flex; align-items:center; gap:7px; cursor:pointer; list-style:none; }
-  .past-card details > summary::-webkit-details-marker { display:none; }
-  .past-card details > summary::after { content:'\f078'; font-family:'Font Awesome 6 Free'; font-weight:900; margin-left:auto; font-size:.7rem; color:#94a3b8; transition:transform .15s ease; }
-  .past-card details[open] > summary::after { transform:rotate(180deg); }
-  .past-card details > summary h3 { margin:0; }
-  .past-card details[open] > summary { margin-bottom:8px; }
-  .past-count { font-size:.72rem; font-weight:700; color:#64748b; background:#f1f5f9; border-radius:999px; padding:1px 7px; }
-  .past-item { display:grid; grid-template-columns:46px minmax(0,1fr); align-items:baseline; gap:6px; }
-  .past-when { font-weight:700; color:#94a3b8; font-variant-numeric:tabular-nums; }
-  .past-card .topics li { color:#94a3b8; }
   .fineprint { margin:16px 0 0; font-size:.76rem; color:#94a3b8; line-height:1.5; }
 
   @media (max-width: 1350px) {
@@ -344,11 +291,9 @@ const dayName = (mo, d) => ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'][new
   @media (max-width: 1100px) {
     .cals { grid-template-columns:repeat(2, minmax(0,1fr)); }
     .months { columns:2; }
-    .cards.three, .open-calls.has-past { grid-template-columns:repeat(2, minmax(0,1fr)); }
   }
   @media (max-width: 720px) {
     .cals { grid-template-columns:1fr; }
     .months { columns:1; }
-    .cards.three, .open-calls.has-past { grid-template-columns:1fr; }
   }
 </style>
