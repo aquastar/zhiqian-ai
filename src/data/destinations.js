@@ -3,7 +3,7 @@
 // CCF A or B, or CORE A* or A, every hand-kept venue on the field
 // tabs, and the venues added by hand in the script. Destinations mix cities, countries and
 // regions, because that is how people choose where to go.
-// Built 2026-10-30.
+// Built 2026-10-31.
 export const destinations = {
  "items": [
   {
@@ -1182,6 +1182,28 @@ export const destinations = {
    "lon": 8.4034
   },
   {
+   "title": "INSAP",
+   "desc": "Inspiration of Astronomical Phenomena Conference",
+   "year": 2026,
+   "place": "Rome, Italy",
+   "date": "October 5-11, 2026",
+   "city": "Rome",
+   "country": "Italy",
+   "dest": "Italy",
+   "icon": "wine-glass",
+   "ccf": "N",
+   "core": "N",
+   "deadline": "",
+   "open": false,
+   "link": "https://indico.ict.inaf.it/event/3535/",
+   "q": "rome, italy rome italy ",
+   "field": "Divination & astrology",
+   "group": "mind",
+   "honors": [],
+   "lat": 41.8933,
+   "lon": 12.4829
+  },
+  {
    "title": "InterSpeech",
    "desc": "Conference of the International Speech Communication Association",
    "year": 2026,
@@ -1248,6 +1270,28 @@ export const destinations = {
    ],
    "lat": 40.4407,
    "lon": -80.0026
+  },
+  {
+   "title": "ISCSD",
+   "desc": "International Society for the Critical Study of Divination Conference",
+   "year": 2026,
+   "place": "Erlangen, Germany",
+   "date": "November 5-8, 2026",
+   "city": "Erlangen",
+   "country": "Germany",
+   "dest": "Germany",
+   "icon": "beer-mug-empty",
+   "ccf": "N",
+   "core": "N",
+   "deadline": "",
+   "open": false,
+   "link": "https://criticaldivination.org/2026/01/31/1st-international-iscsd-conference-predictive-practices-interpretations/",
+   "q": "erlangen, germany erlangen germany ",
+   "field": "Divination & astrology",
+   "group": "mind",
+   "honors": [],
+   "lat": 49.5892,
+   "lon": 10.9812
   },
   {
    "title": "ISMAR",
@@ -4330,6 +4374,28 @@ export const destinations = {
    "lon": 103.8195
   },
   {
+   "title": "ESSWE",
+   "desc": "European Society for the Study of Western Esotericism Conference",
+   "year": 2027,
+   "place": "Turku, Finland",
+   "date": "June 16-19, 2027",
+   "city": "Turku",
+   "country": "Finland",
+   "dest": "",
+   "icon": "",
+   "ccf": "N",
+   "core": "N",
+   "deadline": "",
+   "open": false,
+   "link": "https://www.esswe.org/current-conference",
+   "q": "turku, finland turku finland ",
+   "field": "Divination & astrology",
+   "group": "mind",
+   "honors": [],
+   "lat": 60.4516,
+   "lon": 22.267
+  },
+  {
    "title": "ETAPS",
    "desc": "European Joint Conferences on Theory and Practice of Software",
    "year": 2027,
@@ -6518,7 +6584,7 @@ export const destinations = {
    "core": "N",
    "sub": "MX",
    "deadline": "2026-10-30",
-   "open": true,
+   "open": false,
    "link": "https://mlsys.org/",
    "q": "bellevue, washington, usa bellevue united states ",
    "field": "AI · ML · Data Mining",
@@ -8395,8 +8461,8 @@ export const destinations = {
    "icon": "landmark",
    "ccf": "N",
    "core": "N",
-   "deadline": "2026-10-30",
-   "open": true,
+   "deadline": "",
+   "open": false,
    "link": "https://2027.uncecomp.org/",
    "q": "hersonissos, crete, greece hersonissos greece ",
    "field": "UQ & statistics",
@@ -8862,7 +8928,7 @@ export const destinations = {
   {
    "name": "Italy",
    "icon": "wine-glass",
-   "n": 9
+   "n": 10
   },
   {
    "name": "Greece",
@@ -8887,7 +8953,7 @@ export const destinations = {
   {
    "name": "Germany",
    "icon": "beer-mug-empty",
-   "n": 8
+   "n": 9
   },
   {
    "name": "UK & Ireland",
