@@ -97,12 +97,6 @@ const llmNodes = [[0, 32], [0, 58], [0, 84], [25, 32], [25, 58], [25, 84], [50, 
 const llmEdges = [[0, 3], [0, 4], [1, 4], [1, 5], [2, 5], [3, 6], [4, 6], [4, 7], [5, 8], [3, 7]];
 const llmChanged = [2, 7];
 const llmLost = [9];
-// Figure data for interest 3: note positions as [x offset, staff step].
-const musicNotes = {
-  a: [[10, 2], [26, 4], [42, 3], [58, 5], [72, 4]],
-  b: [[10, 6], [26, 3], [42, 7], [58, 2], [72, 5]],
-  f: [[10, 3], [26, 5], [42, 4], [58, 6], [72, 3]],
-};
 
 // The Markov chain beside interest 3, learned from the right hand of the
 // opening of Für Elise. Edges and spinner wedges are counted here from the
@@ -806,7 +800,7 @@ const selectedGroups = selectedFilters
           </div>
 
           <div class="interest-row">
-            <h3 class="interest-head row-head-a"><span class="interest-num">2</span>Mechanistic understanding of large language models</h3>
+            <h3 class="interest-head row-head-a"><span class="interest-num">2</span>Mechanistic understanding of LLMs</h3>
             <figure class="interest-fig cell-a1">
               <svg viewBox="0 0 180 124" role="img" aria-labelledby="delta-fig-title">
                 <title id="delta-fig-title">A model’s activation graph before and after a knowledge edit, with changed and lost edges marked</title>
@@ -828,52 +822,10 @@ const selectedGroups = selectedFilters
                 ))}
                 <path d="M77 58 h26" class="fig-arrow" marker-end="url(#arrowhead)" />
               </svg>
-              <figcaption class="interest-cap"><strong>Delta-graph signatures</strong> (<a href="https://www.siam.org/conferences-events/siam-conferences/sdm26/" target="_blank" rel="noopener"><em>SDM 2026</em></a>) compare a model’s graph before and after a knowledge edit, and flag edits that pass standard checks but damage unrelated facts.</figcaption>
-            </figure>
-
-            <figure class="interest-fig cell-a2">
-              <svg viewBox="225 0 312 124" role="img" aria-labelledby="steer-fig-title">
-                <title id="steer-fig-title">Steering a model by adding a direction to its layers, and stitching two models together at a shared layer</title>
-                <text x="275" y="11" class="fig-head">STEERING</text>
-                {[30, 52, 74].map((y) => <rect x="235" y={y} width="80" height="12" class="fig-layer" />)}
-                <path d="M352 58 h-33" class="fig-arrow hot" marker-end="url(#arrowhead-hot)" />
-                <text x="338" y="51" class="fig-cap hot">+v</text>
-                <text x="275" y="114" class="fig-cap">add a direction</text>
-
-                <text x="450" y="11" class="fig-head">STITCHING</text>
-                <rect x="420" y="26" width="60" height="12" class="fig-layer b" />
-                <rect x="420" y="42" width="60" height="12" class="fig-layer b" />
-                <rect x="430" y="59" width="40" height="4" class="fig-stitch" />
-                <rect x="420" y="68" width="60" height="12" class="fig-layer" />
-                <rect x="420" y="84" width="60" height="12" class="fig-layer" />
-                <text x="486" y="44" class="fig-cap start">model B</text>
-                <text x="486" y="86" class="fig-cap start">model A</text>
-                <text x="450" y="114" class="fig-cap">join two models</text>
-              </svg>
-              <figcaption class="interest-cap">Current work reads <strong>steering</strong> and <strong>model stitching</strong> through the same graph. <span class="cap-link"><i class="fas fa-person-chalkboard" aria-hidden="true"></i> <a href="https://aquastar.github.io/neural-networks-to-networks/" target="_blank" rel="noopener">slides</a></span></figcaption>
+              <figcaption class="interest-cap"><strong>Delta-graph signatures</strong> (<a href="https://www.siam.org/conferences-events/siam-conferences/sdm26/" target="_blank" rel="noopener"><em>SDM 2026</em></a>) read a model’s activations as a graph and flag knowledge edits that pass standard checks but damage unrelated facts. The talk <span class="cap-link"><i class="fas fa-person-chalkboard" aria-hidden="true"></i> <a href="https://aquastar.github.io/neural-networks-to-networks/" target="_blank" rel="noopener">From Networks to Neural Networks</a></span> presents this same work.</figcaption>
             </figure>
 
             <h3 class="interest-head row-head-b"><span class="interest-num">3</span>Computational musicology</h3>
-            <figure class="interest-fig cell-b1">
-              <svg viewBox="0 0 300 132" role="img" aria-labelledby="music-fig-title">
-                <title id="music-fig-title">Two genres pass through a music generator whose style layer is marked, and a fused piece comes out</title>
-                <text x="150" y="11" class="fig-head">FUSING AND STEERING STYLE</text>
-                {[[6, 30, 'a', 'genre A'], [6, 80, 'b', 'genre B'], [216, 55, 'f', 'fused, ICDM 2017']].map(([x, y, tone, label]) => (
-                  <g>
-                    {[0, 1, 2, 3, 4].map((k) => <line x1={x} y1={y + k * 4.5} x2={x + 78} y2={y + k * 4.5} class="fig-staff" />)}
-                    {musicNotes[tone].map(([dx, step]) => <ellipse cx={x + dx} cy={y + 18 - step * 2.4} rx="3.6" ry="2.7" class={`fig-note-head ${tone}`} />)}
-                    <text x={x + 39} y={y + 32} class="fig-cap">{label}</text>
-                  </g>
-                ))}
-                <path d="M88 40 C102 40 104 58 116 60" class="fig-arrow" marker-end="url(#arrowhead)" />
-                <path d="M88 90 C102 90 104 76 116 74" class="fig-arrow" marker-end="url(#arrowhead)" />
-                {[34, 52, 70, 88].map((y, i) => <rect x="122" y={y} width="62" height="12" class={`fig-layer ${i === 2 ? 'hot' : ''}`} />)}
-                <text x="153" y="80" class="fig-cap hot">style</text>
-                <text x="153" y="118" class="fig-cap">music generator</text>
-                <path d="M188 66 h22" class="fig-arrow" marker-end="url(#arrowhead)" />
-              </svg>
-              <figcaption class="interest-cap"><strong>Genre fusion</strong> with adversarial dual learning (<a href="https://scholar.google.com/citations?view_op=view_citation&citation_for_view=NC3-O6UAAAAJ:d1gkVwhDpl0C" target="_blank" rel="noopener"><em>ICDM 2017</em></a>, with Alexander Lerch).</figcaption>
-            </figure>
             <figure class="interest-anim cell-b2">
               <button type="button" class="fe-open" aria-label="Open the Für Elise Markov chain graph with sound" title="Click to watch with sound">
               <svg viewBox="0 0 300 152" role="img" aria-labelledby="fe-title" class="fe-chain" data-melody={JSON.stringify(feMelody)} data-durations={JSON.stringify(feDur)} data-wedges={JSON.stringify(Object.fromEntries(Object.entries(feWedges).map(([k, ws]) => [k, ws.map((w) => [w.to, w.from, w.span, w.count, w.total])])))}>
@@ -909,7 +861,7 @@ const selectedGroups = selectedFilters
                 <p class="fe-dialog-note">A first-order Markov chain graph counts which note follows which in the opening of Für Elise. Each node holds one note's transition probabilities, and spinning them writes a new tune.</p>
               </dialog>
               <script type="application/json" class="fe-notes" set:html={JSON.stringify(Object.fromEntries(Object.entries(feNotes).map(([k, n]) => [k, [n.x, n.y, n.color, n.key]])))} />
-              <figcaption class="interest-cap">A <strong>first-order Markov chain graph</strong> over Für Elise: every node spins its own transition probabilities to write a new tune. <a href="/music-markov">What one graph per piece can do →</a></figcaption>
+              <figcaption class="interest-cap">A <strong>first-order Markov chain graph</strong> learned from Für Elise: each node spins its transition probabilities to write a new tune (click to listen). <a href="/music-markov">One graph per piece →</a> Earlier work fused genres with adversarial dual learning (<a href="https://scholar.google.com/citations?view_op=view_citation&citation_for_view=NC3-O6UAAAAJ:d1gkVwhDpl0C" target="_blank" rel="noopener"><em>ICDM 2017</em></a>, with Alexander Lerch).</figcaption>
             </figure>
           </div>
 
@@ -1921,42 +1873,32 @@ const selectedGroups = selectedFilters
   .fig-note-head.a { fill: #334155; }
   .fig-note-head.b { fill: #94a3b8; }
   .fig-note-head.f { fill: #dc2626; }
-  .interest-split.trio { grid-template-columns: minmax(0, .8fr) minmax(0, 1fr) minmax(0, .8fr); gap: 16px; }
-  /* Interests 2 and 3 share one row of three figures: the LLM delta graph under
-     heading 2, the two music figures under heading 3. Figures are flex columns so
-     the captions line up along the bottom despite different figure heights. */
-  /* Four figures in one row, two per interest: the published paper on the left of
-     each pair, the current experiments on the right. The music pair gets slightly
-     more width because its figures carry the most detail. */
-  .interest-row { display: grid; grid-template-columns: minmax(0, .9fr) minmax(0, .9fr) minmax(0, 1fr) minmax(0, 1.1fr); column-gap: 18px; row-gap: 2px; }
-  .interest-row > figure { display: flex; flex-direction: column; margin: 0; }
-  /* The four drawings have different aspect ratios, so at equal column width the
-     squarest one renders much larger. Cap the height and let each letterbox inside
-     its column so all four read at the same scale. */
-  .interest-row .interest-fig svg { max-height: 128px; }
-  .interest-row .row-head-a { grid-column: 1 / span 2; grid-row: 1; }
+  /* Interests 2 and 3 share one row: under each heading, one drawing with its
+     caption beside it, so the pair stays about as tall as the drawings. */
+  .interest-row { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.2fr); column-gap: 28px; row-gap: 2px; }
+  .interest-row > figure { display: flex; align-items: center; gap: 14px; margin: 0; }
+  .interest-row .cell-a1 svg { flex: none; width: 160px; }
+  .interest-row .cell-b2 .fe-open { flex: none; width: 280px; }
+  .interest-row .row-head-a { grid-column: 1; grid-row: 1; }
   .interest-row .cell-a1 { grid-column: 1; grid-row: 2; }
-  .interest-row .cell-a2 { grid-column: 2; grid-row: 2; }
-  .interest-row .row-head-b { grid-column: 3 / span 2; grid-row: 1; }
-  .interest-row .cell-b1 { grid-column: 3; grid-row: 2; }
-  .interest-row .cell-b2 { grid-column: 4; grid-row: 2; }
-  /* Between 900 and 1240 the four would be too narrow to read: stack the pairs. */
+  .interest-row .row-head-b { grid-column: 2; grid-row: 1; }
+  .interest-row .cell-b2 { grid-column: 2; grid-row: 2; }
+  /* Narrower screens stack the two interests, each still drawing beside text. */
   @media (max-width: 1240px) {
-    .interest-row { grid-template-columns: repeat(2, minmax(0, 1fr)); row-gap: 4px; }
-    .interest-row .row-head-a { grid-column: 1 / span 2; grid-row: 1; }
-    .interest-row .cell-a1 { grid-column: 1; grid-row: 2; }
-    .interest-row .cell-a2 { grid-column: 2; grid-row: 2; }
-    .interest-row .row-head-b { grid-column: 1 / span 2; grid-row: 3; }
-    .interest-row .cell-b1 { grid-column: 1; grid-row: 4; }
-    .interest-row .cell-b2 { grid-column: 2; grid-row: 4; }
+    .interest-row { grid-template-columns: minmax(0, 1fr); }
+    .interest-row .row-head-a, .interest-row .cell-a1, .interest-row .row-head-b, .interest-row .cell-b2 { grid-column: 1; grid-row: auto; }
   }
-  .interest-cap { margin-top: auto; padding-top: 9px; font-size: .76rem; line-height: 1.5; color: #475569; text-align: left; }
+  @media (max-width: 560px) {
+    .interest-row > figure { flex-direction: column; align-items: stretch; }
+    .interest-row .cell-a1 svg { width: 100%; max-width: 220px; margin: 0 auto; }
+    .interest-row .cell-b2 .fe-open { width: 100%; max-width: 320px; margin: 0 auto; }
+  }
+  .interest-cap { margin: 0; padding: 0; font-size: .76rem; line-height: 1.5; color: #475569; text-align: left; }
   .interest-cap strong { color: #0f172a; font-weight: 600; }
   .interest-cap a { color: #334155; text-decoration: underline; text-underline-offset: 2px; text-decoration-color: rgba(148,163,184,0.5); }
   .interest-cap a:hover { color: #2563eb; }
   .cap-link { white-space: nowrap; }
   .cap-link i { color: #2563eb; margin-right: 3px; }
-  .interest-split.trio .interest-text p { font-size: .76rem; }
   .interest-anim { margin: 0; }
   .interest-anim svg { width: 100%; max-width: 300px; height: auto; display: block; margin: 0 auto; font-family: Inter, system-ui, sans-serif; }
   .fe-edge { fill: none; stroke: #cbd5e1; stroke-width: var(--w); opacity: 0; transition: opacity .4s ease, stroke .3s ease; }
@@ -1983,13 +1925,7 @@ const selectedGroups = selectedFilters
   .fe-close { position: absolute; top: 8px; right: 10px; border: 0; background: none; font-size: 1.1rem; color: #475569; cursor: pointer; }
   .fe-dialog-note { margin: 8px 0 0; font-size: .76rem; color: #64748b; text-align: left; }
   .fe-status { font-size: 8.5px; fill: #64748b; text-anchor: middle; font-style: italic; }
-  @media (max-width: 900px) { .interest-split, .interest-split.trio { grid-template-columns: 1fr; gap: 10px; } }
-  @media (max-width: 900px) {
-    .interest-row { grid-template-columns: 1fr; row-gap: 10px; }
-    .interest-row .row-head-a, .interest-row .row-head-b, .interest-row .cell-a1,
-    .interest-row .cell-a2, .interest-row .cell-b1, .interest-row .cell-b2 { grid-column: 1; grid-row: auto; }
-    .interest-cap { margin-top: 0; }
-  }
+  @media (max-width: 900px) { .interest-split { grid-template-columns: 1fr; gap: 10px; } }
 
   /* Combined thrust column: figure + text in one block per thrust */
   .thrust-pair { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; margin: 0; }
