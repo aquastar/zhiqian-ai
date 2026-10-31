@@ -1517,7 +1517,7 @@ JOURNALS=[
 
 # Anything a fetch misses comes from the copy kept beside the script, so a
 # bad week upstream degrades to last week's numbers instead of blanks.
-HUMANITIES={'philosophy','religion','theology'}
+HUMANITIES={'philosophy','religion','theology','divination'}
 JCACHE='../scripts/journal-cache.json'
 jcache=json.load(open(JCACHE)) if os.path.exists(JCACHE) else {}
 try:
@@ -1552,7 +1552,9 @@ for j in JOURNALS:
                      'h':st.get('h_index') or 0, 'oa':src.get('id','')}
     except Exception as e:
         print('OpenAlex miss, using cache:', j['title'], e)
-    m=jcache.get(key, {'subs':[], 'cites':0, 'h':0, 'oa':''})
+    # A journal OpenAlex has never returned still gets a cache entry (its CCF
+    # rank, below), so the defaults fill in whatever that entry lacks.
+    m={'subs':[], 'cites':0, 'h':0, 'oa':'', **jcache.get(key, {})}
     if CCF_J is not None:
         j['ccf']=CCF_J.get(j['dblp'], 'N') if j['dblp'] else 'N'
         jcache.setdefault(key, {})['ccf']=j['ccf']
