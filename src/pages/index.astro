@@ -857,7 +857,10 @@ const selectedGroups = selectedFilters
               </button>
               <dialog class="fe-dialog" aria-label="Für Elise Markov chain graph">
                 <button type="button" class="fe-close" aria-label="Close"><i class="fas fa-xmark" aria-hidden="true"></i></button>
-                <div class="fe-stage"></div>
+                <div class="fe-stage">
+                  <p class="fe-ann fe-ann-learn"><strong>1 Learning.</strong> The ball walks Beethoven's melody at his tempo. Each move draws an arrow, thicker when it repeats. <strong>1/2</strong> means half of this note's moves so far went there.</p>
+                  <p class="fe-ann fe-ann-gen"><strong>2 Composing.</strong> Each circle turns into a spinner. A wedge's size is how often that note led to the next one. The needle lands at random, so common moves win more often.</p>
+                </div>
                 <p class="fe-dialog-note">A first-order Markov chain graph counts which note follows which in the opening of Für Elise. Each node holds one note's transition probabilities, and spinning them writes a new tune.</p>
               </dialog>
               <script type="application/json" class="fe-notes" set:html={JSON.stringify(Object.fromEntries(Object.entries(feNotes).map(([k, n]) => [k, [n.x, n.y, n.color, n.key]])))} />
@@ -1143,6 +1146,8 @@ const selectedGroups = selectedFilters
       const melody = JSON.parse(chain.dataset.melody);
       const durations = JSON.parse(chain.dataset.durations);
       const wedges = JSON.parse(chain.dataset.wedges);
+      const heldFor = new Map();
+      melody.forEach((n, i) => heldFor.set(n, [...(heldFor.get(n) ?? []), durations[i]]));
       const ball = chain.querySelector('.fe-ball');
       const status = chain.querySelector('.fe-status');
       const nodeEl = (n) => chain.querySelector(`[data-note="${n}"]`);
@@ -1285,16 +1290,16 @@ const selectedGroups = selectedFilters
           requestAnimationFrame(step);
         });
         // A uniform landing angle picks each wedge with its own probability.
-        const spin = async (n) => {
+        const spin = async (n, ms = 300) => {
           const angle = Math.random() * 360;
           const ws = wedges[n];
           const pick = ws.find(([, from, span]) => angle >= from && angle < from + span) ?? ws[ws.length - 1];
           const needle = nodeEl(n).querySelector('.fe-needle');
           const turned = Number(needle.dataset.turned ?? 0) + 360;
           needle.dataset.turned = turned;
-          needle.style.transition = 'transform .3s cubic-bezier(.2,.7,.2,1)';
+          needle.style.transition = `transform ${ms}ms cubic-bezier(.2,.7,.2,1)`;
           needle.style.transform = `rotate(${turned + angle}deg)`;
-          await sleep(320);
+          await sleep(ms + 20);
           return [pick[0], fraction(pick[3], pick[4])];
         };
         const reset = () => {
@@ -1357,14 +1362,17 @@ const selectedGroups = selectedFilters
             score.replaceChildren();
             lastY = null;
             await sleep(700);
+            // Composing keeps the tune moving: a quick spin and hop, then the new
+            // note holds for a length Beethoven gave that same note somewhere.
             let now = melody[0];
             write(now).done();
-            for (let i = 0; i < 24; i += 1) {
+            for (let i = 0; i < 32; i += 1) {
               await waitVisible();
-              const [next, text] = await spin(now);
-              await hop(now, next, 150, text);
+              const [next, text] = await spin(now, 120);
+              await hop(now, next, 100, text);
+              const held = heldFor.get(next) ?? [1];
+              await sleep(Math.max(0, held[Math.floor(Math.random() * held.length)] * 190 - 240));
               now = next;
-              await sleep(40);
             }
             status.textContent = 'a tune Beethoven never wrote';
             await sleep(2600);
@@ -1919,8 +1927,18 @@ const selectedGroups = selectedFilters
   .fe-hint { position: absolute; bottom: 0; right: 0; padding: 0 5px; border-radius: 8px; background: #f1f5f9; font-size: .56rem; color: #64748b; }
   .fe-dialog .fe-hint { display: none; }
   .fe-open:hover .fe-hint { color: #2563eb; }
-  .fe-dialog { width: min(92vw, 760px); max-height: 94vh; padding: 18px 20px 14px; border: 0; border-radius: 14px; box-shadow: 0 24px 60px rgba(15,23,42,.35); }
+  .fe-dialog { width: min(92vw, 840px); max-height: 94vh; padding: 18px 20px 14px; border: 0; border-radius: 14px; box-shadow: 0 24px 60px rgba(15,23,42,.35); }
   .fe-dialog::backdrop { background: rgba(15,23,42,.55); }
+  .fe-stage { position: relative; }
+  /* Two notes sit in the empty corners of the graph. The one for the act
+     that is playing stands out, so the reader knows what they are watching. */
+  .fe-ann { position: absolute; top: 9%; width: 27%; margin: 0; padding: 0 0 0 8px; border-left: 2px solid #cbd5e1; font-size: .7rem; line-height: 1.38; color: #64748b; text-align: left; opacity: .4; transition: opacity .3s ease, border-color .3s ease; }
+  .fe-ann-learn { left: 0; }
+  .fe-ann-gen { right: 0; width: 28%; }
+  .fe-stage:not(:has(.is-composing)) .fe-ann-learn, .fe-stage:has(.is-composing) .fe-ann-gen { opacity: 1; border-color: #2563eb; color: #334155; }
+  @media (max-width: 640px) {
+    .fe-ann { position: static; width: auto; margin: 6px 0 0; }
+  }
   .fe-dialog .fe-stage svg { width: 100%; max-width: none; max-height: 78vh; }
   .fe-close { position: absolute; top: 8px; right: 10px; border: 0; background: none; font-size: 1.1rem; color: #475569; cursor: pointer; }
   .fe-dialog-note { margin: 8px 0 0; font-size: .76rem; color: #64748b; text-align: left; }
