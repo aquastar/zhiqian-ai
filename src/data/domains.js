@@ -262,4 +262,13 @@ export const DOMAINS = [
       'Monographs carry the most weight and journal citations are close to zero, so citation numbers are not shown.',
     ],
   },
+  {
+    id: 'divination', label: 'Divination & astrology', group: 'mind', icon: 'fa-star', hue: '#9d174d',
+    format: 'cards', rank: 'none', scholar: '', citations: false,
+    notes: [
+      'This field studies divination and astrology as human practices, with history, anthropology, philosophy and the history of science. It does not ask whether the predictions work.',
+      'ISCSD is the society built for it. Astrology also meets in cultural astronomy (SEAC, INSAP) and in the study of Western esotericism (ESSWE).',
+      'Most work appears in edited volumes and a few small journals, so citation numbers are not shown.',
+    ],
+  },
 ];

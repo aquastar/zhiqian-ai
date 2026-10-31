@@ -3,7 +3,7 @@
 // CORE ranks are cross-checked against the official CORE2023 export from
 // portal.core.edu.au. Acceptance rates and submission counts come from
 // github.com/Xovee/cs-conf-stats (main track only).
-// Built 2026-10-30.
+// Built 2026-10-31.
 export const ranked = [
   {
     "title": "NDSS",
@@ -8033,47 +8033,6 @@ export const ranked = [
     "tier": 1
   },
   {
-    "title": "MLSys",
-    "equivalent": "CCF B / CORE A",
-    "desc": "Conference on Machine Learning and Systems",
-    "area": "ai",
-    "proceedings": "full",
-    "note": "Full proceedings. Unranked by both CCF and CORE despite being the main ML-systems venue.",
-    "lastDeadline": "2025-10-30",
-    "link": "https://mlsys.org/",
-    "frank": "",
-    "badge": "emerging",
-    "field": "",
-    "kind": "",
-    "why": "",
-    "estIsForDate": false,
-    "ccf": "N",
-    "core": "N",
-    "coreVerified": false,
-    "nextAbstract": "",
-    "cycles": 1,
-    "roundLabels": [],
-    "rates": [],
-    "rateSrc": "",
-    "rateSlug": "",
-    "rounds": [],
-    "dblp": "",
-    "best": "",
-    "csr": "",
-    "edition": "",
-    "sub": "",
-    "estimated": true,
-    "estFrom": "2025-10-30",
-    "nextDeadline": "2026-10-30",
-    "nextYear": null,
-    "notable": true,
-    "date": "",
-    "place": "",
-    "cc": "",
-    "city": "",
-    "tier": 2
-  },
-  {
     "title": "ECC",
     "desc": "European Control Conference",
     "area": "control",
@@ -15646,6 +15605,47 @@ export const ranked = [
     "tier": 3
   },
   {
+    "title": "MLSys",
+    "equivalent": "CCF B / CORE A",
+    "desc": "Conference on Machine Learning and Systems",
+    "area": "ai",
+    "proceedings": "full",
+    "note": "Full proceedings. Unranked by both CCF and CORE despite being the main ML-systems venue.",
+    "lastDeadline": "2025-10-30",
+    "link": "https://mlsys.org/",
+    "frank": "",
+    "badge": "emerging",
+    "field": "",
+    "kind": "",
+    "why": "",
+    "estIsForDate": false,
+    "ccf": "N",
+    "core": "N",
+    "coreVerified": false,
+    "nextAbstract": "",
+    "cycles": 1,
+    "roundLabels": [],
+    "rates": [],
+    "rateSrc": "",
+    "rateSlug": "",
+    "rounds": [],
+    "dblp": "",
+    "best": "",
+    "csr": "",
+    "edition": "",
+    "sub": "",
+    "estimated": true,
+    "estFrom": "2025-10-30",
+    "nextDeadline": "2027-10-30",
+    "nextYear": null,
+    "notable": true,
+    "date": "",
+    "place": "",
+    "cc": "",
+    "city": "",
+    "tier": 2
+  },
+  {
     "title": "ECCV",
     "desc": "European Conference on Computer Vision",
     "area": "ai",
@@ -16051,6 +16051,47 @@ export const notable = [
     "notable": true,
     "cc": "us",
     "city": "sourdough and Dungeness crab, a cable car over the hills, redwoods at Muir Woods",
+    "tier": 3
+  },
+  {
+    "title": "ESSWE",
+    "desc": "European Society for the Study of Western Esotericism Conference",
+    "area": "divination",
+    "proceedings": "none",
+    "period": 2,
+    "date": "June 16-19, 2027",
+    "place": "Turku, Finland",
+    "field": "Western esotericism",
+    "kind": "every two years",
+    "why": "astrology, alchemy and magic as history of ideas",
+    "note": "Every two years. ESSWE11 is hosted by the University of Turku with Åbo Akademi University. The society said the call for papers would open in October 2026, so the deadline is not out yet.",
+    "link": "https://www.esswe.org/current-conference",
+    "frank": "",
+    "equivalent": null,
+    "badge": "emerging",
+    "estIsForDate": false,
+    "ccf": "N",
+    "core": "N",
+    "coreVerified": false,
+    "nextAbstract": "",
+    "cycles": 1,
+    "roundLabels": [],
+    "rates": [],
+    "rateSrc": "",
+    "rateSlug": "",
+    "rounds": [],
+    "dblp": "",
+    "best": "",
+    "csr": "",
+    "edition": "",
+    "sub": "",
+    "estimated": false,
+    "estFrom": "",
+    "nextDeadline": "",
+    "nextYear": null,
+    "notable": true,
+    "cc": "",
+    "city": "",
     "tier": 3
   },
   {
@@ -16639,6 +16680,88 @@ export const notable = [
     "tier": 3
   },
   {
+    "title": "INSAP",
+    "desc": "Inspiration of Astronomical Phenomena Conference",
+    "area": "divination",
+    "proceedings": "none",
+    "period": 1,
+    "date": "October 5-11, 2026",
+    "place": "Rome, Italy",
+    "field": "cultural astronomy",
+    "kind": "yearly of late",
+    "why": "how the sky shaped art, belief and astrology",
+    "note": "Started at the Vatican Observatory in 1994. The 14th meeting, \"All Roads Lead to the Sky\", runs across the Rome observatory and Vatican sites. The 12th was in Corfu in 2024 and the 13th in Belfast in 2025. The next one is not announced.",
+    "link": "https://indico.ict.inaf.it/event/3535/",
+    "frank": "",
+    "equivalent": null,
+    "badge": "emerging",
+    "estIsForDate": false,
+    "ccf": "N",
+    "core": "N",
+    "coreVerified": false,
+    "nextAbstract": "",
+    "cycles": 1,
+    "roundLabels": [],
+    "rates": [],
+    "rateSrc": "",
+    "rateSlug": "",
+    "rounds": [],
+    "dblp": "",
+    "best": "",
+    "csr": "",
+    "edition": "",
+    "sub": "",
+    "estimated": false,
+    "estFrom": "",
+    "nextDeadline": "",
+    "nextYear": null,
+    "notable": true,
+    "cc": "it",
+    "city": "cacio e pepe in Trastevere, gelato at Giolitti, the Colosseum at opening",
+    "tier": 3
+  },
+  {
+    "title": "SEAC",
+    "desc": "European Society for Astronomy in Culture Annual Meeting",
+    "area": "divination",
+    "proceedings": "none",
+    "period": 1,
+    "date": "September 4-8, 2026",
+    "place": "Volos, Greece",
+    "field": "cultural astronomy",
+    "kind": "flagship, yearly",
+    "why": "the sky in culture, astrology included",
+    "note": "The yearly meeting of cultural astronomy, from archaeoastronomy to the history of astrology. The 2026 meeting, the 33rd, was hosted by the University of Thessaly, and its papers go to an online proceedings volume after the meeting. The 2027 meeting is not announced.",
+    "link": "https://seac2026.uth.gr/",
+    "frank": "",
+    "equivalent": null,
+    "badge": "emerging",
+    "estIsForDate": false,
+    "ccf": "N",
+    "core": "N",
+    "coreVerified": false,
+    "nextAbstract": "",
+    "cycles": 1,
+    "roundLabels": [],
+    "rates": [],
+    "rateSrc": "",
+    "rateSlug": "",
+    "rounds": [],
+    "dblp": "",
+    "best": "",
+    "csr": "",
+    "edition": "",
+    "sub": "",
+    "estimated": false,
+    "estFrom": "",
+    "nextDeadline": "",
+    "nextYear": null,
+    "notable": true,
+    "cc": "gr",
+    "city": "",
+    "tier": 3
+  },
+  {
     "title": "SIAM MDS",
     "desc": "SIAM Conference on Mathematics of Data Science",
     "area": "amath",
@@ -16678,6 +16801,47 @@ export const notable = [
     "notable": true,
     "cc": "us",
     "city": "powder skiing within an hour, floating in the Great Salt Lake, Temple Square",
+    "tier": 3
+  },
+  {
+    "title": "ISCSD",
+    "desc": "International Society for the Critical Study of Divination Conference",
+    "area": "divination",
+    "proceedings": "none",
+    "period": 1,
+    "date": "November 5-8, 2026",
+    "place": "Erlangen, Germany",
+    "field": "divination",
+    "kind": "new, first meeting 2026",
+    "why": "the society built for the study of divination",
+    "note": "The society's first international conference, \"Predictive Practices and Interpretations\", at Friedrich-Alexander University Erlangen-Nürnberg with the Knowing Hands project. Astrology, palmistry, omen texts and the materials of prediction all fit. Abstracts were due April 1, 2026, with no extensions. Registration includes a year of membership and the society's journal, IJDP. A second meeting is not announced.",
+    "link": "https://criticaldivination.org/2026/01/31/1st-international-iscsd-conference-predictive-practices-interpretations/",
+    "frank": "",
+    "equivalent": null,
+    "badge": "emerging",
+    "estIsForDate": false,
+    "ccf": "N",
+    "core": "N",
+    "coreVerified": false,
+    "nextAbstract": "",
+    "cycles": 1,
+    "roundLabels": [],
+    "rates": [],
+    "rateSrc": "",
+    "rateSlug": "",
+    "rounds": [],
+    "dblp": "",
+    "best": "",
+    "csr": "",
+    "edition": "",
+    "sub": "",
+    "estimated": false,
+    "estFrom": "",
+    "nextDeadline": "",
+    "nextYear": null,
+    "notable": true,
+    "cc": "de",
+    "city": "",
     "tier": 3
   },
   {
@@ -18726,7 +18890,7 @@ export const notable = [
     "field": "uncertainty quantification",
     "kind": "odd years",
     "why": "engineering UQ, optional papers",
-    "note": "The engineering side of UQ, held with COMPDYN. A one-page abstract gets you on the programme; a full paper, optional, goes into the ECCOMAS proceedings.",
+    "note": "The engineering side of UQ, held with COMPDYN. A one-page abstract gets you on the programme; a full paper, optional, goes into the ECCOMAS proceedings. The meeting shown is the next one to attend, which is a cycle ahead of the estimated deadline beside it.",
     "link": "https://2027.uncecomp.org/",
     "frank": "",
     "equivalent": null,
@@ -18746,9 +18910,9 @@ export const notable = [
     "csr": "",
     "edition": "",
     "sub": "",
-    "estimated": false,
-    "estFrom": "",
-    "nextDeadline": "2026-10-30",
+    "estimated": true,
+    "estFrom": "2026-10-30",
+    "nextDeadline": "2028-10-30",
     "nextYear": null,
     "notable": true,
     "cc": "gr",
@@ -19193,7 +19357,7 @@ export const journals = [
         "n": 653
       }
     ],
-    "cites": 4.4,
+    "cites": 4.5,
     "h": 136,
     "oa": "https://openalex.org/S133795288",
     "link": "https://dblp.org/db/journals/tdsc/index.html"
@@ -19307,7 +19471,7 @@ export const journals = [
         "n": 34
       }
     ],
-    "cites": 3.5,
+    "cites": 3.4,
     "h": 122,
     "oa": "https://openalex.org/S190936789",
     "link": "https://dblp.org/db/journals/joc/index.html"
@@ -19763,7 +19927,7 @@ export const journals = [
         "n": 0
       }
     ],
-    "cites": 12.7,
+    "cites": 12.8,
     "h": 119,
     "oa": "https://openalex.org/S4210169297",
     "link": "https://dblp.org/db/journals/taslp/index.html"
@@ -20105,7 +20269,7 @@ export const journals = [
         "n": 771
       }
     ],
-    "cites": 6.0,
+    "cites": 6.1,
     "h": 480,
     "oa": "https://openalex.org/S184954342",
     "link": "https://dblp.org/db/journals/tac/index.html"
@@ -20504,7 +20668,7 @@ export const journals = [
         "n": 44
       }
     ],
-    "cites": 14.3,
+    "cites": 14.4,
     "h": 132,
     "oa": "https://openalex.org/S54761077",
     "link": "https://dblp.org/db/journals/arc/index.html"
@@ -20615,10 +20779,10 @@ export const journals = [
       },
       {
         "y": 2025,
-        "n": 663
+        "n": 664
       }
     ],
-    "cites": 3.9,
+    "cites": 4.0,
     "h": 156,
     "oa": "https://openalex.org/S187806540",
     "link": ""
@@ -21827,7 +21991,7 @@ export const journals = [
         "n": 216
       }
     ],
-    "cites": 1.8,
+    "cites": 1.9,
     "h": 130,
     "oa": "https://openalex.org/S165318533",
     "link": "https://dblp.org/db/journals/informs/index.html"
@@ -22052,7 +22216,7 @@ export const journals = [
       },
       {
         "y": 2025,
-        "n": 747
+        "n": 749
       }
     ],
     "cites": 4.3,
@@ -22170,7 +22334,7 @@ export const journals = [
       }
     ],
     "cites": 18.4,
-    "h": 593,
+    "h": 594,
     "oa": "https://openalex.org/S2298632",
     "link": ""
   },
@@ -22394,7 +22558,7 @@ export const journals = [
       },
       {
         "y": 2025,
-        "n": 893
+        "n": 894
       }
     ],
     "cites": 4.7,
@@ -22443,15 +22607,15 @@ export const journals = [
       },
       {
         "y": 2023,
-        "n": 12985
+        "n": 12986
       },
       {
         "y": 2024,
-        "n": 25263
+        "n": 25264
       },
       {
         "y": 2025,
-        "n": 21362
+        "n": 21367
       }
     ],
     "cites": 2.1,
@@ -22625,7 +22789,7 @@ export const journals = [
         "n": 185
       }
     ],
-    "cites": 10.9,
+    "cites": 10.8,
     "h": 457,
     "oa": "https://openalex.org/S192051125",
     "link": ""
@@ -22769,7 +22933,7 @@ export const journals = [
       },
       {
         "y": 2019,
-        "n": 275
+        "n": 274
       },
       {
         "y": 2020,
@@ -22853,7 +23017,7 @@ export const journals = [
         "n": 168
       }
     ],
-    "cites": 3.2,
+    "cites": 3.3,
     "h": 232,
     "oa": "https://openalex.org/S138679565",
     "link": ""
@@ -23252,7 +23416,7 @@ export const journals = [
         "n": 107
       }
     ],
-    "cites": 16.8,
+    "cites": 16.9,
     "h": 132,
     "oa": "https://openalex.org/S4210237014",
     "link": ""
@@ -23933,7 +24097,7 @@ export const journals = [
       },
       {
         "y": 2025,
-        "n": 389
+        "n": 390
       }
     ],
     "cites": 24.2,
@@ -23993,7 +24157,7 @@ export const journals = [
         "n": 433
       }
     ],
-    "cites": 11.3,
+    "cites": 11.4,
     "h": 139,
     "oa": "https://openalex.org/S4210232664",
     "link": ""
@@ -24369,7 +24533,7 @@ export const journals = [
       },
       {
         "y": 2023,
-        "n": 884
+        "n": 885
       },
       {
         "y": 2024,
@@ -25143,7 +25307,7 @@ export const journals = [
       },
       {
         "y": 2022,
-        "n": 2159
+        "n": 2160
       },
       {
         "y": 2023,
@@ -25155,7 +25319,7 @@ export const journals = [
       },
       {
         "y": 2025,
-        "n": 3315
+        "n": 3314
       }
     ],
     "cites": 9.2,
@@ -25208,7 +25372,7 @@ export const journals = [
       },
       {
         "y": 2024,
-        "n": 427
+        "n": 428
       },
       {
         "y": 2025,
@@ -25272,7 +25436,7 @@ export const journals = [
         "n": 341
       }
     ],
-    "cites": 11.3,
+    "cites": 11.4,
     "h": 229,
     "oa": "https://openalex.org/S137042341",
     "link": ""
@@ -25329,7 +25493,7 @@ export const journals = [
         "n": 45
       }
     ],
-    "cites": 35.5,
+    "cites": 35.6,
     "h": 618,
     "oa": "https://openalex.org/S73260565",
     "link": ""
@@ -25745,7 +25909,7 @@ export const journals = [
       },
       {
         "y": 2022,
-        "n": 512
+        "n": 513
       },
       {
         "y": 2023,
@@ -27245,6 +27409,181 @@ export const journals = [
     "cites": 0.5,
     "h": 50,
     "oa": "https://openalex.org/S128470386",
+    "link": ""
+  },
+  {
+    "title": "IJDP",
+    "name": "International Journal of Divination and Prognostication",
+    "issn": "2589-9198",
+    "dblp": "",
+    "area": "divination",
+    "pub": "Brill (ISCSD)",
+    "why": "divination across periods and cultures, the ISCSD's journal",
+    "rank": "ISCSD journal",
+    "ccf": "N",
+    "subs": [
+      {
+        "y": 2019,
+        "n": 7
+      },
+      {
+        "y": 2020,
+        "n": 4
+      },
+      {
+        "y": 2021,
+        "n": 9
+      },
+      {
+        "y": 2022,
+        "n": 10
+      },
+      {
+        "y": 2023,
+        "n": 9
+      },
+      {
+        "y": 2024,
+        "n": 13
+      },
+      {
+        "y": 2025,
+        "n": 15
+      }
+    ],
+    "cites": 0.1,
+    "h": 2,
+    "oa": "https://openalex.org/S4210236588",
+    "link": ""
+  },
+  {
+    "title": "C&C",
+    "name": "Culture and Cosmos",
+    "issn": "1368-6534",
+    "dblp": "",
+    "area": "divination",
+    "pub": "Sophia Centre Press",
+    "why": "history of astrology and cultural astronomy",
+    "rank": "",
+    "ccf": "N",
+    "subs": [],
+    "cites": null,
+    "h": null,
+    "oa": "",
+    "link": ""
+  },
+  {
+    "title": "Aries",
+    "name": "Aries: Journal for the Study of Western Esotericism",
+    "issn": "1567-9896",
+    "dblp": "",
+    "area": "divination",
+    "pub": "Brill (ESSWE)",
+    "why": "Western esotericism, the ESSWE's journal",
+    "rank": "ESSWE journal",
+    "ccf": "N",
+    "subs": [
+      {
+        "y": 2016,
+        "n": 15
+      },
+      {
+        "y": 2017,
+        "n": 14
+      },
+      {
+        "y": 2018,
+        "n": 19
+      },
+      {
+        "y": 2019,
+        "n": 19
+      },
+      {
+        "y": 2020,
+        "n": 34
+      },
+      {
+        "y": 2021,
+        "n": 24
+      },
+      {
+        "y": 2022,
+        "n": 15
+      },
+      {
+        "y": 2023,
+        "n": 26
+      },
+      {
+        "y": 2024,
+        "n": 31
+      },
+      {
+        "y": 2025,
+        "n": 16
+      }
+    ],
+    "cites": 0.4,
+    "h": 17,
+    "oa": "https://openalex.org/S205961224",
+    "link": ""
+  },
+  {
+    "title": "JSA",
+    "name": "Journal of Skyscape Archaeology",
+    "issn": "2055-348X",
+    "dblp": "",
+    "area": "divination",
+    "pub": "Equinox",
+    "why": "the sky in archaeology and culture",
+    "rank": "",
+    "ccf": "N",
+    "subs": [
+      {
+        "y": 2016,
+        "n": 17
+      },
+      {
+        "y": 2017,
+        "n": 41
+      },
+      {
+        "y": 2018,
+        "n": 43
+      },
+      {
+        "y": 2019,
+        "n": 17
+      },
+      {
+        "y": 2020,
+        "n": 38
+      },
+      {
+        "y": 2021,
+        "n": 34
+      },
+      {
+        "y": 2022,
+        "n": 29
+      },
+      {
+        "y": 2023,
+        "n": 31
+      },
+      {
+        "y": 2024,
+        "n": 17
+      },
+      {
+        "y": 2025,
+        "n": 9
+      }
+    ],
+    "cites": 0.2,
+    "h": 9,
+    "oa": "https://openalex.org/S4210190136",
     "link": ""
   },
   {

@@ -1190,6 +1190,33 @@ NOTABLE=[
   'field':'science and theology','kind':'even years','why':'science and religion in dialogue',
   'note':'ESSSAT\'s conference every other year, open to non-members, with short papers from a 300 to 500 word outline; many papers later appear in its Studies in Science and Theology. The 2026 conference was in Leeds; the 2028 one is not announced.',
   'link':'https://www.esssat.net/next-conference'},
+
+ # Divination and astrology, studied as human practice. Dates read off each
+ # society's site on 2026-10-31.
+ {'title':'ISCSD','desc':'International Society for the Critical Study of Divination Conference',
+  'area':'divination','proceedings':'none','period':1,
+  'date':'November 5-8, 2026','place':'Erlangen, Germany',
+  'field':'divination','kind':'new, first meeting 2026','why':'the society built for the study of divination',
+  'note':'The society\'s first international conference, "Predictive Practices and Interpretations", at Friedrich-Alexander University Erlangen-Nürnberg with the Knowing Hands project. Astrology, palmistry, omen texts and the materials of prediction all fit. Abstracts were due April 1, 2026, with no extensions. Registration includes a year of membership and the society\'s journal, IJDP. A second meeting is not announced.',
+  'link':'https://criticaldivination.org/2026/01/31/1st-international-iscsd-conference-predictive-practices-interpretations/'},
+ {'title':'SEAC','desc':'European Society for Astronomy in Culture Annual Meeting',
+  'area':'divination','proceedings':'none','period':1,
+  'date':'September 4-8, 2026','place':'Volos, Greece',
+  'field':'cultural astronomy','kind':'flagship, yearly','why':'the sky in culture, astrology included',
+  'note':'The yearly meeting of cultural astronomy, from archaeoastronomy to the history of astrology. The 2026 meeting, the 33rd, was hosted by the University of Thessaly, and its papers go to an online proceedings volume after the meeting. The 2027 meeting is not announced.',
+  'link':'https://seac2026.uth.gr/'},
+ {'title':'INSAP','desc':'Inspiration of Astronomical Phenomena Conference',
+  'area':'divination','proceedings':'none','period':1,
+  'date':'October 5-11, 2026','place':'Rome, Italy',
+  'field':'cultural astronomy','kind':'yearly of late','why':'how the sky shaped art, belief and astrology',
+  'note':'Started at the Vatican Observatory in 1994. The 14th meeting, "All Roads Lead to the Sky", runs across the Rome observatory and Vatican sites. The 12th was in Corfu in 2024 and the 13th in Belfast in 2025. The next one is not announced.',
+  'link':'https://indico.ict.inaf.it/event/3535/'},
+ {'title':'ESSWE','desc':'European Society for the Study of Western Esotericism Conference',
+  'area':'divination','proceedings':'none','period':2,
+  'date':'June 16-19, 2027','place':'Turku, Finland',
+  'field':'Western esotericism','kind':'every two years','why':'astrology, alchemy and magic as history of ideas',
+  'note':'Every two years. ESSWE11 is hosted by the University of Turku with Åbo Akademi University. The society said the call for papers would open in October 2026, so the deadline is not out yet.',
+  'link':'https://www.esswe.org/current-conference'},
 ]
 
 # Society meetings used to be one tab. They are spread over their fields
@@ -1482,6 +1509,10 @@ JOURNALS=[
  {'title':'SJT','name':'Scottish Journal of Theology','issn':'0036-9306','dblp':'','area':'theology','pub':'Cambridge','why':'theology, broad','rank':''},
  {'title':'JBL','name':'Journal of Biblical Literature','issn':'0021-9231','dblp':'','area':'theology','pub':'SBL','why':"biblical studies, the SBL's journal",'rank':'SBL journal'},
  {'title':'Zygon','name':'Zygon: Journal of Religion and Science','issn':'0591-2385','dblp':'','area':'theology','pub':'Open Library of Humanities','why':'science and religion','rank':''},
+ {'title':'IJDP','name':'International Journal of Divination and Prognostication','issn':'2589-9198','dblp':'','area':'divination','pub':'Brill (ISCSD)','why':"divination across periods and cultures, the ISCSD's journal",'rank':'ISCSD journal'},
+ {'title':'C&C','name':'Culture and Cosmos','issn':'1368-6534','dblp':'','area':'divination','pub':'Sophia Centre Press','why':'history of astrology and cultural astronomy','rank':''},
+ {'title':'Aries','name':'Aries: Journal for the Study of Western Esotericism','issn':'1567-9896','dblp':'','area':'divination','pub':'Brill (ESSWE)','why':"Western esotericism, the ESSWE's journal",'rank':'ESSWE journal'},
+ {'title':'JSA','name':'Journal of Skyscape Archaeology','issn':'2055-348X','dblp':'','area':'divination','pub':'Equinox','why':'the sky in archaeology and culture','rank':''},
 ]
 
 # Anything a fetch misses comes from the copy kept beside the script, so a
