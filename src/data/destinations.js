@@ -3,7 +3,7 @@
 // CCF A or B, or CORE A* or A, every hand-kept venue on the field
 // tabs, and the venues added by hand in the script. Destinations mix cities, countries and
 // regions, because that is how people choose where to go.
-// Built 2026-10-31.
+// Built 2026-11-01.
 export const destinations = {
  "items": [
   {
@@ -203,38 +203,6 @@ export const destinations = {
    "lon": -81.379
   },
   {
-   "title": "ASE",
-   "desc": "International Conference on Automated Software Engineering",
-   "year": 2026,
-   "place": "Munich, Germany",
-   "date": "October 13-15, 2026",
-   "city": "Munich",
-   "country": "Germany",
-   "dest": "Germany",
-   "icon": "beer-mug-empty",
-   "ccf": "A",
-   "core": "A*",
-   "sub": "SE",
-   "deadline": "2026-03-26",
-   "open": false,
-   "link": "https://conf.researchr.org/home/ase-2026",
-   "q": "munich, germany munich germany ",
-   "field": "Software engineering",
-   "group": "computing",
-   "honors": [
-    {
-     "t": "CCF A",
-     "k": "ccf-a"
-    },
-    {
-     "t": "CORE A*",
-     "k": "core-as"
-    }
-   ],
-   "lat": 48.1371,
-   "lon": 11.5754
-  },
-  {
    "title": "ASIACRYPT",
    "desc": "International Conference on the Theory and Application of Cryptology and Information Security",
    "year": 2026,
@@ -265,38 +233,6 @@ export const destinations = {
    ],
    "lat": 22.2818,
    "lon": 114.1583
-  },
-  {
-   "title": "ASSETS",
-   "desc": "ACM SIGACCESS Conference on Computers and Accessibility",
-   "year": 2026,
-   "place": "Porto, Portugal",
-   "date": "October 25-28, 2026",
-   "city": "Porto",
-   "country": "Portugal",
-   "dest": "Spain & Portugal",
-   "icon": "sun",
-   "ccf": "C",
-   "core": "A",
-   "sub": "HI",
-   "deadline": "2026-04-22",
-   "open": false,
-   "link": "https://assets26.sigaccess.org/",
-   "q": "porto, portugal porto portugal ",
-   "field": "HCI",
-   "group": "computing",
-   "honors": [
-    {
-     "t": "CORE A",
-     "k": "core-a"
-    },
-    {
-     "t": "CCF C",
-     "k": "ccf-c"
-    }
-   ],
-   "lat": 41.1502,
-   "lon": -8.6103
   },
   {
    "title": "AusDM",
@@ -379,34 +315,6 @@ export const destinations = {
    ],
    "lat": 54.0488,
    "lon": -2.8013
-  },
-  {
-   "title": "BRACIS",
-   "honor": "Brazil's main AI conference",
-   "desc": "Brazilian Conference on Intelligent Systems",
-   "year": 2026,
-   "place": "Cuiaba, Mato Grosso, Brazil",
-   "date": "October 19-22, 2026",
-   "deadline": "2026-05-04",
-   "open": false,
-   "link": "https://bracis.sbc.org.br/2026/",
-   "city": "Cuiaba",
-   "country": "Brazil",
-   "dest": "South America",
-   "icon": "mountain-sun",
-   "q": "cuiaba, mato grosso, brazil cuiaba brazil ",
-   "ccf": "N",
-   "core": "N",
-   "field": "AI · ML · Data Mining",
-   "group": "computing",
-   "honors": [
-    {
-     "t": "Brazil's main AI conference",
-     "k": "field"
-    }
-   ],
-   "lat": -15.5987,
-   "lon": -56.0991
   },
   {
    "title": "CASCON",
@@ -495,38 +403,6 @@ export const destinations = {
    "lon": -157.8557
   },
   {
-   "title": "CHES",
-   "desc": "International Conference on Cryptographic Hardware and Embedded Systems",
-   "year": 2026,
-   "place": "Antalya, Türkiye",
-   "date": "October 11-15, 2026",
-   "city": "Antalya",
-   "country": "Turkiye",
-   "dest": "",
-   "icon": "",
-   "ccf": "B",
-   "core": "A",
-   "sub": "SC",
-   "deadline": "2026-04-15",
-   "open": false,
-   "link": "https://ches.iacr.org/2026/",
-   "q": "antalya, türkiye antalya turkiye ",
-   "field": "Security, other",
-   "group": "computing",
-   "honors": [
-    {
-     "t": "CCF B",
-     "k": "ccf-b"
-    },
-    {
-     "t": "CORE A",
-     "k": "core-a"
-    }
-   ],
-   "lat": 36.8866,
-   "lon": 30.703
-  },
-  {
    "title": "CIKM",
    "desc": "ACM International Conference on Information and Knowledge Management",
    "year": 2026,
@@ -557,57 +433,6 @@ export const destinations = {
    ],
    "lat": 41.8933,
    "lon": 12.4829
-  },
-  {
-   "title": "CODES+ISSS",
-   "desc": "International Conference on Hardware/Software Co-design and System Synthesis",
-   "year": 2026,
-   "place": "Barcelona, Spain",
-   "date": "October 4-9, 2026",
-   "city": "Barcelona",
-   "country": "Spain",
-   "dest": "Spain & Portugal",
-   "icon": "sun",
-   "ccf": "B",
-   "core": "N",
-   "sub": "DS",
-   "deadline": "2026-03-30",
-   "open": false,
-   "link": "https://esweek.org/codes_isss_cfp/",
-   "q": "barcelona, spain barcelona spain ",
-   "field": "Architecture & systems",
-   "group": "computing",
-   "honors": [
-    {
-     "t": "CCF B",
-     "k": "ccf-b"
-    }
-   ],
-   "lat": 41.3826,
-   "lon": 2.1771
-  },
-  {
-   "title": "COLM",
-   "desc": "Conference on Language Modeling",
-   "year": 2026,
-   "place": "Hilton Union Square, San Francisco, USA",
-   "date": "October 6-8, 2026",
-   "city": "San Francisco",
-   "country": "United States",
-   "dest": "California",
-   "icon": "sun",
-   "ccf": "N",
-   "core": "N",
-   "sub": "AI",
-   "deadline": "2026-03-31",
-   "open": false,
-   "link": "https://colm.cc/Conferences/2026/CallForPapers",
-   "q": "hilton union square, san francisco, usa san francisco united states ",
-   "field": "AI · ML · Data Mining",
-   "group": "computing",
-   "honors": [],
-   "lat": 37.7857,
-   "lon": -122.4104
   },
   {
    "title": "Complex Networks",
@@ -664,148 +489,6 @@ export const destinations = {
    "lon": 5.1216
   },
   {
-   "title": "CSCW",
-   "desc": "ACM Conference on Computer Supported Cooperative Work and Social Computing",
-   "year": 2026,
-   "place": "Salt Lake City, Utah, USA",
-   "date": "October 10-14, 2026",
-   "city": "Salt Lake City",
-   "country": "United States",
-   "dest": "",
-   "icon": "",
-   "ccf": "A",
-   "core": "A",
-   "sub": "HI",
-   "deadline": "2025-05-14",
-   "open": false,
-   "link": "https://cscw.acm.org/2026/",
-   "q": "salt lake city, utah, usa salt lake city united states ",
-   "field": "HCI",
-   "group": "computing",
-   "honors": [
-    {
-     "t": "CCF A",
-     "k": "ccf-a"
-    },
-    {
-     "t": "CORE A",
-     "k": "core-a"
-    }
-   ],
-   "lat": 40.7596,
-   "lon": -111.8868
-  },
-  {
-   "title": "DCASE",
-   "desc": "Detection and Classification of Acoustic Scenes and Events Workshop",
-   "year": 2026,
-   "place": "Medford, Massachusetts, USA",
-   "date": "October 27-29, 2026",
-   "city": "Medford",
-   "country": "United States",
-   "dest": "",
-   "icon": "",
-   "ccf": "N",
-   "core": "N",
-   "deadline": "",
-   "open": false,
-   "link": "https://dcase.community/workshop2026",
-   "q": "medford, massachusetts, usa medford united states ",
-   "field": "Music & Audio",
-   "group": "computing",
-   "honors": [],
-   "lat": 42.4184,
-   "lon": -71.1062
-  },
-  {
-   "title": "EMNLP",
-   "desc": "The annual Conference on Empirical Methods in Natural Language Processing",
-   "year": 2026,
-   "place": "Budapest, Hungary (Hybrid)",
-   "date": "October 25-27, 2026",
-   "city": "Budapest",
-   "country": "Hungary",
-   "dest": "",
-   "icon": "",
-   "ccf": "B",
-   "core": "A*",
-   "sub": "AI",
-   "deadline": "2026-08-02",
-   "open": false,
-   "link": "https://2026.emnlp.org/",
-   "q": "budapest, hungary (hybrid) budapest hungary ",
-   "field": "AI · ML · Data Mining",
-   "group": "computing",
-   "honors": [
-    {
-     "t": "CORE A*",
-     "k": "core-as"
-    },
-    {
-     "t": "CCF B",
-     "k": "ccf-b"
-    }
-   ],
-   "lat": 47.4979,
-   "lon": 19.0402
-  },
-  {
-   "title": "EMSOFT",
-   "desc": "International Conference on Embedded Software",
-   "year": 2026,
-   "place": "Barcelona, Spain",
-   "date": "October 5-7, 2026",
-   "city": "Barcelona",
-   "country": "Spain",
-   "dest": "Spain & Portugal",
-   "icon": "sun",
-   "ccf": "B",
-   "core": "N",
-   "sub": "MX",
-   "deadline": "2026-03-30",
-   "open": false,
-   "link": "https://esweek.org/emsoft/",
-   "q": "barcelona, spain barcelona spain ",
-   "field": "Interdisciplinary computing",
-   "group": "computing",
-   "honors": [
-    {
-     "t": "CCF B",
-     "k": "ccf-b"
-    }
-   ],
-   "lat": 41.3826,
-   "lon": 2.1771
-  },
-  {
-   "title": "ER",
-   "desc": "International Conference on Conceptual Modeling",
-   "year": 2026,
-   "place": "St. John's, NL, Canada",
-   "date": "October 6-8, 2026",
-   "city": "St. John's",
-   "country": "Canada",
-   "dest": "",
-   "icon": "",
-   "ccf": "C",
-   "core": "N",
-   "sub": "DB",
-   "deadline": "2026-05-19",
-   "open": false,
-   "link": "https://www.er2026.org/",
-   "q": "st. john's, nl, canada st. john's canada ",
-   "field": "AI · ML · Data Mining",
-   "group": "computing",
-   "honors": [
-    {
-     "t": "CCF C",
-     "k": "ccf-c"
-    }
-   ],
-   "lat": 47.5647,
-   "lon": -52.7067
-  },
-  {
    "title": "ESCAIDE",
    "desc": "European Scientific Conference on Applied Infectious Disease Epidemiology",
    "year": 2026,
@@ -826,38 +509,6 @@ export const destinations = {
    "honors": [],
    "lat": 59.3251,
    "lon": 18.0711
-  },
-  {
-   "title": "ESEM",
-   "desc": "International Symposium on Empirical Software Engineering and Measurement",
-   "year": 2026,
-   "place": "München, Germany",
-   "date": "October 8-9, 2026",
-   "city": "München",
-   "country": "Germany",
-   "dest": "Germany",
-   "icon": "beer-mug-empty",
-   "ccf": "B",
-   "core": "A",
-   "sub": "SE",
-   "deadline": "2026-05-18",
-   "open": false,
-   "link": "https://conf.researchr.org/home/eseiw-2026",
-   "q": "münchen, germany münchen germany ",
-   "field": "Software engineering",
-   "group": "computing",
-   "honors": [
-    {
-     "t": "CCF B",
-     "k": "ccf-b"
-    },
-    {
-     "t": "CORE A",
-     "k": "core-a"
-    }
-   ],
-   "lat": 48.1371,
-   "lon": 11.5754
   },
   {
    "title": "FOCS",
@@ -996,70 +647,6 @@ export const destinations = {
    "lon": 123.4279
   },
   {
-   "title": "ICNP",
-   "desc": "IEEE International Conference on Network Protocols",
-   "year": 2026,
-   "place": "Tempe, Arizona, USA",
-   "date": "October 6-8, 2026",
-   "city": "Tempe",
-   "country": "United States",
-   "dest": "",
-   "icon": "",
-   "ccf": "B",
-   "core": "B",
-   "sub": "NW",
-   "deadline": "2026-05-22",
-   "open": false,
-   "link": "https://icnp26.cs.ucr.edu/",
-   "q": "tempe, arizona, usa tempe united states ",
-   "field": "Networking",
-   "group": "computing",
-   "honors": [
-    {
-     "t": "CCF B",
-     "k": "ccf-b"
-    },
-    {
-     "t": "CORE B",
-     "k": "core-b"
-    }
-   ],
-   "lat": 33.4255,
-   "lon": -111.94
-  },
-  {
-   "title": "ICPP",
-   "desc": "International Conference on Parallel Processing",
-   "year": 2026,
-   "place": "Singapore",
-   "date": "September 29-October 1, 2026",
-   "city": "Singapore",
-   "country": "Singapore",
-   "dest": "",
-   "icon": "",
-   "ccf": "B",
-   "core": "B",
-   "sub": "DS",
-   "deadline": "2026-05-01",
-   "open": false,
-   "link": "https://icpp2026.github.io/",
-   "q": "singapore singapore singapore ",
-   "field": "Architecture & systems",
-   "group": "computing",
-   "honors": [
-    {
-     "t": "CCF B",
-     "k": "ccf-b"
-    },
-    {
-     "t": "CORE B",
-     "k": "core-b"
-    }
-   ],
-   "lat": 1.3571,
-   "lon": 103.8195
-  },
-  {
    "title": "ICSOC",
    "desc": "International Conference on Service Oriented Computing",
    "year": 2026,
@@ -1150,128 +737,6 @@ export const destinations = {
    "lon": 103.8195
   },
   {
-   "title": "IMC",
-   "desc": "ACM Internet Measurement Conference",
-   "year": 2026,
-   "place": "Karlsruhe, Germany",
-   "date": "October 13-16, 2026",
-   "city": "Karlsruhe",
-   "country": "Germany",
-   "dest": "Germany",
-   "icon": "beer-mug-empty",
-   "ccf": "B",
-   "core": "A",
-   "sub": "NW",
-   "deadline": "2026-04-29",
-   "open": false,
-   "link": "https://conferences.sigcomm.org/imc/2026/",
-   "q": "karlsruhe, germany karlsruhe germany ",
-   "field": "Networking",
-   "group": "computing",
-   "honors": [
-    {
-     "t": "CCF B",
-     "k": "ccf-b"
-    },
-    {
-     "t": "CORE A",
-     "k": "core-a"
-    }
-   ],
-   "lat": 49.0069,
-   "lon": 8.4034
-  },
-  {
-   "title": "INSAP",
-   "desc": "Inspiration of Astronomical Phenomena Conference",
-   "year": 2026,
-   "place": "Rome, Italy",
-   "date": "October 5-11, 2026",
-   "city": "Rome",
-   "country": "Italy",
-   "dest": "Italy",
-   "icon": "wine-glass",
-   "ccf": "N",
-   "core": "N",
-   "deadline": "",
-   "open": false,
-   "link": "https://indico.ict.inaf.it/event/3535/",
-   "q": "rome, italy rome italy ",
-   "field": "Divination & astrology",
-   "group": "mind",
-   "honors": [],
-   "lat": 41.8933,
-   "lon": 12.4829
-  },
-  {
-   "title": "InterSpeech",
-   "desc": "Conference of the International Speech Communication Association",
-   "year": 2026,
-   "place": "Sydney, Australia",
-   "date": "September 28 - October 1, 2026",
-   "city": "Sydney",
-   "country": "Australia",
-   "dest": "Australia & NZ",
-   "icon": "kiwi-bird",
-   "ccf": "B",
-   "core": "A",
-   "sub": "CG",
-   "deadline": "2026-02-25",
-   "open": false,
-   "link": "https://interspeech2026.org/",
-   "q": "sydney, australia sydney australia ",
-   "field": "Music & Audio",
-   "group": "computing",
-   "honors": [
-    {
-     "t": "speech flagship",
-     "k": "field"
-    },
-    {
-     "t": "CCF B",
-     "k": "ccf-b"
-    },
-    {
-     "t": "CORE A",
-     "k": "core-a"
-    }
-   ],
-   "lat": -33.8698,
-   "lon": 151.2083
-  },
-  {
-   "title": "IROS",
-   "desc": "IEEE/RSJ International Conference on Intelligent Robots and Systems",
-   "year": 2026,
-   "place": "Pittsburgh, PA, USA",
-   "date": "September 27 - October 1, 2026",
-   "city": "Pittsburgh",
-   "country": "United States",
-   "dest": "",
-   "icon": "",
-   "ccf": "C",
-   "core": "A",
-   "sub": "AI",
-   "deadline": "2026-03-02",
-   "open": false,
-   "link": "https://2026.ieee-iros.org/",
-   "q": "pittsburgh, pa, usa pittsburgh united states pennsylvania",
-   "field": "AI · ML · Data Mining",
-   "group": "computing",
-   "honors": [
-    {
-     "t": "CORE A",
-     "k": "core-a"
-    },
-    {
-     "t": "CCF C",
-     "k": "ccf-c"
-    }
-   ],
-   "lat": 40.4407,
-   "lon": -80.0026
-  },
-  {
    "title": "ISCSD",
    "desc": "International Society for the Critical Study of Divination Conference",
    "year": 2026,
@@ -1292,38 +757,6 @@ export const destinations = {
    "honors": [],
    "lat": 49.5892,
    "lon": 10.9812
-  },
-  {
-   "title": "ISMAR",
-   "desc": "International Symposium on Mixed and Augmented Reality",
-   "year": 2026,
-   "place": "Bari, Italy",
-   "date": "October 7-9, 2026",
-   "city": "Bari",
-   "country": "Italy",
-   "dest": "Italy",
-   "icon": "wine-glass",
-   "ccf": "B",
-   "core": "A*",
-   "sub": "CG",
-   "deadline": "2026-03-16",
-   "open": false,
-   "link": "https://www.ieeeismar.net/2026/",
-   "q": "bari, italy bari italy ",
-   "field": "Graphics & multimedia",
-   "group": "computing",
-   "honors": [
-    {
-     "t": "CORE A*",
-     "k": "core-as"
-    },
-    {
-     "t": "CCF B",
-     "k": "ccf-b"
-    }
-   ],
-   "lat": 41.1258,
-   "lon": 16.862
   },
   {
    "title": "ISMIR",
@@ -1379,134 +812,6 @@ export const destinations = {
    ],
    "lat": 45.0678,
    "lon": 7.6825
-  },
-  {
-   "title": "ISSRE",
-   "desc": "International Symposium on Software Reliability Engineering",
-   "year": 2026,
-   "place": "Limassol, Cyprus",
-   "date": "October 21-23, 2026",
-   "city": "Limassol",
-   "country": "Cyprus",
-   "dest": "South America",
-   "icon": "mountain-sun",
-   "ccf": "B",
-   "core": "A",
-   "sub": "SE",
-   "deadline": "2026-04-24",
-   "open": false,
-   "link": "https://cyprusconferences.org/issre2026/",
-   "q": "limassol, cyprus limassol cyprus ",
-   "field": "Software engineering",
-   "group": "computing",
-   "honors": [
-    {
-     "t": "CCF B",
-     "k": "ccf-b"
-    },
-    {
-     "t": "CORE A",
-     "k": "core-a"
-    }
-   ],
-   "lat": 34.6853,
-   "lon": 33.0333
-  },
-  {
-   "title": "ISSTA",
-   "desc": "ACM SIGSOFT International Symposium on Software Testing and Analysis",
-   "year": 2026,
-   "place": "Oakland, California, United States",
-   "date": "October 7-9, 2026",
-   "city": "Oakland",
-   "country": "United States",
-   "dest": "California",
-   "icon": "sun",
-   "ccf": "A",
-   "core": "A",
-   "sub": "SE",
-   "deadline": "2026-01-29",
-   "open": false,
-   "link": "https://conf.researchr.org/home/issta-2026",
-   "q": "oakland, california, united states oakland united states ",
-   "field": "Software engineering",
-   "group": "computing",
-   "honors": [
-    {
-     "t": "CCF A",
-     "k": "ccf-a"
-    },
-    {
-     "t": "CORE A",
-     "k": "core-a"
-    }
-   ],
-   "lat": 37.8045,
-   "lon": -122.2714
-  },
-  {
-   "title": "ISWC",
-   "desc": "International Semantic Web Conference",
-   "year": 2026,
-   "place": "Bari, Italy",
-   "date": "October 27-29, 2026",
-   "city": "Bari",
-   "country": "Italy",
-   "dest": "Italy",
-   "icon": "wine-glass",
-   "ccf": "B",
-   "core": "A",
-   "sub": "DB",
-   "deadline": "2026-05-07",
-   "open": false,
-   "link": "https://iswc2026.semanticweb.org/",
-   "q": "bari, italy bari italy ",
-   "field": "AI · ML · Data Mining",
-   "group": "computing",
-   "honors": [
-    {
-     "t": "CCF B",
-     "k": "ccf-b"
-    },
-    {
-     "t": "CORE A",
-     "k": "core-a"
-    }
-   ],
-   "lat": 41.1258,
-   "lon": 16.862
-  },
-  {
-   "title": "ITC",
-   "desc": "International Test Conference",
-   "year": 2026,
-   "place": "Grand Hyatt San Antonio Riverwalk, TX, USA",
-   "date": "October 11-16, 2026",
-   "city": "TX",
-   "country": "United States",
-   "dest": "",
-   "icon": "",
-   "ccf": "B",
-   "core": "A",
-   "sub": "DS",
-   "deadline": "2026-04-24",
-   "open": false,
-   "link": "https://www.itctestweek.org/",
-   "q": "grand hyatt san antonio riverwalk, tx, usa tx united states texas",
-   "field": "Architecture & systems",
-   "group": "computing",
-   "honors": [
-    {
-     "t": "CCF B",
-     "k": "ccf-b"
-    },
-    {
-     "t": "CORE A",
-     "k": "core-a"
-    }
-   ],
-   "lat": 31.2639,
-   "lon": -98.5456
   },
   {
    "title": "MICRO",
@@ -1599,38 +904,6 @@ export const destinations = {
    "lon": 151.2083
   },
   {
-   "title": "MobiCom",
-   "desc": "ACM Annual International Conference On Mobile Computing And Networking",
-   "year": 2026,
-   "place": "Austin, Texas, USA",
-   "date": "October 26-29, 2026",
-   "city": "Austin",
-   "country": "United States",
-   "dest": "",
-   "icon": "",
-   "ccf": "A",
-   "core": "A*",
-   "sub": "NW",
-   "deadline": "2026-03-13",
-   "open": false,
-   "link": "https://sigmobile.org/mobicom/2026/",
-   "q": "austin, texas, usa austin united states ",
-   "field": "Networking",
-   "group": "computing",
-   "honors": [
-    {
-     "t": "CCF A",
-     "k": "ccf-a"
-    },
-    {
-     "t": "CORE A*",
-     "k": "core-as"
-    }
-   ],
-   "lat": 30.2649,
-   "lon": -97.7474
-  },
-  {
    "title": "MobiHoc",
    "desc": "International Symposium on Mobile Ad Hoc Networking and Computing",
    "year": 2026,
@@ -1661,70 +934,6 @@ export const destinations = {
    ],
    "lat": 35.6769,
    "lon": 139.7639
-  },
-  {
-   "title": "MoDELS",
-   "desc": "International Conference on Model Driven Engineering Languages and Systems",
-   "year": 2026,
-   "place": "Málaga, Spain",
-   "date": "October 7-9, 2026",
-   "city": "Málaga",
-   "country": "Spain",
-   "dest": "Spain & Portugal",
-   "icon": "sun",
-   "ccf": "B",
-   "core": "A",
-   "sub": "SE",
-   "deadline": "2026-03-27",
-   "open": false,
-   "link": "https://conf.researchr.org/home/models-2026",
-   "q": "málaga, spain málaga spain ",
-   "field": "Software engineering",
-   "group": "computing",
-   "honors": [
-    {
-     "t": "CCF B",
-     "k": "ccf-b"
-    },
-    {
-     "t": "CORE A",
-     "k": "core-a"
-    }
-   ],
-   "lat": 36.7648,
-   "lon": -4.4422
-  },
-  {
-   "title": "MSWiM",
-   "desc": "International Conference on Modeling, Analysis and Simulation of Wireless and Mobile Systems",
-   "year": 2026,
-   "place": "Paris, France",
-   "date": "October 27-29, 2026",
-   "city": "Paris",
-   "country": "France",
-   "dest": "France",
-   "icon": "wine-bottle",
-   "ccf": "C",
-   "core": "A",
-   "sub": "NW",
-   "deadline": "2026-06-15",
-   "open": false,
-   "link": "https://mswimconf.com/2026/",
-   "q": "paris, france paris france ",
-   "field": "Networking",
-   "group": "computing",
-   "honors": [
-    {
-     "t": "CORE A",
-     "k": "core-a"
-    },
-    {
-     "t": "CCF C",
-     "k": "ccf-c"
-    }
-   ],
-   "lat": 48.8535,
-   "lon": 2.3484
   },
   {
    "title": "NeurIPS",
@@ -1773,70 +982,6 @@ export const destinations = {
    ]
   },
   {
-   "title": "OOPSLA",
-   "desc": "Conference on Object-Oriented Programming Systems, Languages, and Applications",
-   "year": 2026,
-   "place": "Oakland, California, United States",
-   "date": "October 5-7, 2026",
-   "city": "Oakland",
-   "country": "United States",
-   "dest": "California",
-   "icon": "sun",
-   "ccf": "A",
-   "core": "A",
-   "sub": "SE",
-   "deadline": "2026-03-17",
-   "open": false,
-   "link": "https://conf.researchr.org/track/splash-2026/oopsla-2026",
-   "q": "oakland, california, united states oakland united states ",
-   "field": "Software engineering",
-   "group": "computing",
-   "honors": [
-    {
-     "t": "CCF A",
-     "k": "ccf-a"
-    },
-    {
-     "t": "CORE A",
-     "k": "core-a"
-    }
-   ],
-   "lat": 37.8045,
-   "lon": -122.2714
-  },
-  {
-   "title": "PACT",
-   "desc": "International Conference on Parallel Architectures and Compilation Techniques",
-   "year": 2026,
-   "place": "Chicago, Illinois, USA",
-   "date": "October 20-22, 2026",
-   "city": "Chicago",
-   "country": "United States",
-   "dest": "",
-   "icon": "",
-   "ccf": "B",
-   "core": "B",
-   "sub": "DS",
-   "deadline": "2026-04-30",
-   "open": false,
-   "link": "https://pact2026.github.io/",
-   "q": "chicago, illinois, usa chicago united states ",
-   "field": "Architecture & systems",
-   "group": "computing",
-   "honors": [
-    {
-     "t": "CCF B",
-     "k": "ccf-b"
-    },
-    {
-     "t": "CORE B",
-     "k": "core-b"
-    }
-   ],
-   "lat": 41.8756,
-   "lon": -87.6244
-  },
-  {
    "title": "Performance",
    "desc": "International Symposium on Computer Performance, Modeling, Measurements and Evaluation",
    "year": 2026,
@@ -1865,34 +1010,6 @@ export const destinations = {
    "lon": 3.725
   },
   {
-   "title": "PG",
-   "desc": "Pacific Graphics, The Pacific Conference on Computer Graphics and Applications",
-   "year": 2026,
-   "place": "Singapore Management University, Singapore",
-   "date": "October 6-9, 2026",
-   "city": "Singapore",
-   "country": "Singapore",
-   "dest": "",
-   "icon": "",
-   "ccf": "B",
-   "core": "N",
-   "sub": "CG",
-   "deadline": "2026-06-08",
-   "open": false,
-   "link": "https://pacificgraphics2026.github.io/",
-   "q": "singapore management university, singapore singapore singapore ",
-   "field": "Graphics & multimedia",
-   "group": "computing",
-   "honors": [
-    {
-     "t": "CCF B",
-     "k": "ccf-b"
-    }
-   ],
-   "lat": 1.2961,
-   "lon": 103.8499
-  },
-  {
    "title": "PSA",
    "desc": "Philosophy of Science Association Biennial Meeting",
    "year": 2026,
@@ -1918,70 +1035,6 @@ export const destinations = {
    ],
    "lat": 32.7157,
    "lon": -117.1638
-  },
-  {
-   "title": "RAID",
-   "desc": "International Symposium on Recent Advances in Intrusion Detection",
-   "year": 2026,
-   "place": "Lancaster, UK",
-   "date": "October 12-14, 2026",
-   "city": "Lancaster",
-   "country": "United Kingdom",
-   "dest": "UK & Ireland",
-   "icon": "crown",
-   "ccf": "B",
-   "core": "A",
-   "sub": "SC",
-   "deadline": "2026-04-16",
-   "open": false,
-   "link": "https://raid2026.org",
-   "q": "lancaster, uk lancaster united kingdom ",
-   "field": "Security, other",
-   "group": "computing",
-   "honors": [
-    {
-     "t": "CCF B",
-     "k": "ccf-b"
-    },
-    {
-     "t": "CORE A",
-     "k": "core-a"
-    }
-   ],
-   "lat": 54.0488,
-   "lon": -2.8013
-  },
-  {
-   "title": "RecSys",
-   "desc": "ACM Conference on Recommender Systems",
-   "year": 2026,
-   "place": "Minneapolis, Minnesota, USA",
-   "date": "September 29 - October 1, 2026",
-   "city": "Minneapolis",
-   "country": "United States",
-   "dest": "",
-   "icon": "",
-   "ccf": "B",
-   "core": "A",
-   "sub": "DB",
-   "deadline": "2026-04-21",
-   "open": false,
-   "link": "https://recsys.acm.org/recsys26",
-   "q": "minneapolis, minnesota, usa minneapolis united states ",
-   "field": "AI · ML · Data Mining",
-   "group": "computing",
-   "honors": [
-    {
-     "t": "CCF B",
-     "k": "ccf-b"
-    },
-    {
-     "t": "CORE A",
-     "k": "core-a"
-    }
-   ],
-   "lat": 44.9773,
-   "lon": -93.2655
   },
   {
    "title": "RTSS",
@@ -2014,38 +1067,6 @@ export const destinations = {
    ],
    "lat": 35.4503,
    "lon": 139.6344
-  },
-  {
-   "title": "SAS",
-   "desc": "International Static Analysis Symposium",
-   "year": 2026,
-   "place": "Oakland, California, USA",
-   "date": "October 6-8, 2026",
-   "city": "Oakland",
-   "country": "United States",
-   "dest": "California",
-   "icon": "sun",
-   "ccf": "B",
-   "core": "B",
-   "sub": "SE",
-   "deadline": "2026-05-07",
-   "open": false,
-   "link": "https://conf.researchr.org/home/splash-issta-2026/sas-2026",
-   "q": "oakland, california, usa oakland united states ",
-   "field": "Software engineering",
-   "group": "computing",
-   "honors": [
-    {
-     "t": "CCF B",
-     "k": "ccf-b"
-    },
-    {
-     "t": "CORE B",
-     "k": "core-b"
-    }
-   ],
-   "lat": 37.8045,
-   "lon": -122.2714
   },
   {
    "title": "SC",
@@ -2198,55 +1219,6 @@ export const destinations = {
    "lon": -117.3742
   },
   {
-   "title": "Sleep Europe",
-   "desc": "European Sleep Research Society Congress",
-   "year": 2026,
-   "place": "Maastricht, Netherlands",
-   "date": "October 20-23, 2026",
-   "city": "Maastricht",
-   "country": "Netherlands",
-   "dest": "Netherlands",
-   "icon": "bicycle",
-   "ccf": "N",
-   "core": "N",
-   "deadline": "",
-   "open": false,
-   "link": "https://esrs.eu/sleep-congress/",
-   "q": "maastricht, netherlands maastricht netherlands ",
-   "field": "Sleep & dreams",
-   "group": "mind",
-   "honors": [
-    {
-     "t": "sleep and circadian flagship",
-     "k": "field"
-    }
-   ],
-   "lat": 50.8512,
-   "lon": 5.691
-  },
-  {
-   "title": "SmartGridComm",
-   "desc": "IEEE International Conference on Communications, Control, and Computing Technologies for Smart Grids",
-   "year": 2026,
-   "place": "College Station, Texas, USA",
-   "date": "October 26-29, 2026",
-   "city": "Texas",
-   "country": "United States",
-   "dest": "",
-   "icon": "",
-   "ccf": "N",
-   "core": "N",
-   "deadline": "",
-   "open": false,
-   "link": "https://sgc2026.ieee-smartgridcomm.org/",
-   "q": "college station, texas, usa texas united states ",
-   "field": "Power & energy",
-   "group": "science",
-   "honors": [],
-   "lat": 30.6184,
-   "lon": -96.3456
-  },
-  {
    "title": "SoCC",
    "desc": "ACM Symposium on Cloud Computing",
    "year": 2026,
@@ -2273,38 +1245,6 @@ export const destinations = {
    ],
    "lat": 1.3571,
    "lon": 103.8195
-  },
-  {
-   "title": "SOSP",
-   "desc": "ACM Symposium on Operating Systems Principles",
-   "year": 2026,
-   "place": "Clarion Congress Hotel Prague, Prague, Czechia",
-   "date": "September 30 - October 2, 2026",
-   "city": "Prague",
-   "country": "Czechia",
-   "dest": "",
-   "icon": "",
-   "ccf": "A",
-   "core": "A*",
-   "sub": "SE",
-   "deadline": "2026-04-01",
-   "open": false,
-   "link": "https://sigops.org/s/conferences/sosp/2026/index.html",
-   "q": "clarion congress hotel prague, prague, czechia prague czechia ",
-   "field": "Software engineering",
-   "group": "computing",
-   "honors": [
-    {
-     "t": "CCF A",
-     "k": "ccf-a"
-    },
-    {
-     "t": "CORE A*",
-     "k": "core-as"
-    }
-   ],
-   "lat": 50.1094,
-   "lon": 14.5011
   },
   {
    "title": "SSSR",
@@ -2364,34 +1304,6 @@ export const destinations = {
    ],
    "lat": 40.7127,
    "lon": -74.006
-  },
-  {
-   "title": "UbiComp/ISWC",
-   "desc": "ACM International Joint Conference on Pervasive and Ubiquitous Computing",
-   "year": 2026,
-   "place": "Shanghai, China",
-   "date": "October 11-15, 2026",
-   "city": "Shanghai",
-   "country": "China",
-   "dest": "",
-   "icon": "",
-   "ccf": "A",
-   "core": "N",
-   "sub": "HI",
-   "deadline": "2026-05-01",
-   "open": false,
-   "link": "https://www.ubicomp.org/ubicomp-iswc-2026",
-   "q": "shanghai, china shanghai china ",
-   "field": "HCI",
-   "group": "computing",
-   "honors": [
-    {
-     "t": "CCF A",
-     "k": "ccf-a"
-    }
-   ],
-   "lat": 31.2313,
-   "lon": 121.47
   },
   {
    "title": "UIST",
@@ -4208,8 +3120,8 @@ export const destinations = {
    "icon": "",
    "ccf": "N",
    "core": "N",
-   "deadline": "2026-10-31",
-   "open": true,
+   "deadline": "",
+   "open": false,
    "link": "https://ecc27.euca-ecc.org/",
    "q": "brussels, belgium brussels belgium ",
    "field": "Control",
@@ -8923,12 +7835,12 @@ export const destinations = {
   {
    "name": "California",
    "icon": "sun",
-   "n": 21
+   "n": 17
   },
   {
    "name": "Italy",
    "icon": "wine-glass",
-   "n": 10
+   "n": 7
   },
   {
    "name": "Greece",
@@ -8938,37 +7850,37 @@ export const destinations = {
   {
    "name": "Spain & Portugal",
    "icon": "sun",
-   "n": 12
+   "n": 8
   },
   {
    "name": "Netherlands",
    "icon": "bicycle",
-   "n": 14
+   "n": 13
   },
   {
    "name": "France",
    "icon": "wine-bottle",
-   "n": 5
+   "n": 4
   },
   {
    "name": "Germany",
    "icon": "beer-mug-empty",
-   "n": 9
+   "n": 6
   },
   {
    "name": "UK & Ireland",
    "icon": "crown",
-   "n": 14
+   "n": 13
   },
   {
    "name": "Australia & NZ",
    "icon": "kiwi-bird",
-   "n": 10
+   "n": 9
   },
   {
    "name": "South America",
    "icon": "mountain-sun",
-   "n": 8
+   "n": 6
   },
   {
    "name": "Southeast Asia",
