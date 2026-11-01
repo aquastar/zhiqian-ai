@@ -14,6 +14,8 @@ Dropped on purpose, listed so the omission stays deliberate:
   - the 本周头条 section, which is personal strategy end to end
   - the pointer to the private full report and its 低匹配项 count
   - the watchlist research_lines column, which keys rows to personal interests
+  - the watchlist rating columns the monthly harvest adds (recommendation,
+    difficulty, peer tiers and career levels seen, rating reason)
 
 What survives is the part that is true for anybody: who funds it, what it is
 called, when it closes, how much, who may apply, how crowded it looks, and
@@ -1041,11 +1043,19 @@ def parse_registry(text):
     return rows
 
 
+PERSONAL_WATCHLIST = ['recommendation_1to5', 'difficulty_1to5', 'peer_tiers_seen',
+                      'career_levels_seen', 'rating_reason']
+
+
 def parse_watchlist(text):
     reader = csv.DictReader(io.StringIO(text))
     rows = []
     for r in reader:
         r.pop('research_lines', None)       # keys rows to personal interests
+        # The monthly harvest rates each funder for him (columns I to M):
+        # how much to pursue it, how hard it is, which of his peers won it.
+        for k in PERSONAL_WATCHLIST:
+            r.pop(k, None)
         rows.append({k: (v or '').strip() for k, v in r.items() if k})
     return rows
 
@@ -1146,7 +1156,7 @@ def main():
     # A last sweep over everything that will be served. The personal lines are
     # removed structurally above; this is the check that says so out loud, and
     # fails the run rather than publishing a name by accident.
-    banned = ['Zhiqian', 'RIT CS', '对象:', '匹配度', '本周头条', 'research_lines']
+    banned = ['Zhiqian', 'RIT CS', '对象:', '匹配度', '本周头条', 'research_lines'] + PERSONAL_WATCHLIST
     for p in list(PUBLIC.glob('*')) + [DATA / 'funding.json']:
         if p.is_dir():
             continue
