@@ -52,6 +52,10 @@ const thrusts = [
     title: 'Generalized patterns across systems',
     subtitle: '"Analogy learning"',
     body: 'Shared operators, conserved quantities, and structural invariants that transfer across unrelated graph domains.',
+    refs: [
+      { label: 'Propagation laws, SIGSPATIAL 2025', href: 'https://scholar.google.com/citations?view_op=view_citation&citation_for_view=NC3-O6UAAAAJ:u-x6o8ySG0sC' },
+      { label: 'UQ for dynamical networks tutorial', href: 'https://aquastar.github.io/uq-dynamical-networks/' },
+    ],
     media: { type: 'image', src: '/circ-analogy.jpg' },
   },
   {
@@ -60,6 +64,10 @@ const thrusts = [
     title: 'Cross-system behaviors',
     subtitle: '"Interplay learning"',
     body: 'Behaviors that propagate between networks, where cross-edges carry the dynamics.',
+    refs: [
+      { label: 'Network interdiction, KDD 2025', href: 'https://scholar.google.com/citations?view_op=view_citation&citation_for_view=NC3-O6UAAAAJ:WF5omc3nYNoC' },
+      { label: 'Multiplex influence maximization, AAAI 2024', href: 'https://ojs.aaai.org/index.php/AAAI/article/view/30255' },
+    ],
     media: { type: 'image', src: '/circ-interplay.jpg' },
   },
   {
@@ -68,6 +76,10 @@ const thrusts = [
     title: 'Executable replicas of coupled infrastructure',
     subtitle: '"Network Digital Twin"',
     body: 'Traffic, power, and communication testbeds for stress-testing estimation and control.',
+    refs: [
+      { label: 'Co-simulation demo, WWW 2026', href: 'https://dl.acm.org/doi/10.1145/3774905.3793131' },
+      { label: 'LLM-to-Map demo, IJCAI 2026' },
+    ],
     media: {
       type: 'video',
       src: '/digital-twin.mp4',
@@ -779,6 +791,7 @@ const selectedGroups = selectedFilters
           <div class="thrust-pair">
             {thrusts.map((t) => (
               <div class={`thrust-col thrust-col-${t.key}`}>
+                <div class="thrust-media">
                 {t.media.type === 'image' ? (
                   <img class="thrust-img" src={t.media.src} alt={t.title} />
                 ) : (
@@ -792,8 +805,16 @@ const selectedGroups = selectedFilters
                     </button>
                   </div>
                 )}
+                </div>
                 <p class="thrust-line">
                   <strong>{t.mark} {t.subtitle}: {t.title}.</strong> {t.body}
+                  {t.refs && (
+                    <span class="thrust-refs">
+                      {t.refs.map((r) => r.href
+                        ? <a href={r.href} target="_blank" rel="noopener"><i class="fas fa-file-lines" aria-hidden="true"></i>{r.label}</a>
+                        : <span><i class="fas fa-file-lines" aria-hidden="true"></i>{r.label}</span>)}
+                    </span>
+                  )}
                 </p>
               </div>
             ))}
@@ -1948,14 +1969,11 @@ const selectedGroups = selectedFilters
   /* Combined thrust column: figure + text in one block per thrust */
   .thrust-pair { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; margin: 0; }
   .thrust-col { display: flex; flex-direction: column; gap: 12px; padding: 16px; border: 1px solid rgba(148,163,184,0.22); border-radius: 14px; background: #fff; }
-  /* Line up the three captions even though the media blocks differ in height */
-  @supports (grid-template-rows: subgrid) {
-    .thrust-pair { grid-template-rows: auto auto; }
-    .thrust-col { display: grid; grid-row: span 2; grid-template-rows: subgrid; row-gap: 12px; align-content: start; }
-    /* The reel's 1.95:1 frame is shorter than the figures' 1.35:1, so the shared
-       media row leaves it slack; sit it in the middle of that rather than at the top. */
-    .thrust-video { align-self: center; }
-  }
+  /* Every media slot has the figures' 1000:742 shape, so the three captions
+     line up. The reel's 1.95:1 frame sits in the middle of its slot. (A subgrid
+     did this before, but Firefox sized its rows from the images' natural height.) */
+  .thrust-media { aspect-ratio: 1000 / 742; display: flex; align-items: center; }
+  .thrust-media > * { width: 100%; }
   .thrust-fig { display: block; }
   .thrust-img { width: 100%; height: auto; display: block; border: none; transition: transform .2s ease, box-shadow .2s ease; }
   .thrust-img:hover { transform: translateY(-2px); }
@@ -1967,6 +1985,10 @@ const selectedGroups = selectedFilters
      each one a frame. Two classes to outrank .right-col-main *'s !important 0. */
   .right-col-main .thrust-col .thrust-line { padding: 10px 12px; background: #f8fafc; border: 1px solid rgba(148,163,184,0.2); border-radius: 10px !important; }
   .thrust-line strong { color: #0f172a; font-weight: 700; }
+  .thrust-refs { display: flex; flex-direction: column; gap: 2px; margin-top: 6px; font-size: .74rem; }
+  .thrust-refs a, .thrust-refs span { color: #475569; text-decoration: none; }
+  .thrust-refs a:hover { color: #2563eb; text-decoration: underline; }
+  .thrust-refs i { color: #2563eb; margin-right: 5px; font-size: .9em; }
 
   /* The reel is a 1.95:1 screen capture, so frame it at its own ratio. A 16/9 box
      would letterbox it, and would crop the matching bars out of the poster.
@@ -1996,6 +2018,7 @@ const selectedGroups = selectedFilters
     /* Two columns can't hold three thrusts, so let the reel own the wrap row outright */
     .thrust-pair { grid-template-columns: repeat(2, minmax(0, 1fr)); }
     .thrust-col-twin { grid-column: 1 / -1; }
+    .thrust-col-twin .thrust-media { aspect-ratio: auto; }
     .thrust-col-twin .thrust-video { max-width: 520px; margin: 0 auto; }
   }
   @media (max-width: 720px) {

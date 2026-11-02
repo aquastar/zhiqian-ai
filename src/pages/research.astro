@@ -4,6 +4,58 @@ import Nav from '../components/Nav.astro';
 
 
 
+// Figure data for interest 2: a tiny three-layer activation graph. Edge indexes
+// in llmChanged are drawn red in the "after edit" copy, llmLost dashed.
+const llmNodes = [[0, 32], [0, 58], [0, 84], [25, 32], [25, 58], [25, 84], [50, 32], [50, 58], [50, 84]];
+const llmEdges = [[0, 3], [0, 4], [1, 4], [1, 5], [2, 5], [3, 6], [4, 6], [4, 7], [5, 8], [3, 7]];
+const llmChanged = [2, 7];
+const llmLost = [9];
+// Figure data for interest 3: note positions as [x offset, staff step].
+const musicNotes = {
+  a: [[10, 2], [26, 4], [42, 3], [58, 5], [72, 4]],
+  b: [[10, 6], [26, 3], [42, 7], [58, 2], [72, 5]],
+  f: [[10, 3], [26, 5], [42, 4], [58, 6], [72, 3]],
+};
+
+// Selected work per line. Links follow the homepage selected-paper list and the CV.
+const linkNetworks = [
+  { title: 'Bridging the gap between spatial and spectral domains: A unified framework for graph neural networks', venue: 'ACM Computing Surveys, 2023', href: 'https://scholar.google.com/citations?view_op=view_citation&citation_for_view=NC3-O6UAAAAJ:YsMSGLbcyi4C' },
+  { title: 'Graph convolutional networks with Kalman filtering for traffic prediction', venue: 'SIGSPATIAL, 2020', href: 'https://scholar.google.com/citations?view_op=view_citation&citation_for_view=NC3-O6UAAAAJ:9yKSN-GCB0IC' },
+  { title: 'Graph Bayesian optimization for multiplex influence maximization', venue: 'AAAI, 2024', href: 'https://ojs.aaai.org/index.php/AAAI/article/view/30255' },
+  { title: 'Network interdiction goes neural', venue: 'KDD, 2025', href: 'https://scholar.google.com/citations?view_op=view_citation&citation_for_view=NC3-O6UAAAAJ:WF5omc3nYNoC' },
+  { title: 'Sumo x PyPSA: Interactive web demo of real-time urban power-traffic co-simulation with vehicle-to-grid', venue: 'WWW Companion, 2026', href: 'https://dl.acm.org/doi/10.1145/3774905.3793131' },
+  { title: 'Graph symbolic regression for animal disease propagation', venue: 'SIGSPATIAL, 2025', href: 'https://scholar.google.com/citations?view_op=view_citation&citation_for_view=NC3-O6UAAAAJ:u-x6o8ySG0sC' },
+  { title: 'LLM-to-Map, demo', venue: 'IJCAI, 2026', href: '' },
+];
+const linkUQ = [
+  { title: 'Uncertainty Quantification for Dynamical Networks, tutorial', venue: 'WSDM 2026 and IEEE BigData 2026', href: 'https://aquastar.github.io/uq-dynamical-networks/' },
+  { title: 'Multiple-source localization from a single-snapshot observation using graph Bayesian optimization', venue: 'AAAI, 2024', href: 'https://ojs.aaai.org/index.php/AAAI/article/view/30262' },
+  { title: 'Graph Bayesian optimization for multiplex influence maximization', venue: 'AAAI, 2024', href: 'https://ojs.aaai.org/index.php/AAAI/article/view/30255' },
+  { title: "Sobol's total indices for accurate and scalable feature exclusion in high-dimensional data", venue: 'IEEE BigData, 2025', href: 'https://scholar.google.com/citations?view_op=view_citation&citation_for_view=NC3-O6UAAAAJ:roLk4NBRz8UC' },
+  { title: 'Understanding influence maximization via higher-order decomposition', venue: 'SDM, 2023', href: 'https://epubs.siam.org/doi/abs/10.1137/1.9781611977653.ch86' },
+  { title: 'Graph convolutional networks with Kalman filtering for traffic prediction', venue: 'SIGSPATIAL, 2020', href: 'https://scholar.google.com/citations?view_op=view_citation&citation_for_view=NC3-O6UAAAAJ:9yKSN-GCB0IC' },
+];
+const linkSpectral = [
+  { title: 'Bridging the gap between spatial and spectral domains: A unified framework for graph neural networks', venue: 'ACM Computing Surveys, 2023', href: 'https://dl.acm.org/doi/10.1145/3627816' },
+  { title: 'Rational neural networks for approximating graph convolution operator on jump discontinuities', venue: 'ICDM, 2018', href: 'https://scholar.google.com/citations?view_op=view_citation&citation_for_view=NC3-O6UAAAAJ:_kc_bZDykSQC' },
+  { title: 'Unifying Spectral and Spatial Graph Neural Networks, tutorial series', venue: 'CVPR 2024, CIKM 2024, SIAM MDS 2024, SIAM SDM 2025', href: 'https://drive.google.com/file/d/1gbe9xxNHPHHHN5DKRu3fC8f_G9TPcayt/view?usp=sharing' },
+  { title: 'Awesome Spectral GNN, paper collection', venue: 'GitHub', href: 'https://github.com/XGraph-Team/Spectral-Graph-Survey/tree/master' },
+];
+const linkLLM = [
+  { title: 'Delta-graph signatures for post-edit risk screening in knowledge editing', venue: 'SDM, 2026, accepted, to appear', href: 'https://www.siam.org/conferences-events/siam-conferences/sdm26/' },
+  { title: 'Query-graph compatibility: A formal pre-condition for faithful knowledge-grounded language model generation', venue: 'CIKM, 2026, accepted, to appear', href: '' },
+  { title: 'From Networks to Neural Networks: What Internal Structure Tells Us About Generative Models', venue: 'PhD colloquium, RIT, Fall 2026, slides', href: 'https://aquastar.github.io/neural-networks-to-networks/' },
+];
+const linkMusic = [
+  { title: 'Learning to fuse music genres with generative adversarial dual learning', venue: 'ICDM, 2017, with Alexander Lerch', href: 'https://scholar.google.com/citations?view_op=view_citation&citation_for_view=NC3-O6UAAAAJ:d1gkVwhDpl0C' },
+  { title: 'Fusion-GAN, code for the ICDM 2017 paper', venue: 'GitHub', href: 'https://github.com/XGraph-Team/Fusion-GAN' },
+];
+const thrustImgs = [
+  { src: '/circ-analogy.jpg', alt: 'Generalized patterns across systems', cap: 'Generalized patterns across systems', sub: 'Analogy learning' },
+  { src: '/circ-interplay.jpg', alt: 'Cross-system behaviors', cap: 'Cross-system behaviors', sub: 'Interplay learning' },
+  { src: '/digital-twin-poster.jpg', alt: 'Network Digital Twin demo, opens on YouTube', cap: 'Executable replicas of coupled infrastructure', sub: 'Network Digital Twin, video', href: 'https://www.youtube.com/watch?v=09E4cgdvTSQ&t=12s' },
+];
+
 const externalGrants = [
   {
     agency: 'NSF', logo: '/icons/nsf.svg',
@@ -143,21 +195,196 @@ const internalSupport = [
       </div>
     </section>
 
-    <section class="section">
-      <h2>Current research</h2>
-      <p class="section-lead">I study graph dynamics through spectral graph theory, uncertainty quantification, higher-order analysis, and physics-inspired methods. My current focus is the behavior of coupled and interdependent networks, which are prevalent in practice but still thinly developed.</p>
-      <div class="scope-row">
-      <figure class="scope-figure">
-        <img src="/research-scope.png" alt="Two overlapping sets. Theoretical/Tool Study covers higher-order analysis, uncertainty quantification, spectral graph theory, and approximation theory. Application Study covers traffic and urban computing, spatial epidemiology, circuit and power networks, social networks, brain networks, and genetics and genomics. Graph dynamics sits in the overlap, feeding both." />
-      </figure>
-      <div class="prose scope-prose">
-        <p><strong>Theoretical study.</strong> Developing new methodology to represent and analyze graphs and their dynamics. I have explored spectral graph theory as a unified framework for representing complex networks, yielding several papers, a survey, tutorials at prestigious venues, and a widely used paper collection. I also investigate higher-order methods such as Shapley values and Sobol indices to understand combinatorial interactions among nodes, and use Bayesian optimization, Gaussian processes, and Kalman filtering to address efficiency in graph-based problems.</p>
-        <p><strong>Application research.</strong> The work reaches key social infrastructure and biological networks: transportation and urban systems, spatial epidemiology, and genetic networks. Collaborations with ecologists, medical researchers, and engineers have extended these methods to ecological networks, circuit dynamics, and brain signals in conditions such as ADHD and sleep disorders.</p>
-      </div>
+    <section class="section overview" id="overview">
+      <h2>At a glance</h2>
+      <p class="section-lead">Three application areas, two methods that run through all of them, and the grants that fund the work.</p>
+      <div class="glance">
+        <div class="glance-col">
+          <h4>Application areas</h4>
+          <a class="glance-item" href="#line-1"><span class="interest-num">1</span>Network science, graph machine learning and dynamical systems</a>
+          <a class="glance-item" href="#line-2"><span class="interest-num">2</span>Mechanistic understanding of large language models</a>
+          <a class="glance-item" href="#line-3"><span class="interest-num">3</span>Computational musicology</a>
+        </div>
+        <div class="glance-col">
+          <h4>Methods</h4>
+          <a class="glance-item" href="#method-uq"><span class="interest-num">A</span>Uncertainty quantification</a>
+          <a class="glance-item" href="#method-spectral"><span class="interest-num">B</span>Spectral analysis, mainly on graphs</a>
+        </div>
+        <div class="glance-col">
+          <h4>Funding</h4>
+          {externalGrants.slice(0, 4).map((g) => (
+            <a class="glance-item glance-grant" href="#funding"><span class="glance-agency">{g.agency}</span>{g.title.split(':')[0]} {g.awardNo}</a>
+          ))}
+          <a class="glance-more" href="#funding">All {externalGrants.length} external and {internalSupport.length} internal awards →</a>
+        </div>
       </div>
     </section>
 
-    <section class="section">
+    <section class="section" id="research-lines">
+      <h2>Application areas</h2>
+      <p class="section-lead">The work runs along three lines, in order of weight. The first is the long-standing core. The second and third are newer and growing.</p>
+
+      <h3 class="interest-head" id="line-1"><span class="interest-num">1</span>Network science, graph machine learning and dynamical systems</h3>
+      <div class="interest-body">
+        <p>Roads, power grids, epidemics and social media are all networks, and what happens on one network often spreads into another. I study how behavior spreads, settles and breaks in connected systems, and how to estimate and control it.</p>
+        <p>I look for generalized patterns that hold across very different networks, and for cross-system behaviors that pass from one network to another. The tools are spectral and functional analysis and uncertainty quantification. The systems studied include traffic grids, power networks, epidemics, social networks, banking and supply chains.</p>
+        <p>One example is a real-time Manhattan power and traffic co-simulation, in which electric vehicle charging load is fed back into the grid. Relevant support: <a href="https://www.nsf.gov/awardsearch/showAward?AWD_ID=2443266" target="_blank" rel="noopener">NSF CAREER #2443266</a> and <a href="https://www.nsf.gov/awardsearch/showAward?AWD_ID=2345921" target="_blank" rel="noopener">NSF CIRC #2345921</a>, both listed in the funding sections below.</p>
+      </div>
+      <div class="thrust-row">
+        {thrustImgs.map((t) => (
+          <figure class="thrust-item">
+            {t.href ? (
+              <a href={t.href} target="_blank" rel="noopener" aria-label={t.alt}><img src={t.src} alt={t.alt} loading="lazy" /></a>
+            ) : (
+              <img src={t.src} alt={t.alt} loading="lazy" />
+            )}
+            <figcaption><strong>{t.cap}</strong><span>{t.sub}</span></figcaption>
+          </figure>
+        ))}
+      </div>
+      <div class="interest-work">
+            <h4>Selected work</h4>
+            <ul>
+              {linkNetworks.map((w) => (
+                <li>{w.href ? <a href={w.href} target="_blank" rel="noopener">{w.title}</a> : <span class="work-title">{w.title}</span>} <span class="work-venue">{w.venue}</span></li>
+              ))}
+            </ul>
+          </div>
+
+      <h3 class="interest-head" id="line-2"><span class="interest-num">2</span>Mechanistic understanding of large language models</h3>
+      <div class="interest-split">
+        <figure class="interest-fig">
+              <svg viewBox="0 0 530 124" role="img" aria-labelledby="llm-fig-title">
+                <title id="llm-fig-title">Delta graphs, steering and stitching</title>
+                <defs>
+                  <marker id="arrowhead" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#475569" /></marker>
+                  <marker id="arrowhead-hot" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#dc2626" /></marker>
+                </defs>
+                <text x="90" y="11" class="fig-head">DELTA GRAPH</text>
+                {[[15, 0], [115, 1]].map(([x0, after]) => (
+                  <g>
+                    {llmEdges.map(([a, b], i) => {
+                      const p = llmNodes[a], q = llmNodes[b];
+                      const kind = after ? (llmChanged.includes(i) ? 'hot' : llmLost.includes(i) ? 'lost' : '') : '';
+                      return <line x1={x0 + p[0]} y1={p[1]} x2={x0 + q[0]} y2={q[1]} class={`fig-edge ${kind}`} />;
+                    })}
+                    {llmNodes.map(([x, y]) => <circle cx={x0 + x} cy={y} r="4.5" class="fig-node" />)}
+                    <text x={x0 + 25} y="114" class="fig-cap">{after ? 'after edit' : 'before'}</text>
+                  </g>
+                ))}
+                <path d="M77 58 h26" class="fig-arrow" marker-end="url(#arrowhead)" />
+
+                <text x="275" y="11" class="fig-head">STEERING</text>
+                {[30, 52, 74].map((y) => <rect x="235" y={y} width="80" height="12" class="fig-layer" />)}
+                <path d="M352 58 h-33" class="fig-arrow hot" marker-end="url(#arrowhead-hot)" />
+                <text x="338" y="51" class="fig-cap hot">+v</text>
+                <text x="275" y="114" class="fig-cap">add a direction</text>
+
+                <text x="450" y="11" class="fig-head">STITCHING</text>
+                <rect x="420" y="26" width="60" height="12" class="fig-layer b" />
+                <rect x="420" y="42" width="60" height="12" class="fig-layer b" />
+                <rect x="430" y="59" width="40" height="4" class="fig-stitch" />
+                <rect x="420" y="68" width="60" height="12" class="fig-layer" />
+                <rect x="420" y="84" width="60" height="12" class="fig-layer" />
+                <text x="486" y="44" class="fig-cap start">model B</text>
+                <text x="486" y="86" class="fig-cap start">model A</text>
+                <text x="450" y="114" class="fig-cap">join two models</text>
+              </svg>
+            </figure>
+        <div class="interest-body">
+          <p>Language models are changed after release. Facts are edited, layers are merged, weights are pruned or compressed. A model can pass the usual output tests after such a change while something inside it has broken.</p>
+          <p>I read a trained model's activations as a graph and compare that graph before and after a change. <em>Delta-Graph Signatures</em> (SDM 2026, accepted) uses this comparison to flag knowledge edits that pass standard checks but damage unrelated knowledge. A separate CIKM 2026 paper gives a formal pre-condition for checking whether a knowledge graph structurally supports a query before a language model generates from it.</p>
+          <p>Next steps are <strong>steering</strong>, <strong>model stitching</strong>, and detecting silent degradation from other model changes: fine-tuning, merging, quantization, pruning and distillation. The colloquium "From Networks to Neural Networks" gives a tutorial-style overview of this line.</p>
+        </div>
+      </div>
+      <div class="interest-work">
+            <h4>Selected work</h4>
+            <ul>
+              {linkLLM.map((w) => (
+                <li>{w.href ? <a href={w.href} target="_blank" rel="noopener">{w.title}</a> : <span class="work-title">{w.title}</span>} <span class="work-venue">{w.venue}</span></li>
+              ))}
+            </ul>
+          </div>
+
+      <h3 class="interest-head" id="line-3"><span class="interest-num">3</span>Computational musicology</h3>
+      <div class="interest-split">
+        <figure class="interest-fig">
+              <svg viewBox="0 0 530 124" role="img" aria-labelledby="music-fig-title">
+                <title id="music-fig-title">Genre fusion, and looking inside music generation models</title>
+                <text x="125" y="11" class="fig-head">GENRE FUSION, ICDM 2017</text>
+                {[[20, 28, 'a', 'genre A'], [20, 76, 'b', 'genre B'], [165, 52, 'f', 'fused']].map(([x, y, tone, label]) => (
+                  <g>
+                    {[0, 1, 2, 3, 4].map((k) => <line x1={x} y1={y + k * 4.5} x2={x + 80} y2={y + k * 4.5} class="fig-staff" />)}
+                    {musicNotes[tone].map(([dx, step]) => <ellipse cx={x + dx} cy={y + 18 - step * 2.4} rx="3.6" ry="2.7" class={`fig-note-head ${tone}`} />)}
+                    <text x={x + 40} y={y + 32} class="fig-cap">{label}</text>
+                  </g>
+                ))}
+                <path d="M104 38 C128 38 136 58 158 60" class="fig-arrow" marker-end="url(#arrowhead)" />
+                <path d="M104 86 C128 86 136 66 158 64" class="fig-arrow" marker-end="url(#arrowhead)" />
+
+                <text x="410" y="11" class="fig-head">INSIDE MUSIC MODELS</text>
+                {[26, 44, 62, 80].map((y, i) => <rect x="310" y={y} width="80" height="12" class={`fig-layer ${i === 2 ? 'hot' : ''}`} />)}
+                <path d="M394 68 h22" class="fig-arrow" marker-end="url(#arrowhead)" />
+                <text x="422" y="64" class="fig-cap start">where style lives,</text>
+                <text x="422" y="78" class="fig-cap start">how far it steers</text>
+                <text x="350" y="114" class="fig-cap">music generator</text>
+              </svg>
+            </figure>
+        <div class="interest-body">
+          <p>Music generation models now produce convincing audio, yet little is known about how they represent style. My first music paper fused two genres into a new one with adversarial dual learning (ICDM 2017, with Alexander Lerch).</p>
+          <p>Music is now a main and growing line of my work. The questions are how generation models encode style, how far that style can be steered, and how this can serve music for health and hearing. EEG and wearable sensors are being considered for the health side.</p>
+        </div>
+      </div>
+      <div class="interest-work">
+            <h4>Selected work</h4>
+            <ul>
+              {linkMusic.map((w) => (
+                <li>{w.href ? <a href={w.href} target="_blank" rel="noopener">{w.title}</a> : <span class="work-title">{w.title}</span>} <span class="work-venue">{w.venue}</span></li>
+              ))}
+            </ul>
+          </div>
+    </section>
+
+    <section class="section" id="methods">
+      <h2>Methods</h2>
+      <p class="section-lead">Two technical interests run through all three areas. More may join them later.</p>
+      <div class="scope-row">
+        <figure class="scope-figure">
+          <img src="/research-scope.png" alt="Two overlapping sets. Theoretical/Tool Study covers higher-order analysis, uncertainty quantification, spectral graph theory, and approximation theory. Application Study covers traffic and urban computing, spatial epidemiology, circuit and power networks, social networks, brain networks, and genetics and genomics. Graph dynamics sits in the overlap, feeding both." />
+        </figure>
+        <div>
+          <h3 class="interest-head" id="method-uq"><span class="interest-num">A</span>Uncertainty quantification</h3>
+          <div class="interest-body">
+            <p>A prediction on a network is only useful if we know how far to trust it. Data are usually sparse, such as a few road sensors or one snapshot of an outbreak, and the network itself may be uncertain.</p>
+            <p>I build methods that say how sure a prediction is and that make good decisions anyway. Kalman filtering paired with graph convolution forecasts traffic with error bars. Graph Bayesian optimization finds where a spread started from a single snapshot, and picks the best seed users across several linked networks. Sobol and Shapley analysis separate a node's own effect from its interactions with others.</p>
+          </div>
+          <div class="interest-work">
+            <h4>Selected work</h4>
+            <ul>
+              {linkUQ.map((w) => (
+                <li>{w.href ? <a href={w.href} target="_blank" rel="noopener">{w.title}</a> : <span class="work-title">{w.title}</span>} <span class="work-venue">{w.venue}</span></li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <h3 class="interest-head" id="method-spectral"><span class="interest-num">B</span>Spectral analysis, mainly on graphs</h3>
+      <div class="interest-body">
+        <p>A graph's eigenvectors play the role that sine waves play for sound. They split a signal on a network into smooth and fast-changing parts, which makes filtering, comparison and theory possible.</p>
+        <p>I use this view to unify graph neural networks: spectral and spatial models turn out to be two readings of the same operator, and rational approximations give sharper graph filters. Recent work applies spectral analysis mainly to graphs, from infrastructure networks to graphs read out of model activations.</p>
+      </div>
+      <div class="interest-work">
+        <h4>Selected work</h4>
+        <ul>
+          {linkSpectral.map((w) => (
+            <li>{w.href ? <a href={w.href} target="_blank" rel="noopener">{w.title}</a> : <span class="work-title">{w.title}</span>} <span class="work-venue">{w.venue}</span></li>
+          ))}
+        </ul>
+      </div>
+    </section>
+
+    <section class="section" id="funding">
       <h2>Funding · External</h2>
       <div class="list">
         {externalGrants.map((g) => {
@@ -231,6 +458,18 @@ const internalSupport = [
 
   /* The figure ships from the statement itself, rendered at 300dpi so it stays
      sharp across the full container width. */
+  .glance { display:grid; grid-template-columns:1.2fr .9fr 1.1fr; gap:22px; }
+  .glance-col h4 { margin:0 0 6px; font-size:.72rem; font-weight:700; letter-spacing:.08em; text-transform:uppercase; color:#64748b; }
+  .glance-item { display:flex; align-items:baseline; gap:8px; padding:7px 10px; margin-bottom:6px; border:1px solid #e2e8f0; border-radius:10px; font-size:.86rem; color:#0f172a; text-decoration:none; text-align:left; line-height:1.35; }
+  .glance-item:hover { border-color:var(--accent); color:var(--accent); }
+  .glance-item .interest-num { flex:none; font-weight:700; color:var(--accent); }
+  .glance-grant { font-size:.8rem; color:#334155; }
+  .glance-agency { flex:none; font-size:.66rem; font-weight:700; color:#1d4ed8; background:#dbeafe; border-radius:4px; padding:1px 5px; }
+  .glance-more { font-size:.8rem; color:var(--accent); text-decoration:none; }
+  .glance-more:hover { text-decoration:underline; }
+  html { scroll-behavior:smooth; }
+  .interest-head[id], #funding { scroll-margin-top:16px; }
+  @media (max-width: 900px) { .glance { grid-template-columns:1fr; gap:14px; } }
   .scope-row { display:grid; grid-template-columns:1.4fr 1fr; gap:24px; align-items:start; margin-bottom:4px; }
   .scope-figure { margin:0; }
   .scope-figure img { display:block; width:100%; height:auto; }
@@ -245,6 +484,54 @@ const internalSupport = [
   .grant-content h3 { margin:0 0 4px; font-family:'Montserrat',sans-serif; font-size:.95rem; line-height:1.25; }
   .grant-meta { margin:0 0 4px; font-size:.8rem; color:#334155; line-height:1.25; }
   .grant-desc { margin:0; font-size:.82rem; color:#64748b; line-height:1.32; }
+
+
+  /* Three research lines. Figures are the homepage ones at the same size. */
+  .interest-head { display:flex; align-items:baseline; gap:7px; text-align:left; font-family:'Montserrat',sans-serif; font-size:.98rem; font-weight:700; color:var(--ink); margin:22px 0 8px; }
+  .interest-num { color:var(--accent); }
+  .interest-split { display:grid; grid-template-columns:minmax(0,460px) minmax(0,1fr); gap:28px; align-items:center; max-width:1100px; }
+  .interest-fig { margin:0; }
+  .interest-fig svg { width:100%; height:auto; display:block; font-family:Inter, system-ui, sans-serif; }
+  .interest-body { text-align:left; max-width:900px; }
+  .interest-body p { margin:0 0 9px; font-size:.9rem; line-height:1.6; color:#334155; text-align:left; }
+  .interest-body p:last-child { margin-bottom:0; }
+  .interest-body strong { color:var(--ink); font-weight:600; }
+  .interest-body a, .interest-work a { color:#334155; text-decoration:underline; text-underline-offset:2px; text-decoration-color:rgba(148,163,184,.6); }
+  .interest-body a:hover, .interest-work a:hover { color:var(--accent); }
+  .interest-split + .interest-work { margin-top:12px; }
+  .interest-work { margin-top:12px; text-align:left; }
+  .interest-work h4 { margin:0 0 4px; font-size:.72rem; font-weight:700; letter-spacing:.08em; text-transform:uppercase; color:#64748b; }
+  .interest-work ul { margin:0; padding-left:18px; }
+  .interest-work li { font-size:.85rem; line-height:1.5; color:#334155; text-align:left; margin:0 0 3px; }
+  .work-venue { color:#64748b; white-space:normal; }
+  .work-venue::before { content:'('; }
+  .work-venue::after { content:')'; }
+  .thrust-row { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:14px; margin-top:14px; max-width:900px; }
+  .thrust-item { margin:0; }
+  .thrust-item img { display:block; width:100%; height:auto; border:1px solid rgba(148,163,184,.2); border-radius:8px; }
+  .thrust-item a { display:block; }
+  .thrust-item figcaption { margin-top:5px; font-size:.76rem; line-height:1.35; color:#475569; text-align:left; }
+  .thrust-item figcaption strong { display:block; color:var(--ink); font-weight:600; }
+  .fig-head { font-size: 9.5px; font-weight: 700; letter-spacing: .09em; fill: #64748b; text-anchor: middle; }
+  .fig-cap { font-size: 11px; fill: #475569; text-anchor: middle; }
+  .fig-cap.hot { fill: #dc2626; font-weight: 600; }
+  .fig-cap.start { text-anchor: start; }
+  .fig-node { fill: #fff; stroke: #334155; stroke-width: 1.3; }
+  .fig-edge { stroke: #94a3b8; stroke-width: 1; }
+  .fig-edge.hot { stroke: #dc2626; stroke-width: 2.2; }
+  .fig-edge.lost { stroke-dasharray: 2 2; opacity: .55; }
+  .fig-arrow { fill: none; stroke: #475569; stroke-width: 1.2; }
+  .fig-arrow.hot { stroke: #dc2626; stroke-width: 1.6; }
+  .fig-layer { fill: #fff; stroke: #334155; stroke-width: 1; }
+  .fig-layer.b { fill: #e2e8f0; }
+  .fig-layer.hot { stroke: #dc2626; stroke-width: 1.6; }
+  .fig-stitch { fill: #334155; }
+  .fig-staff { stroke: #cbd5e1; stroke-width: .8; }
+  .fig-note-head.a { fill: #334155; }
+  .fig-note-head.b { fill: #94a3b8; }
+  .fig-note-head.f { fill: #dc2626; }
+  @media (max-width: 900px) { .interest-split { grid-template-columns:1fr; gap:12px; } }
+  @media (max-width: 560px) { .thrust-row { grid-template-columns:1fr; max-width:360px; } }
 
   @media (max-width: 900px) {
     .hero-grid, .scope-row { grid-template-columns:1fr; }
