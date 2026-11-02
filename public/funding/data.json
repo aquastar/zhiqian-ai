@@ -6,7 +6,7 @@
     "opportunities": 38,
     "early_signals": 15,
     "registry": 232,
-    "watchlist": 228
+    "watchlist": 232
   },
   "opportunities": [
     {
@@ -7154,6 +7154,42 @@
       "typical_cycle": "Aug to Oct before ISMIR",
       "access": "open",
       "why_niche_or_notes": "Music IR evaluation, robots blocked. Added 2026-10-27"
+    },
+    {
+      "funder": "Laboratory for Analytic Sciences (LAS, NC State, NSA/DoD funded) annual white paper call",
+      "category": "defense_niche",
+      "opportunities_url": "https://ncsu-las.org/what-we-do/call-for-white-papers/",
+      "url_verified": "Y",
+      "typical_cycle": "annual, call opens July 1, abstracts due late July, full proposals Sept, awards Nov, projects start Jan, capability statements accepted year round",
+      "access": "open",
+      "why_niche_or_notes": "Year long DoD funded collaborator projects with NC State LAS (human machine teaming, content triage, operationalizing ML). Academic and industry researchers invited. Found via peer harvest: Jesse Thomason (USC)."
+    },
+    {
+      "funder": "Center for AI Safety Compute Cluster",
+      "category": "ai_safety_philanthropy",
+      "opportunities_url": "https://www.safe.ai/compute-cluster",
+      "url_verified": "Y",
+      "typical_cycle": "rolling when open, currently not accepting new external applications",
+      "access": "unknown",
+      "why_niche_or_notes": "Free A100 compute for ML safety research. Watch for reopening. Found via peer harvest: Sijia Liu (MSU) CAIS gift."
+    },
+    {
+      "funder": "Mozilla Foundation grantmaking (Incubator, Fellows, Responsible Computing Challenge, Collaborative Funds)",
+      "category": "foundation_general",
+      "opportunities_url": "https://www.mozillafoundation.org/ca/what-we-do/grantmaking/",
+      "url_verified": "Y",
+      "typical_cycle": "irregular open calls, e.g. Democracy x AI cohort spring 2026 (about $50k each)",
+      "access": "open",
+      "why_niche_or_notes": "Trustworthy and open AI themes. Register for call alerts. Found via peer harvest: Steven Wu (CMU) Mozilla research grant."
+    },
+    {
+      "funder": "Fulbright U.S. Scholar Program",
+      "category": "federal_niche",
+      "opportunities_url": "https://fulbrightscholars.org/us-scholar-awards",
+      "url_verified": "Y",
+      "typical_cycle": "annual, opens February, deadline mid September",
+      "access": "open",
+      "why_niche_or_notes": "US citizens only. Research or teaching abroad. Found via peer harvest: Elizabeth Lane Lawley (RIT), Parisa Kordjamshidi (MSU)."
     }
   ]
 }
