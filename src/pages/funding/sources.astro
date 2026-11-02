@@ -19,10 +19,10 @@ const categories = [...new Set(data.watchlist.map((w) => w.category).filter(Bool
       <p class="back"><a href="/funding"><i class="fas fa-arrow-left" aria-hidden="true"></i> Computing Funding</a></p>
       <h1>Sources and data</h1>
       <p class="lede">
-        The list is rebuilt twice a week, on Monday and Friday. A research agent sweeps the sources below,
+        The list is rebuilt once a week, early on Monday, New York time. A research agent sweeps the sources below,
         opens every call at its own page to read the deadline, the amount and who may apply, and writes a brief.
         A scheduled job then turns the brief into this site, keeping only what is true for anyone and dropping
-        anything personal. Latest sweep: <b>{data.date}</b>.
+        anything personal. Latest sweep: <b>{data.date}</b>. The next one is due the following Monday.
       </p>
 
       <h2>What is swept</h2>

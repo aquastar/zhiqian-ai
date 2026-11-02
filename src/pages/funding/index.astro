@@ -91,6 +91,13 @@ const FORMATS = [
 const formats = (r) => FORMATS.filter(([, re]) => re.test(`${r.program} ${r.tldr}`)).map(([k]) => k);
 
 const COMP_WORD = { 1: 'light', 2: 'moderate', 3: 'competitive', 4: 'hard', 5: 'very hard' };
+// The sweep runs every Monday early morning, New York time, and the site
+// follows within the hour, so the next update is the Monday after this one.
+const nextSweep = (() => {
+  const d = new Date(`${data.date}T12:00:00Z`);
+  d.setUTCDate(d.getUTCDate() + (((8 - d.getUTCDay()) % 7) || 7));
+  return d.toISOString().slice(0, 10);
+})();
 ---
 
 <Layout title="Funding | Zhiqian Chen">
@@ -105,8 +112,9 @@ const COMP_WORD = { 1: 'light', 2: 'moderate', 3: 'competitive', 4: 'hard', 5: '
       </div>
       <div class="brief-side">
         <div class="stamp">
-          <span class="stamp-label">Latest sweep <em>tracked twice weekly</em></span>
+          <span class="stamp-label">Latest sweep <em>updated weekly</em></span>
           <span class="stamp-date">{data.date}</span>
+          <span class="stamp-next">Next update about {nextSweep}</span>
         </div>
         <ul class="tally">
           <li title="Every call the sweep has ever reported, including the closed ones, which are kept so the list reads as a record rather than only a to-do."><b>{counts.all}</b><span>tracked</span></li>
@@ -409,6 +417,7 @@ const COMP_WORD = { 1: 'light', 2: 'moderate', 3: 'competitive', 4: 'hard', 5: '
   .when-main { display:inline-flex; align-items:center; gap:6px; margin-left:auto; flex:0 0 auto; }
   .qual { font-size:.6rem; font-weight:800; letter-spacing:.05em; text-transform:uppercase;
     color:#92400e; background:#fef3c7; border:1px solid #fde68a; border-radius:4px; padding:1px 5px; }
+  .stamp-next { display:block; font-size:.72rem; color:#64748b; margin-top:2px; }
   .date { font-variant-numeric:tabular-nums; font-weight:600; color:#1e293b; }
   .date.is-gone { font-weight:500; color:#64748b; }
   .rolling { font-size:.78rem; color:#475569; }

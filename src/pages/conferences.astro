@@ -5,6 +5,7 @@ import { ranked, notable, journals } from '../data/conferences.js';
 import { topicRates } from '../data/topics.js';
 import { DOMAINS, GROUPS } from '../data/domains.js';
 import { trends } from '../data/trends.js';
+import { execSync } from 'node:child_process';
 
 // The fields live in src/data/domains.js, each with the format that suits
 // it. AI opens first: it is what this page is mostly for.
@@ -401,6 +402,13 @@ const groupOf = Object.fromEntries(DOMAINS.map((d) => [d.id, d.group]));
 const totalRated = rows.filter((c) => c.rates.length).length;
 const freshRated = rows.filter((c) => c.rates.length && c.rates[c.rates.length - 1].y >= FRESH_FROM).length;
 
+// When the data last changed: the daily refresh commits the data file only
+// when something moved, so its last commit date is the honest answer. Falls
+// back to the build date where git history is not available.
+const lastUpdate = (() => {
+  try { return execSync('git log -1 --format=%cs -- src/data/conferences.js').toString().trim() || new Date().toISOString().slice(0, 10); }
+  catch { return new Date().toISOString().slice(0, 10); }
+})();
 ---
 <Layout title="Conferences | Zhiqian Chen">
   <main class="container">
@@ -427,6 +435,7 @@ const freshRated = rows.filter((c) => c.rates.length && c.rates[c.rates.length -
           ))}
         </nav>
       </div>
+      <p class="upd">Data last changed <b>{lastUpdate}</b> · checked daily, next check <b id="next-check">06:17 UTC</b></p>
       <a class="gh-data" href="https://github.com/aquastar/cross-field-conferences" target="_blank" rel="noopener">
         <i class="fab fa-github" aria-hidden="true"></i>All of this as open data on GitHub <span>Star · cite · correct</span></a>
     </section>
@@ -1009,6 +1018,16 @@ ${t.rate}% accepted, ${t.n.toLocaleString()} submissions, ${t.share}% of the edi
       </p>
     </section>
   </main>
+  <script>
+    // The refresh runs at 06:17 UTC every day. Show the next run in the reader's own time.
+    const el = document.getElementById('next-check');
+    if (el) {
+      const now = new Date();
+      const next = new Date(Date.UTC(now.getUTCFullYear(), now.getUTCMonth(), now.getUTCDate(), 6, 17));
+      if (next <= now) next.setUTCDate(next.getUTCDate() + 1);
+      el.textContent = next.toLocaleString(undefined, { month: 'short', day: 'numeric', hour: 'numeric', minute: '2-digit' });
+    }
+  </script>
 </Layout>
 
 <style>
@@ -1018,6 +1037,8 @@ ${t.rate}% accepted, ${t.n.toLocaleString()} submissions, ${t.share}% of the edi
   /* Only this item moves. margin-left:auto pushes it to the far right
      and leaves every other nav link exactly where it was. */
   .head { margin-bottom: 0; }
+  .upd { margin:8px 0 0; font-size:.76rem; color:#64748b; text-align:left; }
+  .upd b { color:#334155; font-weight:600; }
   .gh-data { display:inline-flex; align-items:center; gap:7px; margin:8px 0 2px; font-size:.8rem; font-weight:600; color:#334155; text-decoration:none; }
   .gh-data i { font-size:.95rem; color:#0f172a; }
   .gh-data span { font-weight:500; color:#94a3b8; }

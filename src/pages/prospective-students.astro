@@ -13,24 +13,40 @@ const tracks = [
   {
     title: 'Research Intern',
     body: [
-      'Unpaid research internships are open both in person at RIT and remotely. Openings come up throughout the year, sometimes on a monthly basis, and are filled case by case. Send your CV with a short note on what you would like to work on, and I will keep you in mind for the next suitable project. High school students are welcome to apply as well.',
+      'Both remote and in-person interns are welcome. Openings come up throughout the year, sometimes on a monthly basis, and are filled case by case. Send your CV with a short note on what you would like to work on, and I will keep you in mind for the next suitable project. High school students are welcome to apply as well.',
+    ],
+  },
+  {
+    title: 'Capstone and Independent Study',
+    body: [
+      'If your degree program requires a capstone project, or you would like to do an independent study for credit, I am open to supervising projects in my research areas. Reach out early in the semester before you plan to start, with a short note on your program and the kind of project you have in mind.',
     ],
   },
 ];
 ---
-<Layout title="Work With Me | Zhiqian Chen">
+<Layout title="Prospective Students | Zhiqian Chen">
   <main class="container">
-    <Nav />
+    <Nav current="students" />
 
     <section class="hero">
-      <h1>For Prospective Students</h1>
+      <h1>Prospective Students</h1>
       <p class="lead">
         Please send your CV and transcript to
         <a href="mailto:zhiqian.chen@rit.edu">zhiqian DOT chen AT rit DOT edu</a>
         or
         <a href="mailto:chen.zhiqian.work@gmail.com">chen DOT zhiqian DOT work AT gmail DOT com</a>.
       </p>
-      <p class="contact">I currently take Ph.D. students and research interns.</p>
+      <p class="contact">I currently take Ph.D. students, research interns, and capstone or independent study students.</p>
+    </section>
+
+    <section class="section">
+      <h2>Basic requirements</h2>
+      <ul class="reqs">
+        <li>A background in engineering, computer science, mathematics or a related field</li>
+        <li>Solid coding skills</li>
+        <li>Solid mathematics</li>
+        <li>Genuine passion and motivation for research</li>
+      </ul>
     </section>
 
     <section class="section">
@@ -61,14 +77,15 @@ const tracks = [
   .section h2 { font-family:'Montserrat',sans-serif; font-size:.82rem; font-weight:700; letter-spacing:.14em; text-transform:uppercase; color:var(--accent); margin: 0 0 12px; }
   .section > p { color:#334155; font-size:.95rem; line-height:1.55; margin: 0 0 10px; max-width: 80ch; }
 
-  .tracks { display:grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 14px; }
+  .reqs { margin:0; padding-left:20px; color:#334155; font-size:.95rem; line-height:1.7; text-align:left; }
+  .tracks { display:grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 14px; }
   .track { background:#fafbfc; padding:16px 18px; }
   .track h3 { font-family:'Montserrat',sans-serif; font-size:1.02rem; margin:0 0 8px; color:var(--ink); }
   .track p:last-child { margin-bottom:0; }
   .track p { text-align:left; margin:0 0 8px; color:#334155; font-size:.92rem; line-height:1.55; }
 
 
-  @media (max-width: 720px) {
+  @media (max-width: 1000px) {
     .tracks { grid-template-columns: 1fr; }
   }
 </style>

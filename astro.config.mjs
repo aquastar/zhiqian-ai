@@ -7,5 +7,7 @@ export default defineConfig({
   // itself became /agenda, so an old link must not land on the calendar.
   redirects: {
     '/grant': '/research',
+    // Work With Me was renamed Prospective Students.
+    '/work-with-me': '/prospective-students',
   },
 });
