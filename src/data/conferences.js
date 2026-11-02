@@ -3,7 +3,7 @@
 // CORE ranks are cross-checked against the official CORE2023 export from
 // portal.core.edu.au. Acceptance rates and submission counts come from
 // github.com/Xovee/cs-conf-stats (main track only).
-// Built 2026-11-01.
+// Built 2026-11-02.
 export const ranked = [
   {
     "title": "NDSS",
@@ -22,7 +22,7 @@ export const ranked = [
     "rounds": [
       {
         "d": "2026-05-06",
-        "label": "Summer",
+        "label": "Summer; author rebuttal date tentative; decision is final major-revision notification",
         "est": false,
         "year": 2027,
         "link": "https://www.ndss-symposium.org/ndss2027/",
@@ -30,7 +30,7 @@ export const ranked = [
       },
       {
         "d": "2026-08-19",
-        "label": "Fall",
+        "label": "Fall; decision is final major-revision notification",
         "est": false,
         "year": 2027,
         "link": "https://www.ndss-symposium.org/ndss2027/",
@@ -48,8 +48,8 @@ export const ranked = [
     "city": "Korean barbecue and soju, Gwangjang market, palaces free if you rent a hanbok",
     "cycles": 2,
     "roundLabels": [
-      "Summer",
-      "Fall"
+      "Summer; author rebuttal date tentative; decision is final major-revision notification",
+      "Fall; decision is final major-revision notification"
     ],
     "proceedings": "full",
     "rates": [
@@ -13058,7 +13058,7 @@ export const ranked = [
     "edition": "40th",
     "best": "",
     "link": "https://2027.ieee-iros.org/",
-    "date": "September 26 - October 1, 2027",
+    "date": "September 27 - October 1, 2027",
     "place": "Florence, Italy",
     "cc": "it",
     "city": "bistecca alla fiorentina for two, gelato at Vivoli, the Uffizi first thing",
@@ -19167,11 +19167,11 @@ export const journals = [
       },
       {
         "y": 2021,
-        "n": 124
+        "n": 123
       },
       {
         "y": 2022,
-        "n": 115
+        "n": 116
       },
       {
         "y": 2023,
@@ -19642,7 +19642,7 @@ export const journals = [
         "n": 17
       }
     ],
-    "cites": 1.8,
+    "cites": 1.7,
     "h": 77,
     "oa": "https://openalex.org/S106992369",
     "link": "https://dblp.org/db/journals/jcs/index.html"
@@ -20212,7 +20212,7 @@ export const journals = [
         "n": 101
       }
     ],
-    "cites": 1.4,
+    "cites": 1.3,
     "h": 111,
     "oa": "https://openalex.org/S206595242",
     "link": ""
@@ -21877,7 +21877,7 @@ export const journals = [
         "n": 147
       }
     ],
-    "cites": 4.1,
+    "cites": 4.2,
     "h": 303,
     "oa": "https://openalex.org/S125775545",
     "link": "https://dblp.org/db/journals/ior/index.html"
@@ -21915,11 +21915,11 @@ export const journals = [
       },
       {
         "y": 2021,
-        "n": 416
+        "n": 417
       },
       {
         "y": 2022,
-        "n": 421
+        "n": 422
       },
       {
         "y": 2023,
@@ -22615,7 +22615,7 @@ export const journals = [
       },
       {
         "y": 2025,
-        "n": 21364
+        "n": 21365
       }
     ],
     "cites": 2.1,
@@ -22732,7 +22732,7 @@ export const journals = [
         "n": 65
       }
     ],
-    "cites": 6.5,
+    "cites": 6.4,
     "h": 416,
     "oa": "https://openalex.org/S58854535",
     "link": ""
@@ -22789,7 +22789,7 @@ export const journals = [
         "n": 185
       }
     ],
-    "cites": 10.9,
+    "cites": 10.8,
     "h": 457,
     "oa": "https://openalex.org/S192051125",
     "link": ""
@@ -23416,7 +23416,7 @@ export const journals = [
         "n": 107
       }
     ],
-    "cites": 17.0,
+    "cites": 16.9,
     "h": 132,
     "oa": "https://openalex.org/S4210237014",
     "link": ""
@@ -23474,7 +23474,7 @@ export const journals = [
       }
     ],
     "cites": 14.3,
-    "h": 168,
+    "h": 167,
     "oa": "https://openalex.org/S4210195431",
     "link": ""
   },
@@ -24100,7 +24100,7 @@ export const journals = [
         "n": 390
       }
     ],
-    "cites": 24.2,
+    "cites": 24.3,
     "h": 653,
     "oa": "https://openalex.org/S103895331",
     "link": ""
@@ -25299,7 +25299,7 @@ export const journals = [
       },
       {
         "y": 2020,
-        "n": 2890
+        "n": 2891
       },
       {
         "y": 2021,
@@ -25315,11 +25315,11 @@ export const journals = [
       },
       {
         "y": 2024,
-        "n": 2579
+        "n": 2580
       },
       {
         "y": 2025,
-        "n": 3314
+        "n": 3316
       }
     ],
     "cites": 9.2,
@@ -25360,7 +25360,7 @@ export const journals = [
       },
       {
         "y": 2021,
-        "n": 366
+        "n": 367
       },
       {
         "y": 2022,
@@ -25368,7 +25368,7 @@ export const journals = [
       },
       {
         "y": 2023,
-        "n": 437
+        "n": 438
       },
       {
         "y": 2024,
@@ -25436,7 +25436,7 @@ export const journals = [
         "n": 341
       }
     ],
-    "cites": 11.4,
+    "cites": 11.3,
     "h": 229,
     "oa": "https://openalex.org/S137042341",
     "link": ""
@@ -25639,7 +25639,7 @@ export const journals = [
         "n": 6
       }
     ],
-    "cites": 6.3,
+    "cites": 6.2,
     "h": 202,
     "oa": "https://openalex.org/S113542759",
     "link": ""

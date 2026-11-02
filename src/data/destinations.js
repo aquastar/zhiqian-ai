@@ -3,7 +3,7 @@
 // CCF A or B, or CORE A* or A, every hand-kept venue on the field
 // tabs, and the venues added by hand in the script. Destinations mix cities, countries and
 // regions, because that is how people choose where to go.
-// Built 2026-11-01.
+// Built 2026-11-02.
 export const destinations = {
  "items": [
   {
@@ -5012,7 +5012,7 @@ export const destinations = {
    "desc": "IEEE/RSJ International Conference on Intelligent Robots and Systems",
    "year": 2027,
    "place": "Florence, Italy",
-   "date": "September 26 - October 1, 2027",
+   "date": "September 27 - October 1, 2027",
    "city": "Florence",
    "country": "Italy",
    "dest": "Italy",
@@ -7432,7 +7432,7 @@ export const destinations = {
    "ccf": "A",
    "core": "A*",
    "sub": "DB",
-   "deadline": "2026-11-01",
+   "deadline": "2026-12-01",
    "open": true,
    "link": "https://www.vldb.org/2027/",
    "q": "athens, greece athens greece ",
