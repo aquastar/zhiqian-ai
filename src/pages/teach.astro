@@ -85,6 +85,7 @@ const courses = [
   { tag: 'Graduate', title: 'CSE 8673 Machine Learning', desc: 'Graduate-level machine learning with emphasis on principles and applications.', school: 'Mississippi State University' },
   { tag: 'Graduate', title: 'CSE 8990 Graph Machine Learning', desc: 'Advanced topics in graph machine learning and networked intelligence.', school: 'Mississippi State University' },
 ];
+const featured = courses.find((c) => c.project);
 ---
 <Layout title="Talk &amp; Teach | Zhiqian Chen">
   <main class="container">
@@ -93,7 +94,8 @@ const courses = [
       <h1>Talk &amp; Teach</h1>
       <p>Slides and tutorial materials, kept online for collaborators and students.</p>
     </section>
-    <section class="section">
+    <div class="teach-grid">
+    <section class="section talks-col">
       <h2>Talks &amp; tutorials</h2>
       <ol class="talks">
         {talks.map((t) => (
@@ -101,9 +103,11 @@ const courses = [
             <div class="talk-year">{t.year}</div>
             <div class="talk-body">
               <div class="talk-title">{t.title} <span class="talk-kind">{t.tag}</span></div>
-              {t.events.map((e) => (
-                <div class="talk-event">{e.href ? <a href={e.href} target="_blank" rel="noopener">{e.label}</a> : e.label}</div>
-              ))}
+              <div class="talk-events">
+                {t.events.map((e) => (
+                  <span class="talk-event">{e.href ? <a href={e.href} target="_blank" rel="noopener">{e.label}</a> : e.label}</span>
+                ))}
+              </div>
               {t.desc && <div class="talk-desc">{t.desc}</div>}
               {t.links.length > 0 && (
                 <div class="talk-links">
@@ -117,46 +121,46 @@ const courses = [
         ))}
       </ol>
     </section>
-    <section class="section">
-      <h2>Courses</h2>
-      <ol class="talks">
-        {courses.map((c) => (
-          <li class="talk">
-            <div class="talk-year">{c.current ? 'Current' : 'Past'}</div>
-            <div class="talk-body">
-              <div class="talk-title">{c.title} <span class="talk-kind">{c.tag}</span></div>
-              <div class="talk-event">{c.school}</div>
-              <div class="talk-desc">{c.desc}</div>
-              {c.project && (
-                <div class="course-project">
-                  <div class="project-copy">
-                    <div class="project-head">
-                      <span class="project-kicker">Selected project</span>
-                      <span class="project-title">{c.project.title}</span>
-                      <span class="project-award"><i class="fas fa-award" aria-hidden="true"></i>{c.project.award}</span>
-                    </div>
-                    <p class="project-desc">{c.project.desc}</p>
-                  </div>
-                  <figure class="project-media">
-                    <video
-                      class="project-video"
-                      src={c.project.video}
-                      poster={c.project.poster}
-                      preload="none"
-                      muted
-                      loop
-                      controls
-                      playsinline
-                      aria-label={`${c.project.title} demonstration`}
-                    ></video>
-                  </figure>
-                </div>
-              )}
+    <aside class="teach-side">
+      {featured && (
+        <section class="section award">
+          <h2><i class="fas fa-award" aria-hidden="true"></i> Teaching award</h2>
+          <div class="course-project">
+            <figure class="project-media">
+              <video
+                class="project-video"
+                src={featured.project.video}
+                poster={featured.project.poster}
+                preload="none"
+                muted
+                loop
+                controls
+                playsinline
+                aria-label={`${featured.project.title} demonstration`}
+              ></video>
+            </figure>
+            <div class="project-head">
+              <span class="project-award">{featured.project.award}</span>
+              <span class="project-title">{featured.project.title}</span>
+              <span class="project-course">{featured.title} · {featured.school}</span>
             </div>
-          </li>
-        ))}
-      </ol>
-    </section>
+            <p class="project-desc">{featured.project.desc}</p>
+          </div>
+        </section>
+      )}
+      <section class="section">
+        <h2>Courses</h2>
+        <ol class="courses">
+          {courses.map((c) => (
+            <li class="course">
+              <div class="talk-title">{c.title} <span class="talk-kind">{c.tag}</span>{c.current && <span class="talk-kind is-current">Current</span>}{c.project && <i class="fas fa-award course-star" title={c.project.award}></i>}</div>
+              <div class="talk-event">{c.school}</div>
+            </li>
+          ))}
+        </ol>
+      </section>
+    </aside>
+    </div>
   </main>
   <script>
     // Hold the fetch back until the clip is actually on screen, then loop it
@@ -186,7 +190,7 @@ const courses = [
 <style>
   :root { --accent:#2563eb; --ink:#0f172a; --muted:#475569; }
   .container { max-width: min(95vw, 1600px); margin: 0 auto; padding: 20px; box-sizing: border-box; }
-  .hero { margin: 10px 0 28px; }
+  .hero { margin: 10px 0 18px; }
   .hero h1 { font-family:'Montserrat',sans-serif; font-size:2rem; margin:0 0 8px; }
   .hero p { margin:0; color:var(--muted); max-width:780px; }
   .section { padding-top:18px; margin-top:26px; border-top:none; }
@@ -204,31 +208,42 @@ const courses = [
   .card.is-current { border-color:rgba(22,101,52,.28); }
   .school { margin:0 0 6px !important; font-size:.8rem; color:#64748b; }
   .schedule-box { border:1px dashed rgba(37,99,235,.28); border-radius:14px; padding:14px; background:#f8fbff; color:#334155; }
-  .talks { list-style:none; margin:0; padding:0; border-top:1px solid #e2e8f0; }
-  .talk { display:grid; grid-template-columns: 110px 1fr; gap:18px; padding:16px 0; border-bottom:1px solid #e2e8f0; }
-  .talk-year { font-family:'Montserrat',sans-serif; font-size:.85rem; color:#64748b; padding-top:2px; }
-  .talk-title { font-family:'Montserrat',sans-serif; font-size:1rem; font-weight:600; color:#0f172a; line-height:1.4; }
-  .talk-kind { font-family:inherit; font-weight:400; font-size:.72rem; color:#64748b; border:1px solid #cbd5e1; border-radius:4px; padding:1px 6px; margin-left:6px; vertical-align:2px; white-space:nowrap; }
-  .talk-event { font-size:.9rem; color:#334155; font-style:italic; margin-top:3px; }
+  /* Talks on the left, the award and the course list in a sticky column on the right. */
+  .teach-grid { display:grid; grid-template-columns:minmax(0,1.55fr) minmax(320px,1fr); gap:40px; align-items:start; }
+  .teach-grid > .section, .teach-side > .section { margin-top:0; padding-top:0; }
+  .teach-side { position:sticky; top:16px; display:flex; flex-direction:column; gap:22px; }
+  .talks, .courses { list-style:none; margin:0; padding:0; border-top:1px solid #e2e8f0; }
+  .talk { display:grid; grid-template-columns:72px 1fr; gap:12px; padding:10px 0; border-bottom:1px solid #e2e8f0; }
+  .talk-year { font-family:'Montserrat',sans-serif; font-size:.78rem; color:#64748b; padding-top:2px; }
+  .talk-title { text-align:left; font-family:'Montserrat',sans-serif; font-size:.9rem; font-weight:600; color:#0f172a; line-height:1.35; }
+  .talk-kind { font-family:inherit; font-weight:400; font-size:.66rem; color:#64748b; border:1px solid #cbd5e1; border-radius:4px; padding:0 5px; margin-left:6px; vertical-align:2px; white-space:nowrap; }
+  .talk-kind.is-current { color:#166534; border-color:#86efac; background:#f0fdf4; }
+  .talk-events { display:flex; flex-wrap:wrap; gap:4px 6px; margin-top:4px; }
+  .talk-events .talk-event { margin:0; padding:1px 8px; border-radius:999px; background:#f1f5f9; font-style:normal; }
+  .talk-event { font-size:.78rem; color:#334155; font-style:italic; margin-top:2px; line-height:1.4; }
   .talk-event a { color:inherit; text-decoration:none; }
   .talk-event a:hover { text-decoration:underline; }
-  .talk-desc { font-size:.9rem; color:#475569; margin-top:6px; text-align:left; }
-  .talk-links { margin-top:6px; font-size:.85rem; display:flex; flex-wrap:wrap; gap:10px; }
+  .talk-desc { font-size:.8rem; color:#475569; margin-top:4px; line-height:1.45; text-align:left; }
+  .talk-links { margin-top:3px; font-size:.78rem; display:flex; flex-wrap:wrap; gap:10px; }
   .talk-links a { color:#1d4ed8; text-decoration:none; }
   .talk-links a:hover { text-decoration:underline; }
-  /* The award project sits inside its course row, media beside the copy. */
-  .course-project { display:block; margin-top:10px; padding:12px; border:1px solid rgba(148,163,184,.22); border-radius:12px; background:#f8fafc; }
-  .project-head { display:flex; flex-wrap:wrap; align-items:baseline; gap:8px; margin-bottom:5px; }
+  .course { padding:7px 0; border-bottom:1px solid #e2e8f0; }
+  .course-star { color:#b45309; font-size:.75rem; margin-left:6px; }
+  .award h2 i { color:#b45309; }
+  .course-project { padding:12px; border:1px solid #fcd34d; border-radius:12px; background:#fffbeb; }
+  .project-head { display:flex; flex-wrap:wrap; align-items:baseline; gap:4px 8px; margin:10px 0 5px; }
+  .project-award { flex:0 0 100%; font-family:'Montserrat',sans-serif; font-size:.82rem; font-weight:700; color:#92400e; }
   .project-title { font-family:'Montserrat',sans-serif; font-weight:700; font-size:.9rem; color:#0f172a; }
-  .project-kicker { flex:0 0 100%; font-size:.64rem; font-weight:700; letter-spacing:.09em;
-    text-transform:uppercase; color:#94a3b8; }
-  .project-award { display:inline-flex; align-items:center; gap:5px; font-size:.72rem; font-weight:700; color:#92400e; background:#fde68a; border-radius:999px; padding:2px 9px; }
-  .project-award i { font-size:.68rem; }
-  .project-desc { margin:0; font-size:.86rem; color:#475569; line-height:1.5; text-align:left; }
-  .project-media { margin:10px 0 0; max-width:720px; }
-  /* preload="none": the 4.8MB file is only fetched if someone presses play. */
-  .project-video { display:block; width:100%; height:auto; border-radius:10px; background:#0f172a; }
+  .project-course { text-align:left; font-size:.75rem; color:#64748b; }
+  .project-desc { margin:0; font-size:.8rem; color:#475569; line-height:1.45; text-align:left; }
+  .project-media { margin:0; }
+  /* preload="none": the 4.8MB file is only fetched once the clip is on screen. */
+  .project-video { display:block; width:100%; height:auto; border-radius:8px; background:#0f172a; }
 
-  @media (max-width: 700px) { .talk { grid-template-columns:1fr; gap:4px; } }
+  @media (max-width: 1000px) {
+    .teach-grid { grid-template-columns:1fr; gap:26px; }
+    .teach-side { position:static; order:-1; }
+  }
+  @media (max-width: 700px) { .talk { grid-template-columns:1fr; gap:2px; } }
   @media (max-width: 900px) { .cards.two { grid-template-columns:1fr; } }
 </style>
