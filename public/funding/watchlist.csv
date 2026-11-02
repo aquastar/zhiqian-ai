@@ -231,3 +231,18 @@ MIREX (ISMIR),prize_challenge,https://www.music-ir.org/mirex/wiki/MIREX_HOME,N,A
 Center for AI Safety Compute Cluster,ai_safety_philanthropy,https://www.safe.ai/compute-cluster,Y,"rolling when open, currently not accepting new external applications",unknown,Free A100 compute for ML safety research. Watch for reopening. Found via peer harvest: Sijia Liu (MSU) CAIS gift.
 "Mozilla Foundation grantmaking (Incubator, Fellows, Responsible Computing Challenge, Collaborative Funds)",foundation_general,https://www.mozillafoundation.org/ca/what-we-do/grantmaking/,Y,"irregular open calls, e.g. Democracy x AI cohort spring 2026 (about $50k each)",open,Trustworthy and open AI themes. Register for call alerts. Found via peer harvest: Steven Wu (CMU) Mozilla research grant.
 Fulbright U.S. Scholar Program,federal_niche,https://fulbrightscholars.org/us-scholar-awards,Y,"annual, opens February, deadline mid September",open,"US citizens only. Research or teaching abroad. Found via peer harvest: Elizabeth Lane Lawley (RIT), Parisa Kordjamshidi (MSU)."
+DARPA opportunities RSS,aggregator_early_signal,https://www.darpa.mil/rss/opportunities.xml,Y,Continuous,open,"More reliable than the JS opportunities page, surfaced Nassau and FastVacc"
+DARPA AI Forge (Riverside Research),defense_niche,https://www.darpa.mil/research/programs/ai-forge,Y,"Cycles, Cycle 2 fall 2026",limited,"AI safety and interpretability university program, up to 1.5M plus compute, US persons only"
+Stony Brook limited competitions,aggregator_early_signal,https://www.stonybrook.edu/proposal-development/funding-opportunities/limited-competitions/,Y,Continuous,open,Listed AI Forge Cycle 2 before any federal page
+Microsoft AI Economy Institute,industry_longtail,https://www.microsoft.com/en-us/research/group/aiei/,Y,Cohort calls,open,"Research gifts 75k per cohort, AI and work topics"
+Hevolution Foundation,adjacent_domain,https://hevolution.com,N,Unknown,unknown,"Aging research funder, co-runs fund with AFAR, ADRD angle"
+Open Source for Science Fund (Renaissance Philanthropy),foundation_general,https://www.renaissancephilanthropy.org/insights/open-source-for-science-fund-launches,N,LOI based,open,"Up to 250k for open source science tools, life science focus, Anthropic credit partner"
+Oberkotter Foundation,health_accessibility,https://www.acialliance.org/page/ACIAResearch,N,Annual RFP,open,"Hearing device and DHH related RFPs, 2026 research round closed"
+Fondation Pour l'Audition,health_accessibility,https://www.fondationpourlaudition.org/,N,Annual,unknown,"French hearing research funder, US eligibility unknown"
+ALCF AI for Science,compute,https://www.alcf.anl.gov/,N,"Annual, about February",open,DOE lab compute and collaboration call
+ICLAD GenAI Chip Hackathon at DAC,prize_challenge,https://dac.com/Conference/ICLAD-GenAI-Chip-HackathonDAC,N,Annual with DAC,open,LLM for RTL to GDSII
+EDAthon (CityU Hong Kong),prize_challenge,https://sites.google.com/view/ceda-hk/edathon-2026,N,Annual,open,AI agents for EDA
+AD Data Initiative data challenges,prize_challenge,https://www.alzheimersdata.org/accelerating-research/data-challenges,N,Irregular,open,Alzheimer's data challenges incl Alzheimer's Translation Challenge
+Text2SPARQL challenge,prize_challenge,https://text2sparql.aksw.org/2026/,Y,Annual,open,"Knowledge graph QA, 2026 round closed"
+DOE OE Digitizing Utilities Prize,prize_challenge,https://www.energy.gov/oe/articles/energy-department-relaunches-digitizing-utilities-prize-round-3,Y,Rounds,open,"Grid digitization prize, watch for Round 4, COMPETES"
+IEEE DataPort competitions,prize_challenge,https://ieee-dataport.org/competitions/good-datasets-ai-model-training-power-and-energy-domain,N,Irregular,open,Power and energy dataset competitions
