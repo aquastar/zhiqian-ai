@@ -72,6 +72,15 @@ export const anytime = [
   { name: 'NSF BIO Core', kind: 'nsf' },
 ];
 
+// Trips the user has committed to. Each one gets its own color, painted across
+// every day it covers on the board, and a chip in the strip above the grids.
+// Colors stay clear of red (today), blue (targeted and hover) and amber (soon).
+export const trips = [
+  { name: 'BIBM 2026', place: 'Dallas', start: '2026-12-01', end: '2026-12-04', color: '#0f766e', href: 'https://ieeebibm.org/BIBM2026/' },
+  { name: 'NeurIPS 2026', place: 'Atlanta', start: '2026-12-09', end: '2026-12-11', color: '#7c3aed', href: 'https://neurips.cc/Conferences/2026' },
+  { name: 'IEEE BigData 2026', place: 'Phoenix', start: '2026-12-14', end: '2026-12-17', color: '#db2777', href: 'https://bigdataieee.org/BigData2026/' },
+];
+
 // Sort on the way out, so an item dropped anywhere in a month still lands in
 // date order in both the page and the .ics.
 deadlines.forEach((mo) => mo.items.sort((a, b) => a.d - b.d));

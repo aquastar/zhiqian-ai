@@ -1,7 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import Nav from '../components/Nav.astro';
-import { kindLabels, anytime, monthWindow } from '../data/deadlines.js';
+import { kindLabels, anytime, monthWindow, trips } from '../data/deadlines.js';
 
 const DOW = ['S', 'M', 'T', 'W', 'T', 'F', 'S'];
 const SHORT_MONTH = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
@@ -14,10 +14,17 @@ const buildWeeks = (mo) => {
   const byDay = new Map();
   mo.items.forEach((i) => byDay.set(i.d, [...(byDay.get(i.d) ?? []), i]));
   const cells = Array.from({ length: lead }, () => null);
-  for (let d = 1; d <= length; d += 1) cells.push({ d, items: byDay.get(d) ?? [] });
+  for (let d = 1; d <= length; d += 1) cells.push({ d, items: byDay.get(d) ?? [], trip: tripOn(mo.y, mo.m, d) });
   while (cells.length % 7 !== 0) cells.push(null);
   return Array.from({ length: cells.length / 7 }, (_, w) => cells.slice(w * 7, w * 7 + 7));
 };
+
+// ISO strings compare in date order, so a day is inside a trip when it sits
+// between the start and end strings.
+const iso = (y, m, d) => `${y}-${String(m + 1).padStart(2, '0')}-${String(d).padStart(2, '0')}`;
+const tripOn = (y, m, d) => trips.find((t) => t.start <= iso(y, m, d) && iso(y, m, d) <= t.end);
+const fmtDay = (s) => { const [, m, d] = s.split('-').map(Number); return `${SHORT_MONTH[m - 1]} ${d}`; };
+const tripSpan = (t) => `${fmtDay(t.start)} to ${fmtDay(t.end)}`;
 
 // Eight months on the board, the first of them the current one. The build
 // renders a few extra past that: it can only know its own today, so the spare
@@ -42,6 +49,19 @@ const dayName = (mo, d) => ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'][new
     <Nav current="agenda" />
 
     <section class="section" id="deadlines">
+      {trips.length > 0 && (
+        <div class="trips" aria-label="Upcoming trips">
+          <span class="trips-label"><i class="fas fa-plane" aria-hidden="true"></i> Traveling</span>
+          {trips.map((t) => (
+            <a class="trip-chip" href={t.href} target="_blank" rel="noopener" style={`--trip:${t.color}`} data-trip-end={t.end} data-trip-start={t.start}>
+              <span class="trip-swatch" aria-hidden="true"></span>
+              <b>{t.name}</b>
+              <span class="trip-meta">{t.place} · {tripSpan(t)}</span>
+              <span class="trip-left" data-trip-countdown></span>
+            </a>
+          ))}
+        </div>
+      )}
       <div class="cals">
         {months.map((mo) => (
           <section class="cal" data-month={`${mo.y}-${mo.m}`}>
@@ -55,7 +75,8 @@ const dayName = (mo, d) => ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'][new
                   cell === null
                     ? <span class="cal-cell is-blank"></span>
                     : <span
-                        class={`cal-cell${cell.items.length > 0 ? ' is-due' : ''}`}
+                        class={`cal-cell${cell.items.length > 0 ? ' is-due' : ''}${cell.trip ? ' is-trip' : ''}${cell.trip && cell.trip.start === iso(mo.y, mo.m, cell.d) ? ' trip-start' : ''}${cell.trip && cell.trip.end === iso(mo.y, mo.m, cell.d) ? ' trip-end' : ''}`}
+                        style={cell.trip ? `--trip:${cell.trip.color}` : undefined}
                         data-today={`${mo.y}-${mo.m}-${cell.d}`}
                         data-key={cell.items.length > 0 ? `${mo.y}-${mo.m}-${cell.d}` : undefined}
                       >
@@ -65,9 +86,14 @@ const dayName = (mo, d) => ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'][new
                             {cell.items.map((i) => <span class={`dot${i.est ? ' is-est' : ''}${i.star ? ' is-star' : ''}`}></span>)}
                           </span>
                         )}
-                        {cell.items.length > 0 && (
+                        {(cell.items.length > 0 || cell.trip) && (
                           <span class="cal-pop" role="tooltip">
                             <span class="cal-pop-head">{labelFor(mo, cell)} · {dayName(mo, cell.d)}</span>
+                            {cell.trip && (
+                              <span class="cal-pop-item cal-pop-trip" style={`--trip:${cell.trip.color}`}>
+                                <span><span class="trip-swatch" aria-hidden="true"></span>{cell.trip.name}, {cell.trip.place} ({tripSpan(cell.trip)})</span>
+                              </span>
+                            )}
                             {cell.items.map((i) => (
                               <span class="cal-pop-item">
                                 <span>
@@ -170,6 +196,20 @@ const dayName = (mo, d) => ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'][new
       slot.title = days === 0 ? 'due today' : `${days} days from today`;
     });
 
+    // Trip chips count down to the first day, say "now" during the trip, and
+    // leave once it is over.
+    document.querySelectorAll('.trip-chip').forEach((chip) => {
+      const toUTC = (s) => { const [y, m, d] = s.split('-').map(Number); return Date.UTC(y, m - 1, d); };
+      const start = toUTC(chip.getAttribute('data-trip-start'));
+      const end = toUTC(chip.getAttribute('data-trip-end'));
+      const slot = chip.querySelector('[data-trip-countdown]');
+      if (end < today) { chip.hidden = true; return; }
+      const days = Math.round((start - today) / 86400000);
+      slot.textContent = days <= 0 ? 'now' : `in ${days}d`;
+    });
+    const tripsBar = document.querySelector('.trips');
+    if (tripsBar && ![...tripsBar.querySelectorAll('.trip-chip')].some((c) => !c.hidden)) tripsBar.hidden = true;
+
     // Strip the marking from days that have gone by, and mark today.
     document.querySelectorAll('.cal-cell[data-key]').forEach((cell) => {
       const [y, m, d] = cell.getAttribute('data-key').split('-').map(Number);
@@ -230,7 +270,7 @@ const dayName = (mo, d) => ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'][new
 
   /* Detail panel, CSS-only so it needs no scripting and cannot drift. */
   .cal-pop { display:none; position:absolute; top:calc(100% + 1px); padding-top:9px; left:50%; transform:translateX(-50%); z-index:30; width:max-content; max-width:260px; padding:8px 10px; border-radius:10px; background:#0f172a; color:#e2e8f0; font-size:.74rem; line-height:1.35; text-align:left; box-shadow:0 12px 28px rgba(15,23,42,.28); }
-  .cal-cell.is-due:hover .cal-pop { display:block; }
+  .cal-cell.is-due:hover .cal-pop, .cal-cell.is-trip:hover .cal-pop { display:block; }
   .cal-cell.is-gone:hover .cal-pop { display:none; }
   .cal-pop-head { display:block; font-weight:700; color:#fff; margin-bottom:4px; }
   .cal-pop-item { display:flex; align-items:baseline; gap:6px; }
@@ -282,6 +322,31 @@ const dayName = (mo, d) => ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'][new
   .cal-cell.is-linked .cal-num { color:#1d4ed8; }
   .deadline.is-linked { background:#dbeafe; }
   .deadline.is-linked .deadline-name, .deadline.is-linked .deadline-date { color:#1d4ed8; }
+
+  /* Trips: each one paints its own color over the days it covers, solid
+     enough to read from across the room, with rounded ends on the first and
+     last day so a trip reads as one bar. */
+  .cal-cell.is-trip { background:var(--trip); border-radius:0; }
+  .cal-cell.is-trip .cal-num { color:#fff; font-weight:700; }
+  .cal-cell.is-trip .cal-dots .dot { background:#fff; }
+  .cal-cell.trip-start { border-top-left-radius:6px; border-bottom-left-radius:6px; }
+  .cal-cell.trip-end { border-top-right-radius:6px; border-bottom-right-radius:6px; }
+  .cal-cell.is-trip.is-linked { background:var(--trip); box-shadow:inset 0 0 0 2px #fff; }
+  .cal-cell.is-trip.is-gone { opacity:.35; }
+  .cal-cell.is-trip.is-gone:hover .cal-pop { display:none; }
+  .trips { display:flex; flex-wrap:wrap; align-items:center; gap:8px 10px; margin:0 0 12px; }
+  .trips-label { font-family:'Montserrat',sans-serif; font-size:.72rem; font-weight:700; letter-spacing:.08em; text-transform:uppercase; color:#334155; }
+  .trip-chip { display:inline-flex; align-items:center; gap:7px; padding:5px 10px; border-radius:999px; text-decoration:none; color:#0f172a; font-size:.8rem; background:color-mix(in srgb, var(--trip) 10%, #fff); box-shadow:inset 0 0 0 1.5px var(--trip); text-align:left; line-height:1.3; }
+  .trip-chip b, .trip-left { white-space:nowrap; }
+  .trip-chip b { color:var(--trip); }
+  .trip-meta { text-align:left; }
+  .trip-chip:hover { background:color-mix(in srgb, var(--trip) 18%, #fff); }
+  .trip-meta { color:#475569; }
+  .trip-left { font-size:.72rem; font-weight:700; color:#fff; background:var(--trip); border-radius:999px; padding:1px 7px; font-variant-numeric:tabular-nums; }
+  .trip-left:empty { display:none; }
+  .trip-swatch { display:inline-block; width:10px; height:10px; border-radius:3px; background:var(--trip); flex:none; }
+  .cal-pop-trip .trip-swatch { margin-right:6px; vertical-align:-1px; }
+  .cal-pop-trip { font-weight:700; color:#fff; }
 
   .fineprint { margin:16px 0 0; font-size:.76rem; color:#94a3b8; line-height:1.5; }
 
