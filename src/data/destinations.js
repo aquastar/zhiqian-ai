@@ -3,7 +3,7 @@
 // CCF A or B, or CORE A* or A, every hand-kept venue on the field
 // tabs, and the venues added by hand in the script. Destinations mix cities, countries and
 // regions, because that is how people choose where to go.
-// Built 2026-11-02.
+// Built 2026-11-03.
 export const destinations = {
  "items": [
   {
@@ -1582,8 +1582,8 @@ export const destinations = {
    "ccf": "A",
    "core": "A*",
    "sub": "CG",
-   "deadline": "",
-   "open": false,
+   "deadline": "2027-01-28",
+   "open": true,
    "link": "https://s2027.siggraph.org/",
    "q": "anaheim, california anaheim united states ",
    "field": "Graphics & multimedia",
@@ -3535,8 +3535,8 @@ export const destinations = {
    "ccf": "B",
    "core": "B",
    "sub": "CG",
-   "deadline": "",
-   "open": false,
+   "deadline": "2026-12-02",
+   "open": true,
    "link": "https://eurovis27.github.io/web/",
    "q": "stuttgart, germany stuttgart germany ",
    "field": "Visualization",
@@ -4182,7 +4182,7 @@ export const destinations = {
    "ccf": "C",
    "core": "A",
    "sub": "AI",
-   "deadline": "2027-02-20",
+   "deadline": "2026-11-15",
    "open": true,
    "link": "https://icdar2027.org/",
    "q": "kuala lumpur, malaysia kuala lumpur malaysia ",
@@ -4475,6 +4475,38 @@ export const destinations = {
    "lon": 118.0853
   },
   {
+   "title": "ICML",
+   "desc": "International Conference on Machine Learning",
+   "year": 2027,
+   "place": "Riocentro, Rio de Janeiro, Brazil",
+   "date": "July 31 - August 6, 2027",
+   "city": "Riocentro",
+   "country": "Brazil",
+   "dest": "South America",
+   "icon": "mountain-sun",
+   "ccf": "A",
+   "core": "A*",
+   "sub": "AI",
+   "deadline": "",
+   "open": false,
+   "link": "https://icml.cc/Conferences/2027",
+   "q": "riocentro, rio de janeiro, brazil riocentro brazil ",
+   "field": "AI · ML · Data Mining",
+   "group": "computing",
+   "honors": [
+    {
+     "t": "CCF A",
+     "k": "ccf-a"
+    },
+    {
+     "t": "CORE A*",
+     "k": "core-as"
+    }
+   ],
+   "lat": -22.9778,
+   "lon": -43.4116
+  },
+  {
    "title": "ICMR",
    "desc": "ACM SIGMM International Conference on Multimedia Retrieval",
    "year": 2027,
@@ -4680,7 +4712,7 @@ export const destinations = {
    "core": "A",
    "sub": "SE",
    "deadline": "2026-11-02",
-   "open": true,
+   "open": false,
    "link": "https://conf.researchr.org/home/icst-2027",
    "q": "san sebastian, spain san sebastian spain ",
    "field": "Software engineering",
@@ -7257,7 +7289,7 @@ export const destinations = {
    "core": "A*",
    "sub": "CT",
    "deadline": "2026-11-02",
-   "open": true,
+   "open": false,
    "link": "https://acm-stoc.org/stoc2027/",
    "q": "atlanta, georgia, usa atlanta united states ",
    "field": "Theoretical CS",
@@ -7880,7 +7912,7 @@ export const destinations = {
   {
    "name": "South America",
    "icon": "mountain-sun",
-   "n": 6
+   "n": 7
   },
   {
    "name": "Southeast Asia",
