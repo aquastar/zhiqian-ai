@@ -79,6 +79,7 @@ export const DOMAINS = [
     notes: [
       'ISMIR is the music-information-retrieval community in one room, and its papers are short: six pages plus references.',
       'ICASSP and Interspeech are the large signal-processing and speech meetings, four-page papers.',
+      'SANE is the free one-day speech and audio workshop of the Northeast, a short drive from Rochester and a good first place to show a poster.',
       'TISMIR is ISMIR’s own journal; TASLP is where audio work goes long.',
     ],
   },
