@@ -25,10 +25,36 @@ const CLARITY_ID = import.meta.env.PUBLIC_CLARITY_ID;
 		<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1.9.4/css/academicons.min.css" />
 		<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=et-book:wght@400;700&display=swap" />
 		<title>{title}</title>
+		{/* Owner opt-out. Opening any page with ?me=1 marks this browser as the
+		   owner's, ?me=0 undoes it. A marked browser is not counted by Google
+		   Analytics, Clarity or Vercel Analytics, so the site statistics show
+		   visitors only. It is per browser, so do it once on each device. */}
+		<script is:inline>
+			(function () {
+				var q = null;
+				try {
+					q = new URLSearchParams(location.search).get('me');
+					if (q === '1') localStorage.setItem('zq-self', '1');
+					if (q === '0') localStorage.removeItem('zq-self');
+					window.__zqSelf = localStorage.getItem('zq-self') === '1';
+				} catch (e) { window.__zqSelf = false; }
+				window.webAnalyticsBeforeSend = function (ev) { return window.__zqSelf ? null : ev; };
+				if (q === '1' || q === '0') {
+					document.addEventListener('DOMContentLoaded', function () {
+						var n = document.createElement('div');
+						n.textContent = q === '1' ? 'This browser is now excluded from site statistics.' : 'This browser is counted in site statistics again.';
+						n.style.cssText = 'position:fixed;left:50%;bottom:24px;transform:translateX(-50%);z-index:9999;padding:8px 14px;border-radius:6px;background:#16202B;color:#F7F9FC;font-size:14px';
+						document.body.appendChild(n);
+						setTimeout(function () { n.remove(); }, 5000);
+					});
+				}
+			})();
+		</script>
 		{GA_ID && (
 			<Fragment>
 				<script async src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`}></script>
 				<script is:inline define:vars={{ GA_ID }}>
+					if (window.__zqSelf) window['ga-disable-' + GA_ID] = true;
 					window.dataLayer = window.dataLayer || [];
 					function gtag(){dataLayer.push(arguments);}
 					gtag('js', new Date());
@@ -38,7 +64,7 @@ const CLARITY_ID = import.meta.env.PUBLIC_CLARITY_ID;
 		)}
 		{CLARITY_ID && (
 			<script is:inline define:vars={{ CLARITY_ID }}>
-				(function(c,l,a,r,i,t,y){
+				if (!window.__zqSelf) (function(c,l,a,r,i,t,y){
 					c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
 					t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
 					y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
