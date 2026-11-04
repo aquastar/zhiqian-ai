@@ -713,8 +713,11 @@ const selectedGroups = selectedFilters
             <p>Assistant Professor</p>
             <p>Computer Science</p>
             <p class="aff-college">Golisano College of Computing &amp; Info. Sci.</p>
-            <p class="aff-secondary">Affiliated with ESL Global Cybersecurity Institute (GCI), Center for Human-aware AI (CHAI),<br />and Personalized Healthcare Technology (PHT180)</p>
             <p class="aff-univ">Rochester Institute of Technology</p>
+            <details class="aff-more">
+              <summary>Affiliated centers (4)</summary>
+              <p class="aff-secondary">ESL Global Cybersecurity Institute (GCI), Center for Human-aware AI (CHAI), Center for Cognitive Science (CCS), and Personalized Healthcare Technology (PHT180)</p>
+            </details>
           </div>
 
           <div class="icons" aria-label="social links">
@@ -1425,9 +1428,16 @@ const selectedGroups = selectedFilters
   .affiliation p:first-child { color: #16202B; font-weight: 600; }
   .affiliation .aff-univ { color: #16202B; font-weight: 700; }
   .affiliation .aff-college { font-size: .8rem; line-height: 1.25; }
-  /* Affiliate appointments sit between the home college and the university.
-     Set apart by type alone -- italic, smaller, lighter -- rather than rules. */
-  .affiliation .aff-secondary { margin: 5px 0; font-style: italic; font-size: .76rem; line-height: 1.3; color: #4E5C6A; letter-spacing: .01em; }
+  /* Affiliate appointments are secondary, so they fold under the university
+     line. Italic, smaller, lighter, opened on demand. */
+  .affiliation .aff-more { margin: 3px 0 0; }
+  .affiliation .aff-more summary { display: inline-flex; align-items: center; gap: 4px; cursor: pointer; list-style: none;
+    font-style: italic; font-size: .76rem; color: #4E5C6A; }
+  .affiliation .aff-more summary::-webkit-details-marker { display: none; }
+  .affiliation .aff-more summary::after { content: '\25BE'; font-style: normal; font-size: .7rem; transition: transform .15s ease; }
+  .affiliation .aff-more[open] summary::after { transform: rotate(180deg); }
+  .affiliation .aff-more summary:hover { color: #A84600; }
+  .affiliation .aff-secondary { margin: 4px 0 0; font-style: italic; font-size: .76rem; line-height: 1.3; color: #4E5C6A; letter-spacing: .01em; }
   .bio { text-align: justify; text-justify: inter-word; color: #2E3A47; font-size: .92rem; margin-top: 10px; }
   .icons { display: flex; flex-wrap: wrap; justify-content: center; gap: 6px; margin-top: 14px; }
   .icons a, .icons .icon-more { color: #2E3A47; text-decoration: none; transition: color .15s ease, transform .15s ease, filter .15s ease; }
