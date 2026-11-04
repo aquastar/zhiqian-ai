@@ -21,7 +21,7 @@ on:
       - src/data/funding.json
       - scripts/export-mirrors.mjs
   workflow_run:
-    workflows: [Refresh conference data, Sync funding brief]
+    workflows: [Refresh conference data]
     types: [completed]
   workflow_dispatch:
 
