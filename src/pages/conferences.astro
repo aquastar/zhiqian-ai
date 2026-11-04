@@ -1,6 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import Nav from '../components/Nav.astro';
+import DataBar from '../components/DataBar.astro';
 import { ranked, notable, journals } from '../data/conferences.js';
 import { topicRates } from '../data/topics.js';
 import { DOMAINS, GROUPS } from '../data/domains.js';
@@ -435,9 +436,7 @@ const lastUpdate = (() => {
           ))}
         </nav>
       </div>
-      <p class="upd">Data last changed <b>{lastUpdate}</b> · checked daily, next check <b id="next-check">06:17 UTC</b></p>
-      <a class="gh-data" href="https://github.com/aquastar/cross-field-conferences" target="_blank" rel="noopener">
-        <i class="fab fa-github" aria-hidden="true"></i>All of this as open data on GitHub <span>Star · cite · correct</span></a>
+      <DataBar lastUpdate={lastUpdate} />
     </section>
 
 
@@ -1018,16 +1017,6 @@ ${t.rate}% accepted, ${t.n.toLocaleString()} submissions, ${t.share}% of the edi
       </p>
     </section>
   </main>
-  <script>
-    // The refresh runs at 06:17 UTC every day. Show the next run in the reader's own time.
-    const el = document.getElementById('next-check');
-    if (el) {
-      const now = new Date();
-      const next = new Date(Date.UTC(now.getUTCFullYear(), now.getUTCMonth(), now.getUTCDate(), 6, 17));
-      if (next <= now) next.setUTCDate(next.getUTCDate() + 1);
-      el.textContent = next.toLocaleString(undefined, { month: 'short', day: 'numeric', hour: 'numeric', minute: '2-digit' });
-    }
-  </script>
 </Layout>
 
 <style>
@@ -1039,10 +1028,6 @@ ${t.rate}% accepted, ${t.n.toLocaleString()} submissions, ${t.share}% of the edi
   .head { margin-bottom: 0; }
   .upd { margin:8px 0 0; font-size:.76rem; color:#4E5C6A; text-align:left; }
   .upd b { color:#2E3A47; font-weight:600; }
-  .gh-data { display:inline-flex; align-items:center; gap:7px; margin:8px 0 2px; font-size:.8rem; font-weight:600; color:#2E3A47; text-decoration:none; }
-  .gh-data i { font-size:.95rem; color:#16202B; }
-  .gh-data span { font-weight:500; color:#98A6B4; }
-  .gh-data:hover { color:#A84600; }
   .head-row { display:flex; align-items:flex-start; justify-content:space-between; gap:28px; flex-wrap:wrap; }
   .head-text { flex:1 1 440px; min-width:0; }
   h1 { font-size: 1.9rem; margin: 0 0 6px; letter-spacing: -.02em; }
@@ -1635,7 +1620,6 @@ ${t.rate}% accepted, ${t.n.toLocaleString()} submissions, ${t.share}% of the edi
      hue and every rank its own fill. Now ink and gray carry the structure,
      rank is shown by line weight, and the one accent (#C45200) marks what is
      due soon and which field is open, the same way the nav marks the page. */
-  .dchip, .dom { --hue:#4E5C6A !important; }
   .dchip i { color:#4E5C6A; }
   .dchip.is-on { background:transparent; color:#16202B; border-radius:0; box-shadow:inset 0 -1.5px 0 #C45200; }
   .dchip.is-on i { color:#16202B; }
@@ -1692,6 +1676,44 @@ ${t.rate}% accepted, ${t.n.toLocaleString()} submissions, ${t.share}% of the edi
   .tone-b .tc-fill { fill:#4E5C6A; }
   .tone-c .tc-fill { fill:#98A6B4; }
   .tone-d .tc-fill { fill:#C9D4DF; }
+
+  /* ---- Field color layer (2026-11-04). All gray read as lifeless, so each
+     field gets its own color back, softened toward the slate ink so the
+     colors sit together on the blue-gray page. It works as a category color
+     (design language section 2): icons, the open field's underline, its
+     bars, charts and top-rank marks. The gold accent stays for what is due
+     soon. --fh is the softened field color. */
+  .dchip, .dom { --fh: color-mix(in oklab, var(--hue) 78%, #4E5C6A); }
+  .dchip i { color:var(--fh); }
+  .dchip:hover { background:color-mix(in srgb, var(--fh) 8%, transparent); }
+  .dchip.is-on { background:color-mix(in srgb, var(--fh) 10%, transparent); border-radius:4px 4px 0 0;
+    box-shadow:inset 0 -2px 0 var(--fh); }
+  .dchip.is-on i { color:var(--fh); }
+  .dchip .fcount, .dchip.is-on .fcount { color:color-mix(in srgb, var(--fh) 55%, #98A6B4); }
+
+  .dom .field-note { border-left:3px solid var(--fh); background:color-mix(in srgb, var(--fh) 6%, #F7F9FC); }
+  .dom .field-note .fn-head { color:var(--fh); }
+  .dom .kind-head { color:var(--fh); }
+
+  .tr-bar span { background:var(--fh); opacity:.6; }
+  .trend-list li:nth-child(-n+3) .tr-bar span { opacity:.85; }
+  .tr-g.is-up { color:var(--fh); font-weight:600; }
+  .trend-list li.is-on button.tr-name { text-decoration-color:var(--fh); }
+  .tr-papers { border-color:color-mix(in srgb, var(--fh) 30%, #DCE5EE); }
+  .ts-line b { color:var(--fh); }
+  .cyc-dot { background:var(--fh); }
+  .cyc-dot.is-est { color:var(--fh); border-color:var(--fh); }
+
+  .spark { color:var(--fh); }
+  .tone-a .tc-fill { fill:var(--fh); }
+  .tone-b .tc-fill { fill:color-mix(in srgb, var(--fh) 70%, #F7F9FC); }
+  .tone-c .tc-fill { fill:color-mix(in srgb, var(--fh) 40%, #F7F9FC); }
+  .tone-d .tc-fill { fill:color-mix(in srgb, var(--fh) 20%, #F7F9FC); }
+
+  /* Top ranks take a light wash of the field color, the rest stay as lines. */
+  .dom :is(.ccf-a, .core-as, a.pill.csr-yes) { color:var(--fh); border-color:var(--fh);
+    background:color-mix(in srgb, var(--fh) 8%, transparent); }
+  .dom :is(.ccf-b, .core-a) { border-color:color-mix(in srgb, var(--fh) 45%, #C9D4DF); }
 </style>
 
 <script>

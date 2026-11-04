@@ -1,6 +1,7 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import Nav from '../../components/Nav.astro';
+import DataBar from '../../components/DataBar.astro';
 import { destinations } from '../../data/destinations.js';
 import { ranked, notable } from '../../data/conferences.js';
 import { GROUPS, DOMAINS } from '../../data/domains.js';
@@ -86,7 +87,7 @@ const DOW = ['S', 'M', 'T', 'W', 'T', 'F', 'S'];
     <header class="bt-head">
       <h1>Conferences by time</h1>
       <p class="bt-intro">Every upcoming meeting the site tracks, month by month. A darker day has more meetings running. Hover a meeting to see its days, or a day to see its meetings.</p>
-      <p class="bt-upd">Data last changed <b>{lastUpdate}</b> · checked daily with the field and map views, next check <b id="next-check">06:17 UTC</b></p>
+      <DataBar lastUpdate={lastUpdate} note="checked daily with the field and map views" />
       <div class="bt-filters" role="group" aria-label="Filter by field">
         <button type="button" class="bt-chip is-on" data-filter="all">All <span>{items.length}</span></button>
         {groups.map((g) => <button type="button" class="bt-chip" data-filter={g.id}>{g.label} <span>{g.n}</span></button>)}
@@ -138,13 +139,6 @@ const DOW = ['S', 'M', 'T', 'W', 'T', 'F', 'S'];
     const today = cellByDay.get(todayKey);
     if (today) today.classList.add('is-today');
 
-    // The refresh runs at 06:17 UTC; show the next one in the reader's time.
-    const nc = document.getElementById('next-check');
-    if (nc) {
-      const next = new Date(Date.UTC(now.getUTCFullYear(), now.getUTCMonth(), now.getUTCDate(), 6, 17));
-      if (next <= now) next.setUTCDate(next.getUTCDate() + 1);
-      nc.textContent = next.toLocaleString(undefined, { month: 'short', day: 'numeric', hour: 'numeric', minute: '2-digit' });
-    }
 
     let filter = 'all';
     const shown = (r) => !r.classList.contains('is-past')
@@ -199,8 +193,6 @@ const DOW = ['S', 'M', 'T', 'W', 'T', 'F', 'S'];
   .bt-head { margin: 6px 0 18px; }
   .bt-head h1 { font-size: 1.9rem; margin: 0 0 6px; color: #16202B; }
   .bt-intro { margin: 0 0 12px; color: #4E5C6A; font-size: .9rem; text-align: left; max-width: 80ch; }
-  .bt-upd { margin: 0 0 12px; font-size: .78rem; color: #4E5C6A; }
-  .bt-upd b { color: #16202B; font-weight: 600; }
   .bt-filters { display: flex; flex-wrap: wrap; gap: 6px; }
   .bt-chip { font: inherit; font-size: .82rem; color: #2E3A47; background: transparent; border: 1px solid rgba(148,163,184,.35); border-radius: 4px; padding: 3px 10px; cursor: pointer; }
   .bt-chip span { color: #98A6B4; margin-left: 3px; font-variant-numeric: tabular-nums; }

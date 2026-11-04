@@ -1,0 +1,55 @@
+---
+// One line under the conference page heads: the open-data repo and a way to
+// report a problem on the left, when the data last changed on the right.
+// "Report a problem" opens a new GitHub issue on the data repo with the
+// exact page (including the #field) filled in, so a reader only has to say
+// what is wrong. The daily refresh runs at 06:17 UTC and the script shows
+// the next one in the reader's time.
+interface Props { lastUpdate: string; note?: string; }
+const { lastUpdate, note = 'checked daily' } = Astro.props;
+const REPO = 'https://github.com/aquastar/cross-field-conferences';
+---
+<div class="databar">
+  <div class="db-left">
+    <a class="db-gh" href={REPO} target="_blank" rel="noopener">
+      <i class="fab fa-github" aria-hidden="true"></i>Open data on GitHub</a>
+    <a class="db-report" href={`${REPO}/issues/new`} target="_blank" rel="noopener" data-repo={REPO}>
+      <i class="far fa-flag" aria-hidden="true"></i>Report a problem</a>
+  </div>
+  <p class="db-upd">Data last changed <b>{lastUpdate}</b> · {note}, next check <b id="next-check">06:17 UTC</b></p>
+</div>
+
+<script>
+  const nc = document.getElementById('next-check');
+  if (nc) {
+    const now = new Date();
+    const next = new Date(Date.UTC(now.getUTCFullYear(), now.getUTCMonth(), now.getUTCDate(), 6, 17));
+    if (next <= now) next.setUTCDate(next.getUTCDate() + 1);
+    nc.textContent = next.toLocaleString(undefined, { month: 'short', day: 'numeric', hour: 'numeric', minute: '2-digit' });
+  }
+  // Fill the issue with the page the reader is on when they click.
+  document.querySelectorAll<HTMLAnchorElement>('.db-report').forEach((a) => {
+    a.addEventListener('click', () => {
+      const page = location.href;
+      const title = `Problem on ${location.pathname}${location.hash}`;
+      const body = `Page: ${page}\n\nWhat is wrong (conference name, field, date, link):\n\n\nWhat it should be, with a source if you have one:\n`;
+      a.href = `${a.dataset.repo}/issues/new?title=${encodeURIComponent(title)}&body=${encodeURIComponent(body)}`;
+    });
+  });
+</script>
+
+<style>
+  .databar { display:flex; align-items:baseline; justify-content:space-between; gap:8px 20px; flex-wrap:wrap;
+    margin:8px 0 12px; font-size:.8rem; }
+  .db-left { display:flex; align-items:baseline; gap:16px; flex-wrap:wrap; }
+  .db-gh, .db-report { display:inline-flex; align-items:center; gap:6px; color:#2E3A47; font-weight:600; text-decoration:none; }
+  .db-gh i { font-size:.95rem; color:#16202B; }
+  .db-report { padding:2px 8px; border:1px solid #C9D4DF; border-radius:4px; font-weight:500; }
+  .db-report i { font-size:.75rem; color:#4E5C6A; }
+  .db-gh:hover { color:#A84600; }
+  .db-report:hover { color:#A84600; border-color:#C45200; background:#FDF1E7; }
+  .db-report:hover i { color:#C45200; }
+  .db-upd { margin:0; color:#4E5C6A; text-align:right; }
+  .db-upd b { color:#16202B; font-weight:600; }
+  @media (max-width: 640px) { .db-upd { text-align:left; } }
+</style>
