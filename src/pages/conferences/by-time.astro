@@ -1,0 +1,271 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Nav from '../../components/Nav.astro';
+import { destinations } from '../../data/destinations.js';
+import { ranked, notable } from '../../data/conferences.js';
+import { GROUPS, DOMAINS } from '../../data/domains.js';
+import { trips } from '../../data/deadlines.js';
+
+// Every upcoming meeting the site tracks, month by month: a small calendar
+// shaded by how many meetings run on each day, beside the list of meetings
+// that start that month. Hovering a row lights up its days, and hovering a
+// day lights up the rows that cover it.
+
+const MONTHS = ['january', 'february', 'march', 'april', 'may', 'june', 'july', 'august', 'september', 'october', 'november', 'december'];
+const SHORT = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+const monthOf = (w) => MONTHS.findIndex((m) => m.startsWith(w.toLowerCase().slice(0, 3)));
+
+// The date strings are written by hand ("Dec 1-4, 2026", "May 31 - June 4,
+// 2027", "December 8-10 (Sydney), December 9-11 (Atlanta and Paris), 2026"),
+// so read the first range and the first year and leave anything else out.
+const parseRange = (s) => {
+  if (!s) return null;
+  const y = s.match(/\b(20\d\d)\b/);
+  const m = s.match(/([A-Za-z]{3,9})\.?\s+(\d{1,2})(?:\s*-\s*(?:([A-Za-z]{3,9})\.?\s+)?(\d{1,2}))?/);
+  if (!y || !m) return null;
+  const m1 = monthOf(m[1]);
+  if (m1 < 0) return null;
+  const m2 = m[3] ? monthOf(m[3]) : m1;
+  const d1 = +m[2];
+  const d2 = m[4] ? +m[4] : d1;
+  const y1 = +y[1];
+  const y2 = m2 < m1 ? y1 + 1 : y1;
+  const start = Date.UTC(y1, m1, d1);
+  const end = Date.UTC(y2, m2 < 0 ? m1 : m2, d2);
+  if (Number.isNaN(start) || end < start || (end - start) / 864e5 > 20) return null;
+  return { start, end };
+};
+
+const groupOfArea = Object.fromEntries(DOMAINS.map((d) => [d.id, d.group]));
+const fieldOfArea = Object.fromEntries(DOMAINS.map((d) => [d.id, d.label]));
+const tripNames = trips.map((t) => t.name.replace(/\s*20\d\d$/, '').toLowerCase());
+const isMine = (title) => tripNames.includes(title.toLowerCase()) || tripNames.includes(`ieee ${title.toLowerCase()}`);
+
+const seen = new Set();
+const raw = [];
+for (const i of destinations.items) {
+  seen.add(i.title);
+  raw.push({ title: i.title, desc: i.desc, date: i.date, place: i.place, field: i.field || '', group: i.group || 'other', link: i.link || '' });
+}
+for (const c of [...ranked, ...notable]) {
+  if (seen.has(c.title)) continue;
+  seen.add(c.title);
+  raw.push({ title: c.title, desc: c.desc, date: c.date, place: c.place || '', field: c.field || fieldOfArea[c.area] || '', group: groupOfArea[c.area] || 'other', link: c.link || '' });
+}
+// Trips the user has committed to always show, even when the venue is not
+// in the tracked lists.
+for (const t of trips) {
+  const base = t.name.replace(/\s*20\d\d$/, '');
+  if ([...seen].some((x) => x.toLowerCase() === base.toLowerCase() || `ieee ${x.toLowerCase()}` === base.toLowerCase())) continue;
+  raw.push({ title: base, desc: '', date: '', place: t.place, field: '', group: 'computing', link: t.href, start: Date.parse(t.start), end: Date.parse(t.end) });
+}
+
+const iso = (ms) => new Date(ms).toISOString().slice(0, 10);
+const label = (r) => {
+  const a = new Date(r.start); const b = new Date(r.end);
+  const ma = SHORT[a.getUTCMonth()]; const mb = SHORT[b.getUTCMonth()];
+  if (r.start === r.end) return `${ma} ${a.getUTCDate()}`;
+  return ma === mb ? `${ma} ${a.getUTCDate()} to ${b.getUTCDate()}` : `${ma} ${a.getUTCDate()} to ${mb} ${b.getUTCDate()}`;
+};
+
+const items = raw
+  .map((i) => {
+    const r = i.start ? { start: i.start, end: i.end } : parseRange(i.date);
+    if (!r) return null;
+    const days = [];
+    for (let t = r.start; t <= r.end; t += 864e5) days.push(iso(t));
+    return { ...i, ...r, days, span: label(r), mine: isMine(i.title) };
+  })
+  .filter(Boolean)
+  .sort((a, b) => a.start - b.start || a.title.localeCompare(b.title));
+
+// Months from the build month through the last meeting, capped at two years.
+// The script hides the months that have gone by from the viewer's today.
+const built = new Date();
+const first = built.getUTCFullYear() * 12 + built.getUTCMonth();
+const lastItem = items.length ? new Date(items[items.length - 1].start) : built;
+const last = Math.min(first + 23, lastItem.getUTCFullYear() * 12 + lastItem.getUTCMonth());
+const months = [];
+for (let k = first; k <= last; k += 1) {
+  const y = Math.floor(k / 12); const m = k % 12;
+  const list = items.filter((i) => { const d = new Date(i.start); return d.getUTCFullYear() === y && d.getUTCMonth() === m; });
+  const lead = new Date(Date.UTC(y, m, 1)).getUTCDay();
+  const length = new Date(Date.UTC(y, m + 1, 0)).getUTCDate();
+  const cells = Array.from({ length: lead }, () => null);
+  for (let d = 1; d <= length; d += 1) cells.push({ d, key: iso(Date.UTC(y, m, d)) });
+  while (cells.length % 7) cells.push(null);
+  months.push({ y, m, name: `${MONTHS[m][0].toUpperCase()}${MONTHS[m].slice(1)} ${y}`, list, cells });
+}
+
+const groups = [...GROUPS, { id: 'other', label: 'Other' }]
+  .map((g) => ({ ...g, n: items.filter((i) => i.group === g.id).length }))
+  .filter((g) => g.n);
+const nMine = items.filter((i) => i.mine).length;
+const DOW = ['S', 'M', 'T', 'W', 'T', 'F', 'S'];
+---
+<Layout title="Conferences by time | Zhiqian Chen">
+  <main class="container">
+    <Nav current="bytime" />
+
+    <header class="bt-head">
+      <h1>Conferences by time</h1>
+      <p class="bt-intro">Every upcoming meeting the site tracks, month by month. A darker day has more meetings running. Hover a meeting to see its days, or a day to see its meetings.</p>
+      <div class="bt-filters" role="group" aria-label="Filter by field">
+        <button type="button" class="bt-chip is-on" data-filter="all">All <span>{items.length}</span></button>
+        {groups.map((g) => <button type="button" class="bt-chip" data-filter={g.id}>{g.label} <span>{g.n}</span></button>)}
+        {nMine > 0 && <button type="button" class="bt-chip bt-chip-mine" data-filter="mine">My trips <span>{nMine}</span></button>}
+      </div>
+    </header>
+
+    {months.map((mo) => (
+      <section class="bt-month" data-month={`${mo.y}-${mo.m}`}>
+        <div class="bt-cal">
+          <h2>{mo.name}</h2>
+          <div class="bt-dow" aria-hidden="true">{DOW.map((d) => <span>{d}</span>)}</div>
+          <div class="bt-grid">
+            {mo.cells.map((c) => c === null
+              ? <span class="bt-cell is-blank"></span>
+              : <span class="bt-cell" data-day={c.key}><span class="bt-num">{c.d}</span></span>)}
+          </div>
+        </div>
+        <ul class="bt-list">
+          {mo.list.map((i) => (
+            <li class={`bt-row${i.mine ? ' is-mine' : ''}`} data-group={i.group} data-mine={i.mine ? '1' : undefined} data-days={i.days.join(' ')} data-end={i.days[i.days.length - 1]}>
+              <span class="bt-date">{i.span}</span>
+              <span class="bt-main">
+                {i.link ? <a href={i.link} target="_blank" rel="noopener" class="bt-title">{i.title}</a> : <span class="bt-title">{i.title}</span>}
+                {i.mine && <span class="bt-going">going</span>}
+                <span class="bt-meta">{[i.place, i.field].filter(Boolean).join(' · ')}</span>
+              </span>
+            </li>
+          ))}
+        </ul>
+      </section>
+    ))}
+
+    <p class="bt-fine">Dates come from each meeting's own site and can move. Meetings with no announced date are left out.</p>
+  </main>
+
+  <script>
+    const now = new Date();
+    const todayKey = new Date(Date.UTC(now.getFullYear(), now.getMonth(), now.getDate())).toISOString().slice(0, 10);
+    const firstMonth = now.getFullYear() * 12 + now.getMonth();
+    const rows = [...document.querySelectorAll('.bt-row')];
+    const cells = [...document.querySelectorAll('.bt-cell[data-day]')];
+    const cellByDay = new Map(cells.map((c) => [c.dataset.day, c]));
+
+    // Meetings that have ended leave the page, and so do past months.
+    rows.forEach((r) => { if (r.dataset.end < todayKey) r.classList.add('is-past'); });
+    document.querySelectorAll('.bt-month').forEach((m) => {
+      const [y, mm] = m.dataset.month.split('-').map(Number);
+      if (y * 12 + mm < firstMonth) m.classList.add('is-past');
+    });
+    const today = cellByDay.get(todayKey);
+    if (today) today.classList.add('is-today');
+
+    let filter = 'all';
+    const shown = (r) => !r.classList.contains('is-past')
+      && (filter === 'all' || (filter === 'mine' ? r.dataset.mine === '1' : r.dataset.group === filter));
+
+    // Shade each day by how many shown meetings run on it, and mark the days
+    // of the user's own trips.
+    const paint = () => {
+      const count = new Map(); const mine = new Set();
+      rows.forEach((r) => {
+        const on = shown(r);
+        r.hidden = !on;
+        if (!on) return;
+        r.dataset.days.split(' ').forEach((d) => {
+          count.set(d, (count.get(d) || 0) + 1);
+          if (r.dataset.mine === '1') mine.add(d);
+        });
+      });
+      cells.forEach((c) => {
+        const n = count.get(c.dataset.day) || 0;
+        c.dataset.level = n === 0 ? '0' : n <= 2 ? '1' : n <= 5 ? '2' : '3';
+        c.title = n ? `${n} meeting${n > 1 ? 's' : ''}` : '';
+        c.classList.toggle('is-mine', mine.has(c.dataset.day));
+      });
+      document.querySelectorAll('.bt-month').forEach((m) => {
+        const any = [...m.querySelectorAll('.bt-row')].some((r) => !r.hidden);
+        m.hidden = m.classList.contains('is-past') || (!any && filter !== 'all');
+        m.classList.toggle('is-empty', !any);
+      });
+    };
+    paint();
+
+    document.querySelectorAll('.bt-chip').forEach((b) => b.addEventListener('click', () => {
+      filter = b.dataset.filter;
+      document.querySelectorAll('.bt-chip').forEach((x) => x.classList.toggle('is-on', x === b));
+      paint();
+    }));
+
+    // Row to days, and day to rows.
+    rows.forEach((r) => {
+      const days = r.dataset.days.split(' ');
+      r.addEventListener('mouseenter', () => days.forEach((d) => cellByDay.get(d)?.classList.add('is-lit')));
+      r.addEventListener('mouseleave', () => days.forEach((d) => cellByDay.get(d)?.classList.remove('is-lit')));
+    });
+    cells.forEach((c) => {
+      const hit = () => rows.filter((r) => !r.hidden && r.dataset.days.split(' ').includes(c.dataset.day));
+      c.addEventListener('mouseenter', () => { c.classList.add('is-lit'); hit().forEach((r) => r.classList.add('is-lit')); });
+      c.addEventListener('mouseleave', () => { c.classList.remove('is-lit'); rows.forEach((r) => r.classList.remove('is-lit')); });
+    });
+  </script>
+</Layout>
+
+<style>
+  .container { max-width: min(95vw, 1400px); margin: 0 auto; padding: 20px; box-sizing: border-box; }
+  [hidden], .is-past { display: none !important; }
+
+  .bt-head { margin: 6px 0 18px; }
+  .bt-head h1 { font-size: 1.9rem; margin: 0 0 6px; color: #16202B; }
+  .bt-intro { margin: 0 0 12px; color: #4E5C6A; font-size: .9rem; text-align: left; max-width: 80ch; }
+  .bt-filters { display: flex; flex-wrap: wrap; gap: 6px; }
+  .bt-chip { font: inherit; font-size: .82rem; color: #2E3A47; background: transparent; border: 1px solid rgba(148,163,184,.35); border-radius: 4px; padding: 3px 10px; cursor: pointer; }
+  .bt-chip span { color: #98A6B4; margin-left: 3px; font-variant-numeric: tabular-nums; }
+  .bt-chip:hover { background: #EAF0F6; }
+  .bt-chip.is-on { color: #16202B; border-color: #16202B; }
+  .bt-chip-mine.is-on { border-color: #C45200; color: #C45200; }
+
+  /* A month is one band: the calendar on the left, its meetings on the right. */
+  .bt-month { display: grid; grid-template-columns: 260px minmax(0, 1fr); gap: 28px; padding: 18px 0; border-top: 1px solid rgba(148,163,184,.25); }
+  .bt-month.is-empty .bt-list::before { content: 'No meetings start this month.'; color: #98A6B4; font-size: .85rem; }
+  .bt-cal { align-self: start; position: sticky; top: 12px; }
+  .bt-cal h2 { font-size: 1.15rem; margin: 0 0 8px; color: #16202B; }
+  .bt-dow, .bt-grid { display: grid; grid-template-columns: repeat(7, 1fr); gap: 2px; }
+  .bt-dow span { text-align: center; font-size: .66rem; color: #98A6B4; letter-spacing: .08em; padding-bottom: 2px; }
+  .bt-cell { position: relative; aspect-ratio: 1.25; display: flex; align-items: center; justify-content: center; border-radius: 4px; cursor: default; }
+  .bt-cell.is-blank { visibility: hidden; }
+  .bt-num { font-size: .74rem; color: #4E5C6A; font-variant-numeric: tabular-nums; }
+  /* Shading counts meetings: one or two, three to five, six or more. */
+  .bt-cell[data-level="1"] { background: #E3EAF2; }
+  .bt-cell[data-level="2"] { background: #C9D4DF; }
+  .bt-cell[data-level="3"] { background: #98A6B4; }
+  .bt-cell[data-level="3"] .bt-num { color: #F7F9FC; }
+  .bt-cell[data-level]:not([data-level="0"]) .bt-num { font-weight: 600; color: #16202B; }
+  .bt-cell[data-level="3"] .bt-num { color: #F7F9FC; }
+  .bt-cell.is-mine { box-shadow: inset 0 -2.5px 0 #C45200; }
+  .bt-cell.is-today { box-shadow: inset 0 0 0 1.5px #B3261E; }
+  .bt-cell.is-lit { background: #16202B; }
+  .bt-cell.is-lit .bt-num { color: #F7F9FC; }
+
+  .bt-list { list-style: none; margin: 0; padding: 0; columns: 2; column-gap: 28px; }
+  .bt-row { display: grid; grid-template-columns: 96px minmax(0, 1fr); gap: 10px; padding: 5px 8px; border-radius: 4px; break-inside: avoid; text-align: left; }
+  .bt-row:hover, .bt-row.is-lit { background: #EAF0F6; }
+  .bt-date { font-size: .8rem; color: #2E3A47; font-variant-numeric: tabular-nums; padding-top: 2px; }
+  .bt-main { min-width: 0; line-height: 1.3; }
+  .bt-title { font-size: .92rem; color: #16202B; text-decoration: none; font-weight: 600; }
+  a.bt-title:hover { color: #C45200; }
+  .bt-meta { display: block; font-size: .76rem; color: #4E5C6A; }
+  .bt-going { margin-left: 6px; font-size: .66rem; letter-spacing: .12em; text-transform: uppercase; color: #C45200; border-bottom: 1.5px solid #C45200; }
+  .bt-row.is-mine { background: #FDF1E7; }
+
+  .bt-fine { margin: 18px 0 0; font-size: .76rem; color: #98A6B4; }
+
+  @media (max-width: 1100px) { .bt-list { columns: 1; } }
+  @media (max-width: 720px) {
+    .bt-month { grid-template-columns: 1fr; gap: 12px; }
+    .bt-cal { position: static; max-width: 320px; }
+  }
+</style>
