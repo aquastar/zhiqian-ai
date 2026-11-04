@@ -11,7 +11,7 @@ import { GROUPS } from '../../data/domains.js';
 //
 // Leaflet with clustered markers on OpenStreetMap tiles. Coordinates come
 // from build-destinations.py, looked up once per place and cached.
-const COLORS = { computing: '#6d28d9', math: '#b45309', science: '#0f766e', mind: '#be185d', other: '#64748b' };
+const COLORS = { computing: '#6A46AE', math: '#A84600', science: '#007A94', mind: '#be185d', other: '#4E5C6A' };
 const groups = [...GROUPS, { id: 'other', label: 'Other fields' }]
   .map((g) => ({ ...g, color: COLORS[g.id], n: destinations.items.filter((i) => (i.group || 'other') === g.id).length }))
   .filter((g) => g.n);
@@ -252,63 +252,63 @@ const items = destinations.items.map((i, k) => ({
   .stage { position: relative; height: calc(100vh - 86px); min-height: 480px; }
   #map { position: absolute; inset: 0; z-index: 0; }
   .panel { position: absolute; z-index: 500; background: rgba(255,255,255,.96); border: 1px solid rgba(148,163,184,.35);
-    border-radius: 14px; box-shadow: 0 12px 30px rgba(15,23,42,.16); backdrop-filter: blur(6px); }
+    border-radius:6px; box-shadow:none; backdrop-filter: blur(6px); }
   .controls { top: 14px; left: 14px; width: min(440px, calc(100vw - 28px)); padding: 12px 14px; }
   .ctl-head { display: flex; align-items: center; justify-content: space-between; gap: 8px; }
   .ctl-toggle { display: none; align-items: center; gap: 6px; flex: none; padding: 4px 11px; border-radius: 999px;
-    border: 1px solid rgba(148,163,184,.45); background: #fff; font: inherit; font-size: .76rem; font-weight: 700; color: #334155; cursor: pointer; }
-  .ctl-toggle[aria-expanded="true"] { background: #1e293b; border-color: #1e293b; color: #fff; }
+    border: 1px solid rgba(148,163,184,.45); background:#F7F9FC; font: inherit; font-size: .76rem; font-weight: 700; color: #2E3A47; cursor: pointer; }
+  .ctl-toggle[aria-expanded="true"] { background: #16202B; border-color: #16202B; color: #fff; }
   .controls h1 { font-size: 1.05rem; margin: 0 0 8px; letter-spacing: -.01em; text-align: left; }
-  .controls h1 span { font-size: .72rem; font-weight: 700; color: #64748b; background: #f1f5f9; border-radius: 999px; padding: 1px 8px; margin-left: 4px; vertical-align: 2px; }
+  .controls h1 span { font-size: .72rem; font-weight: 700; color: #4E5C6A; background: #EAF0F6; border-radius: 999px; padding: 1px 8px; margin-left: 4px; vertical-align: 2px; }
   .gfilter, .ffilter { display: flex; flex-wrap: wrap; gap: 5px; }
   .ffilter { margin-top: 7px; padding-top: 7px; border-top: 1px dashed rgba(148,163,184,.4); }
   .ffilter[hidden] { display: none; }
   .gchip, .ffilter :global(.fchip) { display: inline-flex; align-items: center; gap: 5px; padding: 3px 10px; border-radius: 999px;
-    border: 1px solid rgba(148,163,184,.45); background: #fff; font: inherit; font-size: .74rem; font-weight: 600; color: #334155; cursor: pointer; }
+    border: 1px solid rgba(148,163,184,.45); background:#F7F9FC; font: inherit; font-size: .74rem; font-weight: 600; color: #2E3A47; cursor: pointer; }
   .gchip .dot { width: 8px; height: 8px; border-radius: 50%; display: inline-block; }
   .ffilter :global(.fchip span) { color: #a3adbb; font-size: .66rem; font-weight: 700; }
-  .gchip.is-on, .ffilter :global(.fchip.is-on) { background: #1e293b; border-color: #1e293b; color: #fff; }
+  .gchip.is-on, .ffilter :global(.fchip.is-on) { background: #16202B; border-color: #16202B; color: #fff; }
   .ffilter :global(.fchip.is-on span) { color: rgba(255,255,255,.7); }
   .row { display: flex; align-items: center; gap: 10px; margin-top: 9px; }
-  .opt { font-size: .76rem; color: #475569; display: inline-flex; align-items: center; gap: 5px; cursor: pointer; white-space: nowrap; }
+  .opt { font-size: .76rem; color: #4E5C6A; display: inline-flex; align-items: center; gap: 5px; cursor: pointer; white-space: nowrap; }
   #q { flex: 1; min-width: 0; padding: 4px 10px; border: 1px solid rgba(148,163,184,.5); border-radius: 999px; font: inherit; font-size: .76rem; }
   .regions { display: flex; flex-wrap: wrap; gap: 4px; margin-top: 9px; padding-top: 8px; border-top: 1px solid rgba(148,163,184,.25); }
   .rbtn { display: inline-flex; align-items: center; gap: 4px; padding: 2px 9px; border-radius: 7px; border: 1px solid rgba(148,163,184,.35);
-    background: #f8fafc; font: inherit; font-size: .72rem; font-weight: 600; color: #334155; cursor: pointer; }
+    background: #EEF3F8; font: inherit; font-size: .72rem; font-weight: 600; color: #2E3A47; cursor: pointer; }
   .rbtn span { color: #a3adbb; font-size: .64rem; font-weight: 700; }
-  .rbtn:hover:not(:disabled) { border-color: rgba(37,99,235,.5); color: #1d4ed8; }
+  .rbtn:hover:not(:disabled) { border-color: rgba(247,105,2,.5); color: #A84600; }
   .rbtn:disabled { opacity: .45; cursor: default; }
-  .rbtn.is-on { background: #1d4ed8; border-color: #1d4ed8; color: #fff; }
+  .rbtn.is-on { background: #A84600; border-color: #A84600; color: #fff; }
   .rbtn.is-on span { color: rgba(255,255,255,.75); }
-  .rbtn-world { background: #fff; font-weight: 700; }
+  .rbtn-world { background:#F7F9FC; font-weight: 700; }
   .rbtn-world i { font-size: .72rem; }
-  .hint { margin: 7px 0 0; font-size: .7rem; color: #94a3b8; }
+  .hint { margin: 7px 0 0; font-size: .7rem; color: #98A6B4; }
 
   .city { top: 14px; right: 14px; bottom: 14px; width: min(380px, calc(100vw - 28px)); display: flex; flex-direction: column; }
   .city[hidden] { display: none; }
   .city header { display: flex; align-items: flex-start; justify-content: space-between; gap: 10px; padding: 12px 14px 8px;
     border-bottom: 1px solid rgba(148,163,184,.25); }
   .city h2 { font-size: 1rem; margin: 0; text-align: left; }
-  #city-sub { font-size: .72rem; color: #64748b; }
-  #city-x { border: 0; background: none; font-size: 1.4rem; line-height: 1; color: #94a3b8; cursor: pointer; }
+  #city-sub { font-size: .72rem; color: #4E5C6A; }
+  #city-x { border: 0; background: none; font-size: 1.4rem; line-height: 1; color: #98A6B4; cursor: pointer; }
   #city-list { list-style: none; margin: 0; padding: 6px 14px 12px; overflow-y: auto; display: grid; gap: 2px; }
   #city-list :global(li) { padding: 8px 0; border-bottom: 1px solid rgba(148,163,184,.18); display: flex; flex-direction: column; gap: 2px; text-align: left; }
   #city-list :global(.c-top) { display: flex; align-items: baseline; gap: 6px; flex-wrap: wrap; }
-  #city-list :global(.c-top a), #city-list :global(.c-top b) { font-weight: 700; color: #0f172a; text-decoration: none; font-size: .88rem; }
+  #city-list :global(.c-top a), #city-list :global(.c-top b) { font-weight: 700; color: #16202B; text-decoration: none; font-size: .88rem; }
   #city-list :global(.c-top a:hover) { color: var(--accent); text-decoration: underline; }
-  #city-list :global(.c-y) { font-size: .62rem; font-weight: 800; color: #fff; background: #334155; border-radius: 4px; padding: 0 5px; }
+  #city-list :global(.c-y) { font-size: .62rem; font-weight: 800; color: #fff; background: #2E3A47; border-radius: 4px; padding: 0 5px; }
   #city-list :global(.c-f) { font-size: .62rem; font-weight: 700; color: var(--c); background: color-mix(in srgb, var(--c) 10%, white); border-radius: 4px; padding: 1px 6px; }
   #city-list :global(.c-d) { font-size: .72rem; color: #8a95a5; }
-  #city-list :global(.c-w) { font-size: .78rem; color: #334155; }
-  #city-list :global(.c-dl) { font-size: .74rem; color: #94a3b8; }
-  #city-list :global(.c-dl .open) { color: #0f766e; }
+  #city-list :global(.c-w) { font-size: .78rem; color: #2E3A47; }
+  #city-list :global(.c-dl) { font-size: .74rem; color: #98A6B4; }
+  #city-list :global(.c-dl .open) { color: #007A94; }
   #city-list :global(.c-h) { display: flex; flex-wrap: wrap; gap: 4px; margin-top: 2px; }
   #city-list :global(.c-h i) { font-style: normal; font-size: .64rem; font-weight: 700; color: #854d0e; background: #fefce8; border: 1px solid #fde68a; border-radius: 5px; padding: 0 6px; }
 
   /* Leaflet's own stylesheet loads after this one, so the rule needs its
      class to win. */
   :global(.leaflet-marker-icon.clu) { display: flex; align-items: center; justify-content: center; border-radius: 50%;
-    background: rgba(30,41,59,.82); color: #fff; font-weight: 800; font-size: .78rem; border: 2px solid #fff; box-shadow: 0 2px 8px rgba(15,23,42,.3); }
+    background: rgba(30,41,59,.82); color: #fff; font-weight: 800; font-size: .78rem; border: 2px solid #fff; box-shadow:none; }
 
   @media (max-width: 760px) {
     .container { padding: 10px 14px 0; }

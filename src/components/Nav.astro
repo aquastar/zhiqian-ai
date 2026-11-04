@@ -92,11 +92,13 @@ const SUBSTACK = 'https://substack.com/@zhiqianchen1';
   .nav-links { display:flex; flex-wrap:wrap; gap:8px; align-items:center;
     justify-content:flex-start; flex:1 1 auto; }
   .nav-right-start { margin-left:auto; }
-  .top-nav a { text-decoration:none; color:var(--ink); font-family:'Montserrat',sans-serif;
-    font-size:.9rem; padding:7px 10px; border-radius:999px; background:transparent; }
-  .top-nav a:hover { background:#f1f5f9; color:#0f172a; }
-  .top-nav a[aria-current="page"] { background:#e2e8f0; color:#0f172a;
-    box-shadow:inset 0 1px 2px rgba(15,23,42,.10); }
+  .top-nav a { text-decoration:none; color:var(--ink); font-family:'et-book',Palatino,serif;
+    font-size:.9rem; padding:6px 11px; border-radius:4px; background:transparent; }
+  .top-nav a:hover { background:#EAF0F6; color:#16202B; }
+  /* Current page: no fill, a thin underline in the site accent (the color of
+     the grant links on the homepage). */
+  .top-nav a[aria-current="page"] { background:transparent; color:#16202B; border-radius:0; box-shadow:inset 0 -1.5px 0 #C45200; }
+  .top-nav a[aria-current="page"]:hover { background:transparent; }
   .nav-ghost { opacity:.55; font-size:.72em; }
   .nav-menu { position:relative; display:flex; }
   .nav-caret { font-size:.7em; opacity:.55; margin-left:2px; }
@@ -104,23 +106,23 @@ const SUBSTACK = 'https://substack.com/@zhiqianchen1';
      the pointer inside the hover area on its way down. */
   .nav-sub { display:none; position:absolute; top:100%; right:0; z-index:50; min-width:150px;
     padding:12px 6px 6px; flex-direction:column; gap:2px; }
-  .nav-sub::before { content:''; position:absolute; inset:6px 0 0 0; z-index:-1; background:#fff;
-    border:1px solid rgba(148,163,184,.35); border-radius:12px; box-shadow:0 12px 28px rgba(15,23,42,.14); }
+  .nav-sub::before { content:''; position:absolute; inset:6px 0 0 0; z-index:-1; background:#F7F9FC;
+    border:1px solid rgba(148,163,184,.35); border-radius:6px; box-shadow:none; }
   /* A menu on the left side of the bar opens rightward, so it stays on screen. */
   .nav-menu-left .nav-sub { right:auto; left:0; }
   .nav-menu:hover .nav-sub, .nav-menu:focus-within .nav-sub { display:flex; }
   .top-nav .nav-sub a { font-size:.85rem; padding:6px 10px; border-radius:8px; white-space:nowrap; }
   .top-nav .nav-sub a { position:relative; }
   .nav-beta { position:absolute; top:0; right:2px; font-size:.56rem; font-weight:700; line-height:1; letter-spacing:.04em;
-    text-transform:uppercase; color:#1d4ed8; background:#eff6ff; border:1px solid #bfdbfe; border-radius:4px; padding:1px 3px; }
+    text-transform:uppercase; color:#A84600; background:#FDF1E7; border:1px solid #FAD6BA; border-radius:4px; padding:1px 3px; }
   .top-nav .nav-sub a:has(.nav-beta) { padding-right:38px; }
-  .top-nav .nav-sub a.is-here { background:#f1f5f9; font-weight:600; }
+  .top-nav .nav-sub a.is-here { background:#EAF0F6; font-weight:600; }
   .nav-substack { vertical-align:-1px; opacity:.85; }
 
   .nav-toggle { display:none; width:40px; height:40px; border:1px solid rgba(148,163,184,.18);
-    border-radius:12px; background:#fff; align-items:center; justify-content:center;
-    flex-direction:column; gap:4px; cursor:pointer; box-shadow:0 8px 20px rgba(15,23,42,.05); }
-  .nav-toggle span { display:block; width:16px; height:1.5px; background:#0f172a; border-radius:999px; }
+    border-radius:6px; background:#F7F9FC; align-items:center; justify-content:center;
+    flex-direction:column; gap:4px; cursor:pointer; box-shadow:none; }
+  .nav-toggle span { display:block; width:16px; height:1.5px; background:#16202B; border-radius:999px; }
 
   /* Narrow screens: a hamburger in the flow of the page, and the panel drops
      below it. The home page used to float this over the profile photo with a
@@ -133,13 +135,13 @@ const SUBSTACK = 'https://substack.com/@zhiqianchen1';
     .top-nav.nav-open .nav-links { display:flex; position:absolute; top:52px; left:0;
       width:fit-content; min-width:196px; max-width:78vw; margin:0; z-index:41;
       flex-direction:column; align-items:stretch; padding:10px;
-      border:1px solid rgba(255,255,255,.5); border-radius:18px;
+      border:1px solid rgba(255,255,255,.5); border-radius:6px;
       background:rgba(255,255,255,.72); backdrop-filter:blur(22px) saturate(1.6);
       -webkit-backdrop-filter:blur(22px) saturate(1.6);
-      box-shadow:0 20px 44px rgba(15,23,42,.28); }
-    .top-nav.nav-open .nav-links a { color:#0f172a; }
+      box-shadow:none; }
+    .top-nav.nav-open .nav-links a { color:#16202B; }
     .top-nav.nav-open .nav-right-start { margin-left:0; }
-    .top-nav.nav-open .nav-links a[aria-current="page"] { background:rgba(255,255,255,.72); box-shadow:none; }
+    .top-nav.nav-open .nav-links a[aria-current="page"] { background:transparent; box-shadow:inset 2px 0 0 #C45200; }
     .nav-links a { width:auto; min-width:0; text-align:left; justify-content:flex-start;
       padding:10px 12px; font-size:.98rem; white-space:nowrap; }
     /* In the phone panel the menu is simply listed, indented under its button. */

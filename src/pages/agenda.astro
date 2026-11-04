@@ -232,7 +232,7 @@ const dayName = (mo, d) => ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'][new
   </script>
 </Layout>
 <style>
-  :root { --accent:#2563eb; --ink:#0f172a; --muted:#475569; }
+  :root { --accent:#C45200; --ink:#16202B; --muted:#4E5C6A; }
   .container { max-width: min(95vw, 1600px); margin: 0 auto; padding: 20px; box-sizing: border-box; }
   /* The right-hand group of the nav starts here. Conferences only joins it on
      the agenda side of the site, where it is the thing a reader wants next. */
@@ -241,44 +241,44 @@ const dayName = (mo, d) => ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'][new
 
   .section { margin-top:6px; }
 
-  .dot { width:9px; height:9px; border-radius:50%; display:inline-block; flex:none; background:#94a3b8; }
+  .dot { width:9px; height:9px; border-radius:50%; display:inline-block; flex:none; background:#98A6B4; }
 
   /* Three across on a page of its own, so each month gets roughly twice the
      width it had as a section inside Research. */
   .cals { display:grid; grid-template-columns:repeat(4, minmax(0,1fr)); gap:14px; margin-bottom:16px; }
   /* A hairline dashed frame separates the months without tinting anything. */
-  .cal { padding:8px 8px 6px; border:1px dashed rgba(148,163,184,.42); border-radius:12px; }
-  .cal h3 { font-family:'Montserrat',sans-serif; font-size:.76rem; font-weight:700; letter-spacing:.08em; text-transform:uppercase; color:#334155; margin:0 0 5px; text-align:center; }
+  .cal { padding:8px 8px 6px; border:1px dashed rgba(148,163,184,.42); border-radius:6px; }
+  .cal h3 { font-family:'et-book',Palatino,serif; font-size:.76rem; font-weight:700; letter-spacing:.08em; text-transform:uppercase; color:#2E3A47; margin:0 0 5px; text-align:center; }
   .cal-dow, .cal-week { display:grid; grid-template-columns:repeat(7, 1fr); gap:2px; }
-  .cal-dow span { text-align:center; font-size:.64rem; font-weight:700; color:#94a3b8; padding-bottom:2px; }
+  .cal-dow span { text-align:center; font-size:.64rem; font-weight:700; color:#98A6B4; padding-bottom:2px; }
   /* Squat cells: the point is to get the grids and the list onto one screen. */
   .cal-cell { position:relative; aspect-ratio:2.45; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:1px; border-radius:5px; }
   .cal-cell.is-blank { visibility:hidden; }
-  .cal-num { font-size:.74rem; color:#64748b; font-variant-numeric:tabular-nums; line-height:1; }
-  .cal-cell.is-due { background:#e2e8f0; }
-  .cal-cell.is-due .cal-num { font-weight:700; color:#0f172a; }
+  .cal-num { font-size:.74rem; color:#4E5C6A; font-variant-numeric:tabular-nums; line-height:1; }
+  .cal-cell.is-due { background:#DCE5EE; }
+  .cal-cell.is-due .cal-num { font-weight:700; color:#16202B; }
   .cal-dots { display:flex; gap:2px; }
   /* Neutral: these count the day's items, they no longer encode a category. */
-  .cal-dots .dot { width:4px; height:4px; background:#64748b; }
+  .cal-dots .dot { width:4px; height:4px; background:#4E5C6A; }
   .cal-dots .dot.is-est { opacity:.4; }
   /* Set by the script once it knows the viewer's today. */
-  .cal-cell.is-today { box-shadow:inset 0 0 0 2px #b91c1c; }
-  .cal-cell.is-today .cal-num { color:#b91c1c; font-weight:700; }
+  .cal-cell.is-today { box-shadow:inset 0 0 0 2px #B3261E; }
+  .cal-cell.is-today .cal-num { color:#B3261E; font-weight:700; }
   .cal-cell.is-gone .cal-dots { display:none; }
-  .cal-cell.is-gone .cal-num { color:#cbd5e1; }
+  .cal-cell.is-gone .cal-num { color:#C9D4DF; }
 
   /* Detail panel, CSS-only so it needs no scripting and cannot drift. */
-  .cal-pop { display:none; position:absolute; top:calc(100% + 1px); padding-top:9px; left:50%; transform:translateX(-50%); z-index:30; width:max-content; max-width:260px; padding:8px 10px; border-radius:10px; background:#0f172a; color:#e2e8f0; font-size:.74rem; line-height:1.35; text-align:left; box-shadow:0 12px 28px rgba(15,23,42,.28); }
+  .cal-pop { display:none; position:absolute; top:calc(100% + 1px); padding-top:9px; left:50%; transform:translateX(-50%); z-index:30; width:max-content; max-width:260px; padding:8px 10px; border-radius:6px; background:#16202B; color:#DCE5EE; font-size:.74rem; line-height:1.35; text-align:left; box-shadow:none; }
   .cal-cell.is-due:hover .cal-pop, .cal-cell.is-trip:hover .cal-pop { display:block; }
   .cal-cell.is-gone:hover .cal-pop { display:none; }
   .cal-pop-head { display:block; font-weight:700; color:#fff; margin-bottom:4px; }
   .cal-pop-item { display:flex; align-items:baseline; gap:6px; }
   .cal-pop-item + .cal-pop-item { margin-top:3px; }
-  .cal-pop .est-flag { border-color:#475569; color:#94a3b8; }
+  .cal-pop .est-flag { border-color:#4E5C6A; color:#98A6B4; }
 
   .months { columns:4; column-gap:18px; }
   .month { break-inside:auto; margin-bottom:11px; }
-  .month h3 { font-family:'Montserrat',sans-serif; font-size:.78rem; font-weight:700; letter-spacing:.1em; text-transform:uppercase; color:#64748b; margin:0 0 7px; padding-bottom:4px; border-bottom:1px solid rgba(148,163,184,.2); break-after:avoid; }
+  .month h3 { font-family:'et-book',Palatino,serif; font-size:.78rem; font-weight:700; letter-spacing:.1em; text-transform:uppercase; color:#4E5C6A; margin:0 0 7px; padding-bottom:4px; border-bottom:1px solid rgba(148,163,184,.2); break-after:avoid; }
   /* The UA's [hidden] rule is display:none at the lowest possible specificity,
      so any class that sets display beats it. .deadline sets grid, and the
      rows the script retires stayed on screen. Re-assert it for this page. */
@@ -292,57 +292,57 @@ const dayName = (mo, d) => ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'][new
      name, and the right-hand pill carries the urgency. */
   /* Targeted venues: a wash plus a star, no new pill color, so the countdown
      bands keep their monopoly on meaning-by-color. */
-  .deadline.is-star { background:#eff6ff; box-shadow:inset 0 0 0 1px rgba(37,99,235,.18); }
-  .deadline.is-star .deadline-name, .deadline.is-star .deadline-link { color:#1e3a8a; font-weight:700; }
-  .star-mark { color:#2563eb; font-size:.62rem; margin-right:5px; }
-  .cal-dots .dot.is-star { background:#2563eb; }
-  .deadline { display:grid; grid-template-columns:52px minmax(0,1fr) auto; gap:8px; align-items:baseline; padding:3px 8px; border-radius:6px; background:#f8fafc; break-inside:avoid; }
-  .deadline-date { font-size:.76rem; font-weight:700; color:#0f172a; font-variant-numeric:tabular-nums; }
+  .deadline.is-star { background:#FDF1E7; box-shadow:inset 0 0 0 1px rgba(247,105,2,.18); }
+  .deadline.is-star .deadline-name, .deadline.is-star .deadline-link { color:#7A3300; font-weight:700; }
+  .star-mark { color:#C45200; font-size:.62rem; margin-right:5px; }
+  .cal-dots .dot.is-star { background:#C45200; }
+  .deadline { display:grid; grid-template-columns:52px minmax(0,1fr) auto; gap:8px; align-items:baseline; padding:3px 8px; border-radius:6px; background:#EEF3F8; break-inside:avoid; }
+  .deadline-date { font-size:.76rem; font-weight:700; color:#16202B; font-variant-numeric:tabular-nums; }
   /* The site body is justified; short labels just gap out under it. */
-  .deadline-name { font-size:.82rem; color:#334155; line-height:1.35; text-align:left; }
-  .deadline-link { color:inherit; text-decoration:none; border-bottom:1px solid rgba(37,99,235,.35); }
-  .deadline-link:hover { color:#2563eb; border-bottom-color:#2563eb; }
-  .cal-pop-link { color:#bfdbfe; text-decoration:underline; text-underline-offset:2px; }
+  .deadline-name { font-size:.82rem; color:#2E3A47; line-height:1.35; text-align:left; }
+  .deadline-link { color:inherit; text-decoration:none; border-bottom:1px solid rgba(247,105,2,.35); }
+  .deadline-link:hover { color:#C45200; border-bottom-color:#C45200; }
+  .cal-pop-link { color:#FAD6BA; text-decoration:underline; text-underline-offset:2px; }
   .cal-pop-link:hover { color:#fff; }
-  .est-flag { margin-left:6px; font-size:.68rem; color:#94a3b8; border:1px dashed #cbd5e1; border-radius:4px; padding:0 4px; }
+  .est-flag { margin-left:6px; font-size:.68rem; color:#98A6B4; border:1px dashed #C9D4DF; border-radius:4px; padding:0 4px; }
 
   /* White on a solid band, so the countdown is the loudest thing in the row. */
-  .deadline-left { min-width:34px; text-align:center; padding:2px 6px; border-radius:999px; font-size:.72rem; font-weight:700; color:#fff; font-variant-numeric:tabular-nums; white-space:nowrap; background:#64748b; }
-  .deadline-left.band-urgent { background:#b91c1c; }
+  .deadline-left { min-width:34px; text-align:center; padding:2px 6px; border-radius:999px; font-size:.72rem; font-weight:700; color:#fff; font-variant-numeric:tabular-nums; white-space:nowrap; background:#4E5C6A; }
+  .deadline-left.band-urgent { background:#B3261E; }
   .deadline-left.band-soon { background:#fde68a; color:#92400e; }
-  .deadline-left.band-later { background:#1d4ed8; }
-  .deadline-left.band-far { background:#64748b; }
-  .deadline-left.band-past { background:#e2e8f0; color:#94a3b8; }
+  .deadline-left.band-later { background:#A84600; }
+  .deadline-left.band-far { background:#4E5C6A; }
+  .deadline-left.band-past { background:#DCE5EE; color:#98A6B4; }
   /* A rolling call has no date to count down to. */
-  .deadline-left.band-anytime { background:#e2e8f0; color:#64748b; font-weight:600; letter-spacing:.02em; }
+  .deadline-left.band-anytime { background:#DCE5EE; color:#4E5C6A; font-weight:600; letter-spacing:.02em; }
   .deadline-left:empty { display:none; }
 
-  .cal-cell.is-linked { background:#dbeafe; box-shadow:inset 0 0 0 1px rgba(37,99,235,.55); }
-  .cal-cell.is-linked .cal-num { color:#1d4ed8; }
-  .deadline.is-linked { background:#dbeafe; }
-  .deadline.is-linked .deadline-name, .deadline.is-linked .deadline-date { color:#1d4ed8; }
+  .cal-cell.is-linked { background:#FAD6BA; box-shadow:inset 0 0 0 1px rgba(247,105,2,.55); }
+  .cal-cell.is-linked .cal-num { color:#A84600; }
+  .deadline.is-linked { background:#FAD6BA; }
+  .deadline.is-linked .deadline-name, .deadline.is-linked .deadline-date { color:#A84600; }
 
   /* Trips, in the slide house style: one accent (RIT orange) for every trip,
      no pills, no shadows. Trip days get the 25% orange tint with an orange
      rule along the bottom, so a trip reads as one bar across the week. */
   .cals, .trips { --trip:#F76902; --trip-tint:#FAD6BA; }
   .cal-cell.is-trip { background:var(--trip-tint); border-radius:0; box-shadow:inset 0 -2.5px 0 var(--trip); }
-  .cal-cell.is-trip .cal-num { color:#1F1E1B; font-weight:700; }
-  .cal-cell.is-trip .cal-dots .dot { background:#1F1E1B; }
+  .cal-cell.is-trip .cal-num { color:#16202B; font-weight:700; }
+  .cal-cell.is-trip .cal-dots .dot { background:#16202B; }
   .cal-cell.trip-start { border-top-left-radius:3px; border-bottom-left-radius:3px; }
   .cal-cell.trip-end { border-top-right-radius:3px; border-bottom-right-radius:3px; }
-  .cal-cell.is-trip.is-linked { background:var(--trip-tint); box-shadow:inset 0 -2.5px 0 var(--trip), inset 0 0 0 1px rgba(37,99,235,.55); }
-  .cal-cell.is-trip.is-today { box-shadow:inset 0 0 0 2px #b91c1c; }
+  .cal-cell.is-trip.is-linked { background:var(--trip-tint); box-shadow:inset 0 -2.5px 0 var(--trip), inset 0 0 0 1px rgba(247,105,2,.55); }
+  .cal-cell.is-trip.is-today { box-shadow:inset 0 0 0 2px #B3261E; }
   .cal-cell.is-trip.is-gone { opacity:.4; }
   .cal-cell.is-trip.is-gone:hover .cal-pop { display:none; }
   .trips { display:flex; flex-wrap:wrap; align-items:baseline; gap:6px 0; margin:2px 0 14px; }
-  .trips-label { font-size:.72rem; letter-spacing:.14em; text-transform:uppercase; color:#5F5D50; margin-right:16px; }
-  .trip-chip { display:inline-flex; align-items:baseline; gap:7px; padding:0 16px; text-decoration:none; color:#1F1E1B; font-size:.86rem; text-align:left; border-left:1px solid #D7D2CB; }
+  .trips-label { font-size:.72rem; letter-spacing:.14em; text-transform:uppercase; color:#4E5C6A; margin-right:16px; }
+  .trip-chip { display:inline-flex; align-items:baseline; gap:7px; padding:0 16px; text-decoration:none; color:#16202B; font-size:.86rem; text-align:left; border-left:1px solid #C9D4DF; }
   .trips-label + .trip-chip { border-left:0; padding-left:0; }
   .trip-name { font-weight:600; white-space:nowrap; }
   .trip-chip:hover .trip-name { text-decoration:underline; text-decoration-color:var(--trip); text-underline-offset:3px; }
-  .trip-meta { color:#5F5D50; }
-  .trip-left { font-size:.8rem; color:#1F1E1B; white-space:nowrap; font-variant-numeric:tabular-nums; border-bottom:2px solid var(--trip); line-height:1.25; }
+  .trip-meta { color:#4E5C6A; }
+  .trip-left { font-size:.8rem; color:#16202B; white-space:nowrap; font-variant-numeric:tabular-nums; border-bottom:2px solid var(--trip); line-height:1.25; }
   .trip-left:empty { display:none; }
   .trip-swatch { display:inline-block; width:9px; height:9px; border-radius:2px; background:var(--trip); flex:none; align-self:center; }
   .cal-pop-trip .trip-swatch { margin-right:6px; vertical-align:-1px; }
@@ -352,7 +352,7 @@ const dayName = (mo, d) => ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'][new
     .trip-chip, .trips-label + .trip-chip { border-left:0; padding:0; }
   }
 
-  .fineprint { margin:16px 0 0; font-size:.76rem; color:#94a3b8; line-height:1.5; }
+  .fineprint { margin:16px 0 0; font-size:.76rem; color:#98A6B4; line-height:1.5; }
 
   @media (max-width: 1350px) {
     .cals { grid-template-columns:repeat(3, minmax(0,1fr)); }
