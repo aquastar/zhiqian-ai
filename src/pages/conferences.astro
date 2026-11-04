@@ -1629,6 +1629,69 @@ ${t.rate}% accepted, ${t.n.toLocaleString()} submissions, ${t.share}% of the edi
     .head-row { flex-direction:column; }
     .c-when, .c-rate { display:none; }
   }
+
+  /* ---- Design language pass (2026-11-03, see the KB file
+     me/website-design-language.md). The page used to give every field its own
+     hue and every rank its own fill. Now ink and gray carry the structure,
+     rank is shown by line weight, and the one accent (#C45200) marks what is
+     due soon and which field is open, the same way the nav marks the page. */
+  .dchip, .dom { --hue:#4E5C6A !important; }
+  .dchip i { color:#4E5C6A; }
+  .dchip.is-on { background:transparent; color:#16202B; border-radius:0; box-shadow:inset 0 -1.5px 0 #C45200; }
+  .dchip.is-on i { color:#16202B; }
+  .fbtn.is-on { background:transparent; border-color:#16202B; color:#16202B; }
+  .dom .field-note { border-left-color:#C9D4DF; }
+
+  /* Ranks: no fills. Top tier is ink with an ink rule, the next tier gray,
+     the rest faint. CCF and CORE share the scale. */
+  .pill { color:#16202B; background:transparent; border:1px solid #C9D4DF; border-radius:4px; font-weight:600; }
+  .ccf-a, .core-as { background:transparent; color:#16202B; border-color:#16202B; font-weight:700; }
+  .ccf-b, .core-a { background:transparent; color:#2E3A47; border-color:#98A6B4; }
+  .ccf-c, .core-b, .core-c { background:transparent; color:#4E5C6A; border-color:#C9D4DF; }
+  .ccf-n, .core-tbr, .core-jp, .core-n, .csr-no { background:transparent; color:#98A6B4; border-color:#DCE5EE; font-weight:500; }
+  a.pill.csr-yes { background:transparent; color:#16202B; border-color:#16202B; }
+  a.pill.csr-yes:hover { background:#EAF0F6; }
+  .pill.frank { background:transparent; color:#16202B; border:1px solid #C9D4DF; font-style:italic; font-weight:500; }
+  .pill.honor { background:transparent; color:#4E5C6A; border:1px solid #DCE5EE; font-weight:500; }
+  .eqv { color:#4E5C6A; background:transparent; border:1px solid #DCE5EE; font-weight:500; }
+
+  /* Countdowns: plain figures. Under 30 days in the accent, the rest gray. */
+  .dl-days, .dl-days.band-far, .dl-days.band-soon { background:transparent; color:#4E5C6A; padding:1px 2px; font-weight:700; }
+  .dl-days.band-urgent { background:transparent; color:#C45200; }
+  .dl-days.band-past { background:transparent; color:#98A6B4; }
+  .chip.band-urgent { background:#C45200; } .chip.band-soon, .chip.band-far { background:#98A6B4; }
+
+  /* Small tags: text, a hairline, no tint. */
+  .open-tag { color:#C45200; background:transparent; border:0; border-bottom:1.5px solid #C45200; border-radius:0; padding:0 1px; }
+  .rounds-tag, .new-tag, .proc-optin, .proc-abstracts, .proc-none, .st-kind.is-top, .st-field, .area-count, .rest-count, .rate-stale-note {
+    color:#4E5C6A; background:transparent; border:1px solid #DCE5EE; }
+  .st-kind.is-top, .st-field { color:#16202B; }
+  .abs-line { color:#4E5C6A; }
+  .abs-line b { background:transparent; border:1px solid #DCE5EE; color:#4E5C6A; }
+  .abs-line.is-past, .abs-line.is-past b { color:#B3261E; background:transparent; border-color:#DCE5EE; }
+  .area-ai-ml-data-mining, .area-security, .area-health-bio, .area-control, .area-society-meetings { color:#4E5C6A; background:transparent; }
+  .fbtn.area-ai-ml-data-mining:not(.is-on), .fbtn.area-security:not(.is-on), .fbtn.area-health-bio:not(.is-on),
+  .fbtn.area-control:not(.is-on), .fbtn.area-society-meetings:not(.is-on) { color:#2E3A47; border-color:#C9D4DF; }
+
+  /* Topic trends: gray bars, change shown as plain figures. */
+  .tr-bar span { background:#98A6B4; opacity:1; }
+  .trend-list li.is-on button.tr-name { color:#16202B; text-decoration:underline; text-decoration-color:#C45200; text-underline-offset:3px; }
+  .tr-papers { border-color:#DCE5EE; }
+  .tr-g, .tr-g.is-up, .tr-g.is-down { background:transparent; }
+  .tr-g.is-up { color:#16202B; }
+  .tr-g.is-down { color:#98A6B4; }
+  .tr-g.is-new { color:#C45200; background:transparent; }
+  .ts-line b { color:#16202B; }
+  .cyc-dot { background:#2E3A47; }
+  .cyc-dot.is-est { color:#2E3A47; border-color:#2E3A47; }
+
+  /* Charts: one gray ramp, darkest for the largest share. */
+  .spark { color:#4E5C6A; }
+  .tc-fill { fill:#DCE5EE; }
+  .tone-a .tc-fill { fill:#2E3A47; }
+  .tone-b .tc-fill { fill:#4E5C6A; }
+  .tone-c .tc-fill { fill:#98A6B4; }
+  .tone-d .tc-fill { fill:#C9D4DF; }
 </style>
 
 <script>
