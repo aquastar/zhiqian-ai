@@ -91,11 +91,11 @@ const FORMATS = [
 const formats = (r) => FORMATS.filter(([, re]) => re.test(`${r.program} ${r.tldr}`)).map(([k]) => k);
 
 const COMP_WORD = { 1: 'light', 2: 'moderate', 3: 'competitive', 4: 'hard', 5: 'very hard' };
-// The sweep runs every Monday early morning, New York time, and the site
-// follows within the hour, so the next update is the Monday after this one.
+// The sweep runs every Friday early morning, New York time, and the site
+// follows within the hour, so the next update is the Friday after this one.
 const nextSweep = (() => {
   const d = new Date(`${data.date}T12:00:00Z`);
-  d.setUTCDate(d.getUTCDate() + (((8 - d.getUTCDay()) % 7) || 7));
+  d.setUTCDate(d.getUTCDate() + (((12 - d.getUTCDay()) % 7) || 7));
   return d.toISOString().slice(0, 10);
 })();
 ---
@@ -120,7 +120,7 @@ const nextSweep = (() => {
           <li title="Every call the sweep has ever reported, including the closed ones, which are kept so the list reads as a record rather than only a to-do."><b>{counts.all}</b><span>tracked</span></li>
           <li title="Picked out of the latest sweep as worth a look, rather than merely logged. These are the rows carrying a budget and a competition grade."><b>{counts.pick}</b><span>latest picks</span></li>
           <li title="Calls with at least one date still ahead of today, counted in your browser rather than at build time."><b>{counts.open}</b><span>still open</span></li>
-          <li title={`Funders on the standing watchlist, checked on every sweep, Monday and Friday, whether or not they have announced anything. ${unverified} of their links are not yet confirmed.`}><b>{data.counts.watchlist}</b><span>on watch</span></li>
+          <li title={`Funders on the standing watchlist, checked on every weekly sweep, whether or not they have announced anything. ${unverified} of their links are not yet confirmed.`}><b>{data.counts.watchlist}</b><span>on watch</span></li>
         </ul>
         <a class="src-link" href="/funding/sources">Sources and data <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
       </div>
@@ -250,8 +250,8 @@ const nextSweep = (() => {
     )}
 
     <p class="foot">
-      {data.caveat} Built from the Monday and Friday sweep by
-      <a href="https://github.com/aquastar/zhiqian-ai/blob/main/.github/workflows/funding-sync.yml" target="_blank" rel="noopener">a scheduled job</a>.
+      {data.caveat} Built from the weekly Friday sweep by
+      <a href="https://github.com/aquastar/zhiqian-ai/blob/main/scripts/build-funding.py" target="_blank" rel="noopener">a scheduled job</a>.
       <a href="/funding/sources">Where it all comes from</a>.
     </p>
   </main>
