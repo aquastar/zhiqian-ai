@@ -1946,7 +1946,13 @@ ${t.rate}% accepted, ${t.n.toLocaleString()} submissions, ${t.share}% of the edi
     doms.forEach((d) => { d.hidden = d.dataset.domain !== want; });
     fieldBtns.forEach((b) => b.classList.toggle('is-on', b === btn));
   };
-  fieldBtns.forEach((btn) => btn.addEventListener('click', () => apply(btn)));
+  // A click also writes the field into the address (/conferences#audio), so a
+  // copied or shared link opens the same field. replaceState keeps the back
+  // button from stepping through every chip.
+  fieldBtns.forEach((btn) => btn.addEventListener('click', () => {
+    apply(btn);
+    history.replaceState(null, '', `#${btn.dataset.area}`);
+  }));
 
   // The markup marks AI as selected; run the filter so the rows agree with it.
   // A field id in the URL hash (/conferences#sleep, as Convergences links)
