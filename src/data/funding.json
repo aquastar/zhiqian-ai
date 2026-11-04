@@ -6,7 +6,7 @@
     "opportunities": 38,
     "early_signals": 0,
     "registry": 263,
-    "watchlist": 247
+    "watchlist": 251
   },
   "opportunities": [
     {
@@ -7805,6 +7805,42 @@
       "typical_cycle": "Irregular",
       "access": "open",
       "why_niche_or_notes": "Power and energy dataset competitions"
+    },
+    {
+      "funder": "NAMM Foundation Music Research Grants",
+      "category": "adjacent_domain",
+      "opportunities_url": "https://www.nammfoundation.org/node/1494",
+      "url_verified": "N",
+      "typical_cycle": "Annual. Round 1 deadline in spring (June 6 2025 and April 1 2026 seen)",
+      "access": "open",
+      "why_niche_or_notes": "US research on music making and music learning. 5k to 25k. Early career investigators welcome. Apply through Cybergrants after an eligibility quiz. Added 2026-11-03"
+    },
+    {
+      "funder": "Sound Health (NIH with the Kennedy Center and NEA)",
+      "category": "federal_niche",
+      "opportunities_url": "https://www.nih.gov/sound-health",
+      "url_verified": "N",
+      "typical_cycle": "Irregular. NIH Music and Health notices (PAR-21-099 and PAR-21-100 era) and NEA Sound Health Network solicitations",
+      "access": "open",
+      "why_niche_or_notes": "Music and health research umbrella. Watch NIH Guide for new Music and Health notices and arts.gov for the next Sound Health Network solicitation. Fits music model work for ADRD and hearing. Added 2026-11-03"
+    },
+    {
+      "funder": "Sony CSL Paris music team",
+      "category": "industry_longtail",
+      "opportunities_url": "https://cslmusicteam.sony.fr/",
+      "url_verified": "N",
+      "typical_cycle": "No call. Collaboration by contact",
+      "access": "invitation",
+      "why_niche_or_notes": "Relationship route. AI tools for music artists. Pairs with the Sony Research Award row. Name a contact in the team before asking. Added 2026-11-03"
+    },
+    {
+      "funder": "Moises (Music.AI)",
+      "category": "industry_longtail",
+      "opportunities_url": "https://moises.ai/newsroom/",
+      "url_verified": "N",
+      "typical_cycle": "No grant program seen. Sponsors ISMIR and runs academic partnerships",
+      "access": "invitation",
+      "why_niche_or_notes": "Relationship route for music source separation and practice tools. Watch for research partnerships or data access. Added 2026-11-03"
     }
   ]
 }
