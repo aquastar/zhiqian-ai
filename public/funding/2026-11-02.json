@@ -5070,7 +5070,7 @@
       "source_tier": "L2",
       "logo_domain": "siemens.com",
       "logo": "/funding/logos/siemens.com.svg",
-      "logo_px": 10000,
+      "logo_px": 9999,
       "category": "Industry",
       "fit": [],
       "comp_score": 1,
@@ -5153,7 +5153,7 @@
       "source_tier": "L2",
       "logo_domain": "teachaccess.org",
       "logo": "/funding/logos/teachaccess.org.svg",
-      "logo_px": 10000,
+      "logo_px": 9999,
       "category": "Nonprofit",
       "fit": [],
       "comp_score": 1,
@@ -5196,7 +5196,7 @@
       "source_tier": "L2",
       "logo_domain": "curealz.org",
       "logo": "/funding/logos/curealz.org.svg",
-      "logo_px": 10000,
+      "logo_px": 9999,
       "category": "Nonprofit",
       "fit": [
         "aging and dementia"
