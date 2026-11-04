@@ -53,6 +53,16 @@ jobs:
       - name: Rebuild src/data/destinations.js
         run: python3 scripts/build-destinations.py
 
+      # The By time page reads meeting dates from the two files just rebuilt.
+      # List any date it cannot read in the job summary, daily, so a venue
+      # that drops off the calendar is noticed. Never fails the refresh.
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: Check meeting dates for the By time calendar
+        continue-on-error: true
+        run: node scripts/check-meeting-dates.mjs >> "$GITHUB_STEP_SUMMARY"
+
       # Reports, never rewrites. The deadlines come from ccfddl; this asks
       # each venue's own site whether ccfddl is still right, and prints the
       # disagreements. It is allowed to fail without failing the refresh,

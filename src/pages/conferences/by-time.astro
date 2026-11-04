@@ -5,36 +5,23 @@ import { destinations } from '../../data/destinations.js';
 import { ranked, notable } from '../../data/conferences.js';
 import { GROUPS, DOMAINS } from '../../data/domains.js';
 import { trips } from '../../data/deadlines.js';
+import { parseMeetingDate } from '../../lib/meeting-dates.js';
+import { execSync } from 'node:child_process';
 
 // Every upcoming meeting the site tracks, month by month: a small calendar
 // shaded by how many meetings run on each day, beside the list of meetings
 // that start that month. Hovering a row lights up its days, and hovering a
 // day lights up the rows that cover it.
 
+// The same data the field and map views use. Both files are rebuilt by the
+// daily refresh (refresh-conferences.yml), and every rebuild redeploys the
+// site, so this page follows them without anything of its own to update.
 const MONTHS = ['january', 'february', 'march', 'april', 'may', 'june', 'july', 'august', 'september', 'october', 'november', 'december'];
 const SHORT = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
-const monthOf = (w) => MONTHS.findIndex((m) => m.startsWith(w.toLowerCase().slice(0, 3)));
-
-// The date strings are written by hand ("Dec 1-4, 2026", "May 31 - June 4,
-// 2027", "December 8-10 (Sydney), December 9-11 (Atlanta and Paris), 2026"),
-// so read the first range and the first year and leave anything else out.
-const parseRange = (s) => {
-  if (!s) return null;
-  const y = s.match(/\b(20\d\d)\b/);
-  const m = s.match(/([A-Za-z]{3,9})\.?\s+(\d{1,2})(?:\s*-\s*(?:([A-Za-z]{3,9})\.?\s+)?(\d{1,2}))?/);
-  if (!y || !m) return null;
-  const m1 = monthOf(m[1]);
-  if (m1 < 0) return null;
-  const m2 = m[3] ? monthOf(m[3]) : m1;
-  const d1 = +m[2];
-  const d2 = m[4] ? +m[4] : d1;
-  const y1 = +y[1];
-  const y2 = m2 < m1 ? y1 + 1 : y1;
-  const start = Date.UTC(y1, m1, d1);
-  const end = Date.UTC(y2, m2 < 0 ? m1 : m2, d2);
-  if (Number.isNaN(start) || end < start || (end - start) / 864e5 > 20) return null;
-  return { start, end };
-};
+const lastUpdate = (() => {
+  try { return execSync('git log -1 --format=%cs -- src/data/conferences.js src/data/destinations.js').toString().trim() || new Date().toISOString().slice(0, 10); }
+  catch { return new Date().toISOString().slice(0, 10); }
+})();
 
 const groupOfArea = Object.fromEntries(DOMAINS.map((d) => [d.id, d.group]));
 const fieldOfArea = Object.fromEntries(DOMAINS.map((d) => [d.id, d.label]));
@@ -70,7 +57,7 @@ const label = (r) => {
 
 const items = raw
   .map((i) => {
-    const r = i.start ? { start: i.start, end: i.end } : parseRange(i.date);
+    const r = i.start ? { start: i.start, end: i.end } : parseMeetingDate(i.date);
     if (!r) return null;
     const days = [];
     for (let t = r.start; t <= r.end; t += 864e5) days.push(iso(t));
@@ -110,6 +97,7 @@ const DOW = ['S', 'M', 'T', 'W', 'T', 'F', 'S'];
     <header class="bt-head">
       <h1>Conferences by time</h1>
       <p class="bt-intro">Every upcoming meeting the site tracks, month by month. A darker day has more meetings running. Hover a meeting to see its days, or a day to see its meetings.</p>
+      <p class="bt-upd">Data last changed <b>{lastUpdate}</b> · checked daily with the field and map views, next check <b id="next-check">06:17 UTC</b></p>
       <div class="bt-filters" role="group" aria-label="Filter by field">
         <button type="button" class="bt-chip is-on" data-filter="all">All <span>{items.length}</span></button>
         {groups.map((g) => <button type="button" class="bt-chip" data-filter={g.id}>{g.label} <span>{g.n}</span></button>)}
@@ -162,6 +150,14 @@ const DOW = ['S', 'M', 'T', 'W', 'T', 'F', 'S'];
     });
     const today = cellByDay.get(todayKey);
     if (today) today.classList.add('is-today');
+
+    // The refresh runs at 06:17 UTC; show the next one in the reader's time.
+    const nc = document.getElementById('next-check');
+    if (nc) {
+      const next = new Date(Date.UTC(now.getUTCFullYear(), now.getUTCMonth(), now.getUTCDate(), 6, 17));
+      if (next <= now) next.setUTCDate(next.getUTCDate() + 1);
+      nc.textContent = next.toLocaleString(undefined, { month: 'short', day: 'numeric', hour: 'numeric', minute: '2-digit' });
+    }
 
     let filter = 'all';
     const shown = (r) => !r.classList.contains('is-past')
@@ -221,6 +217,8 @@ const DOW = ['S', 'M', 'T', 'W', 'T', 'F', 'S'];
   .bt-head { margin: 6px 0 18px; }
   .bt-head h1 { font-size: 1.9rem; margin: 0 0 6px; color: #16202B; }
   .bt-intro { margin: 0 0 12px; color: #4E5C6A; font-size: .9rem; text-align: left; max-width: 80ch; }
+  .bt-upd { margin: 0 0 12px; font-size: .78rem; color: #4E5C6A; }
+  .bt-upd b { color: #16202B; font-weight: 600; }
   .bt-filters { display: flex; flex-wrap: wrap; gap: 6px; }
   .bt-chip { font: inherit; font-size: .82rem; color: #2E3A47; background: transparent; border: 1px solid rgba(148,163,184,.35); border-radius: 4px; padding: 3px 10px; cursor: pointer; }
   .bt-chip span { color: #98A6B4; margin-left: 3px; font-variant-numeric: tabular-nums; }
