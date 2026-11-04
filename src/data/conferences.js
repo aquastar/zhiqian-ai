@@ -3,358 +3,8 @@
 // CORE ranks are cross-checked against the official CORE2023 export from
 // portal.core.edu.au. Acceptance rates and submission counts come from
 // github.com/Xovee/cs-conf-stats (main track only).
-// Built 2026-11-03.
+// Built 2026-11-04.
 export const ranked = [
-  {
-    "title": "NeurIPS",
-    "desc": "Conference on Neural Information Processing Systems",
-    "area": "ai",
-    "sub": "AI",
-    "frank": "",
-    "ccf": "A",
-    "core": "A*",
-    "coreVerified": true,
-    "nextDeadline": "2026-05-07",
-    "nextYear": 2026,
-    "nextAbstract": "",
-    "estimated": false,
-    "estFrom": "",
-    "rounds": [
-      {
-        "d": "2026-05-07",
-        "label": "",
-        "est": false,
-        "year": 2026,
-        "link": "https://neurips.cc/Conferences/2026",
-        "abs": "2026-05-05"
-      }
-    ],
-    "dblp": "nips",
-    "csr": "ML",
-    "edition": "40th",
-    "best": "neurips",
-    "link": "https://neurips.cc/Conferences/2026",
-    "date": "December 8-10 (Sydney), December 9-11 (Atlanta and Paris), 2026",
-    "place": "Sydney, Australia; Atlanta, USA; Paris, France",
-    "cc": "fr",
-    "city": "the Opera House, the Bondi to Coogee coastal walk, Blue Mountains",
-    "cycles": 1,
-    "roundLabels": [],
-    "proceedings": "full",
-    "rates": [
-      {
-        "y": 1993,
-        "r": 28.0
-      },
-      {
-        "y": 1994,
-        "r": 29.7
-      },
-      {
-        "y": 1995,
-        "r": 32.9
-      },
-      {
-        "y": 1996,
-        "r": 29.7
-      },
-      {
-        "y": 1997,
-        "r": 30.5
-      },
-      {
-        "y": 1998,
-        "r": 31.6
-      },
-      {
-        "y": 1999,
-        "r": 32.1
-      },
-      {
-        "y": 2000,
-        "r": 29.6
-      },
-      {
-        "y": 2002,
-        "r": 29.8
-      },
-      {
-        "y": 2003,
-        "r": 27.6
-      },
-      {
-        "y": 2004,
-        "r": 25.2
-      },
-      {
-        "y": 2005,
-        "r": 27.4
-      },
-      {
-        "y": 2006,
-        "r": 24.5
-      },
-      {
-        "y": 2007,
-        "r": 22.3
-      },
-      {
-        "y": 2008,
-        "r": 24.6
-      },
-      {
-        "y": 2009,
-        "r": 23.8
-      },
-      {
-        "y": 2010,
-        "r": 24.0
-      },
-      {
-        "y": 2011,
-        "r": 21.9
-      },
-      {
-        "y": 2012,
-        "r": 25.5
-      },
-      {
-        "y": 2013,
-        "r": 25.4
-      },
-      {
-        "y": 2014,
-        "r": 24.7
-      },
-      {
-        "y": 2015,
-        "r": 21.9
-      },
-      {
-        "y": 2016,
-        "r": 23.6
-      },
-      {
-        "y": 2017,
-        "r": 20.9
-      },
-      {
-        "y": 2018,
-        "r": 20.8
-      },
-      {
-        "y": 2019,
-        "r": 21.2
-      },
-      {
-        "y": 2020,
-        "r": 20.0
-      },
-      {
-        "y": 2021,
-        "r": 25.6
-      },
-      {
-        "y": 2022,
-        "r": 25.7
-      },
-      {
-        "y": 2023,
-        "r": 26.1
-      },
-      {
-        "y": 2024,
-        "r": 25.8
-      },
-      {
-        "y": 2025,
-        "r": 24.5
-      },
-      {
-        "y": 2026,
-        "r": 25.7
-      }
-    ],
-    "subs": [
-      {
-        "y": 1993,
-        "n": 515
-      },
-      {
-        "y": 1994,
-        "n": 509
-      },
-      {
-        "y": 1995,
-        "n": 462
-      },
-      {
-        "y": 1996,
-        "n": 509
-      },
-      {
-        "y": 1997,
-        "n": 491
-      },
-      {
-        "y": 1998,
-        "n": 474
-      },
-      {
-        "y": 1999,
-        "n": 467
-      },
-      {
-        "y": 2000,
-        "n": 514
-      },
-      {
-        "y": 2002,
-        "n": 694
-      },
-      {
-        "y": 2003,
-        "n": 717
-      },
-      {
-        "y": 2004,
-        "n": 823
-      },
-      {
-        "y": 2005,
-        "n": 752
-      },
-      {
-        "y": 2006,
-        "n": 833
-      },
-      {
-        "y": 2007,
-        "n": 975
-      },
-      {
-        "y": 2008,
-        "n": 1016
-      },
-      {
-        "y": 2009,
-        "n": 1105
-      },
-      {
-        "y": 2010,
-        "n": 1219
-      },
-      {
-        "y": 2011,
-        "n": 1400
-      },
-      {
-        "y": 2012,
-        "n": 1452
-      },
-      {
-        "y": 2013,
-        "n": 1420
-      },
-      {
-        "y": 2014,
-        "n": 1678
-      },
-      {
-        "y": 2015,
-        "n": 1838
-      },
-      {
-        "y": 2016,
-        "n": 2406
-      },
-      {
-        "y": 2017,
-        "n": 3240
-      },
-      {
-        "y": 2018,
-        "n": 4856
-      },
-      {
-        "y": 2019,
-        "n": 6743
-      },
-      {
-        "y": 2020,
-        "n": 9467
-      },
-      {
-        "y": 2021,
-        "n": 9122
-      },
-      {
-        "y": 2022,
-        "n": 10411
-      },
-      {
-        "y": 2023,
-        "n": 12343
-      },
-      {
-        "y": 2024,
-        "n": 15671
-      },
-      {
-        "y": 2025,
-        "n": 21575
-      },
-      {
-        "y": 2026,
-        "n": 30709
-      }
-    ],
-    "rateSrc": "csc",
-    "rateSlug": "neurips",
-    "tier": 1
-  },
-  {
-    "title": "ISWC",
-    "desc": "International Semantic Web Conference",
-    "area": "ai",
-    "sub": "DB",
-    "frank": "",
-    "ccf": "B",
-    "core": "A",
-    "coreVerified": true,
-    "nextDeadline": "2026-05-07",
-    "nextYear": 2026,
-    "nextAbstract": "",
-    "estimated": false,
-    "estFrom": "",
-    "rounds": [
-      {
-        "d": "2026-05-07",
-        "label": "ESWC resubmissions must be committed by April 11, 2026",
-        "est": false,
-        "year": 2026,
-        "link": "https://iswc2026.semanticweb.org/",
-        "abs": "2026-05-02"
-      }
-    ],
-    "dblp": "semweb",
-    "csr": "",
-    "edition": "",
-    "best": "",
-    "link": "https://iswc2026.semanticweb.org/",
-    "date": "October 27-29, 2026",
-    "place": "Bari, Italy",
-    "cc": "it",
-    "city": "orecchiette rolled by hand in the street, focaccia barese, swimming off the old town wall",
-    "cycles": 1,
-    "roundLabels": [],
-    "proceedings": "full",
-    "rates": [],
-    "subs": [],
-    "rateSrc": "",
-    "rateSlug": "",
-    "tier": 2
-  },
   {
     "title": "ICWSM",
     "desc": "The International AAAI Conference on Web and Social Media",
@@ -15118,6 +14768,354 @@ export const ranked = [
     "tier": 3
   },
   {
+    "title": "ISWC",
+    "desc": "International Semantic Web Conference",
+    "area": "ai",
+    "sub": "DB",
+    "frank": "",
+    "ccf": "B",
+    "core": "A",
+    "coreVerified": true,
+    "nextDeadline": "2027-05-14",
+    "nextYear": 2027,
+    "nextAbstract": "",
+    "estimated": true,
+    "estFrom": "2025-05-14",
+    "rounds": [
+      {
+        "d": "2027-05-14",
+        "label": "",
+        "est": true,
+        "from": "2025-05-14",
+        "abs": "2027-05-06"
+      }
+    ],
+    "dblp": "semweb",
+    "csr": "",
+    "edition": "",
+    "best": "",
+    "link": "https://iswc2026.semanticweb.org/",
+    "date": "",
+    "place": "",
+    "cc": "",
+    "city": "",
+    "cycles": 1,
+    "roundLabels": [],
+    "proceedings": "full",
+    "rates": [],
+    "subs": [],
+    "rateSrc": "",
+    "rateSlug": "",
+    "tier": 2
+  },
+  {
+    "title": "NeurIPS",
+    "desc": "Conference on Neural Information Processing Systems",
+    "area": "ai",
+    "sub": "AI",
+    "frank": "",
+    "ccf": "A",
+    "core": "A*",
+    "coreVerified": true,
+    "nextDeadline": "2027-05-15",
+    "nextYear": 2027,
+    "nextAbstract": "",
+    "estimated": true,
+    "estFrom": "2025-05-15",
+    "rounds": [
+      {
+        "d": "2027-05-15",
+        "label": "",
+        "est": true,
+        "from": "2025-05-15",
+        "abs": "2027-05-11"
+      }
+    ],
+    "dblp": "nips",
+    "csr": "ML",
+    "edition": "41st",
+    "best": "neurips",
+    "link": "https://neurips.cc/Conferences/2026",
+    "date": "",
+    "place": "",
+    "cc": "",
+    "city": "",
+    "cycles": 1,
+    "roundLabels": [],
+    "proceedings": "full",
+    "rates": [
+      {
+        "y": 1993,
+        "r": 28.0
+      },
+      {
+        "y": 1994,
+        "r": 29.7
+      },
+      {
+        "y": 1995,
+        "r": 32.9
+      },
+      {
+        "y": 1996,
+        "r": 29.7
+      },
+      {
+        "y": 1997,
+        "r": 30.5
+      },
+      {
+        "y": 1998,
+        "r": 31.6
+      },
+      {
+        "y": 1999,
+        "r": 32.1
+      },
+      {
+        "y": 2000,
+        "r": 29.6
+      },
+      {
+        "y": 2002,
+        "r": 29.8
+      },
+      {
+        "y": 2003,
+        "r": 27.6
+      },
+      {
+        "y": 2004,
+        "r": 25.2
+      },
+      {
+        "y": 2005,
+        "r": 27.4
+      },
+      {
+        "y": 2006,
+        "r": 24.5
+      },
+      {
+        "y": 2007,
+        "r": 22.3
+      },
+      {
+        "y": 2008,
+        "r": 24.6
+      },
+      {
+        "y": 2009,
+        "r": 23.8
+      },
+      {
+        "y": 2010,
+        "r": 24.0
+      },
+      {
+        "y": 2011,
+        "r": 21.9
+      },
+      {
+        "y": 2012,
+        "r": 25.5
+      },
+      {
+        "y": 2013,
+        "r": 25.4
+      },
+      {
+        "y": 2014,
+        "r": 24.7
+      },
+      {
+        "y": 2015,
+        "r": 21.9
+      },
+      {
+        "y": 2016,
+        "r": 23.6
+      },
+      {
+        "y": 2017,
+        "r": 20.9
+      },
+      {
+        "y": 2018,
+        "r": 20.8
+      },
+      {
+        "y": 2019,
+        "r": 21.2
+      },
+      {
+        "y": 2020,
+        "r": 20.0
+      },
+      {
+        "y": 2021,
+        "r": 25.6
+      },
+      {
+        "y": 2022,
+        "r": 25.7
+      },
+      {
+        "y": 2023,
+        "r": 26.1
+      },
+      {
+        "y": 2024,
+        "r": 25.8
+      },
+      {
+        "y": 2025,
+        "r": 24.5
+      },
+      {
+        "y": 2026,
+        "r": 25.7
+      }
+    ],
+    "subs": [
+      {
+        "y": 1993,
+        "n": 515
+      },
+      {
+        "y": 1994,
+        "n": 509
+      },
+      {
+        "y": 1995,
+        "n": 462
+      },
+      {
+        "y": 1996,
+        "n": 509
+      },
+      {
+        "y": 1997,
+        "n": 491
+      },
+      {
+        "y": 1998,
+        "n": 474
+      },
+      {
+        "y": 1999,
+        "n": 467
+      },
+      {
+        "y": 2000,
+        "n": 514
+      },
+      {
+        "y": 2002,
+        "n": 694
+      },
+      {
+        "y": 2003,
+        "n": 717
+      },
+      {
+        "y": 2004,
+        "n": 823
+      },
+      {
+        "y": 2005,
+        "n": 752
+      },
+      {
+        "y": 2006,
+        "n": 833
+      },
+      {
+        "y": 2007,
+        "n": 975
+      },
+      {
+        "y": 2008,
+        "n": 1016
+      },
+      {
+        "y": 2009,
+        "n": 1105
+      },
+      {
+        "y": 2010,
+        "n": 1219
+      },
+      {
+        "y": 2011,
+        "n": 1400
+      },
+      {
+        "y": 2012,
+        "n": 1452
+      },
+      {
+        "y": 2013,
+        "n": 1420
+      },
+      {
+        "y": 2014,
+        "n": 1678
+      },
+      {
+        "y": 2015,
+        "n": 1838
+      },
+      {
+        "y": 2016,
+        "n": 2406
+      },
+      {
+        "y": 2017,
+        "n": 3240
+      },
+      {
+        "y": 2018,
+        "n": 4856
+      },
+      {
+        "y": 2019,
+        "n": 6743
+      },
+      {
+        "y": 2020,
+        "n": 9467
+      },
+      {
+        "y": 2021,
+        "n": 9122
+      },
+      {
+        "y": 2022,
+        "n": 10411
+      },
+      {
+        "y": 2023,
+        "n": 12343
+      },
+      {
+        "y": 2024,
+        "n": 15671
+      },
+      {
+        "y": 2025,
+        "n": 21575
+      },
+      {
+        "y": 2026,
+        "n": 30709
+      }
+    ],
+    "rateSrc": "csc",
+    "rateSlug": "neurips",
+    "tier": 1
+  },
+  {
     "title": "AIES",
     "desc": "AAAI/ACM Conference on AI, Ethics, and Society",
     "area": "philosophy",
@@ -16314,7 +16312,7 @@ export const notable = [
     "period": 1,
     "date": "March 20-23, 2027",
     "place": "Boston, Massachusetts, USA",
-    "note": "Where cognitive neuroscience meets psychology and computational modelling, four days built around poster sessions, invited symposia and award lectures. The 33rd meeting ran in Vancouver in March 2026. Abstracts are 250 words and are published by default in the Proceedings of the Annual Meeting of the Cognitive Neuroscience Society, so this is not a no-proceedings venue, but the proceedings are the abstracts themselves. The Sketchpad Series takes work in progress and is left out of them. Submission requires society membership. The date shown is the poster abstract deadline, which the society says will not be extended.",
+    "note": "Where cognitive neuroscience meets psychology and computational modelling, four days built around poster sessions, invited symposia and award lectures. The 33rd meeting ran in Vancouver in March 2026. Abstracts are 250 words and are published by default in the Proceedings of the Annual Meeting of the Cognitive Neuroscience Society, so this is not a no-proceedings venue, but the proceedings are the abstracts themselves. The Sketchpad Series takes work in progress and is left out of them. Submission requires society membership. The date shown is the poster abstract deadline, which the society says will not be extended. The meeting shown is the next one to attend, which is a cycle ahead of the estimated deadline beside it.",
     "field": "cognitive neuroscience",
     "kind": "yearly",
     "why": "cognition, modelling and imaging",
@@ -16338,9 +16336,9 @@ export const notable = [
     "csr": "",
     "edition": "",
     "sub": "",
-    "estimated": false,
-    "estFrom": "",
-    "nextDeadline": "2026-11-03",
+    "estimated": true,
+    "estFrom": "2026-11-03",
+    "nextDeadline": "2027-11-03",
     "nextYear": null,
     "notable": true,
     "cc": "us",

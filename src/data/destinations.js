@@ -3,7 +3,7 @@
 // CCF A or B, or CORE A* or A, every hand-kept venue on the field
 // tabs, and the venues added by hand in the script. Destinations mix cities, countries and
 // regions, because that is how people choose where to go.
-// Built 2026-11-03.
+// Built 2026-11-04.
 export const destinations = {
  "items": [
   {
@@ -2440,8 +2440,8 @@ export const destinations = {
    "icon": "",
    "ccf": "N",
    "core": "N",
-   "deadline": "2026-11-03",
-   "open": true,
+   "deadline": "",
+   "open": false,
    "link": "https://www.cogneurosociety.org/submit-a-poster/",
    "q": "boston, massachusetts, usa boston united states ",
    "field": "Cognitive neuroscience",
@@ -4984,7 +4984,7 @@ export const destinations = {
    "ccf": "B",
    "core": "A",
    "sub": "CG",
-   "deadline": "2027-02-09",
+   "deadline": "2027-02-10",
    "open": true,
    "link": "https://interspeech2027.org/",
    "q": "são paulo, brazil sao paulo brazil ",
@@ -6566,6 +6566,26 @@ export const destinations = {
    ],
    "lat": 45.5032,
    "lon": -73.5698
+  },
+  {
+   "title": "SANE",
+   "desc": "Speech and Audio in the Northeast",
+   "year": 2027,
+   "place": "Alternates between Boston and New York, USA",
+   "date": "October 30, 2026 at MIT, 13th edition. 2027 not announced",
+   "city": "Alternates between Boston and New York",
+   "country": "United States",
+   "dest": "",
+   "icon": "",
+   "ccf": "N",
+   "core": "N",
+   "deadline": "",
+   "open": false,
+   "link": "https://www.saneworkshop.org/sane2026/",
+   "q": "alternates between boston and new york, usa alternates between boston and new york united states ",
+   "field": "Music & Audio",
+   "group": "computing",
+   "honors": []
   },
   {
    "title": "SANER",
