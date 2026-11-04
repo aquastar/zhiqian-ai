@@ -188,57 +188,57 @@ const featured = courses.find((c) => c.project);
   </script>
 </Layout>
 <style>
-  :root { --accent:#2563eb; --ink:#0f172a; --muted:#475569; }
+  :root { --accent:#C45200; --ink:#16202B; --muted:#4E5C6A; }
   .container { max-width: min(95vw, 1600px); margin: 0 auto; padding: 20px; box-sizing: border-box; }
   .hero { margin: 10px 0 18px; }
-  .hero h1 { font-family:'Montserrat',sans-serif; font-size:2rem; margin:0 0 8px; }
+  .hero h1 { font-family:'et-book',Palatino,serif; font-size:2rem; margin:0 0 8px; }
   .hero p { margin:0; color:var(--muted); max-width:780px; }
   .section { padding-top:18px; margin-top:26px; border-top:none; }
-  .section h2 { font-family:'Montserrat',sans-serif; font-size:1.1rem; margin:0 0 14px; }
+  .section h2 { font-family:'et-book',Palatino,serif; font-size:1.1rem; margin:0 0 14px; }
   .cards { display:grid; gap:14px; }
   .cards.two { grid-template-columns: repeat(2, minmax(0,1fr)); }
-  .card { border:1px solid rgba(148,163,184,.16); border-radius:16px; background:#fff; padding:16px; }
+  .card { border:1px solid rgba(148,163,184,.16); border-radius:6px; background:#F7F9FC; padding:16px; }
   .card h3, .card p { text-align:left; }
-  .card h3 { font-family:'Montserrat',sans-serif; font-size:1rem; margin:0 0 8px; }
-  .card p { margin:0; color:#334155; font-size:.95rem; }
+  .card h3 { font-family:'et-book',Palatino,serif; font-size:1rem; margin:0 0 8px; }
+  .card p { margin:0; color:#2E3A47; font-size:.95rem; }
   .tags { display:flex; flex-wrap:wrap; gap:6px; margin-bottom:8px; }
-  .tag { display:inline-block; font-size:.72rem; color:var(--accent); background:#dbeafe; padding:3px 8px; border-radius:999px; }
-  .tag-current { color:#166534; background:#dcfce7; font-weight:700; }
-  .tag-past { color:#64748b; background:#f1f5f9; }
+  .tag { display:inline-block; font-size:.72rem; color:var(--accent); background:#FAD6BA; padding:3px 8px; border-radius:999px; }
+  .tag-current { color:#007A94; background:#dcfce7; font-weight:700; }
+  .tag-past { color:#4E5C6A; background:#EAF0F6; }
   .card.is-current { border-color:rgba(22,101,52,.28); }
-  .school { margin:0 0 6px !important; font-size:.8rem; color:#64748b; }
-  .schedule-box { border:1px dashed rgba(37,99,235,.28); border-radius:14px; padding:14px; background:#f8fbff; color:#334155; }
+  .school { margin:0 0 6px !important; font-size:.8rem; color:#4E5C6A; }
+  .schedule-box { border:1px dashed rgba(247,105,2,.28); border-radius:6px; padding:14px; background:#f8fbff; color:#2E3A47; }
   /* Talks on the left, the award and the course list in a sticky column on the right. */
   .teach-grid { display:grid; grid-template-columns:minmax(0,1.55fr) minmax(320px,1fr); gap:40px; align-items:start; }
   .teach-grid > .section, .teach-side > .section { margin-top:0; padding-top:0; }
   .teach-side { position:sticky; top:16px; display:flex; flex-direction:column; gap:22px; }
-  .talks, .courses { list-style:none; margin:0; padding:0; border-top:1px solid #e2e8f0; }
-  .talk { display:grid; grid-template-columns:72px 1fr; gap:12px; padding:10px 0; border-bottom:1px solid #e2e8f0; }
-  .talk-year { font-family:'Montserrat',sans-serif; font-size:.78rem; color:#64748b; padding-top:2px; }
-  .talk-title { text-align:left; font-family:'Montserrat',sans-serif; font-size:.9rem; font-weight:600; color:#0f172a; line-height:1.35; }
-  .talk-kind { font-family:inherit; font-weight:400; font-size:.66rem; color:#64748b; border:1px solid #cbd5e1; border-radius:4px; padding:0 5px; margin-left:6px; vertical-align:2px; white-space:nowrap; }
-  .talk-kind.is-current { color:#166534; border-color:#86efac; background:#f0fdf4; }
+  .talks, .courses { list-style:none; margin:0; padding:0; border-top:1px solid #DCE5EE; }
+  .talk { display:grid; grid-template-columns:72px 1fr; gap:12px; padding:10px 0; border-bottom:1px solid #DCE5EE; }
+  .talk-year { font-family:'et-book',Palatino,serif; font-size:.78rem; color:#4E5C6A; padding-top:2px; }
+  .talk-title { text-align:left; font-family:'et-book',Palatino,serif; font-size:.9rem; font-weight:600; color:#16202B; line-height:1.35; }
+  .talk-kind { font-family:inherit; font-weight:400; font-size:.66rem; color:#4E5C6A; border:1px solid #C9D4DF; border-radius:4px; padding:0 5px; margin-left:6px; vertical-align:2px; white-space:nowrap; }
+  .talk-kind.is-current { color:#007A94; border-color:#86efac; background:#E8F4F6; }
   .talk-events { display:flex; flex-wrap:wrap; gap:4px 6px; margin-top:4px; }
-  .talk-events .talk-event { margin:0; padding:1px 8px; border-radius:999px; background:#f1f5f9; font-style:normal; }
-  .talk-event { font-size:.78rem; color:#334155; font-style:italic; margin-top:2px; line-height:1.4; }
+  .talk-events .talk-event { margin:0; padding:1px 8px; border-radius:999px; background:#EAF0F6; font-style:normal; }
+  .talk-event { font-size:.78rem; color:#2E3A47; font-style:italic; margin-top:2px; line-height:1.4; }
   .talk-event a { color:inherit; text-decoration:none; }
   .talk-event a:hover { text-decoration:underline; }
-  .talk-desc { font-size:.8rem; color:#475569; margin-top:4px; line-height:1.45; text-align:left; }
+  .talk-desc { font-size:.8rem; color:#4E5C6A; margin-top:4px; line-height:1.45; text-align:left; }
   .talk-links { margin-top:3px; font-size:.78rem; display:flex; flex-wrap:wrap; gap:10px; }
-  .talk-links a { color:#1d4ed8; text-decoration:none; }
+  .talk-links a { color:#A84600; text-decoration:none; }
   .talk-links a:hover { text-decoration:underline; }
-  .course { padding:7px 0; border-bottom:1px solid #e2e8f0; }
-  .course-star { color:#b45309; font-size:.75rem; margin-left:6px; }
-  .award h2 i { color:#b45309; }
-  .course-project { padding:12px; border:1px solid #fcd34d; border-radius:12px; background:#fffbeb; }
+  .course { padding:7px 0; border-bottom:1px solid #DCE5EE; }
+  .course-star { color:#A84600; font-size:.75rem; margin-left:6px; }
+  .award h2 i { color:#A84600; }
+  .course-project { padding:12px; border:1px solid #fcd34d; border-radius:6px; background:#FDF1E7; }
   .project-head { display:flex; flex-wrap:wrap; align-items:baseline; gap:4px 8px; margin:10px 0 5px; }
-  .project-award { flex:0 0 100%; font-family:'Montserrat',sans-serif; font-size:.82rem; font-weight:700; color:#92400e; }
-  .project-title { font-family:'Montserrat',sans-serif; font-weight:700; font-size:.9rem; color:#0f172a; }
-  .project-course { text-align:left; font-size:.75rem; color:#64748b; }
-  .project-desc { margin:0; font-size:.8rem; color:#475569; line-height:1.45; text-align:left; }
+  .project-award { flex:0 0 100%; font-family:'et-book',Palatino,serif; font-size:.82rem; font-weight:700; color:#92400e; }
+  .project-title { font-family:'et-book',Palatino,serif; font-weight:700; font-size:.9rem; color:#16202B; }
+  .project-course { text-align:left; font-size:.75rem; color:#4E5C6A; }
+  .project-desc { margin:0; font-size:.8rem; color:#4E5C6A; line-height:1.45; text-align:left; }
   .project-media { margin:0; }
   /* preload="none": the 4.8MB file is only fetched once the clip is on screen. */
-  .project-video { display:block; width:100%; height:auto; border-radius:8px; background:#0f172a; }
+  .project-video { display:block; width:100%; height:auto; border-radius:8px; background:#16202B; }
 
   @media (max-width: 1000px) {
     .teach-grid { grid-template-columns:1fr; gap:26px; }

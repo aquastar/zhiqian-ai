@@ -23,7 +23,7 @@ const CLARITY_ID = import.meta.env.PUBLIC_CLARITY_ID;
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/7.2.3/css/flag-icons.min.css" />
 		<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1.9.4/css/academicons.min.css" />
-		<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" />
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=et-book:wght@400;700&display=swap" />
 		<title>{title}</title>
 		{GA_ID && (
 			<Fragment>
@@ -58,6 +58,15 @@ const CLARITY_ID = import.meta.env.PUBLIC_CLARITY_ID;
 	</body>
 </html>
 
+<style is:global>
+	/* Preview: slide house style v2. ET Book, warm neutrals, RIT orange as the one accent. */
+	@font-face { font-family:'et-book'; src:url('/fonts/et-book/et-book-roman-line-figures.woff') format('woff'); font-weight:400; font-style:normal; font-display:swap; }
+	@font-face { font-family:'et-book'; src:url('/fonts/et-book/et-book-display-italic-old-style-figures.woff') format('woff'); font-weight:400; font-style:italic; font-display:swap; }
+	@font-face { font-family:'et-book'; src:url('/fonts/et-book/et-book-bold-line-figures.woff') format('woff'); font-weight:600 800; font-style:normal; font-display:swap; }
+	body { -webkit-font-smoothing:antialiased; }
+	h1, h2 { font-weight:400 !important; letter-spacing:0 !important; }
+	body { word-spacing:-0.02em; }
+</style>
 <style>
 	html {
 		/* Reserve the scrollbar gutter on every page: without it, short pages
@@ -70,11 +79,11 @@ const CLARITY_ID = import.meta.env.PUBLIC_CLARITY_ID;
 		margin: 0;
 		width: 100%;
 		min-height: 100%;
-		font-family: Optima, 'Avenir Next', Avenir, Calibri, Arial, sans-serif;
+		font-family: 'et-book', Palatino, 'Palatino Linotype', Georgia, serif;
 		font-size: 18px;
-		background: #ffffff;
-		color: #0f172a;
-		line-height: 1.55;
+		background: #F7F9FC;
+		color: #16202B;
+		line-height: 1.45;
 		text-align: justify;
 		text-justify: inter-word;
 	}
@@ -86,8 +95,8 @@ const CLARITY_ID = import.meta.env.PUBLIC_CLARITY_ID;
 		flex-wrap: wrap;
 		padding: 24px 20px 28px;
 		margin-top: 32px;
-		border-top: 1px solid rgba(148, 163, 184, 0.18);
-		color: #64748b;
+		border-top: 1px solid rgba(148,163,184, 0.18);
+		color: #4E5C6A;
 		font-size: 0.78rem;
 		text-align: center;
 	}

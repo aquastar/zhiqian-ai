@@ -89,33 +89,33 @@ const confusion = [
 </Layout>
 
 <style>
-  :root { --accent:#2563eb; --ink:#0f172a; --muted:#475569; }
+  :root { --accent:#C45200; --ink:#16202B; --muted:#4E5C6A; }
   .container { max-width: min(94vw, 880px); margin: 0 auto; padding: 20px; box-sizing: border-box; }
   .hero { margin: 10px 0 28px; }
-  .hero h1 { font-family:'Montserrat',sans-serif; font-size:2rem; margin:0 0 10px; }
-  .lede { margin:0; max-width:820px; font-size:1.05rem; color:#1e293b; text-align:left; }
+  .hero h1 { font-family:'et-book',Palatino,serif; font-size:2rem; margin:0 0 10px; }
+  .lede { margin:0; max-width:820px; font-size:1.05rem; color:#16202B; text-align:left; }
   .section { padding-top:18px; margin-top:26px; border-top:none; max-width:820px; }
-  .section h2 { font-family:'Montserrat',sans-serif; font-size:1.1rem; margin:0 0 14px; }
-  .section p { margin:0 0 12px; color:#334155; font-size:.95rem; }
+  .section h2 { font-family:'et-book',Palatino,serif; font-size:1.1rem; margin:0 0 14px; }
+  .section p { margin:0 0 12px; color:#2E3A47; font-size:.95rem; }
   .section p:last-child { margin-bottom:0; }
-  .section strong { color:#0f172a; }
-  .aside { border-left:3px solid rgba(37,99,235,.28); padding-left:14px; color:#475569 !important; font-size:.9rem !important; }
-  .note { font-size:.82rem !important; color:#64748b !important; }
-  .links a, .note a, .section p a { color:#1d4ed8; text-decoration:none; }
+  .section strong { color:#16202B; }
+  .aside { border-left:3px solid rgba(247,105,2,.28); padding-left:14px; color:#4E5C6A !important; font-size:.9rem !important; }
+  .note { font-size:.82rem !important; color:#4E5C6A !important; }
+  .links a, .note a, .section p a { color:#A84600; text-decoration:none; }
   .links a:hover, .note a:hover, .section p a:hover { text-decoration:underline; }
   .links { font-size:.95rem; }
-  code { font-family:ui-monospace, SFMono-Regular, Menlo, monospace; font-size:.85em; background:#f1f5f9; padding:1px 5px; border-radius:4px; }
+  code { font-family:ui-monospace, SFMono-Regular, Menlo, monospace; font-size:.85em; background:#EAF0F6; padding:1px 5px; border-radius:4px; }
 
   /* Confusion matrix. Scrolls sideways rather than squeezing on a phone. */
   .cm { margin:0 0 14px; overflow-x:auto; }
   .cm table { border-collapse:collapse; font-size:.8rem; min-width:620px; }
-  .cm th, .cm td { padding:7px 10px; border:1px solid #e2e8f0; text-align:right; white-space:nowrap; }
-  .cm thead th { font-family:'Montserrat',sans-serif; font-weight:600; color:#475569; background:#f8fafc; font-size:.72rem; }
-  .cm tbody th { text-align:left; font-weight:600; color:#0f172a; background:#f8fafc; font-size:.78rem; }
-  .cm-corner { font-weight:400; color:#94a3b8; font-size:.68rem; }
-  .cm td.hit { background:#dbeafe; color:#1e3a8a; font-weight:700; }
+  .cm th, .cm td { padding:7px 10px; border:1px solid #DCE5EE; text-align:right; white-space:nowrap; }
+  .cm thead th { font-family:'et-book',Palatino,serif; font-weight:600; color:#4E5C6A; background:#EEF3F8; font-size:.72rem; }
+  .cm tbody th { text-align:left; font-weight:600; color:#16202B; background:#EEF3F8; font-size:.78rem; }
+  .cm-corner { font-weight:400; color:#98A6B4; font-size:.68rem; }
+  .cm td.hit { background:#FAD6BA; color:#7A3300; font-weight:700; }
   .cm td.warm { background:#fef3c7; color:#92400e; }
-  .cm figcaption { margin-top:8px; font-size:.78rem; color:#64748b; text-align:left; }
+  .cm figcaption { margin-top:8px; font-size:.78rem; color:#4E5C6A; text-align:left; }
 
   @media (max-width: 720px) {
     .hero h1 { font-size:1.55rem; }
