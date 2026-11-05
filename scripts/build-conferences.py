@@ -897,6 +897,12 @@ NOTABLE=[
             {'d':'2027-02-01','label':'1-page abstract, poster only','est':False}],
   'note':'Four-page papers, single-blind, presented in person or withdrawn. Deadlines are 11:59pm US Eastern, not Anywhere on Earth. One-page abstracts are posters and are not in the proceedings.',
   'link':'https://biomedicalimaging.org/2027/'},
+ {'title':'ACM-BCB','desc':'ACM Conference on Bioinformatics, Computational Biology, and Health Informatics',
+  'area':'biomed','proceedings':'full','lastDeadline':'2027-03-26','period':1,
+  'date':'August 10-13, 2027','place':'Boston, Massachusetts, USA','badge':'bioinformatics','dblp':'bcb',
+  'rounds':[{'d':'2027-03-26','abs':'2027-03-19','label':'research track','est':False}],
+  'note':'ACM SIGBIO\'s flagship meeting, at UMass Boston in 2027. Research papers are 8 to 10 pages including references in the ACM two-column format, double-blind, in the ACM Digital Library. The abstract must be registered by March 19, and review runs two cycles so authors can revise before the May 28 decision. Topics run from genomics to LLMs and knowledge graphs for health.',
+  'link':'https://acm-bcb.org/research.php'},
  # Time series
  {'title':'ISF','desc':'International Symposium on Forecasting',
   'area':'ts','proceedings':'none','lastDeadline':'2027-03-07','period':1,
