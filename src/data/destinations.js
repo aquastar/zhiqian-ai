@@ -3,7 +3,7 @@
 // CCF A or B, or CORE A* or A, every hand-kept venue on the field
 // tabs, and the venues added by hand in the script. Destinations mix cities, countries and
 // regions, because that is how people choose where to go.
-// Built 2026-11-04.
+// Built 2026-11-05.
 export const destinations = {
  "items": [
   {
@@ -1616,7 +1616,7 @@ export const destinations = {
    "sub": "CG",
    "deadline": "",
    "open": false,
-   "link": "https://asia.siggraph.org/2027/",
+   "link": "https://asia.siggraph.org/2026/about-the-event/siggraph-asia-2027/",
    "q": "tokyo international forum, tokyo, japan tokyo international forum japan ",
    "field": "Graphics & multimedia",
    "group": "computing",
@@ -1628,6 +1628,28 @@ export const destinations = {
    ],
    "lat": 35.6768,
    "lon": 139.7635
+  },
+  {
+   "title": "ACM-BCB",
+   "desc": "ACM Conference on Bioinformatics, Computational Biology, and Health Informatics",
+   "year": 2027,
+   "place": "Boston, Massachusetts, USA",
+   "date": "August 10-13, 2027",
+   "city": "Boston",
+   "country": "United States",
+   "dest": "",
+   "icon": "",
+   "ccf": "N",
+   "core": "N",
+   "deadline": "2027-03-26",
+   "open": true,
+   "link": "https://acm-bcb.org/research.php",
+   "q": "boston, massachusetts, usa boston united states ",
+   "field": "Biomedical",
+   "group": "science",
+   "honors": [],
+   "lat": 42.3588,
+   "lon": -71.0578
   },
   {
    "title": "AIAA SciTech",
@@ -6421,7 +6443,7 @@ export const destinations = {
    "core": "B",
    "sub": "MX",
    "deadline": "2026-11-04",
-   "open": true,
+   "open": false,
    "link": "https://recomb.org/recomb2027/",
    "q": "toronto, canada toronto canada ",
    "field": "Interdisciplinary computing",
