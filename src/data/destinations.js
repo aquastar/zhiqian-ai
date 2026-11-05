@@ -2473,6 +2473,38 @@ export const destinations = {
    "lon": -71.0578
   },
   {
+   "title": "CogSci",
+   "desc": "Annual Meeting of the Cognitive Science Society",
+   "year": 2027,
+   "place": "Euskalduna Bilbao Convention Centre, Bilbao, Spain",
+   "date": "July 28-31, 2027",
+   "city": "Bilbao",
+   "country": "Spain",
+   "dest": "Spain & Portugal",
+   "icon": "sun",
+   "ccf": "B",
+   "core": "B",
+   "sub": "MX",
+   "deadline": "",
+   "open": false,
+   "link": "https://cognitivesciencesociety.org/cogsci-2027/",
+   "q": "euskalduna bilbao convention centre, bilbao, spain bilbao spain ",
+   "field": "Psychology",
+   "group": "mind",
+   "honors": [
+    {
+     "t": "CCF B",
+     "k": "ccf-b"
+    },
+    {
+     "t": "CORE B",
+     "k": "core-b"
+    }
+   ],
+   "lat": 43.263,
+   "lon": -2.935
+  },
+  {
    "title": "COLING",
    "desc": "International Conference on Computational Linguistics",
    "year": 2027,
@@ -3284,6 +3316,34 @@ export const destinations = {
    ],
    "lat": 50.6366,
    "lon": 3.0635
+  },
+  {
+   "title": "EGSR",
+   "desc": "Eurographics Symposium on Rendering",
+   "year": 2027,
+   "place": "Università della Svizzera italiana, Lugano, Switzerland",
+   "date": "July 5-7, 2027",
+   "city": "Università della Svizzera italiana",
+   "country": "Switzerland",
+   "dest": "",
+   "icon": "",
+   "ccf": "B",
+   "core": "N",
+   "sub": "CG",
+   "deadline": "",
+   "open": false,
+   "link": "https://www.egsr2027.usi.ch/",
+   "q": "università della svizzera italiana, lugano, switzerland università della svizzera italiana switzerland ",
+   "field": "Graphics & multimedia",
+   "group": "computing",
+   "honors": [
+    {
+     "t": "CCF B",
+     "k": "ccf-b"
+    }
+   ],
+   "lat": 46.0109,
+   "lon": 8.9581
   },
   {
    "title": "Epidemics",
@@ -5328,6 +5388,38 @@ export const destinations = {
    ],
    "lat": 1.3571,
    "lon": 103.8195
+  },
+  {
+   "title": "ISWC",
+   "desc": "International Semantic Web Conference",
+   "year": 2027,
+   "place": "Montevideo, Uruguay",
+   "date": "October 24-28, 2027",
+   "city": "Montevideo",
+   "country": "Uruguay",
+   "dest": "South America",
+   "icon": "mountain-sun",
+   "ccf": "B",
+   "core": "A",
+   "sub": "DB",
+   "deadline": "",
+   "open": false,
+   "link": "https://iswc2027.semanticweb.org/",
+   "q": "montevideo, uruguay montevideo uruguay ",
+   "field": "AI · ML · Data Mining",
+   "group": "computing",
+   "honors": [
+    {
+     "t": "CCF B",
+     "k": "ccf-b"
+    },
+    {
+     "t": "CORE A",
+     "k": "core-a"
+    }
+   ],
+   "lat": -34.9059,
+   "lon": -56.1913
   },
   {
    "title": "IUI",
@@ -7699,6 +7791,38 @@ export const destinations = {
    "lon": -6.2606
   },
   {
+   "title": "FAST",
+   "desc": "USENIX Conference on File and Storage Technologies",
+   "year": 2028,
+   "place": "Seattle, WA, USA",
+   "date": "February 28-March 1, 2028",
+   "city": "Seattle",
+   "country": "United States",
+   "dest": "",
+   "icon": "",
+   "ccf": "A",
+   "core": "A",
+   "sub": "DS",
+   "deadline": "",
+   "open": false,
+   "link": "https://www.usenix.org/conference/fast28",
+   "q": "seattle, wa, usa seattle united states washington",
+   "field": "Architecture & systems",
+   "group": "computing",
+   "honors": [
+    {
+     "t": "CCF A",
+     "k": "ccf-a"
+    },
+    {
+     "t": "CORE A",
+     "k": "core-a"
+    }
+   ],
+   "lat": 47.6038,
+   "lon": -122.3301
+  },
+  {
    "title": "ICASSP",
    "desc": "IEEE International Conference on Acoustics, Speech, and Signal Processing",
    "year": 2028,
@@ -7924,7 +8048,7 @@ export const destinations = {
   {
    "name": "Spain & Portugal",
    "icon": "sun",
-   "n": 8
+   "n": 9
   },
   {
    "name": "Netherlands",
@@ -7954,7 +8078,7 @@ export const destinations = {
   {
    "name": "South America",
    "icon": "mountain-sun",
-   "n": 7
+   "n": 8
   },
   {
    "name": "Southeast Asia",
