@@ -19,9 +19,6 @@ const musicNotes = {
 
 // Selected work per line. Links follow the homepage selected-paper list and the CV.
 const linkNetworks = [
-  { title: 'Bridging the gap between spatial and spectral domains: A unified framework for graph neural networks', venue: 'ACM Computing Surveys, 2023', href: 'https://scholar.google.com/citations?view_op=view_citation&citation_for_view=NC3-O6UAAAAJ:YsMSGLbcyi4C' },
-  { title: 'Graph convolutional networks with Kalman filtering for traffic prediction', venue: 'SIGSPATIAL, 2020', href: 'https://scholar.google.com/citations?view_op=view_citation&citation_for_view=NC3-O6UAAAAJ:9yKSN-GCB0IC' },
-  { title: 'Graph Bayesian optimization for multiplex influence maximization', venue: 'AAAI, 2024', href: 'https://ojs.aaai.org/index.php/AAAI/article/view/30255' },
   { title: 'Network interdiction goes neural', venue: 'KDD, 2025', href: 'https://scholar.google.com/citations?view_op=view_citation&citation_for_view=NC3-O6UAAAAJ:WF5omc3nYNoC' },
   { title: 'Sumo x PyPSA: Interactive web demo of real-time urban power-traffic co-simulation with vehicle-to-grid', venue: 'WWW Companion, 2026', href: 'https://dl.acm.org/doi/10.1145/3774905.3793131' },
   { title: 'Graph symbolic regression for animal disease propagation', venue: 'SIGSPATIAL, 2025', href: 'https://scholar.google.com/citations?view_op=view_citation&citation_for_view=NC3-O6UAAAAJ:u-x6o8ySG0sC' },
@@ -180,44 +177,35 @@ const internalSupport = [
     link: '',
   },
 ];
+// Research grants first, then the small awards and compute credits, so the
+// table leads with what funds the work. Small means under $20,000 or not cash.
+const cash = (g) => Number(String(g.amount).replace(/[^0-9.]/g, '')) || 0;
+const isSmall = (g) => !String(g.amount).startsWith('$') || cash(g) < 20000;
+const majorGrants = externalGrants.filter((g) => !isSmall(g));
+const smallAwards = externalGrants.filter(isSmall);
 ---
 <Layout title="Research | Zhiqian Chen">
   <main class="container">
     <Nav current="research" />
 
     <section class="hero">
-      <h1>Research Statement</h1>
-      <div class="hero-grid">
-      <p class="lead">COVID-19 has caused over 6 million deaths worldwide since late 2019 and an estimated $12.5 trillion in economic loss as of 2024. The pandemic exposed deep vulnerabilities in modern networked systems: disrupted supply chains, financial market volatility, misinformation amplified across social networks. The July 2024 CrowdStrike update failure brought airlines, hospitals, and businesses to a standstill worldwide, underscoring how far cascading effects travel inside interconnected systems. Climate change, pandemics, and food security all run on interdependent networks (transportation, finance, supply chains, ecology, social networks) that form the backbone of our societal and economic infrastructure. As the world grows more interconnected, resilient and interpretable network models become essential.</p>
-      <blockquote class="statement">
-        <strong>Research interest.</strong> I explore the fundamental principles of networked system dynamics by integrating machine learning, network science, and dynamical systems theory. The work spans theoretical innovation and practical application, and centers on efficient, interpretable models that improve decision-making in real-world contexts.
-      </blockquote>
-      </div>
-    </section>
-
-    <section class="section overview" id="overview">
-      <h2>At a glance</h2>
-      <p class="section-lead">Three application areas, two methods that run through all of them, and the grants that fund the work.</p>
-      <div class="glance">
-        <div class="glance-col">
-          <h4>Application areas</h4>
-          <a class="glance-item" href="#line-1"><span class="interest-num">1</span>Network science, graph machine learning and dynamical systems</a>
-          <a class="glance-item" href="#line-2"><span class="interest-num">2</span>Mechanistic understanding of large language models</a>
-          <a class="glance-item" href="#line-3"><span class="interest-num">3</span>Computational musicology</a>
-        </div>
-        <div class="glance-col">
-          <h4>Methods</h4>
-          <a class="glance-item" href="#method-uq"><span class="interest-num">A</span>Uncertainty quantification</a>
-          <a class="glance-item" href="#method-spectral"><span class="interest-num">B</span>Spectral analysis, mainly on graphs</a>
-        </div>
-        <div class="glance-col">
-          <h4>Funding</h4>
-          {externalGrants.slice(0, 4).map((g) => (
-            <a class="glance-item glance-grant" href="#funding"><span class="glance-agency">{g.agency}</span>{g.title.split(':')[0]} {g.awardNo}</a>
-          ))}
-          <a class="glance-more" href="#funding">All {externalGrants.length} external and {internalSupport.length} internal awards →</a>
-        </div>
-      </div>
+      <h1>Research</h1>
+      <p class="statement">I explore the fundamental principles of networked system dynamics by integrating machine learning, network science, and dynamical systems theory. The work spans theoretical innovation and practical application, and centers on efficient, interpretable models that improve decision-making in real-world contexts.</p>
+      <details class="why">
+        <summary>Why networks matter</summary>
+        <p>COVID-19 has caused over 6 million deaths worldwide since late 2019 and an estimated $12.5 trillion in economic loss as of 2024. The pandemic exposed deep vulnerabilities in modern networked systems: disrupted supply chains, financial market volatility, misinformation amplified across social networks. The July 2024 CrowdStrike update failure brought airlines, hospitals, and businesses to a standstill worldwide, underscoring how far cascading effects travel inside interconnected systems. Climate change, pandemics, and food security all run on interdependent networks (transportation, finance, supply chains, ecology, social networks) that form the backbone of our societal and economic infrastructure. As the world grows more interconnected, resilient and interpretable network models become essential.</p>
+      </details>
+      <nav class="page-map" aria-label="On this page">
+        <span class="map-label">Areas</span>
+        <a href="#line-1"><b>1</b> Networks and dynamics</a>
+        <a href="#line-2"><b>2</b> Inside language models</a>
+        <a href="#line-3"><b>3</b> Music</a>
+        <span class="map-label">Methods</span>
+        <a href="#method-uq"><b>A</b> Uncertainty</a>
+        <a href="#method-spectral"><b>B</b> Spectral</a>
+        <span class="map-label">Support</span>
+        <a href="#funding">{externalGrants.length} grants and awards</a>
+      </nav>
     </section>
 
     <section class="section" id="research-lines">
@@ -228,7 +216,7 @@ const internalSupport = [
       <div class="interest-body">
         <p>Roads, power grids, epidemics and social media are all networks, and what happens on one network often spreads into another. I study how behavior spreads, settles and breaks in connected systems, and how to estimate and control it.</p>
         <p>I look for generalized patterns that hold across very different networks, and for cross-system behaviors that pass from one network to another. The tools are spectral and functional analysis and uncertainty quantification. The systems studied include traffic grids, power networks, epidemics, social networks, banking and supply chains.</p>
-        <p>One example is a real-time Manhattan power and traffic co-simulation, in which electric vehicle charging load is fed back into the grid. Relevant support: <a href="https://www.nsf.gov/awardsearch/showAward?AWD_ID=2443266" target="_blank" rel="noopener">NSF CAREER #2443266</a> and <a href="https://www.nsf.gov/awardsearch/showAward?AWD_ID=2345921" target="_blank" rel="noopener">NSF CIRC #2345921</a>, both listed in the funding sections below.</p>
+        <p>One example is a real-time Manhattan power and traffic co-simulation, in which electric vehicle charging load is fed back into the grid. Relevant support: <a href="https://www.nsf.gov/awardsearch/showAward?AWD_ID=2443266" target="_blank" rel="noopener">NSF CAREER #2443266</a> and <a href="https://www.nsf.gov/awardsearch/showAward?AWD_ID=2345921" target="_blank" rel="noopener">NSF CIRC #2345921</a>, both listed under Funding below.</p>
       </div>
       <div class="thrust-row">
         {thrustImgs.map((t) => (
@@ -347,12 +335,9 @@ const internalSupport = [
 
     <section class="section" id="methods">
       <h2>Methods</h2>
-      <p class="section-lead">Two technical interests run through all three areas. More may join them later.</p>
-      <div class="scope-row">
-        <figure class="scope-figure">
-          <img src="/research-scope.png" alt="Two overlapping sets. Theoretical/Tool Study covers higher-order analysis, uncertainty quantification, spectral graph theory, and approximation theory. Application Study covers traffic and urban computing, spatial epidemiology, circuit and power networks, social networks, brain networks, and genetics and genomics. Graph dynamics sits in the overlap, feeding both." />
-        </figure>
-        <div>
+      <p class="section-lead">Two technical interests run through all three areas.</p>
+      <div class="method-grid">
+        <div class="method">
           <h3 class="interest-head" id="method-uq"><span class="interest-num">A</span>Uncertainty quantification</h3>
           <div class="interest-body">
             <p>A prediction on a network is only useful if we know how far to trust it. Data are usually sparse, such as a few road sensors or one snapshot of an outbreak, and the network itself may be uncertain.</p>
@@ -367,59 +352,78 @@ const internalSupport = [
             </ul>
           </div>
         </div>
-      </div>
-
-      <h3 class="interest-head" id="method-spectral"><span class="interest-num">B</span>Spectral analysis, mainly on graphs</h3>
-      <div class="interest-body">
+        <div class="method">
+          <h3 class="interest-head" id="method-spectral"><span class="interest-num">B</span>Spectral analysis, mainly on graphs</h3>
+          <div class="interest-body">
         <p>A graph's eigenvectors play the role that sine waves play for sound. They split a signal on a network into smooth and fast-changing parts, which makes filtering, comparison and theory possible.</p>
         <p>I use this view to unify graph neural networks: spectral and spatial models turn out to be two readings of the same operator, and rational approximations give sharper graph filters. Recent work applies spectral analysis mainly to graphs, from infrastructure networks to graphs read out of model activations.</p>
+          </div>
+          <div class="interest-work">
+            <h4>Selected work</h4>
+            <ul>
+              {linkSpectral.map((w) => (
+                <li>{w.href ? <a href={w.href} target="_blank" rel="noopener">{w.title}</a> : <span class="work-title">{w.title}</span>} <span class="work-venue">{w.venue}</span></li>
+              ))}
+            </ul>
+          </div>
+        </div>
       </div>
-      <div class="interest-work">
-        <h4>Selected work</h4>
-        <ul>
-          {linkSpectral.map((w) => (
-            <li>{w.href ? <a href={w.href} target="_blank" rel="noopener">{w.title}</a> : <span class="work-title">{w.title}</span>} <span class="work-venue">{w.venue}</span></li>
-          ))}
-        </ul>
-      </div>
+      <details class="scope">
+        <summary>Overview diagram: the tools and the systems they are applied to</summary>
+        <img src="/research-scope.png" alt="Two overlapping sets. Theoretical/Tool Study covers higher-order analysis, uncertainty quantification, spectral graph theory, and approximation theory. Application Study covers traffic and urban computing, spatial epidemiology, circuit and power networks, social networks, brain networks, and genetics and genomics. Graph dynamics sits in the overlap, feeding both." />
+      </details>
     </section>
 
     <section class="section" id="funding">
-      <h2>Funding · External</h2>
-      <div class="list">
-        {externalGrants.map((g) => {
-          const RowTag = g.link ? 'a' : 'article';
-          return (
-            <RowTag class="grant-row" href={g.link || undefined} target={g.link ? '_blank' : undefined} rel={g.link ? 'noopener' : undefined}>
-              <div class="logo-box"><img src={g.logo} alt={g.agency} loading="lazy" /></div>
-              <div class="grant-content">
-                <h3>{g.title}</h3>
-                <p class="grant-meta">{g.awardNo ? `${g.awardNo} · ` : ''}{g.period} · {g.amount} · {g.role}</p>
-                <p class="grant-desc">{g.desc}</p>
-              </div>
-            </RowTag>
-          );
-        })}
-      </div>
-    </section>
-
-    <section class="section">
-      <h2>Funding · Internal</h2>
-      <div class="list">
-        {internalSupport.map((g) => {
-          const RowTag = g.link ? 'a' : 'article';
-          return (
-            <RowTag class="grant-row" href={g.link || undefined} target={g.link ? '_blank' : undefined} rel={g.link ? 'noopener' : undefined}>
-              <div class="logo-box"><img src={g.logo} alt={g.agency} loading="lazy" /></div>
-              <div class="grant-content">
-                <h3>{g.title}</h3>
-                <p class="grant-meta">{g.period} · {g.amount} · {g.role}</p>
-                <p class="grant-desc">{g.desc}</p>
-              </div>
-            </RowTag>
-          );
-        })}
-      </div>
+      <h2>Funding</h2>
+      <p class="section-lead">Research grants first, then smaller awards and compute credits. Rows with a link open the award record.</p>
+      <h4 class="aw-group">Research grants</h4>
+      <div class="awards">
+          {majorGrants.map((g) => {
+            const RowTag = g.link && g.link !== '#' ? 'a' : 'div';
+            return (
+              <RowTag class="award" href={g.link && g.link !== '#' ? g.link : undefined} target={g.link && g.link !== '#' ? '_blank' : undefined} rel={g.link && g.link !== '#' ? 'noopener' : undefined}>
+                <span class="aw-agency">{g.agency}</span>
+                <span class="aw-title">{g.title}{g.awardNo && <span class="aw-no"> {g.awardNo}</span>}</span>
+                <span class="aw-role">{g.role}</span>
+                <span class="aw-period">{g.period}</span>
+                <span class="aw-amount">{g.amount}</span>
+              </RowTag>
+            );
+          })}
+        </div>
+      <h4 class="aw-group">Smaller awards and compute</h4>
+      <div class="awards">
+          {smallAwards.map((g) => {
+            const RowTag = g.link && g.link !== '#' ? 'a' : 'div';
+            return (
+              <RowTag class="award" href={g.link && g.link !== '#' ? g.link : undefined} target={g.link && g.link !== '#' ? '_blank' : undefined} rel={g.link && g.link !== '#' ? 'noopener' : undefined}>
+                <span class="aw-agency">{g.agency}</span>
+                <span class="aw-title">{g.title}{g.awardNo && <span class="aw-no"> {g.awardNo}</span>}</span>
+                <span class="aw-role">{g.role}</span>
+                <span class="aw-period">{g.period}</span>
+                <span class="aw-amount">{g.amount}</span>
+              </RowTag>
+            );
+          })}
+        </div>
+      <details class="internal">
+        <summary>Internal support at Mississippi State ({internalSupport.length})</summary>
+        <div class="awards">
+          {internalSupport.map((g) => {
+            const RowTag = g.link && g.link !== '#' ? 'a' : 'div';
+            return (
+              <RowTag class="award" href={g.link && g.link !== '#' ? g.link : undefined} target={g.link && g.link !== '#' ? '_blank' : undefined} rel={g.link && g.link !== '#' ? 'noopener' : undefined}>
+                <span class="aw-agency">{g.agency}</span>
+                <span class="aw-title">{g.title}{g.awardNo && <span class="aw-no"> {g.awardNo}</span>}</span>
+                <span class="aw-role">{g.role}</span>
+                <span class="aw-period">{g.period}</span>
+                <span class="aw-amount">{g.amount}</span>
+              </RowTag>
+            );
+          })}
+        </div>
+      </details>
     </section>
   </main>
 
@@ -430,60 +434,59 @@ const internalSupport = [
 
   .hero { margin: 10px 0 28px; }
   .hero h1 { font-family:'et-book',Palatino,serif; font-size:2rem; margin:0 0 10px; }
-  /* The page runs to 1600px, so a single measure would leave the right half
-     empty; pair the motivation with the statement instead of stacking them. */
-  .hero-grid { display:grid; grid-template-columns:1.55fr 1fr; gap:24px; align-items:start; }
-  .lead { margin:0; color:var(--muted); font-size:.95rem; line-height:1.6; }
-  .statement { margin:0; padding:14px 16px; border-left:3px solid var(--accent); border-radius:0 12px 12px 0; background:#EEF3F8; color:#16202B; font-size:1rem; line-height:1.6; }
-  .statement strong { color:var(--ink); }
+  .statement { margin:0; max-width:900px; padding:12px 16px; border-left:3px solid var(--accent); border-radius:0 6px 6px 0; background:#EEF3F8; color:#16202B; font-size:1.02rem; line-height:1.6; }
+  /* The motivation is still here, folded, so the statement leads. */
+  details > summary { cursor:pointer; list-style:none; font-size:.8rem; color:#4E5C6A; font-style:italic; }
+  details > summary::-webkit-details-marker { display:none; }
+  details > summary::after { content:' ▾'; font-style:normal; display:inline-block; transition:transform .15s; }
+  details[open] > summary::after { transform:rotate(180deg); }
+  details > summary:hover { color:#A84600; }
+  .why { margin:10px 0 0; max-width:900px; }
+  .why p { margin:8px 0 0; color:#4E5C6A; font-size:.9rem; line-height:1.6; }
+  /* One line that says what is on the page and jumps there. */
+  .page-map { display:flex; flex-wrap:wrap; align-items:baseline; gap:6px 14px; margin-top:18px; padding-top:12px; border-top:1px solid rgba(148,163,184,.18); font-size:.86rem; }
+  .map-label { font-size:.68rem; font-weight:700; letter-spacing:.12em; text-transform:uppercase; color:#4E5C6A; margin-left:6px; }
+  .map-label:first-child { margin-left:0; }
+  .page-map a { color:#16202B; text-decoration:none; border-bottom:1px solid #C9D4DF; }
+  .page-map a b { color:var(--accent); font-weight:700; margin-right:2px; }
+  .page-map a:hover { color:#A84600; border-color:#C45200; }
+
+  .method-grid { display:grid; grid-template-columns:1fr 1fr; gap:32px; align-items:start; }
+  .method .interest-head { margin-top:4px; }
+  .scope { margin-top:18px; }
+  .scope img { display:block; width:100%; max-width:900px; height:auto; margin-top:10px; border-radius:6px; }
+
+  /* Awards as one compact row each: agency, title, role, period, amount. */
+  .aw-group { margin:16px 0 6px; font-size:.7rem; font-weight:700; letter-spacing:.1em; text-transform:uppercase; color:#4E5C6A; }
+  .awards { display:grid; border-top:1px solid #C9D4DF; }
+  .award { display:grid; grid-template-columns:76px minmax(0,1fr) 150px 140px 130px; gap:12px; align-items:baseline; padding:7px 4px; border-bottom:1px solid rgba(148,163,184,.25); font-size:.86rem; color:#16202B; text-decoration:none; }
+  a.award:hover { background:#EAF0F6; }
+  a.award:hover .aw-title { color:#A84600; }
+  .aw-agency { font-size:.7rem; font-weight:700; letter-spacing:.06em; color:#7D55C7; }
+  .aw-title { line-height:1.35; text-align:left; }
+  .aw-no { color:#C45200; font-size:.8rem; white-space:nowrap; }
+  .aw-role, .aw-period { color:#4E5C6A; font-size:.8rem; }
+  .aw-amount { text-align:right; white-space:nowrap; font-variant-numeric:tabular-nums; font-size:.84rem; }
+  .internal { margin-top:16px; }
+  .internal .awards { margin-top:8px; }
+  @media (max-width: 900px) {
+    .method-grid { grid-template-columns:1fr; gap:8px; }
+    .award { grid-template-columns:1fr auto; gap:2px 12px; }
+    .aw-agency { grid-column:1 / -1; }
+    .aw-title { grid-column:1; }
+    .aw-amount { grid-column:2; grid-row:2; }
+    .aw-role, .aw-period { grid-column:1 / -1; }
+  }
 
   .section { padding-top:18px; margin-top:26px; border-top:1px solid rgba(148,163,184,.18); }
   .section h2 { font-family:'et-book',Palatino,serif; font-size:1.1rem; margin:0 0 12px; }
   .section-lead { margin:0 0 14px; color:var(--muted); font-size:.92rem; line-height:1.55; }
-  .prose { margin-top:14px; }
-  .prose p, .prose-p { margin:0 0 10px; color:#2E3A47; font-size:.93rem; line-height:1.6; }
-  .prose p:last-child { margin-bottom:0; }
-  /* Theory and application read as a pair, and two columns keep the measure
-     readable at full width instead of running to ~180 characters. */
-  .prose.scope-prose { margin:0; }
-  .prose.scope-prose p { margin:0; }
 
-  .cards { display:grid; gap:14px; }
-  .cards.three { grid-template-columns: repeat(3, minmax(0,1fr)); }
-  .card { position:relative; border:1px solid rgba(148,163,184,.16); border-radius:6px; background:#F7F9FC; padding:16px; }
-  .card h3 { font-family:'et-book',Palatino,serif; font-size:.95rem; margin:0 0 8px; }
-  .card p { margin:0; color:#2E3A47; font-size:.9rem; line-height:1.55; }
-  .topics { list-style:none; margin:0; padding:0; display:flex; flex-wrap:wrap; gap:6px; }
-  .topics li { font-size:.78rem; color:#2E3A47; background:#EAF0F6; border:1px solid rgba(148,163,184,.2); border-radius:999px; padding:3px 9px; }
 
-  /* The figure ships from the statement itself, rendered at 300dpi so it stays
-     sharp across the full container width. */
-  .glance { display:grid; grid-template-columns:1.2fr .9fr 1.1fr; gap:22px; }
-  .glance-col h4 { margin:0 0 6px; font-size:.72rem; font-weight:700; letter-spacing:.08em; text-transform:uppercase; color:#4E5C6A; }
-  .glance-item { display:flex; align-items:baseline; gap:8px; padding:7px 10px; margin-bottom:6px; border:1px solid #DCE5EE; border-radius:6px; font-size:.86rem; color:#16202B; text-decoration:none; text-align:left; line-height:1.35; }
-  .glance-item:hover { border-color:var(--accent); color:var(--accent); }
-  .glance-item .interest-num { flex:none; font-weight:700; color:var(--accent); }
-  .glance-grant { font-size:.8rem; color:#2E3A47; }
-  .glance-agency { flex:none; font-size:.66rem; font-weight:700; color:#A84600; background:#FAD6BA; border-radius:4px; padding:1px 5px; }
-  .glance-more { font-size:.8rem; color:var(--accent); text-decoration:none; }
-  .glance-more:hover { text-decoration:underline; }
   html { scroll-behavior:smooth; }
   .interest-head[id], #funding { scroll-margin-top:16px; }
   @media (max-width: 900px) { .glance { grid-template-columns:1fr; gap:14px; } }
-  .scope-row { display:grid; grid-template-columns:1.4fr 1fr; gap:24px; align-items:start; margin-bottom:4px; }
-  .scope-figure { margin:0; }
-  .scope-figure img { display:block; width:100%; height:auto; }
-  .scope-prose p + p { margin-top:12px; }
 
-  /* Award rows, carried over from the grant page this section absorbed. */
-  .list { display:grid; gap:10px; }
-  .grant-row { display:grid; grid-template-columns:60px 1fr; gap:12px; align-items:start; border:1px solid rgba(148,163,184,.14); border-radius:6px; background:#F7F9FC; padding:10px 12px; text-decoration:none; color:inherit; transition:transform .16s ease, box-shadow .16s ease, border-color .16s ease; }
-  .grant-row:hover { transform:translateY(-1px); box-shadow:none; border-color:rgba(247,105,2,0.24); }
-  .logo-box { width:60px; height:60px; display:flex; align-items:center; justify-content:center; overflow:hidden; border-radius:6px; background:#F7F9FC; }
-  .logo-box img { width:100%; height:100%; object-fit:contain; }
-  .grant-content h3 { margin:0 0 4px; font-family:'et-book',Palatino,serif; font-size:.95rem; line-height:1.25; }
-  .grant-meta { margin:0 0 4px; font-size:.8rem; color:#2E3A47; line-height:1.25; }
-  .grant-desc { margin:0; font-size:.82rem; color:#4E5C6A; line-height:1.32; }
 
 
   /* Three research lines. Figures are the homepage ones at the same size. */
@@ -534,12 +537,8 @@ const internalSupport = [
   @media (max-width: 560px) { .thrust-row { grid-template-columns:1fr; max-width:360px; } }
 
   @media (max-width: 900px) {
-    .hero-grid, .scope-row { grid-template-columns:1fr; }
     .statement { border-radius:0 12px 12px 0; }
   }
   @media (max-width: 720px) {
-    .grant-row { gap:10px; padding:10px; }
-    .grant-content h3 { font-size:.88rem; }
-    .grant-meta, .grant-desc { font-size:.76rem; }
   }
 </style>

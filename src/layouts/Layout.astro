@@ -78,6 +78,10 @@ const CLARITY_ID = import.meta.env.PUBLIC_CLARITY_ID;
 			<span>&copy; 2026 Zhiqian Chen</span>
 			<span class="sep">·</span>
 			<span>Designed by Zhiqian Chen</span>
+			{/* Only the owner's marked browser sees this, on every page, so the
+			   opt-out can be checked at a glance after the ?me=1 link is gone. */}
+			<span class="self-mark" id="self-mark" hidden><span class="sep">·</span><a href="?me=0" title="Click to be counted again">not counted in this browser</a></span>
+			<script is:inline>if (window.__zqSelf) document.getElementById('self-mark').hidden = false;</script>
 		</footer>
 		<Analytics />
 		<SpeedInsights />
@@ -127,4 +131,6 @@ const CLARITY_ID = import.meta.env.PUBLIC_CLARITY_ID;
 		text-align: center;
 	}
 	.site-footer .sep { opacity: 0.55; }
+	.self-mark a { color: #A84600; text-decoration: none; border-bottom: 1px dotted #C45200; }
+	.self-mark[hidden] { display: none; }
 </style>
