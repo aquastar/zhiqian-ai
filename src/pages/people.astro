@@ -40,6 +40,10 @@ const graduated = [
     <Nav current="people" />
     <section class="hero">
       <h1>People</h1>
+      <a class="join" href="/prospective-students">
+        <span class="join-head">Join the group</span>
+        <span class="join-body">I take Ph.D. students, research interns, and capstone or independent study students. How to apply <i class="fas fa-arrow-right" aria-hidden="true"></i></span>
+      </a>
     </section>
     <section class="section">
       <h2>Current Advisees</h2>
@@ -62,6 +66,13 @@ const graduated = [
   .hero { margin: 10px 0 28px; }
   .hero h1 { font-family:'et-book',Palatino,serif; font-size:2rem; margin:0 0 8px; }
   .hero p { margin:0; color:var(--muted); max-width:780px; }
+  /* Recruiting sits at the top of the page, now that it has no nav entry of its own. */
+  .join { display:flex; flex-direction:column; gap:2px; margin-top:14px; padding:12px 16px; max-width:780px;
+    border-left:3px solid var(--accent); background:#FDF1E7; color:var(--ink); text-decoration:none; text-align:left; }
+  .join:hover { background:#FAE6D5; }
+  .join-head { font-weight:600; }
+  .join-body { color:#2E3A47; font-size:.92rem; }
+  .join-body i { font-size:.75em; color:var(--accent); margin-left:4px; }
   .section { padding-top:18px; margin-top:26px; border-top:none; }
   .section h2 { font-family:'et-book',Palatino,serif; font-size:1.1rem; margin:0 0 14px; }
   .people-list { list-style:none; padding:0; margin:0; display:grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap:4px 24px; }

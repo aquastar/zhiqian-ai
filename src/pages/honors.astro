@@ -1,0 +1,97 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Nav from '../components/Nav.astro';
+
+// Same entries as "Awards & Honors" in the CV, grouped by what they recognize.
+// Each group lists the newest first. A link opens the public record.
+const groups = [
+  {
+    title: 'Research',
+    items: [
+      { year: '2020', name: 'Best Paper Award', where: 'ACM SIGSPATIAL 2020',
+        note: 'Domain knowledge in memetic algorithms for spatial optimization.',
+        link: { label: 'Award recipients', href: 'https://www.sigspatial.org/people/award-recipients/' } },
+      { year: '2019', name: 'Top 50 Chemistry and Materials Sciences Articles', where: 'Nature Communications, 2019',
+        link: { label: 'The article', href: 'https://www.nature.com/articles/s41467-019-13214-1' } },
+      { year: '', name: "Editor's Choice Article", where: '' },
+      { year: '2015', name: 'Best Paper Award', where: 'GISTAM 2015',
+        link: { label: 'Past awards', href: 'https://gistam.scitevents.org/PreviousAwards.aspx' } },
+    ],
+  },
+  {
+    title: 'Teaching',
+    items: [
+      { year: '2025', name: 'Ottilie Schillig Special Teaching Award', where: 'Center for Teaching and Learning, Mississippi State University',
+        note: 'AI teaching gamification with the Lego Education kit.',
+        link: { label: 'The project', href: '/teach' } },
+    ],
+  },
+  {
+    title: 'Service',
+    items: [
+      { year: '2026', name: 'Top Area Chair', where: 'NeurIPS 2026' },
+      { year: '2025', name: 'Excellent Reviewer (top 20%)', where: 'ACM SIGKDD 2025' },
+      { year: '2024', name: 'Excellent Reviewer', where: 'IEEE Transactions on Network Science and Engineering' },
+    ],
+  },
+  {
+    title: 'Industry',
+    items: [
+      { year: '2016', name: 'Outstanding Contribution Award', where: 'Toyota Research Institute, North America' },
+    ],
+  },
+];
+---
+<Layout title="Honors | Zhiqian Chen">
+  <main class="container">
+    <Nav current="honors" />
+    <section class="hero">
+      <h1>Honors</h1>
+      <p>Awards for research, teaching and service. Grants are listed under <a href="/research#funding">Research</a>.</p>
+    </section>
+    {groups.map((g) => (
+      <section class="section">
+        <h2>{g.title}</h2>
+        <ul class="honors">
+          {g.items.map((h) => (
+            <li>
+              <span class="year">{h.year}</span>
+              <div class="what">
+                <span class="name">{h.name}</span>{h.where && <span class="where">{h.where}</span>}
+                {h.note && <span class="note">{h.note}</span>}
+              </div>
+              {h.link
+                ? <a class="rec" href={h.link.href} {...(h.link.href.startsWith('http') ? { target: '_blank', rel: 'noopener' } : {})}>{h.link.label}{h.link.href.startsWith('http') && <i class="fas fa-arrow-up-right-from-square" aria-hidden="true"></i>}</a>
+                : <span></span>}
+            </li>
+          ))}
+        </ul>
+      </section>
+    ))}
+  </main>
+</Layout>
+<style>
+  :root { --accent:#C45200; --ink:#16202B; --muted:#4E5C6A; }
+  .container { max-width: min(95vw, 1600px); margin: 0 auto; padding: 20px; box-sizing: border-box; }
+  .hero { margin: 10px 0 28px; }
+  .hero h1 { font-family:'et-book',Palatino,serif; font-size:2rem; margin:0 0 8px; }
+  .hero p { margin:0; color:var(--muted); max-width:780px; }
+  .hero a { color:var(--accent); text-decoration:none; }
+  .section { padding-top:18px; margin-top:26px; }
+  .section h2 { font-family:'et-book',Palatino,serif; font-size:1.1rem; margin:0 0 10px; }
+  .honors { list-style:none; margin:0; padding:0; max-width:860px; }
+  .honors li { display:grid; grid-template-columns:3.2rem 1fr auto; gap:4px 16px; align-items:baseline;
+    padding:9px 0; border-top:1px solid rgba(148,163,184,.22); text-align:left; }
+  .honors li:first-child { border-top:none; }
+  .year { color:var(--muted); font-size:.88rem; font-variant-numeric:tabular-nums; }
+  .what { display:flex; flex-wrap:wrap; gap:2px 10px; align-items:baseline; }
+  .name { font-weight:600; }
+  .where { color:#2E3A47; }
+  .note { flex-basis:100%; color:var(--muted); font-size:.9rem; }
+  .rec { color:#A84600; text-decoration:none; font-size:.85rem; white-space:nowrap; border-bottom:1px dotted #C45200; }
+  .rec i { font-size:.7em; margin-left:4px; opacity:.7; }
+  @media (max-width: 720px) {
+    .honors li { grid-template-columns:2.8rem 1fr; }
+    .rec { grid-column:2; justify-self:start; }
+  }
+</style>
