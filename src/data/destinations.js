@@ -3,7 +3,7 @@
 // CCF A or B, or CORE A* or A, every hand-kept venue on the field
 // tabs, and the venues added by hand in the script. Destinations mix cities, countries and
 // regions, because that is how people choose where to go.
-// Built 2026-11-05.
+// Built 2026-11-07.
 export const destinations = {
  "items": [
   {
@@ -619,7 +619,7 @@ export const destinations = {
    "desc": "IEEE International Conference on Data Mining",
    "year": 2026,
    "place": "Shenyang, China",
-   "date": "November 12-15, 2026",
+   "date": "November 13-15, 2026",
    "city": "Shenyang",
    "country": "China",
    "dest": "",
@@ -2188,7 +2188,7 @@ export const destinations = {
    "desc": "International Conference on Computer-Aided Verification",
    "year": 2027,
    "place": "KIT, Amsterdam, The Netherlands",
-   "date": "July 19-23, 2027",
+   "date": "July 21-23, 2027",
    "city": "KIT",
    "country": "Netherlands",
    "dest": "Netherlands",
@@ -2616,6 +2616,38 @@ export const destinations = {
    ],
    "lat": 51.1263,
    "lon": 16.9782
+  },
+  {
+   "title": "CONCUR",
+   "desc": "International Conference on Concurrency Theory",
+   "year": 2027,
+   "place": "Lucca, Italy",
+   "date": "September 6-10, 2027",
+   "city": "Lucca",
+   "country": "Italy",
+   "dest": "Italy",
+   "icon": "wine-glass",
+   "ccf": "B",
+   "core": "B",
+   "sub": "CT",
+   "deadline": "",
+   "open": false,
+   "link": "https://www.cs.vu.nl/~wanf/profactivities.html",
+   "q": "lucca, italy lucca italy ",
+   "field": "Theory & logic",
+   "group": "computing",
+   "honors": [
+    {
+     "t": "CCF B",
+     "k": "ccf-b"
+    },
+    {
+     "t": "CORE B",
+     "k": "core-b"
+    }
+   ],
+   "lat": 44.0178,
+   "lon": 10.4544
   },
   {
    "title": "CoNEXT",
@@ -3194,7 +3226,7 @@ export const destinations = {
    "desc": "European Conference on Information Retrieval",
    "year": 2027,
    "place": "Southampton, UK",
-   "date": "March 21-25, 2027",
+   "date": "March 22-24, 2027",
    "city": "Southampton",
    "country": "United Kingdom",
    "dest": "UK & Ireland",
@@ -4074,7 +4106,7 @@ export const destinations = {
    "core": "N",
    "sub": "CT",
    "deadline": "2026-11-05",
-   "open": true,
+   "open": false,
    "link": "https://hscc.acm.org/2027/",
    "q": "boulder, colorado, usa boulder united states ",
    "field": "Theory & logic",
@@ -4634,7 +4666,7 @@ export const destinations = {
    "core": "A",
    "sub": "SE",
    "deadline": "2026-11-05",
-   "open": true,
+   "open": false,
    "link": "https://conf.researchr.org/home/icpc-2027",
    "q": "dublin, ireland dublin ireland ",
    "field": "Software engineering",
@@ -6627,7 +6659,7 @@ export const destinations = {
    "core": "A",
    "sub": "DS",
    "deadline": "2026-11-05",
-   "open": true,
+   "open": false,
    "link": "https://2027.rtas.org/",
    "q": "boulder, colorado boulder united states ",
    "field": "Architecture & systems",
@@ -6833,7 +6865,7 @@ export const destinations = {
    "core": "A*",
    "sub": "NW",
    "deadline": "2026-11-05",
-   "open": true,
+   "open": false,
    "link": "https://sensys.acm.org/2027/",
    "q": "boulder, co, usa boulder united states colorado",
    "field": "Networking",
@@ -7209,8 +7241,8 @@ export const destinations = {
    "ccf": "B",
    "core": "A",
    "sub": "CT",
-   "deadline": "",
-   "open": false,
+   "deadline": "2026-12-02",
+   "open": true,
    "link": "https://cgweek27.computational-geometry.org/",
    "q": "bengaluru, india bengaluru india ",
    "field": "Theoretical CS",
@@ -8038,7 +8070,7 @@ export const destinations = {
   {
    "name": "Italy",
    "icon": "wine-glass",
-   "n": 7
+   "n": 8
   },
   {
    "name": "Greece",
