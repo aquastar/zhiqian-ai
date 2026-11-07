@@ -5,7 +5,7 @@
   "counts": {
     "opportunities": 34,
     "early_signals": 0,
-    "registry": 290,
+    "registry": 291,
     "watchlist": 257
   },
   "opportunities": [
@@ -13,11 +13,11 @@
       "sponsor": "",
       "program": "",
       "deadline": "",
-      "budget": "up to 100k",
+      "budget": "",
       "eligibility": "",
-      "competition": "low",
+      "competition": "medium to high",
       "source_tier": "L1",
-      "url": "https://www.nsf.gov/funding/opportunities/dcl-stem-access-persons-disabilities-stem-apwd"
+      "url": "https://www.nsf.gov/funding/opportunities/mri-major-research-instrumentation-program/nsf27-500/solicitation"
     },
     {
       "sponsor": "DARPA IPTO",
@@ -5452,22 +5452,18 @@
     {
       "first_seen_date": "2026-11-06",
       "sponsor": "NSF",
-      "program": "STEM Access for Persons with Disabilities DCL NSF 23-160 (supplement, target 2nd Thursday Nov)",
+      "program": "STEM Access for Persons with Disabilities DCL NSF 23-160 (OLD, issued 2023, first seen this run, supplement, target 2nd Thursday Nov)",
       "deadline": "2026-11-12",
       "url": "https://www.nsf.gov/funding/opportunities/dcl-stem-access-persons-disabilities-stem-apwd",
-      "pick": true,
-      "budget": "up to 100k",
-      "competition": "low",
-      "source_tier": "L1",
       "logo_domain": "nsf.gov",
       "logo": "/funding/logos/nsf.gov.png",
       "logo_px": 192,
       "category": "Federal",
       "fit": [],
-      "comp_score": 1,
-      "comp_basis": "Graded \"low\" in this week's brief, not a published rate.",
+      "comp_score": 4,
+      "comp_basis": "Estimated from the kind of call: federal research solicitations typically fund well under a quarter of what they receive.",
       "tldr": "An NSF solicitation with its own topic and deadline.",
-      "award": "Up to 100k",
+      "award": "",
       "award_note": ""
     },
     {
@@ -5741,7 +5737,7 @@
       "source_tier": "L2",
       "logo_domain": "bluedot.org",
       "logo": "/funding/logos/bluedot.org.svg",
-      "logo_px": 10000,
+      "logo_px": 9999,
       "category": "Nonprofit",
       "fit": [
         "model access, not cash"
@@ -6038,6 +6034,27 @@
       "tldr": "An open competition judged on results, not on a proposal.",
       "award": "",
       "award_note": ""
+    },
+    {
+      "first_seen_date": "2026-11-07",
+      "sponsor": "NSF",
+      "program": "Major Research Instrumentation MRI NSF 27-500 (published 2026-11-06, no per-org limit)",
+      "deadline": "window 2027-01-04 to 2027-01-29",
+      "url": "https://www.nsf.gov/funding/opportunities/mri-major-research-instrumentation-program/nsf27-500/solicitation",
+      "pick": true,
+      "competition": "medium to high",
+      "source_tier": "L1",
+      "logo_domain": "nsf.gov",
+      "logo": "/funding/logos/nsf.gov.png",
+      "logo_px": 192,
+      "category": "Federal",
+      "fit": [],
+      "comp_score": 4,
+      "comp_basis": "Graded \"medium to high\" in this week's brief, not a published rate.",
+      "tldr": "An NSF solicitation with its own topic and deadline.",
+      "award": "$100K to $4M",
+      "award_note": "grants.gov lists this per award for 27-500. $50M for the whole programme.",
+      "award_src": "grants.gov"
     }
   ],
   "watchlist": [

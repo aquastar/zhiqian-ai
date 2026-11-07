@@ -262,7 +262,7 @@ first_seen_date,sponsor,program,deadline,url
 2026-11-02,[PRIZE] Cadenza,"UPDATE CLIP2 deadline verified as 2026-10-30 AoE, passed",2026-10-30,https://cadenzachallenge.org/docs/clip2/key_dates
 2026-11-02,[PRIZE] IBM and partners,"UPDATE Steerability registration closed 2026-11-01 AoE, final 2026-11-21",2026-11-21,https://steerability.github.io/competition/
 2026-11-02,Amazon,UPDATE Research Awards Fall 2026 extended,2026-11-11,https://www.amazon.science/research-awards/call-for-proposals
-2026-11-06,NSF,"STEM Access for Persons with Disabilities DCL NSF 23-160 (supplement, target 2nd Thursday Nov)",2026-11-12,https://www.nsf.gov/funding/opportunities/dcl-stem-access-persons-disabilities-stem-apwd
+2026-11-06,NSF,"STEM Access for Persons with Disabilities DCL NSF 23-160 (OLD, issued 2023, first seen this run, supplement, target 2nd Thursday Nov)",2026-11-12,https://www.nsf.gov/funding/opportunities/dcl-stem-access-persons-disabilities-stem-apwd
 2026-11-06,DARPA IPTO,RFI FLASH DARPA-SN-27-17,2026-11-30,https://sam.gov/opp/e4ea14eef4df480ea295f13b6b2159ea/view
 2026-11-06,DARPA IPTO,UPDATE FastVacc RFI DARPA-SN-27-13 deadline verified,2026-11-13,https://sam.gov/opp/9702cfee87444ea792404ad280b946e0/view
 2026-11-06,DARPA,"UPDATE AI Forge renamed SI Forge, Cycle 2 official dates still not posted",2026-11-06 (unverified),https://www.darpa.mil/research/programs/si-forge
@@ -289,3 +289,4 @@ first_seen_date,sponsor,program,deadline,url
 2026-11-06,[PRIZE] Kaggle,Name That LLM (unverified),2027-01-06,https://www.kaggle.com/competitions
 2026-11-06,[PRIZE] AD Data Initiative,Alzheimer's Trials Data Discovery Challenge (LOI passed),2027-02-01,https://www.alzheimersdata.org/accelerating-research/data-challenges
 2026-11-06,[PRIZE] NIH ODSS,"UPDATE temporal KG challenge office hours 11-24, webinar 12-08, office hours 12-17 and 2027-01-07",2027-01-15,https://work.crowdplat.com/challenge/nih-temporal-knowledge-graph-challenge
+2026-11-07,NSF,"Major Research Instrumentation MRI NSF 27-500 (published 2026-11-06, no per-org limit)",window 2027-01-04 to 2027-01-29,https://www.nsf.gov/funding/opportunities/mri-major-research-instrumentation-program/nsf27-500/solicitation
