@@ -3,7 +3,7 @@
 // CCF A or B, or CORE A* or A, every hand-kept venue on the field
 // tabs, and the venues added by hand in the script. Destinations mix cities, countries and
 // regions, because that is how people choose where to go.
-// Built 2026-11-08.
+// Built 2026-11-09.
 export const destinations = {
  "items": [
   {
@@ -2963,7 +2963,7 @@ export const destinations = {
    "sub": "DS",
    "deadline": "2026-09-20",
    "open": false,
-   "link": "https://www.date-conference.com/date-2027-call-papers",
+   "link": "https://www.date-conference.com/call-for-papers",
    "q": "dresden, germany dresden germany ",
    "field": "Hardware & EDA",
    "group": "computing",
@@ -4256,7 +4256,7 @@ export const destinations = {
    "desc": "IEEE International Conference on Computer Vision",
    "year": 2027,
    "place": "Hong Kong, China",
-   "date": "October 2-8, 2027",
+   "date": "October 5-7, 2027",
    "city": "Hong Kong",
    "country": "Hong Kong",
    "dest": "Hong Kong",
@@ -4593,7 +4593,7 @@ export const destinations = {
    "desc": "International Conference on Machine Learning",
    "year": 2027,
    "place": "Riocentro, Rio de Janeiro, Brazil",
-   "date": "July 31 - August 6, 2027",
+   "date": "August 2-4, 2027",
    "city": "Riocentro",
    "country": "Brazil",
    "dest": "South America",
@@ -7686,7 +7686,7 @@ export const destinations = {
    "desc": "IEEE/CVF Winter Conference on Applications of Computer Vision",
    "year": 2027,
    "place": "Disney Springs, Buena Vista, FL, USA",
-   "date": "Jan 4 - 8, 2027",
+   "date": "Jan 6 - 8, 2027",
    "city": "Buena Vista",
    "country": "United States",
    "dest": "",
