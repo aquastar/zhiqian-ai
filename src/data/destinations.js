@@ -3,7 +3,7 @@
 // CCF A or B, or CORE A* or A, every hand-kept venue on the field
 // tabs, and the venues added by hand in the script. Destinations mix cities, countries and
 // regions, because that is how people choose where to go.
-// Built 2026-11-09.
+// Built 2026-11-10.
 export const destinations = {
  "items": [
   {
@@ -4529,7 +4529,7 @@ export const destinations = {
    "desc": "International Conference on Learning Representations",
    "year": 2027,
    "place": "San Francisco, CA, USA",
-   "date": "April 26-30, 2027",
+   "date": "April 26-28, 2027",
    "city": "San Francisco",
    "country": "United States",
    "dest": "California",
@@ -6139,7 +6139,7 @@ export const destinations = {
    "core": "B",
    "sub": "CG",
    "deadline": "2026-11-09",
-   "open": true,
+   "open": false,
    "link": "https://pacificvis2027.github.io/",
    "q": "busan, south korea busan south korea ",
    "field": "Visualization",

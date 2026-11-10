@@ -3,7 +3,7 @@
 // CORE ranks are cross-checked against the official CORE2023 export from
 // portal.core.edu.au. Acceptance rates and submission counts come from
 // github.com/Xovee/cs-conf-stats (main track only).
-// Built 2026-11-09.
+// Built 2026-11-10.
 export const ranked = [
   {
     "title": "ICWSM",
@@ -6535,7 +6535,7 @@ export const ranked = [
     "edition": "15th",
     "best": "",
     "link": "https://iclr.cc/Conferences/2027",
-    "date": "April 26-30, 2027",
+    "date": "April 26-28, 2027",
     "place": "San Francisco, CA, USA",
     "cc": "us",
     "city": "sourdough and Dungeness crab, a cable car over the hills, redwoods at Muir Woods",
