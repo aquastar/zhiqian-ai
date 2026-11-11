@@ -3,7 +3,7 @@
 // CCF A or B, or CORE A* or A, every hand-kept venue on the field
 // tabs, and the venues added by hand in the script. Destinations mix cities, countries and
 // regions, because that is how people choose where to go.
-// Built 2026-11-10.
+// Built 2026-11-11.
 export const destinations = {
  "items": [
   {
@@ -1442,8 +1442,8 @@ export const destinations = {
    "ccf": "B",
    "core": "A*",
    "sub": "AI",
-   "deadline": "2026-10-08",
-   "open": false,
+   "deadline": "2026-12-11",
+   "open": true,
    "link": "https://warwick.ac.uk/fac/sci/dcs/aamas2027/",
    "q": "hanoi, vietnam hanoi vietnam ",
    "field": "AI · ML · Data Mining",
@@ -1542,7 +1542,7 @@ export const destinations = {
    "desc": "Annual Meeting of the Association for Computational Linguistics",
    "year": 2027,
    "place": "Kyoto, Japan",
-   "date": "August 17-22, 2027",
+   "date": "August 20-22, 2027",
    "city": "Kyoto",
    "country": "Japan",
    "dest": "Japan",
@@ -2826,7 +2826,7 @@ export const destinations = {
    "desc": "IEEE/CVF Conference on Computer Vision and Pattern Recognition",
    "year": 2027,
    "place": "Seattle, WA, United States",
-   "date": "June 20-25, 2027",
+   "date": "June 22-25, 2027",
    "city": "Seattle",
    "country": "United States",
    "dest": "",
@@ -6205,8 +6205,8 @@ export const destinations = {
    "icon": "sun",
    "ccf": "N",
    "core": "N",
-   "deadline": "2026-11-10",
-   "open": true,
+   "deadline": "",
+   "open": false,
    "link": "https://pes-gm.org/2027-san-francisco/",
    "q": "san francisco, california, usa san francisco united states ",
    "field": "Power & energy",
