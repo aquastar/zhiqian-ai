@@ -3,152 +3,8 @@
 // CORE ranks are cross-checked against the official CORE2023 export from
 // portal.core.edu.au. Acceptance rates and submission counts come from
 // github.com/Xovee/cs-conf-stats (main track only).
-// Built 2026-11-11.
+// Built 2026-11-12.
 export const ranked = [
-  {
-    "title": "ICWSM",
-    "desc": "The International AAAI Conference on Web and Social Media",
-    "area": "ai",
-    "sub": "HI",
-    "frank": "",
-    "ccf": "B",
-    "core": "A",
-    "coreVerified": true,
-    "nextDeadline": "2026-05-15",
-    "nextYear": 2027,
-    "nextAbstract": "",
-    "estimated": false,
-    "estFrom": "",
-    "rounds": [
-      {
-        "d": "2026-05-15",
-        "label": "1st Full-paper Deadline",
-        "est": false,
-        "year": 2027,
-        "link": "https://www.icwsm.org/2027/",
-        "abs": ""
-      },
-      {
-        "d": "2026-09-15",
-        "label": "2nd Full-paper Deadline",
-        "est": false,
-        "year": 2027,
-        "link": "https://www.icwsm.org/2027/",
-        "abs": ""
-      },
-      {
-        "d": "2027-01-15",
-        "label": "3rd Full-paper Deadline",
-        "est": false,
-        "year": 2027,
-        "link": "https://www.icwsm.org/2027/",
-        "abs": ""
-      }
-    ],
-    "dblp": "icwsm",
-    "csr": "",
-    "edition": "21st",
-    "best": "",
-    "link": "https://www.icwsm.org/2027/",
-    "date": "TBD",
-    "place": "Edinburgh, Scotland",
-    "cc": "gb",
-    "city": "whisky flights, Arthur Seat at sunrise, haggis done well enough to convert you",
-    "cycles": 3,
-    "roundLabels": [
-      "1st Full-paper Deadline",
-      "2nd Full-paper Deadline",
-      "3rd Full-paper Deadline"
-    ],
-    "proceedings": "full",
-    "rates": [
-      {
-        "y": 2010,
-        "r": 22.9
-      },
-      {
-        "y": 2012,
-        "r": 20.3
-      },
-      {
-        "y": 2013,
-        "r": 20.6
-      },
-      {
-        "y": 2014,
-        "r": 22.9
-      },
-      {
-        "y": 2015,
-        "r": 18.7
-      },
-      {
-        "y": 2016,
-        "r": 17.0
-      },
-      {
-        "y": 2017,
-        "r": 13.4
-      },
-      {
-        "y": 2018,
-        "r": 26.4
-      },
-      {
-        "y": 2019,
-        "r": 21.4
-      },
-      {
-        "y": 2020,
-        "r": 24.4
-      }
-    ],
-    "subs": [
-      {
-        "y": 2010,
-        "n": 279
-      },
-      {
-        "y": 2012,
-        "n": 232
-      },
-      {
-        "y": 2013,
-        "n": 349
-      },
-      {
-        "y": 2014,
-        "n": 279
-      },
-      {
-        "y": 2015,
-        "n": 343
-      },
-      {
-        "y": 2016,
-        "n": 306
-      },
-      {
-        "y": 2017,
-        "n": 372
-      },
-      {
-        "y": 2018,
-        "n": 295
-      },
-      {
-        "y": 2019,
-        "n": 238
-      },
-      {
-        "y": 2020,
-        "n": 295
-      }
-    ],
-    "rateSrc": "csc",
-    "rateSlug": "icwsm",
-    "tier": 2
-  },
   {
     "title": "ER",
     "desc": "International Conference on Conceptual Modeling",
@@ -5684,6 +5540,149 @@ export const ranked = [
     "subs": [],
     "rateSrc": "",
     "rateSlug": "",
+    "tier": 2
+  },
+  {
+    "title": "ICWSM",
+    "desc": "The International AAAI Conference on Web and Social Media",
+    "area": "ai",
+    "sub": "HI",
+    "frank": "",
+    "ccf": "B",
+    "core": "A",
+    "coreVerified": true,
+    "nextDeadline": "2026-09-15",
+    "nextYear": 2027,
+    "nextAbstract": "",
+    "estimated": false,
+    "estFrom": "",
+    "rounds": [
+      {
+        "d": "2026-09-15",
+        "label": "2nd Full-paper Deadline",
+        "est": false,
+        "year": 2027,
+        "link": "https://www.icwsm.org/2027/",
+        "abs": ""
+      },
+      {
+        "d": "2027-01-15",
+        "label": "3rd Full-paper Deadline",
+        "est": false,
+        "year": 2027,
+        "link": "https://www.icwsm.org/2027/",
+        "abs": ""
+      },
+      {
+        "d": "2027-05-15",
+        "label": "1st Full-paper Deadline",
+        "est": true,
+        "from": "2025-05-15",
+        "abs": ""
+      }
+    ],
+    "dblp": "icwsm",
+    "csr": "",
+    "edition": "21st",
+    "best": "",
+    "link": "https://www.icwsm.org/2027/",
+    "date": "TBD",
+    "place": "Edinburgh, Scotland",
+    "cc": "gb",
+    "city": "whisky flights, Arthur Seat at sunrise, haggis done well enough to convert you",
+    "cycles": 3,
+    "roundLabels": [
+      "1st Full-paper Deadline",
+      "2nd Full-paper Deadline",
+      "3rd Full-paper Deadline"
+    ],
+    "proceedings": "full",
+    "rates": [
+      {
+        "y": 2010,
+        "r": 22.9
+      },
+      {
+        "y": 2012,
+        "r": 20.3
+      },
+      {
+        "y": 2013,
+        "r": 20.6
+      },
+      {
+        "y": 2014,
+        "r": 22.9
+      },
+      {
+        "y": 2015,
+        "r": 18.7
+      },
+      {
+        "y": 2016,
+        "r": 17.0
+      },
+      {
+        "y": 2017,
+        "r": 13.4
+      },
+      {
+        "y": 2018,
+        "r": 26.4
+      },
+      {
+        "y": 2019,
+        "r": 21.4
+      },
+      {
+        "y": 2020,
+        "r": 24.4
+      }
+    ],
+    "subs": [
+      {
+        "y": 2010,
+        "n": 279
+      },
+      {
+        "y": 2012,
+        "n": 232
+      },
+      {
+        "y": 2013,
+        "n": 349
+      },
+      {
+        "y": 2014,
+        "n": 279
+      },
+      {
+        "y": 2015,
+        "n": 343
+      },
+      {
+        "y": 2016,
+        "n": 306
+      },
+      {
+        "y": 2017,
+        "n": 372
+      },
+      {
+        "y": 2018,
+        "n": 295
+      },
+      {
+        "y": 2019,
+        "n": 238
+      },
+      {
+        "y": 2020,
+        "n": 295
+      }
+    ],
+    "rateSrc": "csc",
+    "rateSlug": "icwsm",
     "tier": 2
   },
   {
@@ -19208,7 +19207,7 @@ export const journals = [
         "n": 942
       }
     ],
-    "cites": 25.6,
+    "cites": 25.7,
     "h": 574,
     "oa": "https://openalex.org/S199944782",
     "link": "https://dblp.org/db/journals/pami/index.html"
@@ -19338,8 +19337,8 @@ export const journals = [
         "n": 287
       }
     ],
-    "cites": 19.4,
-    "h": 299,
+    "cites": 19.5,
+    "h": 300,
     "oa": "https://openalex.org/S25538012",
     "link": "https://dblp.org/db/journals/ijcv/index.html"
   },
@@ -19395,7 +19394,7 @@ export const journals = [
         "n": 509
       }
     ],
-    "cites": 15.2,
+    "cites": 15.3,
     "h": 278,
     "oa": "https://openalex.org/S30698027",
     "link": "https://dblp.org/db/journals/tkde/index.html"
@@ -19794,7 +19793,7 @@ export const journals = [
         "n": 552
       }
     ],
-    "cites": 3.9,
+    "cites": 4.0,
     "h": 190,
     "oa": "https://openalex.org/S100835903",
     "link": "https://dblp.org/db/journals/tcad/index.html"
@@ -20079,7 +20078,7 @@ export const journals = [
         "n": 27
       }
     ],
-    "cites": 3.7,
+    "cites": 3.8,
     "h": 23,
     "oa": "https://openalex.org/S4210180030",
     "link": "https://dblp.org/db/journals/tismir/index.html"
@@ -20364,7 +20363,7 @@ export const journals = [
         "n": 771
       }
     ],
-    "cites": 7.3,
+    "cites": 7.4,
     "h": 482,
     "oa": "https://openalex.org/S184954342",
     "link": "https://dblp.org/db/journals/tac/index.html"
@@ -21745,7 +21744,7 @@ export const journals = [
       }
     ],
     "cites": 6.0,
-    "h": 636,
+    "h": 637,
     "oa": "https://openalex.org/S4394736638",
     "link": ""
   },
@@ -22014,7 +22013,7 @@ export const journals = [
       },
       {
         "y": 2022,
-        "n": 380
+        "n": 381
       },
       {
         "y": 2023,
@@ -22371,7 +22370,7 @@ export const journals = [
         "n": 358
       }
     ],
-    "cites": 17.2,
+    "cites": 17.3,
     "h": 698,
     "oa": "https://openalex.org/S45757444",
     "link": ""
@@ -22428,7 +22427,7 @@ export const journals = [
         "n": 342
       }
     ],
-    "cites": 22.7,
+    "cites": 22.8,
     "h": 604,
     "oa": "https://openalex.org/S2298632",
     "link": ""
@@ -22485,7 +22484,7 @@ export const journals = [
         "n": 163
       }
     ],
-    "cites": 4.7,
+    "cites": 4.8,
     "h": 313,
     "oa": "https://openalex.org/S123144817",
     "link": ""
@@ -22713,7 +22712,7 @@ export const journals = [
         "n": 20930
       }
     ],
-    "cites": 2.5,
+    "cites": 2.6,
     "h": 319,
     "oa": "https://openalex.org/S1336409049",
     "link": ""
@@ -22885,7 +22884,7 @@ export const journals = [
       }
     ],
     "cites": 14.4,
-    "h": 471,
+    "h": 472,
     "oa": "https://openalex.org/S192051125",
     "link": ""
   },
@@ -23454,7 +23453,7 @@ export const journals = [
         "n": 243
       }
     ],
-    "cites": 15.1,
+    "cites": 15.2,
     "h": 238,
     "oa": "https://openalex.org/S129839026",
     "link": "https://dblp.org/db/journals/jamia/index.html"
@@ -23568,7 +23567,7 @@ export const journals = [
         "n": 883
       }
     ],
-    "cites": 18.2,
+    "cites": 18.3,
     "h": 178,
     "oa": "https://openalex.org/S4210195431",
     "link": ""
@@ -24024,7 +24023,7 @@ export const journals = [
         "n": 243
       }
     ],
-    "cites": 9.5,
+    "cites": 9.6,
     "h": 177,
     "oa": "https://openalex.org/S50690046",
     "link": ""
@@ -24081,8 +24080,8 @@ export const journals = [
         "n": 298
       }
     ],
-    "cites": 3.9,
-    "h": 420,
+    "cites": 4.0,
+    "h": 421,
     "oa": "https://openalex.org/S170967050",
     "link": ""
   },
@@ -24138,7 +24137,7 @@ export const journals = [
         "n": 113
       }
     ],
-    "cites": 3.5,
+    "cites": 3.6,
     "h": 47,
     "oa": "https://openalex.org/S2898427929",
     "link": ""
@@ -24252,8 +24251,8 @@ export const journals = [
         "n": 433
       }
     ],
-    "cites": 15.0,
-    "h": 144,
+    "cites": 15.1,
+    "h": 145,
     "oa": "https://openalex.org/S4210232664",
     "link": ""
   },
@@ -24529,7 +24528,7 @@ export const journals = [
         "n": 510
       }
     ],
-    "cites": 9.7,
+    "cites": 9.8,
     "h": 289,
     "oa": "https://openalex.org/S59604973",
     "link": ""
@@ -25422,7 +25421,7 @@ export const journals = [
       },
       {
         "y": 2025,
-        "n": 3313
+        "n": 3312
       }
     ],
     "cites": 13.8,
@@ -25540,7 +25539,7 @@ export const journals = [
       }
     ],
     "cites": 20.2,
-    "h": 245,
+    "h": 246,
     "oa": "https://openalex.org/S137042341",
     "link": ""
   },
@@ -25596,7 +25595,7 @@ export const journals = [
         "n": 44
       }
     ],
-    "cites": 57.3,
+    "cites": 57.4,
     "h": 627,
     "oa": "https://openalex.org/S73260565",
     "link": ""
@@ -25799,7 +25798,7 @@ export const journals = [
         "n": 88
       }
     ],
-    "cites": 13.5,
+    "cites": 13.4,
     "h": 259,
     "oa": "https://openalex.org/S98347115",
     "link": ""
@@ -26084,7 +26083,7 @@ export const journals = [
         "n": 704
       }
     ],
-    "cites": 6.6,
+    "cites": 6.7,
     "h": 216,
     "oa": "https://openalex.org/S84775595",
     "link": "https://dblp.org/db/journals/tvcg/index.html"
@@ -26426,7 +26425,7 @@ export const journals = [
         "n": 49
       }
     ],
-    "cites": 2.5,
+    "cites": 2.4,
     "h": 171,
     "oa": "https://openalex.org/S170801797",
     "link": ""
@@ -26540,7 +26539,7 @@ export const journals = [
         "n": 104
       }
     ],
-    "cites": 2.5,
+    "cites": 2.6,
     "h": 203,
     "oa": "https://openalex.org/S204374153",
     "link": ""
@@ -27741,7 +27740,7 @@ export const journals = [
         "n": 136
       }
     ],
-    "cites": 10.9,
+    "cites": 11.0,
     "h": 176,
     "oa": "https://openalex.org/S139930977",
     "link": "https://dblp.org/db/journals/jair/index.html"
@@ -27856,7 +27855,7 @@ export const journals = [
       }
     ],
     "cites": 6.8,
-    "h": 146,
+    "h": 147,
     "oa": "https://openalex.org/S121920818",
     "link": "https://dblp.org/db/journals/datamine/index.html"
   },
@@ -27912,7 +27911,7 @@ export const journals = [
         "n": 807
       }
     ],
-    "cites": 12.9,
+    "cites": 13.0,
     "h": 254,
     "oa": "https://openalex.org/S4210175523",
     "link": "https://dblp.org/db/journals/tnn/index.html"
@@ -27969,7 +27968,7 @@ export const journals = [
         "n": 80
       }
     ],
-    "cites": 36.8,
+    "cites": 36.5,
     "h": 133,
     "oa": "https://openalex.org/S2729999759",
     "link": "https://dblp.org/db/journals/tacl/index.html"
