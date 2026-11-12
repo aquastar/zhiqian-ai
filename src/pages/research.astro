@@ -215,6 +215,20 @@ const honorGroups = [
   ] },
 ];
 const honorCount = honorGroups.reduce((n, g) => n + g.items.length, 0);
+
+// Same entries as "Service" in the CV.
+const service = [
+  { role: 'Co-Chair', what: 'IEEE BigData 2026, Student Volunteer',
+    link: { label: 'Committee', href: 'https://bigdataieee.org/BigData2026/organization/committee/' } },
+  { role: 'Co-Chair', what: 'IEEE ICDM 2025, Poster',
+    link: { label: 'Committee', href: 'https://www3.cs.stonybrook.edu/~icdm2025/organizingcommittee.html' } },
+  { role: 'Co-Chair', what: 'IEEE BigData 2024, BigData Cup Challenges',
+    link: { label: 'Committee', href: 'https://www3.cs.stonybrook.edu/~ieeebigdata2024/CommitteeMember.html' } },
+  { role: 'Panelist', what: 'NSF review panels, 2021, 2023, 2024' },
+  { role: 'Area Chair', what: 'ICML 2027, NeurIPS 2026' },
+  { role: 'Editorial Board', what: 'Frontiers in Big Data (Data Science, and Data Mining and Management), Topic Editor, 2022 to present' },
+  { role: 'Reviewer', what: 'ICML, ICLR, NeurIPS, AAAI, IJCAI, KDD, SIGIR, IEEE BIBM, IEEE CCAS, IEEE TKDE, ACM TKDD, ACM Computing Surveys' },
+];
 ---
 <Layout title="Research | Zhiqian Chen">
   <main class="container">
@@ -238,6 +252,8 @@ const honorCount = honorGroups.reduce((n, g) => n + g.items.length, 0);
         <a href="#funding">{externalGrants.length} grants and awards</a>
         <span class="map-label">Honors</span>
         <a href="#honors">{honorCount} honors</a>
+        <span class="map-label">Other</span>
+        <a href="#other">Service</a>
       </nav>
     </section>
 
@@ -480,6 +496,22 @@ const honorCount = honorGroups.reduce((n, g) => n + g.items.length, 0);
         </Fragment>
       ))}
     </section>
+
+    <section class="section" id="other">
+      <h2>Other</h2>
+      <h4 class="aw-group">Service</h4>
+      <ul class="honors service">
+        {service.map((v) => (
+          <li>
+            <span class="h-year">{v.role}</span>
+            <div class="h-what"><span class="h-where">{v.what}</span></div>
+            {v.link
+              ? <a class="h-rec" href={v.link.href} target="_blank" rel="noopener">{v.link.label}<i class="fas fa-arrow-up-right-from-square" aria-hidden="true"></i></a>
+              : <span></span>}
+          </li>
+        ))}
+      </ul>
+    </section>
   </main>
 
 </Layout>
@@ -539,7 +571,8 @@ const honorCount = honorGroups.reduce((n, g) => n + g.items.length, 0);
 
 
   html { scroll-behavior:smooth; }
-  .interest-head[id], #funding, #research-lines, #methods, #honors { scroll-margin-top:16px; }
+  .interest-head[id], #funding, #research-lines, #methods, #honors, #other { scroll-margin-top:16px; }
+  .honors.service li { grid-template-columns:8.5rem 1fr auto; }
   #methods { margin-top:30px; }
   .honors { list-style:none; margin:0; padding:0; max-width:860px; }
   .honors li { display:grid; grid-template-columns:3.2rem 1fr auto; gap:4px 16px; align-items:baseline; padding:9px 0; border-top:1px solid rgba(148,163,184,.22); text-align:left; }
@@ -551,7 +584,7 @@ const honorCount = honorGroups.reduce((n, g) => n + g.items.length, 0);
   .h-note { flex-basis:100%; color:var(--muted); font-size:.9rem; }
   .h-rec { color:#A84600; text-decoration:none; font-size:.85rem; white-space:nowrap; border-bottom:1px dotted #C45200; }
   .h-rec i { font-size:.7em; margin-left:4px; opacity:.7; }
-  @media (max-width: 720px) { .honors li { grid-template-columns:2.8rem 1fr; } .h-rec { grid-column:2; justify-self:start; } }
+  @media (max-width: 720px) { .honors li { grid-template-columns:2.8rem 1fr; } .h-rec { grid-column:2; justify-self:start; } .honors.service li { grid-template-columns:1fr; } .service .h-rec { grid-column:1; } }
   @media (max-width: 900px) { .glance { grid-template-columns:1fr; gap:14px; } }
 
 
