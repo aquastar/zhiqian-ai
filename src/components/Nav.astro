@@ -14,19 +14,18 @@
 const { current = '' } = Astro.props;
 
 // A menu lists what sits under its button, never the button's own page again:
-// the button is a link already. Research opens onto its own sections and the
-// Honors page. Agenda comes last on the left, after the two outside links.
+// the button is a link already. Research opens onto its own sections.
+// Agenda comes last on the left, after the two outside links.
 const SCHOLAR = 'https://scholar.google.com/citations?user=NC3-O6UAAAAJ&hl=en&oi=ao';
 const SUBSTACK = 'https://substack.com/@zhiqianchen1';
 
 const SECTIONS = [
   { key: 'home', href: '/', label: 'Home' },
-  { key: 'research', href: '/research', label: 'Research', also: ['honors'],
+  { key: 'research', href: '/research', label: 'Research',
     menu: [
-      { key: '', href: '/research#research-lines', label: 'Areas' },
-      { key: '', href: '/research#methods', label: 'Methods' },
+      { key: '', href: '/research#research-lines', label: 'Research interests' },
       { key: '', href: '/research#funding', label: 'Grants' },
-      { key: 'honors', href: '/honors', label: 'Honors' },
+      { key: '', href: '/research#honors', label: 'Honors' },
     ] },
   // Joining the group is the first thing on the People page, so it needs no menu.
   { key: 'people', href: '/people', label: 'People', also: ['students'] },

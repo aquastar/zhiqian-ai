@@ -9,5 +9,7 @@ export default defineConfig({
     '/grant': '/research',
     // Work With Me was renamed Prospective Students.
     '/work-with-me': '/prospective-students',
+    // Honors became a section of /research.
+    '/honors': '/research#honors',
   },
 });

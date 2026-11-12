@@ -183,6 +183,38 @@ const cash = (g) => Number(String(g.amount).replace(/[^0-9.]/g, '')) || 0;
 const isSmall = (g) => !String(g.amount).startsWith('$') || cash(g) < 20000;
 const majorGrants = externalGrants.filter((g) => !isSmall(g));
 const smallAwards = externalGrants.filter(isSmall);
+
+// Same entries as "Awards & Honors" in the CV, plus the SSRC fellowship, grouped
+// by what they recognize. Grants are listed in the section above, not here.
+const honorGroups = [
+  { title: 'Research', items: [
+    { year: '2025', name: 'Research Fellow', where: 'Social Science Research Center, Mississippi State University' },
+    { year: '2021', name: "Editor's Choice Article", where: 'Sensors (MDPI), 2021',
+      note: 'Review of convolutional neural network vision systems in animal farming.',
+      link: { label: 'The article', href: 'https://www.mdpi.com/1424-8220/21/4/1492' } },
+    { year: '2020', name: 'Best Paper Award', where: 'ACM SIGSPATIAL 2020',
+      note: 'Domain knowledge in memetic algorithms for spatial optimization.',
+      link: { label: 'Award recipients', href: 'https://www.sigspatial.org/people/award-recipients/' } },
+    { year: '2019', name: 'Top 50 Chemistry and Materials Sciences Articles', where: 'Nature Communications, 2019',
+      link: { label: 'The article', href: 'https://www.nature.com/articles/s41467-019-13214-1' } },
+    { year: '2015', name: 'Best Paper Award', where: 'GISTAM 2015',
+      link: { label: 'Award recipients', href: 'https://gistam.scitevents.org/PreviousAwards.aspx' } },
+  ] },
+  { title: 'Teaching', items: [
+    { year: '2025', name: 'Ottilie Schillig Special Teaching Award', where: 'Center for Teaching and Learning, Mississippi State University',
+      note: 'AI teaching gamification with the Lego Education kit.',
+      link: { label: 'Award recipients', href: 'https://www.ctl.msstate.edu/resources/ottilie-schillig-special-teaching-projects-grants' } },
+  ] },
+  { title: 'Service', items: [
+    { year: '2026', name: 'Top Area Chair', where: 'NeurIPS 2026' },
+    { year: '2025', name: 'Excellent Reviewer (top 20%)', where: 'ACM SIGKDD 2025' },
+    { year: '2024', name: 'Excellent Reviewer', where: 'IEEE Transactions on Network Science and Engineering' },
+  ] },
+  { title: 'Industry', items: [
+    { year: '2016', name: 'Outstanding Contribution Award', where: 'Toyota Research Institute, North America' },
+  ] },
+];
+const honorCount = honorGroups.reduce((n, g) => n + g.items.length, 0);
 ---
 <Layout title="Research | Zhiqian Chen">
   <main class="container">
@@ -196,27 +228,29 @@ const smallAwards = externalGrants.filter(isSmall);
         <p>COVID-19 has caused over 6 million deaths worldwide since late 2019 and an estimated $12.5 trillion in economic loss as of 2024. The pandemic exposed deep vulnerabilities in modern networked systems: disrupted supply chains, financial market volatility, misinformation amplified across social networks. The July 2024 CrowdStrike update failure brought airlines, hospitals, and businesses to a standstill worldwide, underscoring how far cascading effects travel inside interconnected systems. Climate change, pandemics, and food security all run on interdependent networks (transportation, finance, supply chains, ecology, social networks) that form the backbone of our societal and economic infrastructure. As the world grows more interconnected, resilient and interpretable network models become essential.</p>
       </details>
       <nav class="page-map" aria-label="On this page">
-        <span class="map-label">Areas</span>
+        <span class="map-label">Research interests</span>
         <a href="#line-1"><b>1</b> Networks and dynamics</a>
         <a href="#line-2"><b>2</b> Inside language models</a>
         <a href="#line-3"><b>3</b> Music</a>
-        <span class="map-label">Methods</span>
         <a href="#method-uq"><b>A</b> Uncertainty</a>
         <a href="#method-spectral"><b>B</b> Spectral</a>
         <span class="map-label">Grants</span>
         <a href="#funding">{externalGrants.length} grants and awards</a>
+        <span class="map-label">Honors</span>
+        <a href="#honors">{honorCount} honors</a>
       </nav>
     </section>
 
     <section class="section" id="research-lines">
-      <h2>Application areas</h2>
-      <p class="section-lead">The work runs along three lines, in order of weight. The first is the long-standing core. The second and third are newer and growing.</p>
+      <h2>Research interests</h2>
+      <p class="section-lead">Three application areas, in order of weight, and two methods that run through all of them. The first area is the long-standing core. The second and third are newer and growing.</p>
+      <h4 class="aw-group">Application areas</h4>
 
       <h3 class="interest-head" id="line-1"><span class="interest-num">1</span>Network science, graph machine learning and dynamical systems</h3>
       <div class="interest-body">
         <p>Roads, power grids, epidemics and social media are all networks, and what happens on one network often spreads into another. I study how behavior spreads, settles and breaks in connected systems, and how to estimate and control it.</p>
         <p>I look for generalized patterns that hold across very different networks, and for cross-system behaviors that pass from one network to another. The tools are spectral and functional analysis and uncertainty quantification. The systems studied include traffic grids, power networks, epidemics, social networks, banking and supply chains.</p>
-        <p>One example is a real-time Manhattan power and traffic co-simulation, in which electric vehicle charging load is fed back into the grid. Relevant support: <a href="https://www.nsf.gov/awardsearch/showAward?AWD_ID=2443266" target="_blank" rel="noopener">NSF CAREER #2443266</a> and <a href="https://www.nsf.gov/awardsearch/showAward?AWD_ID=2345921" target="_blank" rel="noopener">NSF CIRC #2345921</a>, both listed under Funding below.</p>
+        <p>One example is a real-time Manhattan power and traffic co-simulation, in which electric vehicle charging load is fed back into the grid. Relevant support: <a href="https://www.nsf.gov/awardsearch/showAward?AWD_ID=2443266" target="_blank" rel="noopener">NSF CAREER #2443266</a> and <a href="https://www.nsf.gov/awardsearch/showAward?AWD_ID=2345921" target="_blank" rel="noopener">NSF CIRC #2345921</a>, both listed under Grants below.</p>
       </div>
       <div class="thrust-row">
         {thrustImgs.map((t) => (
@@ -331,11 +365,8 @@ const smallAwards = externalGrants.filter(isSmall);
               ))}
             </ul>
           </div>
-    </section>
 
-    <section class="section" id="methods">
-      <h2>Methods</h2>
-      <p class="section-lead">Two technical interests run through all three areas.</p>
+      <h4 class="aw-group" id="methods">Methods</h4>
       <div class="method-grid">
         <div class="method">
           <h3 class="interest-head" id="method-uq"><span class="interest-num">A</span>Uncertainty quantification</h3>
@@ -425,6 +456,30 @@ const smallAwards = externalGrants.filter(isSmall);
         </div>
       </details>
     </section>
+
+    <section class="section" id="honors">
+      <h2>Honors</h2>
+      <p class="section-lead">Recognition for research, teaching and service, newest first in each group. A link opens the public record.</p>
+      {honorGroups.map((g) => (
+        <Fragment>
+          <h4 class="aw-group">{g.title}</h4>
+          <ul class="honors">
+            {g.items.map((h) => (
+              <li>
+                <span class="h-year">{h.year}</span>
+                <div class="h-what">
+                  <span class="h-name">{h.name}</span>{h.where && <span class="h-where">{h.where}</span>}
+                  {h.note && <span class="h-note">{h.note}</span>}
+                </div>
+                {h.link
+                  ? <a class="h-rec" href={h.link.href} {...(h.link.href.startsWith('http') ? { target: '_blank', rel: 'noopener' } : {})}>{h.link.label}{h.link.href.startsWith('http') && <i class="fas fa-arrow-up-right-from-square" aria-hidden="true"></i>}</a>
+                  : <span></span>}
+              </li>
+            ))}
+          </ul>
+        </Fragment>
+      ))}
+    </section>
   </main>
 
 </Layout>
@@ -484,7 +539,19 @@ const smallAwards = externalGrants.filter(isSmall);
 
 
   html { scroll-behavior:smooth; }
-  .interest-head[id], #funding, #research-lines, #methods { scroll-margin-top:16px; }
+  .interest-head[id], #funding, #research-lines, #methods, #honors { scroll-margin-top:16px; }
+  #methods { margin-top:30px; }
+  .honors { list-style:none; margin:0; padding:0; max-width:860px; }
+  .honors li { display:grid; grid-template-columns:3.2rem 1fr auto; gap:4px 16px; align-items:baseline; padding:9px 0; border-top:1px solid rgba(148,163,184,.22); text-align:left; }
+  .honors li:first-child { border-top:none; }
+  .h-year { color:var(--muted); font-size:.88rem; font-variant-numeric:tabular-nums; }
+  .h-what { display:flex; flex-wrap:wrap; gap:2px 10px; align-items:baseline; }
+  .h-name { font-weight:600; }
+  .h-where { color:#2E3A47; }
+  .h-note { flex-basis:100%; color:var(--muted); font-size:.9rem; }
+  .h-rec { color:#A84600; text-decoration:none; font-size:.85rem; white-space:nowrap; border-bottom:1px dotted #C45200; }
+  .h-rec i { font-size:.7em; margin-left:4px; opacity:.7; }
+  @media (max-width: 720px) { .honors li { grid-template-columns:2.8rem 1fr; } .h-rec { grid-column:2; justify-self:start; } }
   @media (max-width: 900px) { .glance { grid-template-columns:1fr; gap:14px; } }
 
 
