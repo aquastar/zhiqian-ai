@@ -95,7 +95,6 @@ const CLARITY_ID = import.meta.env.PUBLIC_CLARITY_ID;
 	@font-face { font-family:'et-book'; src:url('/fonts/et-book/et-book-bold-line-figures.woff') format('woff'); font-weight:600 800; font-style:normal; font-display:swap; }
 	body { -webkit-font-smoothing:antialiased; }
 	h1, h2 { font-weight:400 !important; letter-spacing:0 !important; }
-	body { word-spacing:-0.02em; }
 </style>
 <style>
 	html {
@@ -110,12 +109,13 @@ const CLARITY_ID = import.meta.env.PUBLIC_CLARITY_ID;
 		width: 100%;
 		min-height: 100%;
 		font-family: 'et-book', Palatino, 'Palatino Linotype', Georgia, serif;
-		font-size: 18px;
+		/* ET Book has a small x-height, so it reads a size smaller than its
+		   number. Every rem on the site scales from here. */
+		font-size: 19.5px;
 		background: #F7F9FC;
 		color: #16202B;
-		line-height: 1.45;
-		text-align: justify;
-		text-justify: inter-word;
+		line-height: 1.6;
+		text-align: left;
 	}
 	.site-footer {
 		display: flex;

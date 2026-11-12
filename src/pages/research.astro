@@ -244,18 +244,18 @@ const service = [
         <p>COVID-19 has caused over 6 million deaths worldwide since late 2019 and an estimated $12.5 trillion in economic loss as of 2024. The pandemic exposed deep vulnerabilities in modern networked systems: disrupted supply chains, financial market volatility, misinformation amplified across social networks. The July 2024 CrowdStrike update failure brought airlines, hospitals, and businesses to a standstill worldwide, underscoring how far cascading effects travel inside interconnected systems. Climate change, pandemics, and food security all run on interdependent networks (transportation, finance, supply chains, ecology, social networks) that form the backbone of our societal and economic infrastructure. As the world grows more interconnected, resilient and interpretable network models become essential.</p>
       </details>
       <nav class="page-map" aria-label="On this page">
-        <span class="map-label">Research interests</span>
+        <span class="map-group"><span class="map-label">Research interests</span>
         <a href="#line-1"><b>1</b> Networks and dynamics</a>
         <a href="#line-2"><b>2</b> Inside language models</a>
         <a href="#line-3"><b>3</b> Music</a>
         <a href="#method-uq"><b>A</b> Uncertainty</a>
-        <a href="#method-spectral"><b>B</b> Spectral</a>
-        <span class="map-label">Grants</span>
-        <a href="#funding">{externalGrants.length} grants and awards</a>
-        <span class="map-label">Honors</span>
-        <a href="#honors">{honorCount} honors</a>
-        <span class="map-label">Service</span>
-        <a href="#service">{service.length} roles</a>
+        <a href="#method-spectral"><b>B</b> Spectral</a></span>
+        <span class="map-group"><span class="map-label">Grants</span>
+        <a href="#funding">{externalGrants.length} grants and awards</a></span>
+        <span class="map-group"><span class="map-label">Honors</span>
+        <a href="#honors">{honorCount} honors</a></span>
+        <span class="map-group"><span class="map-label">Service</span>
+        <a href="#service">{service.length} roles</a></span>
       </nav>
     </section>
 
@@ -524,11 +524,12 @@ const service = [
   details[open] > summary::after { transform:rotate(180deg); }
   details > summary:hover { color:#A84600; }
   .why { margin:10px 0 0; max-width:900px; }
-  .why p { margin:8px 0 0; color:#4E5C6A; font-size:.9rem; line-height:1.6; }
+  .why p { margin:8px 0 0; color:#2E3A47; max-width:42em; font-size:.9rem; line-height:1.6; }
   /* One line that says what is on the page and jumps there. */
   .page-map { display:flex; flex-wrap:wrap; align-items:baseline; gap:6px 14px; margin-top:18px; padding-top:12px; border-top:1px solid rgba(148,163,184,.18); font-size:.86rem; }
   .map-label { font-size:.68rem; font-weight:700; letter-spacing:.12em; text-transform:uppercase; color:#4E5C6A; margin-left:6px; }
   .map-label:first-child { margin-left:0; }
+  .map-group { display:inline-flex; flex-wrap:wrap; align-items:baseline; gap:6px 14px; }
   .page-map a { color:#16202B; text-decoration:none; border-bottom:1px solid #C9D4DF; }
   .page-map a b { color:var(--accent); font-weight:700; margin-right:2px; }
   .page-map a:hover { color:#A84600; border-color:#C45200; }
@@ -562,7 +563,7 @@ const service = [
 
   .section { padding-top:18px; margin-top:26px; border-top:1px solid rgba(148,163,184,.18); }
   .section h2 { font-family:'et-book',Palatino,serif; font-size:1.1rem; margin:0 0 12px; }
-  .section-lead { margin:0 0 14px; color:var(--muted); font-size:.92rem; line-height:1.55; }
+  .section-lead { margin:0 0 14px; color:var(--muted); font-size:.92rem; line-height:1.6; max-width:42em; }
 
 
   html { scroll-behavior:smooth; }
@@ -593,7 +594,7 @@ const service = [
   .interest-split { display:grid; grid-template-columns:minmax(0,460px) minmax(0,1fr); gap:28px; align-items:center; max-width:1100px; }
   .interest-fig { margin:0; }
   .interest-fig svg { width:100%; height:auto; display:block; font-family:Inter, system-ui, sans-serif; }
-  .interest-body { text-align:left; max-width:900px; }
+  .interest-body { text-align:left; max-width:40em; }
   .interest-body p { margin:0 0 9px; font-size:.9rem; line-height:1.6; color:#2E3A47; text-align:left; }
   .interest-body p:last-child { margin-bottom:0; }
   .interest-body strong { color:var(--ink); font-weight:600; }

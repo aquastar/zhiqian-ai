@@ -1427,7 +1427,7 @@ const selectedGroups = selectedFilters
   .affiliation p { margin: 0; color: #2E3A47; font-size: .88rem; line-height: 1.4; }
   .affiliation p:first-child { color: #16202B; font-weight: 600; }
   .affiliation .aff-univ { color: #16202B; font-weight: 700; }
-  .affiliation .aff-college { font-size: .8rem; line-height: 1.25; }
+  .affiliation .aff-college { font-size: .8rem; line-height: 1.3; text-wrap: balance; }
   /* Affiliate appointments are secondary, so they fold under the university
      line. Italic, smaller, lighter, opened on demand. */
   .affiliation .aff-more { margin: 3px 0 0; }
@@ -1438,7 +1438,7 @@ const selectedGroups = selectedFilters
   .affiliation .aff-more[open] summary::after { transform: rotate(180deg); }
   .affiliation .aff-more summary:hover { color: #A84600; }
   .affiliation .aff-secondary { margin: 4px 0 0; font-style: italic; font-size: .76rem; line-height: 1.3; color: #4E5C6A; letter-spacing: .01em; }
-  .bio { text-align: justify; text-justify: inter-word; color: #2E3A47; font-size: .92rem; margin-top: 10px; }
+  .bio { text-align: left; color: #2E3A47; font-size: .92rem; margin-top: 10px; }
   .icons { display: flex; flex-wrap: wrap; justify-content: center; gap: 6px; margin-top: 14px; }
   .icons a, .icons .icon-more { color: #2E3A47; text-decoration: none; transition: color .15s ease, transform .15s ease, filter .15s ease; }
   .icon-more { position: relative; display: inline-flex; align-items: center; justify-content: center; cursor: pointer; }
@@ -1494,7 +1494,7 @@ const selectedGroups = selectedFilters
   .flow-step.is-active { border-color: rgba(247,105,2,0.28); box-shadow:none; transform: translateY(-1px); }
   .flow-kicker { font-size: .68rem; color: #C45200; font-weight: 700; letter-spacing: .06em; margin-bottom: 8px; }
   .flow-step h3 { margin: 0 0 6px; font-size: .98rem; }
-  .flow-step p { margin: 0; color: #4E5C6A; font-size: .82rem; line-height: 1.45; }
+  .flow-step p { margin: 0; color: #2E3A47; font-size: .82rem; line-height: 1.5; }
   .flow-support { margin-top: 10px; font-size: .74rem; color: #4E5C6A; line-height: 1.6; }
   .flow-arrow { display: flex; align-items: center; justify-content: center; color: #98A6B4; font-size: 1.1rem; }
   .compact-copy p { margin: 0 0 10px; color: #2E3A47; }
@@ -1503,7 +1503,7 @@ const selectedGroups = selectedFilters
   .pillar-card.is-active { border-color: rgba(247,105,2,0.26); box-shadow:none; transform: translateY(-1px); }
   .pillar-card.is-dim { opacity: .55; }
   .pillar-card h3 { margin: 0 0 6px; font-size: .92rem; }
-  .pillar-card p { margin: 0; color: #4E5C6A; font-size: .8rem; line-height: 1.4; }
+  .pillar-card p { margin: 0; color: #2E3A47; font-size: .8rem; line-height: 1.5; }
   .pillar-meta { margin-top: 10px; font-size: .74rem; color: #2E3A47; line-height: 1.6; }
   .map-chip { display: inline-flex; align-items: center; border-radius:6px; padding: 2px 8px; margin: 0 6px 6px 0; font-size: .7rem; line-height: 1.25; border: 1px solid transparent; white-space: nowrap; }
   .map-chip-paper { color: #A84600; background: #FDF1E7; border-color: rgba(247,105,2,0.16); }
@@ -1553,7 +1553,7 @@ const selectedGroups = selectedFilters
   .direction-filter { display:flex; flex-wrap:wrap; gap:8px; margin: 0 0 10px; }
   .filter-chip { border:1px solid rgba(148,163,184,0.18); background:#F7F9FC; color:#2E3A47; border-radius:999px; padding:6px 10px; font-size:.78rem; cursor:pointer; }
   .filter-chip.is-active, .filter-chip:hover { background:#FAD6BA; color:#C45200; border-color:rgba(247,105,2,0.22); }
-  .direction-desc { margin:0 0 12px; color:#4E5C6A; font-size:.85rem; }
+  .direction-desc { margin:0 0 12px; color:#2E3A47; font-size:.85rem; }
   
   .badge.venue { display: inline-block; font-size: .6rem; color: #F7F9FC; background: rgba(22,32,43,0.72); padding: 4px 8px; border-radius: 999px; backdrop-filter: blur(6px); }
     .repo-card, .note-card { text-decoration: none; color: inherit; transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease; display: block; }
@@ -1659,7 +1659,7 @@ const selectedGroups = selectedFilters
   .narr-title em { font-style: italic; color: #A84600; font-weight: 700; }
   .narr-arrow { display: inline-block; margin: 0 6px; color: #98A6B4; font-style: normal; font-weight: 500; }
   .narr-lede { font-size: 1rem; line-height: 1.6; color: #2E3A47; margin: 0 0 22px; }
-  .narr-statement { font-size: .82rem; line-height: 1.5; color: #4E5C6A; margin: 0 0 8px; text-align: left; }
+  .narr-statement { font-size: .88rem; line-height: 1.6; color: #2E3A47; max-width: 42em; margin: 0 0 8px; text-align: left; }
   .narr-statement strong { color: #16202B; font-weight: 700; }
   .narr-statement .bio-label { color: #C45200; font-family: et-book, sans-serif; font-size: .72rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; margin-right: 4px; }
   .narr-statement a { color: #2E3A47; text-decoration: underline; text-underline-offset: 2px; text-decoration-color: rgba(148,163,184,0.4); }
@@ -1695,7 +1695,7 @@ const selectedGroups = selectedFilters
   .narr-unlock-card:hover { transform: translateY(-2px); box-shadow:none; border-color: rgba(247,105,2,0.35); }
   .narr-unlock-tag { font-size: .68rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: #C45200; margin-bottom: 6px; }
   .narr-unlock-q { font-family: et-book, sans-serif; font-size: .92rem; color: #16202B; font-weight: 600; line-height: 1.35; margin-bottom: 6px; }
-  .narr-unlock-card p { font-size: .82rem; line-height: 1.5; color: #4E5C6A; margin: 0 0 8px; }
+  .narr-unlock-card p { font-size: .82rem; line-height: 1.55; color: #2E3A47; margin: 0 0 8px; }
   .narr-unlock-venue { font-size: .72rem; color: #4E5C6A; font-style: italic; }
 
   @media (max-width: 1200px) {
@@ -1971,7 +1971,7 @@ const selectedGroups = selectedFilters
   /* Re-enable hover shadows that the right-column reset suppresses */
   .right-col-main .thrust-img:hover { box-shadow:none; }
   .right-col-main .repo-card:hover { box-shadow:none; }
-  .thrust-line { margin: 0; font-size: .8rem; line-height: 1.42; color: #2E3A47; text-align: left; }
+  .thrust-line { margin: 0; font-size: .8rem; line-height: 1.5; color: #2E3A47; text-align: left; }
   /* The blurbs read as loose captions against the figures above them, so give
      each one a frame. Two classes to outrank .right-col-main *'s !important 0. */
   .right-col-main .thrust-col .thrust-line { flex: 1; padding: 10px 12px; background: #EEF3F8; border: 1px solid rgba(148,163,184,0.08); border-radius:6px !important; }
