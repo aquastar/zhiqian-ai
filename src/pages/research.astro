@@ -221,16 +221,15 @@ const honorCount = honors.length;
 
 // Same entries as "Service" in the CV.
 const service = [
-  { role: 'Co-Chair', what: 'IEEE BigData 2026, Student Volunteer',
-    link: { label: 'Committee', href: 'https://bigdataieee.org/BigData2026/organization/committee/' } },
-  { role: 'Co-Chair', what: 'IEEE ICDM 2025, Poster',
-    link: { label: 'Committee', href: 'https://www3.cs.stonybrook.edu/~icdm2025/organizingcommittee.html' } },
-  { role: 'Co-Chair', what: 'IEEE BigData 2024, BigData Cup Challenges',
-    link: { label: 'Committee', href: 'https://www3.cs.stonybrook.edu/~ieeebigdata2024/CommitteeMember.html' } },
+  { role: 'Co-Chair', parts: [
+    { text: 'IEEE BigData 2026, Student Volunteer', href: 'https://bigdataieee.org/BigData2026/organization/committee/' },
+    { text: 'IEEE ICDM 2025, Poster', href: 'https://www3.cs.stonybrook.edu/~icdm2025/organizingcommittee.html' },
+    { text: 'IEEE BigData 2024, BigData Cup Challenges', href: 'https://www3.cs.stonybrook.edu/~ieeebigdata2024/CommitteeMember.html' },
+  ] },
   { role: 'Panelist', what: 'NSF review panels, 2021, 2023, 2024' },
   { role: 'Area Chair', what: 'ICML 2027, NeurIPS 2026' },
+  { role: 'Reviewer', what: 'ICML, ICLR, NeurIPS, AAAI, IJCAI, KDD, SIGIR, IEEE TKDE, ACM TKDD, ACM Computing Surveys, etc.' },
   { role: 'Editorial Board', what: 'Frontiers in Big Data (Data Science, and Data Mining and Management), Topic Editor, 2022 to present' },
-  { role: 'Reviewer', what: 'ICML, ICLR, NeurIPS, AAAI, IJCAI, KDD, SIGIR, IEEE BIBM, IEEE CCAS, IEEE TKDE, ACM TKDD, ACM Computing Surveys' },
 ];
 ---
 <Layout title="Research | Zhiqian Chen">
@@ -500,10 +499,10 @@ const service = [
         {service.map((v) => (
           <li>
             <span class="h-year">{v.role}</span>
-            <div class="h-what"><span class="h-where">{v.what}</span></div>
-            {v.link
-              ? <a class="h-rec" href={v.link.href} target="_blank" rel="noopener">{v.link.label}<i class="fas fa-arrow-up-right-from-square" aria-hidden="true"></i></a>
-              : <span></span>}
+            <div class="h-what"><span class="h-where">{v.parts
+              ? v.parts.map((x, i) => <Fragment>{i > 0 && ' · '}<a class="svc-link" href={x.href} target="_blank" rel="noopener">{x.text}</a></Fragment>)
+              : v.what}</span></div>
+            <span></span>
           </li>
         ))}
       </ul>
@@ -569,6 +568,8 @@ const service = [
   html { scroll-behavior:smooth; }
   .interest-head[id], #funding, #research-lines, #methods, #honors, #service { scroll-margin-top:16px; }
   .honors.service li { grid-template-columns:8.5rem 1fr auto; }
+  .svc-link { color:inherit; text-decoration:none; border-bottom:1px dotted #C45200; }
+  .svc-link:hover { color:#A84600; }
   #methods { margin-top:30px; }
   .honors { list-style:none; margin:0; padding:0; max-width:860px; }
   .honors li { display:grid; grid-template-columns:3.2rem 1fr auto; gap:4px 16px; align-items:baseline; padding:9px 0; border-top:1px solid rgba(148,163,184,.22); text-align:left; }
