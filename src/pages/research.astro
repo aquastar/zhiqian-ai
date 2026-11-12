@@ -217,7 +217,6 @@ const honorGroups = [
 // One list, newest first. The group survives only as a small tag on each row.
 const honors = honorGroups.flatMap((g) => g.items.map((h) => ({ ...h, tag: g.title })))
   .sort((a, b) => b.year.localeCompare(a.year));
-const honorCount = honors.length;
 
 // Same entries as "Service" in the CV.
 const service = [
@@ -244,27 +243,18 @@ const service = [
         <p>COVID-19 has caused over 6 million deaths worldwide since late 2019 and an estimated $12.5 trillion in economic loss as of 2024. The pandemic exposed deep vulnerabilities in modern networked systems: disrupted supply chains, financial market volatility, misinformation amplified across social networks. The July 2024 CrowdStrike update failure brought airlines, hospitals, and businesses to a standstill worldwide, underscoring how far cascading effects travel inside interconnected systems. Climate change, pandemics, and food security all run on interdependent networks (transportation, finance, supply chains, ecology, social networks) that form the backbone of our societal and economic infrastructure. As the world grows more interconnected, resilient and interpretable network models become essential.</p>
       </details>
       <nav class="page-map" aria-label="On this page">
-        <span class="map-group"><span class="map-label">Research interests</span>
-        <a href="#line-1"><b>1</b> Networks and dynamics</a>
-        <a href="#line-2"><b>2</b> Inside language models</a>
-        <a href="#line-3"><b>3</b> Music</a>
-        <a href="#method-uq"><b>A</b> Uncertainty</a>
-        <a href="#method-spectral"><b>B</b> Spectral</a></span>
-        <span class="map-group"><span class="map-label">Grants</span>
-        <a href="#funding">{externalGrants.length} grants and awards</a></span>
-        <span class="map-group"><span class="map-label">Honors</span>
-        <a href="#honors">{honorCount} honors</a></span>
-        <span class="map-group"><span class="map-label">Service</span>
-        <a href="#service">{service.length} roles</a></span>
+        <a href="#research-lines">Research interests</a>
+        <a href="#funding">Grants</a>
+        <a href="#honors">Honors</a>
+        <a href="#service">Service</a>
       </nav>
     </section>
 
     <section class="section" id="research-lines">
       <h2>Research interests</h2>
-      <p class="section-lead">Three application areas, in order of weight, and two methods that run through all of them. The first area is the long-standing core. The second and third are newer and growing.</p>
-      <h4 class="aw-group">Application areas</h4>
+      <p class="section-lead">The first interest is the long-standing core. Language models and music are newer and growing. Uncertainty and spectral analysis are tools used across all of them, and physical dynamics is the newest.</p>
 
-      <h3 class="interest-head" id="line-1"><span class="interest-num">1</span>Network science, graph machine learning and dynamical systems</h3>
+      <h3 class="interest-head" id="line-1">Network science, graph machine learning and dynamical systems</h3>
       <div class="interest-body">
         <p>Roads, power grids, epidemics and social media are all networks, and what happens on one network often spreads into another. I study how behavior spreads, settles and breaks in connected systems, and how to estimate and control it.</p>
         <p>I look for generalized patterns that hold across very different networks, and for cross-system behaviors that pass from one network to another. The tools are spectral and functional analysis and uncertainty quantification. The systems studied include traffic grids, power networks, epidemics, social networks, banking and supply chains.</p>
@@ -291,7 +281,7 @@ const service = [
             </ul>
           </div>
 
-      <h3 class="interest-head" id="line-2"><span class="interest-num">2</span>Mechanistic understanding of large language models</h3>
+      <h3 class="interest-head" id="line-2">Mechanistic understanding of large language models</h3>
       <div class="interest-split">
         <figure class="interest-fig">
               <svg viewBox="0 0 530 124" role="img" aria-labelledby="llm-fig-title">
@@ -346,7 +336,7 @@ const service = [
             </ul>
           </div>
 
-      <h3 class="interest-head" id="line-3"><span class="interest-num">3</span>Computational musicology</h3>
+      <h3 class="interest-head" id="line-3">Computational musicology</h3>
       <div class="interest-split">
         <figure class="interest-fig">
               <svg viewBox="0 0 530 124" role="img" aria-labelledby="music-fig-title">
@@ -384,10 +374,9 @@ const service = [
             </ul>
           </div>
 
-      <h4 class="aw-group" id="methods">Methods</h4>
-      <div class="method-grid">
-        <div class="method">
-          <h3 class="interest-head" id="method-uq"><span class="interest-num">A</span>Uncertainty quantification</h3>
+      <div>
+        <div>
+          <h3 class="interest-head" id="method-uq">Uncertainty quantification</h3>
           <div class="interest-body">
             <p>A prediction on a network is only useful if we know how far to trust it. Data are usually sparse, such as a few road sensors or one snapshot of an outbreak, and the network itself may be uncertain.</p>
             <p>I build methods that say how sure a prediction is and that make good decisions anyway. Kalman filtering paired with graph convolution forecasts traffic with error bars. Graph Bayesian optimization finds where a spread started from a single snapshot, and picks the best seed users across several linked networks. Sobol and Shapley analysis separate a node's own effect from its interactions with others.</p>
@@ -401,8 +390,8 @@ const service = [
             </ul>
           </div>
         </div>
-        <div class="method">
-          <h3 class="interest-head" id="method-spectral"><span class="interest-num">B</span>Spectral analysis, mainly on graphs</h3>
+        <div>
+          <h3 class="interest-head" id="method-spectral">Spectral analysis, mainly on graphs</h3>
           <div class="interest-body">
         <p>A graph's eigenvectors play the role that sine waves play for sound. They split a signal on a network into smooth and fast-changing parts, which makes filtering, comparison and theory possible.</p>
         <p>I use this view to unify graph neural networks: spectral and spatial models turn out to be two readings of the same operator, and rational approximations give sharper graph filters. Recent work applies spectral analysis mainly to graphs, from infrastructure networks to graphs read out of model activations.</p>
@@ -416,6 +405,12 @@ const service = [
             </ul>
           </div>
         </div>
+      </div>
+
+      <h3 class="interest-head" id="line-physics">Dynamical systems in physics</h3>
+      <div class="interest-body">
+        <p>Many physical systems follow the same kind of law: a state that changes over time under local rules. I am interested in three of them. Fluid dynamics describes how air and water move. Power system dynamics describes how a grid's frequency and voltage swing after a fault. Molecular dynamics describes how atoms in a material or a protein move.</p>
+        <p>This is an exploratory interest with no published work yet. The pull is that the tools from my network work, such as graph models, spectral analysis and uncertainty estimates, fit these systems naturally.</p>
       </div>
       <details class="scope">
         <summary>Overview diagram: the tools and the systems they are applied to</summary>
@@ -527,15 +522,9 @@ const service = [
   .why p { margin:8px 0 0; color:#2E3A47; max-width:42em; font-size:.9rem; line-height:1.6; }
   /* One line that says what is on the page and jumps there. */
   .page-map { display:flex; flex-wrap:wrap; align-items:baseline; gap:6px 14px; margin-top:18px; padding-top:12px; border-top:1px solid rgba(148,163,184,.18); font-size:.86rem; }
-  .map-label { font-size:.68rem; font-weight:700; letter-spacing:.12em; text-transform:uppercase; color:#4E5C6A; margin-left:6px; }
-  .map-label:first-child { margin-left:0; }
-  .map-group { display:inline-flex; flex-wrap:wrap; align-items:baseline; gap:6px 14px; }
   .page-map a { color:#16202B; text-decoration:none; border-bottom:1px solid #C9D4DF; }
-  .page-map a b { color:var(--accent); font-weight:700; margin-right:2px; }
   .page-map a:hover { color:#A84600; border-color:#C45200; }
 
-  .method-grid { display:grid; grid-template-columns:1fr 1fr; gap:32px; align-items:start; }
-  .method .interest-head { margin-top:4px; }
   .scope { margin-top:18px; }
   .scope img { display:block; width:100%; max-width:900px; height:auto; margin-top:10px; border-radius:6px; }
 
@@ -553,7 +542,6 @@ const service = [
   .internal { margin-top:16px; }
   .internal .awards { margin-top:8px; }
   @media (max-width: 900px) {
-    .method-grid { grid-template-columns:1fr; gap:8px; }
     .award { grid-template-columns:1fr auto; gap:2px 12px; }
     .aw-agency { grid-column:1 / -1; }
     .aw-title { grid-column:1; }
@@ -567,11 +555,10 @@ const service = [
 
 
   html { scroll-behavior:smooth; }
-  .interest-head[id], #funding, #research-lines, #methods, #honors, #service { scroll-margin-top:16px; }
+  .interest-head[id], #funding, #research-lines, #honors, #service { scroll-margin-top:16px; }
   .honors.service li { grid-template-columns:8.5rem 1fr auto; }
   .svc-link { color:inherit; text-decoration:none; border-bottom:1px dotted #C45200; }
   .svc-link:hover { color:#A84600; }
-  #methods { margin-top:30px; }
   .honors { list-style:none; margin:0; padding:0; max-width:860px; }
   .honors li { display:grid; grid-template-columns:3.2rem 1fr auto; gap:4px 16px; align-items:baseline; padding:9px 0; border-top:1px solid rgba(148,163,184,.22); text-align:left; }
   .honors li:first-child { border-top:none; }
@@ -590,7 +577,6 @@ const service = [
 
   /* Three research lines. Figures are the homepage ones at the same size. */
   .interest-head { display:flex; align-items:baseline; gap:7px; text-align:left; font-family:'et-book',Palatino,serif; font-size:.98rem; font-weight:700; color:var(--ink); margin:22px 0 8px; }
-  .interest-num { color:var(--accent); }
   .interest-split { display:grid; grid-template-columns:minmax(0,460px) minmax(0,1fr); gap:28px; align-items:center; max-width:1100px; }
   .interest-fig { margin:0; }
   .interest-fig svg { width:100%; height:auto; display:block; font-family:Inter, system-ui, sans-serif; }
