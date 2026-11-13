@@ -256,3 +256,11 @@ NYS SFS public grant search,new_york_regional,https://esupplier.sfs.ny.gov/psc/f
 Riverside Research SI Forge,defense_niche,https://www.riversideresearch.org/expertise/ai-ml/si-forge,Y,cycles,limited,Operator of DARPA SI Forge (formerly AI Forge). Eligibility for each cycle depends on prior SN response or forum application. Added 2026-11-06
 Research!America civic science,foundation_general,https://www.researchamerica.org/civic-science/,Y,annual Nov,open,Small public engagement awards up to 5k. Low priority. Added 2026-11-06
 Alignment Research Center White-Box Estimation Challenge (AIcrowd),prize_challenge,https://www.aicrowd.com/challenges,N,annual?,open,"150k+ interpretability challenge, 2026 round completed. Watch for 2027. Added 2026-11-06"
+CareSource Foundation,foundation_general,https://www.caresource.com/foundationgrant,yes,new 2026,"open RFP, nonprofit lead","AI health RFP up to 1M, academic partners allowed, Medicaid focus"
+NYCAIRR NY Center for AI Responsibility and Research,new_york_regional,https://www.governor.ny.gov/news/governor-hochul-declares-ny-will-lead-nation-ai-science-and-safety-launches-new-research,yes,new 2026,affiliation,"NYS AI safety center at SUNY Binghamton, recruits interpretability, Empire AI compute, watch for affiliate and seed calls"
+NTIA Public Wireless Supply Chain Innovation Fund,federal_niche,https://www.ntia.gov/funding-programs/public-wireless-supply-chain-innovation-fund,yes,rounds,"industry lead, 50 percent cost share","AI native RAN, partner route only"
+Prima Mente challenges,prize_challenge,https://www.primamente.com/challenges/,yes,2026 to 2027,open,"ADRD AI challenge, prizes announced Dec 2026"
+AI Hardware Design League,prize_challenge,https://csm.arizona.edu/AIHDL,yes,annual,student teams,"LLM for RTL student league, 2027 registration 12-18"
+Martian Interpretability Prize,prize_challenge,https://withmartian.com/prize,yes,irregular,open,"1M interpretability prize, closed, may reopen"
+Army xTech competitions,prize_challenge,https://xtech.army.mil/competitions/,yes,rolling,mostly business,federal prize source not always on usa.gov
+HHS challenge competitions list,prize_challenge,https://health.gov/grants/challenge-competitions,no,rolling,varies,HHS prize list not always on usa.gov
