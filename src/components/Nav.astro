@@ -80,7 +80,7 @@ const TRACKERS = [
         ? <div class={`nav-menu${i === 0 ? ' nav-right-start' : ''}`}>
             <a href={l.href} class="nav-menu-top" aria-haspopup="true"
                aria-current={current === l.key || (l.also || []).includes(current) ? 'page' : undefined}>
-              {l.label}{l.cal && <i class="fa-regular fa-calendar nav-cal" title="Deadline calendar" aria-label="Deadline calendar"></i>} <i class="fas fa-angle-down nav-caret" aria-hidden="true"></i>
+              <span class="nav-cal-wrap">{l.label}{l.cal && <sup class="nav-cal" title="Deadline calendar">CAL</sup>}</span> <i class="fas fa-angle-down nav-caret" aria-hidden="true"></i>
             </a>
             <div class="nav-sub" role="menu">
               {l.menu.map((m) => (
@@ -89,7 +89,7 @@ const TRACKERS = [
             </div>
           </div>
         : <a href={l.href} class={i === 0 ? 'nav-right-start' : undefined}
-             aria-current={current === l.key ? 'page' : undefined}>{l.label}{l.cal && <i class="fa-regular fa-calendar nav-cal" title="Deadline calendar" aria-label="Deadline calendar"></i>}</a>
+             aria-current={current === l.key ? 'page' : undefined}><span class="nav-cal-wrap">{l.label}{l.cal && <sup class="nav-cal" title="Deadline calendar">CAL</sup>}</span></a>
     ))}
   </div>
 </nav>
@@ -128,7 +128,9 @@ const TRACKERS = [
     text-transform:uppercase; color:#A84600; background:#FDF1E7; border:1px solid #FAD6BA; border-radius:4px; padding:1px 3px; }
   /* Small calendar mark at the top right of Conferences and Funding, so they read
      as deadline calendars rather than lists of the site owner's own items. */
-  .nav-cal { font-size:.62rem; color:#A84600; vertical-align:super; margin-left:2px; line-height:0; }
+    /* The badge floats over the label's top-right corner and takes no width, so the nav stays one line. */
+  .nav-cal-wrap { position:relative; }
+  .nav-cal { position:absolute; left:100%; top:-.55em; margin-left:1px; font-size:.5rem; font-weight:700; letter-spacing:.04em; color:#A84600; line-height:1; }
   .top-nav .nav-sub a:has(.nav-beta) { padding-right:38px; }
   .top-nav .nav-sub a.is-here { background:#EAF0F6; font-weight:600; }
   .nav-substack { vertical-align:-1px; opacity:.85; }
