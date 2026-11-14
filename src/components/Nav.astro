@@ -40,13 +40,13 @@ const SECTIONS = [
 const TRACKERS = [
   // Conferences opens a small menu on hover or focus: the field view, the
   // calendar view and the map view, three ways into the same list. The button itself is the field view.
-  { key: 'conferences', href: '/conferences', label: 'Conferences', also: ['destinations', 'bytime'],
+  { key: 'conferences', href: '/conferences', label: 'Conferences', cal: true, also: ['destinations', 'bytime'],
     menu: [
       { key: 'conferences', href: '/conferences', label: 'By field' },
       { key: 'bytime', href: '/conferences/by-time', label: 'By time' },
       { key: 'destinations', href: '/conferences/destinations', label: 'By map' },
     ] },
-  { key: 'funding', href: '/funding', label: 'Funding' },
+  { key: 'funding', href: '/funding', label: 'Funding', cal: true },
 ];
 
 ---
@@ -80,7 +80,7 @@ const TRACKERS = [
         ? <div class={`nav-menu${i === 0 ? ' nav-right-start' : ''}`}>
             <a href={l.href} class="nav-menu-top" aria-haspopup="true"
                aria-current={current === l.key || (l.also || []).includes(current) ? 'page' : undefined}>
-              {l.label} <i class="fas fa-angle-down nav-caret" aria-hidden="true"></i>
+              {l.label}{l.cal && <i class="fa-regular fa-calendar nav-cal" title="Deadline calendar" aria-label="Deadline calendar"></i>} <i class="fas fa-angle-down nav-caret" aria-hidden="true"></i>
             </a>
             <div class="nav-sub" role="menu">
               {l.menu.map((m) => (
@@ -89,7 +89,7 @@ const TRACKERS = [
             </div>
           </div>
         : <a href={l.href} class={i === 0 ? 'nav-right-start' : undefined}
-             aria-current={current === l.key ? 'page' : undefined}>{l.label}</a>
+             aria-current={current === l.key ? 'page' : undefined}>{l.label}{l.cal && <i class="fa-regular fa-calendar nav-cal" title="Deadline calendar" aria-label="Deadline calendar"></i>}</a>
     ))}
   </div>
 </nav>
@@ -126,6 +126,9 @@ const TRACKERS = [
   .top-nav .nav-sub a { position:relative; }
   .nav-beta { position:absolute; top:0; right:2px; font-size:.56rem; font-weight:700; line-height:1; letter-spacing:.04em;
     text-transform:uppercase; color:#A84600; background:#FDF1E7; border:1px solid #FAD6BA; border-radius:4px; padding:1px 3px; }
+  /* Small calendar mark at the top right of Conferences and Funding, so they read
+     as deadline calendars rather than lists of the site owner's own items. */
+  .nav-cal { font-size:.62rem; color:#A84600; vertical-align:super; margin-left:2px; line-height:0; }
   .top-nav .nav-sub a:has(.nav-beta) { padding-right:38px; }
   .top-nav .nav-sub a.is-here { background:#EAF0F6; font-weight:600; }
   .nav-substack { vertical-align:-1px; opacity:.85; }

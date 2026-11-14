@@ -100,13 +100,14 @@ const nextSweep = (() => {
 })();
 ---
 
-<Layout title="Funding | Zhiqian Chen">
+<Layout title="Funding Calendar | Zhiqian Chen">
   <main class="container">
     <Nav current="funding" />
 
     <section class="brief">
       <div class="brief-main">
-        <h1>Computing Funding</h1>
+        <h1>Computing Funding Calendar</h1>
+        <p class="brief-sub">Open calls and deadlines for computing research from federal agencies, New York State, foundations and industry. A public tracker, not a list of my own grants, which are on the <a href="/research#funding">Research page</a>.</p>
         <a class="gh-data" href="https://github.com/aquastar/computing-research-funding" target="_blank" rel="noopener">
           <i class="fab fa-github" aria-hidden="true"></i>Open data on GitHub <span>Star · cite · correct</span></a>
       </div>
@@ -259,6 +260,9 @@ const nextSweep = (() => {
 </Layout>
 
 <style>
+  .brief-sub { margin:4px 0 10px; color:#2E3A47; font-size:.9rem; line-height:1.55; max-width:46em; }
+  .brief-sub a { color:#A84600; }
+
   .container { max-width: min(95vw, 1600px); margin: 0 auto; padding: 20px; box-sizing: border-box; }
 
   /* The brief, which is the standing explanation of what this page is, with
