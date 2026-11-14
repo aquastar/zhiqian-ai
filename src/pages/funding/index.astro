@@ -347,7 +347,7 @@ const nextSweep = (() => {
 
   .c-who { width:30%; }
   .c-terms { width:37%; }
-  .c-hard { width:13%; }
+  .c-hard { width:15%; }
   .c-when { width:20%; }
   .terms-tags { display:flex; flex-wrap:wrap; align-items:center; gap:4px 6px; margin-bottom:4px; }
   .size { font-size:.76rem; font-weight:700; color:#16202B; line-height:1.3; }
@@ -434,18 +434,18 @@ const nextSweep = (() => {
   /* Five dots, because every row carries a reading and a bare word would not
      say how far apart two of them are. "est." marks the ones inferred from
      the kind of call rather than taken from a published rate. */
-  .comp { display:flex; flex-wrap:wrap; align-items:center; gap:3px 6px; cursor:help; }
+  .comp { display:flex; flex-wrap:wrap; align-items:center; gap:3px 5px; cursor:help; }
   .comp-dots { display:inline-flex; gap:2px; }
-  .comp-dots i { width:6px; height:6px; border-radius:50%; background:#DCE5EE; }
-  .comp-label { font-size:.63rem; font-weight:800; letter-spacing:.02em; }
-  .comp-est { font-size:.56rem; font-weight:700; color:#C9D4DF; letter-spacing:.04em; }
-  /* One warm-to-cool scale: green (very light) to yellow, orange, light red, red (very hard).
-     Dots carry the hue, labels use a darker step of it so small text stays readable. */
-  .comp-1 .comp-dots i.on { background:#22A55A; } .comp-1 .comp-label { color:#15803d; }
-  .comp-2 .comp-dots i.on { background:#EAB308; } .comp-2 .comp-label { color:#A16207; }
-  .comp-3 .comp-dots i.on { background:#F97316; } .comp-3 .comp-label { color:#C2410C; }
-  .comp-4 .comp-dots i.on { background:#F87171; } .comp-4 .comp-label { color:#DC2626; }
-  .comp-5 .comp-dots i.on { background:#B91C1C; } .comp-5 .comp-label { color:#991B1B; }
+  .comp-dots i { width:7px; height:7px; border-radius:50%; background:#DCE5EE; }
+  .comp-label { font-size:.68rem; font-weight:700; letter-spacing:.02em; padding:1px 7px; border-radius:4px; white-space:nowrap; }
+  .comp-est { font-size:.56rem; font-weight:700; color:#A9B6C3; letter-spacing:.04em; }
+  /* Five steps that differ in both hue and lightness, shown as filled chips so the
+     color covers enough area to tell apart: green, yellow, orange, light red, dark red. */
+  .comp-1 .comp-dots i.on { background:#22A55A; } .comp-1 .comp-label { background:#BBF7D0; color:#14532D; }
+  .comp-2 .comp-dots i.on { background:#EAB308; } .comp-2 .comp-label { background:#FEF08A; color:#713F12; }
+  .comp-3 .comp-dots i.on { background:#F97316; } .comp-3 .comp-label { background:#FDBA74; color:#7C2D12; }
+  .comp-4 .comp-dots i.on { background:#F87171; } .comp-4 .comp-label { background:#FECACA; color:#991B1B; }
+  .comp-5 .comp-dots i.on { background:#B91C1C; } .comp-5 .comp-label { background:#B91C1C; color:#FFFFFF; }
   .none { color:#C9D4DF; font-size:.74rem; }
 
   .empty-note { margin:14px 0 0; color:#98A6B4; font-size:.84rem; }
