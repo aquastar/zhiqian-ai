@@ -3,7 +3,7 @@
 // CCF A or B, or CORE A* or A, every hand-kept venue on the field
 // tabs, and the venues added by hand in the script. Destinations mix cities, countries and
 // regions, because that is how people choose where to go.
-// Built 2026-11-13.
+// Built 2026-11-14.
 export const destinations = {
  "items": [
   {
@@ -2214,6 +2214,38 @@ export const destinations = {
    ],
    "lat": 52.3625,
    "lon": 4.9222
+  },
+  {
+   "title": "CC",
+   "desc": "International Conference on Compiler Construction",
+   "year": 2027,
+   "place": "Salt Lake City, Utah, USA",
+   "date": "March 20-21, 2027",
+   "city": "Salt Lake City",
+   "country": "United States",
+   "dest": "",
+   "icon": "",
+   "ccf": "B",
+   "core": "B",
+   "sub": "SE",
+   "deadline": "2026-12-03",
+   "open": true,
+   "link": "https://conf.researchr.org/home/CC-2027",
+   "q": "salt lake city, utah, usa salt lake city united states ",
+   "field": "Software engineering",
+   "group": "computing",
+   "honors": [
+    {
+     "t": "CCF B",
+     "k": "ccf-b"
+    },
+    {
+     "t": "CORE B",
+     "k": "core-b"
+    }
+   ],
+   "lat": 40.7596,
+   "lon": -111.8868
   },
   {
    "title": "CCC",
@@ -5556,8 +5588,8 @@ export const destinations = {
    "icon": "",
    "ccf": "N",
    "core": "N",
-   "deadline": "2026-11-13",
-   "open": true,
+   "deadline": "",
+   "open": false,
    "link": "https://l4dc2027.control.ee.ethz.ch/",
    "q": "stockholm, sweden stockholm sweden ",
    "field": "Control",
