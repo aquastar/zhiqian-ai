@@ -43,6 +43,10 @@ PUBLIC = ROOT / 'public' / 'funding'
 # The brief's table, left to right. 'skip' is the personal fit score.
 COLUMNS = ['sponsor', 'program', 'deadline', 'budget', 'eligibility',
            'skip', 'competition', 'source_tier', 'url']
+# From 2026-11-14 the brief adds a 页数限制 (page limit) column after the
+# budget. Both layouts are accepted so an older brief still parses.
+COLUMNS_PAGES = ['sponsor', 'program', 'deadline', 'budget', 'pages', 'eligibility',
+                 'skip', 'competition', 'source_tier', 'url']
 
 CJK = re.compile(r'[\u4e00-\u9fff]')
 
@@ -976,11 +980,12 @@ def parse_brief(text):
         if not line.strip().startswith('|'):
             continue
         cells = [c.strip() for c in line.strip().strip('|').split('|')]
-        if len(cells) != len(COLUMNS):
+        cols = {len(COLUMNS): COLUMNS, len(COLUMNS_PAGES): COLUMNS_PAGES}.get(len(cells))
+        if not cols:
             continue
         if cells[0] in ('机构', '') or set(cells[0]) <= set('-: '):
             continue        # header and the --- separator
-        row = {k: v for k, v in zip(COLUMNS, cells) if k != 'skip'}
+        row = {k: v for k, v in zip(cols, cells) if k != 'skip'}
         # 同上 means "as the row above". Resolve it against the real value
         # before translation, or the cell would read "same as above" on a page
         # whose sort order no longer puts that row above it.
@@ -1035,11 +1040,22 @@ def parse_registry(text):
         if not re.match(r'^\s*\d{4}-\d{2}-\d{2}\s*\|', line):
             continue
         parts = [x.strip() for x in line.split('|')]
-        # Anything past the fifth field is part of the url, which can itself
-        # contain a pipe. Rejoin rather than truncate.
-        parts = parts[:4] + ['|'.join(parts[4:]).strip()]
-        rows.append(dict(zip(
-            ['first_seen_date', 'sponsor', 'program', 'deadline', 'url'], parts)))
+        # Two layouts. The old one ends at the url:
+        #   date | sponsor | program | deadline | url
+        # From 2026-11-14 the award size and page limit sit before the url:
+        #   date | sponsor | program | deadline | award | pages | url
+        # The url is the first field from the fifth on that starts with http.
+        # Anything after it is part of the url, which can itself contain a
+        # pipe, so it is rejoined rather than truncated.
+        at = next((i for i in range(4, len(parts)) if parts[i].startswith('http')), 4)
+        row = dict(zip(['first_seen_date', 'sponsor', 'program', 'deadline'], parts[:4]))
+        row['url'] = '|'.join(parts[at:]).strip()
+        extra = parts[4:at]
+        for k, v in zip(['budget', 'pages'], extra):
+            v = to_english(v)          # written in English, but never trust it
+            if v and v.lower() not in ('n/a', '-', 'none', 'not stated'):
+                row[k] = v
+        rows.append(row)
     return rows
 
 
@@ -1096,7 +1112,7 @@ def main():
             rows = [scored[0]]
         target = rows[0]
         target['pick'] = True
-        for k in ('budget', 'eligibility', 'competition', 'source_tier'):
+        for k in ('budget', 'pages', 'eligibility', 'competition', 'source_tier'):
             if o.get(k):
                 target[k] = o[k]
 
