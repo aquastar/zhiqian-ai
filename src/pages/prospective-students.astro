@@ -31,10 +31,8 @@ const tracks = [
     <section class="hero">
       <h1>Prospective Students</h1>
       <p class="lead">
-        Please send your CV and transcript to
-        <a href="mailto:zhiqian.chen@rit.edu">zhiqian DOT chen AT rit DOT edu</a>
-        or
-        <a href="mailto:chen.zhiqian.work@gmail.com">chen DOT zhiqian DOT work AT gmail DOT com</a>.
+        Please send your CV and transcript by email.
+        <a class="email-btn" href="mailto:zhiqian.chen@rit.edu?subject=Prospective%20student" title="Email"><i class="fas fa-envelope" aria-hidden="true"></i>Email me</a>
       </p>
       <p class="contact">I currently take Ph.D. students, research interns, and capstone or independent study students.</p>
     </section>
@@ -72,6 +70,9 @@ const tracks = [
   .hero .contact { margin: 0; color:var(--muted); font-size:.92rem; }
   .hero .lead a, .hero .contact a { color: var(--accent); text-decoration: none; }
   .hero .contact a:hover { text-decoration: underline; }
+  .hero .lead { display:flex; flex-wrap:wrap; align-items:center; gap:8px 14px; }
+  .hero .lead a.email-btn { display:inline-flex; align-items:center; gap:7px; padding:5px 14px; border-radius:6px; background:var(--accent); color:#fff; font-size:.88rem; font-weight:600; }
+  .hero .lead a.email-btn:hover { background:#A84600; }
 
   .section { padding-top: 6px; margin-top: 22px; }
   .section h2 { font-family:'et-book',Palatino,serif; font-size:.82rem; font-weight:700; letter-spacing:.14em; text-transform:uppercase; color:var(--accent); margin: 0 0 12px; }
