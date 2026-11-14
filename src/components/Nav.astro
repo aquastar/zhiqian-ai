@@ -80,7 +80,7 @@ const TRACKERS = [
         ? <div class={`nav-menu${i === 0 ? ' nav-right-start' : ''}`}>
             <a href={l.href} class="nav-menu-top" aria-haspopup="true"
                aria-current={current === l.key || (l.also || []).includes(current) ? 'page' : undefined}>
-              <span class="nav-cal-wrap">{l.label}{l.cal && <sup class="nav-cal" title="Deadline calendar">CAL</sup>}</span> <i class="fas fa-angle-down nav-caret" aria-hidden="true"></i>
+              <span class="nav-cal-wrap">{l.label}{l.cal && <svg class="nav-cal" viewBox="0 0 20 20" role="img" aria-label="Deadline calendar"><title>Deadline calendar</title><rect x="1.5" y="3" width="17" height="15.5" rx="2.5" fill="#fff" stroke="currentColor" stroke-width="1.4"/><path d="M1.5 5.5a2.5 2.5 0 0 1 2.5-2.5h12a2.5 2.5 0 0 1 2.5 2.5V7.5h-17z" fill="currentColor"/><rect x="5.2" y="1" width="1.6" height="4" rx=".8" fill="currentColor"/><rect x="13.2" y="1" width="1.6" height="4" rx=".8" fill="currentColor"/><text x="10" y="16" text-anchor="middle" font-size="7.6" font-weight="700" font-family="system-ui,-apple-system,Segoe UI,Arial,sans-serif" fill="currentColor">Cal</text></svg>}</span> <i class="fas fa-angle-down nav-caret" aria-hidden="true"></i>
             </a>
             <div class="nav-sub" role="menu">
               {l.menu.map((m) => (
@@ -89,7 +89,7 @@ const TRACKERS = [
             </div>
           </div>
         : <a href={l.href} class={i === 0 ? 'nav-right-start' : undefined}
-             aria-current={current === l.key ? 'page' : undefined}><span class="nav-cal-wrap">{l.label}{l.cal && <sup class="nav-cal" title="Deadline calendar">CAL</sup>}</span></a>
+             aria-current={current === l.key ? 'page' : undefined}><span class="nav-cal-wrap">{l.label}{l.cal && <svg class="nav-cal" viewBox="0 0 20 20" role="img" aria-label="Deadline calendar"><title>Deadline calendar</title><rect x="1.5" y="3" width="17" height="15.5" rx="2.5" fill="#fff" stroke="currentColor" stroke-width="1.4"/><path d="M1.5 5.5a2.5 2.5 0 0 1 2.5-2.5h12a2.5 2.5 0 0 1 2.5 2.5V7.5h-17z" fill="currentColor"/><rect x="5.2" y="1" width="1.6" height="4" rx=".8" fill="currentColor"/><rect x="13.2" y="1" width="1.6" height="4" rx=".8" fill="currentColor"/><text x="10" y="16" text-anchor="middle" font-size="7.6" font-weight="700" font-family="system-ui,-apple-system,Segoe UI,Arial,sans-serif" fill="currentColor">Cal</text></svg>}</span></a>
     ))}
   </div>
 </nav>
@@ -130,7 +130,7 @@ const TRACKERS = [
      as deadline calendars rather than lists of the site owner's own items. */
     /* The badge floats over the label's top-right corner and takes no width, so the nav stays one line. */
   .nav-cal-wrap { position:relative; }
-  .nav-cal { position:absolute; left:100%; top:-.55em; margin-left:1px; font-size:.5rem; font-weight:700; letter-spacing:.04em; color:#A84600; line-height:1; }
+  .nav-cal { position:absolute; left:100%; top:-.7em; margin-left:1px; width:17px; height:17px; color:#A84600; }
   .top-nav .nav-sub a:has(.nav-beta) { padding-right:38px; }
   .top-nav .nav-sub a.is-here { background:#EAF0F6; font-weight:600; }
   .nav-substack { vertical-align:-1px; opacity:.85; }
