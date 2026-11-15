@@ -3,7 +3,7 @@
 // CCF A or B, or CORE A* or A, every hand-kept venue on the field
 // tabs, and the venues added by hand in the script. Destinations mix cities, countries and
 // regions, because that is how people choose where to go.
-// Built 2026-11-14.
+// Built 2026-11-15.
 export const destinations = {
  "items": [
   {
@@ -2549,8 +2549,8 @@ export const destinations = {
    "ccf": "B",
    "core": "B",
    "sub": "AI",
-   "deadline": "2026-10-12",
-   "open": false,
+   "deadline": "2026-12-23",
+   "open": true,
    "link": "https://2027.coling-iccl.org/",
    "q": "macau sar, china / online macau macau ",
    "field": "AI · ML · Data Mining",
