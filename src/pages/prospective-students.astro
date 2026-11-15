@@ -50,13 +50,13 @@ const tracks = [
     <section class="section" id="research-experience">
       <h2>Research experience (required)</h2>
       <p>A Ph.D. is a research degree, and the best sign that someone will thrive in one is that they have already done research. This is the one requirement I do not waive.</p>
+      <p class="email-note"><strong>In your email</strong>, please include two or three sentences on your research experience, with links, along with your CV and transcript. I read many inquiries, and I may not be able to follow up on emails that leave this out.</p>
       <ul class="reqs">
         <li><strong>The clearest evidence is a paper</strong>, published, accepted, or under review, to which you made a substantial contribution. A first-author paper at a strong venue in AI or your own field is ideal.</li>
         <li><strong>No paper yet? That can be fine</strong>, as long as you have done real research. Tell me concretely what question you worked on, what you did yourself, and what came out of it, such as a thesis, a preprint, a technical report, code, or a poster. A note from the person who supervised you helps.</li>
         <li>Coursework, course projects, and engineering-only internships usually do not count as research experience on their own.</li>
       </ul>
       <p>If you are still building research experience, a project with a faculty member at your current school, or a research internship with my group (remote is welcome), is a great way to start.</p>
-      <p>When you email me, please include your CV, your transcript, and two or three sentences on your research experience, with links. I receive many inquiries and may not be able to reply to each one, so a clear description of your research helps me get back to you.</p>
     </section>
 
     <section class="section">
@@ -88,10 +88,11 @@ const tracks = [
 
   .section { padding-top: 6px; margin-top: 22px; }
   .section h2 { font-family:'et-book',Palatino,serif; font-size:.82rem; font-weight:700; letter-spacing:.14em; text-transform:uppercase; color:var(--accent); margin: 0 0 12px; }
-  .section > p { color:#2E3A47; font-size:.95rem; line-height:1.55; margin: 0 0 10px; max-width: 80ch; }
+  .section > p { color:#2E3A47; font-size:.95rem; line-height:1.55; margin: 0 0 10px; }
 
   .reqs { margin:0; padding-left:20px; color:#2E3A47; font-size:.95rem; line-height:1.7; text-align:left; }
-  #research-experience .reqs { max-width:80ch; margin:0 0 12px; line-height:1.55; }
+  #research-experience .reqs { margin:0 0 12px; line-height:1.55; }
+  .section > p.email-note { background:#FDF1E7; border-left:3px solid var(--accent); padding:8px 12px; }
   #research-experience .reqs li { margin-bottom:6px; }
   .tracks { display:grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 14px; }
   .track { background:#EEF3F8; padding:16px 18px; }
