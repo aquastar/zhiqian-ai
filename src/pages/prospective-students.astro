@@ -7,7 +7,7 @@ const tracks = [
     title: 'Ph.D.',
     body: [
       'Apply to the Department of Computer Science, Golisano College of Computing and Information Sciences at Rochester Institute of Technology, if you wish to work with me. If you are already at RIT, feel free to email me, schedule a meeting, or stop by my office.',
-      'It helps a great deal if you have at least one solid research experience behind you, ideally a first-author paper at a top AI venue, or an equivalent publication in your own field. I receive many inquiries, so I may not be able to reply to each one individually, and I appreciate your understanding.',
+      'Prior research experience is required. Please read the Research experience section above before you write, and describe yours in your email.',
     ],
   },
   {
@@ -31,7 +31,7 @@ const tracks = [
     <section class="hero">
       <h1>Prospective Students</h1>
       <p class="lead">
-        Please send your CV and transcript by email.
+        Please send your CV, transcript, and a short note on your research experience by email.
         <a class="email-btn" href="mailto:zhiqian.chen@rit.edu?subject=Prospective%20student" title="Email"><i class="fas fa-envelope" aria-hidden="true"></i>Email me</a>
       </p>
       <p class="contact">I currently take Ph.D. students, research interns, and capstone or independent study students.</p>
@@ -45,6 +45,18 @@ const tracks = [
         <li>Solid mathematics</li>
         <li>Genuine passion and motivation for research</li>
       </ul>
+    </section>
+
+    <section class="section" id="research-experience">
+      <h2>Research experience (required)</h2>
+      <p>A Ph.D. is a research degree, and the best sign that someone will thrive in one is that they have already done research. This is the one requirement I do not waive.</p>
+      <ul class="reqs">
+        <li><strong>The clearest evidence is a paper</strong>, published, accepted, or under review, to which you made a substantial contribution. A first-author paper at a strong venue in AI or your own field is ideal.</li>
+        <li><strong>No paper yet? That can be fine</strong>, as long as you have done real research. Tell me concretely what question you worked on, what you did yourself, and what came out of it, such as a thesis, a preprint, a technical report, code, or a poster. A note from the person who supervised you helps.</li>
+        <li>Coursework, course projects, and engineering-only internships usually do not count as research experience on their own.</li>
+      </ul>
+      <p>If you have not done research yet, I am not able to take you on as a Ph.D. student for now. A good next step is a research project with a faculty member at your current school, or a research internship with my group (remote is welcome). Then apply once you have something to show.</p>
+      <p>When you email me, please include your CV, your transcript, and two or three sentences on your research experience, with links. Because I receive many inquiries, I can only reply to those that meet this requirement.</p>
     </section>
 
     <section class="section">
@@ -79,6 +91,8 @@ const tracks = [
   .section > p { color:#2E3A47; font-size:.95rem; line-height:1.55; margin: 0 0 10px; max-width: 80ch; }
 
   .reqs { margin:0; padding-left:20px; color:#2E3A47; font-size:.95rem; line-height:1.7; text-align:left; }
+  #research-experience .reqs { max-width:80ch; margin:0 0 12px; line-height:1.55; }
+  #research-experience .reqs li { margin-bottom:6px; }
   .tracks { display:grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 14px; }
   .track { background:#EEF3F8; padding:16px 18px; }
   .track h3 { font-family:'et-book',Palatino,serif; font-size:1.02rem; margin:0 0 8px; color:var(--ink); }
