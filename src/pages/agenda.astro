@@ -26,6 +26,36 @@ const tripOn = (y, m, d) => trips.find((t) => t.start <= iso(y, m, d) && iso(y, 
 const fmtDay = (s) => { const [, m, d] = s.split('-').map(Number); return `${SHORT_MONTH[m - 1]} ${d}`; };
 const tripSpan = (t) => `${fmtDay(t.start)} to ${fmtDay(t.end)}`;
 
+// One icon per kind of row, in place of the old star: a money bag for a
+// grant application, a page for a paper, a clipboard for a review or report,
+// a microphone for a talk, and a plane for travel.
+const ICONS = {
+  nsf: ['fa-sack-dollar', 'Grant application due'],
+  nih: ['fa-sack-dollar', 'Grant application due'],
+  other: ['fa-sack-dollar', 'Grant application due'],
+  paper: ['fa-file-lines', 'Paper due'],
+  review: ['fa-clipboard-check', 'Review or report due'],
+  talk: ['fa-microphone', 'Talk or event'],
+};
+const iconFor = (i) => (ICONS[i.kind] ?? ICONS.other)[0];
+const iconLabel = (i) => (ICONS[i.kind] ?? ICONS.other)[1];
+
+// The list under the calendars. A trip is one block on its first day, and the
+// talks that fall inside it sit within that block instead of on their own.
+const ymOf = (y, m) => iso(y, m, 1).slice(0, 7);
+const listFor = (mo) => {
+  const here = trips.filter((t) => t.start.slice(0, 7) === ymOf(mo.y, mo.m));
+  const tripOf = (i) => (i.kind === 'talk' && !i.anytime ? here.find((t) => t.start <= iso(mo.y, mo.m, i.d) && iso(mo.y, mo.m, i.d) <= t.end) : undefined);
+  const rows = mo.items.filter((i) => !tripOf(i)).map((i) => ({ d: i.d, item: i }));
+  here.forEach((t) => rows.push({ d: Number(t.start.slice(8)), trip: t, talks: mo.items.filter((i) => tripOf(i) === t) }));
+  return rows.sort((a, b) => a.d - b.d || (a.trip ? -1 : 0));
+};
+const tripDays = (t) => {
+  const [, sm, sd] = t.start.split('-').map(Number);
+  const [, em, ed] = t.end.split('-').map(Number);
+  return sm === em ? `${SHORT_MONTH[sm - 1]} ${sd} to ${ed}` : `${fmtDay(t.start)} to ${fmtDay(t.end)}`;
+};
+
 // Eight months on the board, the first of them the current one. The build
 // renders a few extra past that: it can only know its own today, so the spare
 // months let a deploy that has sat for a while still fill the window from the
@@ -50,9 +80,12 @@ const dayName = (mo, d) => ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'][new
 
     <section class="section" id="deadlines">
       <p class="legend" aria-label="Legend">
-        <span><span class="lg-dot"></span>Application due</span>
-        <span><span class="lg-dot lg-talk"></span>Talk or event</span>
-        <span><span class="lg-bar"></span>Travel</span>
+        <span><i class="fas fa-sack-dollar lg-ico" aria-hidden="true"></i>Grant application</span>
+        <span><i class="fas fa-file-lines lg-ico" aria-hidden="true"></i>Paper</span>
+        <span><i class="fas fa-clipboard-check lg-ico" aria-hidden="true"></i>Review or report</span>
+        <span><i class="fas fa-microphone lg-ico lg-talk" aria-hidden="true"></i>Talk or event</span>
+        <span><i class="fas fa-plane lg-ico lg-trip" aria-hidden="true"></i>Travel</span>
+        <span><span class="lg-wash"></span>Committed</span>
       </p>
       <div class="cals">
         {months.map((mo) => (
@@ -82,13 +115,13 @@ const dayName = (mo, d) => ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'][new
                             <span class="cal-pop-head">{labelFor(mo, cell)} · {dayName(mo, cell.d)}</span>
                             {cell.trip && (
                               <span class="cal-pop-item cal-pop-trip">
-                                <span><span class="trip-swatch" aria-hidden="true"></span>{cell.trip.name}, {cell.trip.place} ({tripSpan(cell.trip)})</span>
+                                <span><i class="fas fa-plane kind-mark" aria-hidden="true"></i>{cell.trip.name}, {cell.trip.place} ({tripSpan(cell.trip)})</span>
                               </span>
                             )}
                             {cell.items.map((i) => (
                               <span class="cal-pop-item">
                                 <span>
-                                  {i.star && <i class="fas fa-star star-mark" aria-hidden="true"></i>}
+                                  <i class={`fas ${iconFor(i)} kind-mark`} aria-hidden="true"></i>
                                   {i.href
                                     ? <a class="cal-pop-link" href={i.href} target="_blank" rel="noopener">{i.name}</a>
                                     : i.name}
@@ -112,18 +145,41 @@ const dayName = (mo, d) => ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'][new
           <section class="month" data-month={`${mo.y}-${mo.m}`} hidden={mo.items.length === 0}>
             <h3>{mo.month}</h3>
             <ul class="deadline-list">
-              {mo.items.map((d) => (
-                <li class={`deadline kind-${d.kind}${d.est ? ' is-est' : ''}${d.star ? ' is-star' : ''}`} data-key={`${mo.y}-${mo.m}-${d.d}`}>
-                  <span class="deadline-date">{labelFor(mo, d)}</span>
+              {listFor(mo).map((row) => row.trip ? (
+                <li class="deadline trip-row" data-key={`${mo.y}-${mo.m}-${row.d}`} data-trip-start={row.trip.start} data-trip-end={row.trip.end}>
+                  <span class="deadline-date">{tripDays(row.trip)}</span>
                   <span class="deadline-name">
-                    {d.star && <i class="fas fa-star star-mark" aria-label="Targeting this one"></i>}
-                    {d.kind === 'talk' && <i class="fas fa-microphone talk-mark" aria-label="Talk or event"></i>}
-                    {d.href
-                      ? <a class="deadline-link" href={d.href} target="_blank" rel="noopener">{d.name}</a>
-                      : d.name}
-                    {d.est && <span class="est-flag">est.</span>}
+                    <i class="fas fa-plane kind-mark" aria-label="Travel"></i>
+                    <a class="deadline-link" href={row.trip.href} target="_blank" rel="noopener">{row.trip.name}</a>, {row.trip.place}
                   </span>
-                  {d.anytime
+                  <span class="deadline-left" data-trip-countdown></span>
+                  {row.talks.length > 0 && (
+                    <ul class="trip-talks">
+                      {row.talks.map((d) => (
+                        <li class={`trip-talk${d.star ? ' is-star' : ''}`}>
+                          <span class="deadline-date">{labelFor(mo, d)}</span>
+                          <span class="deadline-name">
+                            <i class="fas fa-microphone kind-mark" aria-label="Talk or event"></i>
+                            {d.href
+                              ? <a class="deadline-link" href={d.href} target="_blank" rel="noopener">{d.name}</a>
+                              : d.name}
+                          </span>
+                        </li>
+                      ))}
+                    </ul>
+                  )}
+                </li>
+              ) : (
+                <li class={`deadline kind-${row.item.kind}${row.item.est ? ' is-est' : ''}${row.item.star ? ' is-star' : ''}`} data-key={`${mo.y}-${mo.m}-${row.d}`}>
+                  <span class="deadline-date">{labelFor(mo, row.item)}</span>
+                  <span class="deadline-name">
+                    <i class={`fas ${iconFor(row.item)} kind-mark`} aria-label={iconLabel(row.item)}></i>
+                    {row.item.href
+                      ? <a class="deadline-link" href={row.item.href} target="_blank" rel="noopener">{row.item.name}</a>
+                      : row.item.name}
+                    {row.item.est && <span class="est-flag">est.</span>}
+                  </span>
+                  {row.item.anytime
                     ? <span class="deadline-left band-anytime">anytime</span>
                     : <span class="deadline-left" data-countdown></span>}
                 </li>
@@ -133,19 +189,6 @@ const dayName = (mo, d) => ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'][new
         ))}
       </div>
 
-      {trips.length > 0 && (
-        <div class="trips trips-bottom" aria-label="Upcoming trips">
-          <span class="trips-label">Travel</span>
-          {trips.map((t) => (
-            <a class="trip-chip" href={t.href} target="_blank" rel="noopener" data-trip-end={t.end} data-trip-start={t.start}>
-              <span class="trip-swatch" aria-hidden="true"></span>
-              <span class="trip-name">{t.name}</span>
-              <span class="trip-meta">{t.place}, {tripSpan(t)}</span>
-              <span class="trip-left" data-trip-countdown></span>
-            </a>
-          ))}
-        </div>
-      )}
       <p class="fineprint">Verify each against its own solicitation. A date on a weekend or federal holiday shifts to the next business day; NIH resubmissions run one month later (Mar / Jul / Nov).</p>
     </section>
   </main>
@@ -180,7 +223,7 @@ const dayName = (mo, d) => ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'][new
       if (idx < firstMonth || idx >= firstMonth + BOARD_MONTHS) el.hidden = true;
     });
 
-    document.querySelectorAll('.deadline[data-key]').forEach((row) => {
+    document.querySelectorAll('.deadline[data-key]:not(.trip-row)').forEach((row) => {
       const slot = row.querySelector('[data-countdown]');
       if (!slot) return;
       const [y, m, d] = row.getAttribute('data-key').split('-').map(Number);
@@ -199,6 +242,23 @@ const dayName = (mo, d) => ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'][new
       slot.classList.add(`band-${band}`);
       slot.textContent = days === 0 ? 'today' : `${days}d`;
       slot.title = days === 0 ? 'due today' : `${days} days from today`;
+    });
+
+    // A trip block counts down to its first day in the same colors as the
+    // deadlines, says "now" while it runs, and leaves once it is over.
+    document.querySelectorAll('.trip-row').forEach((row) => {
+      const toUTC = (s) => { const [y, m, d] = s.split('-').map(Number); return Date.UTC(y, m - 1, d); };
+      const start = toUTC(row.getAttribute('data-trip-start'));
+      const end = toUTC(row.getAttribute('data-trip-end'));
+      const slot = row.querySelector('[data-trip-countdown]');
+      if (end < today) { row.hidden = true; return; }
+      const days = Math.round((start - today) / 86400000);
+      let band = 'far';
+      if (days < 30) band = 'urgent';
+      else if (days < 60) band = 'soon';
+      else if (days < 90) band = 'later';
+      slot.classList.add(`band-${band}`);
+      slot.textContent = days <= 0 ? 'now' : `${days}d`;
     });
 
     // Trip chips count down to the first day, say "now" during the trip, and
@@ -387,4 +447,24 @@ const dayName = (mo, d) => ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'][new
   .cal-dots .dot.is-talk, .cal-cell.is-trip .cal-dots .dot.is-talk { background:#6B4FA0; }
   .trips-bottom .trips-label { font-size:.95rem; letter-spacing:0; text-transform:none; font-weight:700; color:#16202B; }
   .trips-bottom { margin:18px 0 6px; padding-top:12px; border-top:1px solid #DCE5EE; }
+
+  /* Kind icons replace the star. Committed rows keep the warm wash. */
+  .kind-mark { font-size:.66rem; margin-right:6px; color:#98A6B4; width:.8em; text-align:center; }
+  .deadline.is-star .kind-mark { color:#C45200; }
+  .deadline.kind-talk .kind-mark { color:#6B4FA0; }
+  .cal-pop .kind-mark { color:#FAD6BA; }
+  .lg-ico { margin-right:6px; font-size:.78rem; color:#4E5C6A; }
+  .lg-ico.lg-talk { color:#6B4FA0; }
+  .lg-ico.lg-trip { color:#2F6FDB; }
+  .lg-wash { width:16px; height:10px; border-radius:3px; background:#FDF1E7; box-shadow:inset 0 0 0 1px rgba(247,105,2,.25); display:inline-block; margin-right:6px; }
+  .deadline.trip-row { background:#E8F0FC; box-shadow:inset 0 0 0 1px rgba(47,111,219,.22); }
+  .deadline.trip-row .deadline-name, .deadline.trip-row .deadline-link { color:#1E3F7A; font-weight:700; }
+  .deadline.trip-row .kind-mark { color:#2F6FDB; }
+  .deadline.trip-row { grid-template-columns:76px minmax(0,1fr) auto; }
+  .trip-row .deadline-date { white-space:nowrap; }
+  .trip-talks { grid-column:1 / -1; list-style:none; margin:4px 0 2px; padding:0; display:grid; gap:3px; }
+  .trip-talk { display:grid; grid-template-columns:68px minmax(0,1fr); gap:8px; align-items:baseline; padding:3px 8px; border-radius:5px; background:#F1ECF8; }
+  .trip-talk .deadline-name, .trip-talk .deadline-link { color:#45306E; font-weight:400; }
+  .trip-talk.is-star .deadline-name, .trip-talk.is-star .deadline-link { font-weight:700; }
+  .trip-talk .kind-mark { color:#6B4FA0; }
 </style>
