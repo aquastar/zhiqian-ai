@@ -11,5 +11,7 @@ export default defineConfig({
     '/work-with-me': '/prospective-students',
     // Honors became a section of /research.
     '/honors': '/research#honors',
+    // Talk & Teach split into Talks and Teaching.
+    '/teach': '/talks',
   },
 });

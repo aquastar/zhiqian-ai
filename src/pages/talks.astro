@@ -79,38 +79,16 @@ const talks = [
     links: [],
   },
 ];
-
-const courses = [
-  { tag: 'Undergraduate', title: 'CSCI 431.02 Intro to Computer Vision', desc: 'Introductory computer vision for undergraduates.', school: 'Rochester Institute of Technology', current: true },
-  {
-    tag: 'Split-level', title: 'CSE 4693/6693 Intro to Machine Learning',
-    desc: 'Foundations of machine learning for undergraduate and graduate students.',
-    school: 'Mississippi State University',
-    project: {
-      title: 'LEGO Color Sorter',
-      award: 'Ottilie Schillig Special Teaching Award, 2025',
-      desc: 'A hands-on build that puts a classifier on a conveyor belt. A camera reads each brick as it travels, the predicted color and its confidence appear live over the video, and the LEGO hub turns the sorting table to the matching bin. A wrong call shows up immediately, as a brick in the wrong box, rather than as a number in a confusion matrix.',
-      video: '/lego-sorter.mp4',
-      poster: '/lego-sorter-poster.jpg',
-    },
-  },
-  { tag: 'Split-level', title: 'CSE 4633/6633 Artificial Intelligence', desc: 'Introductory AI course spanning core concepts and methods.', school: 'Mississippi State University' },
-  { tag: 'Graduate', title: 'CSE 8673 Machine Learning', desc: 'Graduate-level machine learning with emphasis on principles and applications.', school: 'Mississippi State University' },
-  { tag: 'Graduate', title: 'CSE 8990 Graph Machine Learning', desc: 'Advanced topics in graph machine learning and networked intelligence.', school: 'Mississippi State University' },
-];
-const featured = courses.find((c) => c.project);
 ---
-<Layout title="Talk &amp; Teach | Zhiqian Chen">
+<Layout title="Talks | Zhiqian Chen">
   <main class="container">
-    <Nav current="teach" />
+    <Nav current="talks" />
     <section class="hero">
-      <h1>Talk &amp; Teach</h1>
-      <p>Slides and tutorial materials, kept online for collaborators and students.</p>
+      <h1>Talks</h1>
+      <p>Talks and tutorials, with slides kept online for collaborators and students. Courses and the teaching award are on the <a href="/teaching">Teaching</a> page.</p>
     </section>
-    <div class="teach-grid">
-    <section class="section talks-col">
-      <h2>Talks &amp; tutorials</h2>
-      <ol class="talks">
+    <section class="section talks-col only">
+            <ol class="talks">
         {talks.map((t) => (
           <li class="talk">
             <div class="talk-year">{t.year}</div>
@@ -134,77 +112,14 @@ const featured = courses.find((c) => c.project);
         ))}
       </ol>
     </section>
-    <aside class="teach-side">
-      {featured && (
-        <section class="section award">
-          <h2><i class="fas fa-award" aria-hidden="true"></i> Teaching award</h2>
-          <div class="course-project">
-            <figure class="project-media">
-              <video
-                class="project-video"
-                src={featured.project.video}
-                poster={featured.project.poster}
-                preload="none"
-                muted
-                loop
-                controls
-                playsinline
-                aria-label={`${featured.project.title} demonstration`}
-              ></video>
-            </figure>
-            <div class="project-head">
-              <span class="project-award">{featured.project.award}</span>
-              <span class="project-title">{featured.project.title}</span>
-              <span class="project-course">{featured.title} · {featured.school}</span>
-            </div>
-            <p class="project-desc">{featured.project.desc}</p>
-          </div>
-        </section>
-      )}
-      <section class="section">
-        <h2>Courses</h2>
-        <ol class="courses">
-          {courses.map((c) => (
-            <li class="course">
-              <div class="talk-title">{c.title} <span class="talk-kind">{c.tag}</span>{c.current && <span class="talk-kind is-current">Current</span>}{c.project && <i class="fas fa-award course-star" title={c.project.award}></i>}</div>
-              <div class="talk-event">{c.school}</div>
-            </li>
-          ))}
-        </ol>
-      </section>
-    </aside>
-    </div>
   </main>
-  <script>
-    // Hold the fetch back until the clip is actually on screen, then loop it
-    // muted. preload="none" means nothing moves for a visitor who never
-    // scrolls this far. Controls stay on throughout: the clip carries readable
-    // terminal text, so being able to pause it matters. Reduced-motion and
-    // Save-Data visitors are left with the poster and the play button.
-    const clips = document.querySelectorAll('.project-video');
-    const wantsQuiet = window.matchMedia('(prefers-reduced-motion: reduce)').matches
-      || navigator.connection?.saveData === true;
-    if (clips.length && (!wantsQuiet && 'IntersectionObserver' in window)) {
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach((entry) => {
-          const video = entry.target;
-          if (entry.isIntersecting) {
-            // A rejected play() just leaves the poster and the control bar.
-            video.play()?.catch(() => {});
-          } else if (!video.paused) {
-            video.pause();
-          }
-        });
-      }, { threshold: 0.4 });
-      clips.forEach((v) => observer.observe(v));
-    }
-  </script>
 </Layout>
 <style>
   :root { --accent:#C45200; --ink:#16202B; --muted:#4E5C6A; }
   .container { max-width: min(95vw, 1600px); margin: 0 auto; padding: 20px; box-sizing: border-box; }
   .hero { margin: 10px 0 18px; }
   .hero h1 { font-family:'et-book',Palatino,serif; font-size:2rem; margin:0 0 8px; }
+  .hero p a { color:#A84600; }
   .hero p { margin:0; color:var(--muted); max-width:780px; }
   .section { padding-top:18px; margin-top:26px; border-top:none; }
   .section h2 { font-family:'et-book',Palatino,serif; font-size:1.1rem; margin:0 0 14px; }
@@ -223,6 +138,7 @@ const featured = courses.find((c) => c.project);
   .schedule-box { border:1px dashed rgba(247,105,2,.28); border-radius:6px; padding:14px; background:#f8fbff; color:#2E3A47; }
   /* Talks on the left, the award and the course list in a sticky column on the right. */
   .teach-grid { display:grid; grid-template-columns:minmax(0,1.55fr) minmax(320px,1fr); gap:40px; align-items:start; }
+  .talks-col.only { margin-top:0; padding-top:0; max-width:1100px; }
   .teach-grid > .section, .teach-side > .section { margin-top:0; padding-top:0; }
   .teach-side { position:sticky; top:16px; display:flex; flex-direction:column; gap:22px; }
   .talks, .courses { list-style:none; margin:0; padding:0; border-top:1px solid #DCE5EE; }
