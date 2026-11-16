@@ -1,7 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import Nav from '../components/Nav.astro';
-import { kindLabels, anytime, monthWindow, trips } from '../data/deadlines.js';
+import { kindLabels, anytime, monthWindow, trips, blocks } from '../data/deadlines.js';
 
 const DOW = ['S', 'M', 'T', 'W', 'T', 'F', 'S'];
 const SHORT_MONTH = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
@@ -46,7 +46,9 @@ const ymOf = (y, m) => iso(y, m, 1).slice(0, 7);
 const listFor = (mo) => {
   const here = trips.filter((t) => t.start.slice(0, 7) === ymOf(mo.y, mo.m));
   const tripOf = (i) => (i.kind === 'talk' && !i.anytime ? here.find((t) => t.start <= iso(mo.y, mo.m, i.d) && iso(mo.y, mo.m, i.d) <= t.end) : undefined);
-  const rows = mo.items.filter((i) => !tripOf(i)).map((i) => ({ d: i.d, item: i }));
+  const rows = mo.items.filter((i) => !tripOf(i) && !i.block).map((i) => ({ d: i.d, item: i }));
+  blocks.filter((b) => b.start.slice(0, 7) === ymOf(mo.y, mo.m))
+    .forEach((b) => rows.push({ d: Number(b.start.slice(8)), item: { d: Number(b.start.slice(8)), name: b.name, kind: b.kind, star: b.star, href: b.href, note: b.note, span: tripDays(b) } }));
   here.forEach((t) => rows.push({ d: Number(t.start.slice(8)), trip: t, talks: mo.items.filter((i) => tripOf(i) === t) }));
   return rows.sort((a, b) => a.d - b.d || (a.trip ? -1 : 0));
 };
@@ -69,6 +71,28 @@ const lastDay = new Date(Date.UTC(lastMonth.y, lastMonth.m + 1, 0)).getUTCDate()
 months[BOARD_MONTHS - 1] = {
   ...lastMonth,
   items: [...lastMonth.items, ...anytime.map((i) => ({ ...i, d: lastDay, anytime: true }))],
+};
+
+// Spread each multi-day block over its days so the calendar marks all of
+// them. The list folds them back into one row (see listFor).
+months.forEach((mo, k) => {
+  const extra = [];
+  blocks.forEach((b) => {
+    const len = new Date(Date.UTC(mo.y, mo.m + 1, 0)).getUTCDate();
+    for (let d = 1; d <= len; d += 1) {
+      const day = `${mo.y}-${String(mo.m + 1).padStart(2, '0')}-${String(d).padStart(2, '0')}`;
+      if (b.start <= day && day <= b.end) extra.push({ d, name: b.name, kind: b.kind, star: b.star, href: b.href, block: b });
+    }
+  });
+  if (extra.length) months[k] = { ...mo, items: [...mo.items, ...extra] };
+});
+
+// Calendar cells inside a multi-day block join into one bar, like a trip.
+const blockClass = (mo, cell) => {
+  const b = cell.items.find((i) => i.block)?.block;
+  if (!b) return '';
+  const day = iso(mo.y, mo.m, cell.d);
+  return ` in-block${b.start === day ? ' block-start' : ''}${b.end === day ? ' block-end' : ''}`;
 };
 
 const labelFor = (mo, item) => `${SHORT_MONTH[mo.m]} ${item.d}`;
@@ -100,7 +124,7 @@ const dayName = (mo, d) => ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'][new
                   cell === null
                     ? <span class="cal-cell is-blank"></span>
                     : <span
-                        class={`cal-cell${cell.items.length > 0 ? ' is-due' : ''}${cell.trip ? ' is-trip' : ''}${cell.trip && cell.trip.start === iso(mo.y, mo.m, cell.d) ? ' trip-start' : ''}${cell.trip && cell.trip.end === iso(mo.y, mo.m, cell.d) ? ' trip-end' : ''}`}
+                        class={`cal-cell${cell.items.length > 0 ? ' is-due' : ''}${cell.trip ? ' is-trip' : ''}${cell.trip && cell.trip.start === iso(mo.y, mo.m, cell.d) ? ' trip-start' : ''}${cell.trip && cell.trip.end === iso(mo.y, mo.m, cell.d) ? ' trip-end' : ''}${blockClass(mo, cell)}`}
                         data-today={`${mo.y}-${mo.m}-${cell.d}`}
                         data-key={cell.items.length > 0 ? `${mo.y}-${mo.m}-${cell.d}` : undefined}
                       >
@@ -170,14 +194,15 @@ const dayName = (mo, d) => ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'][new
                   )}
                 </li>
               ) : (
-                <li class={`deadline kind-${row.item.kind}${row.item.est ? ' is-est' : ''}${row.item.star ? ' is-star' : ''}`} data-key={`${mo.y}-${mo.m}-${row.d}`}>
-                  <span class="deadline-date">{labelFor(mo, row.item)}</span>
+                <li class={`deadline kind-${row.item.kind}${row.item.est ? ' is-est' : ''}${row.item.star ? ' is-star' : ''}${row.item.span ? ' is-span' : ''}`} data-key={`${mo.y}-${mo.m}-${row.d}`}>
+                  <span class="deadline-date">{row.item.span ?? labelFor(mo, row.item)}</span>
                   <span class="deadline-name">
                     <i class={`fas ${iconFor(row.item)} kind-mark`} aria-label={iconLabel(row.item)}></i>
                     {row.item.href
                       ? <a class="deadline-link" href={row.item.href} target="_blank" rel="noopener">{row.item.name}</a>
                       : row.item.name}
                     {row.item.est && <span class="est-flag">est.</span>}
+                    {row.item.note && <span class="span-note">{row.item.note}</span>}
                   </span>
                   {row.item.anytime
                     ? <span class="deadline-left band-anytime">anytime</span>
@@ -467,4 +492,12 @@ const dayName = (mo, d) => ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'][new
   .trip-talk .deadline-name, .trip-talk .deadline-link { color:#45306E; font-weight:400; }
   .trip-talk.is-star .deadline-name, .trip-talk.is-star .deadline-link { font-weight:700; }
   .trip-talk .kind-mark { color:#6B4FA0; }
+
+  .deadline.is-span { grid-template-columns:76px minmax(0,1fr) auto; }
+  .deadline.is-span .deadline-date { white-space:nowrap; }
+  .span-note { display:block; font-size:.76rem; font-weight:400; color:#4E5C6A; margin-top:2px; }
+
+  .cal-cell.in-block { background:#FDF1E7; border-radius:0; box-shadow:inset 0 -2.5px 0 #C45200; }
+  .cal-cell.in-block.block-start { border-top-left-radius:3px; border-bottom-left-radius:3px; }
+  .cal-cell.in-block.block-end { border-top-right-radius:3px; border-bottom-right-radius:3px; }
 </style>

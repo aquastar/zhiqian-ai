@@ -40,8 +40,6 @@ export const deadlines = [
     { d: 9, name: 'RIT Grant Writers\' Boot Camp: registration and seed funding proposal', kind: 'other', star: true, href: 'https://www.rit.edu/srs/internal-funding-opportunities' },
   ]},
   { month: 'Jan 2027', y: 2027, m: 0, items: [
-    { d: 7, name: 'RIT Grant Writers\' Boot Camp, day 1 (8:30 AM to 4:30 PM)', kind: 'other', star: true },
-    { d: 8, name: 'RIT Grant Writers\' Boot Camp, day 2 (8:30 AM to 1:30 PM)', kind: 'other', star: true },
     { d: 12, name: 'AWARE-AI Winter Symposium: tutorial for graduate students (2 to 3 PM, GVP-1200)', kind: 'talk', href: 'https://www.rit.edu/nrtai/' },
     { d: 4, name: 'IJCAI 2027 abstract', kind: 'paper', href: 'https://2027.ijcai.org/', star: true },
     { d: 11, name: 'IJCAI 2027 full paper', kind: 'paper', href: 'https://2027.ijcai.org/', star: true },
@@ -72,6 +70,14 @@ export const deadlines = [
 
 // Rolling calls have no date of their own. The board pins them to the last day
 // it shows, so they sit in the calendar like everything else.
+// Events that run over several days but are not travel. Each shows as one
+// block in the list and marks every one of its days on the calendar.
+export const blocks = [
+  { name: 'RIT Grant Writers\' Boot Camp', start: '2027-01-07', end: '2027-01-08', kind: 'other', star: true,
+    href: 'https://www.rit.edu/srs/internal-funding-opportunities',
+    note: 'Jan 7, 8:30 AM to 4:30 PM. Jan 8, 8:30 AM to 1:30 PM' },
+];
+
 export const anytime = [
   { name: 'NSF TTP-E', kind: 'nsf', star: true },
   { name: 'NSF CMMI / IIDS (NSF 26-515)', kind: 'nsf' },
