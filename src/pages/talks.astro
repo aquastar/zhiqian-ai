@@ -6,7 +6,8 @@ const talks = [
   {
     tag: 'Talk', year: '2026',
     title: 'Is There a Graph Inside Generative Models? Evidence from Language and Music',
-    desc: 'We change and explain models with vectors: steering, editing, LoRA, fine tuning. A vector says what we added, not where it went. Reading the knowledge inside a model as a graph shows what the vector misses, in language models and in music generators, with the listening brain as an outside judge. The October version, From Networks to Neural Networks, was a tutorial on how trained models get changed after release and why exams miss what breaks inside.',
+    desc: 'Reading what a model knows as a graph shows what steering vectors miss, in language and music.',
+    thumb: '/talks-thumbs/graph-inside.webp',
     events: [
       { label: 'CS Department Colloquium · Nov 19, 2026 · Rochester Institute of Technology, Rochester, NY', href: 'https://aquastar.github.io/talks/graph-inside/2026-11-19-cs-colloquium/' },
       { label: 'GCCIS PhD Colloquium Series, as From Networks to Neural Networks · Oct 2, 2026 · Rochester Institute of Technology', href: 'https://aquastar.github.io/talks/graph-inside/2026-10-02-gccis-phd/' },
@@ -19,7 +20,8 @@ const talks = [
   {
     tag: 'Talk', year: '2026',
     title: 'AI Literacy for CS Faculty',
-    desc: 'A tutorial on how today\'s AI works, from next token prediction to agents, and how fast it is changing.',
+    desc: 'How today\'s AI works, from next token prediction to agents, and how fast it is changing.',
+    thumb: '/talks-thumbs/ai-literacy.webp',
     events: [{ label: 'CS Faculty Meeting · Nov 3, 2026 · Rochester Institute of Technology, Rochester, NY', href: 'https://aquastar.github.io/talks/ai-literacy/2026-11-03-faculty-meeting/' }],
     links: [
       { label: 'Slides (online)', href: 'https://aquastar.github.io/talks/ai-literacy/', kind: 'slides' },
@@ -30,6 +32,7 @@ const talks = [
     tag: 'Tutorial', year: '2026',
     title: 'Uncertainty Quantification for Dynamical Networks',
     desc: 'Uncertainty quantification and state estimation for graph dynamics.',
+    thumb: '/talks-thumbs/uq-dynamical.webp',
     events: [
       { label: 'IEEE BigData 2026 · upcoming' },
       { label: 'WSDM 2026 · Feb 22 to 26 · Boise, ID', href: 'https://wsdm-conference.org/2026/index.php/tutorials/' },
@@ -43,6 +46,7 @@ const talks = [
     tag: 'Tutorial series', year: '2024–2025',
     title: 'Unifying Spectral and Spatial Graph Neural Networks',
     desc: 'An operator-level view that connects spectral and spatial GNNs.',
+    thumb: '/talks-thumbs/spectral-gnn.webp',
     events: [
       { label: 'CVPR 2024 · Jun 18 · Seattle, WA', href: 'https://cvpr.thecvf.com/virtual/2024/tutorial/23726' },
       { label: 'CIKM 2024 · Oct 21 · Boise, ID', href: 'https://cikm2024.org/tutorials/' },
@@ -58,7 +62,8 @@ const talks = [
   {
     tag: 'Paper talk', year: '2023',
     title: 'Understanding Influence Maximization via Higher-Order Decomposition',
-    desc: 'With Zonghan Zhang. Sobol indices separate a seed\'s own effect from its interactions with other seeds.',
+    desc: 'With Zonghan Zhang. Sobol indices split a seed\'s own effect from its interactions.',
+    thumb: '/talks-thumbs/influence-max.webp',
     events: [{ label: 'SIAM SDM 2023 · Apr 27 to 29 · Minneapolis, MN', href: 'https://epubs.siam.org/doi/abs/10.1137/1.9781611977653.ch86' }],
     links: [
       { label: 'Slides (PDF)', href: 'https://aquastar.github.io/influence-max-higher-order/slides.pdf', kind: 'slides' },
@@ -74,7 +79,7 @@ const talks = [
   {
     tag: 'Tutorial', year: '2021',
     title: 'Studying Spread Patterns of COVID-19 Based on Spatiotemporal Data',
-    desc: 'With Beiyu Lin and Xiaowei Jia. Spreading models for epidemics (GNN, RNN, SIR, PDE).',
+    desc: 'With Beiyu Lin and Xiaowei Jia. Epidemic spreading models: GNN, RNN, SIR and PDE.',
     events: [{ label: 'SIAM SDM 2021 · April · online' }],
     links: [],
   },
@@ -108,6 +113,13 @@ const talks = [
                 </div>
               )}
             </div>
+            <div class="talk-thumb">
+              {t.thumb && (
+                <a href={t.links[0].href} target="_blank" rel="noopener" aria-label={`Open the slides for ${t.title}`}>
+                  <img src={t.thumb} alt={`Title slide of ${t.title}`} loading="lazy" width="640" height="360" />
+                </a>
+              )}
+            </div>
           </li>
         ))}
       </ol>
@@ -138,7 +150,12 @@ const talks = [
   .schedule-box { border:1px dashed rgba(247,105,2,.28); border-radius:6px; padding:14px; background:#f8fbff; color:#2E3A47; }
   /* Talks on the left, the award and the course list in a sticky column on the right. */
   .teach-grid { display:grid; grid-template-columns:minmax(0,1.55fr) minmax(320px,1fr); gap:40px; align-items:start; }
-  .talks-col.only { margin-top:0; padding-top:0; max-width:1100px; }
+  .talks-col.only { margin-top:0; padding-top:0; max-width:1240px; }
+  .talks-col.only .talk { grid-template-columns:72px minmax(0,1fr) 220px; gap:18px; padding:14px 0; align-items:start; }
+  .talks-col.only .talk-desc { white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+  .talk-thumb a { display:block; border-radius:6px; overflow:hidden; border:1px solid #DCE5EE; background:#fff; aspect-ratio:16/9; }
+  .talk-thumb img { display:block; width:100%; height:100%; object-fit:cover; transition:transform .2s; }
+  .talk-thumb a:hover img { transform:scale(1.03); }
   .teach-grid > .section, .teach-side > .section { margin-top:0; padding-top:0; }
   .teach-side { position:sticky; top:16px; display:flex; flex-direction:column; gap:22px; }
   .talks, .courses { list-style:none; margin:0; padding:0; border-top:1px solid #DCE5EE; }
@@ -173,6 +190,11 @@ const talks = [
     .teach-grid { grid-template-columns:1fr; gap:26px; }
     .teach-side { position:static; order:-1; }
   }
-  @media (max-width: 700px) { .talk { grid-template-columns:1fr; gap:2px; } }
+  @media (max-width: 700px) {
+    .talk, .talks-col.only .talk { grid-template-columns:1fr; gap:4px; }
+    .talks-col.only .talk-desc { white-space:normal; }
+    .talk-thumb { max-width:300px; margin-top:6px; }
+    .talk-thumb:empty { display:none; }
+  }
   @media (max-width: 900px) { .cards.two { grid-template-columns:1fr; } }
 </style>
