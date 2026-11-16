@@ -34,6 +34,7 @@ export const deadlines = [
   { month: 'Dec 2026', y: 2026, m: 11, items: [
     { d: 1, name: 'Simons Empire AI (noon ET)', kind: 'other', star: true },
     { d: 2, name: 'NSF Expeditions preliminary proposal', kind: 'nsf' },
+    { d: 9, name: 'RIT Grant Writers\' Boot Camp: registration and seed funding proposal', kind: 'other', href: 'https://www.rit.edu/srs/internal-funding-opportunities' },
   ]},
   { month: 'Jan 2027', y: 2027, m: 0, items: [
     { d: 4, name: 'IJCAI 2027 abstract', kind: 'paper', href: 'https://2027.ijcai.org/', star: true },
