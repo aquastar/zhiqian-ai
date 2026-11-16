@@ -1,7 +1,7 @@
 {
  "0001-5962": {
   "ccf": "N",
-  "cites": 22.8,
+  "cites": 8.4,
   "h": 205,
   "oa": "https://openalex.org/S113542759",
   "subs": [
@@ -49,7 +49,7 @@
  },
  "0001-8708": {
   "ccf": "N",
-  "cites": 4.8,
+  "cites": 1.8,
   "h": 213,
   "oa": "https://openalex.org/S122441808",
   "subs": [
@@ -145,7 +145,7 @@
  },
  "0002-9262": {
   "ccf": "N",
-  "cites": 4.1,
+  "cites": 3.3,
   "h": 422,
   "oa": "https://openalex.org/S170967050",
   "subs": [
@@ -193,8 +193,8 @@
  },
  "0003-486X": {
   "ccf": "N",
-  "cites": 27.5,
-  "h": 328,
+  "cites": 6.2,
+  "h": 329,
   "oa": "https://openalex.org/S45918994",
   "subs": [
    {
@@ -241,7 +241,7 @@
  },
  "0004-3702": {
   "ccf": "A",
-  "cites": 6.5,
+  "cites": 4.8,
   "h": 310,
   "oa": "https://openalex.org/S196139623",
   "subs": [
@@ -289,7 +289,7 @@
  },
  "0004-5411": {
   "ccf": "A",
-  "cites": 12.2,
+  "cites": 4.8,
   "h": 301,
   "oa": "https://openalex.org/S118992489",
   "subs": [
@@ -337,7 +337,7 @@
  },
  "0005-1098": {
   "ccf": "N",
-  "cites": 7.3,
+  "cites": 7.1,
   "h": 404,
   "oa": "https://openalex.org/S51360982",
   "subs": [
@@ -385,7 +385,7 @@
  },
  "0010-0277": {
   "ccf": "N",
-  "cites": 4.3,
+  "cites": 3.8,
   "h": 364,
   "oa": "https://openalex.org/S88198767",
   "subs": [
@@ -433,7 +433,7 @@
  },
  "0012-7094": {
   "ccf": "N",
-  "cites": 12.0,
+  "cites": 4.0,
   "h": 186,
   "oa": "https://openalex.org/S171170845",
   "subs": [
@@ -481,7 +481,7 @@
  },
  "0014-1704": {
   "ccf": "N",
-  "cites": 1.1,
+  "cites": 1.0,
   "h": 186,
   "oa": "https://openalex.org/S184849641",
   "subs": [
@@ -577,7 +577,7 @@
  },
  "0018-9286": {
   "ccf": "N",
-  "cites": 7.4,
+  "cites": 6.8,
   "h": 482,
   "oa": "https://openalex.org/S184954342",
   "subs": [
@@ -590,7 +590,7 @@
     "y": 2017
    },
    {
-    "n": 577,
+    "n": 578,
     "y": 2018
    },
    {
@@ -625,8 +625,8 @@
  },
  "0018-9294": {
   "ccf": "N",
-  "cites": 5.0,
-  "h": 314,
+  "cites": 4.0,
+  "h": 315,
   "oa": "https://openalex.org/S5240358",
   "subs": [
    {
@@ -673,7 +673,7 @@
  },
  "0018-9340": {
   "ccf": "A",
-  "cites": 5.0,
+  "cites": 6.1,
   "h": 261,
   "oa": "https://openalex.org/S157670870",
   "subs": [
@@ -721,7 +721,7 @@
  },
  "0020-9910": {
   "ccf": "N",
-  "cites": 13.5,
+  "cites": 5.0,
   "h": 257,
   "oa": "https://openalex.org/S98347115",
   "subs": [
@@ -769,7 +769,7 @@
  },
  "0021-8294": {
   "ccf": "N",
-  "cites": 1.6,
+  "cites": 2.5,
   "h": 208,
   "oa": "https://openalex.org/S207420867",
   "subs": [
@@ -817,7 +817,7 @@
  },
  "0021-9231": {
   "ccf": "N",
-  "cites": 0.3,
+  "cites": 0.6,
   "h": 141,
   "oa": "https://openalex.org/S55827047",
   "subs": [
@@ -865,7 +865,7 @@
  },
  "0021-9991": {
   "ccf": "N",
-  "cites": 5.8,
+  "cites": 4.3,
   "h": 427,
   "oa": "https://openalex.org/S148709879",
   "subs": [
@@ -913,7 +913,7 @@
  },
  "0022-362X": {
   "ccf": "N",
-  "cites": 2.5,
+  "cites": 1.4,
   "h": 295,
   "oa": "https://openalex.org/S41650241",
   "subs": [
@@ -961,7 +961,7 @@
  },
  "0025-1909": {
   "ccf": "N",
-  "cites": 10.9,
+  "cites": 7.8,
   "h": 494,
   "oa": "https://openalex.org/S33323087",
   "subs": [
@@ -1009,7 +1009,7 @@
  },
  "0025-5610": {
   "ccf": "N",
-  "cites": 6.4,
+  "cites": 2.7,
   "h": 245,
   "oa": "https://openalex.org/S193920097",
   "subs": [
@@ -1057,7 +1057,7 @@
  },
  "0026-4423": {
   "ccf": "N",
-  "cites": 1.7,
+  "cites": 1.8,
   "h": 167,
   "oa": "https://openalex.org/S37480348",
   "subs": [
@@ -1105,7 +1105,7 @@
  },
  "0029-4624": {
   "ccf": "N",
-  "cites": 2.5,
+  "cites": 2.9,
   "h": 171,
   "oa": "https://openalex.org/S170801797",
   "subs": [
@@ -1153,7 +1153,7 @@
  },
  "0029-5973": {
   "ccf": "N",
-  "cites": 0.4,
+  "cites": 0.5,
   "h": 56,
   "oa": "https://openalex.org/S16595306",
   "subs": [
@@ -1201,7 +1201,7 @@
  },
  "0030-364X": {
   "ccf": "N",
-  "cites": 8.6,
+  "cites": 4.0,
   "h": 307,
   "oa": "https://openalex.org/S125775545",
   "subs": [
@@ -1249,7 +1249,7 @@
  },
  "0031-8108": {
   "ccf": "N",
-  "cites": 1.6,
+  "cites": 1.3,
   "h": 308,
   "oa": "https://openalex.org/S35579339",
   "subs": [
@@ -1297,7 +1297,7 @@
  },
  "0031-8205": {
   "ccf": "N",
-  "cites": 2.6,
+  "cites": 2.5,
   "h": 203,
   "oa": "https://openalex.org/S204374153",
   "subs": [
@@ -1345,7 +1345,7 @@
  },
  "0031-8248": {
   "ccf": "N",
-  "cites": 1.6,
+  "cites": 2.2,
   "h": 164,
   "oa": "https://openalex.org/S147691735",
   "subs": [
@@ -1393,8 +1393,8 @@
  },
  "0031-9007": {
   "ccf": "N",
-  "cites": 13.9,
-  "h": 993,
+  "cites": 10.4,
+  "h": 994,
   "oa": "https://openalex.org/S24807848",
   "subs": [
    {
@@ -1441,7 +1441,7 @@
  },
  "0033-295X": {
   "ccf": "N",
-  "cites": 9.5,
+  "cites": 6.3,
   "h": 507,
   "oa": "https://openalex.org/S35223124",
   "subs": [
@@ -1489,7 +1489,7 @@
  },
  "0034-6861": {
   "ccf": "N",
-  "cites": 57.4,
+  "cites": 53.8,
   "h": 626,
   "oa": "https://openalex.org/S73260565",
   "subs": [
@@ -1537,7 +1537,7 @@
  },
  "0036-1445": {
   "ccf": "N",
-  "cites": 6.0,
+  "cites": 5.8,
   "h": 239,
   "oa": "https://openalex.org/S160107561",
   "subs": [
@@ -1681,7 +1681,7 @@
  },
  "0048-721X": {
   "ccf": "N",
-  "cites": 1.1,
+  "cites": 0.6,
   "h": 62,
   "oa": "https://openalex.org/S71826845",
   "subs": [
@@ -1729,7 +1729,7 @@
  },
  "0073-8301": {
   "ccf": "N",
-  "cites": 21.8,
+  "cites": 4.4,
   "h": 156,
   "oa": "https://openalex.org/S25010850",
   "subs": [
@@ -1777,7 +1777,7 @@
  },
  "0090-5364": {
   "ccf": "N",
-  "cites": 12.3,
+  "cites": 4.8,
   "h": 336,
   "oa": "https://openalex.org/S119757635",
   "subs": [
@@ -1825,7 +1825,7 @@
  },
  "0096-3445": {
   "ccf": "N",
-  "cites": 3.1,
+  "cites": 3.0,
   "h": 304,
   "oa": "https://openalex.org/S62013203",
   "subs": [
@@ -1873,7 +1873,7 @@
  },
  "0097-5397": {
   "ccf": "A",
-  "cites": 5.7,
+  "cites": 2.2,
   "h": 248,
   "oa": "https://openalex.org/S153560523",
   "subs": [
@@ -1921,7 +1921,7 @@
  },
  "0143-9782": {
   "ccf": "N",
-  "cites": 2.0,
+  "cites": 1.2,
   "h": 110,
   "oa": "https://openalex.org/S206595242",
   "subs": [
@@ -1970,7 +1970,7 @@
  "0161-8105": {
   "ccf": "N",
   "cites": 1.1,
-  "h": 311,
+  "h": 312,
   "oa": "https://openalex.org/S42921845",
   "subs": [
    {
@@ -2017,7 +2017,7 @@
  },
  "0162-1459": {
   "ccf": "N",
-  "cites": 6.0,
+  "cites": 4.2,
   "h": 637,
   "oa": "https://openalex.org/S4394736638",
   "subs": [
@@ -2065,7 +2065,7 @@
  },
  "0162-8828": {
   "ccf": "A",
-  "cites": 25.7,
+  "cites": 22.3,
   "h": 575,
   "oa": "https://openalex.org/S199944782",
   "subs": [
@@ -2113,7 +2113,7 @@
  },
  "0167-2789": {
   "ccf": "N",
-  "cites": 3.6,
+  "cites": 3.0,
   "h": 232,
   "oa": "https://openalex.org/S4210235043",
   "subs": [
@@ -2161,7 +2161,7 @@
  },
  "0167-4048": {
   "ccf": "B",
-  "cites": 12.2,
+  "cites": 11.2,
   "h": 183,
   "oa": "https://openalex.org/S12529635",
   "subs": [
@@ -2209,7 +2209,7 @@
  },
  "0167-6911": {
   "ccf": "N",
-  "cites": 3.5,
+  "cites": 3.1,
   "h": 196,
   "oa": "https://openalex.org/S56603566",
   "subs": [
@@ -2257,7 +2257,7 @@
  },
  "0167-7055": {
   "ccf": "B",
-  "cites": 3.9,
+  "cites": 3.2,
   "h": 177,
   "oa": "https://openalex.org/S67831204",
   "subs": [
@@ -2305,7 +2305,7 @@
  },
  "0169-2070": {
   "ccf": "N",
-  "cites": 6.1,
+  "cites": 4.5,
   "h": 197,
   "oa": "https://openalex.org/S39841227",
   "subs": [
@@ -2353,7 +2353,7 @@
  },
  "0178-4617": {
   "ccf": "B",
-  "cites": 3.5,
+  "cites": 1.4,
   "h": 134,
   "oa": "https://openalex.org/S89324355",
   "subs": [
@@ -2401,7 +2401,7 @@
  },
  "0266-7177": {
   "ccf": "N",
-  "cites": 0.2,
+  "cites": 0.3,
   "h": 40,
   "oa": "https://openalex.org/S185278035",
   "subs": [
@@ -2449,7 +2449,7 @@
  },
  "0272-1716": {
   "ccf": "N",
-  "cites": 1.5,
+  "cites": 1.2,
   "h": 164,
   "oa": "https://openalex.org/S105380075",
   "subs": [
@@ -2497,7 +2497,7 @@
  },
  "0278-0062": {
   "ccf": "B",
-  "cites": 13.2,
+  "cites": 12.4,
   "h": 332,
   "oa": "https://openalex.org/S58069681",
   "subs": [
@@ -2545,7 +2545,7 @@
  },
  "0278-0070": {
   "ccf": "A",
-  "cites": 4.0,
+  "cites": 4.1,
   "h": 190,
   "oa": "https://openalex.org/S100835903",
   "subs": [
@@ -2593,7 +2593,7 @@
  },
  "0306-2619": {
   "ccf": "N",
-  "cites": 17.5,
+  "cites": 14.2,
   "h": 398,
   "oa": "https://openalex.org/S109565702",
   "subs": [
@@ -2641,7 +2641,7 @@
  },
  "0363-0129": {
   "ccf": "N",
-  "cites": 5.0,
+  "cites": 3.0,
   "h": 197,
   "oa": "https://openalex.org/S897311980",
   "subs": [
@@ -2689,16 +2689,16 @@
  },
  "0364-0213": {
   "ccf": "N",
-  "cites": 3.0,
+  "cites": 3.3,
   "h": 237,
   "oa": "https://openalex.org/S78735424",
   "subs": [
    {
-    "n": 243,
+    "n": 244,
     "y": 2016
    },
    {
-    "n": 231,
+    "n": 233,
     "y": 2017
    },
    {
@@ -2710,7 +2710,7 @@
     "y": 2019
    },
    {
-    "n": 202,
+    "n": 203,
     "y": 2020
    },
    {
@@ -2737,7 +2737,7 @@
  },
  "0378-4371": {
   "ccf": "N",
-  "cites": 3.6,
+  "cites": 3.8,
   "h": 237,
   "oa": "https://openalex.org/S24688465",
   "subs": [
@@ -2785,7 +2785,7 @@
  },
  "0378-7796": {
   "ccf": "N",
-  "cites": 5.3,
+  "cites": 5.6,
   "h": 178,
   "oa": "https://openalex.org/S151498627",
   "subs": [
@@ -2833,7 +2833,7 @@
  },
  "0378-8733": {
   "ccf": "N",
-  "cites": 2.7,
+  "cites": 2.8,
   "h": 176,
   "oa": "https://openalex.org/S26186134",
   "subs": [
@@ -2881,7 +2881,7 @@
  },
  "0591-2385": {
   "ccf": "N",
-  "cites": 0.9,
+  "cites": 1.0,
   "h": 51,
   "oa": "https://openalex.org/S128470386",
   "subs": [
@@ -2929,7 +2929,7 @@
  },
  "0885-8950": {
   "ccf": "N",
-  "cites": 9.0,
+  "cites": 8.9,
   "h": 376,
   "oa": "https://openalex.org/S201921491",
   "subs": [
@@ -2977,7 +2977,7 @@
  },
  "0894-0347": {
   "ccf": "N",
-  "cites": 21.0,
+  "cites": 4.7,
   "h": 173,
   "oa": "https://openalex.org/S130224168",
   "subs": [
@@ -3025,8 +3025,8 @@
  },
  "0896-6273": {
   "ccf": "N",
-  "cites": 17.5,
-  "h": 700,
+  "cites": 15.0,
+  "h": 703,
   "oa": "https://openalex.org/S45757444",
   "subs": [
    {
@@ -3073,7 +3073,7 @@
  },
  "0897-4756": {
   "ccf": "N",
-  "cites": 7.4,
+  "cites": 6.9,
   "h": 477,
   "oa": "https://openalex.org/S66104727",
   "subs": [
@@ -3121,7 +3121,7 @@
  },
  "0898-929X": {
   "ccf": "N",
-  "cites": 4.8,
+  "cites": 3.5,
   "h": 313,
   "oa": "https://openalex.org/S123144817",
   "subs": [
@@ -3169,7 +3169,7 @@
  },
  "0899-1499": {
   "ccf": "B",
-  "cites": 3.0,
+  "cites": 2.0,
   "h": 132,
   "oa": "https://openalex.org/S165318533",
   "subs": [
@@ -3217,7 +3217,7 @@
  },
  "0920-5691": {
   "ccf": "A",
-  "cites": 19.5,
+  "cites": 13.7,
   "h": 300,
   "oa": "https://openalex.org/S25538012",
   "subs": [
@@ -3265,8 +3265,8 @@
  },
  "0924-090X": {
   "ccf": "N",
-  "cites": 7.5,
-  "h": 175,
+  "cites": 6.0,
+  "h": 176,
   "oa": "https://openalex.org/S138681734",
   "subs": [
    {
@@ -3313,7 +3313,7 @@
  },
  "0924-6495": {
   "ccf": "N",
-  "cites": 14.7,
+  "cites": 9.4,
   "h": 86,
   "oa": "https://openalex.org/S160466889",
   "subs": [
@@ -3361,7 +3361,7 @@
  },
  "0926-227X": {
   "ccf": "B",
-  "cites": 3.6,
+  "cites": 2.2,
   "h": 78,
   "oa": "https://openalex.org/S106992369",
   "subs": [
@@ -3409,7 +3409,7 @@
  },
  "0933-2790": {
   "ccf": "A",
-  "cites": 4.5,
+  "cites": 3.7,
   "h": 122,
   "oa": "https://openalex.org/S190936789",
   "subs": [
@@ -3457,7 +3457,7 @@
  },
  "0943-3058": {
   "ccf": "N",
-  "cites": 0.9,
+  "cites": 0.4,
   "h": 43,
   "oa": "https://openalex.org/S178989728",
   "subs": [
@@ -3505,7 +3505,7 @@
  },
  "0951-7715": {
   "ccf": "N",
-  "cites": 3.1,
+  "cites": 1.9,
   "h": 132,
   "oa": "https://openalex.org/S158842918",
   "subs": [
@@ -3553,7 +3553,7 @@
  },
  "0956-7976": {
   "ccf": "N",
-  "cites": 8.3,
+  "cites": 6.1,
   "h": 436,
   "oa": "https://openalex.org/S58854535",
   "subs": [
@@ -3601,8 +3601,8 @@
  },
  "0962-1105": {
   "ccf": "N",
-  "cites": 4.5,
-  "h": 181,
+  "cites": 5.2,
+  "h": 182,
   "oa": "https://openalex.org/S123151105",
   "subs": [
    {
@@ -3649,8 +3649,8 @@
  },
  "1025-496X": {
   "ccf": "N",
-  "cites": 9.9,
-  "h": 177,
+  "cites": 7.6,
+  "h": 179,
   "oa": "https://openalex.org/S50690046",
   "subs": [
    {
@@ -3697,7 +3697,7 @@
  },
  "1041-4347": {
   "ccf": "A",
-  "cites": 15.2,
+  "cites": 12.3,
   "h": 279,
   "oa": "https://openalex.org/S30698027",
   "subs": [
@@ -3745,7 +3745,7 @@
  },
  "1050-2947": {
   "ccf": "N",
-  "cites": 4.3,
+  "cites": 3.4,
   "h": 460,
   "oa": "https://openalex.org/S164566984",
   "subs": [
@@ -3793,7 +3793,7 @@
  },
  "1052-6234": {
   "ccf": "N",
-  "cites": 8.0,
+  "cites": 3.3,
   "h": 192,
   "oa": "https://openalex.org/S928796702",
   "subs": [
@@ -3841,7 +3841,7 @@
  },
  "1053-0797": {
   "ccf": "N",
-  "cites": 0.9,
+  "cites": 0.8,
   "h": 57,
   "oa": "https://openalex.org/S13876349",
   "subs": [
@@ -3889,8 +3889,8 @@
  },
  "1053-8119": {
   "ccf": "N",
-  "cites": 5.2,
-  "h": 534,
+  "cites": 6.6,
+  "h": 537,
   "oa": "https://openalex.org/S103225281",
   "subs": [
    {
@@ -3937,8 +3937,8 @@
  },
  "1054-1500": {
   "ccf": "N",
-  "cites": 4.6,
-  "h": 159,
+  "cites": 3.6,
+  "h": 160,
   "oa": "https://openalex.org/S187806540",
   "subs": [
    {
@@ -3985,7 +3985,7 @@
  },
  "1063-6536": {
   "ccf": "N",
-  "cites": 5.7,
+  "cites": 5.5,
   "h": 222,
   "oa": "https://openalex.org/S133363738",
   "subs": [
@@ -4033,7 +4033,7 @@
  },
  "1063-8210": {
   "ccf": "B",
-  "cites": 3.2,
+  "cites": 3.7,
   "h": 149,
   "oa": "https://openalex.org/S37538908",
   "subs": [
@@ -4081,7 +4081,7 @@
  },
  "1064-5462": {
   "ccf": "N",
-  "cites": 2.4,
+  "cites": 1.9,
   "h": 88,
   "oa": "https://openalex.org/S2181302",
   "subs": [
@@ -4129,7 +4129,7 @@
  },
  "1064-8275": {
   "ccf": "N",
-  "cites": 7.0,
+  "cites": 3.7,
   "h": 216,
   "oa": "https://openalex.org/S165512578",
   "subs": [
@@ -4177,8 +4177,8 @@
  },
  "1065-9471": {
   "ccf": "N",
-  "cites": 6.1,
-  "h": 276,
+  "cites": 4.5,
+  "h": 277,
   "oa": "https://openalex.org/S121666818",
   "subs": [
    {
@@ -4225,7 +4225,7 @@
  },
  "1067-5027": {
   "ccf": "B",
-  "cites": 15.6,
+  "cites": 9.4,
   "h": 239,
   "oa": "https://openalex.org/S129839026",
   "subs": [
@@ -4273,7 +4273,7 @@
  },
  "1069-9384": {
   "ccf": "N",
-  "cites": 4.7,
+  "cites": 4.1,
   "h": 240,
   "oa": "https://openalex.org/S138679565",
   "subs": [
@@ -4321,8 +4321,8 @@
  },
  "1076-2787": {
   "ccf": "N",
-  "cites": 1.6,
-  "h": 116,
+  "cites": 1.1,
+  "h": 117,
   "oa": "https://openalex.org/S207319443",
   "subs": [
    {
@@ -4369,7 +4369,7 @@
  },
  "1076-9757": {
   "ccf": "B",
-  "cites": 11.0,
+  "cites": 5.6,
   "h": 176,
   "oa": "https://openalex.org/S139930977",
   "subs": [
@@ -4417,7 +4417,7 @@
  },
  "1077-2626": {
   "ccf": "A",
-  "cites": 6.7,
+  "cites": 6.9,
   "h": 216,
   "oa": "https://openalex.org/S84775595",
   "subs": [
@@ -4465,7 +4465,7 @@
  },
  "1084-4309": {
   "ccf": "B",
-  "cites": 4.7,
+  "cites": 3.8,
   "h": 72,
   "oa": "https://openalex.org/S105046310",
   "subs": [
@@ -4513,8 +4513,8 @@
  },
  "1087-0792": {
   "ccf": "N",
-  "cites": 10.8,
-  "h": 234,
+  "cites": 10.3,
+  "h": 235,
   "oa": "https://openalex.org/S28482811",
   "subs": [
    {
@@ -4561,8 +4561,8 @@
  },
  "1097-6256": {
   "ccf": "N",
-  "cites": 23.4,
-  "h": 606,
+  "cites": 17.4,
+  "h": 608,
   "oa": "https://openalex.org/S2298632",
   "subs": [
    {
@@ -4657,7 +4657,7 @@
  },
  "1359-6454": {
   "ccf": "N",
-  "cites": 11.7,
+  "cites": 10.3,
   "h": 426,
   "oa": "https://openalex.org/S64016596",
   "subs": [
@@ -4705,8 +4705,8 @@
  },
  "1361-8415": {
   "ccf": "C",
-  "cites": 16.5,
-  "h": 229,
+  "cites": 19.0,
+  "h": 230,
   "oa": "https://openalex.org/S116571295",
   "subs": [
    {
@@ -4753,8 +4753,8 @@
  },
  "1364-6613": {
   "ccf": "N",
-  "cites": 14.7,
-  "h": 473,
+  "cites": 12.7,
+  "h": 474,
   "oa": "https://openalex.org/S192051125",
   "subs": [
    {
@@ -4849,7 +4849,7 @@
  },
  "1367-5788": {
   "ccf": "N",
-  "cites": 17.9,
+  "cites": 17.1,
   "h": 138,
   "oa": "https://openalex.org/S54761077",
   "subs": [
@@ -4900,7 +4900,7 @@
  },
  "1384-5810": {
   "ccf": "B",
-  "cites": 6.9,
+  "cites": 7.8,
   "h": 147,
   "oa": "https://openalex.org/S121920818",
   "subs": [
@@ -4948,7 +4948,7 @@
  },
  "1463-1652": {
   "ccf": "N",
-  "cites": 0.1,
+  "cites": 0.0,
   "h": 25,
   "oa": "https://openalex.org/S126848956",
   "subs": [
@@ -5044,7 +5044,7 @@
  },
  "1473-3099": {
   "ccf": "N",
-  "cites": 14.6,
+  "cites": 9.0,
   "h": 381,
   "oa": "https://openalex.org/S23772524",
   "subs": [
@@ -5092,7 +5092,7 @@
  },
  "1473-8716": {
   "ccf": "N",
-  "cites": 2.8,
+  "cites": 3.0,
   "h": 68,
   "oa": "https://openalex.org/S55152591",
   "subs": [
@@ -5140,7 +5140,7 @@
  },
  "1476-1122": {
   "ccf": "N",
-  "cites": 30.3,
+  "cites": 23.6,
   "h": 658,
   "oa": "https://openalex.org/S103895331",
   "subs": [
@@ -5188,7 +5188,7 @@
  },
  "1532-0464": {
   "ccf": "C",
-  "cites": 9.4,
+  "cites": 7.4,
   "h": 175,
   "oa": "https://openalex.org/S11622463",
   "subs": [
@@ -5237,11 +5237,11 @@
  "1532-4435": {
   "ccf": "A",
   "cites": 0,
-  "h": 120,
+  "h": 193,
   "oa": "https://openalex.org/S118988714",
   "subs": [
    {
-    "n": 110,
+    "n": 112,
     "y": 2016
    },
    {
@@ -5253,7 +5253,7 @@
     "y": 2018
    },
    {
-    "n": 45,
+    "n": 46,
     "y": 2019
    },
    {
@@ -5284,7 +5284,7 @@
  },
  "1536-0040": {
   "ccf": "N",
-  "cites": 5.4,
+  "cites": 2.7,
   "h": 87,
   "oa": "https://openalex.org/S161160597",
   "subs": [
@@ -5428,7 +5428,7 @@
  },
  "1545-5971": {
   "ccf": "A",
-  "cites": 5.8,
+  "cites": 7.2,
   "h": 138,
   "oa": "https://openalex.org/S133795288",
   "subs": [
@@ -5476,8 +5476,8 @@
  },
  "1549-4950": {
   "ccf": "N",
-  "cites": 1.6,
-  "h": 79,
+  "cites": 2.0,
+  "h": 85,
   "oa": "https://openalex.org/S62507282",
   "subs": [
    {
@@ -5524,7 +5524,7 @@
  },
  "1549-6325": {
   "ccf": "B",
-  "cites": 5.0,
+  "cites": 2.2,
   "h": 84,
   "oa": "https://openalex.org/S137348503",
   "subs": [
@@ -5620,8 +5620,8 @@
  },
  "1553-734X": {
   "ccf": "B",
-  "cites": 6.0,
-  "h": 290,
+  "cites": 5.0,
+  "h": 292,
   "oa": "https://openalex.org/S86033158",
   "subs": [
    {
@@ -5668,7 +5668,7 @@
  },
  "1556-4681": {
   "ccf": "B",
-  "cites": 9.8,
+  "cites": 7.1,
   "h": 93,
   "oa": "https://openalex.org/S41523882",
   "subs": [
@@ -5716,7 +5716,7 @@
  },
  "1556-6013": {
   "ccf": "A",
-  "cites": 9.6,
+  "cites": 10.7,
   "h": 211,
   "oa": "https://openalex.org/S61310614",
   "subs": [
@@ -5764,7 +5764,7 @@
  },
  "1557-2862": {
   "ccf": "N",
-  "cites": 7.4,
+  "cites": 0.6,
   "h": 53,
   "oa": "https://openalex.org/S142665794",
   "subs": [
@@ -5860,7 +5860,7 @@
  },
  "1687-4714": {
   "ccf": "N",
-  "cites": 5.6,
+  "cites": 4.3,
   "h": 47,
   "oa": "https://openalex.org/S19605986",
   "subs": [
@@ -5908,7 +5908,7 @@
  },
  "1745-2473": {
   "ccf": "N",
-  "cites": 17.8,
+  "cites": 10.8,
   "h": 410,
   "oa": "https://openalex.org/S156274416",
   "subs": [
@@ -5956,7 +5956,7 @@
  },
  "1755-4365": {
   "ccf": "N",
-  "cites": 5.1,
+  "cites": 3.2,
   "h": 76,
   "oa": "https://openalex.org/S24717195",
   "subs": [
@@ -6004,7 +6004,7 @@
  },
  "1866-7953": {
   "ccf": "N",
-  "cites": 0.3,
+  "cites": 0.2,
   "h": 25,
   "oa": "https://openalex.org/S2765004361",
   "subs": [
@@ -6052,7 +6052,7 @@
  },
  "1949-3029": {
   "ccf": "N",
-  "cites": 8.5,
+  "cites": 10.0,
   "h": 204,
   "oa": "https://openalex.org/S201762130",
   "subs": [
@@ -6100,8 +6100,8 @@
  },
  "1949-3053": {
   "ccf": "N",
-  "cites": 9.8,
-  "h": 289,
+  "cites": 11.6,
+  "h": 290,
   "oa": "https://openalex.org/S59604973",
   "subs": [
    {
@@ -6148,8 +6148,8 @@
  },
  "2050-084X": {
   "ccf": "N",
-  "cites": 2.8,
-  "h": 320,
+  "cites": 3.3,
+  "h": 322,
   "oa": "https://openalex.org/S1336409049",
   "subs": [
    {
@@ -6196,7 +6196,7 @@
  },
  "2050-1242": {
   "ccf": "N",
-  "cites": 2.0,
+  "cites": 1.6,
   "h": 37,
   "oa": "https://openalex.org/S2530642067",
   "subs": [
@@ -6244,7 +6244,7 @@
  },
  "2051-1310": {
   "ccf": "N",
-  "cites": 2.9,
+  "cites": 2.2,
   "h": 46,
   "oa": "https://openalex.org/S2531583244",
   "subs": [
@@ -6292,7 +6292,7 @@
  },
  "2055-348X": {
   "ccf": "N",
-  "cites": 0.2,
+  "cites": 0.1,
   "h": 10,
   "oa": "https://openalex.org/S4210190136",
   "subs": [
@@ -6340,7 +6340,7 @@
  },
  "2056-6387": {
   "ccf": "N",
-  "cites": 14.1,
+  "cites": 11.2,
   "h": 121,
   "oa": "https://openalex.org/S2738600312",
   "subs": [
@@ -6388,7 +6388,7 @@
  },
  "2057-3960": {
   "ccf": "N",
-  "cites": 15.2,
+  "cites": 14.4,
   "h": 146,
   "oa": "https://openalex.org/S4210232664",
   "subs": [
@@ -6436,7 +6436,7 @@
  },
  "2152-5080": {
   "ccf": "N",
-  "cites": 1.7,
+  "cites": 1.0,
   "h": 43,
   "oa": "https://openalex.org/S2764714110",
   "subs": [
@@ -6484,7 +6484,7 @@
  },
  "2153-599X": {
   "ccf": "N",
-  "cites": 1.9,
+  "cites": 1.7,
   "h": 47,
   "oa": "https://openalex.org/S2764439977",
   "subs": [
@@ -6532,7 +6532,7 @@
  },
  "2160-3308": {
   "ccf": "N",
-  "cites": 20.2,
+  "cites": 17.4,
   "h": 246,
   "oa": "https://openalex.org/S137042341",
   "subs": [
@@ -6580,8 +6580,8 @@
  },
  "2162-237X": {
   "ccf": "B",
-  "cites": 13.1,
-  "h": 254,
+  "cites": 11.1,
+  "h": 255,
   "oa": "https://openalex.org/S4210175523",
   "subs": [
    {
@@ -6628,7 +6628,7 @@
  },
  "2166-2525": {
   "ccf": "N",
-  "cites": 5.0,
+  "cites": 2.8,
   "h": 56,
   "oa": "https://openalex.org/S2911293512",
   "subs": [
@@ -6676,7 +6676,7 @@
  },
  "2168-2194": {
   "ccf": "C",
-  "cites": 7.4,
+  "cites": 8.1,
   "h": 172,
   "oa": "https://openalex.org/S2495854775",
   "subs": [
@@ -6724,7 +6724,7 @@
  },
  "2193-1127": {
   "ccf": "N",
-  "cites": 7.3,
+  "cites": 5.3,
   "h": 72,
   "oa": "https://openalex.org/S2504380752",
   "subs": [
@@ -6772,7 +6772,7 @@
  },
  "2210-5433": {
   "ccf": "N",
-  "cites": 7.5,
+  "cites": 7.4,
   "h": 94,
   "oa": "https://openalex.org/S23735784",
   "subs": [
@@ -6820,7 +6820,7 @@
  },
  "2307-387X": {
   "ccf": "B",
-  "cites": 36.8,
+  "cites": 21.5,
   "h": 133,
   "oa": "https://openalex.org/S2729999759",
   "subs": [
@@ -6868,7 +6868,7 @@
  },
  "2325-5870": {
   "ccf": "N",
-  "cites": 4.8,
+  "cites": 5.1,
   "h": 97,
   "oa": "https://openalex.org/S2502544478",
   "subs": [
@@ -6916,7 +6916,7 @@
  },
  "2329-9290": {
   "ccf": "B",
-  "cites": 17.4,
+  "cites": 7.8,
   "h": 124,
   "oa": "https://openalex.org/S4210169297",
   "subs": [
@@ -6964,7 +6964,7 @@
  },
  "2364-8228": {
   "ccf": "N",
-  "cites": 3.3,
+  "cites": 3.0,
   "h": 48,
   "oa": "https://openalex.org/S3035517252",
   "subs": [
@@ -7012,7 +7012,7 @@
  },
  "2398-6352": {
   "ccf": "N",
-  "cites": 18.7,
+  "cites": 24.4,
   "h": 180,
   "oa": "https://openalex.org/S4210195431",
   "subs": [
@@ -7060,8 +7060,8 @@
  },
  "2468-0427": {
   "ccf": "N",
-  "cites": 3.9,
-  "h": 47,
+  "cites": 3.4,
+  "h": 48,
   "oa": "https://openalex.org/S2898427929",
   "subs": [
    {
@@ -7108,7 +7108,7 @@
  },
  "2471-2566": {
   "ccf": "B",
-  "cites": 6.6,
+  "cites": 5.5,
   "h": 45,
   "oa": "https://openalex.org/S4210174050",
   "subs": [
@@ -7156,7 +7156,7 @@
  },
  "2475-1456": {
   "ccf": "N",
-  "cites": 2.1,
+  "cites": 2.5,
   "h": 65,
   "oa": "https://openalex.org/S4306422535",
   "subs": [
@@ -7204,7 +7204,7 @@
  },
  "2514-3298": {
   "ccf": "N",
-  "cites": 3.8,
+  "cites": 3.9,
   "h": 23,
   "oa": "https://openalex.org/S4210180030",
   "subs": [
@@ -7252,7 +7252,7 @@
  },
  "2521-327X": {
   "ccf": "N",
-  "cites": 15.2,
+  "cites": 7.8,
   "h": 119,
   "oa": "https://openalex.org/S4210226432",
   "subs": [
@@ -7300,7 +7300,7 @@
  },
  "2577-0187": {
   "ccf": "N",
-  "cites": 7.9,
+  "cites": 3.3,
   "h": 42,
   "oa": "https://openalex.org/S4210229561",
   "subs": [
@@ -7348,8 +7348,8 @@
  },
  "2589-7500": {
   "ccf": "N",
-  "cites": 21.2,
-  "h": 138,
+  "cites": 18.3,
+  "h": 140,
   "oa": "https://openalex.org/S4210237014",
   "subs": [
    {
@@ -7396,7 +7396,7 @@
  },
  "2589-9198": {
   "ccf": "N",
-  "cites": 0.1,
+  "cites": 0,
   "h": 2,
   "oa": "https://openalex.org/S4210236588",
   "subs": [
@@ -7432,7 +7432,7 @@
  },
  "2632-072X": {
   "ccf": "N",
-  "cites": 3.6,
+  "cites": 2.8,
   "h": 27,
   "oa": "https://openalex.org/S4210184083",
   "subs": [
@@ -7476,7 +7476,7 @@
  },
  "2635-098X": {
   "ccf": "N",
-  "cites": 8.0,
+  "cites": 7.0,
   "h": 53,
   "oa": "https://openalex.org/S4210202120",
   "subs": [
@@ -7516,7 +7516,7 @@
  },
  "2643-6809": {
   "ccf": "N",
-  "cites": 13.2,
+  "cites": 8.2,
   "h": 40,
   "oa": "https://openalex.org/S4210170170",
   "subs": [
@@ -7600,7 +7600,7 @@
  },
  "2691-3399": {
   "ccf": "N",
-  "cites": 22.6,
+  "cites": 15.2,
   "h": 113,
   "oa": "https://openalex.org/S4210195673",
   "subs": [
@@ -7648,7 +7648,7 @@
  },
  "2751-4838": {
   "ccf": "N",
-  "cites": 7.4,
+  "cites": 2.5,
   "h": 14,
   "oa": "https://openalex.org/S4387285734",
   "subs": [
@@ -7692,7 +7692,7 @@
  },
  "2835-8856": {
   "ccf": "N",
-  "cites": 3.6,
+  "cites": 6.1,
   "h": 3,
   "oa": "https://openalex.org/S4393919742",
   "subs": [
