@@ -331,13 +331,13 @@ const dayName = (mo, d) => ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'][new
   /* Trips, in the slide house style: one accent (RIT orange) for every trip,
      no pills, no shadows. Trip days get the 25% orange tint with an orange
      rule along the bottom, so a trip reads as one bar across the week. */
-  .cals, .trips { --trip:#F76902; --trip-tint:#FAD6BA; }
+  .cals, .trips { --trip:#2F6FDB; --trip-tint:#D6E4FA; }
   .cal-cell.is-trip { background:var(--trip-tint); border-radius:0; box-shadow:inset 0 -2.5px 0 var(--trip); }
   .cal-cell.is-trip .cal-num { color:#16202B; font-weight:700; }
   .cal-cell.is-trip .cal-dots .dot { background:#16202B; }
   .cal-cell.trip-start { border-top-left-radius:3px; border-bottom-left-radius:3px; }
   .cal-cell.trip-end { border-top-right-radius:3px; border-bottom-right-radius:3px; }
-  .cal-cell.is-trip.is-linked { background:var(--trip-tint); box-shadow:inset 0 -2.5px 0 var(--trip), inset 0 0 0 1px rgba(247,105,2,.55); }
+  .cal-cell.is-trip.is-linked { background:var(--trip-tint); box-shadow:inset 0 -2.5px 0 var(--trip), inset 0 0 0 1px rgba(47,111,219,.55); }
   .cal-cell.is-trip.is-today { box-shadow:inset 0 0 0 2px #B3261E; }
   .cal-cell.is-trip.is-gone { opacity:.4; }
   .cal-cell.is-trip.is-gone:hover .cal-pop { display:none; }
@@ -373,20 +373,18 @@ const dayName = (mo, d) => ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'][new
   }
 
   /* Three kinds of day, three colors: application deadlines keep the neutral
-     row, talks and events get teal, travel keeps the orange bar. */
+     row, talks and events get muted purple, travel gets a blue bar. */
   .legend { display:flex; flex-wrap:wrap; gap:6px 18px; margin:2px 0 14px; font-size:.82rem; color:#4E5C6A; }
   .legend > span { display:inline-flex; align-items:center; gap:6px; }
   .lg-dot { width:8px; height:8px; border-radius:50%; background:#4E5C6A; display:inline-block; }
-  .lg-dot.lg-talk { background:#0F766E; }
-  .lg-bar { width:18px; height:8px; border-radius:2px; background:#FAD6BA; box-shadow:inset 0 -2.5px 0 #F76902; display:inline-block; }
-  .deadline.kind-talk { background:#E3F2EF; box-shadow:none; }
-  .deadline.kind-talk .deadline-name, .deadline.kind-talk .deadline-link { color:#0B4F4A; }
+  .lg-dot.lg-talk { background:#6B4FA0; }
+  .lg-bar { width:18px; height:8px; border-radius:2px; background:#D6E4FA; box-shadow:inset 0 -2.5px 0 #2F6FDB; display:inline-block; }
+  .deadline.kind-talk { background:#F1ECF8; box-shadow:none; }
+  .deadline.kind-talk .deadline-name, .deadline.kind-talk .deadline-link { color:#45306E; }
   .deadline.kind-talk.is-star .deadline-name, .deadline.kind-talk.is-star .deadline-link { font-weight:700; }
-  .deadline.kind-talk .star-mark { color:#0F766E; }
-  .deadline.kind-talk .deadline-left { background:#0F766E; color:#fff; }
-  .talk-mark { color:#0F766E; font-size:.66rem; margin-right:5px; }
-  .cal-dots .dot.is-talk, .cal-cell.is-trip .cal-dots .dot.is-talk { background:#0F766E; }
-  .deadline.kind-talk .deadline-left.band-past { background:#DCE5EE; color:#98A6B4; }
+  .deadline.kind-talk .star-mark { color:#6B4FA0; }
+  .talk-mark { color:#6B4FA0; font-size:.66rem; margin-right:5px; }
+  .cal-dots .dot.is-talk, .cal-cell.is-trip .cal-dots .dot.is-talk { background:#6B4FA0; }
   .trips-bottom .trips-label { font-size:.95rem; letter-spacing:0; text-transform:none; font-weight:700; color:#16202B; }
   .trips-bottom { margin:18px 0 6px; padding-top:12px; border-top:1px solid #DCE5EE; }
 </style>
