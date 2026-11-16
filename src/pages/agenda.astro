@@ -35,7 +35,7 @@ const ICONS = {
   other: ['fa-sack-dollar', 'Grant application due'],
   paper: ['fa-file-lines', 'Paper due'],
   review: ['fa-clipboard-check', 'Review or report due'],
-  talk: ['fa-microphone', 'Talk or event'],
+  talk: ['fa-microphone', 'Giving a talk'],
 };
 const iconFor = (i) => (ICONS[i.kind] ?? ICONS.other)[0];
 const iconLabel = (i) => (ICONS[i.kind] ?? ICONS.other)[1];
@@ -107,7 +107,7 @@ const dayName = (mo, d) => ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'][new
         <span><i class="fas fa-sack-dollar lg-ico" aria-hidden="true"></i>Grant application</span>
         <span><i class="fas fa-file-lines lg-ico" aria-hidden="true"></i>Paper</span>
         <span><i class="fas fa-clipboard-check lg-ico" aria-hidden="true"></i>Review or report</span>
-        <span><i class="fas fa-microphone lg-ico lg-talk" aria-hidden="true"></i>Talk or event</span>
+        <span><i class="fas fa-microphone lg-ico lg-talk" aria-hidden="true"></i>Giving a talk</span>
         <span><i class="fas fa-plane lg-ico lg-trip" aria-hidden="true"></i>Travel</span>
         <span><span class="lg-wash"></span>Committed</span>
       </p>
@@ -183,7 +183,7 @@ const dayName = (mo, d) => ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'][new
                         <li class={`trip-talk${d.star ? ' is-star' : ''}`}>
                           <span class="deadline-date">{labelFor(mo, d)}</span>
                           <span class="deadline-name">
-                            <i class="fas fa-microphone kind-mark" aria-label="Talk or event"></i>
+                            <i class="fas fa-microphone kind-mark" aria-label="Giving a talk"></i>
                             {d.href
                               ? <a class="deadline-link" href={d.href} target="_blank" rel="noopener">{d.name}</a>
                               : d.name}

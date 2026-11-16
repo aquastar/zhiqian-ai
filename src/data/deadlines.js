@@ -118,6 +118,7 @@ export const kindLabels = {
   other: 'Other grant',
   paper: 'Paper',
   review: 'Review / report',
-  talk: 'Talk / event',
+  // talk means giving a talk. Attending an event, if one is added later, gets its own kind and icon.
+  talk: 'Giving a talk',
 };
 
