@@ -5,12 +5,25 @@ import Nav from '../components/Nav.astro';
 const talks = [
   {
     tag: 'Talk', year: '2026',
-    title: 'From Networks to Neural Networks: What Internal Structure Tells Us About Generative Models',
-    desc: 'A tutorial-style talk on the ways a trained model gets changed after release (editing, stitching, merging, pruning, steering, unlearning, fine-tuning), why exams miss what breaks inside, and how reading the model as a graph helps.',
-    events: [{ label: 'PhD Colloquium · Fall 2026 · Rochester Institute of Technology, Rochester, NY' }],
+    title: 'Is There a Graph Inside Generative Models? Evidence from Language and Music',
+    desc: 'We change and explain models with vectors: steering, editing, LoRA, fine tuning. A vector says what we added, not where it went. Reading the knowledge inside a model as a graph shows what the vector misses, in language models and in music generators, with the listening brain as an outside judge. The October version, From Networks to Neural Networks, was a tutorial on how trained models get changed after release and why exams miss what breaks inside.',
+    events: [
+      { label: 'CS Department Colloquium · Nov 19, 2026 · Rochester Institute of Technology, Rochester, NY', href: 'https://aquastar.github.io/talks/graph-inside/2026-11-19-cs-colloquium/' },
+      { label: 'GCCIS PhD Colloquium Series, as From Networks to Neural Networks · Oct 2, 2026 · Rochester Institute of Technology', href: 'https://aquastar.github.io/talks/graph-inside/2026-10-02-gccis-phd/' },
+    ],
     links: [
-      { label: 'Slides (online)', href: 'https://aquastar.github.io/neural-networks-to-networks/', kind: 'slides' },
-      { label: 'Source', href: 'https://github.com/aquastar/neural-networks-to-networks', kind: 'code' },
+      { label: 'Slides (latest)', href: 'https://aquastar.github.io/talks/graph-inside/', kind: 'slides' },
+      { label: 'Source', href: 'https://github.com/aquastar/talks/tree/main/graph-inside', kind: 'code' },
+    ],
+  },
+  {
+    tag: 'Talk', year: '2026',
+    title: 'AI Literacy for CS Faculty',
+    desc: 'A tutorial on how today\'s AI works, from next token prediction to agents, and how fast it is changing.',
+    events: [{ label: 'CS Faculty Meeting · Nov 3, 2026 · Rochester Institute of Technology, Rochester, NY', href: 'https://aquastar.github.io/talks/ai-literacy/2026-11-03-faculty-meeting/' }],
+    links: [
+      { label: 'Slides (online)', href: 'https://aquastar.github.io/talks/ai-literacy/', kind: 'slides' },
+      { label: 'Source', href: 'https://github.com/aquastar/talks/tree/main/ai-literacy', kind: 'code' },
     ],
   },
   {
