@@ -30,13 +30,19 @@ export const deadlines = [
     { d: 7, name: 'CVPR 2027 abstract', kind: 'paper', est: true },
     { d: 13, name: 'CVPR 2027 main paper', kind: 'paper', est: true },
     { d: 20, name: 'NIH U24 Music Networks Pilot: AD/ADRD (MDRN, 5 PM PT)', kind: 'nih', href: 'https://mdrn.ucsf.edu/funding-opportunities' },
+    { d: 23, name: 'AWARE-AI Winter Symposium: send tutorial title', kind: 'talk' },
   ]},
   { month: 'Dec 2026', y: 2026, m: 11, items: [
+    { d: 2, name: 'BIBM 2026: present our paper (10 AM, Dallas time)', kind: 'talk', star: true },
+    { d: 2, name: 'BIBM 2026 keynote (2 PM, Dallas time)', kind: 'talk', star: true, href: 'https://aquastar.github.io/music-to-brain/bibm26-keynote/' },
     { d: 1, name: 'Simons Empire AI (noon ET)', kind: 'other', star: true },
     { d: 2, name: 'NSF Expeditions preliminary proposal', kind: 'nsf' },
     { d: 9, name: 'RIT Grant Writers\' Boot Camp: registration and seed funding proposal', kind: 'other', href: 'https://www.rit.edu/srs/internal-funding-opportunities' },
   ]},
   { month: 'Jan 2027', y: 2027, m: 0, items: [
+    { d: 7, name: 'RIT Grant Writers\' Boot Camp, day 1 (8:30 AM to 4:30 PM)', kind: 'talk' },
+    { d: 8, name: 'RIT Grant Writers\' Boot Camp, day 2 (8:30 AM to 1:30 PM)', kind: 'talk' },
+    { d: 12, name: 'AWARE-AI Winter Symposium: tutorial for graduate students (2 to 3 PM, GVP-1200)', kind: 'talk', href: 'https://www.rit.edu/nrtai/' },
     { d: 4, name: 'IJCAI 2027 abstract', kind: 'paper', href: 'https://2027.ijcai.org/', star: true },
     { d: 11, name: 'IJCAI 2027 full paper', kind: 'paper', href: 'https://2027.ijcai.org/', star: true },
     { d: 4, name: 'ACL 2027 ARR submission', kind: 'paper', href: 'https://2027.aclweb.org/', star: true },
@@ -106,5 +112,6 @@ export const kindLabels = {
   other: 'Other grant',
   paper: 'Paper',
   review: 'Review / report',
+  talk: 'Talk / event',
 };
 

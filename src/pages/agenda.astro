@@ -49,19 +49,11 @@ const dayName = (mo, d) => ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'][new
     <Nav current="agenda" />
 
     <section class="section" id="deadlines">
-      {trips.length > 0 && (
-        <div class="trips" aria-label="Upcoming trips">
-          <span class="trips-label">Travel</span>
-          {trips.map((t) => (
-            <a class="trip-chip" href={t.href} target="_blank" rel="noopener" data-trip-end={t.end} data-trip-start={t.start}>
-              <span class="trip-swatch" aria-hidden="true"></span>
-              <span class="trip-name">{t.name}</span>
-              <span class="trip-meta">{t.place}, {tripSpan(t)}</span>
-              <span class="trip-left" data-trip-countdown></span>
-            </a>
-          ))}
-        </div>
-      )}
+      <p class="legend" aria-label="Legend">
+        <span><span class="lg-dot"></span>Application due</span>
+        <span><span class="lg-dot lg-talk"></span>Talk or event</span>
+        <span><span class="lg-bar"></span>Travel</span>
+      </p>
       <div class="cals">
         {months.map((mo) => (
           <section class="cal" data-month={`${mo.y}-${mo.m}`}>
@@ -82,7 +74,7 @@ const dayName = (mo, d) => ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'][new
                         <span class="cal-num">{cell.d}</span>
                         {cell.items.length > 0 && (
                           <span class="cal-dots">
-                            {cell.items.map((i) => <span class={`dot${i.est ? ' is-est' : ''}${i.star ? ' is-star' : ''}`}></span>)}
+                            {cell.items.map((i) => <span class={`dot${i.est ? ' is-est' : ''}${i.star ? ' is-star' : ''}${i.kind === 'talk' ? ' is-talk' : ''}`}></span>)}
                           </span>
                         )}
                         {(cell.items.length > 0 || cell.trip) && (
@@ -125,6 +117,7 @@ const dayName = (mo, d) => ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'][new
                   <span class="deadline-date">{labelFor(mo, d)}</span>
                   <span class="deadline-name">
                     {d.star && <i class="fas fa-star star-mark" aria-label="Targeting this one"></i>}
+                    {d.kind === 'talk' && <i class="fas fa-microphone talk-mark" aria-label="Talk or event"></i>}
                     {d.href
                       ? <a class="deadline-link" href={d.href} target="_blank" rel="noopener">{d.name}</a>
                       : d.name}
@@ -140,6 +133,19 @@ const dayName = (mo, d) => ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'][new
         ))}
       </div>
 
+      {trips.length > 0 && (
+        <div class="trips trips-bottom" aria-label="Upcoming trips">
+          <span class="trips-label">Travel</span>
+          {trips.map((t) => (
+            <a class="trip-chip" href={t.href} target="_blank" rel="noopener" data-trip-end={t.end} data-trip-start={t.start}>
+              <span class="trip-swatch" aria-hidden="true"></span>
+              <span class="trip-name">{t.name}</span>
+              <span class="trip-meta">{t.place}, {tripSpan(t)}</span>
+              <span class="trip-left" data-trip-countdown></span>
+            </a>
+          ))}
+        </div>
+      )}
       <p class="fineprint">Verify each against its own solicitation. A date on a weekend or federal holiday shifts to the next business day; NIH resubmissions run one month later (Mar / Jul / Nov).</p>
     </section>
   </main>
@@ -365,4 +371,22 @@ const dayName = (mo, d) => ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'][new
     .cals { grid-template-columns:1fr; }
     .months { columns:1; }
   }
+
+  /* Three kinds of day, three colors: application deadlines keep the neutral
+     row, talks and events get teal, travel keeps the orange bar. */
+  .legend { display:flex; flex-wrap:wrap; gap:6px 18px; margin:2px 0 14px; font-size:.82rem; color:#4E5C6A; }
+  .legend > span { display:inline-flex; align-items:center; gap:6px; }
+  .lg-dot { width:8px; height:8px; border-radius:50%; background:#4E5C6A; display:inline-block; }
+  .lg-dot.lg-talk { background:#0F766E; }
+  .lg-bar { width:18px; height:8px; border-radius:2px; background:#FAD6BA; box-shadow:inset 0 -2.5px 0 #F76902; display:inline-block; }
+  .deadline.kind-talk { background:#E3F2EF; box-shadow:none; }
+  .deadline.kind-talk .deadline-name, .deadline.kind-talk .deadline-link { color:#0B4F4A; }
+  .deadline.kind-talk.is-star .deadline-name, .deadline.kind-talk.is-star .deadline-link { font-weight:700; }
+  .deadline.kind-talk .star-mark { color:#0F766E; }
+  .deadline.kind-talk .deadline-left { background:#0F766E; color:#fff; }
+  .talk-mark { color:#0F766E; font-size:.66rem; margin-right:5px; }
+  .cal-dots .dot.is-talk, .cal-cell.is-trip .cal-dots .dot.is-talk { background:#0F766E; }
+  .deadline.kind-talk .deadline-left.band-past { background:#DCE5EE; color:#98A6B4; }
+  .trips-bottom .trips-label { font-size:.95rem; letter-spacing:0; text-transform:none; font-weight:700; color:#16202B; }
+  .trips-bottom { margin:18px 0 6px; padding-top:12px; border-top:1px solid #DCE5EE; }
 </style>
