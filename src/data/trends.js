@@ -6,7 +6,7 @@ export const trends = {
  "base": 2023,
  "fields": {
   "ai": {
-   "total": 18074,
+   "total": 18078,
    "journals": 11,
    "confs": [
     "NeurIPS",
@@ -23,63 +23,63 @@ export const trends = {
     {
      "label": "large language models",
      "id": "large-language-models",
-     "n": 2459,
-     "share": 13.6,
-     "growth": 435,
+     "n": 2489,
+     "share": 13.8,
+     "growth": 395,
      "papers": 10
     },
     {
      "label": "diffusion models",
      "id": "diffusion-models",
-     "n": 802,
+     "n": 796,
      "share": 4.4,
-     "growth": 166,
+     "growth": 174,
      "papers": 10
     },
     {
      "label": "vision-language models",
      "id": "vision-language-models",
-     "n": 637,
-     "share": 3.5,
-     "growth": 189,
+     "n": 653,
+     "share": 3.6,
+     "growth": 181,
      "papers": 10
     },
     {
      "label": "graph neural networks",
      "id": "graph-neural-networks",
-     "n": 540,
-     "share": 3.0,
-     "growth": -13,
+     "n": 531,
+     "share": 2.9,
+     "growth": -11,
      "papers": 10
     },
     {
      "label": "multimodal large language models",
      "id": "multimodal-large-language-models",
-     "n": 436,
-     "share": 2.4,
+     "n": 466,
+     "share": 2.6,
      "growth": null,
      "papers": 10
     },
     {
      "label": "contrastive learning",
      "id": "contrastive-learning",
-     "n": 398,
+     "n": 396,
      "share": 2.2,
-     "growth": -13,
+     "growth": -17,
      "papers": 10
     },
     {
      "label": "knowledge distillation",
      "id": "knowledge-distillation",
-     "n": 364,
-     "share": 2.0,
-     "growth": -6,
+     "n": 351,
+     "share": 1.9,
+     "growth": -9,
      "papers": 10
     },
     {
      "label": "3D Gaussian Splatting",
      "id": "3d-gaussian-splatting",
-     "n": 301,
+     "n": 304,
      "share": 1.7,
      "growth": null,
      "papers": 10
@@ -87,25 +87,33 @@ export const trends = {
     {
      "label": "reinforcement learning",
      "id": "reinforcement-learning",
-     "n": 285,
-     "share": 1.6,
-     "growth": 0,
+     "n": 280,
+     "share": 1.5,
+     "growth": 24,
      "papers": 10
     },
     {
      "label": "self-supervised learning",
      "id": "self-supervised-learning",
-     "n": 273,
+     "n": 280,
      "share": 1.5,
-     "growth": -42,
+     "growth": -45,
      "papers": 10
     },
     {
      "label": "transformer models",
      "id": "transformer",
-     "n": 243,
+     "n": 244,
      "share": 1.3,
-     "growth": -17,
+     "growth": -18,
+     "papers": 10
+    },
+    {
+     "label": "text-to-image generation",
+     "id": "text-to-image-generation",
+     "n": 241,
+     "share": 1.3,
+     "growth": 135,
      "papers": 10
     },
     {
@@ -113,75 +121,67 @@ export const trends = {
      "id": "data-augmentation",
      "n": 237,
      "share": 1.3,
-     "growth": -15,
-     "papers": 10
-    },
-    {
-     "label": "text-to-image generation",
-     "id": "text-to-image-generation",
-     "n": 233,
-     "share": 1.3,
-     "growth": 137,
+     "growth": -20,
      "papers": 10
     },
     {
      "label": "retrieval-augmented generation",
      "id": "retrieval-augmented-generation",
-     "n": 213,
+     "n": 225,
      "share": 1.2,
-     "growth": 897,
-     "papers": 10
-    },
-    {
-     "label": "CLIP",
-     "id": "clip",
-     "n": 209,
-     "share": 1.2,
-     "growth": 33,
-     "papers": 10
-    },
-    {
-     "label": "fine-tuning",
-     "id": "fine-tuning",
-     "n": 206,
-     "share": 1.1,
-     "growth": 59,
+     "growth": 1217,
      "papers": 10
     },
     {
      "label": "distribution shift",
      "id": "distribution-shift",
-     "n": 202,
-     "share": 1.1,
-     "growth": 20,
+     "n": 224,
+     "share": 1.2,
+     "growth": -9,
      "papers": 10
     },
     {
-     "label": "generative models",
-     "id": "generative-models",
-     "n": 201,
-     "share": 1.1,
-     "growth": 11,
+     "label": "CLIP",
+     "id": "clip",
+     "n": 218,
+     "share": 1.2,
+     "growth": 2,
+     "papers": 10
+    },
+    {
+     "label": "fine-tuning",
+     "id": "fine-tuning",
+     "n": 216,
+     "share": 1.2,
+     "growth": 39,
      "papers": 10
     },
     {
      "label": "parameter-efficient fine-tuning",
      "id": "parameter-efficient-fine-tuning",
-     "n": 200,
+     "n": 208,
+     "share": 1.2,
+     "growth": 181,
+     "papers": 10
+    },
+    {
+     "label": "catastrophic forgetting",
+     "id": "catastrophic-forgetting",
+     "n": 199,
      "share": 1.1,
-     "growth": 170,
+     "growth": 16,
      "papers": 10
     },
     {
      "label": "autonomous driving",
      "id": "autonomous-driving",
-     "n": 197,
+     "n": 196,
      "share": 1.1,
-     "growth": 29,
+     "growth": 18,
      "papers": 10
     }
    ],
-   "built": "2026-10-20"
+   "built": "2026-11-17"
   },
   "security": {
    "total": 2815,
