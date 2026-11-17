@@ -64,6 +64,7 @@ const TRACKERS = [
                aria-current={current === l.key || (l.also || []).includes(current) ? 'page' : undefined}>
               {l.label} <i class="fas fa-angle-down nav-caret" aria-hidden="true"></i>
             </a>
+            <button class="nav-sub-toggle" type="button" aria-expanded="false" aria-label={`Show ${l.label} pages`}><i class="fas fa-angle-down" aria-hidden="true"></i></button>
             <div class="nav-sub" role="menu">
               {l.menu.map((m) => (
                 <a href={m.href} role="menuitem" class={m.key && current === m.key ? 'is-here' : undefined}>{m.label}</a>
@@ -83,6 +84,7 @@ const TRACKERS = [
                aria-current={current === l.key || (l.also || []).includes(current) ? 'page' : undefined}>
               <span class="nav-cal-wrap">{l.label}{l.cal && <svg class="nav-cal" viewBox="0 0 20 20" role="img" aria-label="Deadline calendar"><title>Deadline calendar</title><rect x="1.5" y="3" width="17" height="15.5" rx="2.5" fill="#fff" stroke="currentColor" stroke-width="1.4"/><path d="M1.5 5.5a2.5 2.5 0 0 1 2.5-2.5h12a2.5 2.5 0 0 1 2.5 2.5V7.5h-17z" fill="currentColor"/><rect x="5.2" y="1" width="1.6" height="4" rx=".8" fill="currentColor"/><rect x="13.2" y="1" width="1.6" height="4" rx=".8" fill="currentColor"/><text x="10" y="16" text-anchor="middle" font-size="7.6" font-weight="700" font-family="system-ui,-apple-system,Segoe UI,Arial,sans-serif" fill="currentColor">Cal</text></svg>}</span> <i class="fas fa-angle-down nav-caret" aria-hidden="true"></i>
             </a>
+            <button class="nav-sub-toggle" type="button" aria-expanded="false" aria-label={`Show ${l.label} pages`}><i class="fas fa-angle-down" aria-hidden="true"></i></button>
             <div class="nav-sub" role="menu">
               {l.menu.map((m) => (
                 <a href={m.href} role="menuitem" class={current === m.key ? 'is-here' : undefined}>{m.label}{m.beta && <sup class="nav-beta">beta</sup>}</a>
@@ -113,6 +115,7 @@ const TRACKERS = [
   .top-nav a[aria-current="page"]:hover { background:transparent; }
   .nav-ghost { opacity:.55; font-size:.72em; }
   .nav-menu { position:relative; display:flex; }
+  .nav-sub-toggle { display:none; }
   .nav-caret { font-size:.7em; opacity:.55; margin-left:2px; }
   /* The menu hangs just under the button. A transparent band above it keeps
      the pointer inside the hover area on its way down. */
@@ -161,10 +164,18 @@ const TRACKERS = [
     .top-nav.nav-open .nav-links a[aria-current="page"] { background:transparent; box-shadow:inset 2px 0 0 #C45200; }
     .nav-links a { width:auto; min-width:0; text-align:left; justify-content:flex-start;
       padding:10px 12px; font-size:.98rem; white-space:nowrap; }
-    /* In the phone panel the menu is simply listed, indented under its button. */
-    .nav-menu { flex-direction:column; }
+    /* In the phone panel only the top level shows. A menu's pages stay folded
+       until the arrow beside it is tapped. The name itself still opens its page. */
+    .nav-menu { display:grid; grid-template-columns:minmax(0,1fr) auto; align-items:center; }
     .nav-caret { display:none; }
-    .nav-sub { display:flex; position:static; padding:0 0 0 14px; min-width:0; }
+    .nav-sub-toggle { display:inline-flex; align-items:center; justify-content:center;
+      width:40px; height:40px; border:none; background:transparent; color:#4E5C6A;
+      border-radius:6px; cursor:pointer; font-size:.95rem; }
+    .nav-sub-toggle:hover { background:#EAF0F6; }
+    .nav-sub-toggle i { transition:transform .15s; }
+    .nav-menu.sub-open .nav-sub-toggle i { transform:rotate(180deg); }
+    .nav-sub, .nav-menu:hover .nav-sub, .nav-menu:focus-within .nav-sub { display:none; }
+    .nav-menu.sub-open .nav-sub { display:flex; grid-column:1 / -1; position:static; padding:0 0 4px 14px; min-width:0; }
     .nav-sub::before { display:none; }
     .top-nav .nav-sub a { font-size:.9rem; padding:7px 12px; }
   }
@@ -176,12 +187,19 @@ const TRACKERS = [
   const close = () => {
     nav?.classList.remove('nav-open');
     toggle?.setAttribute('aria-expanded', 'false');
+    nav?.querySelectorAll('.nav-menu.sub-open').forEach((m) => m.classList.remove('sub-open'));
+    nav?.querySelectorAll('.nav-sub-toggle').forEach((b) => b.setAttribute('aria-expanded', 'false'));
   };
   toggle?.addEventListener('click', () => {
     const open = nav?.classList.toggle('nav-open');
     toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
   });
   nav?.querySelectorAll('.nav-links a').forEach((a) => a.addEventListener('click', close));
+  // Phone panel: the arrow beside a menu folds its pages in and out.
+  nav?.querySelectorAll('.nav-sub-toggle').forEach((b) => b.addEventListener('click', () => {
+    const open = b.parentElement?.classList.toggle('sub-open');
+    b.setAttribute('aria-expanded', open ? 'true' : 'false');
+  }));
   document.addEventListener('click', (e) => {
     if (!nav?.classList.contains('nav-open')) return;
     if (!nav.contains(e.target)) close();
