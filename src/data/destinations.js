@@ -3,7 +3,7 @@
 // CCF A or B, or CORE A* or A, every hand-kept venue on the field
 // tabs, and the venues added by hand in the script. Destinations mix cities, countries and
 // regions, because that is how people choose where to go.
-// Built 2026-11-17.
+// Built 2026-11-18.
 export const destinations = {
  "items": [
   {
@@ -1568,6 +1568,38 @@ export const destinations = {
    ],
    "lat": 35.0116,
    "lon": 135.7681
+  },
+  {
+   "title": "ACM MM",
+   "desc": "ACM International Conference on Multimedia",
+   "year": 2027,
+   "place": "Hong Kong SAR, China",
+   "date": "November 8-12, 2027",
+   "city": "Hong Kong",
+   "country": "Hong Kong",
+   "dest": "Hong Kong",
+   "icon": "city",
+   "ccf": "A",
+   "core": "A*",
+   "sub": "CG",
+   "deadline": "",
+   "open": false,
+   "link": "https://2027.acmmm.org/",
+   "q": "hong kong sar, china hong kong hong kong ",
+   "field": "Graphics & multimedia",
+   "group": "computing",
+   "honors": [
+    {
+     "t": "CCF A",
+     "k": "ccf-a"
+    },
+    {
+     "t": "CORE A*",
+     "k": "core-as"
+    }
+   ],
+   "lat": 22.3492,
+   "lon": 114.1858
   },
   {
    "title": "ACM SIGGRAPH",
@@ -5039,7 +5071,7 @@ export const destinations = {
    "ccf": "B",
    "core": "A",
    "sub": "NW",
-   "deadline": "2026-11-17",
+   "deadline": "2027-04-07",
    "open": true,
    "link": "https://conferences.sigcomm.org/imc/2027/",
    "q": "atlanta, ga, usa atlanta united states georgia",
@@ -6723,7 +6755,7 @@ export const destinations = {
    "core": "A*",
    "sub": "SC",
    "deadline": "2026-11-17",
-   "open": true,
+   "open": false,
    "link": "https://sp2027.ieee-security.org/index.html",
    "q": "montreal, canada montreal canada ",
    "field": "Security",
@@ -7232,6 +7264,38 @@ export const destinations = {
    ],
    "lat": 33.6783,
    "lon": -118.0
+  },
+  {
+   "title": "SIGOPS ATC",
+   "desc": "ACM SIGOPS Annual Technical Conference",
+   "year": 2027,
+   "place": "Rennes, France",
+   "date": "June 28-July 1, 2027",
+   "city": "Rennes",
+   "country": "France",
+   "dest": "France",
+   "icon": "wine-bottle",
+   "ccf": "A",
+   "core": "A",
+   "sub": "DS",
+   "deadline": "2027-01-19",
+   "open": true,
+   "link": "https://atc.sigops.org/2027/",
+   "q": "rennes, france rennes france ",
+   "field": "Architecture & systems",
+   "group": "computing",
+   "honors": [
+    {
+     "t": "CCF A",
+     "k": "ccf-a"
+    },
+    {
+     "t": "CORE A",
+     "k": "core-a"
+    }
+   ],
+   "lat": 48.1113,
+   "lon": -1.68
   },
   {
    "title": "SLEEP",
@@ -7804,7 +7868,7 @@ export const destinations = {
    "core": "A",
    "sub": "DB",
    "deadline": "2026-11-17",
-   "open": true,
+   "open": false,
    "link": "https://wsdm-conference.org/2027/",
    "q": "cordis, hong kong sar, china hong kong hong kong ",
    "field": "AI · ML · Data Mining",
@@ -8072,7 +8136,7 @@ export const destinations = {
   {
    "name": "Hong Kong",
    "icon": "city",
-   "n": 6
+   "n": 7
   },
   {
    "name": "Montreal",
@@ -8122,7 +8186,7 @@ export const destinations = {
   {
    "name": "France",
    "icon": "wine-bottle",
-   "n": 4
+   "n": 5
   },
   {
    "name": "Germany",
