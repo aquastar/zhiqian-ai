@@ -6,7 +6,7 @@
     "opportunities": 24,
     "early_signals": 0,
     "registry": 316,
-    "watchlist": 265
+    "watchlist": 267
   },
   "opportunities": [
     {
@@ -8787,6 +8787,24 @@
       "typical_cycle": "rolling",
       "access": "varies",
       "why_niche_or_notes": "HHS prize list not always on usa.gov"
+    },
+    {
+      "funder": "Music4Pain Network (NIH U24 music and pain)",
+      "category": "health_accessibility",
+      "opportunities_url": "https://music4pain.org/funding/rfa/",
+      "url_verified": "N",
+      "typical_cycle": "Pilot RFA under the NIH music networks",
+      "access": "open",
+      "why_niche_or_notes": "Sister of the UCSF MDRN and UCI ENSEMBLE networks. One year mechanistic pilots on music based interventions for pain. Added 2026-11-18 for line 6"
+    },
+    {
+      "funder": "UCSF Sound Health Network",
+      "category": "health_accessibility",
+      "opportunities_url": "https://soundhealth.ucsf.edu/funding-opportunities",
+      "url_verified": "N",
+      "typical_cycle": "Irregular",
+      "access": "open",
+      "why_niche_or_notes": "NEA funded hub for music and health research. Lists field wide funding calls. Added 2026-11-18 for line 6"
     }
   ]
 }
