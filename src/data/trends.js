@@ -1896,7 +1896,7 @@ export const trends = {
    "built": "2026-10-20"
   },
   "amath": {
-   "total": 1127,
+   "total": 1124,
    "journals": 4,
    "confs": [],
    "missing": [],
@@ -1906,23 +1906,23 @@ export const trends = {
      "id": "physics-informed-neural-networks",
      "n": 45,
      "share": 4.0,
-     "growth": 37,
+     "growth": 46,
      "papers": 10
     },
     {
      "label": "discontinuous Galerkin method",
      "id": "discontinuous-galerkin-method",
-     "n": 41,
-     "share": 3.6,
-     "growth": 52,
+     "n": 39,
+     "share": 3.5,
+     "growth": 43,
      "papers": 10
     },
     {
      "label": "partial differential equations",
      "id": "partial-differential-equations",
-     "n": 40,
+     "n": 39,
      "share": 3.5,
-     "growth": 22,
+     "growth": 14,
      "papers": 10
     },
     {
@@ -1930,7 +1930,7 @@ export const trends = {
      "id": "model-reduction",
      "n": 38,
      "share": 3.4,
-     "growth": -19,
+     "growth": -20,
      "papers": 10
     },
     {
@@ -1938,7 +1938,7 @@ export const trends = {
      "id": "uncertainty-quantification",
      "n": 29,
      "share": 2.6,
-     "growth": 3,
+     "growth": 2,
      "papers": 10
     },
     {
@@ -1954,15 +1954,31 @@ export const trends = {
      "id": "fluid-structure-interaction",
      "n": 27,
      "share": 2.4,
-     "growth": 35,
+     "growth": 52,
      "papers": 10
     },
     {
      "label": "hyperbolic conservation laws",
      "id": "hyperbolic-conservation-laws",
+     "n": 26,
+     "share": 2.3,
+     "growth": 83,
+     "papers": 10
+    },
+    {
+     "label": "unstructured grid",
+     "id": "unstructured-meshes",
+     "n": 26,
+     "share": 2.3,
+     "growth": 16,
+     "papers": 10
+    },
+    {
+     "label": "Navier-Stokes equations",
+     "id": "navier-stokes-equations",
      "n": 25,
      "share": 2.2,
-     "growth": 77,
+     "growth": 41,
      "papers": 10
     },
     {
@@ -1970,29 +1986,21 @@ export const trends = {
      "id": "phase-field-model",
      "n": 25,
      "share": 2.2,
-     "growth": 136,
+     "growth": 135,
      "papers": 10
     },
     {
-     "label": "unstructured grid",
-     "id": "unstructured-meshes",
-     "n": 25,
-     "share": 2.2,
-     "growth": 6,
-     "papers": 10
-    },
-    {
-     "label": "Navier-Stokes equations",
-     "id": "navier-stokes-equations",
-     "n": 24,
-     "share": 2.1,
-     "growth": 46,
+     "label": "multiphase flow",
+     "id": "multiphase-flow",
+     "n": 23,
+     "share": 2.0,
+     "growth": -15,
      "papers": 10
     },
     {
      "label": "finite volume method",
      "id": "finite-volume-method",
-     "n": 23,
+     "n": 22,
      "share": 2.0,
      "growth": -11,
      "papers": 10
@@ -2000,17 +2008,9 @@ export const trends = {
     {
      "label": "numerical stability",
      "id": "numerical-stability",
-     "n": 23,
-     "share": 2.0,
-     "growth": -7,
-     "papers": 10
-    },
-    {
-     "label": "multiphase flow",
-     "id": "multiphase-flow",
      "n": 22,
      "share": 2.0,
-     "growth": -22,
+     "growth": -11,
      "papers": 10
     },
     {
@@ -2018,7 +2018,7 @@ export const trends = {
      "id": "surrogate-modeling",
      "n": 22,
      "share": 2.0,
-     "growth": 44,
+     "growth": 43,
      "papers": 10
     },
     {
@@ -2026,43 +2026,43 @@ export const trends = {
      "id": "two-phase-flow",
      "n": 22,
      "share": 2.0,
-     "growth": 17,
+     "growth": 3,
      "papers": 10
     },
     {
-     "label": "adaptive mesh refinement",
-     "id": "adaptive-mesh-refinement",
-     "n": 21,
-     "share": 1.9,
-     "growth": 28,
+     "label": "computational complexity reduction",
+     "id": "computational-cost-reduction",
+     "n": 20,
+     "share": 1.8,
+     "growth": 13,
      "papers": 10
     },
     {
      "label": "Euler equations",
      "id": "euler-equations",
-     "n": 19,
-     "share": 1.7,
-     "growth": 1,
+     "n": 20,
+     "share": 1.8,
+     "growth": -1,
      "papers": 10
     },
     {
      "label": "high-order accuracy",
      "id": "high-order-accuracy",
-     "n": 19,
-     "share": 1.7,
-     "growth": -10,
+     "n": 20,
+     "share": 1.8,
+     "growth": -6,
      "papers": 10
     },
     {
-     "label": "compressible flow",
-     "id": "compressible-flow",
-     "n": 18,
-     "share": 1.6,
-     "growth": -19,
+     "label": "neural operators",
+     "id": "neural-operators",
+     "n": 19,
+     "share": 1.7,
+     "growth": 221,
      "papers": 10
     }
    ],
-   "built": "2026-10-20"
+   "built": "2026-11-18"
   },
   "neuro": {
    "total": 7984,
