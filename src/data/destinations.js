@@ -3,7 +3,7 @@
 // CCF A or B, or CORE A* or A, every hand-kept venue on the field
 // tabs, and the venues added by hand in the script. Destinations mix cities, countries and
 // regions, because that is how people choose where to go.
-// Built 2026-11-18.
+// Built 2026-11-19.
 export const destinations = {
  "items": [
   {
@@ -2931,7 +2931,7 @@ export const destinations = {
    "core": "A*",
    "sub": "DS",
    "deadline": "2026-11-18",
-   "open": true,
+   "open": false,
    "link": "https://dac.com/2027/authors/call-for-contributions",
    "q": "san jose, ca san jose united states california",
    "field": "Hardware & EDA",
@@ -4392,8 +4392,8 @@ export const destinations = {
    "ccf": "B",
    "core": "A",
    "sub": "DS",
-   "deadline": "",
-   "open": false,
+   "deadline": "2027-01-13",
+   "open": true,
    "link": "https://icdcs2027.icdcs.org/",
    "q": "melbourne, australia melbourne australia ",
    "field": "Architecture & systems",
@@ -5367,6 +5367,38 @@ export const destinations = {
    "lon": 32.4232
   },
   {
+   "title": "ISMAR",
+   "desc": "International Symposium on Mixed and Augmented Reality",
+   "year": 2027,
+   "place": "Kobe, Japan",
+   "date": "TBD",
+   "city": "Kobe",
+   "country": "Japan",
+   "dest": "Japan",
+   "icon": "torii-gate",
+   "ccf": "B",
+   "core": "A*",
+   "sub": "CG",
+   "deadline": "",
+   "open": false,
+   "link": "https://www.ieeeismar.net/2027/",
+   "q": "kobe, japan kobe japan ",
+   "field": "Graphics & multimedia",
+   "group": "computing",
+   "honors": [
+    {
+     "t": "CORE A*",
+     "k": "core-as"
+    },
+    {
+     "t": "CCF B",
+     "k": "ccf-b"
+    }
+   ],
+   "lat": 34.6932,
+   "lon": 135.1944
+  },
+  {
    "title": "ISMB",
    "desc": "International Conference on Intelligent Systems for Molecular Biology",
    "year": 2027,
@@ -5701,6 +5733,38 @@ export const destinations = {
    ],
    "lat": -36.8521,
    "lon": 174.7632
+  },
+  {
+   "title": "Middleware",
+   "desc": "International Middleware Conference",
+   "year": 2027,
+   "place": "Kyoto, Japan",
+   "date": "December 13-17, 2027",
+   "city": "Kyoto",
+   "country": "Japan",
+   "dest": "Japan",
+   "icon": "torii-gate",
+   "ccf": "B",
+   "core": "A",
+   "sub": "SE",
+   "deadline": "2026-12-04",
+   "open": true,
+   "link": "https://middleware-conf.github.io/2027/",
+   "q": "kyoto, japan kyoto japan ",
+   "field": "Software engineering",
+   "group": "computing",
+   "honors": [
+    {
+     "t": "CCF B",
+     "k": "ccf-b"
+    },
+    {
+     "t": "CORE A",
+     "k": "core-a"
+    }
+   ],
+   "lat": 35.0116,
+   "lon": 135.7681
   },
   {
    "title": "MIDL",
@@ -8156,7 +8220,7 @@ export const destinations = {
   {
    "name": "Japan",
    "icon": "torii-gate",
-   "n": 10
+   "n": 12
   },
   {
    "name": "California",
