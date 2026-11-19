@@ -536,7 +536,7 @@ export const trends = {
    "built": "2026-10-20"
   },
   "audio": {
-   "total": 4599,
+   "total": 4596,
    "journals": 4,
    "confs": [
     "ICASSP",
@@ -551,55 +551,47 @@ export const trends = {
      "id": "large-language-models",
      "n": 248,
      "share": 5.4,
-     "growth": 2216,
+     "growth": 1830,
      "papers": 10
     },
     {
      "label": "speech recognition",
      "id": "speech-recognition",
-     "n": 240,
-     "share": 5.2,
-     "growth": -30,
+     "n": 204,
+     "share": 4.4,
+     "growth": -29,
      "papers": 10
     },
     {
      "label": "diffusion models",
      "id": "diffusion-models",
-     "n": 134,
-     "share": 2.9,
-     "growth": 268,
-     "papers": 10
-    },
-    {
-     "label": "speech enhancement",
-     "id": "speech-enhancement",
-     "n": 130,
-     "share": 2.8,
-     "growth": -27,
+     "n": 136,
+     "share": 3.0,
+     "growth": 323,
      "papers": 10
     },
     {
      "label": "self-supervised learning",
      "id": "self-supervised-learning",
-     "n": 129,
-     "share": 2.8,
+     "n": 133,
+     "share": 2.9,
      "growth": -19,
-     "papers": 10
-    },
-    {
-     "label": "speech synthesis",
-     "id": "speech-synthesis",
-     "n": 124,
-     "share": 2.7,
-     "growth": 22,
      "papers": 10
     },
     {
      "label": "contrastive learning",
      "id": "contrastive-learning",
-     "n": 116,
+     "n": 117,
      "share": 2.5,
-     "growth": -2,
+     "growth": -1,
+     "papers": 10
+    },
+    {
+     "label": "speech enhancement",
+     "id": "speech-enhancement",
+     "n": 112,
+     "share": 2.4,
+     "growth": -31,
      "papers": 10
     },
     {
@@ -607,47 +599,63 @@ export const trends = {
      "id": "knowledge-distillation",
      "n": 101,
      "share": 2.2,
-     "growth": -7,
+     "growth": -11,
      "papers": 10
     },
     {
      "label": "text-to-speech",
      "id": "text-to-speech",
-     "n": 93,
-     "share": 2.0,
-     "growth": 1,
+     "n": 97,
+     "share": 2.1,
+     "growth": 3,
      "papers": 10
     },
     {
      "label": "data augmentation",
      "id": "data-augmentation",
-     "n": 86,
-     "share": 1.9,
-     "growth": -25,
+     "n": 94,
+     "share": 2.0,
+     "growth": -26,
      "papers": 10
     },
     {
-     "label": "Mamba",
-     "id": "mamba",
-     "n": 78,
-     "share": 1.7,
-     "growth": null,
+     "label": "speech synthesis",
+     "id": "speech-synthesis",
+     "n": 91,
+     "share": 2.0,
+     "growth": 21,
      "papers": 10
     },
     {
      "label": "low-resource languages",
      "id": "low-resource-languages",
+     "n": 81,
+     "share": 1.8,
+     "growth": 15,
+     "papers": 10
+    },
+    {
+     "label": "Mamba",
+     "id": "mamba",
      "n": 77,
      "share": 1.7,
-     "growth": 7,
+     "growth": null,
+     "papers": 10
+    },
+    {
+     "label": "fine-tuning",
+     "id": "fine-tuning",
+     "n": 75,
+     "share": 1.6,
+     "growth": -3,
      "papers": 10
     },
     {
      "label": "multimodal fusion",
      "id": "multimodal-fusion",
-     "n": 74,
+     "n": 75,
      "share": 1.6,
-     "growth": 6,
+     "growth": 27,
      "papers": 10
     },
     {
@@ -655,59 +663,51 @@ export const trends = {
      "id": "graph-neural-networks",
      "n": 73,
      "share": 1.6,
-     "growth": 51,
+     "growth": 52,
      "papers": 10
     },
     {
      "label": "speech emotion recognition",
      "id": "speech-emotion-recognition",
-     "n": 72,
-     "share": 1.6,
-     "growth": -28,
-     "papers": 10
-    },
-    {
-     "label": "transformer models",
-     "id": "transformer",
      "n": 71,
      "share": 1.5,
-     "growth": -13,
-     "papers": 10
-    },
-    {
-     "label": "fine-tuning",
-     "id": "fine-tuning",
-     "n": 67,
-     "share": 1.5,
-     "growth": 14,
+     "growth": -29,
      "papers": 10
     },
     {
      "label": "multi-task learning",
      "id": "multi-task-learning",
-     "n": 63,
-     "share": 1.4,
-     "growth": -27,
-     "papers": 10
-    },
-    {
-     "label": "domain adaptation",
-     "id": "domain-adaptation",
-     "n": 62,
-     "share": 1.3,
+     "n": 70,
+     "share": 1.5,
      "growth": -23,
      "papers": 10
     },
     {
-     "label": "speaker verification",
-     "id": "speaker-verification",
-     "n": 55,
-     "share": 1.2,
-     "growth": -38,
+     "label": "transformer models",
+     "id": "transformer",
+     "n": 70,
+     "share": 1.5,
+     "growth": -15,
+     "papers": 10
+    },
+    {
+     "label": "Whisper",
+     "id": "whisper",
+     "n": 68,
+     "share": 1.5,
+     "growth": 253,
+     "papers": 10
+    },
+    {
+     "label": "pseudo-labeling",
+     "id": "pseudo-labeling",
+     "n": 59,
+     "share": 1.3,
+     "growth": 20,
      "papers": 10
     }
    ],
-   "built": "2026-10-20"
+   "built": "2026-11-19"
   },
   "ts": {
    "total": 184,
