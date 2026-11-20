@@ -3,7 +3,7 @@
 // CCF A or B, or CORE A* or A, every hand-kept venue on the field
 // tabs, and the venues added by hand in the script. Destinations mix cities, countries and
 // regions, because that is how people choose where to go.
-// Built 2026-11-19.
+// Built 2026-11-20.
 export const destinations = {
  "items": [
   {
@@ -3362,7 +3362,7 @@ export const destinations = {
    "ccf": "B",
    "core": "A",
    "sub": "SE",
-   "deadline": "2026-11-19",
+   "deadline": "2027-02-11",
    "open": true,
    "link": "https://2027.ecoop.org/",
    "q": "turin, italy turin italy ",
@@ -3380,6 +3380,38 @@ export const destinations = {
    ],
    "lat": 45.0678,
    "lon": 7.6825
+  },
+  {
+   "title": "ECSCW",
+   "desc": "European Conference on Computer Supported Cooperative Work",
+   "year": 2027,
+   "place": "Limassol, Cyprus",
+   "date": "July 5-9, 2027",
+   "city": "Limassol",
+   "country": "Cyprus",
+   "dest": "South America",
+   "icon": "mountain-sun",
+   "ccf": "B",
+   "core": "B",
+   "sub": "HI",
+   "deadline": "",
+   "open": false,
+   "link": "https://ecscw.eusset.eu/2027/",
+   "q": "limassol, cyprus limassol cyprus ",
+   "field": "HCI",
+   "group": "computing",
+   "honors": [
+    {
+     "t": "CCF B",
+     "k": "ccf-b"
+    },
+    {
+     "t": "CORE B",
+     "k": "core-b"
+    }
+   ],
+   "lat": 34.6853,
+   "lon": 33.0333
   },
   {
    "title": "EDBT",
@@ -4157,6 +4189,38 @@ export const destinations = {
    "lon": -111.8868
   },
   {
+   "title": "HPDC",
+   "desc": "ACM Symposium on High-Performance Parallel and Distributed Computing",
+   "year": 2027,
+   "place": "Atlanta, GA, USA",
+   "date": "June 7-9, 2027",
+   "city": "Atlanta",
+   "country": "United States",
+   "dest": "",
+   "icon": "",
+   "ccf": "A",
+   "core": "A",
+   "sub": "DS",
+   "deadline": "2027-01-18",
+   "open": true,
+   "link": "https://hpdc.sci.utah.edu/2027/",
+   "q": "atlanta, ga, usa atlanta united states georgia",
+   "field": "Architecture & systems",
+   "group": "computing",
+   "honors": [
+    {
+     "t": "CCF A",
+     "k": "ccf-a"
+    },
+    {
+     "t": "CORE A",
+     "k": "core-a"
+    }
+   ],
+   "lat": 33.7545,
+   "lon": -84.3898
+  },
+  {
    "title": "HSCC",
    "desc": "International Conference on Hybrid Systems: Computation and Control",
    "year": 2027,
@@ -4857,7 +4921,7 @@ export const destinations = {
    "ccf": "B",
    "core": "A",
    "sub": "SE",
-   "deadline": "2027-03-05",
+   "deadline": "2027-02-26",
    "open": true,
    "link": "https://conf.researchr.org/home/icsme-2027",
    "q": "toronto, canada toronto canada ",
@@ -5675,8 +5739,8 @@ export const destinations = {
    "ccf": "A",
    "core": "A*",
    "sub": "CT",
-   "deadline": "",
-   "open": false,
+   "deadline": "2027-01-21",
+   "open": true,
    "link": "https://lics.siglog.org/lics27/",
    "q": "montréal, canada montreal canada ",
    "field": "Theoretical CS",
@@ -5825,7 +5889,7 @@ export const destinations = {
    "core": "A",
    "sub": "NW",
    "deadline": "2026-11-19",
-   "open": true,
+   "open": false,
    "link": "https://2027.acmmmsys.org",
    "q": "ghent, belgium ghent belgium ",
    "field": "Networking",
@@ -7206,7 +7270,7 @@ export const destinations = {
    "desc": "International Conference on Research on Development in Information Retrieval",
    "year": 2027,
    "place": "San Jose, California, USA",
-   "date": "July 18-24, 2027",
+   "date": "July 20-22, 2027",
    "city": "San Jose",
    "country": "United States",
    "dest": "California",
@@ -7718,6 +7782,38 @@ export const destinations = {
    ],
    "lat": 37.5667,
    "lon": 126.9783
+  },
+  {
+   "title": "UIST",
+   "desc": "ACM Symposium on User Interface Software and Technology",
+   "year": 2027,
+   "place": "VIECON - Vienna Congress & Convention Center, Vienna, Austria",
+   "date": "October 27-29, 2027",
+   "city": "Vienna",
+   "country": "Austria",
+   "dest": "",
+   "icon": "",
+   "ccf": "A",
+   "core": "A*",
+   "sub": "HI",
+   "deadline": "2027-04-07",
+   "open": true,
+   "link": "https://uist.acm.org/2027/",
+   "q": "viecon - vienna congress & convention center, vienna, austria vienna austria ",
+   "field": "HCI",
+   "group": "computing",
+   "honors": [
+    {
+     "t": "CCF A",
+     "k": "ccf-a"
+    },
+    {
+     "t": "CORE A*",
+     "k": "core-as"
+    }
+   ],
+   "lat": 48.2084,
+   "lon": 16.3725
   },
   {
    "title": "UNCECOMP",
@@ -8270,7 +8366,7 @@ export const destinations = {
   {
    "name": "South America",
    "icon": "mountain-sun",
-   "n": 8
+   "n": 9
   },
   {
    "name": "Southeast Asia",
