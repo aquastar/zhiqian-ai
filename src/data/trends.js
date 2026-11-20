@@ -2572,7 +2572,7 @@ export const trends = {
    "built": "2026-10-20"
   },
   "biomed": {
-   "total": 4541,
+   "total": 4537,
    "journals": 8,
    "confs": [
     "ISBI"
@@ -2584,9 +2584,9 @@ export const trends = {
     {
      "label": "large language models",
      "id": "large-language-models",
-     "n": 277,
-     "share": 6.1,
-     "growth": 533,
+     "n": 273,
+     "share": 6.0,
+     "growth": 558,
      "papers": 10
     },
     {
@@ -2600,16 +2600,16 @@ export const trends = {
     {
      "label": "electronic health records",
      "id": "electronic-health-records",
-     "n": 178,
+     "n": 176,
      "share": 3.9,
-     "growth": -27,
+     "growth": -28,
      "papers": 10
     },
     {
      "label": "clinical decision support",
      "id": "clinical-decision-support",
-     "n": 139,
-     "share": 3.1,
+     "n": 138,
+     "share": 3.0,
      "growth": 16,
      "papers": 10
     },
@@ -2618,15 +2618,7 @@ export const trends = {
      "id": "self-supervised-learning",
      "n": 111,
      "share": 2.4,
-     "growth": -17,
-     "papers": 10
-    },
-    {
-     "label": "diffusion models",
-     "id": "diffusion-models",
-     "n": 96,
-     "share": 2.1,
-     "growth": 558,
+     "growth": -18,
      "papers": 10
     },
     {
@@ -2638,19 +2630,27 @@ export const trends = {
      "papers": 10
     },
     {
+     "label": "diffusion models",
+     "id": "diffusion-models",
+     "n": 95,
+     "share": 2.1,
+     "growth": 541,
+     "papers": 10
+    },
+    {
      "label": "multimodal fusion",
      "id": "multimodal-fusion",
      "n": 94,
      "share": 2.1,
-     "growth": 95,
+     "growth": 92,
      "papers": 10
     },
     {
      "label": "explainable AI",
      "id": "explainable-ai",
-     "n": 81,
+     "n": 82,
      "share": 1.8,
-     "growth": 85,
+     "growth": 91,
      "papers": 10
     },
     {
@@ -2658,7 +2658,7 @@ export const trends = {
      "id": "semi-supervised-learning",
      "n": 79,
      "share": 1.7,
-     "growth": 13,
+     "growth": 11,
      "papers": 10
     },
     {
@@ -2666,15 +2666,15 @@ export const trends = {
      "id": "graph-neural-networks",
      "n": 76,
      "share": 1.7,
-     "growth": 27,
+     "growth": 28,
      "papers": 10
     },
     {
      "label": "transformer models",
      "id": "transformer",
-     "n": 75,
+     "n": 76,
      "share": 1.7,
-     "growth": -24,
+     "growth": -26,
      "papers": 10
     },
     {
@@ -2682,7 +2682,7 @@ export const trends = {
      "id": "convolutional-neural-networks",
      "n": 74,
      "share": 1.6,
-     "growth": -11,
+     "growth": -8,
      "papers": 10
     },
     {
@@ -2690,7 +2690,7 @@ export const trends = {
      "id": "federated-learning",
      "n": 70,
      "share": 1.5,
-     "growth": 23,
+     "growth": 21,
      "papers": 10
     },
     {
@@ -2698,7 +2698,7 @@ export const trends = {
      "id": "alzheimer-s-disease",
      "n": 69,
      "share": 1.5,
-     "growth": 7,
+     "growth": 6,
      "papers": 10
     },
     {
@@ -2706,7 +2706,7 @@ export const trends = {
      "id": "vision-transformer",
      "n": 69,
      "share": 1.5,
-     "growth": 89,
+     "growth": 94,
      "papers": 10
     },
     {
@@ -2722,7 +2722,7 @@ export const trends = {
      "id": "whole-slide-images",
      "n": 66,
      "share": 1.5,
-     "growth": -2,
+     "growth": -3,
      "papers": 10
     },
     {
@@ -2730,19 +2730,19 @@ export const trends = {
      "id": "pseudo-labeling",
      "n": 64,
      "share": 1.4,
-     "growth": 2,
+     "growth": 0,
      "papers": 10
     },
     {
      "label": "artificial intelligence in healthcare",
      "id": "artificial-intelligence-in-healthcare",
-     "n": 61,
+     "n": 60,
      "share": 1.3,
-     "growth": 99,
+     "growth": 102,
      "papers": 10
     }
    ],
-   "built": "2026-10-20"
+   "built": "2026-11-20"
   },
   "epi": {
    "total": 1233,
