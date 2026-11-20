@@ -31,7 +31,7 @@ first_seen_date,sponsor,program,deadline,url
 2026-10-09,NIH NLM,"PAR-26-042, PAR-26-040, PAR-25-235, PAR-25-131",resubmissions Oct to Nov 2026,https://simpler.grants.gov/opportunity/131fabad-5506-431b-b87a-e564f1d8dcc4
 2026-10-09,NIH Common Fund,Human Virome R03 RFA-RM-27-024,2026-11-10,https://simpler.grants.gov/opportunity/50dc6b92-b042-4204-ba74-2753a244be5a
 2026-10-09,NIGMS,MIRA ESI PAR-27-032,2027-02-03,https://simpler.grants.gov/opportunity/9a4aeb2f-d0ac-403b-ac67-9d1fd24d9556
-2026-10-09,Simons Foundation,Utilizing the Full Power of Empire AI RFA,2026-12-01,https://www.simonsfoundation.org/grant/utilizing-the-full-power-of-empire-ai-request-for-applications/
+2026-10-09,Simons Foundation,Utilizing the Full Power of Empire AI RFA,2026-12-01,https://www.simonsfoundation.org/funding/utilizing-the-full-power-of-empire-ai-2027/
 2026-10-09,Simons Foundation,Collaborations in MPS,LOI 2026-10-29,https://www.simonsfoundation.org/grant/simons-collaborations-in-mathematics-and-the-physical-sciences/
 2026-10-09,Hearing Health Foundation,Emerging Research Grants 2027 cycle,RFP expected Oct 2026,https://hearinghealthfoundation.org/emerging-research-grants
 2026-10-09,Mercor,AI Safety Fund,rolling,https://builtin.com/job/mercor-ai-safety-fund-grants/11187489
@@ -220,7 +220,7 @@ first_seen_date,sponsor,program,deadline,url
 2026-10-26,NOTE,"Hartford closed (portal registration 10-21). Middle Powers and grantmaking.ai closed. ONR LRBAA page still says 2026-12-31, conflicts with grants.gov. Nebius open 2026 to 2027. NVIDIA Academic Grant paused. GCEW-EV businesses only. Humboldt opens 2026-11-15 capped at 800. Simons Empire AI 2027 new URL, 12-01 confirmed",n/a,https://simpler.grants.gov/
 2026-10-27,[PRIZE] NIH ODSS,It's About Time: Temporal Reasoning in Biomedical Knowledge Graphs Challenge,"Phase 1 2027-01-15, webinar 2026-12-08",https://www.nih.gov/challenges/its-about-time-temporal-reasoning-biomedical-knowledge-graphs-challenge
 2026-10-27,[PRIZE] Cadenza,"CLIP2 Lyric Intelligibility Prediction, ICASSP 2027 GC-10","open now, deadline unverified",https://cadenzachallenge.org/docs/clip2/intro
-2026-10-27,[PRIZE] IBM and partners,Steerability Challenge NeurIPS 2026,2026-11-21,https://steerability.github.io/competition/
+2026-10-27,[PRIZE] IBM and partners,Steerability Challenge NeurIPS 2026,2026-11-21 (corrected 2026-11-29),https://steerability.github.io/competition/
 2026-10-27,[PRIZE] SemEval 2027,"Task 7 CLaS Cross Lingual Alignment and Steering, and Task 3 Semantic Change",evaluation 2027-01-10 to 2027-01-31,https://clas-semeval2027.github.io/clas.semeval2027/task/
 2026-10-27,[PRIZE] UCSD ABKGroup and NVIDIA,ISPD 2027 Contest MCMM Post CTS Buffering and Sizing,"registration 2026-12-05, final 2027-03-20",https://github.com/ABKGroup/ISPD27-Contest
 2026-10-27,[PRIZE] NIH NLM,SPARK dbGaP Challenge and SPARK PubMed/PMC Challenge,"code 2027-01-15, submissions 2027-01-18 to 2027-01-31",https://www.nih.gov/challenges/semantic-precision-ai-retrieval-knowledge-spark-dbgap-challenge
@@ -237,7 +237,7 @@ first_seen_date,sponsor,program,deadline,url
 2026-11-02,NOAA OAR CPO,SI/ML Innovation for Earth System Science and Hazard Resilience NOAA-OAR-CPO-2027-33392,"LOI 2026-11-17, full 2027-02-09",https://simpler.grants.gov/opportunity/df29db0f-809b-40ad-9cbe-c7954b9e5cfd
 2026-11-02,Survival and Flourishing Fund,Rolling Application (Speculation Grants),rolling,https://survivalandflourishing.fund/2026/application
 2026-11-02,Iliad,Open Call for Research Projects,rolling,https://www.iliad.ac/opportunity/open-call-fund-your-bet
-2026-11-02,Microsoft AI Economy Institute,AIEI Cohort 4 Open Call AI and Jobs,2026-11-30,https://www.microsoft.com/en-us/research/group/aiei/aiei-open-call-4/
+2026-11-02,Microsoft AI Economy Institute,AIEI Cohort 4 Open Call AI and Jobs,2026-11-30 (corrected 2026-12-31),https://www.microsoft.com/en-us/research/group/aiei/aiei-open-call-4/
 2026-11-02,Siemens EDA,Academic Partner Grant,not stated,https://www.siemens.com/en-us/company/academic-future-workforce/educators/eda-higher-education-software/
 2026-11-02,AFRL RI,ATA-AI BAA FA8750-24-S-7004 Amd 5 (unverified),FY27 white paper 2026-11-30,https://www.bwcoconsulting.com/fod/afrl-ata-ai-baa-fa8750-24-s-7004
 2026-11-02,NSF and BSF,NSF-BSF joint route,follows NSF dates,https://trdf.technion.ac.il/en/calls-for-proposals/nsf-bsf-programs/
@@ -260,13 +260,13 @@ first_seen_date,sponsor,program,deadline,url
 2026-11-02,[PRIZE] Prima Mente and AD Data Initiative,Alzheimer's Translation Challenge (unverified),data spring 2027,https://www.alzheimersdata.org/accelerating-research/data-challenges
 2026-11-02,[PRIZE] Kaggle and Enveda,CASMI 2026 (unverified),entry 2026-12-07,https://www.kaggle.com/competitions
 2026-11-02,[PRIZE] Cadenza,"UPDATE CLIP2 deadline verified as 2026-10-30 AoE, passed",2026-10-30,https://cadenzachallenge.org/docs/clip2/key_dates
-2026-11-02,[PRIZE] IBM and partners,"UPDATE Steerability registration closed 2026-11-01 AoE, final 2026-11-21",2026-11-21,https://steerability.github.io/competition/
+2026-11-02,[PRIZE] IBM and partners,"UPDATE Steerability registration closed 2026-11-01 AoE, final 2026-11-21",2026-11-21 (corrected 2026-11-29),https://steerability.github.io/competition/
 2026-11-02,Amazon,UPDATE Research Awards Fall 2026 extended,2026-11-11,https://www.amazon.science/research-awards/call-for-proposals
 2026-11-06,NSF,"STEM Access for Persons with Disabilities DCL NSF 23-160 (OLD, issued 2023, first seen this run, supplement, target 2nd Thursday Nov)",2026-11-12,https://www.nsf.gov/funding/opportunities/dcl-stem-access-persons-disabilities-stem-apwd
 2026-11-06,DARPA IPTO,RFI FLASH DARPA-SN-27-17,2026-11-30,https://sam.gov/opp/e4ea14eef4df480ea295f13b6b2159ea/view
 2026-11-06,DARPA IPTO,UPDATE FastVacc RFI DARPA-SN-27-13 deadline verified,2026-11-13,https://sam.gov/opp/9702cfee87444ea792404ad280b946e0/view
 2026-11-06,DARPA,"UPDATE AI Forge renamed SI Forge, Cycle 2 official dates still not posted",2026-11-06 (unverified),https://www.darpa.mil/research/programs/si-forge
-2026-11-06,DARPA STO,Unison DARPA-PS-27-06,"TA-1 abstract 2026-11-23, TA-2 2026-12-04",https://sam.gov/
+2026-11-06,DARPA STO,Unison DARPA-PS-27-06,"TA-1 abstract 2026-11-23, TA-2 2026-12-04 (corrected 2026-12-01 for TA-1, Amd 1)",https://sam.gov/
 2026-11-06,AFRL RI,AI and Next Generation Distributed C2 BAA FA8750-23-S-7006,"FY28 white paper 2027-03-15, open to 2028-08-30",https://sam.gov/
 2026-11-06,DoD SERDP,FY28 Core BAA W912HQ27S0001,2027-01-07,https://simpler.grants.gov/search?query=W912HQ27S0001
 2026-11-06,DoD SERDP,FY28 SEED BAA W912HQ27S0002,2027-03-11,https://simpler.grants.gov/search?query=W912HQ27S0002
@@ -309,9 +309,39 @@ first_seen_date,sponsor,program,deadline,url
 2026-11-13,American Academy of Audiology Foundation,UPDATE Investigator Research Grant confirmed open,2027-01-31,https://www.audiology.org/foundation/our-work/research-and-education/
 2026-11-13,registry status,"UPDATE Cohere Catalyst closed, GTR AI Safety Fund not accepting, NIH RM1 PAR-27-003 2027-01-26 (unverified), NGA BIG-ST archives 2026-12-14, Lightcone dates conflict, Oracle for Research likely ended, NIJ JustGrants dates one week later",various,none
 2026-11-13,low fit batch,"Schmidt Sciences Fellow in Residence, NIMH RFA-MH-27-150, NHGRI RFA-HG-28-007 and NIDA RFA-DA-28-009 forecasts, NOT-OD-26-111, DHS-27-061-COE-SUPP, HRSA-27-072, NEA NEAPS2604 NEAPANS26, DOS DFOP0019913, UST-SIPPRA-2027-003, DARPA Anzio Laguna Industry Day Protein Palace PA, NGA Mercury, BARDA SS, ARIA Accelerated Adaptation and Tipping Points Phase 2, RWJF Centering Compassion, NYS OMH OASAS DOH, NYSERDA Drop-in Fuels, HF ProtoStar, IHS AI and Workforce",various,https://simpler.grants.gov/
-2026-11-13,[PRIZE] IBM and partners,"UPDATE Steerability final moved, latest commit rule, method_card required, winners at workshop",2026-11-23 AoE,https://steerability.github.io/competition/
+2026-11-13,[PRIZE] IBM and partners,"UPDATE Steerability final moved, latest commit rule, method_card required, winners at workshop",2026-11-23 AoE (corrected 2026-11-29),https://steerability.github.io/competition/
 2026-11-13,[PRIZE] NIMHD SCHARE,"UPDATE Whole Person Data Integration registration extended, Phase 1 2027-01-22",2026-12-07,https://www.nimhd.nih.gov/resources/schare/grand-challenges
 2026-11-13,[PRIZE] UCSD ABKGroup,"UPDATE ISPD 2027 alpha 2027-01-11, registration 2026-12-05",2027-01-11,https://github.com/ABKGroup/ISPD27-Contest
 2026-11-13,[PRIZE] DCASE,UPDATE DCASE2027 task proposals intent 12-10,2026-12-15,https://dcase.community/articles/call-for-task-proposals-for-dcase2027
 2026-11-13,[PRIZE] Navy NAWCTSD,"Marine Corps Wargaming Prize Challenge (issued 2026-11-02, US citizens only)",2027-03-01,https://centralfloridatechgrove.org/marine-corps-wargaming-prize-challenge/
 2026-11-13,[PRIZE] low fit batch,"AI Hardware Design League 2027, ICASSP GC-15 HEARTBEAT and GC-18 RMS-AQA, NOURISH autoimmunity, DrivenData GEMS, DARPA Surgical, NASA HuLC",various,https://www.usa.gov/find-active-challenge
+2026-11-20,Biswas Family Foundation,Fast Grants Cycle 2 (opened 2026-11-15),2026-12-15,https://www.biswasfamilyfoundation.org/science/fast-grants
+2026-11-20,NIH OD,NOT-OD-27-008 Parent K NOFOs extended to 2027-11-13 incl K25 PA-24-191,next new 2027-02-12,https://grants.nih.gov/grants/guide/notice-files/NOT-OD-27-008.html
+2026-11-20,NSF ENG and CISE,Foundational Research in Robotics FRR NSF 27-501 (posted 2026-11-19),accepted anytime,https://www.nsf.gov/funding/opportunities/frr-foundational-research-robotics/nsf27-501/solicitation
+2026-11-20,NSF TIP,UPDATE X-Labs Topic 5 Computation at the Limit of Physics NSF-Topic5-FY27-XLabsComputation released 2026-11-17 (limited 2 per org per topic),2027-03-15 5 PM ET,https://sam.gov/workspace/contract/opp/e3f60137be344f57bd5e23ce52f81102/view
+2026-11-20,NSF TIP,"UPDATE X-Labs From Sequence to Function open (per Stony Brook limited list, 2 per institution)",2027-02-08,https://www.nsf.gov/tip/updates/nsf-releases-final-x-labs-funding-opportunity-2026
+2026-11-20,Army Geospatial Center,FY2027 BAA W5J9CQ27S0001 presolicitation (unverified),2027-11-30 4 PM ET,https://sam.gov/opp/320304fc4f7b4b3f908c4edc1e9805ec/view
+2026-11-20,DOT FHWA,ITS4US Deployment Accelerator 693JJ3-27-BAA-0001 (unverified),2027-01-11 14:00 UTC,https://sam.gov/api/prod/sgs/v1/search/?index=opp&q=693JJ3-27-BAA-0001
+2026-11-20,EPA STAR,Health Effects of Lower Air Pollution Exposures EPA-OA-OASES-26-10 and PFAS Destruction EPA-OA-OASES-26-09 (low),2027-01-20 11:59 PM ET,https://simpler.grants.gov/opportunity/2f13c73b-409d-4b7d-91cd-352a08cb0e81
+2026-11-20,DARPA DSO,Altered B Proposers Day DARPA-SN-27-20 (low),registration 2026-12-08 5 PM ET,https://sam.gov/opp/fe1ca1ee1ccb4170b7b8c7b2dfa871d0/view
+2026-11-20,DARPA STO,UPDATE Unison DARPA-PS-27-06 Amd 1 TA-1 abstract moved,2026-12-01 5 PM ET,https://sam.gov/opp/402aab2c4f734ea1ba2c0ffa29f9f971/view
+2026-11-20,NSF,Growing Convergence Research GCR NSF 24-527 (issued 2024),2027-02-08,https://www.nsf.gov/funding/opportunities/gcr-growing-convergence-research/nsf24-527/solicitation
+2026-11-20,Mercor,AI Research Fund Grants Benchmarks and Economics of AI (issued 2026-09 and 10),2026-11-27 11:59 PM PT,https://jobs.ashbyhq.com/mercor/e1f6792d-1aae-4c2e-8edb-e2b91343dbb5
+2026-11-20,NIH NCCIH,Mind and Body Interventions via Emotional Well-Being Mechanisms R61/R33 PAR-25-449 (issued 2025),2027-02-08,https://grants.nih.gov/grants/guide/pa-files/PAR-25-449.html
+2026-11-20,NSF SBE and NIGMS,SoS:BIO NSF 23-569 (issued 2023),2027-02-09,https://www.nsf.gov/funding/opportunities/sosbio-science-science-approach-analyzing-innovating-biomedical/nsf23-569/solicitation
+2026-11-20,DARPA STO,Office-wide ISO DARPA-PS-26-09 Amd 01 (issued 2025),abstracts 2027-01-17 11:59 PM ET,https://sam.gov/opp/ca5fa51b4b4b4fe9b89142117b7d6c6a/view
+2026-11-20,DARPA MXO,Office-wide ISO DARPA-PS-26-115 Amd 02 (issued 2026-05),abstracts 2027-04-23 4 PM ET,https://sam.gov/opp/d7fb644349434308a393d2ad9acee762/view
+2026-11-20,Snorkel AI,Open Benchmarks Grants and Research Fellowship (announced 2026-10-07),rolling (official page),https://benchmarks.snorkel.ai/
+2026-11-20,Klingenstein,Transformation of Mental Health Care (low),2026-11-20 11:59 PM EST,https://www.klingenstein.org/
+2026-11-20,low fit batch,"NASA ROSES-25 Amd 82 D.11, NHGRI RFA-HG-28-008 and NIH PA-28-086 forecasts, DARPA Albatross RFI DARPA-SN-27-04, NYS DOH RFA 20849, ARIA Universal Fabricators, Lever for Change Together in Purpose, HHMI Hrabowski, Astera Spring 2027, ONR ManTech N0001426SB002, Arnold Online Gambling, SUNY Brain Institute, Mathers, Coefficient Project Tailwind, ARPA-H BRAINS Amd 02",various,https://simpler.grants.gov/search?sortby=postedDateDesc
+2026-11-20,"Empire AI, Simons, Secunda, Bloomberg Philanthropies","SIGNAL $70M Empire Faculty Fellowships (58) and Empire Postdoc Fellows (60+), member institution nominations",not posted,https://www.empireai.edu/2026/11/17/new-70-million-philanthropic-effort-creates-120-research-positions-across-new-york-to-advance-ai-enabled-scientific-discovery/
+2026-11-20,Eastman Performing Arts Medicine and UR Aging Institute,"Pilot Award in Music and Aging (UR internal, 2027 to 2028 cycle not posted)",not posted (last LOI 2025-11-10),https://www.urmc.rochester.edu/eastman-performance-medicine/research/2026%E2%80%932027-pilot-award-program
+2026-11-20,Renee Fleming Neuroarts Investigator Awards,2027 cycle not posted (US citizens or PR),not posted,https://neuroartsblueprint.org/neuroarts-investigator-awards/
+2026-11-20,"NIH U24 Music Networks (Music4Pain, AudioAnalgesiA, ENSEMBLE)",Pain pilot RFA (closed 2026-09-01),closed,https://ssihi.uci.edu/research/ensemble-network/pilot-research-program
+2026-11-20,music batch closed or not posted,"GRAMMY Museum scientific track, NEA Research Grants and Labs (next Jan 2027), AMTA Fultz Award (Mar to May), Music Man and UCSF Willson pilots",various,https://www.neuroartsresourcecenter.com/funding
+2026-11-20,Research!America,UPDATE Civic Science awards extended,2026-11-30 4 PM ET,https://www.researchamerica.org/
+2026-11-20,[PRIZE] IBM and partners,"UPDATE Steerability final moved to 2026-11-29 AoE, next intake 2026-11-22 AoE",2026-11-29 AoE,https://steerability.github.io/competition/
+2026-11-20,[PRIZE] SemEval 2027,UPDATE Task 7 CLaS third scoring criterion added 2026-11-17,registration 2026-12-31,https://clas-semeval2027.github.io/clas.semeval2027/task/
+2026-11-20,[PRIZE] DARPA,D2 Documentation and Decision Support Sprint (launched 2026-09-11),"Part 2 qualification 2026-12-01, final 2027-03-01 5 PM ET",https://www.darpa.mil/research/challenges/d2
+2026-11-20,[PRIZE] NIH,"ReGen Drugs Evidence Package Challenge (opened 2026-11-02, unverified)",registration 2027-01-15 5 PM ET,https://www.nih.gov/challenges
+2026-11-20,[PRIZE] low fit batch,"NASA BPS Digital AVATAR (CrowdPlat, 2027-02-12), NASA Gateways to Blue Skies 2027, NIH-NASA QuSAFE, NIH NAMs, DrivenData Where the Wild Features Are, ICASSP GC-6 and GC-13, BioKG-Align (pre launch)",various,https://www.usa.gov/find-active-challenge
