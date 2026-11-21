@@ -1220,7 +1220,7 @@ export const trends = {
    "built": "2026-10-20"
   },
   "complex": {
-   "total": 930,
+   "total": 937,
    "journals": 5,
    "confs": [],
    "missing": [],
@@ -1228,49 +1228,57 @@ export const trends = {
     {
      "label": "complex networks",
      "id": "complex-networks",
-     "n": 50,
+     "n": 51,
      "share": 5.4,
-     "growth": 67,
+     "growth": 73,
      "papers": 10
     },
     {
      "label": "mixed traffic",
      "id": "mixed-traffic-flow",
      "n": 35,
-     "share": 3.8,
-     "growth": 24,
+     "share": 3.7,
+     "growth": 22,
      "papers": 10
     },
     {
      "label": "phase transitions",
      "id": "phase-transitions",
-     "n": 33,
-     "share": 3.5,
-     "growth": 231,
+     "n": 32,
+     "share": 3.4,
+     "growth": 217,
      "papers": 10
     },
     {
      "label": "social networks",
      "id": "social-networks",
      "n": 21,
-     "share": 2.3,
-     "growth": 111,
+     "share": 2.2,
+     "growth": 108,
      "papers": 10
     },
     {
      "label": "traffic congestion",
      "id": "traffic-congestion",
      "n": 20,
-     "share": 2.2,
-     "growth": 5,
+     "share": 2.1,
+     "growth": 8,
      "papers": 10
     },
     {
      "label": "traffic flow stability",
      "id": "traffic-flow-stability",
      "n": 20,
-     "share": 2.2,
-     "growth": 27,
+     "share": 2.1,
+     "growth": 25,
+     "papers": 10
+    },
+    {
+     "label": "information dissemination",
+     "id": "information-dissemination",
+     "n": 18,
+     "share": 1.9,
+     "growth": 168,
      "papers": 10
     },
     {
@@ -1278,7 +1286,7 @@ export const trends = {
      "id": "network-topology",
      "n": 18,
      "share": 1.9,
-     "growth": 3,
+     "growth": -3,
      "papers": 10
     },
     {
@@ -1286,7 +1294,15 @@ export const trends = {
      "id": "agent-based-modeling",
      "n": 17,
      "share": 1.8,
-     "growth": 36,
+     "growth": 6,
+     "papers": 10
+    },
+    {
+     "label": "connected and autonomous vehicles",
+     "id": "connected-and-autonomous-vehicles",
+     "n": 17,
+     "share": 1.8,
+     "growth": 153,
      "papers": 10
     },
     {
@@ -1294,15 +1310,7 @@ export const trends = {
      "id": "evolutionary-game-theory",
      "n": 17,
      "share": 1.8,
-     "growth": 46,
-     "papers": 10
-    },
-    {
-     "label": "information dissemination",
-     "id": "information-dissemination",
-     "n": 17,
-     "share": 1.8,
-     "growth": 156,
+     "growth": 44,
      "papers": 10
     },
     {
@@ -1310,7 +1318,7 @@ export const trends = {
      "id": "community-detection",
      "n": 16,
      "share": 1.7,
-     "growth": 48,
+     "growth": 46,
      "papers": 10
     },
     {
@@ -1318,15 +1326,7 @@ export const trends = {
      "id": "connected-and-automated-vehicles",
      "n": 16,
      "share": 1.7,
-     "growth": -12,
-     "papers": 10
-    },
-    {
-     "label": "connected and autonomous vehicles",
-     "id": "connected-and-autonomous-vehicles",
-     "n": 16,
-     "share": 1.7,
-     "growth": 141,
+     "growth": -14,
      "papers": 10
     },
     {
@@ -1334,7 +1334,7 @@ export const trends = {
      "id": "higher-order-interactions",
      "n": 15,
      "share": 1.6,
-     "growth": 201,
+     "growth": 197,
      "papers": 10
     },
     {
@@ -1342,7 +1342,7 @@ export const trends = {
      "id": "human-driven-vehicles",
      "n": 15,
      "share": 1.6,
-     "growth": 64,
+     "growth": 62,
      "papers": 10
     },
     {
@@ -1350,7 +1350,7 @@ export const trends = {
      "id": "bitcoin",
      "n": 14,
      "share": 1.5,
-     "growth": 321,
+     "growth": 455,
      "papers": 10
     },
     {
@@ -1358,7 +1358,7 @@ export const trends = {
      "id": "covid-19",
      "n": 14,
      "share": 1.5,
-     "growth": -6,
+     "growth": -12,
      "papers": 10
     },
     {
@@ -1366,7 +1366,7 @@ export const trends = {
      "id": "cascading-failures",
      "n": 13,
      "share": 1.4,
-     "growth": 12,
+     "growth": 10,
      "papers": 10
     },
     {
@@ -1374,7 +1374,7 @@ export const trends = {
      "id": "crowd-evacuation",
      "n": 13,
      "share": 1.4,
-     "growth": 30,
+     "growth": 29,
      "papers": 10
     },
     {
@@ -1382,11 +1382,11 @@ export const trends = {
      "id": "ethereum",
      "n": 13,
      "share": 1.4,
-     "growth": 682,
+     "growth": null,
      "papers": 10
     }
    ],
-   "built": "2026-10-20"
+   "built": "2026-11-21"
   },
   "netsci": {
    "total": 306,
