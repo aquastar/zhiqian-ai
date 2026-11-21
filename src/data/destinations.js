@@ -3,7 +3,7 @@
 // CCF A or B, or CORE A* or A, every hand-kept venue on the field
 // tabs, and the venues added by hand in the script. Destinations mix cities, countries and
 // regions, because that is how people choose where to go.
-// Built 2026-11-20.
+// Built 2026-11-21.
 export const destinations = {
  "items": [
   {
@@ -2092,9 +2092,9 @@ export const destinations = {
    "title": "ASPLOS",
    "desc": "International Conference on Architectural Support for Programming Languages and Operating Systems",
    "year": 2027,
-   "place": "Crete, Greece",
+   "place": "Heraklion, Crete, Greece",
    "date": "April 11-15, 2027",
-   "city": "Crete",
+   "city": "Heraklion",
    "country": "Greece",
    "dest": "Greece",
    "icon": "landmark",
@@ -2104,7 +2104,7 @@ export const destinations = {
    "deadline": "2026-09-09",
    "open": false,
    "link": "https://www.asplos-conference.org/asplos2027/cfp/",
-   "q": "crete, greece crete greece ",
+   "q": "heraklion, crete, greece heraklion greece ",
    "field": "Hardware & EDA",
    "group": "computing",
    "honors": [
@@ -2121,8 +2121,8 @@ export const destinations = {
      "k": "core-as"
     }
    ],
-   "lat": 35.3085,
-   "lon": 24.4633
+   "lat": 35.3391,
+   "lon": 25.1333
   },
   {
    "title": "ASSC",
@@ -3231,7 +3231,7 @@ export const destinations = {
    "desc": "European Conference on Artificial Intelligence",
    "year": 2027,
    "place": "Athens, Greece",
-   "date": "October 2-7, 2027",
+   "date": "October 4-7, 2027",
    "city": "Athens",
    "country": "Greece",
    "dest": "Greece",
@@ -3322,7 +3322,7 @@ export const destinations = {
    "desc": "European Conference on Machine Learning and 25th Principles and Practice of Knowledge Discovery in Databases",
    "year": 2027,
    "place": "Eindhoven, The Netherlands",
-   "date": "September 20-24, 2027",
+   "date": "August 30 - September 3, 2027",
    "city": "Eindhoven",
    "country": "Netherlands",
    "dest": "Netherlands",
@@ -4316,7 +4316,7 @@ export const destinations = {
    "desc": "International Conference on Automated Planning and Scheduling",
    "year": 2027,
    "place": "Columbia, SC, USA",
-   "date": "June 27 - July 2, 2027",
+   "date": "June 30 - July 2, 2027",
    "city": "Columbia",
    "country": "United States",
    "dest": "",
@@ -5964,6 +5964,38 @@ export const destinations = {
    "lon": 106.7166
   },
   {
+   "title": "MoDELS",
+   "desc": "International Conference on Model Driven Engineering Languages and Systems",
+   "year": 2027,
+   "place": "Budapest, Hungary",
+   "date": "TBD",
+   "city": "Budapest",
+   "country": "Hungary",
+   "dest": "",
+   "icon": "",
+   "ccf": "B",
+   "core": "A",
+   "sub": "SE",
+   "deadline": "2027-03-19",
+   "open": true,
+   "link": "https://conf.researchr.org/home/models-2027",
+   "q": "budapest, hungary budapest hungary ",
+   "field": "Software engineering",
+   "group": "computing",
+   "honors": [
+    {
+     "t": "CCF B",
+     "k": "ccf-b"
+    },
+    {
+     "t": "CORE A",
+     "k": "core-a"
+    }
+   ],
+   "lat": 47.4979,
+   "lon": 19.0402
+  },
+  {
    "title": "MODSIM",
    "desc": "International Congress on Modelling and Simulation",
    "year": 2027,
@@ -7334,7 +7366,7 @@ export const destinations = {
    "desc": "ACM Special Interest Group on Measurement and Evaluation",
    "year": 2027,
    "place": "Atlanta, Georgia, USA",
-   "date": "June 7-11, 2027",
+   "date": "June 7-10, 2027",
    "city": "Atlanta",
    "country": "United States",
    "dest": "",
@@ -8019,7 +8051,7 @@ export const destinations = {
    "desc": "International Conference on Web Search and Data Mining",
    "year": 2027,
    "place": "Cordis, Hong Kong SAR, China",
-   "date": "February 15 - 19, 2027",
+   "date": "February 16 - 18, 2027",
    "city": "Hong Kong",
    "country": "Hong Kong",
    "dest": "Hong Kong",
