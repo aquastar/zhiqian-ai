@@ -18,6 +18,12 @@
   "pot_hi": null,
   "pot_lo": 100000000
  },
+ "https://www.nsf.gov/funding/opportunities/frr-foundational-research-robotics/nsf27-501/solicitation": {
+  "n_hi": 30,
+  "n_lo": 20,
+  "pot_hi": null,
+  "pot_lo": 20000000
+ },
  "https://www.nsf.gov/funding/opportunities/mfai-mathematical-foundations-artificial-intelligence/nsf24-569/solicitation": {
   "n_hi": null,
   "n_lo": 15,

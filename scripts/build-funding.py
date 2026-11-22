@@ -1059,6 +1059,47 @@ def parse_registry(text):
     return rows
 
 
+# The registry is the weekly brief's working log, written for him. The page is
+# a public service, so his notes come off before anything is published: rows
+# that only bundle calls he set aside ("low fit batch"), free notes ("NOTE"),
+# fit and eligibility remarks about him or RIT, and correction stamps. An
+# "UPDATE" row folds into the call it updates, so each call shows once with
+# its newest deadline.
+PERSONAL_NOTE = re.compile(
+    r'\s*\((?:low(?: fit)?|ineligible[^)]*|rit ineligible|ms collaborator lead only|'
+    r'limited at peers|high fit|fit[^)]*)\)', re.I)
+STAMP = re.compile(r'\s*\((?:corrected[^)]*|page year conflict|official page)\)', re.I)
+
+
+def public_rows(rows):
+    def words(x):
+        return {t for t in re.split(r'[^a-z0-9]+', (x or '').lower()) if len(t) > 2}
+    out = []
+    for r in rows:
+        sponsor = r.get('sponsor', '')
+        if sponsor.upper() == 'NOTE' or 'batch' in sponsor.lower():
+            continue
+        if sponsor.startswith('[PRIZE]'):
+            r['sponsor'] = sponsor[len('[PRIZE]'):].strip()
+            r['prize'] = True
+        r['program'] = PERSONAL_NOTE.sub('', r.get('program', '')).strip()
+        r['deadline'] = STAMP.sub('', r.get('deadline', '')).strip()
+        if r['program'].upper().startswith('UPDATE'):
+            body = words(re.sub(r'^UPDATE\s*', '', r['program'], flags=re.I))
+            same = [o for o in out if o.get('sponsor') == r['sponsor']]
+            best = max(same, key=lambda o: len(body & words(o.get('program'))), default=None)
+            if best is not None and body & words(best.get('program')):
+                if r.get('deadline'):
+                    best['deadline'] = r['deadline']
+                for k in ('url', 'budget', 'pages'):
+                    if r.get(k) and not best.get(k):
+                        best[k] = r[k]
+                continue
+            r['program'] = re.sub(r'^UPDATE\s*', '', r['program'], flags=re.I)
+        out.append(r)
+    return out
+
+
 PERSONAL_WATCHLIST = ['recommendation_1to5', 'difficulty_1to5', 'peer_tiers_seen',
                       'career_levels_seen', 'rating_reason']
 
@@ -1079,7 +1120,7 @@ def parse_watchlist(text):
 def main():
     brief_p, registry_p, watchlist_p = sys.argv[1:4]
     date, window, opps, signals, dropped = parse_brief(load(brief_p))
-    registry = parse_registry(load(registry_p))
+    registry = public_rows(parse_registry(load(registry_p)))
     watchlist = parse_watchlist(load(watchlist_p))
 
     for d in (DATA, PUBLIC):
@@ -1111,7 +1152,6 @@ def main():
                 continue                      # same page, different programme
             rows = [scored[0]]
         target = rows[0]
-        target['pick'] = True
         for k in ('budget', 'pages', 'eligibility', 'competition', 'source_tier'):
             if o.get(k):
                 target[k] = o[k]

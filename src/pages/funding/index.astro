@@ -72,8 +72,7 @@ const slug = (x) => (x || '').toLowerCase().replace(/[^a-z]+/g, '-').replace(/^-
 const unverified = data.watchlist.filter((w) => (w.url_verified || '').toUpperCase() !== 'Y').length;
 
 const FILTERS = [
-  { key: 'all', label: 'Everything tracked', icon: 'fa-layer-group', n: counts.all },
-  { key: 'pick', label: 'Latest picks', icon: 'fa-star', n: counts.pick },
+  { key: 'all', label: 'All', icon: 'fa-layer-group', n: counts.all },
   { key: 'open', label: 'Deadline ahead', icon: 'fa-hourglass-half', n: counts.open },
   { key: 'rolling', label: 'Rolling or undated', icon: 'fa-infinity', n: counts.rolling },
 ];
@@ -88,7 +87,10 @@ const FORMATS = [
   ['RFI', /request for (comment|information)|\bRFI\b/i],
   ['Gift', /\bgift\b/i],
 ];
-const formats = (r) => FORMATS.filter(([, re]) => re.test(`${r.program} ${r.tldr}`)).map(([k]) => k);
+const formats = (r) => {
+  const f = FORMATS.filter(([, re]) => re.test(`${r.program} ${r.tldr}`)).map(([k]) => k);
+  return r.prize && !f.includes('Competition') ? ['Competition', ...f] : f;
+};
 
 const COMP_WORD = { 1: 'very light', 2: 'moderate', 3: 'competitive', 4: 'hard', 5: 'very hard' };
 // The sweep runs every Friday early morning, New York time, and the site
@@ -107,21 +109,20 @@ const nextSweep = (() => {
     <section class="brief">
       <div class="brief-main">
         <h1>Computing Funding Calendar</h1>
-        <p class="brief-sub">Open calls and deadlines for computing research from federal agencies, New York State, foundations and industry. A public tracker, not a list of my own grants, which are on the <a href="/research#funding">Research page</a>.</p>
+        <p class="brief-sub">Open calls and deadlines for computing research, from federal agencies, New York State, foundations and industry. Updated every week.</p>
         <a class="gh-data" href="https://github.com/aquastar/computing-research-funding" target="_blank" rel="noopener">
-          <i class="fab fa-github" aria-hidden="true"></i>Open data on GitHub <span>Star · cite · correct</span></a>
+          <i class="fab fa-github" aria-hidden="true"></i>Open data on GitHub</a>
       </div>
       <div class="brief-side">
         <div class="stamp">
-          <span class="stamp-label">Latest sweep <em>updated weekly</em></span>
+          <span class="stamp-label">Last updated</span>
           <span class="stamp-date">{data.date}</span>
           <span class="stamp-next">Next update about {nextSweep}</span>
         </div>
         <ul class="tally">
-          <li title="Every call the sweep has ever reported, including the closed ones, which are kept so the list reads as a record rather than only a to-do."><b>{counts.all}</b><span>tracked</span></li>
-          <li title="Picked out of the latest sweep as worth a look, rather than merely logged. These are the rows carrying a budget and a competition grade."><b>{counts.pick}</b><span>latest picks</span></li>
-          <li title="Calls with at least one date still ahead of today, counted in your browser rather than at build time."><b>{counts.open}</b><span>still open</span></li>
-          <li title={`Funders on the standing watchlist, checked on every weekly sweep, whether or not they have announced anything. ${unverified} of their links are not yet confirmed.`}><b>{data.counts.watchlist}</b><span>on watch</span></li>
+          <li title="All calls listed, including closed ones."><b>{counts.all}</b><span>calls</span></li>
+          <li title="Calls with a deadline still ahead."><b>{counts.open}</b><span>open</span></li>
+          <li title="Funders checked every week."><b>{data.counts.watchlist}</b><span>funders</span></li>
         </ul>
         <a class="src-link" href="/funding/sources">Sources and data <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
       </div>
@@ -179,8 +180,7 @@ const nextSweep = (() => {
                   <div class="who-body">
                     <span class="who-line">
                       <span class="sponsor" title={r.sponsor}>{r.sponsor}</span>
-                      {r.pick && <span class="pick-tag" title="Picked out in the latest brief">latest</span>}
-                      {r.source_tier && <span class="tier-tag" title="How the call was found: L1 a primary source, L2 an aggregator, L3 a secondary mention">{r.source_tier}</span>}
+                      {/^L[123]$/.test(r.source_tier || "") && <span class="tier-tag" title="How the call was found: L1 a primary source, L2 an aggregator, L3 a secondary mention">{r.source_tier}</span>}
                     </span>
                     {r.url
                       ? <a class="program" href={r.url} target="_blank" rel="noopener" title={r.program}><span class="program-name">{r.program}</span><i class="fas fa-arrow-up-right-from-square" aria-hidden="true"></i></a>
