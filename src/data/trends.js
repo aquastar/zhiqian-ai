@@ -2745,7 +2745,7 @@ export const trends = {
    "built": "2026-11-20"
   },
   "epi": {
-   "total": 1233,
+   "total": 1225,
    "journals": 5,
    "confs": [],
    "missing": [],
@@ -2753,33 +2753,33 @@ export const trends = {
     {
      "label": "COVID-19 pandemic",
      "id": "covid-19",
-     "n": 99,
-     "share": 8.0,
-     "growth": -57,
+     "n": 100,
+     "share": 8.2,
+     "growth": -55,
      "papers": 10
     },
     {
      "label": "SARS-CoV-2",
      "id": "sars-cov-2",
-     "n": 69,
-     "share": 5.6,
-     "growth": -55,
+     "n": 67,
+     "share": 5.5,
+     "growth": -56,
      "papers": 10
     },
     {
      "label": "antimicrobial resistance",
      "id": "antimicrobial-resistance",
-     "n": 59,
-     "share": 4.8,
-     "growth": 24,
+     "n": 51,
+     "share": 4.2,
+     "growth": 8,
      "papers": 10
     },
     {
      "label": "respiratory syncytial virus",
      "id": "respiratory-syncytial-virus",
-     "n": 36,
+     "n": 35,
      "share": 2.9,
-     "growth": 210,
+     "growth": 232,
      "papers": 10
     },
     {
@@ -2791,107 +2791,83 @@ export const trends = {
      "papers": 10
     },
     {
-     "label": "monkeypox",
-     "id": "mpox",
-     "n": 28,
-     "share": 2.3,
-     "growth": -47,
-     "papers": 10
-    },
-    {
-     "label": "disease surveillance",
-     "id": "disease-surveillance",
+     "label": "infection control",
+     "id": "infection-control",
      "n": 27,
      "share": 2.2,
      "growth": 22,
      "papers": 10
     },
     {
-     "label": "vaccine safety",
-     "id": "vaccine-safety",
+     "label": "monkeypox",
+     "id": "mpox",
      "n": 27,
      "share": 2.2,
-     "growth": -38,
+     "growth": -48,
      "papers": 10
     },
     {
-     "label": "infection control",
-     "id": "infection-control",
+     "label": "disease surveillance",
+     "id": "disease-surveillance",
      "n": 26,
      "share": 2.1,
-     "growth": 17,
+     "growth": 23,
+     "papers": 10
+    },
+    {
+     "label": "vaccine safety",
+     "id": "vaccine-safety",
+     "n": 26,
+     "share": 2.1,
+     "growth": -31,
      "papers": 10
     },
     {
      "label": "vaccine effectiveness",
      "id": "vaccine-effectiveness",
-     "n": 23,
-     "share": 1.9,
-     "growth": -47,
+     "n": 24,
+     "share": 2.0,
+     "growth": -42,
+     "papers": 10
+    },
+    {
+     "label": "causal inference",
+     "id": "causal-inference",
+     "n": 19,
+     "share": 1.6,
+     "growth": -14,
      "papers": 10
     },
     {
      "label": "nosocomial infections",
      "id": "nosocomial-infections",
-     "n": 20,
+     "n": 19,
      "share": 1.6,
-     "growth": 26,
+     "growth": 29,
      "papers": 10
     },
     {
      "label": "seroprevalence",
      "id": "seroprevalence",
      "n": 19,
-     "share": 1.5,
-     "growth": 12,
-     "papers": 10
-    },
-    {
-     "label": "antimicrobial stewardship",
-     "id": "antimicrobial-stewardship",
-     "n": 18,
-     "share": 1.5,
-     "growth": 113,
-     "papers": 10
-    },
-    {
-     "label": "causal inference",
-     "id": "causal-inference",
-     "n": 18,
-     "share": 1.5,
-     "growth": -19,
-     "papers": 10
-    },
-    {
-     "label": "antiviral therapy",
-     "id": "antiviral-therapy",
-     "n": 17,
-     "share": 1.4,
-     "growth": 61,
+     "share": 1.6,
+     "growth": 20,
      "papers": 10
     },
     {
      "label": "Plasmodium falciparum",
      "id": "plasmodium-falciparum",
-     "n": 17,
-     "share": 1.4,
-     "growth": 24,
+     "n": 18,
+     "share": 1.5,
+     "growth": 7,
      "papers": 10
     },
     {
-     "label": "sexually transmitted infections",
-     "id": "sexually-transmitted-infections",
+     "label": "pandemic preparedness",
+     "id": "pandemic-preparedness",
      "n": 17,
      "share": 1.4,
-     "growth": -5,
-     "papers": 10
-    },
-    {
-     "label": "tuberculosis",
-     "id": "tuberculosis",
-     "n": 17,
-     "share": 1.4,
-     "growth": -30,
+     "growth": 102,
      "papers": 10
     },
     {
@@ -2899,19 +2875,43 @@ export const trends = {
      "id": "dengue",
      "n": 16,
      "share": 1.3,
-     "growth": 26,
+     "growth": 17,
      "papers": 10
     },
     {
-     "label": "pandemic preparedness",
-     "id": "pandemic-preparedness",
+     "label": "sexually transmitted infections",
+     "id": "sexually-transmitted-infections",
      "n": 16,
      "share": 1.3,
-     "growth": 68,
+     "growth": -11,
+     "papers": 10
+    },
+    {
+     "label": "whole genome sequencing",
+     "id": "whole-genome-sequencing",
+     "n": 16,
+     "share": 1.3,
+     "growth": -31,
+     "papers": 10
+    },
+    {
+     "label": "antimicrobial stewardship",
+     "id": "antimicrobial-stewardship",
+     "n": 15,
+     "share": 1.2,
+     "growth": 78,
+     "papers": 10
+    },
+    {
+     "label": "antiviral therapy",
+     "id": "antiviral-therapy",
+     "n": 15,
+     "share": 1.2,
+     "growth": 29,
      "papers": 10
     }
    ],
-   "built": "2026-10-20"
+   "built": "2026-11-22"
   },
   "materials": {
    "total": 3079,
