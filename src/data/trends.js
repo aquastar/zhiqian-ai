@@ -879,7 +879,7 @@ export const trends = {
    "built": "2026-10-20"
   },
   "control": {
-   "total": 4347,
+   "total": 4345,
    "journals": 8,
    "confs": [
     "CDC",
@@ -890,7 +890,7 @@ export const trends = {
     {
      "label": "multi-agent systems",
      "id": "multi-agent-systems",
-     "n": 301,
+     "n": 298,
      "share": 6.9,
      "growth": 0,
      "papers": 10
@@ -898,15 +898,15 @@ export const trends = {
     {
      "label": "model predictive control",
      "id": "model-predictive-control",
-     "n": 165,
+     "n": 164,
      "share": 3.8,
-     "growth": -4,
+     "growth": -5,
      "papers": 10
     },
     {
      "label": "nonlinear systems",
      "id": "nonlinear-systems",
-     "n": 156,
+     "n": 157,
      "share": 3.6,
      "growth": 3,
      "papers": 10
@@ -914,17 +914,17 @@ export const trends = {
     {
      "label": "control barrier functions",
      "id": "control-barrier-functions",
-     "n": 136,
-     "share": 3.1,
-     "growth": 44,
+     "n": 138,
+     "share": 3.2,
+     "growth": 46,
      "papers": 10
     },
     {
      "label": "optimal control",
      "id": "optimal-control",
-     "n": 136,
+     "n": 135,
      "share": 3.1,
-     "growth": -2,
+     "growth": -1,
      "papers": 10
     },
     {
@@ -938,17 +938,17 @@ export const trends = {
     {
      "label": "state estimation",
      "id": "state-estimation",
-     "n": 121,
-     "share": 2.8,
-     "growth": -13,
+     "n": 119,
+     "share": 2.7,
+     "growth": -14,
      "papers": 10
     },
     {
      "label": "distributed optimization",
      "id": "distributed-optimization",
-     "n": 117,
-     "share": 2.7,
-     "growth": -1,
+     "n": 115,
+     "share": 2.6,
+     "growth": -4,
      "papers": 10
     },
     {
@@ -956,15 +956,15 @@ export const trends = {
      "id": "distributed-control",
      "n": 109,
      "share": 2.5,
-     "growth": -15,
+     "growth": -14,
      "papers": 10
     },
     {
      "label": "event-triggered control",
      "id": "event-triggered-control",
-     "n": 106,
-     "share": 2.4,
-     "growth": 11,
+     "n": 107,
+     "share": 2.5,
+     "growth": 12,
      "papers": 10
     },
     {
@@ -972,7 +972,7 @@ export const trends = {
      "id": "linear-matrix-inequalities",
      "n": 102,
      "share": 2.3,
-     "growth": -14,
+     "growth": -15,
      "papers": 10
     },
     {
@@ -994,25 +994,25 @@ export const trends = {
     {
      "label": "linear time-invariant systems",
      "id": "linear-time-invariant-systems",
-     "n": 88,
+     "n": 89,
      "share": 2.0,
-     "growth": 3,
+     "growth": 4,
      "papers": 10
     },
     {
      "label": "input-to-state stability",
      "id": "input-to-state-stability",
-     "n": 85,
+     "n": 88,
      "share": 2.0,
-     "growth": 8,
+     "growth": 12,
      "papers": 10
     },
     {
      "label": "adaptive control",
      "id": "adaptive-control",
-     "n": 81,
+     "n": 83,
      "share": 1.9,
-     "growth": -31,
+     "growth": -30,
      "papers": 10
     },
     {
@@ -1020,23 +1020,15 @@ export const trends = {
      "id": "collision-avoidance",
      "n": 76,
      "share": 1.7,
-     "growth": -2,
+     "growth": -1,
      "papers": 10
     },
     {
      "label": "parameter estimation",
      "id": "parameter-estimation",
-     "n": 74,
-     "share": 1.7,
-     "growth": -2,
-     "papers": 10
-    },
-    {
-     "label": "robust control",
-     "id": "robust-control",
      "n": 73,
      "share": 1.7,
-     "growth": -27,
+     "growth": -2,
      "papers": 10
     },
     {
@@ -1046,9 +1038,17 @@ export const trends = {
      "share": 1.6,
      "growth": -12,
      "papers": 10
+    },
+    {
+     "label": "robust control",
+     "id": "robust-control",
+     "n": 71,
+     "share": 1.6,
+     "growth": -29,
+     "papers": 10
     }
    ],
-   "built": "2026-10-20"
+   "built": "2026-11-23"
   },
   "dynsys": {
    "total": 2645,
