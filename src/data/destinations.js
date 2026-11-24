@@ -3,7 +3,7 @@
 // CCF A or B, or CORE A* or A, every hand-kept venue on the field
 // tabs, and the venues added by hand in the script. Destinations mix cities, countries and
 // regions, because that is how people choose where to go.
-// Built 2026-11-23.
+// Built 2026-11-24.
 export const destinations = {
  "items": [
   {
@@ -2890,7 +2890,7 @@ export const destinations = {
    "desc": "IEEE/CVF Conference on Computer Vision and Pattern Recognition",
    "year": 2027,
    "place": "Seattle, WA, United States",
-   "date": "June 22-25, 2027",
+   "date": "June 22-24, 2027",
    "city": "Seattle",
    "country": "United States",
    "dest": "",
@@ -7200,8 +7200,8 @@ export const destinations = {
    "icon": "",
    "ccf": "N",
    "core": "N",
-   "deadline": "2026-11-23",
-   "open": true,
+   "deadline": "",
+   "open": false,
    "link": "https://www.siam.org/conferences-events/siam-conferences/ds27/",
    "q": "atlanta, georgia, usa atlanta united states ",
    "field": "Dynamical systems",
