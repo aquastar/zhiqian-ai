@@ -1051,7 +1051,7 @@ export const trends = {
    "built": "2026-11-23"
   },
   "dynsys": {
-   "total": 2645,
+   "total": 2642,
    "journals": 5,
    "confs": [],
    "missing": [],
@@ -1059,41 +1059,41 @@ export const trends = {
     {
      "label": "bifurcation analysis",
      "id": "bifurcation-analysis",
-     "n": 101,
-     "share": 3.8,
-     "growth": 45,
+     "n": 99,
+     "share": 3.7,
+     "growth": 36,
      "papers": 10
     },
     {
      "label": "chaotic dynamics",
      "id": "chaotic-dynamics",
-     "n": 79,
+     "n": 78,
      "share": 3.0,
-     "growth": -3,
+     "growth": -4,
      "papers": 10
     },
     {
      "label": "Hopf bifurcation",
      "id": "hopf-bifurcation",
-     "n": 66,
+     "n": 65,
      "share": 2.5,
-     "growth": 6,
-     "papers": 10
-    },
-    {
-     "label": "bifurcation",
-     "id": "bifurcation",
-     "n": 63,
-     "share": 2.4,
      "growth": 3,
      "papers": 10
     },
     {
      "label": "Lyapunov exponents",
      "id": "lyapunov-exponents",
-     "n": 61,
+     "n": 63,
+     "share": 2.4,
+     "growth": -13,
+     "papers": 10
+    },
+    {
+     "label": "bifurcation",
+     "id": "bifurcation",
+     "n": 60,
      "share": 2.3,
-     "growth": -15,
+     "growth": 3,
      "papers": 10
     },
     {
@@ -1101,7 +1101,7 @@ export const trends = {
      "id": "synchronization",
      "n": 58,
      "share": 2.2,
-     "growth": -14,
+     "growth": -11,
      "papers": 10
     },
     {
@@ -1109,7 +1109,7 @@ export const trends = {
      "id": "multistability",
      "n": 57,
      "share": 2.2,
-     "growth": 16,
+     "growth": 15,
      "papers": 10
     },
     {
@@ -1117,7 +1117,7 @@ export const trends = {
      "id": "lyapunov-stability",
      "n": 49,
      "share": 1.9,
-     "growth": 51,
+     "growth": 50,
      "papers": 10
     },
     {
@@ -1133,7 +1133,7 @@ export const trends = {
      "id": "chaos",
      "n": 45,
      "share": 1.7,
-     "growth": 39,
+     "growth": 55,
      "papers": 10
     },
     {
@@ -1141,7 +1141,7 @@ export const trends = {
      "id": "reservoir-computing",
      "n": 43,
      "share": 1.6,
-     "growth": 79,
+     "growth": 78,
      "papers": 10
     },
     {
@@ -1149,15 +1149,7 @@ export const trends = {
      "id": "exact-solutions",
      "n": 41,
      "share": 1.6,
-     "growth": -21,
-     "papers": 10
-    },
-    {
-     "label": "nonlinear dynamical systems",
-     "id": "nonlinear-dynamical-systems",
-     "n": 41,
-     "share": 1.6,
-     "growth": 18,
+     "growth": -17,
      "papers": 10
     },
     {
@@ -1173,31 +1165,39 @@ export const trends = {
      "id": "event-triggered-control",
      "n": 39,
      "share": 1.5,
-     "growth": 91,
+     "growth": 101,
+     "papers": 10
+    },
+    {
+     "label": "nonlinear dynamical systems",
+     "id": "nonlinear-dynamical-systems",
+     "n": 39,
+     "share": 1.5,
+     "growth": 15,
      "papers": 10
     },
     {
      "label": "limit cycles",
      "id": "limit-cycles",
-     "n": 39,
-     "share": 1.5,
-     "growth": 12,
+     "n": 38,
+     "share": 1.4,
+     "growth": 8,
+     "papers": 10
+    },
+    {
+     "label": "parameter estimation",
+     "id": "parameter-estimation",
+     "n": 37,
+     "share": 1.4,
+     "growth": -10,
      "papers": 10
     },
     {
      "label": "physics-informed neural networks",
      "id": "physics-informed-neural-networks",
-     "n": 38,
-     "share": 1.4,
-     "growth": 51,
-     "papers": 10
-    },
-    {
-     "label": "vibration suppression",
-     "id": "vibration-reduction",
      "n": 37,
      "share": 1.4,
-     "growth": 14,
+     "growth": 46,
      "papers": 10
     },
     {
@@ -1205,7 +1205,7 @@ export const trends = {
      "id": "bistability",
      "n": 36,
      "share": 1.4,
-     "growth": -9,
+     "growth": -10,
      "papers": 10
     },
     {
@@ -1213,11 +1213,11 @@ export const trends = {
      "id": "reaction-diffusion-systems",
      "n": 36,
      "share": 1.4,
-     "growth": 7,
+     "growth": 6,
      "papers": 10
     }
    ],
-   "built": "2026-10-20"
+   "built": "2026-11-24"
   },
   "complex": {
    "total": 937,
