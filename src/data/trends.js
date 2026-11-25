@@ -359,7 +359,7 @@ export const trends = {
    "built": "2026-10-20"
   },
   "eda": {
-   "total": 2282,
+   "total": 2225,
    "journals": 4,
    "confs": [
     "DAC",
@@ -375,47 +375,55 @@ export const trends = {
     {
      "label": "energy efficiency",
      "id": "energy-efficiency",
-     "n": 319,
-     "share": 14.0,
-     "growth": 15,
+     "n": 333,
+     "share": 15.0,
+     "growth": 18,
      "papers": 10
     },
     {
      "label": "in-memory computing",
      "id": "in-memory-computing",
-     "n": 141,
-     "share": 6.2,
-     "growth": 12,
+     "n": 142,
+     "share": 6.4,
+     "growth": 14,
      "papers": 10
     },
     {
      "label": "large language models",
      "id": "large-language-models",
-     "n": 111,
+     "n": 110,
      "share": 4.9,
-     "growth": 1816,
+     "growth": 1860,
      "papers": 10
     },
     {
      "label": "design space exploration",
      "id": "design-space-exploration",
-     "n": 72,
+     "n": 71,
      "share": 3.2,
-     "growth": 10,
-     "papers": 10
-    },
-    {
-     "label": "hardware-software co-design",
-     "id": "hardware-software-co-design",
-     "n": 64,
-     "share": 2.8,
-     "growth": 0,
+     "growth": 5,
      "papers": 10
     },
     {
      "label": "hardware accelerators",
      "id": "hardware-accelerators",
+     "n": 65,
+     "share": 2.9,
+     "growth": 5,
+     "papers": 10
+    },
+    {
+     "label": "hardware-software co-design",
+     "id": "hardware-software-co-design",
      "n": 62,
+     "share": 2.8,
+     "growth": -4,
+     "papers": 10
+    },
+    {
+     "label": "FPGA implementation",
+     "id": "fpga-implementation",
+     "n": 59,
      "share": 2.7,
      "growth": 0,
      "papers": 10
@@ -423,89 +431,81 @@ export const trends = {
     {
      "label": "hardware security",
      "id": "hardware-security",
-     "n": 62,
-     "share": 2.7,
-     "growth": -13,
-     "papers": 10
-    },
-    {
-     "label": "FPGA implementation",
-     "id": "fpga-implementation",
-     "n": 60,
-     "share": 2.6,
-     "growth": 4,
-     "papers": 10
-    },
-    {
-     "label": "graph neural networks",
-     "id": "graph-neural-networks",
-     "n": 55,
-     "share": 2.4,
-     "growth": 41,
+     "n": 56,
+     "share": 2.5,
+     "growth": -20,
      "papers": 10
     },
     {
      "label": "resistive random access memory",
      "id": "resistive-random-access-memory",
+     "n": 50,
+     "share": 2.2,
+     "growth": 32,
+     "papers": 10
+    },
+    {
+     "label": "graph neural networks",
+     "id": "graph-neural-networks",
      "n": 49,
-     "share": 2.1,
-     "growth": 30,
+     "share": 2.2,
+     "growth": 20,
      "papers": 10
     },
     {
      "label": "edge computing",
      "id": "edge-computing",
-     "n": 47,
-     "share": 2.1,
-     "growth": -23,
+     "n": 48,
+     "share": 2.2,
+     "growth": -14,
      "papers": 10
     },
     {
      "label": "FPGA",
      "id": "fpga",
-     "n": 44,
-     "share": 1.9,
-     "growth": -18,
+     "n": 45,
+     "share": 2.0,
+     "growth": -11,
      "papers": 10
     },
     {
      "label": "edge devices",
      "id": "edge-devices",
-     "n": 40,
+     "n": 41,
      "share": 1.8,
-     "growth": 32,
+     "growth": 22,
      "papers": 10
     },
     {
      "label": "FPGA accelerator",
      "id": "fpga-accelerator",
-     "n": 39,
-     "share": 1.7,
-     "growth": 22,
+     "n": 40,
+     "share": 1.8,
+     "growth": 30,
      "papers": 10
     },
     {
      "label": "hardware acceleration",
      "id": "hardware-acceleration",
-     "n": 39,
-     "share": 1.7,
-     "growth": -18,
+     "n": 40,
+     "share": 1.8,
+     "growth": -5,
      "papers": 10
     },
     {
      "label": "large language model inference",
      "id": "large-language-model-inference",
-     "n": 38,
-     "share": 1.7,
+     "n": 36,
+     "share": 1.6,
      "growth": null,
      "papers": 10
     },
     {
      "label": "load balancing",
      "id": "load-balancing",
-     "n": 37,
+     "n": 36,
      "share": 1.6,
-     "growth": 42,
+     "growth": 35,
      "papers": 10
     },
     {
@@ -513,15 +513,7 @@ export const trends = {
      "id": "electronic-design-automation",
      "n": 34,
      "share": 1.5,
-     "growth": 135,
-     "papers": 10
-    },
-    {
-     "label": "fault tolerance",
-     "id": "fault-tolerance",
-     "n": 34,
-     "share": 1.5,
-     "growth": -10,
+     "growth": 102,
      "papers": 10
     },
     {
@@ -529,11 +521,19 @@ export const trends = {
      "id": "65-nm-cmos",
      "n": 32,
      "share": 1.4,
-     "growth": 23,
+     "growth": 27,
+     "papers": 10
+    },
+    {
+     "label": "fault tolerance",
+     "id": "fault-tolerance",
+     "n": 32,
+     "share": 1.4,
+     "growth": -16,
      "papers": 10
     }
    ],
-   "built": "2026-10-20"
+   "built": "2026-11-25"
   },
   "audio": {
    "total": 4596,
