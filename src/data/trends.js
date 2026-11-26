@@ -2914,7 +2914,7 @@ export const trends = {
    "built": "2026-11-22"
   },
   "materials": {
-   "total": 3079,
+   "total": 3063,
    "journals": 5,
    "confs": [],
    "missing": [],
@@ -2922,49 +2922,49 @@ export const trends = {
     {
      "label": "machine learning interatomic potentials",
      "id": "machine-learning-interatomic-potentials",
-     "n": 106,
-     "share": 3.4,
-     "growth": 160,
+     "n": 102,
+     "share": 3.3,
+     "growth": 157,
      "papers": 10
     },
     {
      "label": "high-entropy alloys",
      "id": "high-entropy-alloys",
      "n": 72,
-     "share": 2.3,
-     "growth": 15,
+     "share": 2.4,
+     "growth": 25,
      "papers": 10
     },
     {
      "label": "two-dimensional materials",
      "id": "2d-materials",
-     "n": 64,
+     "n": 63,
      "share": 2.1,
-     "growth": 11,
-     "papers": 10
-    },
-    {
-     "label": "metal-organic frameworks",
-     "id": "metal-organic-frameworks",
-     "n": 58,
-     "share": 1.9,
-     "growth": -3,
-     "papers": 10
-    },
-    {
-     "label": "materials discovery",
-     "id": "materials-discovery",
-     "n": 56,
-     "share": 1.8,
-     "growth": 103,
+     "growth": 14,
      "papers": 10
     },
     {
      "label": "ionic conductivity",
      "id": "ionic-conductivity",
+     "n": 58,
+     "share": 1.9,
+     "growth": 51,
+     "papers": 10
+    },
+    {
+     "label": "materials discovery",
+     "id": "materials-discovery",
      "n": 55,
      "share": 1.8,
-     "growth": 35,
+     "growth": 141,
+     "papers": 10
+    },
+    {
+     "label": "metal-organic frameworks",
+     "id": "metal-organic-frameworks",
+     "n": 55,
+     "share": 1.8,
+     "growth": -7,
      "papers": 10
     },
     {
@@ -2972,23 +2972,7 @@ export const trends = {
      "id": "strain-hardening",
      "n": 49,
      "share": 1.6,
-     "growth": 17,
-     "papers": 10
-    },
-    {
-     "label": "grain boundaries",
-     "id": "grain-boundaries",
-     "n": 44,
-     "share": 1.4,
-     "growth": 31,
-     "papers": 10
-    },
-    {
-     "label": "active learning (machine learning)",
-     "id": "active-learning-machine-learning",
-     "n": 43,
-     "share": 1.4,
-     "growth": 89,
+     "growth": 13,
      "papers": 10
     },
     {
@@ -2996,7 +2980,7 @@ export const trends = {
      "id": "crystal-structure",
      "n": 43,
      "share": 1.4,
-     "growth": 0,
+     "growth": 5,
      "papers": 10
     },
     {
@@ -3004,31 +2988,23 @@ export const trends = {
      "id": "microstructural-evolution",
      "n": 43,
      "share": 1.4,
-     "growth": 28,
+     "growth": 32,
      "papers": 10
     },
     {
-     "label": "solid electrolytes",
-     "id": "solid-electrolytes",
+     "label": "active learning (machine learning)",
+     "id": "active-learning-machine-learning",
      "n": 42,
      "share": 1.4,
-     "growth": 67,
+     "growth": 84,
      "papers": 10
     },
     {
-     "label": "graph neural networks",
-     "id": "graph-neural-networks",
+     "label": "lattice thermal conductivity",
+     "id": "lattice-thermal-conductivity",
      "n": 41,
      "share": 1.3,
-     "growth": 327,
-     "papers": 10
-    },
-    {
-     "label": "Bayesian optimization",
-     "id": "bayesian-optimization",
-     "n": 40,
-     "share": 1.3,
-     "growth": 271,
+     "growth": 42,
      "papers": 10
     },
     {
@@ -3036,15 +3012,23 @@ export const trends = {
      "id": "oxygen-vacancies",
      "n": 40,
      "share": 1.3,
-     "growth": 45,
+     "growth": 51,
      "papers": 10
     },
     {
-     "label": "thermoelectric materials",
-     "id": "thermoelectric-materials",
-     "n": 40,
+     "label": "grain boundaries",
+     "id": "grain-boundaries",
+     "n": 39,
      "share": 1.3,
-     "growth": -17,
+     "growth": 12,
+     "papers": 10
+    },
+    {
+     "label": "graph neural networks",
+     "id": "graph-neural-networks",
+     "n": 39,
+     "share": 1.3,
+     "growth": 224,
      "papers": 10
     },
     {
@@ -3056,31 +3040,47 @@ export const trends = {
      "papers": 10
     },
     {
-     "label": "phase stability",
-     "id": "phase-stability",
+     "label": "solid electrolytes",
+     "id": "solid-electrolytes",
      "n": 39,
      "share": 1.3,
-     "growth": 5,
+     "growth": 71,
      "papers": 10
     },
     {
-     "label": "lattice thermal conductivity",
-     "id": "lattice-thermal-conductivity",
+     "label": "phase stability",
+     "id": "phase-stability",
      "n": 38,
      "share": 1.2,
-     "growth": 32,
+     "growth": -1,
      "papers": 10
     },
     {
-     "label": "mechanical properties",
-     "id": "mechanical-properties",
+     "label": "phase transitions",
+     "id": "phase-transitions",
      "n": 38,
      "share": 1.2,
-     "growth": 51,
+     "growth": 143,
+     "papers": 10
+    },
+    {
+     "label": "thermoelectric materials",
+     "id": "thermoelectric-materials",
+     "n": 38,
+     "share": 1.2,
+     "growth": -19,
+     "papers": 10
+    },
+    {
+     "label": "hardness",
+     "id": "hardness",
+     "n": 37,
+     "share": 1.2,
+     "growth": 156,
      "papers": 10
     }
    ],
-   "built": "2026-10-20"
+   "built": "2026-11-26"
   },
   "power": {
    "total": 4086,
