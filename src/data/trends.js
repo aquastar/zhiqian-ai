@@ -3252,25 +3252,25 @@ export const trends = {
    "built": "2026-10-20"
   },
   "math": {
-   "total": 667,
+   "total": 671,
    "journals": 7,
    "confs": [],
    "missing": [],
    "rows": [
     {
+     "label": "Hausdorff dimension",
+     "id": "hausdorff-dimension",
+     "n": 20,
+     "share": 3.0,
+     "growth": 46,
+     "papers": 10
+    },
+    {
      "label": "3-manifolds",
      "id": "3-manifolds",
      "n": 16,
      "share": 2.4,
-     "growth": 278,
-     "papers": 10
-    },
-    {
-     "label": "Hausdorff dimension",
-     "id": "hausdorff-dimension",
-     "n": 16,
-     "share": 2.4,
-     "growth": 26,
+     "growth": 405,
      "papers": 10
     },
     {
@@ -3298,19 +3298,19 @@ export const trends = {
      "papers": 10
     },
     {
-     "label": "automorphic forms",
-     "id": "automorphic-forms",
-     "n": 8,
-     "share": 1.2,
-     "growth": 278,
+     "label": "asymptotic behavior",
+     "id": "asymptotic-behavior",
+     "n": 7,
+     "share": 1.0,
+     "growth": 66,
      "papers": 10
     },
     {
-     "label": "Riemannian manifolds",
-     "id": "riemannian-manifolds",
-     "n": 8,
-     "share": 1.2,
-     "growth": 89,
+     "label": "Diophantine approximation",
+     "id": "diophantine-approximation",
+     "n": 7,
+     "share": 1.0,
+     "growth": 10,
      "papers": 10
     },
     {
@@ -3330,27 +3330,43 @@ export const trends = {
      "papers": 8
     },
     {
-     "label": "projective space",
-     "id": "projective-space",
+     "label": "number fields",
+     "id": "number-fields",
      "n": 7,
      "share": 1.0,
-     "growth": 231,
-     "papers": 9
+     "growth": -40,
+     "papers": 10
     },
     {
-     "label": "Ricci flow",
-     "id": "ricci-flow",
+     "label": "reductive groups",
+     "id": "reductive-groups",
+     "n": 7,
+     "share": 1.0,
+     "growth": -26,
+     "papers": 10
+    },
+    {
+     "label": "Riemannian manifolds",
+     "id": "riemannian-manifolds",
+     "n": 7,
+     "share": 1.0,
+     "growth": 66,
+     "papers": 10
+    },
+    {
+     "label": "Shimura varieties",
+     "id": "shimura-varieties",
      "n": 7,
      "share": 1.0,
      "growth": null,
      "papers": 10
     },
     {
-     "label": "asymptotic behavior",
-     "id": "asymptotic-behavior",
+     "label": "4-manifolds",
+     "id": "4-manifolds",
      "n": 6,
      "share": 0.9,
-     "growth": 42,
+     "growth": 89,
      "papers": 10
     },
     {
@@ -3366,31 +3382,23 @@ export const trends = {
      "id": "convex-bodies",
      "n": 6,
      "share": 0.9,
-     "growth": -19,
+     "growth": -5,
      "papers": 10
     },
     {
-     "label": "derived categories",
-     "id": "derived-categories",
+     "label": "extra dimensions",
+     "id": "extra-dimensions",
      "n": 6,
      "share": 0.9,
      "growth": 468,
      "papers": 10
     },
     {
-     "label": "Diophantine approximation",
-     "id": "diophantine-approximation",
+     "label": "finite groups",
+     "id": "finite-groups",
      "n": 6,
      "share": 0.9,
-     "growth": -5,
-     "papers": 10
-    },
-    {
-     "label": "Lyapunov exponents",
-     "id": "lyapunov-exponents",
-     "n": 6,
-     "share": 0.9,
-     "growth": 184,
+     "growth": null,
      "papers": 10
     },
     {
@@ -3398,27 +3406,19 @@ export const trends = {
      "id": "mapping-class-group",
      "n": 6,
      "share": 0.9,
+     "growth": 42,
+     "papers": 10
+    },
+    {
+     "label": "projective space",
+     "id": "projective-space",
+     "n": 6,
+     "share": 0.9,
      "growth": 89,
-     "papers": 10
-    },
-    {
-     "label": "number fields",
-     "id": "number-fields",
-     "n": 6,
-     "share": 0.9,
-     "growth": -43,
-     "papers": 10
-    },
-    {
-     "label": "Shimura varieties",
-     "id": "shimura-varieties",
-     "n": 6,
-     "share": 0.9,
-     "growth": null,
-     "papers": 10
+     "papers": 8
     }
    ],
-   "built": "2026-10-20"
+   "built": "2026-11-27"
   },
   "physics": {
    "total": 4069,
