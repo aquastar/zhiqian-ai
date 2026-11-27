@@ -1,35 +1,35 @@
 {
-  "date": "2026-11-20",
+  "date": "2026-11-27",
   "window": {},
   "caveat": "Entries marked unverified were not confirmed against a primary page. The sponsor site is the authority; this is only an index.",
   "counts": {
-    "opportunities": 26,
+    "opportunities": 20,
     "early_signals": 0,
-    "registry": 321,
-    "watchlist": 273
+    "registry": 335,
+    "watchlist": 276
   },
   "opportunities": [
     {
-      "sponsor": "Biswas Family Foundation",
-      "program": "Fast Grants Cycle 2 (11-15 open)",
-      "deadline": "",
-      "budget": "",
-      "pages": "",
-      "eligibility": "",
-      "competition": "medium",
-      "source_tier": "L2b",
-      "url": "https://www.biswasfamilyfoundation.org/science/fast-grants"
-    },
-    {
-      "sponsor": "NIH OD",
+      "sponsor": "OpenAI",
       "program": "",
       "deadline": "",
       "budget": "",
       "pages": "",
       "eligibility": "",
-      "competition": "medium",
+      "competition": "",
       "source_tier": "L1",
-      "url": "https://grants.nih.gov/grants/guide/notice-files/NOT-OD-27-008.html"
+      "url": "https://openai.com/index/expanding-chatgpt-for-academic-researchers/"
+    },
+    {
+      "sponsor": "NIH ODSS",
+      "program": "",
+      "deadline": "",
+      "budget": "",
+      "pages": "",
+      "eligibility": "",
+      "competition": "low",
+      "source_tier": "L0 L1",
+      "url": "https://grants.nih.gov/grants/guide/notice-files/NOT-OD-27-012.html"
     },
     {
       "sponsor": "",
@@ -39,63 +39,19 @@
       "pages": "",
       "eligibility": "",
       "competition": "medium",
-      "source_tier": "L0 L1 L2",
-      "url": "https://www.nsf.gov/funding/opportunities/frr-foundational-research-robotics/nsf27-501/solicitation"
+      "source_tier": "L2",
+      "url": "https://www.aria.org.uk/"
     },
     {
-      "sponsor": "NSF TIP",
+      "sponsor": "DOC EDA",
       "program": "",
-      "deadline": "",
+      "deadline": "2027-02-26 4:59 PM ET",
       "budget": "",
       "pages": "",
       "eligibility": "",
       "competition": "high",
-      "source_tier": "L1 L2",
-      "url": "https://sam.gov/workspace/contract/opp/e3f60137be344f57bd5e23ce52f81102/view"
-    },
-    {
-      "sponsor": "Army Geospatial Center",
-      "program": "",
-      "deadline": "",
-      "budget": "",
-      "pages": "Unverified",
-      "eligibility": "Unverified",
-      "competition": "medium",
-      "source_tier": "L2",
-      "url": "https://sam.gov/opp/320304fc4f7b4b3f908c4edc1e9805ec/view"
-    },
-    {
-      "sponsor": "DOT FHWA",
-      "program": "",
-      "deadline": "2027-01-11 14:00 UTC",
-      "budget": "",
-      "pages": "Unverified",
-      "eligibility": "",
-      "competition": "medium",
-      "source_tier": "L2",
-      "url": "https://sam.gov/api/prod/sgs/v1/search/?index=opp&q=693JJ3-27-BAA-0001"
-    },
-    {
-      "sponsor": "EPA STAR",
-      "program": "",
-      "deadline": "2027-01-20 11:59 PM ET",
-      "budget": "",
-      "pages": "",
-      "eligibility": "",
-      "competition": "medium",
       "source_tier": "L0 L1",
-      "url": "https://simpler.grants.gov/opportunity/2f13c73b-409d-4b7d-91cd-352a08cb0e81"
-    },
-    {
-      "sponsor": "DARPA DSO",
-      "program": "",
-      "deadline": "",
-      "budget": "",
-      "pages": "",
-      "eligibility": "",
-      "competition": "medium",
-      "source_tier": "L1 L2 L3",
-      "url": "https://sam.gov/opp/fe1ca1ee1ccb4170b7b8c7b2dfa871d0/view"
+      "url": "https://simpler.grants.gov/search?query=EDA-B2S-2027"
     },
     {
       "sponsor": "Host",
@@ -108,16 +64,6 @@
       "url": ""
     },
     {
-      "sponsor": "NIH ODSS (CrowdPlat)",
-      "program": "",
-      "deadline": "",
-      "budget": "",
-      "eligibility": "",
-      "competition": "",
-      "source_tier": "Yes",
-      "url": "https://work.crowdplat.com/challenge/nih-temporal-knowledge-graph-challenge"
-    },
-    {
       "sponsor": "IBM and others",
       "program": "",
       "deadline": "",
@@ -126,6 +72,16 @@
       "competition": "high",
       "source_tier": "No",
       "url": "https://steerability.github.io/competition/"
+    },
+    {
+      "sponsor": "NIH ODSS (CrowdPlat)",
+      "program": "",
+      "deadline": "",
+      "budget": "",
+      "eligibility": "",
+      "competition": "medium",
+      "source_tier": "Yes",
+      "url": "https://work.crowdplat.com/challenge/nih-temporal-knowledge-graph-challenge"
     },
     {
       "sponsor": "SemEval 2027",
@@ -141,7 +97,7 @@
       "sponsor": "UCSD ABKGroup and NVIDIA",
       "program": "",
       "deadline": "",
-      "budget": "$1,500 / $750 / $375 plus NVIDIA GPU",
+      "budget": "",
       "eligibility": "",
       "competition": "medium",
       "source_tier": "No",
@@ -208,6 +164,16 @@
       "url": "https://www.darpa.mil/research/challenges/d2"
     },
     {
+      "sponsor": "NIMHD SCHARE",
+      "program": "",
+      "deadline": "",
+      "budget": "",
+      "eligibility": "",
+      "competition": "medium",
+      "source_tier": "Yes",
+      "url": "https://www.nimhd.nih.gov/resources/schare/grand-challenges"
+    },
+    {
       "sponsor": "NIH",
       "program": "",
       "deadline": "",
@@ -218,44 +184,14 @@
       "url": "https://www.nih.gov/challenges"
     },
     {
-      "sponsor": "Navy NAWCTSD",
-      "program": "",
-      "deadline": "",
-      "budget": "up to 1,999,999",
-      "eligibility": "",
-      "competition": "medium",
-      "source_tier": "Yes",
-      "url": "https://centralfloridatechgrove.org/marine-corps-wargaming-prize-challenge/"
-    },
-    {
-      "sponsor": "NIMHD SCHARE",
-      "program": "",
-      "deadline": "",
-      "budget": "1M",
-      "eligibility": "",
-      "competition": "medium",
-      "source_tier": "Yes",
-      "url": "https://www.nimhd.nih.gov/resources/schare/grand-challenges"
-    },
-    {
       "sponsor": "NIH DPCPSI",
       "program": "",
-      "deadline": "",
+      "deadline": "2027-01-15",
       "budget": "",
       "eligibility": "No federal funds allowed",
       "competition": "low to medium",
       "source_tier": "Yes",
       "url": "https://www.nih.gov/challenges"
-    },
-    {
-      "sponsor": "ICASSP 2027",
-      "program": "",
-      "deadline": "",
-      "budget": "",
-      "eligibility": "",
-      "competition": "medium",
-      "source_tier": "No",
-      "url": "https://audio-editing-challenge.github.io/"
     },
     {
       "sponsor": "Kaggle",
@@ -483,7 +419,7 @@
       "first_seen_date": "2026-10-09",
       "sponsor": "DARPA IPTO",
       "program": "Intrinsic Market Resilience DARPA-PS-26-138",
-      "deadline": "abstract 2026-10-22",
+      "deadline": "2026-12-07 2 PM ET",
       "url": "https://www.darpa.mil/research/programs/intrinsic-market-resilience-imr",
       "logo_domain": "darpa.mil",
       "logo": "",
@@ -695,6 +631,8 @@
       "program": "TechAccess NSF 26-508 (limited)",
       "deadline": "LOI 2026-12-15",
       "url": "https://www.nsf.gov/funding/opportunities/techaccess-ai-ready-america/nsf26-508/solicitation",
+      "budget": "$1M per year for 3 years (possible 4th year) per Coordination Hub",
+      "pages": "15 pp project description",
       "logo_domain": "nsf.gov",
       "logo": "/funding/logos/nsf.gov.png",
       "logo_px": 192,
@@ -705,9 +643,8 @@
       "comp_score": 5,
       "comp_basis": "Limited submission: your institution runs its own competition first.",
       "tldr": "An NSF solicitation with its own topic and deadline.",
-      "award": "~$3M to $4M",
-      "award_note": "An average, not a stated award size: NSF expects 56 awards from $168M to $224M for the whole programme. The solicitation gives the size of one award only in prose.",
-      "award_src": "nsf-average"
+      "award": "$1M per year for 3 years (possible 4th year) per Coordination Hub",
+      "award_note": ""
     },
     {
       "first_seen_date": "2026-10-09",
@@ -715,6 +652,8 @@
       "program": "ELEGANT OTA",
       "deadline": "2026-12-18",
       "url": "https://www.nsf.gov/tip/elegant",
+      "budget": "not stated per award, $150M total over 6 years ($6M to $43M per theme, $12M Ecosystem Coordinator), three 24 month phases",
+      "pages": "25 pp Expert Performer Team, 20 pp Ecosystem Coordinator",
       "logo_domain": "nsf.gov",
       "logo": "/funding/logos/nsf.gov.png",
       "logo_px": 192,
@@ -724,7 +663,7 @@
       "comp_basis": "Estimated from the kind of call: federal research solicitations typically fund well under a quarter of what they receive.",
       "tldr": "An NSF solicitation with its own topic and deadline.",
       "award": "",
-      "award_note": ""
+      "award_note": "not stated per award, $150M over 6 years ($6M to $43M per theme, $12M Ecosystem Coordinator), three 24 month phases across the whole programme. Not a per-project figure."
     },
     {
       "first_seen_date": "2026-10-09",
@@ -732,6 +671,8 @@
       "program": "X-Labs AI for Physical Systems",
       "deadline": "2027-01-07",
       "url": "https://www.nsf.gov/funding/initiatives/nsf-x-labs",
+      "budget": "Phase 0 up to $1.5M (9 months), Phase 1 up to $50M per year (24 to 36 months), OT awards",
+      "pages": "Written Proposal 8 pp, max 2 per org as lead",
       "logo_domain": "nsf.gov",
       "logo": "/funding/logos/nsf.gov.png",
       "logo_px": 192,
@@ -740,7 +681,7 @@
       "comp_score": 4,
       "comp_basis": "Estimated from the kind of call: federal research solicitations typically fund well under a quarter of what they receive.",
       "tldr": "A federal research call.",
-      "award": "",
+      "award": "Phase 0 up to $1.5M (9 months), Phase 1 up to $50M per year (24 to 36 months), OT awards",
       "award_note": ""
     },
     {
@@ -1097,6 +1038,8 @@
       "program": "Research Fellowship 2027 (not yet posted)",
       "deadline": "expected 2026-12-16",
       "url": "https://www.microsoft.com/en-us/research/academic-program/microsoft-research-fellowship/how-to-apply/",
+      "budget": "$47K stipend for US fellows, 1 year (2026 cycle figure)",
+      "pages": "3 pp statement of interest plus 1 p references (2026 cycle)",
       "logo_domain": "microsoft.com",
       "logo": "/funding/logos/microsoft.com.ico",
       "logo_px": 128,
@@ -1107,7 +1050,7 @@
       "comp_score": 4,
       "comp_basis": "Estimated from what is on offer: a named company award is one global round for a fixed and small number of places.",
       "tldr": "Supports a named individual rather than a project.",
-      "award": "",
+      "award": "$47K stipend for US fellows, 1 year (2026 cycle figure)",
       "award_note": ""
     },
     {
@@ -1295,6 +1238,8 @@
       "program": "FIP Research HHS-2027-ACL-NIDILRR-IFRE-0303 (forecast)",
       "deadline": "est 2026-12-14",
       "url": "https://simpler.grants.gov/opportunity/23540a91-8dc4-454a-89d1-9ecc031b819c",
+      "budget": "$245K to $250K per award, 36 months, about 8 awards (forecast)",
+      "pages": "not stated (forecast, NOFO not yet posted)",
       "logo_domain": "acl.gov",
       "logo": "/funding/logos/acl.gov.ico",
       "logo_px": 32,
@@ -1303,9 +1248,8 @@
       "comp_score": 4,
       "comp_basis": "Estimated from the kind of call: federal research solicitations typically fund well under a quarter of what they receive.",
       "tldr": "A disability and rehabilitation research project, three years.",
-      "award": "$245K to $250K",
-      "award_note": "grants.gov lists this per award for HHS-2027-ACL-NIDILRR-IFRE-0303. About 8 awards expected. $2M for the whole programme.",
-      "award_src": "grants.gov"
+      "award": "$245K to $250K per award, 36 months, about 8 awards (forecast)",
+      "award_note": ""
     },
     {
       "first_seen_date": "2026-10-14",
@@ -1507,6 +1451,7 @@
       "program": "Long Range BAA N0001425SB001",
       "deadline": "2026-12-31",
       "url": "https://www.onr.navy.mil/work-with-us/funding-opportunities/fy25-long-range-broad-agency-announcement-baa-navy-and-marine",
+      "pages": "5 pp white paper, full technical proposal limit set with program officer",
       "logo_domain": "onr.navy.mil",
       "logo": "",
       "logo_px": 0,
@@ -1916,6 +1861,8 @@
       "program": "IGVF Computational Modeling RFA-HG-27-010",
       "deadline": "2026-12-14",
       "url": "https://simpler.grants.gov/opportunity/c223b7bc-1da4-4533-a09f-d35659e6d29b",
+      "budget": "up to $800K direct costs (application budget cap), up to 5 years, about 5 awards",
+      "pages": "30 pp Research Strategy",
       "logo_domain": "nih.gov",
       "logo": "/funding/logos/nih.gov.png",
       "logo_px": 144,
@@ -1930,9 +1877,8 @@
       "comp_score": 4,
       "comp_basis": "From the funder's published success rate of 13%. NIH-wide R01-equivalent success rate, FY2025: 5,471 awards from 42,022 applications. Not this call's odds, and individual institutes differ.",
       "tldr": "An NIH request for applications, one topic and a fixed pot.",
-      "award": "Up to $800K",
-      "award_note": "grants.gov lists this per award for RFA-HG-27-010. About 5 awards expected. $5M for the whole programme.",
-      "award_src": "grants.gov"
+      "award": "Up to $800K direct costs (application budget cap), up to 5 years, about 5 awards",
+      "award_note": ""
     },
     {
       "first_seen_date": "2026-10-14",
@@ -1940,6 +1886,8 @@
       "program": "Digital Health Technologies Cycle 1 2027",
       "deadline": "LOI 2027-01-06",
       "url": "https://www.pcori.org/funding-opportunities/announcement/harnessing-digital-health-technologies-support-patient-centered-comparative-clinical-effectiveness-research-pcori-funding-announcement-cycle-1-2027",
+      "budget": "up to $12M direct per award, up to 5 years ($60M total)",
+      "pages": "unverified (PFA states no limit, PCORI application guidelines page bot-blocked)",
       "logo_domain": "pcori.org",
       "logo": "/funding/logos/pcori.org.ico",
       "logo_px": 48,
@@ -1951,7 +1899,7 @@
       "comp_basis": "Estimated from the kind of call, not a published rate.",
       "tldr": "A nonprofit grant.",
       "award": "",
-      "award_note": ""
+      "award_note": "up to $12M direct per award, up to 5 years ($60M ) across the whole programme. Not a per-project figure."
     },
     {
       "first_seen_date": "2026-10-14",
@@ -2188,6 +2136,8 @@
       "program": "Powe Junior Faculty Awards 2027 (limited)",
       "deadline": "2027-01-06",
       "url": "https://www.orau.org/partnerships/grant-programs/powe/index.html",
+      "budget": "$5K per award plus at least $5K institutional match, 1 year",
+      "pages": "not stated on program page",
       "logo_domain": "orau.org",
       "logo": "/funding/logos/orau.org.svg",
       "logo_px": 9999,
@@ -2199,7 +2149,7 @@
       "comp_score": 5,
       "comp_basis": "Limited submission: your institution runs its own competition first.",
       "tldr": "A private foundation grant.",
-      "award": "",
+      "award": "$5K per award plus at least $5K institutional match, 1 year",
       "award_note": ""
     },
     {
@@ -2533,6 +2483,8 @@
       "program": "Scientific Software Faculty Award and Fellows-to-Faculty 2027",
       "deadline": "2027-01-21, 2027-01-13",
       "url": "https://www.simonsfoundation.org/funding-opportunities/",
+      "budget": "SSRF: 5 years of academic year salary (100% in years 1 to 2, 50% in years 3 to 5) plus $50K per year research allowance plus up to 20% indirect, up to 6 awards. F2F: $600K faculty grant over 3 years ($200K per year incl 20% indirect) plus optional postdoc up to 2 years ($85K stipend)",
+      "pages": "not stated on RFA pages (LOI and application via Simons Award Manager)",
       "logo_domain": "simonsfoundation.org",
       "logo": "/funding/logos/simonsfoundation.org.svg",
       "logo_px": 9999,
@@ -2544,7 +2496,7 @@
       "comp_score": 3,
       "comp_basis": "Estimated from the kind of call, not a published rate.",
       "tldr": "A private foundation grant.",
-      "award": "",
+      "award": "SSRF: 5 years of academic year salary (100% in years 1 to 2, 50% in years 3 to 5) plus $50K per year research allowance plus up to 20% indirect, up to 6 awards. F2F: $600K faculty grant over 3 years ($200K per year incl 20% indirect) plus optional postdoc up to 2 years ($85K stipend)",
       "award_note": ""
     },
     {
@@ -2927,6 +2879,8 @@
       "program": "Improving Methods for Conducting Patient-Centered CER Cycle 1 2027",
       "deadline": "LOI 2027-01-06",
       "url": "https://www.pcori.org/funding-opportunities/announcement/improving-methods-conducting-patient-centered-comparative-clinical-effectiveness-research-pcori-funding-announcement-cycle-1-2027",
+      "budget": "up to $750K direct per award, up to 3 years ($12M total)",
+      "pages": "unverified (PFA states no limit, PCORI application guidelines page bot-blocked)",
       "logo_domain": "pcori.org",
       "logo": "/funding/logos/pcori.org.ico",
       "logo_px": 48,
@@ -2936,7 +2890,7 @@
       "comp_basis": "Estimated from the kind of call, not a published rate.",
       "tldr": "A nonprofit grant.",
       "award": "",
-      "award_note": ""
+      "award_note": "up to $750K direct per award, up to 3 years ($12M ) across the whole programme. Not a per-project figure."
     },
     {
       "first_seen_date": "2026-10-16",
@@ -3626,6 +3580,8 @@
       "program": "Young Faculty Award 2027 DARPARA2701 (posted 2026-10-20)",
       "deadline": "2027-01-13",
       "url": "https://simpler.grants.gov/opportunity/e2105ef4-a8d8-4849-97ec-7d075ed72a0e",
+      "budget": "up to $500K for 24 month base (max $250K per 12 months), optional Director's Fellowship up to $500K for 12 months, optional US citizen grad student add up to $225K, cooperative agreement",
+      "pages": "Technical and Management volume max 8 pp (refs included), required 1 pp executive summary was due 2026-11-05",
       "logo_domain": "darpa.mil",
       "logo": "",
       "logo_px": 16,
@@ -3637,7 +3593,7 @@
       "comp_score": 4,
       "comp_basis": "Estimated from the kind of call: federal research solicitations typically fund well under a quarter of what they receive.",
       "tldr": "A federal research call.",
-      "award": "",
+      "award": "Up to $500K for 24 month base (max $250K per 12 months), optional Director's Fellowship up to $500K for 12 months, optional US citizen grad student add up to $225K, cooperative agreement",
       "award_note": ""
     },
     {
@@ -3685,6 +3641,8 @@
       "program": "ERDC BAA W912HZ26S0001",
       "deadline": "2027-01-01",
       "url": "https://simpler.grants.gov/opportunity/98696099-8a71-4a7c-8e2d-1dfcf3817f75",
+      "budget": "not stated (BAA gives no figure, grants.gov ceiling is a $999,999,999 placeholder)",
+      "pages": "pre-proposal 5 pp",
       "logo_domain": "",
       "logo": "",
       "logo_px": 0,
@@ -3695,7 +3653,7 @@
       "comp_score": 3,
       "comp_basis": "Estimated from the kind of call: an open BAA takes white papers continuously rather than running one round.",
       "tldr": "A standing call across the office's whole portfolio, white paper first.",
-      "award": "",
+      "award": "Not stated (BAA gives no figure, grants.gov ceiling is a $999,999,999 placeholder)",
       "award_note": ""
     },
     {
@@ -3902,6 +3860,8 @@
       "program": "Grants for Junior Faculty and Sagol GerOmic Award",
       "deadline": "LOI 2026-12-15",
       "url": "https://www.afar.org/funding-opportunities",
+      "budget": "up to $160K per award, 1 to 2 years",
+      "pages": "LOI 7 pp total (1 p aims and approach plus biosketch), full application not stated",
       "logo_domain": "afar.org",
       "logo": "/funding/logos/afar.org.png",
       "logo_px": 64,
@@ -3910,7 +3870,7 @@
       "comp_score": 3,
       "comp_basis": "Estimated from the kind of call, not a published rate.",
       "tldr": "A nonprofit grant.",
-      "award": "",
+      "award": "Up to $160K per award, 1 to 2 years",
       "award_note": ""
     },
     {
@@ -3973,6 +3933,8 @@
       "program": "Public Humanities Projects",
       "deadline": "2026-12-16",
       "url": "https://simpler.grants.gov/opportunity/502a1727-5555-4ce5-b929-2f3d78a884a9",
+      "budget": "Planning up to $75K, up to 24 months, Implementation up to $500K (Chairman's Special up to $2M), 12 to 48 months",
+      "pages": "15 pp narrative",
       "logo_domain": "",
       "logo": "",
       "logo_px": 0,
@@ -3981,14 +3943,14 @@
       "comp_score": 4,
       "comp_basis": "Estimated from the kind of call: federal research solicitations typically fund well under a quarter of what they receive.",
       "tldr": "A federal research call.",
-      "award": "",
+      "award": "Planning up to $75K, up to 24 months, Implementation up to $500K (Chairman's Special up to $2M), 12 to 48 months",
       "award_note": ""
     },
     {
       "first_seen_date": "2026-10-23",
       "sponsor": "ARPA-H",
       "program": "TIGAR ARPA-H-SOL-26-144",
-      "deadline": "2026-12-08",
+      "deadline": "CLOSED",
       "url": "https://arpa-h.gov/explore-funding/initiatives-and-sprints/tigar",
       "budget": "up to $2M over 18 months (two 9 month phases), multiple OT awards",
       "pages": "7 minute Solution Video plus supplemental slides",
@@ -4492,6 +4454,8 @@
       "program": "It's About Time: Temporal Reasoning in Biomedical Knowledge Graphs Challenge",
       "deadline": "2027-01-15",
       "url": "https://www.nih.gov/challenges/its-about-time-temporal-reasoning-biomedical-knowledge-graphs-challenge",
+      "budget": "pool $1M, Phase 1 up to 10 x $25K, Phase 2 top prize $350K (2nd $250K, 3rd $150K)",
+      "pages": "Phase 1 entry 10 pp PDF, 11 pt min",
       "prize": true,
       "logo_domain": "nih.gov",
       "logo": "/funding/logos/nih.gov.png",
@@ -4503,7 +4467,7 @@
       "comp_score": 4,
       "comp_basis": "Estimated from the kind of call: federal research solicitations typically fund well under a quarter of what they receive.",
       "tldr": "An open competition judged on results, not on a proposal.",
-      "award": "",
+      "award": "Pool $1M, Phase 1 up to 10 x $25K, Phase 2 top prize $350K (2nd $250K, 3rd $150K)",
       "award_note": ""
     },
     {
@@ -4528,10 +4492,11 @@
       "first_seen_date": "2026-10-27",
       "sponsor": "IBM and partners",
       "program": "Steerability Challenge NeurIPS 2026",
-      "deadline": "2026-11-29 AoE",
+      "deadline": "2026-12-03 AoE",
       "url": "https://steerability.github.io/competition/",
       "budget": "prize $40K+ for 1st to 3rd place per track (pool not stated)",
       "prize": true,
+      "pages": "method card required",
       "competition": "high",
       "source_tier": "No",
       "logo_domain": "steerability.github.io",
@@ -4553,9 +4518,9 @@
       "program": "Task 7 CLaS Cross Lingual Alignment and Steering, and Task 3 Semantic Change",
       "deadline": "registration 2026-12-31",
       "url": "https://clas-semeval2027.github.io/clas.semeval2027/task/",
+      "budget": "no cash pool stated, CLaS gives awards to the 1st place system in each ranking (form not stated), Task 3 states no prize",
+      "pages": "system description paper up to 5 pp for a single task (refs and appendices excluded), paper due February 2027",
       "prize": true,
-      "budget": "no cash",
-      "pages": "paper",
       "competition": "medium",
       "source_tier": "No",
       "logo_domain": "clas-semeval2027.github.io",
@@ -4568,7 +4533,7 @@
       "comp_score": 3,
       "comp_basis": "Graded \"medium\" in this week's brief, not a published rate.",
       "tldr": "A company programme.",
-      "award": "No cash",
+      "award": "No cash pool stated, CLaS gives awards to the 1st place system in each ranking (form not stated), Task 3 states no prize",
       "award_note": ""
     },
     {
@@ -4596,6 +4561,8 @@
       "program": "SPARK dbGaP Challenge and SPARK PubMed/PMC Challenge",
       "deadline": "code 2027-01-15, submissions 2027-01-18 to 2027-01-31",
       "url": "https://www.nih.gov/challenges/semantic-precision-ai-retrieval-knowledge-spark-dbgap-challenge",
+      "budget": "pool $500K combined across both challenges (NLM), top prize unverified (nih.gov 403, search snippet says $100K 1st place per task)",
+      "pages": "unverified (nih.gov 403)",
       "prize": true,
       "logo_domain": "nih.gov",
       "logo": "/funding/logos/nih.gov.png",
@@ -4608,7 +4575,7 @@
       "comp_score": 4,
       "comp_basis": "Estimated from the kind of call: federal research solicitations typically fund well under a quarter of what they receive.",
       "tldr": "An open competition judged on results, not on a proposal.",
-      "award": "",
+      "award": "Pool $500K combined across both challenges (NLM), top prize unverified (nih.gov 403, search snippet says $100K 1st place per task)",
       "award_note": ""
     },
     {
@@ -4673,6 +4640,8 @@
       "program": "Prize for Excellence in Disability Health Research 2026, and Advancing Inclusion of People with Disabilities in Clinical Research Challenge",
       "deadline": "2027-01-15",
       "url": "https://www.nih.gov/challenges/advancing-inclusion-people-disabilities-clinical-research-challenge",
+      "budget": "unverified (nih.gov 403, search snippets give pool $1M for the Inclusion Challenge and $300K for the Disability Prize, top prize unknown)",
+      "pages": "unverified (nih.gov 403)",
       "prize": true,
       "logo_domain": "nih.gov",
       "logo": "/funding/logos/nih.gov.png",
@@ -4684,7 +4653,7 @@
       "comp_score": 4,
       "comp_basis": "Estimated from the kind of call: federal research solicitations typically fund well under a quarter of what they receive.",
       "tldr": "An open competition judged on results, not on a proposal.",
-      "award": "",
+      "award": "Unverified (nih.gov 403, search snippets give pool $1M for the Inclusion Challenge and $300K for the Disability Prize, top prize unknown)",
       "award_note": ""
     },
     {
@@ -4975,6 +4944,8 @@
       "program": "Fellowship 2027 to 2028 (unverified)",
       "deadline": "LOI 2026-12-17",
       "url": "https://www.mozillafoundation.org/en/what-we-do/grantmaking/fellowship/2027-call-for-applications/",
+      "budget": "$100K Embedded or $125K Independent per fellow (incl $25K project budget), 12 months",
+      "pages": "unverified (official page 403, LOI length not found)",
       "logo_domain": "mozillafoundation.org",
       "logo": "/funding/logos/mozillafoundation.org.png",
       "logo_px": 1439,
@@ -4985,7 +4956,7 @@
       "comp_score": 3,
       "comp_basis": "Estimated from the kind of call, not a published rate.",
       "tldr": "Supports a named individual rather than a project.",
-      "award": "",
+      "award": "$100K Embedded or $125K Independent per fellow (incl $25K project budget), 12 months",
       "award_note": ""
     },
     {
@@ -5145,6 +5116,8 @@
       "program": "Kids First RFA-RM-27-010 and RFA-RM-27-008",
       "deadline": "2027-01-08",
       "url": "https://grants.nih.gov/grants/guide/rfa-files/RFA-RM-27-010.html",
+      "budget": "RM-27-010 up to $900K direct per year, 3 years, 1 award. RM-27-008 up to $3.5M direct per year, 3 years, 1 to 2 awards",
+      "pages": "RM-27-010 application limited to 12 pp. RM-27-008 12 pp Research Strategy (NIH U24 default)",
       "logo_domain": "grants.nih.gov",
       "logo": "/funding/logos/grants.nih.gov.png",
       "logo_px": 144,
@@ -5157,9 +5130,8 @@
       "comp_score": 4,
       "comp_basis": "From the funder's published success rate of 13%. NIH-wide R01-equivalent success rate, FY2025: 5,471 awards from 42,022 applications. Not this call's odds, and individual institutes differ.",
       "tldr": "An NIH request for applications, one topic and a fixed pot.",
-      "award": "Up to $900K",
-      "award_note": "grants.gov lists this per award for RFA-RM-27-010. $1.5M for the whole programme.",
-      "award_src": "grants.gov"
+      "award": "RM-27-010 up to $900K direct per year, 3 years, 1 award. RM-27-008 up to $3.5M direct per year, 3 years, 1 to 2 awards",
+      "award_note": ""
     },
     {
       "first_seen_date": "2026-11-02",
@@ -5230,8 +5202,6 @@
       "budget": "pool $7K, top prize $2K per track",
       "pages": "invited papers 2 pp",
       "prize": true,
-      "competition": "medium",
-      "source_tier": "No",
       "logo_domain": "audio-editing-challenge.github.io",
       "logo": "/funding/logos/audio-editing-challenge.github.io.png",
       "logo_px": 96,
@@ -5240,7 +5210,7 @@
         "contest, not a proposal"
       ],
       "comp_score": 3,
-      "comp_basis": "Graded \"medium\" in this week's brief, not a published rate.",
+      "comp_basis": "Estimated from the kind of call, not a published rate.",
       "tldr": "An open competition judged on results, not on a proposal.",
       "award": "Pool $7K, top prize $2K per track",
       "award_note": ""
@@ -5372,6 +5342,8 @@
       "program": "FY28 Core BAA W912HQ27S0001",
       "deadline": "2027-01-07",
       "url": "https://simpler.grants.gov/search?query=W912HQ27S0001",
+      "budget": "unverified (proposal instructions give no figure, SON funding pages not opened)",
+      "pages": "pre-proposal 5 pp (plus 1 pp CV each, optional 3 pp data)",
       "logo_domain": "defense.gov",
       "logo": "/funding/logos/defense.gov.png",
       "logo_px": 48,
@@ -5383,7 +5355,7 @@
       "comp_score": 3,
       "comp_basis": "Estimated from the kind of call: an open BAA takes white papers continuously rather than running one round.",
       "tldr": "A standing call across the office's whole portfolio, white paper first.",
-      "award": "",
+      "award": "Unverified (proposal instructions give no figure, SON funding pages not opened)",
       "award_note": ""
     },
     {
@@ -5413,6 +5385,7 @@
       "program": "Long Range BAA N00173-24-S-BA01 Amd 8",
       "deadline": "2026-12-30",
       "url": "https://sam.gov/",
+      "pages": "5 pp white paper, full proposal limit set with technical POC",
       "logo_domain": "",
       "logo": "",
       "logo_px": 0,
@@ -5471,6 +5444,8 @@
       "program": "Visiting Faculty Research Program FY27",
       "deadline": "2027-01-04",
       "url": "https://griffissinstitute.org/",
+      "budget": "unverified (stipend not on Griffiss page, AFRL topics PDF 403), 8 to 12 week summer tour",
+      "pages": "not stated (online application form)",
       "logo_domain": "griffissinstitute.org",
       "logo": "/funding/logos/griffissinstitute.org.png",
       "logo_px": 180,
@@ -5481,7 +5456,7 @@
       "comp_score": 4,
       "comp_basis": "Estimated from the kind of call: federal research solicitations typically fund well under a quarter of what they receive.",
       "tldr": "A federal research call.",
-      "award": "",
+      "award": "Unverified (stipend not on Griffiss page, AFRL topics PDF 403), 8 to 12 week summer tour",
       "award_note": ""
     },
     {
@@ -5566,6 +5541,8 @@
       "program": "Small Grants Programme",
       "deadline": "2026-12-14",
       "url": "https://www.lrfoundation.org.uk/",
+      "budget": "up to GBP 10K per award, up to 12 months",
+      "pages": "not stated (online form, registered organisations only)",
       "logo_domain": "lrfoundation.org.uk",
       "logo": "/funding/logos/lrfoundation.org.uk.png",
       "logo_px": 180,
@@ -5574,7 +5551,7 @@
       "comp_score": 3,
       "comp_basis": "Estimated from the kind of call, not a published rate.",
       "tldr": "A private foundation grant.",
-      "award": "",
+      "award": "Up to GBP 10K per award, up to 12 months",
       "award_note": ""
     },
     {
@@ -5684,6 +5661,8 @@
       "program": "Cycle 1 2027 Broad Pragmatic, Phased Large, Science of Engagement, Implementation",
       "deadline": "LOI 2027-01-06",
       "url": "https://www.pcori.org/funding-opportunities",
+      "budget": "Broad Pragmatic up to $5M direct (Cat 1) or up to $12M (Cat 2 and 3), 5 years. PLACER up to $2M feasibility (18 months) plus up to $20M full scale (5 years). Science of Engagement up to $1M (2 years) or $1.5M (3 years). Implementation unverified (page 403)",
+      "pages": "unverified (application guidelines bot-blocked)",
       "logo_domain": "pcori.org",
       "logo": "/funding/logos/pcori.org.ico",
       "logo_px": 48,
@@ -5692,7 +5671,7 @@
       "comp_score": 3,
       "comp_basis": "Estimated from the kind of call, not a published rate.",
       "tldr": "A nonprofit grant.",
-      "award": "",
+      "award": "Broad Pragmatic up to $5M direct (Cat 1) or up to $12M (Cat 2 and 3), 5 years. PLACER up to $2M feasibility (18 months) plus up to $20M full scale (5 years). Science of Engagement up to $1M (2 years) or $1.5M (3 years). Implementation unverified (page 403)",
       "award_note": ""
     },
     {
@@ -5701,6 +5680,8 @@
       "program": "Name That LLM (unverified)",
       "deadline": "2027-01-06",
       "url": "https://www.kaggle.com/competitions",
+      "budget": "unverified ($50K pool per Digg aggregator, final submission 2027-01-13 per secondary. Kaggle page exists but is JS only)",
+      "pages": "not applicable (competition)",
       "prize": true,
       "logo_domain": "kaggle.com",
       "logo": "/funding/logos/kaggle.com.png",
@@ -5710,7 +5691,7 @@
       "comp_score": 3,
       "comp_basis": "Estimated from the kind of call, not a published rate.",
       "tldr": "A company programme.",
-      "award": "",
+      "award": "Unverified ($50K pool per Digg aggregator, final submission 2027-01-13 per secondary. Kaggle page exists but is JS only)",
       "award_note": ""
     },
     {
@@ -5741,6 +5722,8 @@
       "program": "Major Research Instrumentation MRI NSF 27-500 (published 2026-11-06, no per-org limit)",
       "deadline": "window 2027-01-04 to 2027-01-29",
       "url": "https://www.nsf.gov/funding/opportunities/mri-major-research-instrumentation-program/nsf27-500/solicitation",
+      "budget": "$100K to $4M per award (lower minimum for mathematics and non-PhD institutions), up to 3 years acquisition or 5 years development, about 60 awards",
+      "pages": "15 pp project description (PAPPG default, solicitation sets no other limit)",
       "logo_domain": "nsf.gov",
       "logo": "/funding/logos/nsf.gov.png",
       "logo_px": 192,
@@ -5749,9 +5732,8 @@
       "comp_score": 4,
       "comp_basis": "Estimated from the kind of call: federal research solicitations typically fund well under a quarter of what they receive.",
       "tldr": "An NSF solicitation with its own topic and deadline.",
-      "award": "$100K to $4M",
-      "award_note": "grants.gov lists this per award for 27-500. $50M for the whole programme.",
-      "award_src": "grants.gov"
+      "award": "$100K to $4M per award (lower minimum for mathematics and non-PhD institutions), up to 3 years acquisition or 5 years development, about 60 awards",
+      "award_note": ""
     },
     {
       "first_seen_date": "2026-11-13",
@@ -5784,6 +5766,8 @@
       "program": "Advancing AI-Enabled Models for Care and Community Transformation RFP",
       "deadline": "concept 2027-01-06, full 2027-02-12",
       "url": "https://www.caresource.com/foundationgrant",
+      "budget": "up to $1M per award ($500K per year, 2 years)",
+      "pages": "concept form with character limits per section (850 to 4,000 characters), full proposal sections up to 8,000 characters. Eligibility 501(c)(3) nonprofits only",
       "logo_domain": "caresource.com",
       "logo": "/funding/logos/caresource.com.svg",
       "logo_px": 9999,
@@ -5794,7 +5778,7 @@
       "comp_score": 3,
       "comp_basis": "Estimated from the kind of call, not a published rate.",
       "tldr": "An open call, with the funder setting the topic.",
-      "award": "",
+      "award": "Up to $1M per award ($500K per year, 2 years)",
       "award_note": ""
     },
     {
@@ -5822,6 +5806,8 @@
       "program": "Great American Digital Corridors FHWA-GADC-27-001 (consortium only)",
       "deadline": "2026-12-28",
       "url": "https://simpler.grants.gov/opportunity/426101f8-6633-4db7-8219-614c9c83867c",
+      "budget": "$1M to $8M per award, 1 to 4 years, $20M total",
+      "pages": "18 pp application template (sections 2+2+2+6+3+3)",
       "logo_domain": "",
       "logo": "",
       "logo_px": 0,
@@ -5833,7 +5819,7 @@
       "comp_basis": "Estimated from the kind of call, not a published rate.",
       "tldr": "",
       "award": "",
-      "award_note": ""
+      "award_note": "$1M to $8M per award, 1 to 4 years, $20M across the whole programme. Not a per-project figure."
     },
     {
       "first_seen_date": "2026-11-13",
@@ -5841,6 +5827,8 @@
       "program": "RFI 892431-27-RFI-0001 cryogenic and quantum classical HPC testbeds",
       "deadline": "2026-12-17",
       "url": "https://sam.gov/opp/5d74304ff75846808d167850608650dc/view",
+      "budget": "n/a (RFI, no award)",
+      "pages": "10 pp response",
       "logo_domain": "energy.gov",
       "logo": "/funding/logos/energy.gov.ico",
       "logo_px": 48,
@@ -5852,7 +5840,7 @@
       "comp_score": 4,
       "comp_basis": "Estimated from the kind of call: federal research solicitations typically fund well under a quarter of what they receive.",
       "tldr": "A request for comment, not a funding call.",
-      "award": "",
+      "award": "N/a (RFI, no award)",
       "award_note": ""
     },
     {
@@ -5903,6 +5891,8 @@
       "program": "BEAMERS DARPA-PS-27-05 (classified, low)",
       "deadline": "2027-01-08",
       "url": "https://sam.gov/opp/505bd830ede8416fa34fbb02dc3278da/view",
+      "budget": "not stated in unclassified PS (multiple OT awards, two phases)",
+      "pages": "not stated in unclassified PS (format in classified addendum), optional capability statement 5 pp",
       "logo_domain": "darpa.mil",
       "logo": "",
       "logo_px": 16,
@@ -5913,7 +5903,7 @@
       "comp_score": 4,
       "comp_basis": "Estimated from the kind of call: federal research solicitations typically fund well under a quarter of what they receive.",
       "tldr": "A DARPA programme call, narrow in scope and run to its own schedule.",
-      "award": "",
+      "award": "Not stated in unclassified PS (multiple OT awards, two phases)",
       "award_note": ""
     },
     {
@@ -5922,6 +5912,8 @@
       "program": "EAR FY2027 Data Science BAA 693JJ3-27-BAA-0002 (issued 2026-11-04, Amd 1 11-09)",
       "deadline": "concept 2026-12-21 12:00 ET",
       "url": "https://sam.gov/opp/dbb8610684ae4d96ba6eaea1bf1f2358/view",
+      "budget": "$500K to $1M base, up to $2M to $5.5M with options, 60 months, 1 to 2 contracts",
+      "pages": "5 pp concept paper, 20 pp invited proposal Volume I",
       "logo_domain": "",
       "logo": "",
       "logo_px": 0,
@@ -5932,7 +5924,7 @@
       "comp_score": 3,
       "comp_basis": "Estimated from the kind of call: an open BAA takes white papers continuously rather than running one round.",
       "tldr": "A standing call across the office's whole portfolio, white paper first.",
-      "award": "",
+      "award": "$500K to $1M base, up to $2M to $5.5M with options, 60 months, 1 to 2 contracts",
       "award_note": ""
     },
     {
@@ -5941,6 +5933,8 @@
       "program": "Human Networks and Data Science HNDS NSF 23-568 (OLD, issued 2023)",
       "deadline": "2027-01-14",
       "url": "https://www.nsf.gov/funding/opportunities/hnds-human-networks-data-science/nsf23-568/solicitation",
+      "budget": "not stated per award (max budget text removed), $8M per year total, 5 to 25 awards",
+      "pages": "15 pp project description per PAPPG (solicitation sets no other limit, HNDS-I adds 1 pp sustainability plan)",
       "logo_domain": "nsf.gov",
       "logo": "/funding/logos/nsf.gov.png",
       "logo_px": 192,
@@ -5957,8 +5951,10 @@
       "first_seen_date": "2026-11-13",
       "sponsor": "FDA",
       "program": "FY27 BAA Regulatory Science FDABAA-27-00123 (issued 2026-10-30)",
-      "deadline": "2027-01-22",
+      "deadline": "2027-01-22 5 PM ET",
       "url": "https://sam.gov/opp/85dacc8ad6aa4cd59ae08f37a9f63355/view",
+      "budget": "not stated per award, multiple contracts, up to 5 years base plus options",
+      "pages": "concept paper 3 pp plus Volume I technical proposal 50 pp, both submitted together",
       "logo_domain": "",
       "logo": "",
       "logo_px": 0,
@@ -5969,7 +5965,7 @@
       "comp_score": 3,
       "comp_basis": "Estimated from the kind of call: an open BAA takes white papers continuously rather than running one round.",
       "tldr": "A standing call across the office's whole portfolio, white paper first.",
-      "award": "",
+      "award": "Not stated per award, multiple contracts, up to 5 years base plus options",
       "award_note": ""
     },
     {
@@ -5978,6 +5974,8 @@
       "program": "CICI NSF 25-531 (OLD, issued 2025)",
       "deadline": "2027-01-20",
       "url": "https://www.nsf.gov/funding/opportunities/cici-cybersecurity-innovation-cyberinfrastructure/nsf25-531/solicitation",
+      "budget": "up to $600K (UCSS, RSSD), $900K (IPAAI) or $1.2M (TCR) per award, all up to 3 years, $8M to $12M total for 12 to 20 awards",
+      "pages": "15 pp project description per PAPPG (solicitation sets no other limit)",
       "logo_domain": "nsf.gov",
       "logo": "/funding/logos/nsf.gov.png",
       "logo_px": 192,
@@ -6053,7 +6051,7 @@
       "program": "Whole Person Data Integration registration extended, Phase 1 2027-01-22",
       "deadline": "2026-12-07",
       "url": "https://www.nimhd.nih.gov/resources/schare/grand-challenges",
-      "budget": "1M",
+      "budget": "pool $1M, Phase 1 $10K x 10, Phase 2 $100K x 4, Phase 3 top prize $275K",
       "pages": "Phase 1 12 pp",
       "prize": true,
       "competition": "medium",
@@ -6066,7 +6064,7 @@
       "comp_score": 3,
       "comp_basis": "Graded \"medium\" in this week's brief, not a published rate.",
       "tldr": "A federal research call.",
-      "award": "1M",
+      "award": "Pool $1M, Phase 1 $10K x 10, Phase 2 $100K x 4, Phase 3 top prize $275K",
       "award_note": ""
     },
     {
@@ -6075,16 +6073,18 @@
       "program": "ISPD 2027 alpha 2027-01-11, registration 2026-12-05",
       "deadline": "2027-01-11",
       "url": "https://github.com/ABKGroup/ISPD27-Contest",
+      "budget": "pool $2,625 cash (USD 1,500 / 750 / 375 for top 3) plus NVIDIA GPUs, top prize $1,500",
+      "pages": "not stated (code submission, no paper required in README), final 2027-03-20 AoE",
       "prize": true,
       "logo_domain": "github.com",
       "logo": "/funding/logos/github.com.svg",
       "logo_px": 9999,
       "category": "Industry",
       "fit": [],
-      "comp_score": 3,
-      "comp_basis": "Estimated from the kind of call, not a published rate.",
+      "comp_score": 2,
+      "comp_basis": "Estimated from what is on offer: an allocation of compute or model access is reviewed as it arrives and turns down far fewer applicants than a cash award. No rate is published.",
       "tldr": "A company programme.",
-      "award": "",
+      "award": "Pool $2,625 cash (USD 1,500 / 750 / 375 for top 3) plus NVIDIA GPUs, top prize $1,500",
       "award_note": ""
     },
     {
@@ -6093,6 +6093,8 @@
       "program": "DCASE2027 task proposals intent 12-10",
       "deadline": "2026-12-15",
       "url": "https://dcase.community/articles/call-for-task-proposals-for-dcase2027",
+      "budget": "n/a (task organization, no funding)",
+      "pages": "2 pp task proposal",
       "prize": true,
       "competition": "low",
       "source_tier": "No",
@@ -6104,7 +6106,7 @@
       "comp_score": 1,
       "comp_basis": "Graded \"low\" in this week's brief, not a published rate.",
       "tldr": "",
-      "award": "",
+      "award": "N/a (task organization, no funding)",
       "award_note": ""
     },
     {
@@ -6114,9 +6116,6 @@
       "deadline": "2027-03-01",
       "url": "https://centralfloridatechgrove.org/marine-corps-wargaming-prize-challenge/",
       "prize": true,
-      "budget": "up to 1,999,999",
-      "competition": "medium",
-      "source_tier": "Yes",
       "logo_domain": "centralfloridatechgrove.org",
       "logo": "/funding/logos/centralfloridatechgrove.org.png",
       "logo_px": 300,
@@ -6125,9 +6124,9 @@
         "contest, not a proposal"
       ],
       "comp_score": 3,
-      "comp_basis": "Graded \"medium\" in this week's brief, not a published rate.",
+      "comp_basis": "Estimated from the kind of call, not a published rate.",
       "tldr": "An open competition judged on results, not on a proposal.",
-      "award": "Up to 1,999,999",
+      "award": "",
       "award_note": ""
     },
     {
@@ -6138,15 +6137,13 @@
       "url": "https://www.biswasfamilyfoundation.org/science/fast-grants",
       "budget": "$25K, $50K or $100K one time gift, 12 months, 15% indirect cap",
       "pages": "short form, no narrative (character limited fields)",
-      "competition": "medium",
-      "source_tier": "L2b",
       "logo_domain": "biswasfamilyfoundation.org",
       "logo": "/funding/logos/biswasfamilyfoundation.org.jpg",
       "logo_px": 256,
       "category": "Foundation",
       "fit": [],
       "comp_score": 3,
-      "comp_basis": "Graded \"medium\" in this week's brief, not a published rate.",
+      "comp_basis": "Estimated from the kind of call, not a published rate.",
       "tldr": "A private foundation grant.",
       "award": "$25K, $50K or $100K one time gift, 12 months, 15% indirect cap",
       "award_note": ""
@@ -6159,8 +6156,6 @@
       "url": "https://grants.nih.gov/grants/guide/notice-files/NOT-OD-27-008.html",
       "budget": "unverified",
       "pages": "12 pp candidate plus research strategy combined",
-      "competition": "medium",
-      "source_tier": "L1",
       "logo_domain": "grants.nih.gov",
       "logo": "/funding/logos/grants.nih.gov.png",
       "logo_px": 144,
@@ -6186,8 +6181,6 @@
       "url": "https://www.nsf.gov/funding/opportunities/frr-foundational-research-robotics/nsf27-501/solicitation",
       "budget": "not stated per award, $20M total for 20 to 30 awards, 3 to 5 years",
       "pages": "15 pp project description",
-      "competition": "medium",
-      "source_tier": "L0 L1 L2",
       "logo_domain": "nsf.gov",
       "logo": "/funding/logos/nsf.gov.png",
       "logo_px": 192,
@@ -6196,8 +6189,8 @@
         "core computing",
         "engineering"
       ],
-      "comp_score": 3,
-      "comp_basis": "Graded \"medium\" in this week's brief, not a published rate.",
+      "comp_score": 4,
+      "comp_basis": "Estimated from the kind of call: federal research solicitations typically fund well under a quarter of what they receive.",
       "tldr": "An NSF solicitation with its own topic and deadline.",
       "award": "~$667K to $1M",
       "award_note": "An average, not a stated award size: NSF expects 20 to 30 awards from $20M for the whole programme. The solicitation gives the size of one award only in prose.",
@@ -6229,10 +6222,7 @@
       "deadline": "2027-11-30 4 PM ET",
       "url": "https://sam.gov/opp/320304fc4f7b4b3f908c4edc1e9805ec/view",
       "budget": "unverified",
-      "pages": "Unverified",
-      "eligibility": "Unverified",
-      "competition": "medium",
-      "source_tier": "L2",
+      "pages": "unverified",
       "logo_domain": "",
       "logo": "",
       "logo_px": 0,
@@ -6242,7 +6232,7 @@
         "large multi-PI team"
       ],
       "comp_score": 3,
-      "comp_basis": "Graded \"medium\" in this week's brief, not a published rate.",
+      "comp_basis": "Estimated from the kind of call: an open BAA takes white papers continuously rather than running one round.",
       "tldr": "A standing call across the office's whole portfolio, white paper first.",
       "award": "Unverified",
       "award_note": ""
@@ -6254,9 +6244,7 @@
       "deadline": "2027-01-11 14:00 UTC",
       "url": "https://sam.gov/api/prod/sgs/v1/search/?index=opp&q=693JJ3-27-BAA-0001",
       "budget": "unverified",
-      "pages": "Unverified",
-      "competition": "medium",
-      "source_tier": "L2",
+      "pages": "unverified",
       "logo_domain": "",
       "logo": "",
       "logo_px": 0,
@@ -6265,7 +6253,7 @@
         "white paper first"
       ],
       "comp_score": 3,
-      "comp_basis": "Graded \"medium\" in this week's brief, not a published rate.",
+      "comp_basis": "Estimated from the kind of call: an open BAA takes white papers continuously rather than running one round.",
       "tldr": "A standing call across the office's whole portfolio, white paper first.",
       "award": "Unverified",
       "award_note": ""
@@ -6278,15 +6266,13 @@
       "url": "https://simpler.grants.gov/opportunity/2f13c73b-409d-4b7d-91cd-352a08cb0e81",
       "budget": "up to $1.625M (26-10) and $1.3M (26-09) per award, 3 years",
       "pages": "15 pp research plan",
-      "competition": "medium",
-      "source_tier": "L0 L1",
       "logo_domain": "",
       "logo": "",
       "logo_px": 0,
       "category": "Federal",
       "fit": [],
-      "comp_score": 3,
-      "comp_basis": "Graded \"medium\" in this week's brief, not a published rate.",
+      "comp_score": 4,
+      "comp_basis": "Estimated from the kind of call: federal research solicitations typically fund well under a quarter of what they receive.",
       "tldr": "A federal research call.",
       "award": "Up to $1.625M (26-10) and $1.3M (26-09) per award, 3 years",
       "award_note": ""
@@ -6299,8 +6285,6 @@
       "url": "https://sam.gov/opp/fe1ca1ee1ccb4170b7b8c7b2dfa871d0/view",
       "budget": "n/a (PA expected Dec 2026)",
       "pages": "1 slide",
-      "competition": "medium",
-      "source_tier": "L1 L2 L3",
       "logo_domain": "darpa.mil",
       "logo": "",
       "logo_px": 16,
@@ -6308,8 +6292,8 @@
       "fit": [
         "defense, high risk"
       ],
-      "comp_score": 3,
-      "comp_basis": "Graded \"medium\" in this week's brief, not a published rate.",
+      "comp_score": 4,
+      "comp_basis": "Estimated from the kind of call: federal research solicitations typically fund well under a quarter of what they receive.",
       "tldr": "A DARPA programme call, narrow in scope and run to its own schedule.",
       "award": "N/a (PA expected Dec 2026)",
       "award_note": ""
@@ -6605,6 +6589,296 @@
       "comp_basis": "Estimated from the kind of call: federal research solicitations typically fund well under a quarter of what they receive.",
       "tldr": "An open competition judged on results, not on a proposal.",
       "award": "Pool $4M, up to 40 x $100K",
+      "award_note": ""
+    },
+    {
+      "first_seen_date": "2026-11-27",
+      "sponsor": "OpenAI",
+      "program": "ChatGPT for Academic Researchers expansion round (announced 2026-11-16, opened 2026-11-23)",
+      "deadline": "not stated, first come first served until 50,000 filled",
+      "url": "https://openai.com/index/expanding-chatgpt-for-academic-researchers/",
+      "budget": "free ChatGPT Plus for PI plus up to 2 collaborators, no cash",
+      "pages": "no narrative, affiliation verification form",
+      "source_tier": "L1",
+      "logo_domain": "openai.com",
+      "logo": "/funding/logos/openai.com.svg",
+      "logo_px": 10000,
+      "category": "Industry",
+      "fit": [],
+      "comp_score": 3,
+      "comp_basis": "Estimated from the kind of call, not a published rate.",
+      "tldr": "A company programme.",
+      "award": "Free ChatGPT Plus for PI plus up to 2 collaborators, no cash",
+      "award_note": ""
+    },
+    {
+      "first_seen_date": "2026-11-27",
+      "sponsor": "NIH ODSS",
+      "program": "NOT-OD-27-012 ODSS joins Parent R13 conferences PA-25-080 (released 2026-11-23)",
+      "deadline": "R13 dates 2026-12-12, 2027-04-12, 2027-08-12 5 PM local",
+      "url": "https://grants.nih.gov/grants/guide/notice-files/NOT-OD-27-012.html",
+      "budget": "budgets not limited, up to 5 years for recurring series",
+      "pages": "not stated in NOFO, NIH page limit table (Conference Plan)",
+      "competition": "low",
+      "source_tier": "L0 L1",
+      "logo_domain": "grants.nih.gov",
+      "logo": "/funding/logos/grants.nih.gov.png",
+      "logo_px": 144,
+      "category": "Federal",
+      "rate": "13%",
+      "rate_basis": "NIH-wide R01-equivalent success rate, FY2025: 5,471 awards from 42,022 applications. Not this call's odds, and individual institutes differ.",
+      "rate_source": "https://report.nih.gov/nihdatabook/category/10",
+      "rate_source_name": "NIH Data Book",
+      "fit": [],
+      "comp_score": 4,
+      "comp_basis": "From the funder's published success rate of 13%. NIH-wide R01-equivalent success rate, FY2025: 5,471 awards from 42,022 applications. Not this call's odds, and individual institutes differ.",
+      "tldr": "Supports a meeting rather than research.",
+      "award": "Budgets not limited, up to 5 years for recurring series",
+      "award_note": ""
+    },
+    {
+      "first_seen_date": "2026-11-27",
+      "sponsor": "ARIA",
+      "program": "Programmable Physiology Rolling Opportunity Seeds (call dated 2026-11-24, non-UK only in exceptional cases)",
+      "deadline": "cut-offs 2027-02-15, 2027-05-17, 2027-08-09, 2027-11-09",
+      "url": "https://www.aria.org.uk/",
+      "budget": "GBP 10K to 500K per project, up to 36 months",
+      "pages": "about 1,150 words over 5 questions",
+      "logo_domain": "aria.org.uk",
+      "logo": "/funding/logos/aria.org.uk.png",
+      "logo_px": 180,
+      "category": "Public (non-US)",
+      "fit": [],
+      "comp_score": 3,
+      "comp_basis": "Estimated from the kind of call: an open BAA takes white papers continuously rather than running one round.",
+      "tldr": "A call from a public funder outside the US.",
+      "award": "GBP 10K to 500K per project, up to 36 months",
+      "award_note": ""
+    },
+    {
+      "first_seen_date": "2026-11-27",
+      "sponsor": "DOC EDA",
+      "program": "FY2027 Build to Scale EDA-B2S-2027 (posted 2026-11-20, IHE needs state or local support, low)",
+      "deadline": "2027-02-26 4:59 PM ET",
+      "url": "https://simpler.grants.gov/search?query=EDA-B2S-2027",
+      "budget": "up to $1M (36 months) or $7M (48 months), 1:1 match",
+      "pages": "8 pp project narrative",
+      "competition": "high",
+      "source_tier": "L0 L1",
+      "logo_domain": "",
+      "logo": "",
+      "logo_px": 0,
+      "category": "",
+      "fit": [],
+      "comp_score": 4,
+      "comp_basis": "Graded \"high\" in this week's brief, not a published rate.",
+      "tldr": "",
+      "award": "Up to $1M (36 months) or $7M (48 months), 1:1 match",
+      "award_note": ""
+    },
+    {
+      "first_seen_date": "2026-11-27",
+      "sponsor": "DARPA",
+      "program": "Research Solutions Opening DARPA-PA-26-08 (OLD, issued 2026-06-02, Amd 01 2026-11-24 US citizens only, IPA PM rotation)",
+      "deadline": "abstracts rolling to 2027-06-01 11:59 PM ET",
+      "url": "https://sam.gov/opp/138bc7e3ca8943819357a27b61d15afc/view",
+      "pages": "4 pp abstract or 15 min oral",
+      "logo_domain": "darpa.mil",
+      "logo": "",
+      "logo_px": 16,
+      "category": "Federal",
+      "fit": [
+        "defense, high risk"
+      ],
+      "comp_score": 4,
+      "comp_basis": "Estimated from the kind of call: federal research solicitations typically fund well under a quarter of what they receive.",
+      "tldr": "A standing NIH announcement, open to the usual activity codes.",
+      "award": "",
+      "award_note": ""
+    },
+    {
+      "first_seen_date": "2026-11-27",
+      "sponsor": "CRA CCC",
+      "program": "Creating Visions for Computing Research open call (OLD, standing)",
+      "deadline": "no deadline",
+      "url": "https://cra.org/ccc/visioning/creating-visions-for-computing-research/",
+      "budget": "administrative and financial support for workshops, amount not stated",
+      "pages": "1 pp optional LOI",
+      "logo_domain": "cra.org",
+      "logo": "",
+      "logo_px": 24,
+      "category": "Nonprofit",
+      "fit": [
+        "open call"
+      ],
+      "comp_score": 3,
+      "comp_basis": "Estimated from the kind of call, not a published rate.",
+      "tldr": "An open call, with the funder setting the topic.",
+      "award": "Administrative and financial support for workshops, amount not stated",
+      "award_note": ""
+    },
+    {
+      "first_seen_date": "2026-11-27",
+      "sponsor": "Amazon Web Services",
+      "program": "AWS Cloud Credit for Research (OLD, standing, Fundlark lead)",
+      "deadline": "rolling per official page",
+      "url": "https://aws.amazon.com/government-education/research-and-technical-computing/cloud-credit-for-research/",
+      "budget": "credits, faculty awards not capped",
+      "logo_domain": "aws.amazon.com",
+      "logo": "/funding/logos/aws.amazon.com.png",
+      "logo_px": 144,
+      "category": "Industry",
+      "fit": [
+        "compute, not cash"
+      ],
+      "comp_score": 2,
+      "comp_basis": "Estimated from what is on offer: an allocation of compute or model access is reviewed as it arrives and turns down far fewer applicants than a cash award. No rate is published.",
+      "tldr": "An allocation of compute or model access rather than money.",
+      "award": "Credits, faculty awards not capped",
+      "award_note": ""
+    },
+    {
+      "first_seen_date": "2026-11-27",
+      "sponsor": "Mathers Foundation",
+      "program": "Spring 2027 cycle (OLD, standing, limited 3 per institution)",
+      "deadline": "nominations 2027-01-28, LOI 2027-02-11",
+      "url": "https://www.mathersfoundation.org/how-to-apply",
+      "budget": "$600K to $700K over 3 years, indirect cap 10%",
+      "pages": "LOI web form, CV 5 pp",
+      "logo_domain": "mathersfoundation.org",
+      "logo": "/funding/logos/mathersfoundation.org.png",
+      "logo_px": 180,
+      "category": "Foundation",
+      "fit": [],
+      "comp_score": 3,
+      "comp_basis": "Estimated from the kind of call, not a published rate.",
+      "tldr": "A private foundation grant.",
+      "award": "$600K to $700K over 3 years, indirect cap 10%",
+      "award_note": ""
+    },
+    {
+      "first_seen_date": "2026-11-27",
+      "sponsor": "NIH NCCIH",
+      "program": "PAR-28-091 multi-site feasibility of mind and body interventions R33 (OLD, posted 2026-10-15)",
+      "deadline": "due dates unverified, expires 2029-11-16",
+      "url": "https://www.grants.gov/search-results-detail/361833",
+      "budget": "ceiling $500K",
+      "pages": "unverified",
+      "logo_domain": "nih.gov",
+      "logo": "/funding/logos/nih.gov.png",
+      "logo_px": 144,
+      "category": "Federal",
+      "fit": [
+        "complementary health"
+      ],
+      "comp_score": 4,
+      "comp_basis": "Estimated from the kind of call: federal research solicitations typically fund well under a quarter of what they receive.",
+      "tldr": "A standing NIH announcement, open to the usual activity codes.",
+      "award": "Ceiling $500K",
+      "award_note": ""
+    },
+    {
+      "first_seen_date": "2026-11-27",
+      "sponsor": "WS Audiology ORCA Labs",
+      "program": "Sound Preference Grant (OLD, about 2026-07, unverified, no official page found)",
+      "deadline": "unverified",
+      "url": "https://news.hearingtracker.com/news/8cfeb3b6-41c7-45f5-b532-b6d50480cd91",
+      "budget": "up to EUR 100K",
+      "pages": "unverified",
+      "logo_domain": "news.hearingtracker.com",
+      "logo": "/funding/logos/news.hearingtracker.com.svg",
+      "logo_px": 10000,
+      "category": "Industry",
+      "fit": [],
+      "comp_score": 4,
+      "comp_basis": "Estimated from what is on offer: a named company award is one global round for a fixed and small number of places.",
+      "tldr": "A company programme.",
+      "award": "Up to EUR 100K",
+      "award_note": ""
+    },
+    {
+      "first_seen_date": "2026-11-27",
+      "sponsor": "Cooperative AI Foundation",
+      "program": "2027 Cooperative AI PhD Fellowship (students)",
+      "deadline": "2026-12-20 23:59 AoE",
+      "url": "https://www.cooperativeai.com/phd-fellowship/2027",
+      "budget": "no stipend, $7K per year compute and conference plus $600, 1 year renewable",
+      "pages": "light application, not stated",
+      "logo_domain": "cooperativeai.com",
+      "logo": "/funding/logos/cooperativeai.com.png",
+      "logo_px": 256,
+      "category": "Foundation",
+      "fit": [
+        "for an individual, not a lab"
+      ],
+      "comp_score": 2,
+      "comp_basis": "Estimated from what is on offer: an allocation of compute or model access is reviewed as it arrives and turns down far fewer applicants than a cash award. No rate is published.",
+      "tldr": "A cooperative agreement, with programme staff involved in the work.",
+      "award": "No stipend, $7K per year compute and conference plus $600, 1 year renewable",
+      "award_note": ""
+    },
+    {
+      "first_seen_date": "2026-11-27",
+      "sponsor": "NGA",
+      "program": "BIG-ST Topic 7 SAM response date",
+      "deadline": "2026-12-21 11:59 PM ET",
+      "url": "https://sam.gov/opp/67769acbe71f480e83992cac93de6853/view",
+      "logo_domain": "",
+      "logo": "",
+      "logo_px": 0,
+      "category": "",
+      "fit": [],
+      "comp_score": 3,
+      "comp_basis": "Estimated from the kind of call, not a published rate.",
+      "tldr": "",
+      "award": "",
+      "award_note": ""
+    },
+    {
+      "first_seen_date": "2026-11-27",
+      "sponsor": "various",
+      "program": "Humboldt capped (next call 2027-03-15), AFRL SFFP FY2027 not held, Corrigibility next TBD, Nebius year-round monthly review, Mozilla Incubator closed 2026-11-20, UCSF MDRN closed 2026-11-20, ONR LRBAA 2026-12-31 confirmed, MURI full 2027-04-09",
+      "deadline": "various",
+      "url": "https://www.griffissinstitute.org/information-institute/",
+      "budget": "various",
+      "pages": "various",
+      "logo_domain": "griffissinstitute.org",
+      "logo": "/funding/logos/griffissinstitute.org.png",
+      "logo_px": 180,
+      "category": "Nonprofit",
+      "fit": [
+        "multi-university team",
+        "defense basic research",
+        "AI safety and alignment"
+      ],
+      "comp_score": 3,
+      "comp_basis": "Estimated from the kind of call, not a published rate.",
+      "tldr": "A multi-university team on one topic, usually five years.",
+      "award": "Various",
+      "award_note": ""
+    },
+    {
+      "first_seen_date": "2026-11-27",
+      "sponsor": "Alignment Research Center",
+      "program": "White-Box Estimation Challenge 2026 on AIcrowd (OLD, closed 2026-10-17)",
+      "deadline": "closed",
+      "url": "https://www.aicrowd.com/challenges/arc-white-box-estimation-challenge-2026",
+      "budget": "pool $150K+",
+      "pages": "write-up",
+      "prize": true,
+      "logo_domain": "aicrowd.com",
+      "logo": "/funding/logos/aicrowd.com.png",
+      "logo_px": 144,
+      "category": "Industry",
+      "fit": [
+        "large multi-PI team",
+        "contest, not a proposal",
+        "AI safety and alignment"
+      ],
+      "comp_score": 3,
+      "comp_basis": "Estimated from the kind of call, not a published rate.",
+      "tldr": "An open competition judged on results, not on a proposal.",
+      "award": "Pool $150K+",
       "award_note": ""
     }
   ],
@@ -9065,6 +9339,33 @@
       "typical_cycle": "Annual, November deadline",
       "access": "open",
       "why_niche_or_notes": "Child and adolescent mental health research grants ($100K per year, 2 years). Music intervention angle only"
+    },
+    {
+      "funder": "CCC Creating Visions for Computing Research call",
+      "category": "aggregator_early_signal",
+      "opportunities_url": "https://cra.org/ccc/visioning/creating-visions-for-computing-research/",
+      "url_verified": "Y",
+      "typical_cycle": "Standing open call",
+      "access": "open",
+      "why_niche_or_notes": "Workshop and visioning support, 1 pp LOI, shapes NSF agendas"
+    },
+    {
+      "funder": "G. Harold and Leila Y. Mathers Foundation",
+      "category": "foundation_general",
+      "opportunities_url": "https://www.mathersfoundation.org/how-to-apply",
+      "url_verified": "Y",
+      "typical_cycle": "Two cycles a year, spring LOI Feb",
+      "access": "limited",
+      "why_niche_or_notes": "$600K to $700K over 3 years basic biomedical, 3 per institution"
+    },
+    {
+      "funder": "AWS Cloud Credit for Research",
+      "category": "compute",
+      "opportunities_url": "https://aws.amazon.com/government-education/research-and-technical-computing/cloud-credit-for-research/",
+      "url_verified": "Y",
+      "typical_cycle": "Rolling",
+      "access": "open",
+      "why_niche_or_notes": "Cloud credits for faculty, not capped, review 90 to 120 days"
     }
   ]
 }

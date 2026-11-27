@@ -9,7 +9,7 @@ first_seen_date,sponsor,program,deadline,url
 2026-10-09,DOE SC,FY2027 Open Call DE-FOA-0003665,rolling to 2027-09-30,https://science.osti.gov/grants/FOAs/FOAs/2027/DE-FOA-0003665
 2026-10-09,DOE SC,Genesis Mission Graduate Fellowship DE-FOA-0003673,LOI 2026-11-09,https://science.osti.gov/grants/FOAs/FOAs/2027/DE-FOA-0003673
 2026-10-09,DARPA IPTO,Office-Wide BAA HR001126S0011,rolling to 2027-06-22,https://simpler.grants.gov/opportunity/4ec76651-17d7-47fd-ac5e-377e8673b3a4
-2026-10-09,DARPA IPTO,Intrinsic Market Resilience DARPA-PS-26-138,abstract 2026-10-22,https://www.darpa.mil/research/programs/intrinsic-market-resilience-imr
+2026-10-09,DARPA IPTO,Intrinsic Market Resilience DARPA-PS-26-138,2026-12-07 2 PM ET,https://www.darpa.mil/research/programs/intrinsic-market-resilience-imr
 2026-10-09,DARPA DSO,Office-Wide BAA HR001126S0015,rolling to 2027-08-27,https://simpler.grants.gov/opportunity/1903b420-64ef-4f26-a4c1-c857d4de4f00
 2026-10-09,DoD,FY2027 MURI N0001426SF002,white paper 2026-11-20,https://www.onr.navy.mil/work-with-us/funding-opportunities/fiscal-year-fy-2027-department-war-multidisciplinary-research
 2026-10-09,ONR,FY27 Communications and Networking N0001426SBC11,2026-11-16,https://www.onr.navy.mil/work-with-us/funding-opportunities/special-program-announcement-onr-research-opportunity-fy27
@@ -188,7 +188,7 @@ first_seen_date,sponsor,program,deadline,url
 2026-10-23,DARPA DSO,Liquid Surge DARPA-PA-25-07-05,"abstract 2026-11-03, full 2026-12-14",https://www.darpa.mil/research/programs/liquid-surge
 2026-10-23,ARPA-E,UNLOCK DE-FOA-0003630 and DE-FOA-0003631,2026-11-20,https://simpler.grants.gov/opportunity/04fa4318-73a3-44fa-a4a3-0523e9700fae
 2026-10-23,NEH,Public Humanities Projects,2026-12-16,https://simpler.grants.gov/opportunity/502a1727-5555-4ce5-b929-2f3d78a884a9
-2026-10-23,ARPA-H,TIGAR ARPA-H-SOL-26-144,2026-12-08,https://arpa-h.gov/explore-funding/initiatives-and-sprints/tigar
+2026-10-23,ARPA-H,TIGAR ARPA-H-SOL-26-144,CLOSED,https://arpa-h.gov/explore-funding/initiatives-and-sprints/tigar
 2026-10-23,Water Research Foundation,RFP 5407 and RFP 5408,2026-11-03,https://portal.waterrf.org/outbound-grants
 2026-10-23,ARIA,Robot Locomotion concept papers,2026-12-04,https://www.aria.org.uk/
 2026-10-23,NYS DOL,GCEW-EV (unverified),2026-12-03,https://assembly.ny.gov/write/upload/postings/2026/pdfs/20260831_0119535.pdf
@@ -216,7 +216,7 @@ first_seen_date,sponsor,program,deadline,url
 2026-10-26,SIGNALS,"ARPA-H Alzheimer awards 10-22, NIST CHIPS 389M LOIs, SERDP FY28 Core and SEED expected, NSTGRO27 mid Dec, NYS DOH SCIRB likely Nov, NIH CR NOT-OD-26-131, ACL ADPI forecasts 0008 to 0010",none,https://arpa-h.gov/news-and-events/alzheimers-projects
 2026-10-27,NIH ODSS,It's About Time: Temporal Reasoning in Biomedical Knowledge Graphs Challenge,2027-01-15,https://www.nih.gov/challenges/its-about-time-temporal-reasoning-biomedical-knowledge-graphs-challenge
 2026-10-27,Cadenza,"CLIP2 Lyric Intelligibility Prediction, ICASSP 2027 GC-10",2026-10-30,https://cadenzachallenge.org/docs/clip2/intro
-2026-10-27,IBM and partners,Steerability Challenge NeurIPS 2026,2026-11-29 AoE,https://steerability.github.io/competition/
+2026-10-27,IBM and partners,Steerability Challenge NeurIPS 2026,2026-12-03 AoE,https://steerability.github.io/competition/
 2026-10-27,SemEval 2027,"Task 7 CLaS Cross Lingual Alignment and Steering, and Task 3 Semantic Change",registration 2026-12-31,https://clas-semeval2027.github.io/clas.semeval2027/task/
 2026-10-27,UCSD ABKGroup and NVIDIA,ISPD 2027 Contest MCMM Post CTS Buffering and Sizing,"registration 2026-12-05, final 2027-03-20",https://github.com/ABKGroup/ISPD27-Contest
 2026-10-27,NIH NLM,SPARK dbGaP Challenge and SPARK PubMed/PMC Challenge,"code 2027-01-15, submissions 2027-01-18 to 2027-01-31",https://www.nih.gov/challenges/semantic-precision-ai-retrieval-knowledge-spark-dbgap-challenge
@@ -289,7 +289,7 @@ first_seen_date,sponsor,program,deadline,url
 2026-11-13,DARPA MTO,"BEAMERS DARPA-PS-27-05 (classified, low)",2027-01-08,https://sam.gov/opp/505bd830ede8416fa34fbb02dc3278da/view
 2026-11-13,DOT FHWA,"EAR FY2027 Data Science BAA 693JJ3-27-BAA-0002 (issued 2026-11-04, Amd 1 11-09)",concept 2026-12-21 12:00 ET,https://sam.gov/opp/dbb8610684ae4d96ba6eaea1bf1f2358/view
 2026-11-13,NSF SBE,"Human Networks and Data Science HNDS NSF 23-568 (OLD, issued 2023)",2027-01-14,https://www.nsf.gov/funding/opportunities/hnds-human-networks-data-science/nsf23-568/solicitation
-2026-11-13,FDA,FY27 BAA Regulatory Science FDABAA-27-00123 (issued 2026-10-30),2027-01-22,https://sam.gov/opp/85dacc8ad6aa4cd59ae08f37a9f63355/view
+2026-11-13,FDA,FY27 BAA Regulatory Science FDABAA-27-00123 (issued 2026-10-30),2027-01-22 5 PM ET,https://sam.gov/opp/85dacc8ad6aa4cd59ae08f37a9f63355/view
 2026-11-13,NSF OAC,"CICI NSF 25-531 (OLD, issued 2025)",2027-01-20,https://www.nsf.gov/funding/opportunities/cici-cybersecurity-innovation-cyberinfrastructure/nsf25-531/solicitation
 2026-11-13,Mozilla Foundation,"Human-Scale AI Incubator (unverified, issued 2026-10-22)",2026-11-20,https://mozillafoundation.tfaforms.net/w/humanscaleai
 2026-11-13,NYS and SUNY,"NYCAIRR NY Center for AI Responsibility and Research (signal, no call)",none,https://www.governor.ny.gov/news/governor-hochul-declares-ny-will-lead-nation-ai-science-and-safety-launches-new-research
@@ -320,3 +320,17 @@ first_seen_date,sponsor,program,deadline,url
 2026-11-20,"NIH U24 Music Networks (Music4Pain, AudioAnalgesiA, ENSEMBLE)",Pain pilot RFA (closed 2026-09-01),closed,https://ssihi.uci.edu/research/ensemble-network/pilot-research-program
 2026-11-20,DARPA,D2 Documentation and Decision Support Sprint (launched 2026-09-11),"Part 2 qualification 2026-12-01, final 2027-03-01 5 PM ET",https://www.darpa.mil/research/challenges/d2
 2026-11-20,NIH,"ReGen Drugs Evidence Package Challenge (opened 2026-11-02, unverified)",registration 2027-01-15 5 PM ET,https://www.nih.gov/challenges
+2026-11-27,OpenAI,"ChatGPT for Academic Researchers expansion round (announced 2026-11-16, opened 2026-11-23)","not stated, first come first served until 50,000 filled",https://openai.com/index/expanding-chatgpt-for-academic-researchers/
+2026-11-27,NIH ODSS,NOT-OD-27-012 ODSS joins Parent R13 conferences PA-25-080 (released 2026-11-23),"R13 dates 2026-12-12, 2027-04-12, 2027-08-12 5 PM local",https://grants.nih.gov/grants/guide/notice-files/NOT-OD-27-012.html
+2026-11-27,ARIA,"Programmable Physiology Rolling Opportunity Seeds (call dated 2026-11-24, non-UK only in exceptional cases)","cut-offs 2027-02-15, 2027-05-17, 2027-08-09, 2027-11-09",https://www.aria.org.uk/
+2026-11-27,DOC EDA,"FY2027 Build to Scale EDA-B2S-2027 (posted 2026-11-20, IHE needs state or local support, low)",2027-02-26 4:59 PM ET,https://simpler.grants.gov/search?query=EDA-B2S-2027
+2026-11-27,DARPA,"Research Solutions Opening DARPA-PA-26-08 (OLD, issued 2026-06-02, Amd 01 2026-11-24 US citizens only, IPA PM rotation)",abstracts rolling to 2027-06-01 11:59 PM ET,https://sam.gov/opp/138bc7e3ca8943819357a27b61d15afc/view
+2026-11-27,CRA CCC,"Creating Visions for Computing Research open call (OLD, standing)",no deadline,https://cra.org/ccc/visioning/creating-visions-for-computing-research/
+2026-11-27,Amazon Web Services,"AWS Cloud Credit for Research (OLD, standing, Fundlark lead)",rolling per official page,https://aws.amazon.com/government-education/research-and-technical-computing/cloud-credit-for-research/
+2026-11-27,Mathers Foundation,"Spring 2027 cycle (OLD, standing, limited 3 per institution)","nominations 2027-01-28, LOI 2027-02-11",https://www.mathersfoundation.org/how-to-apply
+2026-11-27,NIH NCCIH,"PAR-28-091 multi-site feasibility of mind and body interventions R33 (OLD, posted 2026-10-15)","due dates unverified, expires 2029-11-16",https://www.grants.gov/search-results-detail/361833
+2026-11-27,WS Audiology ORCA Labs,"Sound Preference Grant (OLD, about 2026-07, unverified, no official page found)",unverified,https://news.hearingtracker.com/news/8cfeb3b6-41c7-45f5-b532-b6d50480cd91
+2026-11-27,Cooperative AI Foundation,2027 Cooperative AI PhD Fellowship (students),2026-12-20 23:59 AoE,https://www.cooperativeai.com/phd-fellowship/2027
+2026-11-27,NGA,BIG-ST Topic 7 SAM response date,2026-12-21 11:59 PM ET,https://sam.gov/opp/67769acbe71f480e83992cac93de6853/view
+2026-11-27,various,"Humboldt capped (next call 2027-03-15), AFRL SFFP FY2027 not held, Corrigibility next TBD, Nebius year-round monthly review, Mozilla Incubator closed 2026-11-20, UCSF MDRN closed 2026-11-20, ONR LRBAA 2026-12-31 confirmed, MURI full 2027-04-09",various,https://www.griffissinstitute.org/information-institute/
+2026-11-27,Alignment Research Center,"White-Box Estimation Challenge 2026 on AIcrowd (OLD, closed 2026-10-17)",closed,https://www.aicrowd.com/challenges/arc-white-box-estimation-challenge-2026
